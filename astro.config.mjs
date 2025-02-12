@@ -1,9 +1,10 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://github.com/freed201/Musique-facile.git',
-  base: '/',
+  site: 'https://freed201.github.io', // Remplacez par votre nom d'utilisateur
+  base: '/Musique-facile', // Nom de votre dépôt GitHub
 });
+
 
 import { defineConfig } from 'astro/config';
 
