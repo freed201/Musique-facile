@@ -1,0 +1,276 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+// Récupérer uniquement les cours de piano
+const allCourses = await getCollection('courses');
+const pianoCourses = allCourses
+  .filter(course => course.data.theme === 'piano' && course.data.affichage === 'Y')
+  .sort((a, b) => a.data.classement - b.data.classement);
+
+// Schema.org pour la liste des cours
+const coursesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": pianoCourses.map((course, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Course",
+      "name": course.data.title,
+      "description": course.data.description,
+      "provider": {
+        "@type": "Organization",
+        "name": "Musique Facile",
+        "sameAs": "https://musique-facile.fr"
+      }
+    }
+  }))
+};
+---
+
+<Layout title="Cours de Piano - Musique Facile">
+  <Header />
+  
+  <script type="application/ld+json" set:html={JSON.stringify(coursesSchema)} />
+
+  <main>
+    <section class="courses-hero theme-piano">
+      <div class="hero-background" style="background-image: url('/images/cours/hero-piano.jpg')"></div>
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <h1>Cours de Piano</h1>
+        <p class="subtitle">Découvrez nos formations pour apprendre le piano à votre rythme</p>
+      </div>
+    </section>
+
+    <section class="courses-grid">
+      <div class="container">
+        <div class="courses-wrapper">
+          {pianoCourses.map(course => (
+            <article class="course-card">
+              <a href={`/cours/${course.slug}`} class="course-link">
+                <div class="course-image" style={`background-image: url(${course.data.ogImage})`}>
+                  <div class="course-meta">
+                    {course.data.bestSeller && (
+                      <span class="best-seller-tag">
+                        <span class="best-seller-icon">🏆</span>
+                        Meilleure vente
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div class="course-content">
+                  <h2>{course.data.title}</h2>
+                  <p>{course.data.description}</p>
+                  <span class="cta-button">
+                    Découvrir le cours
+                    <span class="arrow">→</span>
+                  </span>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div class="all-courses-cta">
+          <a href="/cours" class="btn-all-courses">
+            Découvrez tous nos cours
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .courses-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(135deg, var(--theme-piano) 0%, var(--theme-piano-dark) 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
+    z-index: 1;
+  }
+
+  .courses-hero .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .courses-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .courses-grid {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .courses-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .course-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .course-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .course-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .course-meta {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .best-seller-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .course-content {
+    padding: 2rem;
+  }
+
+  .course-content h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--theme-piano);
+    line-height: 1.4;
+  }
+
+  .course-content p {
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--theme-piano);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .course-card:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  .all-courses-cta {
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .btn-all-courses {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--theme-piano);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-all-courses:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-all-courses:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 1200px) {
+    .courses-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .courses-hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .courses-wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

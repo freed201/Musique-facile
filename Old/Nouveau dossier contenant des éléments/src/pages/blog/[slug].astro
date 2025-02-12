@@ -1,0 +1,299 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const {
+  title,
+  description,
+  ogImage,
+  author,
+  datePublished,
+  dateModified,
+  introduction,
+  songInfo,
+  videos,
+  podcast,
+  conclusion,
+  relatedLinks
+} = entry.data;
+
+const { Content } = await entry.render();
+
+// Construction de l'URL complète pour schema.org
+const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  author={author}
+  datePublished={datePublished}
+  dateModified={dateModified}
+  url={canonicalURL.toString()}
+>
+  <article>
+    <section class="article-hero">
+      <div class="article-hero-bg" style={`background-image: url(${ogImage})`}></div>
+      <div class="article-hero-content">
+        <div class="article-meta">
+          <time datetime={datePublished}>
+            {new Date(datePublished).toLocaleDateString('fr-FR', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+          <span class="article-author">Par {author}</span>
+        </div>
+        <h1 class="article-title">{title}</h1>
+        <p class="article-description">{description}</p>
+      </div>
+    </section>
+
+  {songInfo && songInfo.inBook && (
+  <div class="song-info">
+    <div class="song-info-content">
+      <div class="song-info-book">
+        <img src="https://www.musicroom.fr/product/image/large/carmf2838_0.jpg" alt="40 chansons françaises et hits pop-rock - Livre de guitare avec tablatures et partitions" />
+        <div class="book-details">
+          {songInfo.bookPage && (
+            <p class="book-message">Plonge directement dans ce morceau avec tous les conseils et la tablature complète à la page {songInfo.bookPage} de mon livre ! 🎸</p>
+          )}
+          <a href="https://c3po.link/QJCFDcrJfE" class="book-link" target="_blank" rel="noopener noreferrer">
+            Découvre le livre maintenant !
+          </a>
+        </div>
+      </div>
+      <div class="song-details">
+        {songInfo.tempo && (
+          <div class="song-detail">
+            <span class="detail-icon">🎵</span>
+            <span class="detail-label">Tempo</span>
+            <span class="detail-value">{songInfo.tempo} BPM</span>
+          </div>
+        )}
+        {songInfo.chordCount && (
+          <div class="song-detail">
+            <span class="detail-icon">🎸</span>
+            <span class="detail-label">Accords</span>
+            <span class="detail-value">{songInfo.chordCount}</span>
+          </div>
+        )}
+        {songInfo.key && (
+          <div class="song-detail">
+            <span class="detail-icon">🎹</span>
+            <span class="detail-label">Tonalité</span>
+            <span class="detail-value">{songInfo.key}</span>
+          </div>
+        )}
+        {songInfo.difficulty && (
+          <div class="song-detail">
+            <span class="detail-icon">📊</span>
+            <span class="detail-label">Difficulté</span>
+            <span class="detail-value">{songInfo.difficulty}</span>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+)}
+
+    <div class="article-content">
+      <!-- Introduction -->
+      <div class="article-intro">
+        {introduction}
+      </div>
+
+      <!-- Vidéos (si présentes) -->
+      {videos && videos.length > 0 && (
+        <section class="video-section">
+          <div class="video-grid">
+            {videos.map(video => (
+              <div class="video-item">
+                <div class="video-wrapper">
+                  <iframe
+                    src={video.url}
+                    title={video.title}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Podcast (si présent) -->
+      {podcast && (
+        <section class="podcast-section">
+          <div class="podcast-player">
+            <iframe
+              src={podcast.url}
+              width="100%"
+              height="200"
+              frameborder="0"
+              allow="autoplay"
+            ></iframe>
+          </div>
+        </section>
+      )}
+
+      <!-- Contenu principal -->
+      <div class="article-body">
+        <Content />
+      </div>
+
+      <!-- Conclusion -->
+      <section class="article-conclusion">
+        <div class="conclusion-content">
+          <h2>Conclusion</h2>
+          <div set:html={conclusion}></div>
+        </div>
+      </section>
+
+      <!-- Liens connexes -->
+      {relatedLinks && relatedLinks.length > 0 && (
+        <section class="related-links">
+          <h2>Articles connexes</h2>
+          <div class="related-links-grid">
+            {relatedLinks.map(link => (
+              <a href={link.url} class="related-link">
+                <h3>{link.title}</h3>
+                <p>{link.description}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </article>
+</ArticleLayout>
+
+<style>
+  .song-info {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+  }
+
+  .song-info-content {
+    background: var(--color-dark);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .song-info-book {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .song-info-book img {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .book-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .book-message {
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .book-link {
+    display: inline-block;
+    background: var(--theme-current);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+  }
+
+  .book-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .song-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .song-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.3rem;
+  }
+
+  .detail-icon {
+    font-size: 1.5rem;
+  }
+
+  .detail-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .detail-value {
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    .song-info-book {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    .book-details {
+      align-items: center;
+    }
+
+    .book-link {
+      align-self: center;
+    }
+
+    .song-details {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

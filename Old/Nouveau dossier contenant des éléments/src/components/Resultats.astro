@@ -1,0 +1,181 @@
+---
+const partenaires = [
+  {
+    nom: "Skilleos",
+    description: "Un des leaders de la formation en France. Nous sommes les premiers formateurs de musique sur cette plateforme.",
+    logo: "https://test.musique-facile.fr/images/logo/logo_Skilleos.png"
+  },
+  {
+    nom: "LinkedIn Learning",
+    description: "Nos cours de musique sont la première formation loisir sur LinkedIn Learning.",
+    logo: "https://test.musique-facile.fr/images/logo/logo_LinkedIn.png"
+  },
+  {
+    nom: "Hal Leonard",
+    description: "Le numéro 1 mondial de l'édition musicale collabore avec nous pour créer des formations vidéo et des livres d'apprentissage.",
+    logo: "https://test.musique-facile.fr/images/logo/logo_Hal_Leonard.png"
+  }
+];
+
+const marques = ["Arturia", "Roland", "Casio", "Anuenue", "Kala", "PRS", "EastMan"];
+---
+
+<section class="resultats">
+  <div class="container">
+    <div class="header-section">
+      <h2>Une communauté de 70 000 apprenants et des partenaires prestigieux.</h2>
+      <p class="sous-titre">
+        Depuis nos débuts, plus de 70 000 passionnés de musique ont appris avec nos formations. 
+        Voici pourquoi les plus grands noms de l'industrie nous font confiance :
+      </p>
+    </div>
+
+    <div class="partenaires-grid">
+      {partenaires.map(partenaire => (
+        <div class="partenaire-card">
+          <div class="logo-container">
+            <img src={partenaire.logo} alt={partenaire.nom} />
+          </div>
+          <div class="partenaire-content">
+            <h3>{partenaire.nom}</h3>
+            <p>{partenaire.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="marques-section">
+      <h3>Ils nous font confiance</h3>
+      <div class="marques-container">
+        {marques.map(marque => (
+          <span class="marque">{marque}</span>
+        ))}
+        <span class="marque">et bien d'autres...</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .resultats {
+    padding: 8rem 0;
+    background-color: var(--bg-light);
+  }
+
+  .header-section {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+  }
+
+  .header-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark);
+  }
+
+  .sous-titre {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  .partenaires-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .partenaire-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+
+  .partenaire-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .logo-container {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .logo-container img {
+    max-height: 100%;
+    max-width: 200px;
+    object-fit: contain;
+  }
+
+  .partenaire-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .partenaire-content p {
+    color: var(--color-dark);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  .marques-section {
+    text-align: center;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .marques-section h3 {
+    color: var(--color-dark);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .marques-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .marque {
+    background: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 500;
+    color: var(--color-dark);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  @media (max-width: 1024px) {
+    .partenaires-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header-section h2 {
+      font-size: 2rem;
+    }
+
+    .partenaires-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .marques-container {
+      gap: 1rem;
+    }
+
+    .marque {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>

@@ -1,0 +1,190 @@
+---
+const features = [
+  {
+    icon: "🎵",
+    text: "Des cours adaptés à tous les niveaux"
+  },
+  {
+    icon: "⭐",
+    text: "Des formateurs passionnés et experts"
+  },
+  {
+    icon: "💫",
+    text: "Une progression garantie"
+  }
+];
+---
+
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Rejoignez notre communauté dès aujourd'hui !</h2>
+      <p class="subtitle">Commencez votre voyage musical avec des milliers d'autres passionnés</p>
+
+      <div class="features">
+        {features.map(feature => (
+          <div class="feature">
+            <span class="feature-icon">{feature.icon}</span>
+            <span class="feature-text">{feature.text}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="cta-buttons">
+        <a href="/inscription" class="btn-primary">
+          Créer un compte gratuit
+          <span class="shine"></span>
+        </a>
+        <p class="guarantee">15 jours d'essai gratuit - Sans engagement</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-final {
+    padding: 8rem 0;
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-dark) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-final::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-content {
+    text-align: center;
+    color: white;
+  }
+
+  h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+  }
+
+  .features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
+  }
+
+  .feature-text {
+    font-weight: 500;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: white;
+    color: var(--theme-current);
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 1.2rem 3rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent
+    );
+    animation: shine 3s infinite;
+  }
+
+  @keyframes shine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+  }
+
+  .guarantee {
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+    }
+
+    .features {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .feature {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

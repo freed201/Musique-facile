@@ -1,0 +1,301 @@
+---
+const partenaires = [
+  {
+    nom: "Skilleos",
+    description: "Un des leaders de la formation en France. Nous sommes plus gros formateur sur cette plateforme.",
+    logo: "https://test.musique-facile.fr/images/logo/logo_Skilleos.png"
+  },
+  {
+    nom: "LinkedIn Learning",
+    description: "Notre cours de piano est la première formation loisir sur LinkedIn Learning.",
+    logo: "https://test.musique-facile.fr/images/logo/logo_LinkedIn.png"
+  },
+  {
+    nom: "Hal Leonard",
+    description: "Le numéro 1 mondial de l'édition musicale collabore avec nous pour créer des formations vidéo et des livres d'apprentissage.",
+    logo: "https://test.musique-facile.fr/images/logo/logo_Hal_Leonard.png"
+  }
+];
+
+const stats = [
+  {
+    number: "80 000+",
+    label: "élèves formés"
+  },
+  {
+    number: "4.7/5",
+    label: "note moyenne"
+  },
+  {
+    number: "3",
+    label: "partenaires majeurs"
+  }
+];
+---
+
+<section class="resultats">
+  <div class="container">
+    <div class="header-section">
+      <h2>Une communauté grandissante de passionnés</h2>
+      <div class="stats-banner">
+        {stats.map(stat => (
+          <div class="stat-item">
+            <div class="stat-number">{stat.number}</div>
+            <div class="stat-label">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="description-section">
+        <p class="main-text">
+          Depuis nos débuts, plus de 80 000 passionnés ont appris la guitare, le piano, l'ukulélé et le solfège grâce à nos formations.
+        </p>
+        
+        <div class="insight-box">
+          <span class="insight-icon">💡</span>
+          <div class="insight-content">
+            <p>Ce n'est pas juste un chiffre, c'est une réalité : des milliers d'élèves ont progressé à leur rythme, sur notre site et via nos partenaires.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="partners-grid">
+        {partenaires.map(partenaire => (
+          <div class="partner-card">
+            <div class="logo-container">
+              <img src={partenaire.logo} alt={partenaire.nom} loading="lazy" />
+            </div>
+            <div class="partner-content">
+              <h3>{partenaire.nom}</h3>
+              <p>{partenaire.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .resultats {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .resultats::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+  }
+
+  .header-section {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+  }
+
+  .header-section h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .stats-banner {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2rem;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--theme-current);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+
+  .main-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .description-section {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .main-text {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .insight-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+  }
+
+  .insight-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+
+  .insight-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .partner-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .partner-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .logo-container {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .logo-container img {
+    max-height: 100%;
+    max-width: 180px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    transition: all 0.3s ease;
+  }
+
+  .partner-card:hover .logo-container img {
+    opacity: 1;
+  }
+
+  .partner-content h3 {
+    color: var(--theme-current);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .partner-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .cta-section {
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .cta-text {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--theme-current);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 992px) {
+    .partners-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header-section h2 {
+      font-size: 2.2rem;
+    }
+
+    .stats-banner {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+    }
+
+    .insight-box {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .partners-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .partner-card {
+      padding: 1.5rem;
+    }
+
+    .cta-text {
+      font-size: 1.3rem;
+    }
+  }
+</style>

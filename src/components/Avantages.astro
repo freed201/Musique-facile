@@ -1,0 +1,142 @@
+---
+const avantages = [
+  {
+    icon: "🎯",
+    titre: "Apprentissage personnalisé",
+    description: "Des parcours adaptés à votre niveau et vos objectifs",
+    couleur: "var(--color-primary)"
+  },
+  {
+    icon: "🔄",
+    titre: "Progression continue",
+    description: "Suivez votre évolution et débloquez de nouveaux niveaux",
+    couleur: "var(--color-piano)"
+  },
+  {
+    icon: "👥",
+    titre: "Communauté active",
+    description: "Échangez avec d'autres passionnés et progressez ensemble",
+    couleur: "var(--color-ukulele)"
+  },
+  {
+    icon: "🏆",
+    titre: "Certification",
+    description: "Obtenez des certificats reconnus à chaque étape",
+    couleur: "var(--color-solfege)"
+  }
+];
+---
+
+<section id="avantages" class="avantages section-padding">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Nos points forts</span>
+      <h2 class="section-title">Pourquoi choisir Musique Facile ?</h2>
+      <p class="section-subtitle">Une méthode d'apprentissage unique et efficace pour progresser rapidement</p>
+    </div>
+    <div class="avantages-grid">
+      {avantages.map(avantage => (
+        <div class="avantage-card card" style={`--card-color: ${avantage.couleur}`}>
+          <div class="icon-wrapper">
+            <span class="avantage-icon">{avantage.icon}</span>
+          </div>
+          <h3>{avantage.titre}</h3>
+          <p>{avantage.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .avantages {
+    background-color: white;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-piano));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+  }
+
+  .avantages-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .avantage-card {
+    padding: 2rem;
+    text-align: center;
+    background: white;
+    border-top: 4px solid var(--card-color);
+  }
+
+  .icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, var(--card-color), rgba(255,255,255,0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+
+  .avantage-icon {
+    font-size: 2.5rem;
+  }
+
+  .avantage-card h3 {
+    color: var(--card-color);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .avantage-card p {
+    color: var(--color-dark);
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1024px) {
+    .avantages-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .avantages-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+</style>

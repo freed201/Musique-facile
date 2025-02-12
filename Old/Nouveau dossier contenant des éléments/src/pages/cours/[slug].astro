@@ -1,0 +1,275 @@
+---
+import { getCollection } from 'astro:content';
+import CourseLayout from '../../layouts/CourseLayout.astro';
+
+export async function getStaticPaths() {
+  const courses = await getCollection('courses');
+  return courses.map(course => ({
+    params: { slug: course.slug },
+    props: { course },
+  }));
+}
+
+const { course } = Astro.props;
+const {
+  title,
+  description,
+  ogImage,
+  theme,
+  hero,
+  timeline,
+  frustrations,
+  valeurUnique,
+  preuveSociale,
+  benefices,
+  cta,
+  faq
+} = course.data;
+---
+
+<CourseLayout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  theme={theme}
+  heroImage={hero.imageBK}
+>
+<section class="hero">
+  <div class="hero-background" style={`background-image: url('${hero.imageBK}')`}>
+    <div class="gradient-overlay"></div>
+  </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="hero-badge">{hero.badge}</span>
+          <h1>
+            <span class="visually-hidden"></span>
+            {hero.title}
+          </h1>
+          <p class="hero-subtitle">
+            {hero.subtitle}
+          </p>
+          <div class="cta-group">
+            <a href="#pricing" class="btn btn-primary btn-lg pulsing">
+              {hero.cta.text}
+              <span class="price-tag">{hero.cta.price}</span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-video">
+          <div class="video-wrapper">
+            <iframe
+              src={hero.video.url}
+              width="640"
+              height="360"
+              frameborder="0"
+              allow="autoplay; fullscreen"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="course-stats">
+            {hero.stats.map(stat => (
+              <div class="stat-item">
+                <span class="stat-icon">{stat.icon}</span>
+                <div class="stat-content">
+                  <span class="stat-value">{stat.value}</span>
+                  <span class="stat-label">{stat.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="frustrations">
+    <div class="container">
+      <h2 class="frustrations-title">{frustrations.title}</h2>
+      
+      <div class="frustrations-grid">
+        {frustrations.items.map(item => (
+          <div class="frustration-card">
+            <span class="frustration-icon">{item.icon}</span>
+            <p class="frustration-text">{item.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="solution-banner">
+        <p class="solution-text">{frustrations.solution}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="valeur-unique">
+    <div class="container">
+      <div class="valeur-unique-content">
+        <h2>{valeurUnique.title}</h2>
+        <p class="description">{valeurUnique.description}</p>
+        
+        <div class="avantages-grid">
+          {valeurUnique.avantages.map(avantage => (
+            <div class="avantage-card">
+              <span class="avantage-icon">{avantage.icon}</span>
+              <p class="avantage-text">{avantage.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline">
+    <div class="container">
+      <h2 class="timeline-title">Programme de la formation</h2>
+      <div class="timeline-wrapper">
+        {timeline.map((item) => (
+          <div class="timeline-item">
+            <div class="timeline-number">{item.number}</div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>{item.title}</h3>
+                <p class="timeline-objective">{item.objective}</p>
+              </div>
+              <div class="timeline-body">
+                <div class="timeline-image-wrapper">
+                  <img 
+                    src={item.image} 
+                    alt={item.imageAlt}
+                    class="timeline-image"
+                    data-modal={`modal-${item.number}`}
+                  />
+                </div>
+                <ul class="timeline-details">
+                  {item.details.map((detail) => (
+                    <li>{detail}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {timeline.map((item) => (
+    <div id={`modal-${item.number}`} class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img src={item.image} alt={item.imageAlt} />
+      </div>
+    </div>
+  ))}
+
+  <section class="benefices">
+    <div class="container">
+      <h2 class="benefices-title">{benefices.title}</h2>
+      
+      <div class="benefices-grid">
+        {benefices.items.map((benefice, index) => (
+          <div class="benefice-card" style={`--delay: ${index * 0.2}s`}>
+            <div class="benefice-icon-wrapper">
+              <span class="benefice-icon">{benefice.icon}</span>
+            </div>
+            <h3>{benefice.title}</h3>
+            <p>{benefice.description}</p>
+            <div class="card-decoration"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <section class="preuve-sociale">
+    <div class="container">
+      <div class="testimonials-wrapper" role="article">
+        {preuveSociale.testimonials.map(testimonial => (
+          <div class="testimonial">
+            <div class="quote-icon">❝</div>
+            <p class="testimonial-text">{testimonial.text}</p>
+            <div class="testimonial-author">
+              <img src={testimonial.avatar} alt={testimonial.author} />
+              <span>{testimonial.author}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="stats-banner">
+        <div class="stat">
+          <span class="stat-number">{preuveSociale.stats.students}</span>
+          <span class="stat-label">élèves satisfaits</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">{preuveSociale.stats.successRate}</span>
+          <span class="stat-label">jouent leurs premiers morceaux en {preuveSociale.stats.timeframe}</span>
+        </div>
+      </div>
+
+      <div class="partners">
+        <h3>Ils nous font confiance</h3>
+        <div class="partners-grid">
+          {preuveSociale.partners.map(partner => (
+            <div class="partner">
+              <img src={partner.logo} alt={partner.name} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <div class="cta-background"></div>
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">{cta.title}</h2>
+        <p class="cta-subtitle">{cta.subtitle}</p>
+        
+        <div class="cta-features">
+          {cta.features.map(feature => (
+            <div class="cta-feature">
+              <span class="feature-icon">{feature.icon}</span>
+              <span class="feature-text">{feature.text}</span>
+            </div>
+          ))}
+        </div>
+
+        <a href={cta.buttonLink} class="cta-button">
+          {cta.buttonText}
+          <span class="button-shine"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="faq-background"></div>
+    <div class="container">
+      <div class="faq-header">
+        <h2>{faq.title}</h2>
+        <p>{faq.subtitle}</p>
+      </div>
+
+      <div class="faq-grid">
+        {faq.questions.map((item, index) => (
+          <div class="faq-item" style={`--delay: ${index * 0.2}s`}>
+            <div class="faq-question-wrapper">
+              <h3>{item.question}</h3>
+              <div class="faq-icon">
+                <span class="icon-line"></span>
+                <span class="icon-line"></span>
+              </div>
+            </div>
+            <div class="faq-answer">
+              <p>{item.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</CourseLayout>

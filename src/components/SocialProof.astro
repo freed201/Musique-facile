@@ -1,0 +1,215 @@
+---
+const socialStats = [
+  {
+    platform: "TikTok",
+    logo: "/images/logo/tiktok.png",
+    url: "https://www.tiktok.com/@musique_facile",
+    color: "rgb(0, 242, 234)",
+    stats: {
+      followers: "+ de 102k",
+      views: "+ de 12M",
+      likes: "+ de 280k"
+    }
+  },
+  {
+    platform: "YouTube",
+    logo: "/images/logo/youtube.png",
+    url: "https://www.youtube.com/@Musique-Facile",
+    color: "#FF0000",
+    stats: {
+      followers: "+ de 78k",
+      views: "+ de 14M",
+      watchTime: "+ de 592k"
+    }
+  }
+];
+---
+
+<section class="social-proof">
+  <div class="container">
+    <div class="social-grid">
+      {socialStats.map(platform => (
+        <a 
+          href={platform.url} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="social-card"
+          style={`--platform-color: ${platform.color}`}
+        >
+          <div class="platform-header">
+            <img 
+              src={platform.logo} 
+              alt={`${platform.platform} Musique Facile`} 
+              class="platform-logo"
+              width="40"
+              height="40"
+            />
+            <h3>{platform.platform}</h3>
+          </div>
+          
+          <div class="stats-grid">
+            {platform.platform === "TikTok" ? (
+              <>
+                <div class="stat-item">
+                  <span class="stat-value">{platform.stats.followers}</span>
+                  <span class="stat-label">Abonnés</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">{platform.stats.views}</span>
+                  <span class="stat-label">Vues</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">{platform.stats.likes}</span>
+                  <span class="stat-label">J'aime</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div class="stat-item">
+                  <span class="stat-value">{platform.stats.followers}</span>
+                  <span class="stat-label">Abonnés</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">{platform.stats.views}</span>
+                  <span class="stat-label">Vues</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">{platform.stats.watchTime}</span>
+                  <span class="stat-label">Heures vues</span>
+                </div>
+              </>
+            )}
+          </div>
+
+          <div class="follow-button">
+            Suivre
+            <span class="arrow">→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .social-proof {
+    padding: 2rem 0;
+    background: var(--bg-light);
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .social-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .social-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--platform-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .platform-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .platform-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .platform-header h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--platform-color);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .stat-item {
+    background: rgba(var(--platform-color), 0.1);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .stat-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--platform-color);
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+  }
+
+  .follow-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--platform-color);
+    color: white;
+    padding: 0.8rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    margin-top: auto;
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .social-card:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 768px) {
+    .social-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .platform-header h3 {
+      font-size: 1.3rem;
+    }
+
+    .stat-value {
+      font-size: 1rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+    }
+  }
+</style>

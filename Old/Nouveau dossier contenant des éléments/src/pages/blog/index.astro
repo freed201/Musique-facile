@@ -1,0 +1,162 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const articles = [
+  {
+    title: "Article Test",
+    description: "Un article de test pour notre blog de musique",
+    url: "/blog/test2",
+    image: "https://test.musique-facile.fr/images/blog/test-article.jpg",
+    date: "2024-01-15",
+    readTime: "5 min"
+  }
+];
+---
+
+<Layout title="Blog | Musique Facile">
+  <Header />
+  
+  <main>
+    <section class="blog-section">
+      <div class="container">
+        <h1>Blog Musique Facile</h1>
+        <p class="subtitle">Découvrez nos articles sur la musique et l'apprentissage des instruments</p>
+        
+        <div class="articles-grid">
+          {articles.map(article => (
+            <a href={article.url} class="article-card">
+              <div class="article-image" style={`background-image: url(${article.image})`}>
+                <span class="read-time">{article.readTime} de lecture</span>
+              </div>
+              <div class="article-content">
+                <time datetime={article.date} class="article-date">
+                  {new Date(article.date).toLocaleDateString('fr-FR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </time>
+                <h2>{article.title}</h2>
+                <p>{article.description}</p>
+                <span class="read-more">Lire l'article →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .blog-section {
+    padding: 8rem 0 4rem;
+    background: var(--bg-light);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .subtitle {
+    text-align: center;
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin-bottom: 3rem;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .article-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .article-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .read-time {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+  }
+
+  .article-content {
+    padding: 2rem;
+  }
+
+  .article-date {
+    display: block;
+    color: var(--theme-main);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .article-content p {
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .read-more {
+    display: inline-block;
+    color: var(--theme-main);
+    font-weight: 600;
+    transition: transform 0.3s ease;
+  }
+
+  .article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .article-card:hover .read-more {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 768px) {
+    .blog-section {
+      padding: 6rem 0 3rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

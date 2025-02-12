@@ -1,0 +1,413 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+// Récupérer tous les cours
+const allCourses = await getCollection('courses');
+
+// Filtrer les cours avec affichage='Y' et trier par classement
+const sortedCourses = allCourses
+  .filter(course => course.data.affichage === 'Y')
+  .sort((a, b) => {
+    // D'abord trier par classement
+    if (a.data.classement !== b.data.classement) {
+      return a.data.classement - b.data.classement;
+    }
+    // Si même classement, trier par date de modification (plus récent en premier)
+    return new Date(b.data.dateModified).getTime() - new Date(a.data.dateModified).getTime();
+  });
+
+const instruments = [
+  { id: 'guitar', name: 'Guitare', label: 'Guitare', theme: 'guitar' },
+  { id: 'piano', name: 'Piano', label: 'Piano', theme: 'piano' },
+  { id: 'ukulele', name: 'Ukulélé', label: 'Ukulélé', theme: 'ukulele' },
+  { id: 'solfege', name: 'Formation Musicale', label: 'Formation Musicale', theme: 'solfege' }
+];
+
+// Construction du schema.org pour la liste des cours
+const coursesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": sortedCourses.map((course, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Course",
+      "name": course.data.title,
+      "description": course.data.description,
+      "url": `${Astro.url.origin}/cours/${course.slug}`,
+      "image": course.data.ogImage
+    }
+  }))
+};
+
+// Fonction pour obtenir le label d'un instrument
+function getInstrumentLabel(theme) {
+  const instrument = instruments.find(i => i.id === theme);
+  return instrument ? instrument.label : theme;
+}
+---
+
+<Layout title="Nos Cours | Musique Facile">
+  <Header />
+    <script type="application/ld+json" set:html={JSON.stringify(coursesSchema)} />
+
+  <main>
+    <section class="courses-hero">
+      <div class="container">
+        <h1>Nos Cours de Musique</h1>
+        <p class="subtitle">Découvrez nos formations pour progresser en musique</p>
+      </div>
+    </section>
+
+    <section class="courses-grid">
+      <div class="container">
+        <!-- Filtres par instrument -->
+        <div class="instrument-filters">
+          {instruments.map(instrument => (
+            <button 
+              class={`filter-btn theme-${instrument.theme}`}
+              data-instrument={instrument.id}
+              aria-pressed="true"
+            >
+              {instrument.name}
+            </button>
+          ))}
+        </div>
+
+<div class="courses-wrapper">
+  {sortedCourses.map(course => {
+    const { title, description, ogImage, theme } = course.data;
+    return (
+      <article class={`course-card theme-${theme}`} data-instrument={theme}>
+        <a href={`/cours/${course.slug}`} class="course-link">
+          <div class="course-image" style={`background-image: url(${ogImage})`}>
+            <div class="course-meta">
+              <span class="course-theme">{getInstrumentLabel(theme)}</span>
+              {course.data.bestSeller && (
+                <span class="best-seller-tag">
+                  <span class="best-seller-icon">🏆</span>
+                  Meilleure vente
+                </span>
+              )}
+            </div>
+          </div>
+          <div class="course-content">
+            <h2>{title}</h2>
+            <p>{description.split(' ').slice(0, 8).join(' ')}...</p>
+            <span class="cta-button">
+              Découvrir le cours
+              <span class="arrow">→</span>
+            </span>
+          </div>
+        </a>
+      </article>
+    );
+  })}
+</div>
+
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .courses-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .courses-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  /* background: linear-gradient(135deg, var(--color-primary) 0%, var(--theme-main-light) 100%); */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+  color: #fff; /* Force le texte en blanc */
+
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .courses-grid {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Styles des filtres */
+  .instrument-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .filter-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--theme-current);
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .filter-btn[aria-pressed="false"]::before {
+    transform: scaleX(0);
+  }
+
+  .filter-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .courses-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+ .course-card {
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.course-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.course-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.course-meta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+}
+
+.course-theme {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--theme-current);
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.course-content {
+  padding: 2rem;
+}
+.course-meta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.best-seller-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: shine 2s infinite;
+}
+
+.best-seller-icon {
+  font-size: 1.1rem;
+}
+
+@keyframes shine {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+.course-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--theme-current);
+  line-height: 1.4;
+}
+
+.course-content p {
+  color: var(--color-dark);
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--theme-current);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover .arrow {
+  transform: translateX(3px);
+}
+
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--theme-current);
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 1200px) {
+    .courses-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 992px) {
+    .courses-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .instrument-filters {
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      flex: 1;
+      min-width: 150px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .courses-hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .courses-wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const courseCards = document.querySelectorAll('.course-card');
+
+    // Fonction pour mettre à jour l'affichage des cours
+    function updateCourses() {
+      const activeInstruments = Array.from(filterButtons)
+        .filter(btn => btn.getAttribute('aria-pressed') === 'true')
+        .map(btn => btn.dataset.instrument);
+
+      courseCards.forEach(card => {
+        const cardInstrument = card.dataset.instrument;
+        if (activeInstruments.includes(cardInstrument)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Gestion des clics sur les boutons de filtre
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const isPressed = button.getAttribute('aria-pressed') === 'true';
+        button.setAttribute('aria-pressed', !isPressed);
+        updateCourses();
+      });
+    });
+  });
+</script>

@@ -1,0 +1,355 @@
+---
+const menuItems = [
+  { 
+    text: "Accueil",
+    url: "/",
+    icon: "/images/icons/home.png"
+  },
+  {
+    text: "Cours",
+    url: "/cours",
+    icon: "/images/icons/courses.png",
+    submenu: [
+      {
+        text: "Guitare",
+        url: "/cours/cours-de-guitare",
+        icon: "🎸"
+      },
+      {
+        text: "Piano",
+        url: "/cours/cours-de-piano",
+        icon: "🎹"
+      },
+      {
+        text: "Ukulélé",
+        url: "/cours/cours-de-ukulele",
+        icon: "🏖️"
+      },
+      {
+        text: "Solfège",
+        url: "/cours/cours-de-solfege",
+        icon: "🎼"
+      }
+    ]
+  },
+  {
+    text: "Blog",
+    url: "/blog",
+    icon: "/images/icons/blog.png"
+  },
+  {
+    text: "Podcast",
+    url: "https://podcast.ausha.co/au-boulot-maestro-le-podcast-qui-t-apprend-a-apprendre-la-musique",
+    icon: "/images/icons/podcast.png",
+    external: true
+  },
+  {
+    text: "Contact",
+    url: "/contact",
+    icon: "/images/icons/contact.png"
+  }
+];
+---
+
+<header class="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">Musique Facile</a>
+      
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        {menuItems.map(item => (
+          <li class="nav-item">
+            {item.submenu ? (
+              <div class="nav-dropdown">
+                <a 
+                  href={item.url} 
+                  class="nav-link has-submenu"
+                >
+                  <img src={item.icon} alt="" class="nav-icon" width="20" height="20" />
+                  <span>{item.text}</span>
+                  <span class="dropdown-arrow">▼</span>
+                </a>
+                <ul class="submenu">
+                  {item.submenu.map(subitem => (
+                    <li>
+                      <a href={subitem.url} class="submenu-link">
+                        <span class="submenu-icon">{subitem.icon}</span>
+                        {subitem.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <a 
+                href={item.url} 
+                class="nav-link"
+                {...item.external ? { target: "_blank", rel: "noopener noreferrer" } : {}}
+              >
+                <img src={item.icon} alt="" class="nav-icon" width="20" height="20" />
+                <span>{item.text}</span>
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(23, 23, 23, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+  }
+
+  .logo {
+    color: var(--theme-current);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+  }
+
+  .nav-link.has-submenu {
+    padding-right: 2rem;
+  }
+
+  .dropdown-arrow {
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .nav-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-link:hover .nav-icon {
+    opacity: 1;
+  }
+
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(23, 23, 23, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-dropdown:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .submenu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+  }
+
+  .submenu-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+  }
+
+  .submenu-icon {
+    font-size: 1.2rem;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: rgba(23, 23, 23, 0.95);
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      padding: 1rem;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .nav-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-item {
+      width: 100%;
+    }
+
+    .nav-link {
+      width: 100%;
+      padding: 1rem;
+      justify-content: center;
+    }
+
+    .submenu {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      background: rgba(255, 255, 255, 0.05);
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    .nav-dropdown.active .submenu {
+      display: block;
+    }
+
+    /* Animation du menu burger */
+    .menu-toggle.active span:first-child {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:last-child {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+  }
+</style>
+
+<script>
+  // Menu mobile
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      
+      const isExpanded = menuToggle.classList.contains('active');
+      menuToggle.setAttribute('aria-expanded', isExpanded);
+      
+      // Empêcher le défilement du body quand le menu est ouvert
+      document.body.style.overflow = isExpanded ? 'hidden' : '';
+    });
+
+    // Gestion des sous-menus sur mobile
+    dropdowns.forEach(dropdown => {
+      const link = dropdown.querySelector('.nav-link');
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          dropdown.classList.toggle('active');
+        }
+      });
+    });
+
+    // Fermer le menu quand on clique sur un lien
+    navMenu.querySelectorAll('.submenu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+</script>

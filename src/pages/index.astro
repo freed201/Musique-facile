@@ -1,0 +1,523 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Avantages from '../components/Avantages.astro';
+import Cours from '../components/Cours.astro';
+import KidsSection from '../components/KidsSection.astro';
+import Temoignages from '../components/Temoignages.astro';
+import SocialProof from '../components/SocialProof.astro';
+import RandomBlogPosts from '../components/RandomBlogPosts.astro';
+import Resultats from '../components/Resultats.astro';
+import Footer from '../components/Footer.astro';
+
+// Construction de l'URL canonique
+const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr').toString();
+
+// Métadonnées pour Open Graph
+const title = "Musique Facile - Apprenez la musique facilement";
+const description = "Découvrez nos formations en ligne pour apprendre la guitare, le piano, l'ukulélé et le solfège. Plus de 80 000 élèves formés avec une note moyenne de 4.7/5.";
+const ogImage = "https://musique-facile.fr/images/og-image.jpg";
+
+// Construction des données structurées
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Musique Facile",
+  "url": "https://musique-facile.fr",
+  "logo": "https://musique-facile.fr/logo.jpg",
+  "sameAs": [
+    "https://www.youtube.com/@Musique-Facile",
+    "https://www.tiktok.com/@musique_facile",
+    "https://instagram.com/musique_facile",
+    "https://facebook.com/musiquefacile"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "FR"
+  }
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Musique Facile",
+  "url": "https://musique-facile.fr",
+  "description": "Formations en ligne pour apprendre la guitare, le piano, l'ukulélé et le solfège",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://musique-facile.fr/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Accueil",
+    "item": "https://musique-facile.fr"
+  }]
+};
+---
+
+<Layout title={title}>
+  <Header />
+  
+  <!-- Bannière promotionnelle -->
+  <div class="promo-banner" id="promoBanner">
+    <div class="container">
+      <div class="promo-content">
+        <div class="promo-badge">Offre de lancement 🎉</div>
+        <div class="promo-title">-50% sur toutes les formations</div>
+        <div class="promo-code">Code : <span>OUVERTURE</span></div>
+        <div class="countdown" id="countdown">
+          <div class="countdown-item">
+            <span class="countdown-value" id="days">00</span>
+            <span class="countdown-label">Jours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="hours">00</span>
+            <span class="countdown-label">Heures</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="minutes">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="seconds">00</span>
+            <span class="countdown-label">Secondes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </head>
+  <Header />
+  <Hero />
+  <Avantages />
+  <Cours />
+  <KidsSection />
+  <Temoignages />
+  <SocialProof />
+  <RandomBlogPosts />
+  <Resultats />
+
+  <section class="course-buttons">
+    <div class="container">
+      <h2 class="section-title">Alors, prêt(e) à rejoindre l'aventure ? 🎸🎹🎶</h2>
+      <div class="buttons-grid">
+        <a href="/cours/cours-de-guitare" class="course-button theme-guitar">
+          <div class="button-background" style="background-image: url('/images/cours/hero-guitare.jpg')"></div>
+          <div class="button-content">
+            <span class="button-icon">🎸</span>
+            <div class="button-text-wrapper">
+              <span class="button-title">Cours de Guitare</span>
+              <span class="button-description">Apprenez la guitare pas à pas</span>
+            </div>
+            <span class="button-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="/cours/cours-de-piano" class="course-button theme-piano">
+          <div class="button-background" style="background-image: url('/images/cours/hero-piano.jpg')"></div>
+          <div class="button-content">
+            <span class="button-icon">🎹</span>
+            <div class="button-text-wrapper">
+              <span class="button-title">Cours de Piano</span>
+              <span class="button-description">Découvrez le piano facilement</span>
+            </div>
+            <span class="button-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="/cours/cours-de-ukulele" class="course-button theme-ukulele">
+          <div class="button-background" style="background-image: url('/images/cours/hero-ukulele.jpg')"></div>
+          <div class="button-content">
+            <span class="button-icon">🏖️</span>
+            <div class="button-text-wrapper">
+              <span class="button-title">Cours d'Ukulélé</span>
+              <span class="button-description">Initiez-vous à l'ukulélé</span>
+            </div>
+            <span class="button-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="/cours/cours-de-solfege" class="course-button theme-solfege">
+          <div class="button-background" style="background-image: url('/images/cours/hero-solfege.jpg')"></div>
+          <div class="button-content">
+            <span class="button-icon">🎼</span>
+            <div class="button-text-wrapper">
+              <span class="button-title">Cours de Solfège</span>
+              <span class="button-description">Maîtrisez la théorie musicale</span>
+            </div>
+            <span class="button-arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .course-buttons {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .course-buttons .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--theme-current);
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .course-button {
+    position: relative;
+    height: 200px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .button-background {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+  }
+
+  .theme-guitar .button-background {
+    background-color: var(--theme-guitar);
+  }
+
+  .theme-piano .button-background {
+    background-color: var(--theme-piano);
+  }
+
+  .theme-ukulele .button-background {
+    background-color: var(--theme-ukulele);
+  }
+
+  .theme-solfege .button-background {
+    background-color: var(--theme-solfege);
+  }
+
+  .button-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.8)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .button-icon {
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: auto;
+  }
+
+  .button-text-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .button-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .button-description {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .button-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .course-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .course-button:hover .button-background {
+    transform: scale(1.1);
+  }
+
+  .course-button:hover .button-content {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.9)
+    );
+  }
+
+  .course-button:hover .button-arrow {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 1200px) {
+    .buttons-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .buttons-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .course-button {
+      height: 160px;
+    }
+
+    .button-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+    }
+
+    .button-title {
+      font-size: 1.2rem;
+    }
+  }
+
+
+
+  .promo-banner {
+    background: linear-gradient(-45deg, #FF6B6B, #FF8E53, #4ECDC4, #45B7D1);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    padding: 0.75rem 0;
+    color: white;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transition: transform 0.3s ease;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .promo-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .promo-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .promo-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .promo-code {
+    font-size: 1.1rem;
+  }
+
+  .promo-code span {
+    background: white;
+    color: #FF6B6B;
+    padding: 0.2rem 0.8rem;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    margin-left: 0.5rem;
+  }
+
+  .countdown {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .countdown-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    min-width: 80px;
+  }
+
+  .countdown-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: block;
+  }
+
+  .countdown-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .promo-content {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.5rem;
+    }
+
+    .countdown {
+      gap: 0.5rem;
+    }
+
+    .countdown-item {
+      min-width: 60px;
+      padding: 0.3rem 0.5rem;
+    }
+
+    .countdown-value {
+      font-size: 1rem;
+    }
+
+    .countdown-label {
+      font-size: 0.7rem;
+    }
+  }
+</style>
+
+<script>
+  // Calcul de la date de fin (9 jours à partir de maintenant)
+  const endDate = new Date();
+  endDate.setDate(endDate.getDate() + 9);
+  endDate.setHours(23, 59, 59, 999);
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = endDate.getTime() - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = String(days).padStart(2, '0');
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+    if (distance < 0) {
+      clearInterval(countdownInterval);
+      document.getElementById('promoBanner').style.display = 'none';
+    }
+  }
+
+  // Mise à jour du compteur chaque seconde
+  const countdownInterval = setInterval(updateCountdown, 1000);
+  updateCountdown(); // Première mise à jour immédiate
+
+  // Gestion du scroll pour masquer/afficher la bannière
+  let lastScrollTop = 0;
+  const banner = document.getElementById('promoBanner');
+  const bannerHeight = banner.offsetHeight;
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > lastScrollTop) {
+      // Scroll vers le bas
+      banner.style.transform = `translateY(-${bannerHeight}px)`;
+    } else {
+      // Scroll vers le haut
+      banner.style.transform = 'translateY(0)';
+    }
+    
+    lastScrollTop = scrollTop;
+  });
+</script>

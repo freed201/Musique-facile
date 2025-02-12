@@ -1,0 +1,390 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// Constantes pour les cours
+const courses = [
+  {
+    title: "Cours de Guitare Débutant",
+    description: "Apprenez la guitare facilement avec notre méthode progressive",
+    url: "/cours/cours-guitare-debutant",
+    image: "https://test.musique-facile.fr/images/cours_de_guitare.jpg",
+    instrument: "Guitare",
+    level: "Débutant",
+    theme: "guitar"
+  },
+  {
+    title: "Formation Guitare Perfectionnement",
+    description: "Perfectionnez votre technique et enrichissez votre jeu",
+    url: "/cours/formation-guitare-perfectionnement",
+    image: "https://test.musique-facile.fr/images/cours_de_guitare.jpg",
+    instrument: "Guitare",
+    level: "Avancé",
+    theme: "guitar"
+  },
+  {
+    title: "Piano pour Guitaristes",
+    description: "Enrichissez votre compréhension musicale avec le piano",
+    url: "/cours/apprendre-piano-guitaristes",
+    image: "https://test.musique-facile.fr/images/cours_de_piano.jpg",
+    instrument: "Piano",
+    level: "Débutant",
+    theme: "piano"
+  },
+  {
+    title: "Cours de Piano Débutant",
+    description: "Découvrez le piano à travers des leçons adaptées",
+    url: "/cours/cours-piano-debutant",
+    image: "https://test.musique-facile.fr/images/cours_de_piano.jpg",
+    instrument: "Piano",
+    level: "Débutant",
+    theme: "piano"
+  },
+  {
+    title: "Piano Écoute Active",
+    description: "Développez votre oreille musicale au piano",
+    url: "/cours/cours-piano-ecoute-active",
+    image: "https://test.musique-facile.fr/images/cours_de_piano.jpg",
+    instrument: "Piano",
+    level: "Avancé",
+    theme: "piano"
+  },
+  {
+    title: "Piano Techniques Avancées",
+    description: "Maîtrisez les techniques avancées du piano",
+    url: "/cours/formation-piano-techniques-avancees",
+    image: "https://test.musique-facile.fr/images/cours_de_piano.jpg",
+    instrument: "Piano",
+    level: "Avancé",
+    theme: "piano"
+  },
+  {
+    title: "Cours de Ukulélé Débutant",
+    description: "Initiez-vous au ukulélé de manière ludique",
+    url: "/cours/cours-ukulele-debutant",
+    image: "https://test.musique-facile.fr/images/cours_de_ukulele.jpg",
+    instrument: "Ukulélé",
+    level: "Débutant",
+    theme: "ukulele"
+  },
+  {
+    title: "Rythmique Ukulélé",
+    description: "Perfectionnez vos rythmiques au ukulélé",
+    url: "/cours/apprendre-rythmique-ukulele",
+    image: "https://test.musique-facile.fr/images/cours_de_ukulele.jpg",
+    instrument: "Ukulélé",
+    level: "Avancé",
+    theme: "ukulele"
+  },
+  {
+    title: "Lecture de Notes Facile - Solfège 1",
+    description: "Les bases du solfège expliquées simplement",
+    url: "/cours/lecture-de-notes-facile-solfege-1",
+    image: "https://test.musique-facile.fr/images/solfege_1.jpg",
+    instrument: "Solfège",
+    level: "Débutant",
+    theme: "solfege"
+  },
+  {
+    title: "Solfège Rythmique - Techniques Avancées",
+    description: "Maîtrisez les rythmes complexes",
+    url: "/cours/solfege-rythmique-techniques-avancees",
+    image: "https://test.musique-facile.fr/images/solfege_2.jpg",
+    instrument: "Solfège",
+    level: "Avancé",
+    theme: "solfege"
+  },
+  {
+    title: "Solfège Expert - Altérations et Intervalles",
+    description: "Formation avancée en solfège",
+    url: "/cours/solfege-expert-alterations-intervalles",
+    image: "https://test.musique-facile.fr/images/solfege_3.jpg",
+    instrument: "Solfège",
+    level: "Avancé",
+    theme: "solfege"
+  }
+];
+
+const instruments = [
+  { name: "Tous", theme: "main" },
+  { name: "Guitare", theme: "guitar" },
+  { name: "Piano", theme: "piano" },
+  { name: "Ukulélé", theme: "ukulele" },
+  { name: "Solfège", theme: "solfege" }
+];
+---
+
+<Layout title="Nos Cours | Musique Facile">
+  <Header />
+  
+  <main>
+    <section class="courses-section">
+      <div class="container">
+        <h1>Nos Cours de Musique</h1>
+        <p class="subtitle">Choisissez votre parcours d'apprentissage</p>
+        
+        <!-- Filtres -->
+        <div class="filters">
+          <div class="instrument-filters">
+            {instruments.map(instrument => (
+              <button 
+                class={`filter-btn theme-${instrument.theme}`}
+                data-instrument={instrument.name}
+              >
+                {instrument.name}
+              </button>
+            ))}
+          </div>
+          
+          <div class="level-filter">
+            <button class="filter-btn level-btn" data-level="all">Tous les niveaux</button>
+            <button class="filter-btn level-btn" data-level="Débutant">Débutant</button>
+            <button class="filter-btn level-btn" data-level="Avancé">Avancé</button>
+          </div>
+        </div>
+        
+        <div class="courses-grid">
+          {courses.map(course => (
+            <a href={course.url} 
+               class={`course-card theme-${course.theme}`}
+               data-instrument={course.instrument}
+               data-level={course.level}
+            >
+              <div class="course-image" style={`background-image: url(${course.image})`}>
+                <span class="course-level">{course.level}</span>
+              </div>
+              <div class="course-content">
+                <h2>{course.title}</h2>
+                <p>{course.description}</p>
+                <span class="course-instrument">{course.instrument}</span>
+                <span class="cta">Découvrir le cours →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .courses-section {
+    padding: 8rem 0 4rem;
+    background: var(--bg-light);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .subtitle {
+    text-align: center;
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin-bottom: 3rem;
+  }
+
+  .filters {
+    margin-bottom: 3rem;
+  }
+
+  .instrument-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .level-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .filter-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    color: var(--color-dark);
+  }
+
+  .filter-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .filter-btn.active {
+    background: var(--theme-current);
+    color: white;
+  }
+
+  /* Thèmes des boutons */
+  .theme-main { --theme-current: var(--theme-main); }
+  .theme-guitar { --theme-current: var(--theme-guitar); }
+  .theme-piano { --theme-current: var(--theme-piano); }
+  .theme-ukulele { --theme-current: var(--theme-ukulele); }
+  .theme-solfege { --theme-current: var(--theme-solfege); }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .course-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .course-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .course-level {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+  }
+
+  .course-content {
+    padding: 2rem;
+  }
+
+  .course-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--theme-current);
+  }
+
+  .course-content p {
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .course-instrument {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--bg-light);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--theme-current);
+    margin-bottom: 1rem;
+  }
+
+  .cta {
+    display: inline-block;
+    color: var(--theme-current);
+    font-weight: 600;
+    transition: transform 0.3s ease;
+  }
+
+  .course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .course-card:hover .cta {
+    transform: translateX(5px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .courses-section {
+      padding: 6rem 0 3rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .instrument-filters,
+    .level-filter {
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      width: calc(50% - 0.5rem);
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const instrumentButtons = document.querySelectorAll('.instrument-filters .filter-btn');
+    const levelButtons = document.querySelectorAll('.level-filter .filter-btn');
+    const courseCards = document.querySelectorAll('.course-card');
+
+    // Fonction pour filtrer les cours
+    function filterCourses() {
+      const activeInstrument = document.querySelector('.instrument-filters .filter-btn.active')?.dataset.instrument || 'Tous';
+      const activeLevel = document.querySelector('.level-filter .filter-btn.active')?.dataset.level || 'all';
+
+      courseCards.forEach(card => {
+        const cardInstrument = card.dataset.instrument;
+        const cardLevel = card.dataset.level;
+        
+        const instrumentMatch = activeInstrument === 'Tous' || cardInstrument === activeInstrument;
+        const levelMatch = activeLevel === 'all' || cardLevel === activeLevel;
+
+        if (instrumentMatch && levelMatch) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Gestion des filtres par instrument
+    instrumentButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        instrumentButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        filterCourses();
+      });
+    });
+
+    // Gestion des filtres par niveau
+    levelButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        levelButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        filterCourses();
+      });
+    });
+
+    // Activer les filtres par défaut
+    instrumentButtons[0].classList.add('active'); // "Tous" par défaut
+    levelButtons[0].classList.add('active'); // "Tous les niveaux" par défaut
+  });
+</script>

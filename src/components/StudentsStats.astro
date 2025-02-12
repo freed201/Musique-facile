@@ -1,0 +1,229 @@
+---
+---
+
+<section class="students-stats">
+  <div class="container">
+    <div class="stats-content">
+      <h2>+ de 80 000 élèves formés… et ça continue !</h2>
+      
+      <div class="rating-box">
+        <div class="stars">
+          ★★★★<span class="half-star">★</span>
+        </div>
+        <p class="rating-text">Note moyenne de <strong>4,7</strong> sur 5</p>
+      </div>
+      
+      <div class="stats-description">
+        <p>Depuis le lancement de Musique Facile, plus de 80 000 passionnés ont appris la guitare, le piano, l'ukulélé et le solfège grâce à mes formations.</p>
+        
+        <div class="insight-box">
+          <span class="insight-icon">💡</span>
+          <p>Ce n'est pas juste un chiffre, c'est une réalité : des milliers d'élèves ont progressé à leur rythme, sur mon site et via mes partenaires (LinkedIn Learning, Skilleos, Hal Leonard…).</p>
+        </div>
+      </div>
+
+      <div class="partners-logos">
+        <img src="https://test.musique-facile.fr/images/logo/logo_LinkedIn.png" alt="LinkedIn Learning" />
+        <img src="https://test.musique-facile.fr/images/logo/logo_Skilleos.png" alt="Skilleos" />
+        <img src="https://test.musique-facile.fr/images/logo/logo_Hal_Leonard.png" alt="Hal Leonard" />
+      </div>
+
+      <div class="cta-wrapper">
+        <p class="cta-text">Et toi, prêt(e) à rejoindre l'aventure ? 🎸🎹🎶</p>
+        <a href="/cours/" class="cta-button">
+          Découvrir les formations
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .students-stats {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .students-stats::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+  }
+
+  .stats-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+  }
+
+  .rating-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .stars {
+    color: #FFD700;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .half-star {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(90deg, #FFD700 70%, #ffffff33 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .rating-text {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .rating-text strong {
+    color: #FFD700;
+  }
+
+  .stats-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+  }
+
+  .insight-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .insight-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .partners-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+  }
+
+  .partners-logos img {
+    height: 40px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(200%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  .partners-logos img:hover {
+    filter: grayscale(0%) brightness(100%);
+    opacity: 1;
+  }
+
+  .cta-wrapper {
+    margin-top: 3rem;
+  }
+
+  .cta-text {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--theme-current);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 768px) {
+    .students-stats {
+      padding: 4rem 0;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+    }
+
+    .rating-box {
+      margin: 0 1rem 2rem;
+    }
+
+    .stars {
+      font-size: 1.8rem;
+    }
+
+    .stats-description {
+      font-size: 1.1rem;
+      padding: 0 1rem;
+    }
+
+    .insight-box {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .partners-logos {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .cta-text {
+      font-size: 1.3rem;
+    }
+  }
+</style>

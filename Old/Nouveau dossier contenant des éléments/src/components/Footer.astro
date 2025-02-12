@@ -1,0 +1,371 @@
+---
+const currentYear = new Date().getFullYear();
+
+const legalLinks = [
+  { text: "Mentions légales", url: "/mentions-legales" },
+  { text: "CGV", url: "/conditions-generales-de-vente" },
+  { text: "Politique de confidentialité", url: "/politique-de-confidentialite" },
+  { text: "Cookies", url: "/gestion-des-cookies" }
+];
+
+const planSite = [
+  { text: "Accueil", url: "/" },
+  { text: "Cours", url: "/cours" },
+  { text: "Tarifs", url: "/tarifs" },
+  { text: "Blog", url: "/blog" },
+  { text: "Contact", url: "/contact" }
+];
+
+const contact = {
+  societe: "Musique Facile SASU",
+  siret: "123 456 789 00001",
+  rcs: "RCS Paris B 123 456 789",
+  adresse: "123 rue de la Musique, 75001 Paris",
+  email: "contact@musique-facile.fr",
+  tel: "+33 1 23 45 67 89"
+};
+
+const social = [
+  { name: "TikTok", url: "https://www.tiktok.com/@musique_facile", icon: "🎵" },
+  { name: "YouTube", url: "https://www.youtube.com/@Musique-Facile", icon: "📺" },
+  { name: "Instagram", url: "https://instagram.com/musique_facile", icon: "📸" },
+  { name: "Facebook", url: "https://facebook.com/musiquefacile", icon: "👥" }
+];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Informations légales -->
+      <div class="footer-section">
+        <h2>Informations légales</h2>
+        <address class="company-info">
+          <p class="company-name">{contact.societe}</p>
+          <p>SIRET : {contact.siret}</p>
+          <p>{contact.rcs}</p>
+          <p>{contact.adresse}</p>
+          <p>
+            <a href={`mailto:${contact.email}`} class="contact-link">
+              {contact.email}
+            </a>
+          </p>
+          <p>
+            <a href={`tel:${contact.tel}`} class="contact-link">
+              {contact.tel}
+            </a>
+          </p>
+        </address>
+      </div>
+
+      <!-- Plan du site -->
+      <div class="footer-section">
+        <h2>Plan du site</h2>
+        <nav class="footer-nav">
+          <ul>
+            {planSite.map(link => (
+              <li>
+                <a href={link.url}>{link.text}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Réseaux sociaux -->
+      <div class="footer-section">
+        <h2>Suivez-nous</h2>
+        <div class="social-links">
+          {social.map(platform => (
+            <a 
+              href={platform.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label={`Suivez-nous sur ${platform.name}`}
+            >
+              <span class="social-icon">{platform.icon}</span>
+              <span>{platform.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-section">
+        <h2>Newsletter</h2>
+        <p>Recevez nos actualités et conseils musicaux</p>
+        <form class="newsletter-form" action="/api/newsletter" method="POST">
+          <div class="form-group">
+            <label for="email" class="sr-only">Votre email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="Votre email" 
+              required
+              aria-required="true"
+            />
+          </div>
+          <button type="submit" class="btn btn-newsletter">S'inscrire</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Liens légaux -->
+    <div class="legal-section">
+      <nav class="legal-nav">
+        {legalLinks.map(link => (
+          <a href={link.url} class="legal-link">{link.text}</a>
+        ))}
+      </nav>
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright">
+      <p>© {currentYear} Musique Facile. Tous droits réservés.</p>
+      <p class="conformite">
+        Organisme de formation enregistré sous le numéro 11756789100
+        auprès du préfet de région d'Île-de-France
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: linear-gradient(to bottom, var(--color-dark), #0a0a0a);
+    color: var(--color-gray);
+    padding: 4rem 0 2rem;
+    font-size: 0.9rem;
+    border-top: 4px solid var(--color-primary);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-section h2 {
+    color: var(--color-white);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  .footer-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--gradient-primary);
+  }
+
+  .company-info {
+    font-style: normal;
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+  }
+
+  .company-name {
+    color: var(--color-white);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-base);
+    display: inline-block;
+  }
+
+  .contact-link:hover {
+    color: var(--color-white);
+    transform: translateX(5px);
+  }
+
+  .footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-nav li {
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-nav a {
+    color: var(--color-gray);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    display: inline-block;
+    padding: 0.3rem 0;
+  }
+
+  .footer-nav a:hover {
+    color: var(--color-white);
+    transform: translateX(5px);
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--color-gray);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    padding: 0.8rem;
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .social-link:hover {
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+  }
+
+  .social-icon {
+    font-size: 1.2rem;
+  }
+
+  .newsletter-form {
+    margin-top: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  input[type="email"] {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-white);
+    transition: all var(--transition-base);
+  }
+
+  input[type="email"]:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .btn-newsletter {
+    width: 100%;
+    background: var(--gradient-primary);
+    border: none;
+    padding: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .btn-newsletter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 193, 141, 0.2);
+  }
+
+  .legal-section {
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .legal-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .legal-link {
+    color: var(--color-gray);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color var(--transition-base);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+  }
+
+  .legal-link:hover {
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .copyright {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+  }
+
+  .conformite {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .legal-nav {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-section h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .footer-section {
+      text-align: center;
+    }
+
+    .company-info {
+      text-align: left;
+    }
+  }
+</style>

@@ -1,0 +1,23 @@
+{
+  "name": "musique-facile",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "generate-sitemap": "tsc -p tsconfig.sitemap.json && node dist/scripts/generate-sitemap.js"
+  },
+  "dependencies": {
+    "astro": "^4.15.3",
+    "@fontsource/poppins": "^5.0.8",
+    "@fontsource/raleway": "^5.0.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.11.0"
+  }
+}

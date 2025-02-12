@@ -1,0 +1,231 @@
+---
+const testimonials = [
+  {
+    name: "Marie Dubois",
+    role: "Élève en guitare",
+    image: "/images/marie.jpg",
+    quote: "Grâce à Musique Facile, j'ai pu apprendre la guitare à mon rythme. Les cours sont très bien structurés et les explications sont claires. En seulement quelques mois, je peux déjà jouer mes morceaux préférés !",
+    rating: 5
+  },
+  {
+    name: "Thomas Martin",
+    role: "Élève en piano",
+    image: "/images/thomas.jpg", 
+    quote: "Je cherchais une méthode flexible pour apprendre le piano et j'ai trouvé exactement ce qu'il me fallait. La progression est bien pensée et le support est très réactif. Je recommande vivement !",
+    rating: 5
+  }
+];
+
+const stats = [
+  {
+    number: "80,000+",
+    label: "Étudiants formés"
+  },
+  {
+    number: "95%",
+    label: "Taux de satisfaction"
+  },
+  {
+    number: "1400+",
+    label: " vidéos disponibles"
+  }
+];
+---
+
+<section class="testimonials">
+  <div class="container">
+    <h2 class="section-title">Ce que nos élèves disent de nous</h2>
+    <p class="section-subtitle">Découvrez les retours d'expérience de nos étudiants satisfaits</p>
+
+    <div class="testimonials-grid">
+      {testimonials.map(testimonial => (
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img 
+              src={testimonial.image} 
+              alt={testimonial.name}
+              class="testimonial-image"
+              width="80"
+              height="80"
+            />
+            <div class="testimonial-meta">
+              <h3>{testimonial.name}</h3>
+              <p class="testimonial-role">{testimonial.role}</p>
+              <div class="testimonial-rating">
+                {Array.from({ length: testimonial.rating }).map(() => (
+                  <span class="star">⭐</span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <blockquote class="testimonial-quote">
+            "{testimonial.quote}"
+          </blockquote>
+        </div>
+      ))}
+    </div>
+
+    <div class="stats-container">
+      {stats.map(stat => (
+        <div class="stat-item">
+          <div class="stat-number">{stat.number}</div>
+          <div class="stat-label">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    padding: 8rem 0;
+    background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .testimonial-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--theme-current);
+  }
+
+  .testimonial-meta h3 {
+    font-size: 1.2rem;
+    margin: 0 0 0.25rem;
+    color: var(--color-dark);
+  }
+
+  .testimonial-role {
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin: 0 0 0.5rem;
+  }
+
+  .testimonial-rating {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .star {
+    font-size: 1rem;
+  }
+
+  .testimonial-quote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-dark);
+    margin: 0;
+    font-style: italic;
+  }
+
+  .stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    background: var(--theme-current);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    margin-top: 4rem;
+    text-align: center;
+    color: white;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .stat-label {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-container {
+      grid-template-columns: 1fr;
+      padding: 2rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .testimonial-card {
+      padding: 1.5rem;
+    }
+
+    .testimonial-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .testimonial-meta {
+      text-align: center;
+    }
+
+    .testimonial-rating {
+      justify-content: center;
+    }
+  }
+</style>

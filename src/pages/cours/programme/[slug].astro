@@ -1,0 +1,311 @@
+---
+import { getCollection } from 'astro:content';
+import ProgrammeLayout from '../../../layouts/ProgrammeLayout.astro';
+
+export async function getStaticPaths() {
+  const programmes = await getCollection('programmes');
+  return programmes.map(programme => ({
+    params: { slug: programme.slug },
+    props: { programme },
+  }));
+}
+
+const { programme } = Astro.props;
+const {
+  title,
+  description,
+  ogImage,
+  theme,
+  lienAchat,
+  dataGenerale,
+  dataProgramme
+} = programme.data;
+
+// Construction de l'URL complète pour schema.org
+const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
+---
+
+<ProgrammeLayout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  theme={theme}
+  url={canonicalURL.toString()}
+>
+  <section class="programme-section">
+    <div class="container">
+      <header class="programme-header">
+        <h1 class="programme-title">Programme de la formation</h1>
+        <h2 class="programme-subtitle">{title}</h2>
+      </header>
+
+      <!-- Bloc 1: Informations générales -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">{dataGenerale.nombreVideos}</div>
+          <div class="stat-label">Vidéos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">{dataGenerale.dureeTotal}</div>
+          <div class="stat-label">Heures de formation</div>
+        </div>
+   {dataGenerale.nombreDocuments && (
+  <div class="stat-card">
+    <div class="stat-value">{dataGenerale.nombreDocuments}</div>
+    <div class="stat-label">Documents PDF</div>
+  </div>
+)}
+        {dataGenerale.nombrePages && (
+          <div class="stat-card">
+            <div class="stat-value">{dataGenerale.nombrePages}</div>
+            <div class="stat-label">Pages de contenu</div>
+          </div>
+        )}
+      </div>
+
+      <!-- Boutons d'action en haut -->
+      <div class="action-buttons top-buttons">
+        <a href={`/cours/${Astro.params.slug}`} class="btn-back">
+          ← Retour au cours
+        </a>
+        <a href={lienAchat} class="btn-start">
+          Je veux commencer →
+        </a>
+      </div>
+
+      <!-- Bloc 2: Programme détaillé -->
+      <div class="programme-content">
+        {dataProgramme.map((session) => (
+          <div class="session">
+            <header class="session-header">
+              <h2 class="session-title">{session.titre}</h2>
+              {session.sousTitre && (
+                <p class="session-subtitle">{session.sousTitre}</p>
+              )}
+            </header>
+            <ul class="video-list">
+              {session.videos.map((video) => (
+                <li class="video-item">
+                  <span class="video-icon">🎥</span>
+                  <span class="video-title">{video.titre}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <!-- Boutons d'action en bas -->
+      <div class="action-buttons bottom-buttons">
+        <a href={`/cours/${Astro.params.slug}`} class="btn-back">
+          ← Retour au cours
+        </a>
+        <a href={lienAchat} class="btn-start">
+          Je veux commencer →
+        </a>
+      </div>
+    </div>
+  </section>
+</ProgrammeLayout>
+
+<style>
+  .programme-section {
+    padding: 8rem 0;
+    background: var(--bg-light);
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .programme-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .programme-title {
+    font-size: 2.5rem;
+    color: var(--theme-current);
+    margin-bottom: 0.5rem;
+  }
+
+  .programme-subtitle {
+    font-size: 1.5rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+  .stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    color: var(--theme-current);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: var(--color-dark);
+    opacity: 0.8;
+    font-size: 0.9rem;
+  }
+
+  .programme-content {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+  }
+
+  .session {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .session:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .session-header {
+    margin-bottom: 1rem;
+  }
+
+  .session-title {
+    font-size: 1.5rem;
+    color: var(--theme-current);
+    margin-bottom: 0.25rem;
+  }
+
+  .session-subtitle {
+    color: var(--color-dark);
+    opacity: 0.8;
+    font-size: 1rem;
+  }
+
+  .video-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .video-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .video-item:hover {
+    transform: translateX(5px);
+    background: rgba(var(--theme-current-rgb), 0.1);
+  }
+
+  .video-icon {
+    font-size: 1.2rem;
+  }
+
+  .video-title {
+    flex: 1;
+    font-size: 0.95rem;
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .top-buttons {
+    margin-bottom: 3rem;
+  }
+
+  .bottom-buttons {
+    margin-top: 3rem;
+  }
+
+  .btn-back,
+  .btn-start {
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-back {
+    background: var(--bg-light);
+    color: var(--color-dark);
+  }
+
+  .btn-start {
+    background: var(--theme-current);
+    color: white;
+  }
+
+  .btn-back:hover,
+  .btn-start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .programme-title {
+      font-size: 2rem;
+    }
+
+    .programme-subtitle {
+      font-size: 1.2rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .programme-content {
+      padding: 1.5rem;
+    }
+
+    .action-buttons {
+      flex-direction: column;
+    }
+
+    .btn-back,
+    .btn-start {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

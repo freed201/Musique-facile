@@ -1,0 +1,185 @@
+---
+import { getCollection } from 'astro:content';
+
+// Récupérer tous les articles
+const allPosts = await getCollection('blog');
+
+// Trier les articles par date de publication (du plus récent au plus ancien)
+const sortedPosts = allPosts.sort((a, b) => {
+  return new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime();
+});
+
+// Prendre le dernier article (le plus récent)
+const latestPost = sortedPosts[0];
+
+// Retirer le dernier article du tableau et mélanger le reste
+const remainingPosts = sortedPosts.slice(1);
+const shuffledPosts = remainingPosts.sort(() => Math.random() - 0.5);
+
+// Prendre 2 articles au hasard parmi les articles restants
+const randomPosts = shuffledPosts.slice(0, 2);
+
+// Combiner le dernier article avec les 2 articles aléatoires
+const displayPosts = [latestPost, ...randomPosts];
+---
+
+<section class="random-posts">
+  <div class="container">
+    <h2>Articles populaires</h2>
+    <div class="posts-grid">
+      {displayPosts.map((post, index) => (
+        <a href={`/blog/${post.slug}`} class="post-card">
+          <div class="post-image" style={`background-image: url(${post.data.ogImage})`}>
+            <div class="post-overlay">
+              <span class="read-more">Lire l'article →</span>
+            </div>
+            {index === 0 && (
+              <div class="latest-tag">
+                <span class="latest-icon">📝</span>
+                Dernier article
+              </div>
+            )}
+          </div>
+          <div class="post-content">
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description.slice(0, 100)}...</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .random-posts {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--theme-current);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .post-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .post-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .post-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .post-card:hover .post-overlay {
+    opacity: 1;
+  }
+
+  .read-more {
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border: 2px solid white;
+    border-radius: var(--border-radius);
+  }
+
+  .latest-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--theme-current);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+  }
+
+  .latest-icon {
+    font-size: 1.1rem;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .post-content {
+    padding: 1.5rem;
+  }
+
+  .post-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-dark);
+    line-height: 1.4;
+  }
+
+  .post-content p {
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1024px) {
+    .posts-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+</style>

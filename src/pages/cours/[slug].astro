@@ -1,0 +1,915 @@
+---
+import { getCollection } from 'astro:content';
+import CourseLayout from '../../layouts/CourseLayout.astro';
+
+export async function getStaticPaths() {
+  const courses = await getCollection('courses');
+  return courses.map(course => ({
+    params: { slug: course.slug },
+    props: { course },
+  }));
+}
+
+const { course } = Astro.props;
+const {
+  title,
+  description,
+  ogImage,
+  theme,
+  hero,
+  timeline,
+  teachers,
+  frustrations,
+  valeurUnique,
+  preuveSociale,
+  benefices,
+  cta,
+  faq
+} = course.data;
+
+// Construction d'un schema.org simplifié
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": title,
+  "description": description,
+  "url": Astro.url.toString(),
+  "image": ogImage
+};
+
+// Fonction utilitaire pour construire les chemins d'images
+function getCoursePaths(slug: string) {
+  return {
+    hero: `/images/cours/${slug}/hero.jpg`,
+    timeline: (index: number) => `/images/cours/${slug}/timeline-${index}.jpg`,
+    testimonial: (index: number) => `/images/cours/${slug}/testimonial-${index}.jpg`
+  };
+}
+
+// Récupération des données du cours
+const { slug } = Astro.params;
+
+// Obtention des chemins d'images pour ce cours
+const imagePaths = getCoursePaths(slug);
+---
+
+<CourseLayout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  theme={theme}
+  heroImage={hero.imageBK}
+>
+
+<section class="hero">
+<div class="hero-background" style={`background-image: url('${imagePaths.hero}')`}>
+    <div class="gradient-overlay"></div>
+  </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="hero-badge">{hero.badge}</span>
+          <h1>
+            <span class="visually-hidden"></span>
+            {hero.title}
+          </h1>
+          <p class="hero-subtitle">
+            {hero.subtitle}
+          </p>
+          <div class="cta-group">
+            <a href={cta.buttonLink} class="btn btn-primary btn-lg pulsing">
+              {hero.cta.text}
+              <span class="price-tag">{hero.cta.price}</span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-video">
+          <div class="video-wrapper">
+            <iframe
+              src={hero.video.url}
+              width="640"
+              height="360"
+              frameborder="0"
+              allow="autoplay; fullscreen"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="course-stats">
+            {hero.stats.map(stat => (
+              <div class="stat-item">
+                <span class="stat-icon">{stat.icon}</span>
+                <div class="stat-content">
+                  <span class="stat-value">{stat.value}</span>
+                  <span class="stat-label">{stat.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="frustrations">
+    <div class="container">
+      <h2 class="frustrations-title">{frustrations.title}</h2>
+      
+      <div class="frustrations-grid">
+        {frustrations.items.map(item => (
+          <div class="frustration-card">
+            <span class="frustration-icon">{item.icon}</span>
+            <p class="frustration-text">{item.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="solution-banner">
+        <p class="solution-text">{frustrations.solution}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="valeur-unique">
+    <div class="container">
+      <div class="valeur-unique-content">
+        <h2>{valeurUnique.title}</h2>
+        <p class="description">{valeurUnique.description}</p>
+        
+        <div class="avantages-grid">
+          {valeurUnique.avantages.map(avantage => (
+            <div class="avantage-card">
+              <span class="avantage-icon">{avantage.icon}</span>
+              <p class="avantage-text">{avantage.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<section class="timeline">
+  <div class="container">
+    <h2 class="timeline-title">Programme de la formation</h2>
+    <div class="timeline-wrapper">
+      {timeline.map((item) => {
+        // Construire le chemin de l'image de timeline de manière dynamique
+        const timelineImagePath = `/images/cours/${Astro.params.slug}/timeline-${item.number}.jpg`;
+        
+        return (
+          <div class="timeline-item">
+            <div class="timeline-number">{item.number}</div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>{item.title}</h3>
+                <p class="timeline-objective">{item.objective}</p>
+              </div>
+              <div class="timeline-body">
+                <div class="timeline-image-wrapper">
+                  <img 
+                    src={timelineImagePath}
+                    alt={`${item.title} - ${item.objective}`}
+                    class="timeline-image"
+                    data-modal={`modal-${item.number}`}
+                    loading="lazy" // Ajout du lazy loading pour optimiser le chargement
+                  />
+                </div>
+                <ul class="timeline-details">
+                  {item.details.map((detail) => (
+                    <li>{detail}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+    <div class="program-button-wrapper">
+      <a href={`/cours/programme/${Astro.params.slug}`} class="btn btn-program">
+        Découvre le programme complet de la formation !
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Modals pour les images -->
+{timeline.map((item) => {
+  const timelineImagePath = `/images/cours/${Astro.params.slug}/timeline-${item.number}.jpg`;
+  
+  return (
+    <div id={`modal-${item.number}`} class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img 
+          src={timelineImagePath} 
+          alt={`${item.title} - Vue détaillée`}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  );
+})}
+
+<section class="teachers-section">
+  <div class="container">
+    <div class="section-title-wrapper">
+      <h2 class="teachers-title">
+        {teachers.mainTeachers.length === 1 && (!teachers.guests || teachers.guests.length === 0) ? 
+          "Votre professeur" : 
+          "L'équipe pédagogique"
+        }
+      </h2>
+    </div>
+
+    <div class="main-teachers">
+      {teachers.mainTeachers.map(teacher => (
+        <div class="teacher-card">
+          <div class="teacher-header">
+            <div class="teacher-photo">
+              <img 
+                src={`/images/prof/${teacher.photo}`} 
+                alt={`${teacher.firstName} ${teacher.lastName}`}
+                loading="lazy"
+              />
+            </div>
+            <div class="teacher-identity">
+              <h3>{teacher.firstName} <span class="last-name">{teacher.lastName}</span></h3>
+              <p class="teacher-role">{teacher.subtitle}</p>
+            </div>
+          </div>
+          <p class="teacher-description">{teacher.description}</p>
+          {teacher.website && (
+            <a href={teacher.website} class="teacher-website" target="_blank" rel="noopener noreferrer">
+              Voir le site web →
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+
+    {teachers.guests && teachers.guests.length > 0 && (
+      <div class="guest-teachers">
+        <h3 class="guests-title">Professeurs invités</h3>
+        <div class="guests-grid">
+          {teachers.guests.map(guest => (
+            <div class="guest-card">
+              <div class="guest-photo">
+                <img 
+                  src={`/images/prof/${guest.photo}`} 
+                  alt={guest.name}
+                  loading="lazy"
+                />
+              </div>
+              <h4>{guest.name}</h4>
+              <p class="guest-role">{guest.subtitle}</p>
+              {guest.website && (
+                <a href={guest.website} class="guest-link" target="_blank" rel="noopener noreferrer">
+                  En savoir plus →
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</section>
+
+
+<style>
+  .teachers-section {
+    padding: 6rem 0;
+    background: var(--theme-current);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .teachers-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+  }
+
+  .section-title-wrapper {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .teachers-title {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .main-teachers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .teacher-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .teacher-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .teacher-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .teacher-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .teacher-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .teacher-identity h3 {
+    font-size: 1.4rem;
+    color: white;
+    margin: 0 0 0.5rem;
+  }
+
+  .last-name {
+    font-weight: 300;
+  }
+
+  .teacher-role {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .teacher-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .teacher-website {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+  }
+
+  .teacher-website:hover {
+    transform: translateX(5px);
+  }
+
+  .guests-title {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin: 4rem 0 2rem;
+  }
+
+  .guests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .guest-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .guest-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .guest-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .guest-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .guest-card h4 {
+    font-size: 1.1rem;
+    color: white;
+    margin: 0 0 0.5rem;
+  }
+
+  .guest-role {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .guest-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+  }
+
+  .guest-link:hover {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 768px) {
+    .teachers-title {
+      font-size: 2rem;
+    }
+
+    .main-teachers {
+      grid-template-columns: 1fr;
+    }
+
+    .teacher-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .teacher-identity {
+      text-align: center;
+    }
+
+    .guests-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .guests-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+
+
+  <section class="benefices">
+    <div class="container">
+      <h2 class="benefices-title">{benefices.title}</h2>
+      
+      <div class="benefices-grid">
+        {benefices.items.map((benefice, index) => (
+          <div class="benefice-card" style={`--delay: ${index * 0.2}s`}>
+            <div class="benefice-icon-wrapper">
+              <span class="benefice-icon">{benefice.icon}</span>
+            </div>
+            <h3>{benefice.title}</h3>
+            <p>{benefice.description}</p>
+            <div class="card-decoration"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+<section class="preuve-sociale">
+  <div class="container">
+    <div class="testimonials-wrapper" role="region" aria-label="Témoignages">
+      {preuveSociale.testimonials.map((testimonial, index) => {
+        // Construction du chemin de l'image de témoignage de manière dynamique
+        const testimonialImagePath = `/images/cours/${Astro.params.slug}/testimonial-${index + 1}.jpg`;
+        
+        return (
+          <div class="testimonial">
+            <div class="quote-icon">❝</div>
+            <p class="testimonial-text">{testimonial.text}</p>
+            <div class="testimonial-author">
+              <img 
+                src={testimonialImagePath} 
+                alt={`Photo de ${testimonial.author}`}
+                loading="lazy"
+                width="50"
+                height="50"
+              />
+              <span>{testimonial.author}</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <div class="stats-banner">
+      <div class="stat">
+        <span class="stat-number">{preuveSociale.stats.students}</span>
+        <span class="stat-label">élèves satisfaits</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number">{preuveSociale.stats.successRate}</span>
+        <span class="stat-label">{preuveSociale.stats.timeframe}</span>
+      </div>
+    </div>
+
+<div class="partners">
+  <h3>Ils nous font confiance</h3>
+  <div class="partners-grid">
+    {preuveSociale.partners.map(partner => (
+      <div class="partner">
+        <img 
+          src={`/images/logo/${partner.logo}`} 
+          alt={`Logo de ${partner.name}`}
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
+</div>
+  </div>
+</section>
+
+  <section class="cta-final">
+    <div class="cta-background"></div>
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">{cta.title}</h2>
+        <p class="cta-subtitle">{cta.subtitle}</p>
+        
+        <div class="cta-features">
+          {cta.features.map(feature => (
+            <div class="cta-feature">
+              <span class="feature-icon">{feature.icon}</span>
+              <span class="feature-text">{feature.text}</span>
+            </div>
+          ))}
+        </div>
+
+        <a href={cta.buttonLink} class="cta-button">
+          {cta.buttonText}
+          <span class="button-shine"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="faq-background"></div>
+    <div class="container">
+      <div class="faq-header">
+        <h2>{faq.title}</h2>
+        <p>{faq.subtitle}</p>
+      </div>
+
+      <div class="faq-grid">
+        {faq.questions.map((item, index) => (
+          <div class="faq-item" style={`--delay: ${index * 0.2}s`}>
+            <div class="faq-question-wrapper">
+              <h3>{item.question}</h3>
+              <div class="faq-icon">
+                <span class="icon-line"></span>
+                <span class="icon-line"></span>
+              </div>
+            </div>
+            <div class="faq-answer">
+              <p>{item.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</CourseLayout>
+
+<style>
+  .teachers-section {
+    padding: 6rem 0;
+    background: var(--theme-current);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .teachers-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+  }
+
+  .section-title-wrapper {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .teachers-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .main-teachers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .teacher-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .teacher-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .teacher-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .teacher-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .teacher-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .teacher-identity h3 {
+    font-size: 1.4rem;
+    color: white;
+    margin: 0 0 0.5rem;
+  }
+
+  .last-name {
+    font-weight: 300;
+  }
+
+  .teacher-role {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .teacher-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .teacher-website {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+  }
+
+  .teacher-website:hover {
+    transform: translateX(5px);
+  }
+
+  .guests-title {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .guests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .guest-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .guest-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .guest-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .guest-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .guest-info h4 {
+    font-size: 1.1rem;
+    color: white;
+    margin: 0 0 0.5rem;
+  }
+
+  .guest-role {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .guest-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+  }
+
+  .guest-link:hover {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .main-teachers {
+      grid-template-columns: 1fr;
+    }
+
+    .teacher-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .teacher-identity {
+      text-align: center;
+    }
+.teachers-section .section-title {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Override explicite des styles de gradient si nécessaire */
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+}
+
+    .guests-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .guests-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .program-button-wrapper {
+    text-align: center;
+    margin-top: 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn-program {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--theme-current);
+    color: white;
+    padding: 1.2rem 2.5rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-program:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-program .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .btn-program:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2.2rem;
+    }
+
+    .main-teachers,
+    .guests-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .teacher-photo {
+      height: 250px;
+    }
+
+    .teacher-info {
+      padding: 1.5rem;
+    }
+
+    .teacher-info h3 {
+      font-size: 1.5rem;
+    }
+
+    .program-button-wrapper {
+      margin-top: 3rem;
+      padding: 0 1rem;
+    }
+
+    .btn-program {
+      width: 100%;
+      justify-content: center;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+    }
+  }
+</style>

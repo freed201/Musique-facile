@@ -1,0 +1,252 @@
+---
+---
+
+<section class="hero">
+  <div class="hero-background">
+    <div class="gradient-overlay"></div>
+    <div class="pattern-overlay"></div>
+  </div>
+  
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-main">
+        <div class="hero-text-content">
+          <h1 class="hero-title">
+            <span class="text-gradient">Apprenez la musique</span>
+            <br />
+            à votre rythme
+          </h1>
+          <p class="hero-subtitle">Découvrez une nouvelle façon d'apprendre la guitare, le piano, l'ukulélé et le solfège avec nos cours en vidéo, suivis par des élèves passionnés.</p>
+        
+          <div class="cta-group">
+            <a href="/cours" class="cta-button">
+              <div class="cta-content">
+                <span class="cta-highlight">Rejoignez plus de 80.000 musiciens</span>
+                <span class="cta-text">Découvrez nos formations →</span>
+              </div>
+              <div class="cta-shine"></div>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-element floating">
+            <span class="music-note">♪</span>
+          </div>
+          <div class="visual-element floating" style="animation-delay: 0.5s">
+            <span class="music-note">♫</span>
+          </div>
+          <div class="visual-element floating" style="animation-delay: 1s">
+            <span class="music-note">♬</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 0 4rem;
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/images/hero_banner.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+  }
+
+  .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.75) 100%
+    );
+    z-index: -1;
+  }
+
+  .pattern-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-main {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-text-content {
+    max-width: 700px;
+  }
+
+  .hero-title {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--color-white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-subtitle {
+    font-size: 1.35rem;
+    color: var(--color-white);
+    opacity: 0.95;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-group {
+    margin-bottom: 3rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    position: relative;
+    background: var(--theme-current);
+    padding: 1.2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-highlight {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .cta-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    animation: shine 3s infinite;
+  }
+
+  @keyframes shine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+  }
+
+  .cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: var(--theme-current-dark);
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .visual-element {
+    position: absolute;
+    font-size: 8rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 30px rgba(0, 225, 167, 0.3);
+  }
+
+  .visual-element:nth-child(1) { top: 20%; left: 20%; }
+  .visual-element:nth-child(2) { top: 40%; left: 50%; }
+  .visual-element:nth-child(3) { top: 60%; left: 30%; }
+
+  @media (max-width: 1024px) {
+    .hero-main {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+      display: none;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 6rem 0 3rem;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      text-align: center;
+    }
+
+    .cta-highlight {
+      font-size: 1.2rem;
+    }
+
+    .cta-text {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+  }
+</style>
