@@ -33,6 +33,11 @@ const menuItems = [
     ]
   },
   {
+    text: "Livres",
+    url: "/livres",
+    icon: "/images/icons/livre.png"
+  },
+  {
     text: "Blog",
     url: "/blog",
     icon: "/images/icons/blog.png"
@@ -71,7 +76,7 @@ const menuItems = [
                   href={item.url} 
                   class="nav-link has-submenu"
                 >
-                  <img src={item.icon} alt="" class="nav-icon" width="20" height="20" />
+                  <img src={item.icon} alt={`Icône ${item.text}`} class="nav-icon" width="20" height="20" />
                   <span>{item.text}</span>
                   <span class="dropdown-arrow">▼</span>
                 </a>
@@ -92,12 +97,18 @@ const menuItems = [
                 class="nav-link"
                 {...item.external ? { target: "_blank", rel: "noopener noreferrer" } : {}}
               >
-                <img src={item.icon} alt="" class="nav-icon" width="20" height="20" />
+                <img src={item.icon} alt={`Icône ${item.text}`} class="nav-icon" width="20" height="20" />
                 <span>{item.text}</span>
               </a>
             )}
           </li>
         ))}
+        <li class="nav-item login-item">
+          <a href="https://ecole.musique-facile.fr/login" class="nav-link login-link" target="_blank" rel="noopener noreferrer">
+            <img src="/images/icons/login.png" alt="Icône connexion" class="nav-icon" width="20" height="20" />
+            <span>Se connecter</span>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
@@ -249,30 +260,49 @@ const menuItems = [
     transition: all 0.3s ease;
   }
 
+  /* Styles spécifiques pour le bouton de connexion */
+  .login-item {
+    margin-left: 1rem;
+  }
+
+  .login-link {
+    background: var(--theme-current);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+  }
+
+  .login-link:hover {
+    background: var(--theme-current-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
   @media (max-width: 768px) {
     .menu-toggle {
       display: block;
+      position: relative;
+      z-index: 1001;
     }
 
     .nav-menu {
       position: fixed;
-      top: 70px;
-      left: 0;
-      right: 0;
-      background: rgba(23, 23, 23, 0.95);
+      inset: 0;
+      margin-top: 70px;
+      background: rgba(23, 23, 23, 0.98);
       backdrop-filter: blur(10px);
+      display: flex;
       flex-direction: column;
-      padding: 1rem;
-      transform: translateY(-100%);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
+      padding: 2rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      height: calc(100vh - 70px);
     }
 
     .nav-menu.active {
-      transform: translateY(0);
-      opacity: 1;
-      visibility: visible;
+      transform: translateX(0);
     }
 
     .nav-item {
@@ -282,7 +312,7 @@ const menuItems = [
     .nav-link {
       width: 100%;
       padding: 1rem;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     .submenu {
@@ -293,63 +323,62 @@ const menuItems = [
       background: rgba(255, 255, 255, 0.05);
       margin-top: 0.5rem;
       display: none;
+      padding: 0;
     }
 
     .nav-dropdown.active .submenu {
       display: block;
     }
 
-    /* Animation du menu burger */
-    .menu-toggle.active span:first-child {
-      transform: rotate(45deg) translate(5px, 5px);
+    /* Ajustements pour le bouton de connexion en mobile */
+    .login-item {
+      margin-left: 0;
+      margin-top: 1rem;
     }
 
-    .menu-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-toggle.active span:last-child {
-      transform: rotate(-45deg) translate(7px, -7px);
+    .login-link {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>
 
 <script>
-  // Menu mobile
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  const dropdowns = document.querySelectorAll('.nav-dropdown');
-
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      
-      const isExpanded = menuToggle.classList.contains('active');
-      menuToggle.setAttribute('aria-expanded', isExpanded);
-      
-      // Empêcher le défilement du body quand le menu est ouvert
-      document.body.style.overflow = isExpanded ? 'hidden' : '';
-    });
-
-    // Gestion des sous-menus sur mobile
-    dropdowns.forEach(dropdown => {
-      const link = dropdown.querySelector('.nav-link');
-      link.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          dropdown.classList.toggle('active');
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        
+        if (navMenu.classList.contains('active')) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
         }
       });
-    });
 
-    // Fermer le menu quand on clique sur un lien
-    navMenu.querySelectorAll('.submenu-link').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
+      document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+          menuToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        }
       });
-    });
-  }
+
+      dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('.nav-link');
+        link.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+          }
+        });
+      });
+    }
+  });
 </script>

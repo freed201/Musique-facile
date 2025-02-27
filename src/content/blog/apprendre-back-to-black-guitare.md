@@ -1,12 +1,12 @@
 ---
 title: "Back To Black : Amy Winehouse et le sommet de la mélancolie"
 description: "Explorez 'Back To Black', une chanson emblématique d'Amy Winehouse, alliant profondeur émotionnelle et mélodies intemporelles."
-ogImage: "/images/blog/apprendre-back-to-black-guitare.jpg"
+ogImage: "/images/blog/apprendre-back-to-black-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-02"
 introduction: "Avec 'Back To Black', Amy Winehouse nous a livré une œuvre intemporelle, marquée par une honnêteté brute et une profondeur émotionnelle captivante. Découvrez l'histoire et l'impact de ce morceau unique."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "8"
   tempo: "123"
   chordCount: "7"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: "Dm"
+  difficulty: "3/5"
 
 videos:
   - title: "Introduction Simple : Les bases de 'Back To Black'"

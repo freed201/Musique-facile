@@ -1,12 +1,12 @@
 ---
-title: "Chasing Cars : Une mélodie intemporelle de Snow Patrol"
+title: "Chasing Cars : Jouez ce tube mythique de Snow Patrol à la guitare"
 description: "Découvrez l'histoire, l'impact et l'analyse de 'Chasing Cars', un classique du rock alternatif qui continue de toucher les cœurs."
-ogImage: "/images/blog/apprendre-chasing-cars-guitare.jpg"
+ogImage: "/images/blog/apprendre-chasing-cars-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-03"
 introduction: "Avec 'Chasing Cars', Snow Patrol a marqué une génération avec un morceau émouvant et intemporel, invitant à la contemplation et à la simplicité des émotions humaines."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "68"
   tempo: "104"
   chordCount: "3"
-  key: "N/A"
-  difficulty: "Facile"
+  key: ""
+  difficulty: "3/5"
 
 videos:
   - title: "Tutoriel Version Simplifiée"

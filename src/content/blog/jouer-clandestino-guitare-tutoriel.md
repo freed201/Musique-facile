@@ -1,21 +1,21 @@
 ---
 title: "Clandestino : Manu Chao et l'hymne de l'exil"
 description: "Plongez dans l'univers de 'Clandestino', une chanson emblématique de Manu Chao qui allie mélodies poignantes et messages engagés sur l'immigration."
-ogImage: "/images/blog/jouer-clandestino-guitare-tutoriel.jpg"
+ogImage: "/images/blog/jouer-clandestino-guitare-tutoriel.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-25"
 introduction: "Découvrez 'Clandestino', un hymne intemporel de Manu Chao qui aborde les thèmes de l'immigration et de l'exil à travers une mélodie envoûtante et un message puissant."
 
 songInfo:
   inBook: true
-  bookPage: "N/A"
+  bookPage: "12"
   tempo: "85"
   chordCount: "3"
-  key: "N/A"
-  difficulty: "Facile"
+  key: ""
+  difficulty: "2/5"
 
 videos:
   - title: "Tutoriel Simplifié : Découverte pour Débutants"

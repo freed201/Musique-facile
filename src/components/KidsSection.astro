@@ -11,7 +11,7 @@ const courses = [
     ],
     icon: "🎸",
     color: "var(--theme-guitar)",
-    url: "https://kids.musique-facile.fr/guitare"
+    url: "https://kids.musique-facile.fr/cours-guitare-debutant-enfant"
   },
   {
     title: "Piano Kids",
@@ -24,7 +24,7 @@ const courses = [
     ],
     icon: "🎹",
     color: "var(--theme-piano)",
-    url: "https://kids.musique-facile.fr/piano"
+    url: "https://kids.musique-facile.fr/cours-piano-debutant-enfant"
   },
   {
     title: "Ukulélé Kids",
@@ -37,7 +37,7 @@ const courses = [
     ],
     icon: "🏖️",
     color: "var(--theme-ukulele)",
-    url: "https://kids.musique-facile.fr/ukulele"
+    url: "https://kids.musique-facile.fr/cours-ukulele-debutant-enfant"
   }
 ];
 ---
@@ -51,7 +51,7 @@ const courses = [
 
     <div class="courses-grid">
       {courses.map(course => (
-        <a href={course.url} class="course-card" style={`--card-color: ${course.color}`}>
+        <a href={course.url} class="course-card" target="_blank" rel="noopener noreferrer"  style={`--card-color: ${course.color}`}>
           <div class="card-header">
             <span class="course-icon">{course.icon}</span>
             <h3>{course.title}</h3>
@@ -67,11 +67,13 @@ const courses = [
       ))}
     </div>
 
-    <div class="kids-cta">
-      <a href="https://kids.musique-facile.fr" class="btn-primary">
-        Découvrir Musique Facile Kids
-        <span class="arrow">→</span>
-      </a>
+   <div class="kids-cta">
+  <a href="https://kids.musique-facile.fr" class="btn-primary" target="_blank" rel="noopener noreferrer">
+    Découvrir Musique Facile Kids
+    <span class="arrow">→</span>
+  </a>
+</div>
+
       <p class="cta-note">15 jours d'essai gratuit</p>
     </div>
   </div>

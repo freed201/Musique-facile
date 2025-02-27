@@ -10,30 +10,36 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner","Intermediate"] # ou ["Intermediate"], ["Advanced"]
+courseMode: "Online"
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT2H"
+  duration: "PT2H" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
-    price: "69.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    price: "79.00"
+    availability: "https://schema.org/InStock"
+    category: "Paid"
+
 
 hero:
   badge: "Pour musiciens intermédiaires et avancés"
   title: "Maîtrisez les rythmes complexes avec aisance"
   subtitle: "Une formation complète pour interpréter et exécuter des rythmes variés, améliorant ainsi votre compétence et votre expression musicale."
   cta:
-    text: "Accéder pour €69"
-    price: "ou 2 paiements mensuels de €35"
+    text: "Accéder pour €79 "
+    price: "ou 2 paiements mensuels de €40"
   video:
-    url: "https://player.vimeo.com/video/solfege-partie-2"
+    id: "1058583048"
   stats:
     - value: "1000+"
       label: "élèves formés"
@@ -139,11 +145,14 @@ preuveSociale:
     timeframe: "des élèves constatent une nette amélioration de leur maîtrise en moins de 15 jours."
   partners:
     - name: "Skilleos"
-      logo: "logo_Skilleos.png"
+      logo: "logo-Skilleos.png"
+      buttonLink: "https://www.skilleos.com/"
     - name: "Hal Leonard"
-      logo: "logo_Hal_Leonard.png"
+      logo: "logo-Hal_Leonard.png"
+      buttonLink: "https://www.halleonard.com/"
     - name: "Arturia"
-      logo: "logo_Arturia.png"
+      logo: "logo-Arturia.png"
+      buttonLink: "https://www.arturia.com/fr"
 
 benefices:
   title: "Pourquoi cette formation est parfaite pour vous ?"

@@ -1,12 +1,12 @@
 ---
-title: "Ironic : Un classique d'Alanis Morissette à découvrir"
+title: "Jouez Ironic d’Alanis Morissette : Un incontournable à la guitare"
 description: "Explorez 'Ironic', une chanson emblématique d'Alanis Morissette, tirée de l'album 'Jagged Little Pill', avec des conseils pour l'apprendre à la guitare."
-ogImage: "/images/blog/apprendre-ironic-guitare.jpg"
+ogImage: "/images/blog/apprendre-ironic-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-05"
 introduction: "Plongez dans 'Ironic', un titre phare des années 90 qui allie mélodies captivantes et paroles introspectives. Découvrez son histoire, son impact et apprenez à le jouer sur votre guitare."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "45"
   tempo: "85"
   chordCount: "9"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "3/5"
 
 videos:
   - title: "Basics d'Ironic"

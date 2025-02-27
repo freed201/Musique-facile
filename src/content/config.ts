@@ -14,6 +14,30 @@ const coursesCollection = defineCollection({
     datePublished: z.string(),
     dateModified: z.string(),
 
+    // Données schema.org
+    provider: z.object({
+      name: z.string(),
+      url: z.string(),
+      logo: z.string()
+    }),
+    educationalLevel: z.array(z.string()).default(['Beginner']),
+    courseMode: z.string().default(['Online']),
+    ogImage: z.string(),
+    audience: z.object({
+      type: z.string(),
+      audienceType: z.array(z.string())
+    }),
+    hasCourseInstance: z.object({
+      duration: z.string(),
+      offers: z.object({
+        type: z.string(),
+        priceCurrency: z.string(),
+        price: z.string(),
+        availability: z.string(),
+        category: z.string()
+      })
+    }),
+
     // Données de la page
     hero: z.object({
       badge: z.string(),
@@ -24,7 +48,7 @@ const coursesCollection = defineCollection({
         price: z.string()
       }),
       video: z.object({
-        url: z.string()
+        id: z.string() // Changé de url à id
       }),
       stats: z.array(z.object({
         value: z.string(),
@@ -91,7 +115,8 @@ const coursesCollection = defineCollection({
       }),
       partners: z.array(z.object({
         name: z.string(),
-        logo: z.string()
+        logo: z.string(),
+        buttonLink: z.string()
       }))
     }),
 
@@ -129,6 +154,45 @@ const coursesCollection = defineCollection({
   })
 });
 
+const livresCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    ogImage: z.string(),
+    coverImage: z.string(),
+    price: z.string(),
+    author: z.string(),
+    datePublished: z.string(),
+    dateModified: z.string(),
+    isbn: z.string().optional(),
+    pages: z.number(),
+    format: z.string(),
+    language: z.string(),
+    features: z.array(z.object({
+      icon: z.string(),
+      text: z.string()
+    })),
+    testimonials: z.array(z.object({
+      text: z.string(),
+      author: z.string(),
+      role: z.string().optional()
+    })),
+    tableOfContents: z.array(z.object({
+      title: z.string(),
+      items: z.array(z.string())
+    })),
+    bonuses: z.array(z.object({
+      title: z.string(),
+      description: z.string(),
+      icon: z.string()
+    })).optional(),
+    buyLink: z.string(),
+    preview: z.string().optional()
+  })
+});
+
 export const collections = {
-  'courses': coursesCollection
+  'courses': coursesCollection,
+  'livres': livresCollection
 };

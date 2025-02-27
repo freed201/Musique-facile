@@ -12,30 +12,36 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner","Intermediate"] # ou ["Intermediate"], ["Advanced"]
+courseMode: "Online"
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT3H30M"
+  duration: "PT3H30M" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
     price: "79.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    availability: "https://schema.org/InStock"
+    category: "Paid"
+
 
 hero:
   badge: "Tous niveaux"
   title: "Maîtrise des Accords au Piano : De l'Initiation à l'Expertise"
   subtitle: "Transformez votre jeu musical en maîtrisant les accords au piano, des bases aux techniques avancées."
   cta:
-    text: "Accéder pour €79"
+    text: "Accéder pour €79 "
     price: "ou 2 paiements mensuels de €40"
   video:
-    url: "https://player.vimeo.com/video/maitriser-accords-piano"
+    id: "1057421752"
   stats:
     - value: "3000+"
       label: "élèves formés"
@@ -141,11 +147,14 @@ preuveSociale:
     timeframe: "des élèves accompagnent facilement des morceaux modernes."
   partners:
     - name: "Roland"
-      logo: "logo_Roland.png"
+      logo: "logo-Roland.png"
+      buttonLink: "https://www.roland.com/fr/"
     - name: "Skilleos"
-      logo: "logo_Skilleos.png"
+      logo: "logo-Skilleos.png"
+      buttonLink: "https://www.skilleos.com/"
     - name: "Casio"
-      logo: "logo_casio.png"
+      logo: "logo-casio.png"
+      buttonLink: "https://www.casio.com/fr/electronic-musical-instruments/"
 
 benefices:
   title: "Pourquoi cette formation est parfaite pour vous ?"

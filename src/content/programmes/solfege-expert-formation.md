@@ -8,7 +8,7 @@ lienAchat: "https://ecole.musique-facile.fr/solfege-3/buy"
 author: "Musique Facile"
 datePublished: "2025-01-28"
 dateModified: "2025-01-28"
-price: "69 EUR"
+price: "79 EUR"
 duration: "P01H25"
 provider:
   name: "Musique Facile"
@@ -35,69 +35,101 @@ dataGenerale:
 
 # Data programme
 dataProgramme:
-  - titre: "Module 1 : Les Bases du Clavier"
-    sousTitre: "Maîtrisez les fondamentaux du piano, des notes aux premières compositions"
+  - titre: "L'introduction"
+    sousTitre: "Présentation du cours"
     objectifs:
-      - "Comprendre la disposition des touches et les notes"
-      - "Pratiquer les touches blanches"
-      - "Effectuer les premiers échauffements"
+      - "Découvrir les objectifs du cours"
+      - "Comprendre le contenu et la structure de la formation"
     videos:
-      - titre: "Découverte des Notes"
-      - titre: "Pratique des Notes"
-      - titre: "Exploration des Touches Blanches"
-      - titre: "Exercice sur les Touches Blanches"
-      - titre: "Approfondissement des Touches Blanches"
-      - titre: "Exercice Avancé Touches Blanches"
-      - titre: "Premiers Échauffements"
-      - titre: "Maîtrise de Toutes les Notes"
-      - titre: "Exercice Complet des Notes"
-      - titre: "Échauffements Avancés"
-      - titre: "Introduction à la Composition"
+      - titre: "Présentation du cours"
 
-  - titre: "Module 2 : Accords et Notations : Les Fondements"
-    sousTitre: "Apprenez les accords essentiels et découvrez la notation internationale"
+  - titre: "Maîtriser les altérations : lecture et application"
+    sousTitre: "Lire, comprendre et utiliser efficacement les différentes altérations en musique"
     objectifs:
-      - "Comprendre les intervalles et les accords"
-      - "Apprendre la notation internationale"
-      - "Jouer et enchaîner les premiers accords"
+      - "Apprendre à identifier et comprendre les altérations"
+      - "Savoir les appliquer en lecture et en pratique musicale"
     videos:
-      - titre: "Initiation aux Intervalles"
-      - titre: "Poursuite avec les Intervalles"
-      - titre: "Initiation aux Accords"
-      - titre: "Poursuite dans les Accords"
-      - titre: "Découverte de la Notation Internationale"
-      - titre: "Pratique de la Notation Internationale"
-      - titre: "Construction des Accords : Exercice"
-      - titre: "Enchaînement de Quatre Accords"
-      - titre: "Exercices d'Agilité N°3"
+      - titre: "Introduction aux altérations : un monde à découvrir"
+      - titre: "Les trois altérations principales : bases fondamentales"
+      - titre: "Déchiffrer les altérations : techniques de lecture"
+      - titre: "Divers types d'altérations : comprendre les variations"
+      - titre: "L'ordre des altérations : organiser pour maîtriser"
+      - titre: "Altérations à la clé : maîtrise et application"
 
-  - titre: "Module 3 : Premiers Morceaux : De la Théorie à la Pratique"
-    sousTitre: "Jouez vos premiers morceaux et maîtrisez les rythmes de base"
+  - titre: "Comprendre et construire : intervalles et accords"
+    sousTitre: "Comprendre les intervalles, construire des accords et les appliquer"
     objectifs:
-      - "Appliquer les bases rythmiques"
-      - "Jouer un morceau simplifié"
-      - "Comprendre les temps musicaux"
+      - "Développer une compréhension solide des intervalles"
+      - "Apprendre à construire des accords et les utiliser en musique"
     videos:
-      - titre: "Classique du Gospel : Initiation"
-      - titre: "Classique du Gospel : Perfectionnement"
-      - titre: "Exercices d'Agilité N°4"
-      - titre: "Rythme et Mélodie : Pratique"
-      - titre: "Fondamentaux des Temps Musicaux"
-      - titre: "Exercice sur les Temps Musicaux"
-      - titre: "Ballade Moderne"
-      - titre: "Hymne Populaire"
+      - titre: "Introduction aux intervalles et accords"
+      - titre: "Les intervalles : comprendre les bases"
+      - titre: "Accords : définition et importance"
+      - titre: "Art de construire un accord : techniques et méthodes"
+      - titre: "Pratique des accords : exercices d'application"
+      - titre: "Exploration des autres accords"
+      - titre: "Nomenclature des accords : comprendre et utiliser"
 
-  - titre: "Module 4 : Rythmes Avancés : Maîtriser le Contretemps"
-    sousTitre: "Explorez et maîtrisez le contretemps pour enrichir vos compétences rythmiques"
+  - titre: "Exploration des gammes : majeures, mineures et harmonisation"
+    sousTitre: "Construire des gammes et les harmoniser pour créer des accords"
     objectifs:
-      - "Comprendre et pratiquer le contretemps"
-      - "Jouer des morceaux contemporains"
-      - "Développer des techniques avancées d'agilité"
+      - "Comprendre et construire les gammes majeures et mineures"
+      - "Appliquer le principe d'harmonisation pour en déduire les accords"
     videos:
-      - titre: "Introduction au Contretemps"
-      - titre: "Pratique du Contretemps"
-      - titre: "Morceau Contemporain : Initiation"
-      - titre: "Exercices d'Agilité N°5"
+      - titre: "Introduction aux gammes"
+      - titre: "La gamme chromatique"
+      - titre: "La gamme majeure : comprendre et construire"
+      - titre: "Pratique des gammes : exercices de construction"
+      - titre: "La gamme mineure naturelle : caractéristiques et construction"
+      - titre: "Exploration des autres gammes mineures"
+      - titre: "Harmonisation : créer des accords à partir des gammes"
+
+  - titre: "Expression musicale : nuances et symboles"
+    sousTitre: "Comprendre et utiliser les symboles d'expression en musique"
+    objectifs:
+      - "Apprendre à interpréter les nuances et articulations musicales"
+      - "Utiliser les ornements et variations pour enrichir son jeu"
+    videos:
+      - titre: "Fondements de l'expression musicale : introduction"
+      - titre: "Liaison et piqué : techniques d'articulation"
+      - titre: "Maîtriser les nuances : dynamiques en musique"
+      - titre: "Variations des nuances : subtilités et contrastes"
+      - titre: "Le tempo : rythme et expression"
+      - titre: "L'art des ornements : embellir la musique"
+
+  - titre: "Degrés musicaux et harmonie : du blues aux cadences"
+    sousTitre: "Comprendre les degrés musicaux, cadences et leur application dans le blues"
+    objectifs:
+      - "Identifier et utiliser les degrés musicaux en composition"
+      - "Comprendre les cadences et leur rôle harmonique"
+    videos:
+      - titre: "Exploration des degrés musicaux : introduction"
+      - titre: "Comprendre les degrés : la structure de la musique"
+      - titre: "Accords magiques et blues : harmonie et style"
+      - titre: "Les cadences : résolution et progression"
+      - titre: "Nomenclature des degrés : identifier et utiliser"
+
+  - titre: "Maîtrise des mesures et symboles de répétition"
+    sousTitre: "Comprendre et utiliser les barres de mesure et les symboles de répétition"
+    objectifs:
+      - "Maîtriser les différents symboles pour structurer une partition"
+      - "Apprendre à lire et appliquer les signes de répétition"
+    videos:
+      - titre: "Introduction"
+      - titre: "Les barres de mesure : structurer la musique"
+      - titre: "Barre de répétition : techniques de retour"
+      - titre: "Da Capo : l'art de la répétition"
+      - titre: "Da Segno : retour au signe"
+      - titre: "Da Coda : conclure avec élégance"
+
+  - titre: "Conclusion"
+    sousTitre: "Synthèse et récapitulatif de la formation"
+    objectifs:
+      - "Faire un bilan des notions étudiées"
+      - "Réfléchir aux prochaines étapes pour approfondir ses connaissances"
+    videos:
+      - titre: "Conclusion"
+
 
 
 # Bonus et ressources

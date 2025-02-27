@@ -12,30 +12,36 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner","Intermediate","Advanced"] # ou ["Intermediate"], ["Advanced"]
+courseMode: "Online"
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT12H30"
+  duration: "PT12H30M" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
     price: "149.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    availability: "https://schema.org/InStock"
+    category: "Paid"
+
 
 hero:
   badge: "Perfectionnement Guitare"
   title: "Guitare Odyssée : 52 Semaines de Perfectionnement"
   subtitle: "Transformez votre jeu de guitare en une année avec des leçons hebdomadaires structurées."
   cta:
-    text: "Accéder pour €149"
+    text: "Accéder pour €149 "
     price: "ou 4 paiements mensuels de €39"
   video:
-    url: "https://player.vimeo.com/video/guitare-odyssee-perfectionnement"
+    id: "1056758646"
   stats:
     - value: "5200+"
       label: "élèves formés"
@@ -178,11 +184,14 @@ preuveSociale:
     timeframe: "des élèves disposent désormais d'une connaissance bien plus approfondie de la guitare"
   partners:
     - name: "PRS Guitars"
-      logo: "logo_PRS.png"
+      logo: "logo-PRS.png"
+      buttonLink: "https://eu.prsguitars.com/"
     - name: "Skilleos"
-      logo: "logo_Skilleos.png"
+      logo: "logo-Skilleos.png"
+      buttonLink: "https://www.skilleos.com/"
     - name: "Eastman Guitars"
-      logo: "logo_Eastman.png"
+      logo: "logo-Eastman.png"
+      buttonLink: "https://www.eastmanguitars.com/"
 
 benefices:
   title: "Pourquoi cette formation est idéale pour vous ?"
@@ -208,9 +217,9 @@ cta:
     - icon: "⭐"
       text: "Accès immédiat au programme de 52 semaines"
     - icon: "🎸"
-      text: "Support personnalisé pour répondre à vos questions"
+      text: "5 professionels pour ton apprentissage"
     - icon: "💰"
-      text: "Garantie satisfait ou remboursé pendant 15 jours"
+      text: "Garantie satisfait ou remboursé pendant 1 mois"
 
 faq:
   title: "Questions fréquentes"
@@ -225,6 +234,6 @@ faq:
     - question: "Que faire si je rencontre des difficultés ?"
       answer: "Un support personnalisé est disponible pour répondre à vos questions et vous guider tout au long de la formation."
     - question: "Puis-je demander un remboursement si je ne suis pas satisfait ?"
-      answer: "Oui, vous bénéficiez d'une garantie satisfait ou remboursé pendant 15 jours."
+      answer: "Oui, vous bénéficiez d'une garantie satisfait ou remboursé pendant 1 mois."
   backgroundPattern: "guitare-odyssee-pattern.svg"
 ---

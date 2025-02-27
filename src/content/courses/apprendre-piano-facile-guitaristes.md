@@ -12,30 +12,36 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner","Intermediate"] # ou ["Intermediate"], ["Advanced"]
+courseMode: "Online"
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT3H10M"
+  duration: "PT3H10M" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
     price: "99.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    availability: "https://schema.org/InStock"
+    category: "Paid"
+
 
 hero:
   badge: "Pour guitaristes"
   title: "Le Piano au Service des Guitaristes"
   subtitle: "Une approche unique pour enrichir votre jeu de guitare grâce au piano."
   cta:
-    text: "Accéder pour €99"
-    price: "3 paiements mensuels de €33"
+    text: "Accéder pour €99 "
+    price: " ou 3 paiements mensuels de €33"
   video:
-    url: "https://player.vimeo.com/video/piano-pour-guitaristes"
+    id: "1058584536"
   stats:
     - value: "830+"
       label: "guitaristes formés"
@@ -142,11 +148,14 @@ preuveSociale:
     timeframe: "des élèves jouent mieux de la guitare en 3 semaines"
   partners:
     - name: "PRS Guitars"
-      logo: "logo_PRS.png"
+      logo: "logo-PRS.png"
+      buttonLink: "https://eu.prsguitars.com/"
     - name: "Skilleos"
-      logo: "logo_Skilleos.png"
+      logo: "logo-Skilleos.png"
+      buttonLink: "https://www.skilleos.com/"
     - name: "Eastman Guitars"
-      logo: "logo_Eastman.png"
+      logo: "logo-Eastman.png"
+      buttonLink: "https://www.eastmanguitars.com/"
 
 benefices:
   title: "Pourquoi cette formation est idéale pour vous ?"

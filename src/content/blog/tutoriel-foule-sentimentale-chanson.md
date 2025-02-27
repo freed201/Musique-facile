@@ -1,12 +1,12 @@
 ---
-title: "Foule Sentimentale : Un chef-d'œuvre intemporel d'Alain Souchon"
+title: "Foule Sentimentale : L’hymne de toute une génération à apprendre à la guitare"
 description: "Explorez 'Foule Sentimentale', une chanson emblématique d'Alain Souchon qui critique la société de consommation avec poésie et douceur."
-ogImage: "/images/blog/tutoriel-foule-sentimentale-chanson.jpg"
+ogImage: "/images/blog/tutoriel-foule-sentimentale-chanson.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-02-02"
 introduction: "Avec 'Foule Sentimentale', Alain Souchon nous invite à réfléchir sur notre société moderne à travers une mélodie touchante et des paroles empreintes de poésie et d'ironie."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "22"
   tempo: "55"
   chordCount: "5"
-  key: "N/A"
-  difficulty: "Facile"
+  key: ""
+  difficulty: "2/5"
 
 videos:
   - title: "Tutoriel Simplifié : Jouer 'Foule Sentimentale'"

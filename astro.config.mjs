@@ -1,14 +1,20 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://freed201.github.io', // Remplacez par votre nom d'utilisateur
-  base: '/Musique-facile', // Nom de votre dépôt GitHub
-});
-
-
-import { defineConfig } from 'astro/config';
-
-export default defineConfig({
+  site: 'https://musique-facile.fr',
+  output: 'static',
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          // Add hashes to filenames for cache busting
+          entryFileNames: 'assets/[name].[hash].js',
+          chunkFileNames: 'assets/[name].[hash].js',
+          assetFileNames: 'assets/[name].[hash][extname]'
+        }
+      }
+    }
+  },
   collections: {
     blog: {
       schema: {

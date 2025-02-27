@@ -1,12 +1,12 @@
 ---
 title: "Respire : L'hymne écologique intemporel de Mickey 3D"
 description: "Découvrez 'Respire', un classique de Mickey 3D alliant engagement écologique et mélodie captivante, et apprenez à jouer ce morceau emblématique à la guitare."
-ogImage: "/images/blog/apprendre-respire-guitare.jpg"
+ogImage: "/images/blog/apprendre-respire-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-13"
 introduction: "Avec 'Respire', Mickey 3D offre un message puissant sur l'urgence écologique à travers une mélodie accessible et des paroles percutantes. Découvrez son histoire et apprenez à jouer ce morceau inoubliable."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "62"
   tempo: "97"
   chordCount: "6"
-  key: "N/A"
-  difficulty: "Facile"
+  key: ""
+  difficulty: "2/5"
 
 videos:
   - title: "Version simplifiée pour débutants"

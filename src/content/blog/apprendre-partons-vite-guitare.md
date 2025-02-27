@@ -1,12 +1,12 @@
 ---
 title: "Partons Vite : Une évasion musicale avec Kaolin"
 description: "Découvrez 'Partons Vite', un classique de Kaolin, et apprenez à jouer ce morceau incontournable du rock français à la guitare."
-ogImage: "/images/blog/apprendre-partons-vite-guitare.jpg"
+ogImage: "/images/blog/apprendre-partons-vite-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-10"
 introduction: "Avec 'Partons Vite', Kaolin nous offre un morceau poétique et mélodieux, invitant à l’évasion. Découvrez son histoire et apprenez à le jouer sur votre guitare."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "56"
   tempo: "98"
   chordCount: "7"
-  key: "N/A"
-  difficulty: "Facile"
+  key: ""
+  difficulty: "2/5"
 
 videos:
   - title: "Maîtrise les Bases de 'Partons Vite'"

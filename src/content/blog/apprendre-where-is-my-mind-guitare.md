@@ -1,12 +1,12 @@
 ---
-title: "Where Is My Mind : Le classique intemporel des Pixies"
+title: "Where Is My Mind : Découvrez ce classique et apprenez-le à la guitare"
 description: "Découvrez 'Where Is My Mind', un hymne culte du rock alternatif par les Pixies, et apprenez à jouer ce morceau légendaire à la guitare."
-ogImage: "/images/blog/apprendre-where-is-my-mind-guitare.jpg"
+ogImage: "/images/blog/apprendre-where-is-my-mind-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-23"
 introduction: "Avec 'Where Is My Mind', les Pixies nous plongent dans une introspection fascinante et musicale. Découvrez l’histoire de cette chanson culte et apprenez à la jouer."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "86"
   tempo: "85"
   chordCount: "6"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "3/5"
 
 videos:
   - title: "Découverte de 'Where Is My Mind'"

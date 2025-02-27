@@ -4,7 +4,7 @@ classement: 1
 title: "Cours de Guitare pour Débutants en Ligne"
 description: "Apprenez à jouer de la guitare avec notre cours en ligne pour débutants. Des leçons structurées pour maîtriser les bases et progresser rapidement. Commencez dès maintenant !"
 bestSeller: true 
-ogImage: "/images/cours/apprendre-guitare-debutant/hero.jpg"
+ogImage: "https://musique-facile.fr/images/cours/apprendre-guitare-debutant/hero.jpg"
 theme: "guitar"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
@@ -13,30 +13,35 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner"] # ou ["Intermediate"], ["Advanced"]
+courseMode: "Online"
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "P4H"
+  duration: "PT4H" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
-    price: "89.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    price: "99.00"
+    availability: "https://schema.org/InStock"
+    category: "Paid"
 
 hero:
   badge: "Pour débutants"
   title: "Apprenez la guitare pas à pas"
   subtitle: "Une formation complète pour maîtriser les bases de la guitare, avec des leçons progressives et adaptées à votre rythme."
   cta:
-    text: "Accéder pour €89"
-    price: "ou 3 paiements mensuels de €30"
+    text: "Accéder pour €89 "
+    price: " ou 3 paiements mensuels de €30"
   video:
-    url: "https://player.vimeo.com/video/cours-guitare-debutant"
+    id: "1056355723"
   stats:
     - value: "9210+"
       label: "élèves formés"
@@ -149,11 +154,14 @@ preuveSociale:
     timeframe: "s'amusent en moins de 4 semaines"
   partners:
     - name: "PRS Guitars"
-      logo: "logo_PRS.png"
+      logo: "logo-PRS.png"
+      buttonLink: "https://eu.prsguitars.com/"
     - name: "Skilleos"
-      logo: "logo_Skilleos.png"
+      logo: "logo-Skilleos.png"
+      buttonLink: "https://www.skilleos.com/"
     - name: "Eastman Guitars"
-      logo: "logo_Eastman.png"
+      logo: "logo-Eastman.png"
+      buttonLink: "https://www.eastmanguitars.com/"
 
 benefices:
   title: "Pourquoi cette formation est parfaite pour vous ?"

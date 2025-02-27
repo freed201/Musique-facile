@@ -1,12 +1,12 @@
 ---
 title: "So Lonely : Le mélange unique de rock et reggae par The Police"
 description: "Découvrez 'So Lonely', un classique intemporel de The Police, mêlant rock et reggae, et apprenez à jouer ce morceau à la guitare."
-ogImage: "/images/blog/apprendre-so-lonely-guitare.jpg"
+ogImage: "/images/blog/apprendre-so-lonely-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-16"
 introduction: "Avec 'So Lonely', The Police a créé un classique qui transcende les genres en mêlant le reggae et le rock. Découvrez son histoire et apprenez à le jouer."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "70"
   tempo: "80"
   chordCount: "4"
-  key: "N/A"
-  difficulty: "Facile"
+  key: ""
+  difficulty: "3/5"
 
 videos:
   - title: "Découvrir 'So Lonely' - Version Simplifiée"

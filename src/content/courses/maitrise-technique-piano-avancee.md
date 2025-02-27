@@ -1,7 +1,7 @@
 ---
 affichage: "Y"
-classement: 2
-title: "Piano Odyssey : 52 Semaines de Perfectionnement"
+classement: 1
+title: "Piano Odyssée : 52 Semaines de Perfectionnement"
 description: "Transformez votre jeu et enrichissez votre musicalité avec notre formation complète de 52 semaines. Des techniques fondamentales à l'improvisation avancée, progressez à votre rythme avec des experts passionnés."
 ogImage: "/images/cours/maitrise-technique-piano-avancee/hero.jpg"
 theme: "piano"
@@ -12,30 +12,35 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner","Intermediate","Advanced"] # ou ["Intermediate"], ["Advanced"]
+courseMode: "Online"
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT14H"
+  duration: "PT14H" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
     price: "149.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    availability: "https://schema.org/InStock"
+    category: "Paid"
 
 hero:
   badge: "Techniques avancées"
-  title: "Piano Odyssey : 52 Semaines de Perfectionnement"
+  title: "Piano Odyssée : 52 Semaines de Perfectionnement"
   subtitle: "Transformez votre jeu, enrichissez votre musicalité"
   cta:
-    text: "Accéder pour €149"
-    price: " ou 4 paiements mensuels de €39"
+    text: "Accéder pour €149 "
+    price: "ou 4 paiements mensuels de €39"
   video:
-    url: "https://player.vimeo.com/video/piano-techniques-avancees"
+    id: "1056758460"
   stats:
     - value: "3500+"
       label: "élèves formés"
@@ -176,11 +181,15 @@ preuveSociale:
     timeframe: "des élèves ont découvert de nouvelles façons de jouer du piano."
   partners:
     - name: "Roland"
-      logo: "logo_Roland.png"
+      logo: "logo-Roland.png"
+      buttonLink: "https://www.roland.com/fr/"
     - name: "Skilleos"
-      logo: "logo_Skilleos.png"
+      logo: "logo-Skilleos.png"
+      buttonLink: "https://www.skilleos.com/"
     - name: "Casio"
-      logo: "logo_casio.png"
+      logo: "logo-casio.png"
+      buttonLink: "https://www.casio.com/fr/electronic-musical-instruments/"
+
 
 
 benefices:
@@ -209,7 +218,7 @@ cta:
     - icon: "🎹"
       text: "Support personnalisé pour répondre à toutes vos questions"
     - icon: "💰"
-      text: "Garantie satisfait ou remboursé pendant 15 jours"
+      text: "Garantie satisfait ou remboursé pendant 1 mois"
 
 faq:
   title: "Questions fréquentes"
@@ -224,6 +233,6 @@ faq:
     - question: "Que faire si je rencontre des difficultés ?"
       answer: "Un support personnalisé est disponible pour répondre à toutes vos questions et vous accompagner."
     - question: "Puis-je me faire rembourser si je ne suis pas satisfait ?"
-      answer: "Absolument. Vous bénéficiez d'une garantie satisfait ou remboursé pendant 15 jours."
+      answer: "Absolument. Vous bénéficiez d'une garantie satisfait ou remboursé pendant 1 mois."
   backgroundPattern: "piano-advanced-pattern.svg"
 ---

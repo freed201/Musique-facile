@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import CourseLayout from '../../layouts/CourseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 
 export async function getStaticPaths() {
   const courses = await getCollection('courses');
@@ -27,14 +28,24 @@ const {
   faq
 } = course.data;
 
-// Construction d'un schema.org simplifié
+// Construction du schema.org enrichi
 const schema = {
   "@context": "https://schema.org",
   "@type": "Course",
   "name": title,
   "description": description,
-  "url": Astro.url.toString(),
-  "image": ogImage
+  "provider": {
+    "@type": "Organization",
+    "name": "Musique Facile",
+    "url": "https://musique-facile.fr"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "PT2H per week"
+  },
+  "image": ogImage,
+  "url": Astro.url.toString()
 };
 
 // Fonction utilitaire pour construire les chemins d'images
@@ -58,8 +69,19 @@ const imagePaths = getCoursePaths(slug);
   description={description}
   ogImage={ogImage}
   theme={theme}
-  heroImage={hero.imageBK}
+  datePublished={course.data.datePublished}
+  dateModified={course.data.dateModified}
+  educationalLevel={course.data.educationalLevel}
+  courseMode={course.data.courseMode}
+  hasCourseInstance={course.data.hasCourseInstance}
 >
+  <BreadcrumbNav 
+    items={[
+      { name: "Accueil", url: "/" },
+      { name: "Cours", url: "/cours" },
+      { name: title, url: Astro.url.pathname }
+    ]}
+  />
 
 <section class="hero">
 <div class="hero-background" style={`background-image: url('${imagePaths.hero}')`}>
@@ -84,16 +106,18 @@ const imagePaths = getCoursePaths(slug);
           </div>
         </div>
         <div class="hero-video">
-          <div class="video-wrapper">
-            <iframe
-              src={hero.video.url}
-              width="640"
-              height="360"
-              frameborder="0"
-              allow="autoplay; fullscreen"
-              allowfullscreen
-            ></iframe>
-          </div>
+<div class="video-wrapper">
+  <div style="padding:56.25% 0 0 0;position:relative;">
+    <iframe 
+      src={`https://player.vimeo.com/video/${hero.video.id}?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479`}
+      frameborder="0" 
+      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+      style="position:absolute;top:0;left:0;width:100%;height:100%;"
+      title={title}
+    ></iframe>
+  </div>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+</div>
           <div class="course-stats">
             {hero.stats.map(stat => (
               <div class="stat-item">
@@ -147,7 +171,6 @@ const imagePaths = getCoursePaths(slug);
     </div>
   </section>
 
-
 <section class="timeline">
   <div class="container">
     <h2 class="timeline-title">Programme de la formation</h2>
@@ -171,7 +194,7 @@ const imagePaths = getCoursePaths(slug);
                     alt={`${item.title} - ${item.objective}`}
                     class="timeline-image"
                     data-modal={`modal-${item.number}`}
-                    loading="lazy" // Ajout du lazy loading pour optimiser le chargement
+                    loading="lazy"
                   />
                 </div>
                 <ul class="timeline-details">
@@ -277,6 +300,140 @@ const imagePaths = getCoursePaths(slug);
   </div>
 </section>
 
+<section class="preuve-sociale">
+  <div class="container">
+    <div class="testimonials-wrapper" role="region" aria-label="Témoignages">
+      {preuveSociale.testimonials.map((testimonial, index) => {
+        const testimonialImagePath = `/images/cours/${Astro.params.slug}/testimonial-${index + 1}.jpg`;
+        
+        return (
+          <div class="testimonial">
+            <div class="quote-icon">❝</div>
+            <p class="testimonial-text">{testimonial.text}</p>
+            <div class="testimonial-author">
+              <img 
+                src={testimonialImagePath} 
+                alt={`Photo de ${testimonial.author}`}
+                loading="lazy"
+                width="50"
+                height="50"
+              />
+              <span>{testimonial.author}</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <div class="stats-banner">
+      <div class="stat">
+        <span class="stat-number">{preuveSociale.stats.students}</span>
+        <span class="stat-label">élèves satisfaits</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number">{preuveSociale.stats.successRate}</span>
+        <span class="stat-label">{preuveSociale.stats.timeframe}</span>
+      </div>
+    </div>
+
+<div class="partners">
+  <h3>Ils nous font confiance</h3>
+  <div class="partners-grid">
+    {preuveSociale.partners.map(partner => (
+      <div class="partner">
+        <a 
+          href={partner.buttonLink} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="partner-link"
+        >
+          <img 
+            src={`/images/logo/${partner.logo}`} 
+            alt={`Logo de ${partner.name}`}
+            loading="lazy"
+          />
+        </a>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+  <section class="benefices">
+    <div class="container">
+      <h2 class="benefices-title">{benefices.title}</h2>
+      
+      <div class="benefices-grid">
+        {benefices.items.map((benefice, index) => (
+          <div class="benefice-card" style={`--delay: ${index * 0.2}s`}>
+            <div class="benefice-icon-wrapper">
+              <span class="benefice-icon">{benefice.icon}</span>
+            </div>
+            <h3>{benefice.title}</h3>
+            <p>{benefice.description}</p>
+            <div class="card-decoration"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta-final">
+    <div class="cta-background"></div>
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">{cta.title}</h2>
+        <p class="cta-subtitle">{cta.subtitle}</p>
+        
+        <div class="cta-features">
+          {cta.features.map(feature => (
+            <div class="cta-feature">
+              <span class="feature-icon">{feature.icon}</span>
+              <span class="feature-text">{feature.text}</span>
+            </div>
+          ))}
+        </div>
+
+        <a href={cta.buttonLink} class="cta-button">
+          {cta.buttonText}
+          <span class="button-shine"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="faq-background"></div>
+    <div class="container">
+      <div class="faq-header">
+        <h2>{faq.title}</h2>
+        <p>{faq.subtitle}</p>
+      </div>
+
+      <div class="faq-grid">
+        {faq.questions.map((item, index) => (
+          <div class="faq-item" style={`--delay: ${index * 0.2}s`}>
+            <div class="faq-question-wrapper">
+              <h3>{item.question}</h3>
+              <div class="faq-icon">
+                <span class="icon-line"></span>
+                <span class="icon-line"></span>
+              </div>
+            </div>
+            <div class="faq-answer">
+              <p>{item.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</CourseLayout>
 
 <style>
   .teachers-section {
@@ -486,362 +643,6 @@ const imagePaths = getCoursePaths(slug);
       grid-template-columns: 1fr;
     }
   }
-</style>
-
-
-
-  <section class="benefices">
-    <div class="container">
-      <h2 class="benefices-title">{benefices.title}</h2>
-      
-      <div class="benefices-grid">
-        {benefices.items.map((benefice, index) => (
-          <div class="benefice-card" style={`--delay: ${index * 0.2}s`}>
-            <div class="benefice-icon-wrapper">
-              <span class="benefice-icon">{benefice.icon}</span>
-            </div>
-            <h3>{benefice.title}</h3>
-            <p>{benefice.description}</p>
-            <div class="card-decoration"></div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-  
-<section class="preuve-sociale">
-  <div class="container">
-    <div class="testimonials-wrapper" role="region" aria-label="Témoignages">
-      {preuveSociale.testimonials.map((testimonial, index) => {
-        // Construction du chemin de l'image de témoignage de manière dynamique
-        const testimonialImagePath = `/images/cours/${Astro.params.slug}/testimonial-${index + 1}.jpg`;
-        
-        return (
-          <div class="testimonial">
-            <div class="quote-icon">❝</div>
-            <p class="testimonial-text">{testimonial.text}</p>
-            <div class="testimonial-author">
-              <img 
-                src={testimonialImagePath} 
-                alt={`Photo de ${testimonial.author}`}
-                loading="lazy"
-                width="50"
-                height="50"
-              />
-              <span>{testimonial.author}</span>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-
-    <div class="stats-banner">
-      <div class="stat">
-        <span class="stat-number">{preuveSociale.stats.students}</span>
-        <span class="stat-label">élèves satisfaits</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-number">{preuveSociale.stats.successRate}</span>
-        <span class="stat-label">{preuveSociale.stats.timeframe}</span>
-      </div>
-    </div>
-
-<div class="partners">
-  <h3>Ils nous font confiance</h3>
-  <div class="partners-grid">
-    {preuveSociale.partners.map(partner => (
-      <div class="partner">
-        <img 
-          src={`/images/logo/${partner.logo}`} 
-          alt={`Logo de ${partner.name}`}
-          loading="lazy"
-        />
-      </div>
-    ))}
-  </div>
-</div>
-  </div>
-</section>
-
-  <section class="cta-final">
-    <div class="cta-background"></div>
-    <div class="container">
-      <div class="cta-content">
-        <h2 class="cta-title">{cta.title}</h2>
-        <p class="cta-subtitle">{cta.subtitle}</p>
-        
-        <div class="cta-features">
-          {cta.features.map(feature => (
-            <div class="cta-feature">
-              <span class="feature-icon">{feature.icon}</span>
-              <span class="feature-text">{feature.text}</span>
-            </div>
-          ))}
-        </div>
-
-        <a href={cta.buttonLink} class="cta-button">
-          {cta.buttonText}
-          <span class="button-shine"></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="faq-background"></div>
-    <div class="container">
-      <div class="faq-header">
-        <h2>{faq.title}</h2>
-        <p>{faq.subtitle}</p>
-      </div>
-
-      <div class="faq-grid">
-        {faq.questions.map((item, index) => (
-          <div class="faq-item" style={`--delay: ${index * 0.2}s`}>
-            <div class="faq-question-wrapper">
-              <h3>{item.question}</h3>
-              <div class="faq-icon">
-                <span class="icon-line"></span>
-                <span class="icon-line"></span>
-              </div>
-            </div>
-            <div class="faq-answer">
-              <p>{item.answer}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-</CourseLayout>
-
-<style>
-  .teachers-section {
-    padding: 6rem 0;
-    background: var(--theme-current);
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .teachers-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.1;
-  }
-
-  .section-title-wrapper {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-    color: white;
-    margin-bottom: 1rem;
-  }
-
-  .section-subtitle {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .teachers-grid {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .main-teachers {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
-  }
-
-  .teacher-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease;
-  }
-
-  .teacher-card:hover {
-    transform: translateY(-5px);
-  }
-
-  .teacher-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .teacher-photo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .teacher-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .teacher-identity h3 {
-    font-size: 1.4rem;
-    color: white;
-    margin: 0 0 0.5rem;
-  }
-
-  .last-name {
-    font-weight: 300;
-  }
-
-  .teacher-role {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
-    margin: 0;
-  }
-
-  .teacher-description {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-
-  .teacher-website {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: transform 0.3s ease;
-  }
-
-  .teacher-website:hover {
-    transform: translateX(5px);
-  }
-
-  .guests-title {
-    font-size: 2rem;
-    color: white;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .guests-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .guest-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius);
-    padding: 1rem;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease;
-  }
-
-  .guest-card:hover {
-    transform: translateY(-5px);
-  }
-
-  .guest-photo {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 1rem;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .guest-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .guest-info h4 {
-    font-size: 1.1rem;
-    color: white;
-    margin: 0 0 0.5rem;
-  }
-
-  .guest-role {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-  }
-
-  .guest-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    color: white;
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 500;
-    transition: transform 0.3s ease;
-  }
-
-  .guest-link:hover {
-    transform: translateX(5px);
-  }
-
-  @media (max-width: 768px) {
-    .section-title {
-      font-size: 2rem;
-    }
-
-    .main-teachers {
-      grid-template-columns: 1fr;
-    }
-
-    .teacher-header {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .teacher-identity {
-      text-align: center;
-    }
-.teachers-section .section-title {
-  font-size: 2.5rem;
-  color: white;
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  /* Override explicite des styles de gradient si nécessaire */
-  background: none;
-  -webkit-background-clip: initial;
-  -webkit-text-fill-color: initial;
-}
-
-    .guests-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 480px) {
-    .guests-grid {
-      grid-template-columns: 1fr;
-    }
-  }
 
   .program-button-wrapper {
     text-align: center;
@@ -912,4 +713,29 @@ const imagePaths = getCoursePaths(slug);
       font-size: 1.1rem;
     }
   }
+
+.partner-link {
+  display: block;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.partner-link:hover {
+  transform: scale(1.05);
+}
+
+.partner img {
+  max-width: 150px;
+  height: auto;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.partner-link:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
 </style>

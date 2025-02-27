@@ -1,21 +1,21 @@
 ---
-title: "Everybody Hurts : Un message universel de R.E.M."
+title: "Everybody Hurts : Histoire et accords de ce titre bouleversant"
 description: "Découvrez 'Everybody Hurts', une chanson intemporelle de R.E.M. qui offre réconfort et espoir à travers des paroles simples et touchantes."
-ogImage: "/images/blog/tutoriel-everybody-hurts-facile.jpg"
+ogImage: "/images/blog/tutoriel-everybody-hurts-facile.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-02-01"
 introduction: "Avec 'Everybody Hurts', R.E.M. a créé un hymne de réconfort et d'humanité qui transcende les générations. Plongez dans l'histoire, l'impact et les subtilités de ce morceau emblématique."
 
 songInfo:
-  inBook: false
-  bookPage: "N/A"
+  inBook: true
+  bookPage: "20"
   tempo: "65"
   chordCount: "9"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "2/5"
 
 videos:
   - title: "Tutoriel Simplifié : Jouer 'Everybody Hurts'"

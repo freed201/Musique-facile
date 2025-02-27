@@ -1,12 +1,12 @@
 ---
 title: "Riche : La chanson émouvante de Claudio Capéo"
 description: "Découvrez 'Riche', un hymne à la richesse intérieure par Claudio Capéo, et apprenez à jouer ce morceau à la guitare."
-ogImage: "/images/blog/apprendre-riche-guitare.jpg"
+ogImage: "/images/blog/apprendre-riche-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-14"
 introduction: "Avec 'Riche', Claudio Capéo nous rappelle que la vraie richesse se mesure en amour et en souvenirs partagés. Découvrez l'histoire de cette chanson et apprenez à la jouer sur votre guitare."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "66"
   tempo: "165"
   chordCount: "7"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "3/5"
 
 videos:
   - title: "Vidéo officielle de 'Riche'"

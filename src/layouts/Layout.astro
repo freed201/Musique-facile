@@ -2,25 +2,84 @@
 import '@fontsource/poppins';
 import '@fontsource/raleway';
 import '../styles/global.css';
+import ExternalResources from '../components/ExternalResources.astro';
 
 interface Props {
   title: string;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
 }
 
-const { title } = Astro.props;
+const { 
+  title,
+  description = "Apprenez la musique facilement avec nos formations en ligne. Guitare, piano, ukulélé et solfège.",
+  ogImage = "https://musique-facile.fr/images/og-default.jpg",
+  canonicalUrl = Astro.url.href
+} = Astro.props;
+
+// Schema.org pour la page
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": description,
+  "url": canonicalUrl,
+  "image": ogImage,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Musique Facile",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://musique-facile.fr/logo.jpg"
+    }
+  }
+};
 ---
 
 <!doctype html>
 <html lang="fr">
   <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NP758HSC');</script>
+    <!-- End Google Tag Manager -->
+    
     <meta charset="UTF-8" />
-    <meta name="description" content="Musique Facile - Apprenez la musique facilement" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    
+    <ExternalResources />
     <title>{title}</title>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NP758HSC"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <slot />
   </body>
 </html>

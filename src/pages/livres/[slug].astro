@@ -1,0 +1,745 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const books = await getCollection('livres');
+  return books.map(book => ({
+    params: { slug: book.slug },
+    props: { book },
+  }));
+}
+
+const { book } = Astro.props;
+const {
+  title,
+  description,
+  ogImage,
+  coverImage,
+  price,
+  author,
+  datePublished,
+  dateModified,
+  isbn,
+  pages,
+  format,
+  language,
+  features,
+  testimonials,
+  tableOfContents,
+  bonuses,
+  buyLink,
+  preview
+} = book.data;
+
+// Construction du schema.org pour le livre
+const bookSchema = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": title,
+  "description": description,
+  "image": coverImage,
+  "author": {
+    "@type": "Person",
+    "name": author
+  },
+  "isbn": isbn,
+  "numberOfPages": pages,
+  "inLanguage": language,
+  "datePublished": datePublished,
+  "dateModified": dateModified,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Musique Facile",
+    "url": "https://musique-facile.fr"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": price.replace(/[^0-9.]/g, ''),
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "url": buyLink
+  }
+};
+---
+
+<Layout title={`${title} | Musique Facile`}>
+  <Header />
+  
+  <script type="application/ld+json" set:html={JSON.stringify(bookSchema)} />
+
+  <main>
+    <section class="book-hero">
+      <div class="container">
+        <div class="book-hero-content">
+          <div class="book-cover">
+            <img 
+              src={coverImage} 
+              alt={`Couverture du livre ${title}`}
+              width="400"
+              height="600"
+            />
+          </div>
+          <div class="book-info">
+            <h1>{title}</h1>
+            <p class="book-description">{description}</p>
+            <div class="book-meta">
+              <div class="meta-item">
+                <span class="meta-label">Auteur</span>
+                <span class="meta-value">{author}</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Format</span>
+                <span class="meta-value">{format}</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Pages</span>
+                <span class="meta-value">{pages}</span>
+              </div>
+              {isbn && (
+                <div class="meta-item">
+                  <span class="meta-label">ISBN</span>
+                  <span class="meta-value">{isbn}</span>
+                </div>
+              )}
+            </div>
+            <div class="book-features">
+              {features.map(feature => (
+                <div class="feature-item">
+                  <span class="feature-icon">{feature.icon}</span>
+                  <span class="feature-text">{feature.text}</span>
+                </div>
+              ))}
+            </div>
+            <div class="book-cta">
+              <div class="price-tag">{price}</div>
+              <a href={buyLink} class="buy-button">
+                Acheter maintenant
+                <span class="arrow">→</span>
+              </a>
+            </div>
+            {preview && (
+              <a href={preview} class="preview-button">
+                Télécharger un extrait gratuit
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="book-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <div class="table-of-contents">
+              <h2>Contenu du livre</h2>
+              {tableOfContents.map(section => (
+                <div class="toc-section">
+                  <h3>{section.title}</h3>
+                  <ul>
+                    {section.items.map(item => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            {bonuses && (
+              <div class="bonuses">
+                <h2>Bonus</h2>
+                <div class="bonuses-grid">
+                  {bonuses.map(bonus => (
+                    <div class="bonus-card">
+                      <span class="bonus-icon">{bonus.icon}</span>
+                      <h3>{bonus.title}</h3>
+                      <p>{bonus.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <aside class="testimonials">
+            <h2>Ce qu'en pensent nos lecteurs</h2>
+            {testimonials.map(testimonial => (
+              <div class="testimonial-card">
+                <p class="testimonial-text">{testimonial.text}</p>
+                <div class="testimonial-author">
+                  <span class="author-name">{testimonial.author}</span>
+                  {testimonial.role && (
+                    <span class="author-role">{testimonial.role}</span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </aside>
+        </div>
+
+        <div class="final-cta">
+          <h2>Prêt à commencer votre voyage musical ?</h2>
+          <a href={buyLink} class="buy-button large">
+            Je commande mon exemplaire
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="discover-courses">
+      <div class="container">
+        <h2 class="section-title">Découvrez nos formations en ligne</h2>
+        <p class="section-subtitle">Approfondissez votre apprentissage avec nos cours vidéo complets</p>
+        
+        <div class="courses-grid">
+          <a href="/cours/cours-de-guitare" class="course-button theme-guitar">
+            <div class="button-background" style="background-image: url('/images/cours/hero-guitare.jpg')"></div>
+            <div class="button-content">
+              <span class="button-icon">🎸</span>
+              <div class="button-text-wrapper">
+                <span class="button-title">Cours de Guitare</span>
+                <span class="button-description">Apprenez la guitare pas à pas</span>
+              </div>
+              <span class="button-arrow">→</span>
+            </div>
+          </a>
+
+          <a href="/cours/cours-de-piano" class="course-button theme-piano">
+            <div class="button-background" style="background-image: url('/images/cours/hero-piano.jpg')"></div>
+            <div class="button-content">
+              <span class="button-icon">🎹</span>
+              <div class="button-text-wrapper">
+                <span class="button-title">Cours de Piano</span>
+                <span class="button-description">Découvrez le piano facilement</span>
+              </div>
+              <span class="button-arrow">→</span>
+            </div>
+          </a>
+
+          <a href="/cours/cours-de-ukulele" class="course-button theme-ukulele">
+            <div class="button-background" style="background-image: url('/images/cours/hero-ukulele.jpg')"></div>
+            <div class="button-content">
+              <span class="button-icon">🏖️</span>
+              <div class="button-text-wrapper">
+                <span class="button-title">Cours d'Ukulélé</span>
+                <span class="button-description">Initiez-vous à l'ukulélé</span>
+              </div>
+              <span class="button-arrow">→</span>
+            </div>
+          </a>
+
+          <a href="/cours/cours-de-solfege" class="course-button theme-solfege">
+            <div class="button-background" style="background-image: url('/images/cours/hero-solfege.jpg')"></div>
+            <div class="button-content">
+              <span class="button-icon">🎼</span>
+              <div class="button-text-wrapper">
+                <span class="button-title">Cours de Solfège</span>
+                <span class="button-description">Maîtrisez la théorie musicale</span>
+              </div>
+              <span class="button-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .book-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+    color: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .book-hero-content {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .book-cover {
+    position: relative;
+  }
+
+  .book-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .book-info h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+
+  .book-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+  }
+
+  .book-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .meta-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .meta-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .book-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
+  }
+
+  .book-cta {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .price-tag {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--theme-current);
+  }
+
+  .buy-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--theme-current);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .buy-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .buy-button.large {
+    font-size: 1.2rem;
+    padding: 1.2rem 3rem;
+  }
+
+  .preview-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .preview-button:hover {
+    text-decoration: underline;
+  }
+
+  .book-content {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .table-of-contents {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+  }
+
+  .table-of-contents h2 {
+    font-size: 1.8rem;
+    color: var(--theme-current);
+    margin-bottom: 2rem;
+  }
+
+  .toc-section {
+    margin-bottom: 2rem;
+  }
+
+  .toc-section h3 {
+    font-size: 1.3rem;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+  }
+
+  .toc-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc-section li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--color-dark);
+  }
+
+  .bonuses {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .bonuses h2 {
+    font-size: 1.8rem;
+    color: var(--theme-current);
+    margin-bottom: 2rem;
+  }
+
+  .bonuses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .bonus-card {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+  }
+
+  .bonus-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .bonus-card h3 {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .testimonials h2 {
+    font-size: 1.8rem;
+    color: var(--theme-current);
+    margin-bottom: 2rem;
+  }
+
+  .testimonial-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .testimonial-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author-name {
+    font-weight: 600;
+    color: var(--theme-current);
+  }
+
+  .author-role {
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+  }
+
+  .final-cta {
+    text-align: center;
+    background: white;
+    padding: 4rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .final-cta h2 {
+    font-size: 2.5rem;
+    color: var(--theme-current);
+    margin-bottom: 1rem;
+  }
+
+  .final-cta p {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    margin-bottom: 2rem;
+  }
+
+  .guarantee {
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin-top: 1rem;
+  }
+
+  .discover-courses {
+    padding: 6rem 0;
+    background: var(--bg-light);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .discover-courses .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--theme-current);
+  }
+
+  .discover-courses .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .course-button {
+    position: relative;
+    height: 200px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .button-background {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+  }
+
+  .button-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.8)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .button-icon {
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: auto;
+  }
+
+  .button-text-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .button-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .button-description {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .button-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .course-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .course-button:hover .button-background {
+    transform: scale(1.1);
+  }
+
+  .course-button:hover .button-content {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.9)
+    );
+  }
+
+  .course-button:hover .button-arrow {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 1200px) {
+    .courses-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 992px) {
+    .book-hero-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .book-cover {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .book-hero {
+      padding: 6rem 0 3rem;
+    }
+
+    .book-info h1 {
+      font-size: 2.5rem;
+    }
+
+    .book-meta {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .book-cta {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
+
+    .buy-button {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .final-cta {
+      padding: 2rem;
+    }
+
+    .final-cta h2 {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .courses-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .course-button {
+      height: 160px;
+    }
+
+    .button-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+    }
+
+    .button-title {
+      font-size: 1.2rem;
+    }
+
+    .discover-courses .section-title {
+      font-size: 2rem;
+      padding: 0 1rem;
+    }
+
+    .discover-courses .section-subtitle {
+      font-size: 1.1rem;
+      padding: 0 1rem;
+    }
+  }
+</style>

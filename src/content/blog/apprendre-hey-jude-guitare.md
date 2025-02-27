@@ -1,21 +1,21 @@
 ---
-title: "Hey Jude : Un classique intemporel des Beatles"
+title: "Hey Jude : Secrets et accords de ce tube incontournable des Beatles"
 description: "Plongez dans l'histoire et l'impact de 'Hey Jude', une chanson emblématique des Beatles qui continue d'inspirer et de rassembler des générations."
-ogImage: "/images/blog/apprendre-hey-jude-guitare.jpg"
+ogImage: "/images/blog/apprendre-hey-jude-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-04"
 introduction: "Avec 'Hey Jude', les Beatles ont créé un hymne universel d'espoir et de réconfort. Découvrez l'histoire de cette chanson légendaire et apprenez à la jouer sur votre guitare."
 
 songInfo:
   inBook: true
   bookPage: "30"
   tempo: "74"
-  chordCount: "16"
+  chordCount: "13"
   key: "F"
-  difficulty: "Avancé"
+  difficulty: "5/5"
 
 videos:
   - title: "Découvrir les Bases de 'Hey Jude'"

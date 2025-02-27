@@ -1,12 +1,12 @@
 ---
-title: "Viva La Vida : L'épopée musicale de Coldplay"
+title: "Jouez Viva La Vida de Coldplay : Analyse et tutoriel guitare facile"
 description: "Découvrez 'Viva La Vida', un chef-d'œuvre intemporel de Coldplay, et apprenez à jouer ce morceau chargé d'émotion à la guitare."
-ogImage: "/images/blog/apprendre-viva-la-vida-guitare.jpg"
+ogImage: "/images/blog/apprendre-viva-la-vida-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-21"
 introduction: "Avec 'Viva La Vida', Coldplay a marqué une génération avec un morceau riche en symbolisme et en émotion. Découvrez l'histoire de cette chanson et apprenez à la jouer."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "80"
   tempo: "70"
   chordCount: "9"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "2/5"
 
 videos:
   - title: "Apprends les Bases de Viva La Vida"

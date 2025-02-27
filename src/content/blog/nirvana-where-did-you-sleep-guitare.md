@@ -1,13 +1,13 @@
 ---
 title: "Découverte du Grunge avec Nirvana : Plongée dans 'Where Did You Sleep Last Night'"
 description: "Explorez l'histoire et l'impact de la reprise légendaire de Nirvana, ainsi que des ressources pour maîtriser ce morceau culte à la guitare."
-ogImage: "/images/blog/nirvana-where-did-you-sleep-guitare.jpg"
+ogImage: "/images/blog/nirvana-where-did-you-sleep-guitare.webp"
 
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2024-03-05T21:51:00+00:00"
-dateModified: "2025-01-24T20:52:00+00:00"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-30"
 introduction: "Plongeons dans l'univers envoûtant de Nirvana à travers leur performance emblématique de 'Where Did You Sleep Last Night' lors du MTV Unplugged de 1993. Un morceau captivant et un défi musical pour les amateurs de guitare."
 
 songInfo:
@@ -15,7 +15,7 @@ songInfo:
   bookPage: "84"
   tempo: "N/A"
   chordCount: "6"
-  key: "N/A"
+  key: ""
   difficulty: "Avancé"
 
 videos:

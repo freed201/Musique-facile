@@ -1,12 +1,12 @@
 ---
-title: "Wonderwall : L'hymne intemporel d'Oasis"
+title: "Jouez Wonderwall d’Oasis : Tutoriel et signification du morceau"
 description: "Découvrez 'Wonderwall', le chef-d'œuvre d'Oasis, et apprenez à jouer ce morceau culte qui a marqué l'histoire de la musique."
-ogImage: "/images/blog/apprendre-wonderwall-guitare.jpg"
+ogImage: "/images/blog/apprendre-wonderwall-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-25"
 introduction: "Avec 'Wonderwall', Oasis a captivé le monde en 1995 avec une ballade rock inoubliable. Découvrez son histoire, son impact et apprenez à la jouer."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "89"
   tempo: "90"
   chordCount: "7"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "4/5"
 
 videos:
   - title: "Tutoriel complet de Wonderwall"

@@ -2,13 +2,13 @@
 # Data SEO
 title: "Lecture de Notes - le solfège facile"
 description: "Formation complète pour apprendre à lire les notes de musique. Découvrez le solfège avec des exercices progressifs et un programme structuré pour maîtriser les bases et aller plus loin."
-ogImage: "/images/cours/piano-facile-apprendre-debutant/hero.jpg"
+ogImage: "/images/cours/lecture-de-notes-niveau-debutant/hero.jpg"
 theme: "solfege"
 lienAchat: "https://ecole.musique-facile.fr/lecture-de-notes-1/buy"
 author: "Musique Facile"
 datePublished: "2025-01-01"
 dateModified: "2025-01-28"
-price: "49 EUR"
+price: "69 EUR"
 duration: "P2H20M"
 provider:
   name: "Musique Facile"
@@ -30,7 +30,7 @@ dataGenerale:
   niveauRequis: "Aucun - Débutant total accepté"
   certificat: true
   acces: "Illimité"
-  support: "Email & Forum privé"
+  support: "Email"
   garantie: "15 jours satisfait ou remboursé"
 
 # Data programme

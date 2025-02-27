@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import PromoSection from '../components/PromoSection.astro';
 import Hero from '../components/Hero.astro';
 import Avantages from '../components/Avantages.astro';
 import Cours from '../components/Cours.astro';
@@ -64,36 +65,6 @@ const breadcrumbSchema = {
 ---
 
 <Layout title={title}>
-  <Header />
-  
-  <!-- Bannière promotionnelle -->
-  <div class="promo-banner" id="promoBanner">
-    <div class="container">
-      <div class="promo-content">
-        <div class="promo-badge">Offre de lancement 🎉</div>
-        <div class="promo-title">-50% sur toutes les formations</div>
-        <div class="promo-code">Code : <span>OUVERTURE</span></div>
-        <div class="countdown" id="countdown">
-          <div class="countdown-item">
-            <span class="countdown-value" id="days">00</span>
-            <span class="countdown-label">Jours</span>
-          </div>
-          <div class="countdown-item">
-            <span class="countdown-value" id="hours">00</span>
-            <span class="countdown-label">Heures</span>
-          </div>
-          <div class="countdown-item">
-            <span class="countdown-value" id="minutes">00</span>
-            <span class="countdown-label">Minutes</span>
-          </div>
-          <div class="countdown-item">
-            <span class="countdown-value" id="seconds">00</span>
-            <span class="countdown-label">Secondes</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -122,7 +93,9 @@ const breadcrumbSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </head>
+  
   <Header />
+  <!-- <PromoSection /> -->
   <Hero />
   <Avantages />
   <Cours />
@@ -134,7 +107,7 @@ const breadcrumbSchema = {
 
   <section class="course-buttons">
     <div class="container">
-      <h2 class="section-title">Alors, prêt(e) à rejoindre l'aventure ? 🎸🎹🎶</h2>
+      <h2 class="section-title">Alors, prêt(e) à rejoindre l'aventure ?</h2>
       <div class="buttons-grid">
         <a href="/cours/cours-de-guitare" class="course-button theme-guitar">
           <div class="button-background" style="background-image: url('/images/cours/hero-guitare.jpg')"></div>
@@ -358,166 +331,4 @@ const breadcrumbSchema = {
       font-size: 1.2rem;
     }
   }
-
-
-
-  .promo-banner {
-    background: linear-gradient(-45deg, #FF6B6B, #FF8E53, #4ECDC4, #45B7D1);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    padding: 0.75rem 0;
-    color: white;
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    z-index: 999;
-    transition: transform 0.3s ease;
-  }
-
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .promo-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .promo-badge {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.25rem 1rem;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-  }
-
-  .promo-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-
-  .promo-code {
-    font-size: 1.1rem;
-  }
-
-  .promo-code span {
-    background: white;
-    color: #FF6B6B;
-    padding: 0.2rem 0.8rem;
-    border-radius: var(--border-radius);
-    font-weight: 700;
-    margin-left: 0.5rem;
-  }
-
-  .countdown {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .countdown-item {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    min-width: 80px;
-  }
-
-  .countdown-value {
-    font-size: 1.2rem;
-    font-weight: 700;
-    display: block;
-  }
-
-  .countdown-label {
-    font-size: 0.8rem;
-    opacity: 0.9;
-  }
-
-  @media (max-width: 768px) {
-    .promo-content {
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 0.5rem;
-    }
-
-    .countdown {
-      gap: 0.5rem;
-    }
-
-    .countdown-item {
-      min-width: 60px;
-      padding: 0.3rem 0.5rem;
-    }
-
-    .countdown-value {
-      font-size: 1rem;
-    }
-
-    .countdown-label {
-      font-size: 0.7rem;
-    }
-  }
 </style>
-
-<script>
-  // Calcul de la date de fin (9 jours à partir de maintenant)
-  const endDate = new Date();
-  endDate.setDate(endDate.getDate() + 9);
-  endDate.setHours(23, 59, 59, 999);
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = endDate.getTime() - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById('days').textContent = String(days).padStart(2, '0');
-    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-
-    if (distance < 0) {
-      clearInterval(countdownInterval);
-      document.getElementById('promoBanner').style.display = 'none';
-    }
-  }
-
-  // Mise à jour du compteur chaque seconde
-  const countdownInterval = setInterval(updateCountdown, 1000);
-  updateCountdown(); // Première mise à jour immédiate
-
-  // Gestion du scroll pour masquer/afficher la bannière
-  let lastScrollTop = 0;
-  const banner = document.getElementById('promoBanner');
-  const bannerHeight = banner.offsetHeight;
-
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > lastScrollTop) {
-      // Scroll vers le bas
-      banner.style.transform = `translateY(-${bannerHeight}px)`;
-    } else {
-      // Scroll vers le haut
-      banner.style.transform = 'translateY(0)';
-    }
-    
-    lastScrollTop = scrollTop;
-  });
-</script>

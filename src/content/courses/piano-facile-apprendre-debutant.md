@@ -13,30 +13,35 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner"] # ou ["Intermediate"], ["Advanced"]
+courseMode: "Online"
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT10H"
+  duration: "PT10H" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
-    price: "89.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    price: "149.00"
+    availability: "https://schema.org/InStock"
+    category: "Paid"
 
 hero:
   badge: "Pour débutants"
   title: "Apprenez le piano de A à Z"
   subtitle: "Une formation complète pour maîtriser le piano, des bases aux techniques avancées, avec un parcours structuré et progressif."
   cta:
-    text: "Accéder pour €149"
-    price: "€149 ou 3 paiements mensuels de €50"
+    text: "Accéder pour €149 "
+    price: "ou 3 paiements mensuels de €50"
   video:
-    url: "https://player.vimeo.com/video/piano-debutant-guide-complet"
+    id: "1057421752"
   stats:
     - value: "21000+"
       label: "élèves formés"
@@ -53,10 +58,10 @@ teachers:
   mainTeachers:
     - firstName: "FRed"
       lastName: "Fieffé"
-      subtitle: "Votre professeur"
+      subtitle: "Ton professeur"
       description: "13 année d'expérience dans l'enseignement de la musique en ligne."
-      photo: "https://img.skilleos.com/default/0001/13/7eb0b979484e1bd217fe957326b297ae84485a6f.jpeg"
-      website: "https://jeanmartin-guitare.fr"
+      photo: "fred.jpg"
+      website: "https://musique-facile.fr"
 
 
 
@@ -176,11 +181,14 @@ preuveSociale:
     timeframe: "4 semaines"
   partners:
     - name: "Roland"
-      logo: "https://test.musique-facile.fr/images/logo/logo_Roland.png"
-    - name: "Hal Leonard"
-      logo: "https://test.musique-facile.fr/images/logo/logo_Hal_Leonard.png"
-    - name: "LinkedIn Learning"
-      logo: "https://test.musique-facile.fr/images/logo/logo_LinkedIn.png"
+      logo: "logo-Roland.png"
+      buttonLink: "https://www.roland.com/fr/"
+    - name: "Skilleos"
+      logo: "logo-Skilleos.png"
+      buttonLink: "https://www.skilleos.com/"
+    - name: "Casio"
+      logo: "logo-casio.png"
+      buttonLink: "https://www.casio.com/fr/electronic-musical-instruments/"
 
 benefices:
   title: "Pourquoi cette formation est idéale pour vous ?"
@@ -200,7 +208,7 @@ cta:
   title: "Faites de votre rêve de piano une réalité"
   subtitle: "Rejoignez la formation 'Piano Débutant : Guide Complet' et commencez votre aventure musicale dès aujourd'hui."
   buttonText: "Je m'inscris maintenant !"
-  buttonLink: "#pricing"
+  buttonLink: "https://ecole.musique-facile.fr/piano-debutant-guide-complet/buy"
   backgroundImage: "https://ecole.musique-facile.fr/images/piano-cta-bg.jpg"
   features:
     - icon: "⭐"

@@ -8,7 +8,7 @@ import { getCollection } from 'astro:content';
 const allPosts = await getCollection('blog');
 const latestPosts = allPosts
   .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime())
-  .slice(0, 30); // Prendre les 30 derniers articles
+  .slice(0, 50); // Prendre les 30 derniers articles
 
 // Schema.org pour la liste des articles
 const blogSchema = {
@@ -49,16 +49,7 @@ const blogSchema = {
 
     <section class="blog-content">
       <div class="container">
-        <div class="sort-controls">
-          <button class="sort-btn active" data-sort="latest">
-            <span class="sort-icon">📅</span>
-            Plus récents
-          </button>
-          <button class="sort-btn" data-sort="oldest">
-            <span class="sort-icon">🕰️</span>
-            Plus anciens
-          </button>
-        </div>
+      
 
         <div class="blog-grid">
           {latestPosts.map(post => (
@@ -107,7 +98,7 @@ const blogSchema = {
   .hero-background {
     position: absolute;
     inset: 0;
-    background-image: url('/images/blog/hero.jpg');
+    background-image: url('/images/blog/hero.webp');
     background-size: cover;
     background-position: center;
     opacity: 0.3;

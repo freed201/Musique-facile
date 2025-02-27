@@ -12,30 +12,37 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner", "Intermediate"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner","Intermediate","Advanced"] # ou ["Intermediate"], ["Advanced"]courseMode: "Online"
+courseMode: "Online"
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT2H15M"
+  duration: "PT2H15M" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
     price: "69.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    availability: "https://schema.org/InStock"
+    category: "Paid"
+
+
 
 hero:
   badge: "Tous niveaux"
   title: "Maîtrise Digitale au Piano : 5 Exercices Clés"
   subtitle: "Renforcez le contrôle et l'agilité de vos doigts avec notre méthode progressive."
   cta:
-    text: "Accéder pour €69"
-    price: " ou 2 paiements mensuels de €35"
+    text: "Accéder pour €69 "
+    price: "ou 2 paiements mensuels de €35"
   video:
-    url: "https://player.vimeo.com/video/exercices-maitrise-doigts-piano"
+    id: "1057421752"
   stats:
     - value: "59"
       label: "vidéos"
@@ -145,11 +152,15 @@ preuveSociale:
     timeframe: "des élèves constatent une nette amélioration de leur maîtrise en moins de 15 jours"
   partners:
     - name: "Roland"
-      logo: "logo_Roland.png"
+      logo: "logo-Roland.png"
+      buttonLink: "https://www.roland.com/fr/"
     - name: "Skilleos"
-      logo: "logo_Skilleos.png"
+      logo: "logo-Skilleos.png"
+      buttonLink: "https://www.skilleos.com/"
     - name: "Casio"
-      logo: "logo_casio.png"
+      logo: "logo-casio.png"
+      buttonLink: "https://www.casio.com/fr/electronic-musical-instruments/"
+
 
 benefices:
   title: "Pourquoi cette formation est idéale pour vous ?"

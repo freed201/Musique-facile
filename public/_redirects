@@ -1,0 +1,132 @@
+# Redirections 301 permanentes
+/Z1                  https://school.sebastienzunino.com/test/gmln5                                                  301
+/PENTA              https://school.sebastienzunino.com/la-gamme-pentatonique-pour-les-debutants/gmln5              301
+/songbook           https://bit.ly/LivreTK                                                                          301
+/maitriser-la-guitare  /cours/cours-de-guitare                                                                     301
+/ete                https://ecole.musique-facile.fr/checkout/cart                                                   301
+/test               https://www.musique-facile.fr/abonnement-ecole-de-musique-facile-very-important-musicien/      301
+/vote               https://form.typeform.com/to/Xj4zuWiQ?typeform-source=www.foliweb-awards.fr                    301
+/IMAGINE            https://school.musique-facile.fr/formation-7-jours/                                            301
+/imagine            https://school.musique-facile.fr/formation-7-jours/                                            301
+
+# Nouvelles redirections
+/le-piano          /cours/cours-de-piano                                                                           301
+/maitriser-la-guitare  /cours/cours-de-guitare                                                                    301
+/author/fred/      /blog                                                                                           301
+/apprends-le-piano-facilement-cours-de-piano-en-ligne/  /cours/cours-de-piano                                     301
+/apprends-le-solfege-facilement-cours-de-solfege-en-ligne/  /cours/cours-de-solfege                              301
+/apprends-la-guitare-facilement-cours-de-guitare-en-ligne-pour-debutants/  /cours/cours-de-guitare               301
+
+# Redirections des articles de blog
+/307-across-the-universe-the-beatles      /blog/tutoriel-across-the-universe-pour-debutants      301
+/205-back-to-black-amy-winehouse          /blog/apprendre-back-to-black-guitare                  301
+/15-clandestino-manu-chao                 /blog/jouer-clandestino-guitare-tutoriel              301
+/305-dont-stop-me-now-queen               /blog/tutoriel-dont-stop-me-now-queen                 301
+/309-fields-of-gold-sting                 /blog/jouer-fields-of-gold-sting                      301
+/12-everybody-hurts-r-e-m                 /blog/tutoriel-everybody-hurts-facile                 301
+/13-foule-sentimentale-alain-souchon      /blog/tutoriel-foule-sentimentale-chanson            301
+/69-hallelujah-leonard-cohen              /blog/jouer-hallelujah-jeff-buckley-guitare          301
+/05-hey-ya-outkast                        /blog/jouer-hey-ya-outkast-guitare                    301
+/306-hey-jude-the-beatles                 /blog/apprendre-hey-jude-guitare                      301
+/94-house-of-the-rising-sun-the-animals   /blog/tutoriel-guitare-house-of-the-rising-sun       301
+/29-jveux-du-soleil-au-ptit-bonheur      /blog/tutoriel-jveux-du-soleil-chanson-francaise     301
+/09-la-seine-vanessa-paradis-et-m         /blog/jouer-la-seine-vanessa-m                       301
+/312-les-copains-dabord-georges-brassens  /blog/tutoriel-les-copains-dabord-guitare            301
+/302-lopportuniste-jacques-dutronc        /blog/jouer-lopportuniste-dutronc-guitare            301
+/300-mr-jones-counting-crows              /blog/apprendre-mr-jones-guitare                      301
+/63-ironic-alanis-morissette             /blog/apprendre-ironic-guitare                        301
+/301-lucky-man-richard-ashcroft           /blog/apprendre-lucky-man-guitare                     301
+/54-machistador-m                         /blog/apprendre-machistador-guitare                   301
+/303-more-than-words-extreme              /blog/tutoriel-more-than-words-guitare               301
+/47-one-u2                               /blog/apprendre-one-guitare                           301
+/201-perfect-ed-sheeran                   /blog/apprendre-perfect-guitare                       301
+/18-partons-vite-kaolin                   /blog/apprendre-partons-vite-guitare                  301
+/04-redemption-song-bob-marley            /blog/apprendre-redemption-song-guitare              301
+/58-respire-mickey-3d                     /blog/apprendre-respire-guitare                       301
+/304-riche-claudio-capeo                  /blog/apprendre-riche-guitare                         301
+/45-smells-like-teen-spirit-nirvana       /blog/apprendre-smells-like-teen-spirit-guitare      301
+/11-so-lonely-the-police                  /blog/apprendre-so-lonely-guitare                     301
+/93-stand-by-me-ben-e-king                /blog/apprendre-stand-by-me-guitare                   301
+/310-sweet-dreams-are-made-of-this-eurythmics  /blog/apprendre-sweet-dreams-guitare            301
+/51-un-autre-monde-telephone              /blog/apprendre-un-autre-monde-guitare                301
+/76-une-belle-histoire-michel-fugain-et-le-big-bazar  /blog/apprendre-une-belle-histoire-guitare  301
+/66-whats-up-4-non-blondes                /blog/apprendre-whats-up-guitare                      301
+/311-where-did-you-sleep-last-night-nirvana  /blog/nirvana-where-did-you-sleep-guitare         301
+/35-where-is-my-mind-pixies               /blog/apprendre-where-is-my-mind-guitare             301
+/62-wonderwall-oasis                      /blog/apprendre-wonderwall-guitare                    301
+/68-wild-world-cat-stevens                /blog/apprendre-wild-world-guitare                    301
+/308-chasing-cars-snow-patrol             /blog/apprendre-chasing-cars-guitare                  301
+/apprendre-a-jouer-nous-on-sait-de-pierre-garnier  /blog/Nous-on-sait-guitare-tuto            301
+
+# Redirections des catégories et archives
+/category/*         /blog                                                                        301
+/tag/*             /blog                                                                        301
+/archive/*         /blog                                                                        301
+/page/*            /blog                                                                        301
+/feed              /blog                                                                        301
+/rss               /blog                                                                        301
+/wp-content/*      /blog                                                                        301
+
+# Redirections des anciennes pages WordPress
+/wp-admin          /                                                                            301
+/wp-login.php      /                                                                            301
+/wp-includes/*     /                                                                            301
+/wp-content/uploads/* /images/:splat                                                            301
+
+# Redirections des pages d'erreur
+/404               /                                                                            404
+/500               /                                                                            500
+
+# Force HTTPS
+/*  https://:splat  301!
+
+# Gestion des headers de cache et compression
+/* 
+  Cache-Control: public, max-age=3600
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'
+
+# Headers spécifiques pour les assets statiques
+/*.css
+  Cache-Control: public, max-age=31536000
+  Content-Type: text/css
+/*.js
+  Cache-Control: public, max-age=31536000
+  Content-Type: application/javascript
+/*.jpg
+  Cache-Control: public, max-age=31536000
+  Content-Type: image/jpeg
+/*.jpeg
+  Cache-Control: public, max-age=31536000
+  Content-Type: image/jpeg
+/*.png
+  Cache-Control: public, max-age=31536000
+  Content-Type: image/png
+/*.gif
+  Cache-Control: public, max-age=31536000
+  Content-Type: image/gif
+/*.svg
+  Cache-Control: public, max-age=31536000
+  Content-Type: image/svg+xml
+/*.woff2
+  Cache-Control: public, max-age=31536000
+  Content-Type: font/woff2
+/*.woff
+  Cache-Control: public, max-age=31536000
+  Content-Type: font/woff
+/*.ttf
+  Cache-Control: public, max-age=31536000
+  Content-Type: font/ttf
+/*.webp
+  Cache-Control: public, max-age=31536000
+  Content-Type: image/webp
+/*.mp4
+  Cache-Control: public, max-age=31536000
+  Content-Type: video/mp4
+/*.webm
+  Cache-Control: public, max-age=31536000
+  Content-Type: video/webm

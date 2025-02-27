@@ -1,21 +1,21 @@
 ---
-title: "Les Copains d’Abord : L’hymne à l’amitié de Georges Brassens"
+title: "Les Copains d’Abord : La chanson de l’amitié de Georges Brassens"
 description: "Explorez 'Les Copains d’Abord', un classique intemporel de Georges Brassens, et apprenez à jouer ce morceau emblématique à la guitare."
-ogImage: "/images/blog/tutoriel-les-copains-dabord-guitare.jpg"
+ogImage: "/images/blog/tutoriel-les-copains-dabord-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-02-04"
 introduction: "Avec 'Les Copains d’Abord', Georges Brassens célèbre l’amitié avec des paroles simples mais profondes. Découvrez l’histoire et apprenez à jouer cette chanson iconique."
 
 songInfo:
   inBook: true
-  bookPage: "38-39"
+  bookPage: "38"
   tempo: "N/A"
   chordCount: "13"
-  key: "N/A"
-  difficulty: "Avancé"
+  key: ""
+  difficulty: "4/5"
 
 videos:
   - title: "Tutoriel Simplifié : Débutants - 'Les Copains d’Abord'"
@@ -27,9 +27,6 @@ videos:
   - title: "Play Along : Jouez en temps réel"
     url: "https://youtu.be/xQrS__o0yFc"
 
-podcast:
-  title: "N/A"
-  url: "N/A"
 
 conclusion: |
   En apprenant "Les Copains d’Abord", tu ne fais pas que perfectionner tes compétences musicales, tu souris à chaque note en portant en toi un peu de cette chaleureuse nostalgie brassensienne. Que ce soit seul dans ta chambre ou entouré d’amis, cette chanson t’accompagnera comme un vieil ami, te rappelant l’importance des relations humaines. Alors attrape ta guitare, et surtout, amuse-toi ! Pour ceux désireux de découvrir ou d'accomplir davantage, n'oublie pas de plonger dans d'autres intemporels de Brassens, un artiste dont chaque morceau est une célébration.

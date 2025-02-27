@@ -1,12 +1,12 @@
 ---
-title: "Une Belle Histoire : L'icône intemporelle de Michel Fugain"
+title: "Une Belle Histoire de Michel Fugain : Découvrez et jouez ce titre culte"
 description: "Découvrez 'Une Belle Histoire', un chef-d'œuvre de Michel Fugain, et apprenez à jouer cette chanson légendaire à la guitare."
-ogImage: "/images/blog/apprendre-une-belle-histoire-guitare.jpg"
+ogImage: "/images/blog/apprendre-une-belle-histoire-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-20"
 introduction: "Avec 'Une Belle Histoire', Michel Fugain a capturé l'esprit de liberté et de rencontres éphémères. Découvrez l'histoire de ce morceau et apprenez à le jouer."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "78"
   tempo: "85"
   chordCount: "8"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "2/5"
 
 videos:
   - title: "Tutoriel simplifié pour débutants"

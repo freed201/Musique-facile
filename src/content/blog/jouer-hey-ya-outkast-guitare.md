@@ -1,20 +1,20 @@
 ---
 title: "Hey Ya! par Outkast : Un Jeu de Cordes et d'Émotions"
 description: "Analyse musicale du hit emblématique des années 2000, \"Hey Ya!\", explorant sa rythmique entraînante et ses thèmes introspectifs."
-ogImage: "/images/blog/jouer-hey-ya-outkast-guitare.jpg"
+ogImage: "/images/blog/jouer-hey-ya-outkast-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-23"
-dateModified: "2025-01-23"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-27"
 introduction: "Ah, le monde fascinant de la musique ! Plongeons dans l'univers vibrant de 'Hey Ya!' par Outkast, une mélodie joyeuse qui cache une réflexion profonde sur les relations modernes."
 songInfo:
   inBook: true
-  bookPage: "82"
-  tempo: "180"
-  chordCount: "8"
+  bookPage: "27"
+  tempo: "80"
+  chordCount: "4"
   key: "C"
-  difficulty: "Facile"
+  difficulty: "2/5"
 
 videos:
   - title: "Tutoriel version simplifiée : Les bases pour débuter"

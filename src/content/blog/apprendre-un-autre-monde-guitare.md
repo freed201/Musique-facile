@@ -1,12 +1,12 @@
 ---
-title: "Un Autre Monde : L'hymne visionnaire de Téléphone"
+title: "Jouez Un Autre Monde de Téléphone : Un classique rock à la guitare"
 description: "Découvrez 'Un Autre Monde', un classique du rock français signé Téléphone, et apprenez à jouer ce morceau emblématique à la guitare."
-ogImage: "/images/blog/apprendre-un-autre-monde-guitare.jpg"
+ogImage: "/images/blog/apprendre-un-autre-monde-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-19"
 introduction: "Avec 'Un Autre Monde', Téléphone offre une vision musicale d'évasion et de renouveau. Découvrez son histoire et apprenez à jouer ce chef-d'œuvre."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "76"
   tempo: "142"
   chordCount: "6"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "3/5"
 
 videos:
   - title: "Version simplifiée pour débutants"

@@ -1,0 +1,268 @@
+---
+// src/pages/plan-du-site.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+// Récupérer tous les articles de blog
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => 
+  new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime()
+);
+
+// Récupérer tous les cours
+const allCourses = await getCollection('courses');
+const sortedCourses = allCourses
+  .filter(course => course.data.affichage === 'Y')
+  .sort((a, b) => a.data.classement - b.data.classement);
+
+// Récupérer tous les livres
+const allBooks = await getCollection('livres');
+const sortedBooks = allBooks.sort((a, b) => 
+  new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime()
+);
+
+// Structure des pages principales
+const mainPages = [
+  { name: "Accueil", url: "/" },
+  { name: "Cours", url: "/cours" },
+  { name: "Blog", url: "/blog" },
+  { name: "Livres", url: "/livres" },
+  { name: "Contact", url: "/contact" }
+];
+
+// Structure des pages de cours par instrument
+const courseCategories = [
+  { name: "Cours de Guitare", url: "/cours/cours-de-guitare" },
+  { name: "Cours de Piano", url: "/cours/cours-de-piano" },
+  { name: "Cours d'Ukulélé", url: "/cours/cours-de-ukulele" },
+  { name: "Cours de Solfège", url: "/cours/cours-de-solfege" }
+];
+
+// Pages légales
+const legalPages = [
+  { name: "Mentions Légales & CGV", url: "/mentions-legales-cgv" },
+  { name: "Politique de Confidentialité", url: "/politique-confidentialite" }
+];
+---
+
+<Layout title="Plan du site | Musique Facile">
+  <Header />
+  
+  <main>
+    <section class="sitemap-hero">
+      <div class="container">
+        <h1>Plan du site</h1>
+        <p class="subtitle">Explorez toutes les pages de Musique Facile</p>
+      </div>
+    </section>
+
+    <section class="sitemap-content">
+      <div class="container">
+        <div class="sitemap-grid">
+          <!-- Pages Principales -->
+          <div class="sitemap-section">
+            <h2>Pages Principales</h2>
+            <ul>
+              {mainPages.map(page => (
+                <li>
+                  <a href={page.url}>{page.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Cours -->
+          <div class="sitemap-section">
+            <h2>Nos Formations</h2>
+            <ul>
+              {courseCategories.map(category => (
+                <li>
+                  <a href={category.url}>{category.name}</a>
+                </li>
+              ))}
+            </ul>
+            
+            <h3>Tous les cours</h3>
+            <ul class="detailed-list">
+              {sortedCourses.map(course => (
+                <li>
+                  <a href={`/cours/${course.slug}`}>{course.data.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Blog -->
+          <div class="sitemap-section">
+            <h2>Articles de Blog</h2>
+            <ul class="detailed-list">
+              {sortedPosts.map(post => (
+                <li>
+                  <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+                  <span class="post-date">
+                    {new Date(post.data.datePublished).toLocaleDateString('fr-FR', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Livres -->
+          <div class="sitemap-section">
+            <h2>Nos Livres</h2>
+            <ul class="detailed-list">
+              {sortedBooks.map(book => (
+                <li>
+                  <a href={`/livres/${book.slug}`}>{book.data.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Pages Légales -->
+          <div class="sitemap-section">
+            <h2>Informations Légales</h2>
+            <ul>
+              {legalPages.map(page => (
+                <li>
+                  <a href={page.url}>{page.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .sitemap-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sitemap-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+  }
+
+  .sitemap-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .sitemap-content {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .sitemap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+  }
+
+  .sitemap-section {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .sitemap-section h2 {
+    font-size: 1.8rem;
+    color: var(--theme-current);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--theme-current);
+  }
+
+  .sitemap-section h3 {
+    font-size: 1.3rem;
+    color: var(--color-dark);
+    margin: 2rem 0 1rem;
+  }
+
+  .sitemap-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sitemap-section li {
+    margin-bottom: 0.8rem;
+  }
+
+  .sitemap-section a {
+    color: var(--color-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .sitemap-section a:hover {
+    color: var(--theme-current);
+    transform: translateX(5px);
+  }
+
+  .detailed-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .post-date {
+    font-size: 0.8rem;
+    color: var(--color-dark);
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .sitemap-hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .sitemap-section {
+      padding: 1.5rem;
+    }
+
+    .detailed-list li {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+</style>

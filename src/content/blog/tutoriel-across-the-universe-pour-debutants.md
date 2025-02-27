@@ -1,13 +1,13 @@
 ---
-title: "Across The Universe : Un chef-d'œuvre intemporel des Beatles"
+title: "Across The Universe : L’un des plus beaux morceaux des Beatles à la guitare"
 description: "Découvrez 'Across The Universe', une chanson mystique et poétique des Beatles qui continue de captiver les auditeurs avec sa profondeur et sa sérénité."
-ogImage: "/images/blog/tutoriel-across-the-universe-pour-debutants.jpg"
+ogImage: "/images/blog/tutoriel-across-the-universe-pour-debutants.webp"
 
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-31"
 introduction: "Plongez dans 'Across The Universe', une œuvre inoubliable des Beatles qui allie la poésie introspective de John Lennon à une mélodie envoûtante, transportant l’auditeur dans un voyage sonore unique."
 
 songInfo:
@@ -15,8 +15,8 @@ songInfo:
   bookPage: "6"
   tempo: "76"
   chordCount: "8"
-  key: "N/A"
-  difficulty: "Avancé"
+  key: ""
+  difficulty: "4/5"
 
 videos:
   - title: "Tutoriel Simplifié : Découvrir 'Across The Universe'"

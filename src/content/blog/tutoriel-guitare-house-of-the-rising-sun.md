@@ -1,12 +1,12 @@
 ---
-title: "House of The Rising Sun : Un chef-d'œuvre intemporel des Animals"
+title: "House of The Rising Sun : Histoire et accords de ce titre légendaire"
 description: "Explorez l'histoire et l'impact de 'House of The Rising Sun', un classique du rock qui continue d'inspirer les générations."
-ogImage: "/images/blog/tutoriel-guitare-house-of-the-rising-sun.jpg"
+ogImage: "/images/blog/tutoriel-guitare-house-of-the-rising-sun.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-02-03"
 introduction: "Avec 'House of The Rising Sun', The Animals ont créé une œuvre qui transcende le temps et les genres. Découvrez ce classique du rock et apprenez à le jouer sur votre guitare."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "32"
   tempo: "85"
   chordCount: "5"
-  key: "N/A"
-  difficulty: "Facile"
+  key: "Am"
+  difficulty: "2/5"
 
 videos:
   - title: "Maîtriser 'House of The Rising Sun' facilement"

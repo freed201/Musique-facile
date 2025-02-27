@@ -1,21 +1,21 @@
 ---
 title: "J'veux du Soleil : Hymne lumineux d'Au P'tit Bonheur"
 description: "Plongez dans 'J'veux du Soleil', un classique joyeux des années 90, et découvrez comment l'apprendre facilement à la guitare."
-ogImage: "/images/blog/tutoriel-jveux-du-soleil-chanson-francaise.jpg"
+ogImage: "/images/blog/tutoriel-jveux-du-soleil-chanson-francaise.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-02-03"
 introduction: "Avec 'J'veux du Soleil', Au P'tit Bonheur a marqué les années 90 avec une chanson joyeuse et intemporelle. Découvrez l'histoire et apprenez à jouer ce morceau lumineux."
 
 songInfo:
-  inBook: false
-  bookPage: "N/A"
+  inBook: true
+  bookPage: "34"
   tempo: "108"
   chordCount: "3"
-  key: "N/A"
-  difficulty: "Facile"
+  key: ""
+  difficulty: "3/5"
 
 videos:
   - title: "Tutoriel Simplifié : Découvrir 'J'veux du Soleil'"

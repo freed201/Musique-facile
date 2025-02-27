@@ -1,0 +1,21 @@
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Autoriser l'accès aux pages principales
+Allow: /cours/
+Allow: /blog/
+Allow: /livres/
+Allow: /contact/
+Allow: /mentions-legales-cgv/
+Allow: /politique-confidentialite/
+
+# Bloquer l'accès aux pages d'administration et aux fichiers sensibles
+Disallow: /admin/
+Disallow: /.env
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://musique-facile.fr/sitemap.xml

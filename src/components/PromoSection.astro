@@ -1,0 +1,231 @@
+---
+const endDate = new Date('2025-02-25T23:59:59');
+
+const formattedDate = endDate.toLocaleDateString('fr-FR', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+---
+
+<section class="promo-section">
+  <div class="container">
+    <div class="promo-content">
+      <div class="promo-left">
+        <span class="promo-badge">Offre de lancement 🎉</span>
+        <h2 class="promo-title">-50% sur toutes les formations</h2>
+        <p class="promo-subtitle">Avec le code : <span class="promo-code">OUVERTURE</span></p>
+      </div>
+      
+      <div class="countdown" id="countdown">
+        <p class="countdown-title">Offre valable jusqu'au {formattedDate}</p>
+        <div class="countdown-grid">
+          <div class="countdown-item">
+            <span class="countdown-value" id="days">00</span>
+            <span class="countdown-label">Jours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="hours">00</span>
+            <span class="countdown-label">Heures</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="minutes">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="seconds">00</span>
+            <span class="countdown-label">Secondes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .promo-section {
+    padding: 1.5rem 0;
+    background: linear-gradient(-45deg, #FF6B6B, #FF8E53, #4ECDC4, #45B7D1);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    margin-top: 70px; /* Ajout de la marge pour éviter le chevauchement avec le menu */
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .promo-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .promo-left {
+    flex: 1;
+  }
+
+  .promo-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .promo-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .promo-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+
+  .promo-code {
+    background: white;
+    color: #FF6B6B;
+    padding: 0.2rem 0.8rem;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    font-size: 1.1em;
+  }
+
+  .countdown {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    text-align: center;
+  }
+
+  .countdown-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.9;
+  }
+
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+
+  .countdown-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    min-width: 80px;
+  }
+
+  .countdown-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .countdown-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 992px) {
+    .promo-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .promo-title {
+      font-size: 1.75rem;
+    }
+
+    .countdown {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .countdown-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .countdown-item {
+      min-width: auto;
+    }
+
+    .promo-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  // Fonction pour mettre à jour le compteur
+  function updateCountdown() {
+    const endDate = new Date('2025-02-25T23:59:59').getTime();
+    const now = new Date().getTime();
+    const distance = endDate - now;
+
+    // Calcul des jours, heures, minutes et secondes
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Mise à jour des éléments avec padding à zéro
+    if (document.getElementById('days')) {
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    // Si le compte à rebours est terminé
+    if (distance < 0) {
+      if (document.querySelector('.promo-section')) {
+        document.querySelector('.promo-section').style.display = 'none';
+      }
+      return;
+    }
+
+    // Continuer la mise à jour
+    requestAnimationFrame(updateCountdown);
+  }
+
+  // S'assurer que le DOM est chargé avant d'initialiser
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateCountdown);
+  } else {
+    updateCountdown();
+  }
+
+  // Mettre à jour lors des navigations Astro
+  document.addEventListener('astro:page-load', updateCountdown);
+</script>

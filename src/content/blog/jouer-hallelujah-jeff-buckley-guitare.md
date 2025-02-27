@@ -1,12 +1,12 @@
 ---
 title: "Hallelujah : Jeff Buckley et l'interprétation qui transcende le temps"
 description: "Explorez l'histoire et l'impact de 'Hallelujah', chef-d'œuvre revisité par Jeff Buckley, une œuvre intemporelle mêlant émotion et musicalité."
-ogImage: "/images/blog/jouer-hallelujah-jeff-buckley-guitare.jpg"
+ogImage: "/images/blog/jouer-hallelujah-jeff-buckley-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-26"
 introduction: "Plongez dans l'univers musical et émotionnel de Jeff Buckley avec 'Hallelujah', une chanson iconique qui continue de résonner profondément chez les auditeurs et les musiciens du monde entier."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "24"
   tempo: "70"
   chordCount: "6"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "3/5"
 
 videos:
   - title: "Découvrir 'Hallelujah' pour Débutants"

@@ -1,11 +1,11 @@
 ---
-title: "Wild World : La ballade intemporelle de Cat Stevens"
+title: "Wild World de Cat Stevens : Un incontournable folk à la guitare"
 description: "Découvrez 'Wild World', un chef-d'œuvre de Cat Stevens mêlant émotion et mélodie, et apprenez à jouer cette chanson culte à la guitare."
-ogImage: "/images/blog/apprendre-wild-world-guitare.jpg"
+ogImage: "/images/blog/apprendre-wild-world-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
 dateModified: "2025-01-24"
 introduction: "Avec 'Wild World', Cat Stevens livre une chanson qui transcende les époques avec sa profondeur émotionnelle et sa simplicité mélodique. Découvrez son histoire et apprenez à la jouer."
 
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "92"
   tempo: "75"
   chordCount: "8"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "4/5"
 
 videos:
   - title: "Tutoriel simplifié : Apprenez 'Wild World'"

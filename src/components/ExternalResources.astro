@@ -1,0 +1,43 @@
+---
+// Composant pour gérer les ressources externes avec SRI
+const resources = [
+  {
+    url: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap",
+    integrity: "sha384-gsDC2U96ePxJ5WlUxddlDqwZ+SYqWuLEWz+PxPsz+Gz5BZQfPTlx+7JGXHzYTXhh",
+    type: 'style'
+  },
+  {
+    url: "https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap", 
+    integrity: "sha384-vXYUdh1pP0lx0uDybzE0FaFvwJvZmqQ3O9dYFOrjR+bXXKUKZ0qHVZBR6XfEpf1",
+    type: 'style'
+  },
+  {
+    url: "https://player.vimeo.com/api/player.js",
+    integrity: "sha384-5tIm4NTtlvHX5VPGz68Hl6nD5UF3GH5N4A/yCE+DIECYRzY9ZGNmISn7pF0Eg0Qj",
+    type: 'script'
+  },
+  {
+    url: "https://www.youtube.com/iframe_api",
+    integrity: "sha384-YMkqU1yP8VfQmT1QRNf3TxmLBkGZdPzK4yDtzfHZaW9cmGX4JGgDrJ+oGtEwJ5F",
+    type: 'script'
+  }
+];
+---
+
+{resources.map(resource => (
+  resource.type === 'style' ? (
+    <link 
+      rel="stylesheet" 
+      href={resource.url}
+      integrity={resource.integrity}
+      crossorigin="anonymous"
+    />
+  ) : (
+    <script 
+      src={resource.url}
+      integrity={resource.integrity}
+      crossorigin="anonymous"
+      defer
+    ></script>
+  )
+))}

@@ -12,30 +12,36 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner"] # ou ["Intermediate"], ["Advanced"]
+courseMode: "Online"
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT2H"
+  duration: "PT2H" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
     price: "69.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    availability: "https://schema.org/InStock"
+    category: "Paid"
+
 
 hero:
   badge: "Écoute musicale"
   title: "Piano Écoute Active : Maîtriser l'Art de l'Oreille Musicale"
   subtitle: "Transformez votre jeu en aiguisant votre oreille musicale."
   cta:
-    text: "Accéder pour €69"
+    text: "Accéder pour €69 "
     price: " ou 2 paiements mensuels de €35"
   video:
-    url: "https://player.vimeo.com/video/ameliorer-ecoute-piano"
+    id: "1057421752"
   stats:
     - value: "1150+"
       label: "élèves formés"
@@ -142,11 +148,14 @@ preuveSociale:
     timeframe: "des élèves ressentent mieux la musique en 15 jours."
   partners:
     - name: "Roland"
-      logo: "logo_Roland.png"
+      logo: "logo-Roland.png"
+      buttonLink: "https://www.roland.com/fr/"
     - name: "Hal Leonard"
-      logo: "logo_Hal_Leonard.png"
+      logo: "logo-Hal-Leonard.png"
+      buttonLink: "https://www.halleonard.com/"
     - name: "LinkedIn Learning"
-      logo: "logo_LinkedIn.png"
+      logo: "logo-LinkedIn.png"
+      buttonLink: "https://www.linkedin.com/learning/?trk=nav_neptune_learning&"
 
 benefices:
   title: "Pourquoi cette formation est idéale pour vous ?"

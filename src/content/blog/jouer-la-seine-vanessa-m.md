@@ -1,12 +1,12 @@
 ---
 title: "La Seine : Une ballade poétique au cœur de Paris"
 description: "Découvrez 'La Seine', un duo captivant entre Vanessa Paradis et -M-, et apprenez à jouer ce chef-d'œuvre musical inspiré de Paris."
-ogImage: "/images/blog/jouer-la-seine-vanessa-m.jpg"
+ogImage: "/images/blog/jouer-la-seine-vanessa-m.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-28"
 introduction: "Avec 'La Seine', Vanessa Paradis et -M- nous offrent une immersion poétique dans l'atmosphère unique de Paris. Découvrez cette chanson iconique et apprenez à la jouer."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "36"
   tempo: "55"
   chordCount: "8"
-  key: "N/A"
-  difficulty: "Avancé"
+  key: ""
+  difficulty: "4/5"
 
 videos:
   - title: "Tutoriel Simplifié : Jouer 'La Seine'"

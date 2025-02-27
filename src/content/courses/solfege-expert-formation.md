@@ -12,30 +12,36 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner","Intermediate","Advanced"] # ou ["Interme
+courseMode: "Online"
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT1H25M"
+  duration: "PT1H25M" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
-    price: "69.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    price: "79.00"
+    availability: "https://schema.org/InStock"
+    category: "Paid"
+
 
 hero:
   badge: "Solfège Avancé"
   title: "Solfège Expert : Altérations, Intervalles et Plus"
   subtitle: "Approfondissez votre compréhension musicale et élevez votre pratique à un niveau supérieur."
   cta:
-    text: "Accéder pour €69"
-    price: " ou 2 paiements mensuels de €35"
+    text: "Accéder pour €79 "
+    price: "ou 2 paiements mensuels de €40"
   video:
-    url: "https://player.vimeo.com/video/solfege-3"
+    id: "1058582500"
   stats:
     - value: "600+"
       label: "élèves formés"
@@ -53,89 +59,52 @@ teachers:
     - firstName: "Fred"
       lastName: "Fieffé"
       subtitle: "Professeur principal de guitare"
-      description: "20 ans d'expérience dans l'enseignement de la guitare, spécialisé dans la pédagogie pour débutants."
-      photo: "https://test.musique-facile.fr/images/teachers/jean-martin.jpg"
+      description: "Le solfège,c'est cool."
+      photo: "fred.jpg"
       website: "https://musique-facile.fr"
 
 
 
 timeline:
   - number: 1
-    title: "Maîtriser les Altérations"
-    objective: "Lecture et application des altérations en musique."
-    image: "https://ecole.musique-facile.fr/images/methode/alterations.jpg"
-    imageAlt: "Maîtriser les Altérations"
+    title: "Altérations, Intervalles et Accords"
+    objective: "Maîtriser les altérations et poser les fondations des accords en apprenant à lire et construire des intervalles."
+    image: "https://ecole.musique-facile.fr/images/methode/solfege-altérations.jpg"
+    imageAlt: "Altérations, Intervalles et Accords"
     details:
-      - "Introduction aux Altérations: Un Monde à Découvrir"
-      - "Les Trois Altérations Principales: Bases Fondamentales"
-      - "Déchiffrer les Altérations: Techniques de Lecture"
-      - "Divers Types d'Altérations: Comprendre les Variations"
-      - "L'Ordre des Altérations: Organiser pour Maîtriser"
-      - "Altérations à la Clé: Maîtrise et Application"
-
+      - "Découverte des altérations, techniques de lecture et ordre d'application"
+      - "Compréhension des intervalles et construction d'accords par des exercices pratiques"
+      - "Nomenclature et exploration de divers types d'accords"
+      
   - number: 2
-    title: "Intervalles et Accords"
-    objective: "Comprendre et construire des intervalles et accords."
-    image: "https://ecole.musique-facile.fr/images/methode/intervalles-accords.jpg"
-    imageAlt: "Intervalles et Accords"
+    title: "Gammes et Harmonisation"
+    objective: "Construire et maîtriser les gammes majeures et mineures et utiliser l'harmonisation pour en déduire les accords."
+    image: "https://ecole.musique-facile.fr/images/methode/solfege-gammes.jpg"
+    imageAlt: "Gammes et Harmonisation"
     details:
-      - "Introduction aux Intervalles et Accords"
-      - "Les Intervalles : Comprendre les Bases"
-      - "Accords : Définition et Importance"
-      - "Art de Construire un Accord: Techniques et Méthodes"
-      - "Pratique des Accords: Exercices d'Application"
-      - "Exploration des Autres Accords"
-      - "Nomenclature des Accords: Comprendre et Utiliser"
-
+      - "Étude de la gamme chromatique, majeure et mineure avec exercices de construction"
+      - "Exploration des gammes mineures et techniques d'harmonisation"
+      - "Acquisition d'une compréhension approfondie des structures gammes"
+      
   - number: 3
-    title: "Exploration des Gammes"
-    objective: "Construction de gammes majeures et mineures."
-    image: "https://ecole.musique-facile.fr/images/methode/gammes.jpg"
-    imageAlt: "Exploration des Gammes"
+    title: "Expression Musicale et Ornements"
+    objective: "Enrichir votre interprétation en maîtrisant nuances, tempo et ornements pour une expression musicale subtile."
+    image: "https://ecole.musique-facile.fr/images/methode/solfege-expression.jpg"
+    imageAlt: "Expression Musicale et Ornements"
     details:
-      - "Introduction aux Gammes"
-      - "La Gamme Chromatique"
-      - "La Gamme Majeure: Comprendre et Construire"
-      - "Pratique des Gammes: Exercices de Construction"
-      - "La Gamme Mineure Naturelle: Caractéristiques et Construction"
-      - "Exploration des Autres Gammes Mineures"
-      - "Harmonisation: Créer des Accords à partir des Gammes"
-
+      - "Introduction aux dynamiques, variations de tempo et symboles d'expression"
+      - "Techniques d'articulation : liaison, piqué et ornementation"
+      - "Utilisation des nuances pour une interprétation nuancée"
+      
   - number: 4
-    title: "Nuances et Symboles"
-    objective: "Utilisation des symboles d'expression en musique."
-    image: "https://ecole.musique-facile.fr/images/methode/nuances-symboles.jpg"
-    imageAlt: "Nuances et Symboles"
+    title: "Cadences, Mesures et Structure"
+    objective: "Intégrer les degrés musicaux et cadences, et maîtriser les symboles de répétition pour structurer vos compositions."
+    image: "https://ecole.musique-facile.fr/images/methode/solfege-structure.jpg"
+    imageAlt: "Cadences, Mesures et Structure"
     details:
-      - "Fondements de l'Expression Musicale: Introduction"
-      - "Les Nuances: Du Pianissimo au Fortissimo"
-      - "Symboles de Tempo: Comprendre les Indications"
-      - "Ornements Musicaux: Trilles, Mordants et Plus"
-      - "Application Pratique des Symboles d'Expression"
-
-  - number: 5
-    title: "Degrés Musicaux et Harmonie"
-    objective: "Compréhension des degrés musicaux et cadences."
-    image: "https://ecole.musique-facile.fr/images/methode/degres-harmonie.jpg"
-    imageAlt: "Degrés Musicaux et Harmonie"
-    details:
-      - "Introduction aux Degrés Musicaux"
-      - "Les Cadences: Types et Fonctions"
-      - "Progressions Harmoniques: Construire des Suites d'Accords"
-      - "Analyse Harmonique de Morceaux"
-      - "Application Pratique des Degrés et Cadences"
-
-  - number: 6
-    title: "Maîtrise des Mesures"
-    objective: "Utilisation des mesures et symboles de répétition."
-    image: "https://ecole.musique-facile.fr/images/methode/mesures.jpg"
-    imageAlt: "Maîtrise des Mesures"
-    details:
-      - "Comprendre les Signatures de Mesure"
-      - "Symboles de Répétition: Naviguer dans une Partition"
-      - "Mesures Composées et Asymétriques"
-      - "Pratique des Changements de Mesure"
-      - "Application des Mesures dans la Lecture Musicale"
+      - "Étude des degrés musicaux et des cadences (blues et traditionnelles)"
+      - "Compréhension des barres de mesure et des symboles de répétition (Da Capo, Da Segno, Coda)"
+      - "Synthèse finale pour consolider la structure musicale et l'harmonie"
 
 frustrations:
   title: "Le solfège avancé vous semble inaccessible ?"
@@ -178,11 +147,14 @@ preuveSociale:
     timeframe: "des èlèves sont beaucoup plus à l'aise en lecture de notes"
   partners:
     - name: "Skilleos"
-      logo: "logo_Skilleos.png"
+      logo: "logo-Skilleos.png"
+      buttonLink: "https://www.skilleos.com/"
     - name: "Hal Leonard"
-      logo: "logo_Hal_Leonard.png"
+      logo: "logo-Hal-Leonard.png"
+      buttonLink: "https://www.halleonard.com/"
     - name: "Arturia"
-      logo: "logo_Arturia.png"
+      logo: "logo-Arturia.png"
+      buttonLink: "https://www.arturia.com/fr"
 
 benefices:
   title: "Pourquoi cette formation est idéale pour vous ?"
@@ -202,7 +174,7 @@ cta:
   title: "Passez au niveau supérieur avec le solfège"
   subtitle: "Rejoignez la formation 'Solfège Expert' et maîtrisez les concepts avancés dès aujourd'hui."
   buttonText: "Je m'inscris maintenant !"
-  buttonLink: "#pricing"
+  buttonLink: "https://ecole.musique-facile.fr/solfege-3/buy"
   backgroundImage: "https://ecole.musique-facile.fr/images/solfege-3-cta-bg.jpg"
   features:
     - icon: "⭐"

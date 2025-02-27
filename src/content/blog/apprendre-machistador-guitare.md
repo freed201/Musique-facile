@@ -1,12 +1,12 @@
 ---
 title: "Machistador : Le groove captivant de -M-"
 description: "Découvrez 'Machistador', un classique funky de Matthieu Chedid, et apprenez à jouer ce morceau emblématique à la guitare."
-ogImage: "/images/blog/apprendre-machistador-guitare.jpg"
+ogImage: "/images/blog/apprendre-machistador-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-07"
 introduction: "Avec 'Machistador', Matthieu Chedid, alias -M-, nous offre une explosion de funk et d'énergie. Découvrez l'histoire de ce morceau et apprenez à le jouer."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "50"
   tempo: "110"
   chordCount: "4"
-  key: "N/A"
-  difficulty: "Avancé"
+  key: ""
+  difficulty: "5/5"
 
 videos:
   - title: "Machistador - Simplified Version Tutorial"

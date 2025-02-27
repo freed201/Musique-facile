@@ -1,0 +1,86 @@
+---
+interface Props {
+  items: {
+    name: string;
+    url: string;
+  }[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      {items.map((item, index) => (
+        <li 
+          itemprop="itemListElement" 
+          itemscope 
+          itemtype="https://schema.org/ListItem"
+          class={index === items.length - 1 ? 'current' : ''}
+        >
+          <a href={item.url} itemprop="item">
+            <span itemprop="name">{item.name}</span>
+          </a>
+          <meta itemprop="position" content={`${index + 1}`} />
+          {index < items.length - 1 && <span class="separator">/</span>}
+        </li>
+      ))}
+    </ol>
+  </div>
+</nav>
+
+<style>
+  .breadcrumbs {
+    padding: 1rem 0;
+    background: var(--bg-light);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  a {
+    color: var(--color-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--theme-current);
+  }
+
+  .separator {
+    color: var(--color-dark);
+    opacity: 0.5;
+  }
+
+  .current a {
+    color: var(--theme-current);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .breadcrumbs {
+      padding: 0.5rem 0;
+    }
+  }
+</style>

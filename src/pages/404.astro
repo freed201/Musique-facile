@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Page non trouvée - 404 | Musique Facile";
+const description = "La page que vous recherchez n'existe pas ou a été déplacée.";
+---
+
+<Layout title={title}>
+  <Header />
+  
+  <main>
+    <section class="error-section">
+      <div class="container">
+        <div class="error-content">
+          <h1>404</h1>
+          <h2>Page non trouvée</h2>
+          <p>La page que vous recherchez n'existe pas ou a été déplacée.</p>
+          
+          <div class="error-actions">
+            <a href="/" class="btn-primary">
+              Retour à l'accueil
+              <span class="arrow">→</span>
+            </a>
+            
+            <div class="popular-links">
+              <h3>Pages populaires :</h3>
+              <ul>
+                <li><a href="/cours/cours-de-guitare">Cours de Guitare</a></li>
+                <li><a href="/cours/cours-de-piano">Cours de Piano</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .error-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .error-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .error-content {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 8rem;
+    margin: 0;
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin: 1rem 0 2rem;
+    color: white;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+  }
+
+  .error-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--theme-current);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .btn-primary:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  .popular-links {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+  }
+
+  .popular-links h3 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .popular-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .popular-links a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .popular-links a:hover {
+    background: var(--theme-current);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 6rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .popular-links ul {
+      flex-direction: column;
+    }
+  }
+</style>

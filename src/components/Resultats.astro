@@ -1,21 +1,5 @@
 ---
-const partenaires = [
-  {
-    nom: "Skilleos",
-    description: "Un des leaders de la formation en France. Nous sommes plus gros formateur sur cette plateforme.",
-    logo: "https://test.musique-facile.fr/images/logo/logo_Skilleos.png"
-  },
-  {
-    nom: "LinkedIn Learning",
-    description: "Notre cours de piano est la première formation loisir sur LinkedIn Learning.",
-    logo: "https://test.musique-facile.fr/images/logo/logo_LinkedIn.png"
-  },
-  {
-    nom: "Hal Leonard",
-    description: "Le numéro 1 mondial de l'édition musicale collabore avec nous pour créer des formations vidéo et des livres d'apprentissage.",
-    logo: "https://test.musique-facile.fr/images/logo/logo_Hal_Leonard.png"
-  }
-];
+import { PARTNERS } from '../config/partners';
 
 const stats = [
   {
@@ -62,14 +46,16 @@ const stats = [
       </div>
 
       <div class="partners-grid">
-        {partenaires.map(partenaire => (
+        {PARTNERS.map(partner => (
           <div class="partner-card">
             <div class="logo-container">
-              <img src={partenaire.logo} alt={partenaire.nom} loading="lazy" />
+              <a href={partner.url} target="_blank" rel="noopener noreferrer" class="partner-link">
+                <img src={partner.logo} alt={partner.name} loading="lazy" />
+              </a>
             </div>
             <div class="partner-content">
-              <h3>{partenaire.nom}</h3>
-              <p>{partenaire.description}</p>
+              <h3>{partner.name}</h3>
+              <p>{partner.description}</p>
             </div>
           </div>
         ))}
@@ -197,6 +183,15 @@ const stats = [
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
+  }
+
+  .partner-link {
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .partner-link:hover {
+    transform: scale(1.05);
   }
 
   .logo-container img {

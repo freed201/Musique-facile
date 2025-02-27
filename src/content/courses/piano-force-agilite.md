@@ -1,5 +1,5 @@
 ---
-affichage: "Y"
+affichage: "N"
 classement: 3
 title: "Piano Expressif : L'Art de Jouer avec Force et Finesse"
 description: "Explorez l'art du piano, de la douceur délicate à la puissance maîtrisée. Apprenez à moduler la force des doigts pour une interprétation nuancée et expressive. Techniques, gammes et exercices pratiques pour transformer votre jeu."
@@ -12,30 +12,35 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner","Intermediate"] # ou ["Intermediate"], ["Advanced"]
+courseMode: "Online"
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT10H"
+  duration: "PT10H" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
-    price: "89.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    price: "79.00"
+    availability: "https://schema.org/InStock"
+    category: "Paid"
 
 hero:
   badge: "Pour tous niveaux"
   title: "Piano Expressif : L'Art de Jouer avec Force et Finesse"
   subtitle: "Transformez votre jeu en maîtrisant la force et l'agilité de vos doigts pour une interprétation nuancée."
   cta:
-    text: "Accéder pour €79"
+    text: "Accéder pour €79 "
     price: "€79 ou 2 paiements mensuels de €40"
   video:
-    url: "https://player.vimeo.com/video/piano-force-et-agilite"
+    id: "1057421752"
   stats:
     - value: "1000+"
       label: "élèves formés"
@@ -189,12 +194,15 @@ preuveSociale:
     successRate: "94%"
     timeframe: "6 semaines"
   partners:
-    - name: "Yamaha Music"
-      logo: "https://ecole.musique-facile.fr/images/logo-yamaha.png"
-    - name: "Steinway & Sons"
-      logo: "https://ecole.musique-facile.fr/images/logo-steinway.png"
-    - name: "Conservatoire de Paris"
-      logo: "https://ecole.musique-facile.fr/images/logo-conservatoire-paris.png"
+    - name: "Roland"
+      logo: "logo-Roland.png"
+      buttonLink: "https://www.roland.com/fr/"
+    - name: "Skilleos"
+      logo: "logo-Skilleos.png"
+      buttonLink: "https://www.skilleos.com/"
+    - name: "Casio"
+      logo: "logo-casio.png"
+      buttonLink: "https://www.casio.com/fr/electronic-musical-instruments/"
 
 benefices:
   title: "Pourquoi cette formation est faite pour vous ?"
@@ -214,7 +222,7 @@ cta:
   title: "Développez votre force et votre agilité au piano"
   subtitle: "Rejoignez la formation 'Piano Force et Agilité' et transformez votre jeu dès aujourd'hui."
   buttonText: "Je m'inscris maintenant !"
-  buttonLink: "#pricing"
+  buttonLink: "https://ecole.musique-facile.fr/exercices-maitrise-doigts-piano/buy"
   backgroundImage: "https://ecole.musique-facile.fr/images/piano-force-agilite-cta-bg.jpg"
   features:
     - icon: "⭐"

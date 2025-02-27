@@ -1,12 +1,12 @@
 ---
-title: "L'opportuniste : Un classique intemporel de Jacques Dutronc"
+title: "L'Opportuniste : L’histoire et les accords de ce classique de Jacques Dutronc"
 description: "Explorez 'L'opportuniste', un morceau satirique et incontournable de Jacques Dutronc, et découvrez comment le jouer à la guitare."
-ogImage: "/images/blog/jouer-lopportuniste-dutronc-guitare.jpg"
+ogImage: "/images/blog/jouer-lopportuniste-dutronc-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-28"
 introduction: "Avec 'L'opportuniste', Jacques Dutronc propose une critique politique mordante sur une mélodie entraînante. Découvrez ce classique et apprenez à le jouer."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "40"
   tempo: "94"
   chordCount: "5"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "3/5"
 
 videos:
   - title: "Tutoriel Simplifié : Les bases de 'L'opportuniste'"

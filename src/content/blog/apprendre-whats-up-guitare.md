@@ -1,12 +1,12 @@
 ---
-title: "What's Up : L'hymne intemporel de 4 Non Blondes"
+title: "What's Up : L’histoire d’un hit incontournable et comment le jouer"
 description: "Découvrez 'What's Up', le classique des années 90 de 4 Non Blondes, et apprenez à jouer ce morceau emblématique à la guitare."
-ogImage: "/images/blog/apprendre-whats-up-guitare.jpg"
+ogImage: "/images/blog/apprendre-whats-up-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-22"
 introduction: "Avec 'What's Up', 4 Non Blondes a marqué l'histoire musicale avec un morceau captivant et introspectif. Découvrez son histoire et apprenez à le jouer."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "82"
   tempo: "64"
   chordCount: "3"
-  key: "N/A"
-  difficulty: "Facile"
+  key: ""
+  difficulty: "3/5"
 
 videos:
   - title: "Tutoriel What's Up - Version Simplifiée"

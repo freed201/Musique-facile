@@ -1,21 +1,21 @@
 ---
 title: "Sweet Dreams (Are Made of This) : L'empreinte indélébile d'Eurythmics"
 description: "Explorez l'histoire, l'impact et les techniques musicales du morceau culte d'Eurythmics, emblématique de la synth-pop des années 80."
-ogImage: "/images/blog/apprendre-sweet-dreams-guitare.jpg"
+ogImage: "/images/blog/apprendre-sweet-dreams-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-18"
 introduction: "Plongez dans l'univers électronique et révolutionnaire de 'Sweet Dreams (Are Made of This)', l'un des morceaux les plus emblématiques des années 80, créé par le duo légendaire Eurythmics."
 
 songInfo:
   inBook: true
-  bookPage: "40"
+  bookPage: "74"
   tempo: "93"
   chordCount: "5"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "3/5"
 
 videos:
   - title: "Version Simplifiée pour Débutants"

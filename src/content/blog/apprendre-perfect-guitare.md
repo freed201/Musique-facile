@@ -1,12 +1,12 @@
 ---
-title: "Perfect : Une ballade intemporelle d'Ed Sheeran"
+title: "Perfect d’Ed Sheeran : Apprenez cette ballade incontournable à la guitare"
 description: "Découvrez 'Perfect', une déclaration vibrante d'amour par Ed Sheeran, et apprenez à jouer ce morceau à la guitare."
-ogImage: "/images/blog/apprendre-perfect-guitare.jpg"
+ogImage: "/images/blog/apprendre-perfect-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-11"
 introduction: "Avec 'Perfect', Ed Sheeran offre une mélodie qui capture l'essence de l'amour pur. Découvrez son histoire et apprenez à jouer ce classique intemporel."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "54"
   tempo: "95"
   chordCount: "8"
-  key: "N/A"
-  difficulty: "Facile"
+  key: ""
+  difficulty: "2/5"
 
 videos:
   - title: "Version Simplifiée Tutoriel"

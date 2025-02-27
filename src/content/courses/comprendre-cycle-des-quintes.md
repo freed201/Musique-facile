@@ -12,30 +12,36 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner","Intermediate","Advanced"] # ou ["Intermediate"], ["Advanced"]
+courseMode: "Online"
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT2H40"
+  duration: "PT2H40" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
     price: "79.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    availability: "https://schema.org/InStock"
+    category: "Paid"
+ 
 
 hero:
   badge: "Formation musicale"
   title: "Maîtriser le Cycle des Quintes"
   subtitle: "L'outil magique pour les musiciens"
   cta:
-    text: "Accéder pour €79"
-    price: "ou 2 paiements mensuels de €40"
+    text: "Accéder pour €79 "
+    price: " ou 2 paiements mensuels de €40"
   video:
-    url: "https://player.vimeo.com/video/le-cycle-des-quintes-l-outil-magique-pour-les-musiciens"
+    id: "1057421726"
   stats:
     - value: "1600+"
       label: "élèves formés"
@@ -140,11 +146,14 @@ preuveSociale:
     timeframe: "des élèves ont utilisé le cycle de quintes dans les semaines suivant la formation"
   partners:
     - name: "Skilleos"
-      logo: "logo_Skilleos.png"
+      logo: "logo-Skilleos.png"
+      buttonLink: "https://www.skilleos.com/"
     - name: "Hal Leonard"
-      logo: "logo_Hal_Leonard.png"
+      logo: "logo-Hal-Leonard.png"
+      buttonLink: "https://www.halleonard.com/"
     - name: "Arturia"
-      logo: "logo_Arturia.png"
+      logo: "logo-Arturia.png"
+      buttonLink: "https://www.arturia.com/fr"
 
 benefices:
   title: "Pourquoi cette formation est parfaite pour vous ?"

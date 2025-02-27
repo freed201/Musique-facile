@@ -12,30 +12,37 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner","Intermediate"] # ou ["Intermediate"], ["Advanced"]
+courseMode: "Online"
+
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT2H"
+  duration: "PT2H" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
     price: "79.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    availability: "https://schema.org/InStock"
+    category: "Paid"
+
 
 hero:
   badge: "Rythmiques Ukulélé"
   title: "Les Secrets du Rythme à l'Ukulélé: Techniques et Variations Inédites"
   subtitle: "Réinventez votre rythme, révélez votre art : transformez chaque accord en magie musicale !"
   cta:
-    text: "Accéder pour €79"
-    price: "€79 ou 2 paiements mensuels de €40"
+    text: "Accéder pour €79 "
+    price: "ou 2 paiements mensuels de €40"
   video:
-    url: "https://player.vimeo.com/video/cours-rythmique-ukulele"
+    id: "1056758412"
   stats:
     - value: "750+"
       label: "élèves formés"
@@ -142,11 +149,14 @@ preuveSociale:
     timeframe: "des élèves ressentent mieux le rythme en moins de 3 semaines"
   partners:
     - name: "Kala Ukuleles"
-      logo: "logo_Kala.png"
+      logo: "logo-Kala.png"
+      buttonLink: "https://kalabrand.com/"
     - name: "Skilleos"
-      logo: "logo_Skilleos.png"
+      logo: "logo-Skilleos.png"
+      buttonLink: "https://www.skilleos.com/"
     - name: "Anuenue"
-      logo: "logo_anueanue.png"
+      logo: "logo-anueanue.png"
+      buttonLink: "https://www.anuenueusa.com/"
 
 benefices:
   title: "Pourquoi cette formation est parfaite pour vous ?"
@@ -166,7 +176,7 @@ cta:
   title: "Transformez votre jeu de rythmiques"
   subtitle: "Rejoignez la formation 'Cours Rythmique Ukulélé' et découvrez comment améliorer vos rythmes en seulement quelques semaines."
   buttonText: "Je m'inscris maintenant !"
-  buttonLink: "#pricing"
+  buttonLink: "https://ecole.musique-facile.fr/cours-rythmique-ukulele/buy"
   backgroundImage: "https://ecole.musique-facile.fr/images/rythmiques-ukulele-cta-bg.jpg"
   features:
     - icon: "⭐"

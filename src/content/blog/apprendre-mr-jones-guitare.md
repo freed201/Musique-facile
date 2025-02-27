@@ -1,21 +1,21 @@
 ---
-title: "Mr Jones : Un classique intemporel des Counting Crows"
+title: "Apprenez Mr. Jones des Counting Crows : Un classique à jouer à la guitare"
 description: "Découvrez 'Mr Jones', un hymne des années 90 des Counting Crows, et apprenez à jouer ce morceau emblématique à la guitare."
-ogImage: "/images/blog/apprendre-mr-jones-guitare.jpg"
+ogImage: "/images/blog/apprendre-mr-jones-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-08"
 introduction: "Avec 'Mr Jones', Counting Crows nous offrent une chanson introspective et universelle sur le désir de reconnaissance. Découvrez l’histoire de ce morceau et apprenez à le jouer."
 
 songInfo:
-  inBook: false
-  bookPage: "N/A"
+  inBook: true
+  bookPage: "42"
   tempo: "102"
   chordCount: "5"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "3/5"
 
 videos:
   - title: "Tutoriel Simplifié de 'Mr Jones'"

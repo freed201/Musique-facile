@@ -1,12 +1,12 @@
 ---
-title: "One : Un hymne intemporel de U2"
+title: "One de U2 : L’histoire derrière le morceau et comment le jouer"
 description: "Découvrez 'One', une ballade légendaire de U2, et apprenez à jouer ce morceau emblématique à la guitare."
-ogImage: "/images/blog/apprendre-one-guitare.jpg"
+ogImage: "/images/blog/apprendre-one-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-09"
 introduction: "Avec 'One', U2 nous offre un message universel d'unité et de réconciliation. Découvrez l'histoire de cette chanson et apprenez à la jouer sur votre guitare."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "52"
   tempo: "90"
   chordCount: "5"
-  key: "N/A"
-  difficulty: "Facile"
+  key: ""
+  difficulty: "2/5"
 
 videos:
   - title: "Apprendre One de U2 - Débutants"

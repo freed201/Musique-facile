@@ -1,12 +1,12 @@
 ---
-title: "Redemption Song : L'hymne intemporel de Bob Marley"
+title: "Redemption Song : Jouez l’hymne de Bob Marley à la guitare"
 description: "Découvrez 'Redemption Song', une ballade emblématique de Bob Marley, et apprenez à jouer ce message universel de liberté et d'émancipation."
-ogImage: "/images/blog/apprendre-redemption-song-guitare.jpg"
+ogImage: "/images/blog/apprendre-redemption-song-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-12"
 introduction: "Avec 'Redemption Song', Bob Marley livre un message poignant d'émancipation et de liberté. Découvrez son histoire et apprenez à jouer ce classique intemporel."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "60"
   tempo: "60"
   chordCount: "7"
-  key: "N/A"
-  difficulty: "Facile"
+  key: ""
+  difficulty: "2/5"
 
 videos:
   - title: "Maîtriser la Base de 'Redemption Song'"

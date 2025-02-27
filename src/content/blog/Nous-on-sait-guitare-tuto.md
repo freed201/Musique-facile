@@ -1,19 +1,22 @@
 ---
 title: "Comment jouer \"Nous on sait\" de Pierre Garnier : Tutoriel guitare complet"
 description: "Apprenez à jouer \"Nous on sait\", le hit de Pierre Garnier, avec un tutoriel détaillé pour guitaristes débutants et intermédiaires."
-ogImage: "/images/blog/Nous-on-sait-guitare-tuto"
+ogImage: "/images/blog/Nous-on-sait-guitare-tuto.webp"
 
-author: "[Nom de l'auteur de l'article, ex: Jean Dupont]"
-datePublished: "2025-01-23"
-dateModified: "2025-01-23"
-introduction: "Découvrez comment jouer \"Nous on sait\", le morceau captivant de Pierre Garnier. Ce tutoriel détaillé vous guide étape par étape, que vous soyez débutant ou guitariste confirmé."
+author: "Fred Fieffé"
+publisher: "Musique Facile"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-05-21"
+dateModified: "2025-01-30"
+introduction: "Vous avez toujours rêvé de jouer 'Nous on sait' de Pierre Garnier, l'un des titres phares de la Star Academy ? Ce guide détaillé vous accompagne pas à pas dans l'apprentissage de ce morceau emblématique."
+
 
 songInfo:
-  inBook: true
-  bookPage: "82"
+  inBook: false
+  bookPage: ""
   tempo: "180"
   chordCount: "8"
-  key: "C"
+  key: ""
   difficulty: "Facile"
 
 videos:
@@ -25,7 +28,7 @@ videos:
 
 
 conclusion: |
-  Vous avez désormais toutes les clés pour jouer \"Nous on sait\" de Pierre Garnier. Que vous soyez débutant ou intermédiaire, ce morceau est un excellent choix pour progresser tout en vous amusant. Partagez votre version et continuez à explorer le monde de la guitare avec passion.
+  En suivant ce tuto, vous pourrez non seulement jouer "Nous on sait" avec aisance, mais aussi comprendre l'émotion que Pierre Garnier transmet à travers ses mots et ses mélodies. N'attendez plus pour vous plonger dans cet univers musical riche et captivant.
 
 relatedLinks:
   - title: "Découvrez d'autres tutoriels guitare"
@@ -38,60 +41,24 @@ relatedLinks:
 
 ## Pierre Garnier et l'histoire de "Nous on sait"
 
-**Qui est Pierre Garnier ?**
-Pierre Garnier est un artiste français remarqué grâce à la Star Academy 2023. Inspiré par des légendes comme Jean-Jacques Goldman, il mélange des sonorités modernes avec une touche personnelle.
+Pierre Garnier, un nom qui résonne fort dans l'univers de la musique française grâce à son passage marquant à la Star Academy. Son titre "Nous on sait" a captivé le public, et nombreux sont ceux qui souhaitent s'approprier ce morceau envoûtant. Que vous soyez débutant ou musicien confirmé, ce tuto vous guidera pour maîtriser chaque nuance de cette chanson.
 
-**L'origine de \"Nous on sait\"**
-Le morceau évoque des moments authentiques de connexion humaine. Il a connu un succès retentissant en streaming, s'imposant comme un incontournable.
+### Le Parcours de Pierre Garnier
 
-### Les liens officiels de Pierre Garnier
+Originaire de la région parisienne, Pierre Garnier a fait ses débuts dans la musique dès son plus jeune âge. Influencé par des icônes de la chanson française comme Jean-Jacques Goldman et Francis Cabrel, il a su forger un style bien à lui, mêlant pop et chanson à texte. Sa participation à la Star Academy a été un tournant décisif, lui offrant une visibilité nationale et l'occasion de travailler avec des professionnels de renom.
 
-- **Site officiel** : [pierregarnierofficiel.com](https://www.pierregarnierofficiel.com)
-- **Instagram** : [@pierregarnieroff](https://www.instagram.com/pierregarnieroff)
-- **TikTok** : [@pierregarnierofficial](https://www.tiktok.com/@pierregarnierofficial)
-- **YouTube** : [Pierre Garnier Official](https://www.youtube.com/channel/pierregarnierofficial)
+### Style et Sonorités
 
-## Pourquoi jouer "Nous on sait" ?
+Le style de Pierre Garnier se distingue par des mélodies accrocheuses et des paroles poignantes. "Nous on sait" ne fait pas exception, avec son refrain entêtant et ses accords simples mais efficaces qui restent en tête. Cette chanson parle de l'authenticité et de la simplicité, des thèmes chers à l'artiste qui résonnent particulièrement dans notre société moderne.
 
-### Accessibilité pour tous les niveaux
+### Découverte de l'Univers Artistique
 
-- **Débutants** : Les accords simples et la rythmique intuitive rendent ce morceau idéal.
-- **Intermédiaires** : Une opportunité d'explorer des variations rythmiques et vocales.
+Plonger dans l'univers de Pierre Garnier, c'est s'immerger dans une ambiance à la fois intime et universelle. Ses concerts sont de véritables moments de partage où l'artiste n'hésite pas à interagir avec son public, créant une connexion unique à chaque représentation. La simplicité de sa mise en scène, alliée à la profondeur de ses textes, fait de chaque performance une expérience mémorable.
 
-### Partage et plaisir
+### Actualité et Projets Récents
 
-Ce morceau crée une ambiance chaleureuse et positive, parfait pour des soirées entre amis ou des performances.
+Depuis la Star Academy, Pierre Garnier n'a cessé d'évoluer. Il a récemment sorti un nouvel album qui explore des thèmes plus introspectifs, tout en conservant cette touche pop qui le caractérise. Ses collaborations avec d'autres artistes de la scène française lui ont permis d'élargir son horizon musical. À venir, une tournée nationale qui promet de ravir ses fans de la première heure comme les nouveaux venus.
 
-## Tutoriel guitare : Étape par étape
+### Anecdotes et Engagement
 
-### Les accords et la rythmique
-
-- **Accords nécessaires** : G (Sol), D (Ré), Em (Mi mineur), C (Do)
-- **Astuce** : Utilisez un capo en première case pour rester en tonalité originale.
-
-**Rythmique** :
-- Modèle recommandé : Bas - Bas - Haut - Haut - Bas - Haut
-- Pratiquez lentement avant d'accélérer.
-
-### Vidéo tutorielle
-
-Suivez cette vidéo pour apprendre à positionner vos doigts et maîtriser la rythmique :
-👉 [Tutoriel pour apprendre à jouer \"Nous on sait\"](https://www.youtube.com/embed/uXa0tViwkYE)
-
-### Play Along
-
-Entraînez-vous avec cette vidéo interactive où paroles et accords s'affichent en temps réel :
-👉 [Play Along \"Nous on sait\"](https://www.youtube.com/embed/7i7ZFCYkZZQ)
-
-## Anecdotes et ressources complémentaires
-
-### Une anecdote inspirante
-Pierre Garnier a composé \"Nous on sait\" en se remémorant des soirées guitare autour d’un feu de camp, ce qui explique l’atmosphère chaleureuse du morceau.
-
-### Ressources pour aller plus loin
-- **"Perfect" d'Ed Sheeran** : Pour des accords similaires.
-- **"Envole-moi" de Jean-Jacques Goldman** : Pour un défi musical et vocal.
-
-## Conclusion
-
-Vous avez toutes les clés pour maîtriser \"Nous on sait\". Partagez votre version et continuez à explorer de nouveaux morceaux. À vos guitares et bonne musique ! 🎶
+Un petit secret sur "Nous on sait" ? La chanson a été écrite en une nuit, inspirée par une discussion avec un ami proche sur les choix de vie. C'est ce genre d'anecdote qui rend l'œuvre de Garnier si touchante et relatable. De plus, Pierre est connu pour son engagement en faveur de causes sociales, n'hésitant pas à utiliser sa musique pour sensibiliser le public.

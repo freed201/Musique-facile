@@ -1,12 +1,12 @@
 ---
-title: "Don't Stop Me Now : L'énergie inégalée de Queen"
+title: "Don't Stop Me Now : L’énergie de Queen à portée de guitare"
 description: "Découvrez 'Don't Stop Me Now', une ode à la joie et à l'esprit libre de Freddie Mercury et Queen, une chanson intemporelle qui continue d'inspirer."
-ogImage: "/images/blog/tutoriel-dont-stop-me-now-queen.jpg"
+ogImage: "/images/blog/tutoriel-dont-stop-me-now-queen.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-02-01"
 introduction: "Avec 'Don't Stop Me Now', Queen a livré une explosion d'énergie et de positivité. Découvrez cette chanson légendaire et l'héritage musical de Freddie Mercury."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "14"
   tempo: "150"
   chordCount: "10"
-  key: "N/A"
-  difficulty: "Avancé"
+  key: ""
+  difficulty: "5/5"
 
 videos:
   - title: "Queen - Don't Stop Me Now (Live Performance)"

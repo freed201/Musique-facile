@@ -1,12 +1,12 @@
 ---
 title: "Smells Like Teen Spirit : L'hymne révolutionnaire de Nirvana"
 description: "Découvrez 'Smells Like Teen Spirit', un titre emblématique du grunge par Nirvana, et apprenez à jouer ce morceau légendaire à la guitare."
-ogImage: "/images/blog/apprendre-smells-like-teen-spirit-guitare.jpg"
+ogImage: "/images/blog/apprendre-smells-like-teen-spirit-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-15"
 introduction: "Avec 'Smells Like Teen Spirit', Nirvana a marqué une génération entière et révolutionné la musique des années 90. Découvrez son histoire et apprenez à le jouer."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "100"
   tempo: "117"
   chordCount: "6"
-  key: "N/A"
-  difficulty: "Avancé"
+  key: ""
+  difficulty: "4/5"
 
 videos:
   - title: "Simplified Tutorial Version - 'Smells Like Teen Spirit'"

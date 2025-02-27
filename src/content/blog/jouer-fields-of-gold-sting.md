@@ -1,21 +1,21 @@
 ---
-title: "Fields of Gold : Un voyage musical intemporel avec Sting"
+title: "Fields of Gold : Apprenez cette ballade envoûtante de Sting à la guitare"
 description: "Explorez l'univers poétique et émouvant de 'Fields of Gold', un morceau emblématique de Sting qui capture l'essence de l'amour et de la nature."
-ogImage: "/images/blog/jouer-fields-of-gold-sting.jpg"
+ogImage: "/images/blog/jouer-fields-of-gold-sting.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-26"
 introduction: "Laissez-vous emporter par 'Fields of Gold', une ballade intemporelle où Sting explore l'amour, la nostalgie et la beauté de la nature. Un chef-d'œuvre musical à découvrir ou redécouvrir."
 
 songInfo:
   inBook: true
-  bookPage: "N/A"
+  bookPage: "17"
   tempo: "104"
   chordCount: "6"
-  key: "N/A"
-  difficulty: "Intermédiaire"
+  key: ""
+  difficulty: "3/5"
 
 videos:
   - title: "Tutoriel version simplifiée"

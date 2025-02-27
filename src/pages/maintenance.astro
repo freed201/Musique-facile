@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Site en maintenance | Musique Facile";
+const description = "Notre site est actuellement en maintenance. Nous serons de retour très bientôt !";
+---
+
+<Layout title={title}>
+  <main class="maintenance">
+    <div class="container">
+      <div class="maintenance-content">
+        <div class="icon-wrapper">
+          <span class="maintenance-icon">🔧</span>
+        </div>
+        
+        <h1>Site en maintenance</h1>
+        <p>Nous effectuons actuellement une maintenance planifiée pour améliorer votre expérience.</p>
+        <p class="eta">Nous serons de retour très bientôt !</p>
+        
+        <div class="social-links">
+          <p>Suivez-nous sur les réseaux sociaux pour rester informé :</p>
+          <div class="social-grid">
+            <a href="https://www.youtube.com/@Musique-Facile" target="_blank" rel="noopener noreferrer" class="social-link">
+              <img src="/images/logo/youtube-picto.png" alt="YouTube" width="24" height="24">
+              <span>YouTube</span>
+            </a>
+            <a href="https://www.tiktok.com/@musique_facile" target="_blank" rel="noopener noreferrer" class="social-link">
+              <img src="/images/logo/tiktok-picto.png" alt="TikTok" width="24" height="24">
+              <span>TikTok</span>
+            </a>
+            <a href="https://instagram.com/musique_facile" target="_blank" rel="noopener noreferrer" class="social-link">
+              <img src="/images/logo/instagram-picto.png" alt="Instagram" width="24" height="24">
+              <span>Instagram</span>
+            </a>
+            <a href="https://facebook.com/musiquefacile" target="_blank" rel="noopener noreferrer" class="social-link">
+              <img src="/images/logo/facebook-picto.png" alt="Facebook" width="24" height="24">
+              <span>Facebook</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .maintenance {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+    color: white;
+    padding: 2rem;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .maintenance-content {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .icon-wrapper {
+    width: 100px;
+    height: 100px;
+    background: var(--theme-current);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    animation: spin 10s linear infinite;
+  }
+
+  .maintenance-icon {
+    font-size: 3rem;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .eta {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 2rem 0;
+  }
+
+  .social-links {
+    margin-top: 3rem;
+  }
+
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .social-link:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .social-link img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  .social-link:hover img {
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 600px) {
+    .maintenance-content {
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .social-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

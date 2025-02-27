@@ -1,10 +1,10 @@
 ---
-title: "More Than Words : Une ballade intemporelle d'Extreme"
+title: "More Than Words d’Extreme : LA ballade romantique à apprendre à la guitare"
 description: "Découvrez 'More Than Words', une chanson acoustique légendaire d'Extreme, et apprenez à jouer ce morceau emblématique."
-ogImage: "/images/blog/tutoriel-more-than-words-guitare.jpg"
+ogImage: "/images/blog/tutoriel-more-than-words-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
+publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
 dateModified: "2025-01-24"
 introduction: "Avec 'More Than Words', Extreme nous offre une ballade acoustique pleine d'émotion et de sincérité. Découvrez son histoire et apprenez à jouer ce classique incontournable."
@@ -12,18 +12,15 @@ introduction: "Avec 'More Than Words', Extreme nous offre une ballade acoustique
 songInfo:
   inBook: true
   bookPage: "94"
-  tempo: "N/A"
+  tempo: "92"
   chordCount: "Tablature complète"
-  key: "Eb Ab Db Gb Bb Eb (un demi-ton en dessous du standard)"
-  difficulty: "Avancé"
+  key: ""
+  difficulty: "5/5"
 
 videos:
   - title: "More Than Words - Extreme (Official Video)"
     url: "https://youtu.be/IQDmUoKzZko"
 
-podcast:
-  title: "N/A"
-  url: "N/A"
 
 conclusion: |
   En conclusion, "More Than Words" d’Extreme n'est pas qu'une simple partition perdue dans l’histoire du rock. C'est une déclaration d'amour, une démonstration de la puissance des gestes, et un cornerstone de la musique acoustique moderne. Cette chanson offre aux guitaristes de tous niveaux un défi passionnant, et avec assez de pratique, la satisfaction d'interpréter ce chef-d'œuvre est à portée de cordes.<br><br>Pour aller plus loin, je vous recommande de découvrir l'album "Pornograffitti" dans son intégralité pour comprendre pleinement l'évolution stylistique et musicale du groupe. Extreme continue à inspirer une nouvelle génération de musiciens, et leur présence sur les plateformes sociales offre une occasion unique de se connecter avec les membres du groupe et leur musique. Vous pouvez les suivre via [leur site officiel](http://extreme-band.com) pour les dernières nouvelles et mises à jour.

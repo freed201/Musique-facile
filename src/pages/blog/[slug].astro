@@ -173,14 +173,8 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
       {podcast && (
         <section class="podcast-section">
           <div class="podcast-player">
-            <iframe
-              src={podcast.url}
-              width="100%"
-              height="200"
-              frameborder="0"
-              allow="autoplay"
-            ></iframe>
-          </div>
+          <iframe name="Ausha Podcast Player" frameborder="0" loading="lazy" id="ausha-kz2n" height="500" style="border: none; width:100%; height:500px" src={podcast.url}"></iframe><script src="https://player.ausha.co/ausha-player.js"></script>
+</div>
         </section>
       )}
 

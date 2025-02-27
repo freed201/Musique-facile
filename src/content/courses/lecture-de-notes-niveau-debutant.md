@@ -3,7 +3,7 @@ affichage: "Y"
 classement: 1
 title: "Lecture de Notes Simplifiée (Partie 1)- Fondamentaux du Solfège"
 description: "Transformez votre manière de lire la musique avec notre formation 'Lecture de Notes Simplifiée - Fondamentaux du Solfège'. Apprenez à déchiffrer les partitions facilement et efficacement."
-ogImage: "/images/cours/piano-facile-apprendre-debutant/hero.jpg"
+ogImage: "/images/cours/lecture-de-notes-niveau-debutant/hero.jpg"
 theme: "solfege"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
@@ -12,30 +12,36 @@ dateModified: "2025-01-30"
 provider:
   name: "Musique Facile"
   url: "https://musique-facile.fr"
-  logo: "https://musique-facile.fr/logo.jpg"
-educationalLevel: ["Beginner"]
-courseMode: ["Online"]
+  logo: "https://musique-facile.fr/logo.webp"
+  sameAs:
+    - "https://www.youtube.com/@Musique-Facile"
+    - "https://www.tiktok.com/@musique_facile"
+    - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
+
+educationalLevel: ["Beginner","Intermediate"] # ou ["Intermediate"], ["Advanced"]
+courseMode: "Online"
 audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT2H20M"
+  duration: "PT2H20M" # Format ISO 8601 pour la durée
   offers:
     type: "Offer"
     priceCurrency: "EUR"
-    price: "69.00"
-    availability: "http://schema.org/InStock"
-    category: "Paid"  
+    price: "79.00"
+    availability: "https://schema.org/InStock"
+    category: "Paid"
+
 
 hero:
   badge: "Solfège"
   title: "Lecture de Notes Simplifiée"
   subtitle: "Transformez votre manière de lire la musique, simplement et efficacement."
   cta:
-    text: "Accéder pour €69"
-    price: "ou 2 paiements mensuels de €35"
+    text: "Accéder pour €79 "
+    price: "ou 2 paiements mensuels de €40"
   video:
-    url: "https://player.vimeo.com/video/lecture-de-notes-1"
+    id: "1058583601"
   stats:
     - value: "4100+"
       label: "élèves formés"
@@ -142,11 +148,14 @@ preuveSociale:
 
   partners:
     - name: "Skilleos"
-      logo: "logo_Skilleos.png"
+      logo: "logo-Skilleos.png"
+      buttonLink: "https://www.skilleos.com/"
     - name: "Hal Leonard"
-      logo: "logo_Hal_Leonard.png"
+      logo: "logo-Hal-Leonard.png"
+      buttonLink: "https://www.halleonard.com/"
     - name: "Arturia"
-      logo: "logo_Arturia.png"
+      logo: "logo-Arturia.png"
+      buttonLink: "https://www.arturia.com/fr"
 
 benefices:
   title: "Pourquoi cette formation est idéale pour vous ?"

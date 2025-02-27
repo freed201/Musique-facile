@@ -1,0 +1,5 @@
+Contact: mailto:security@musique-facile.fr
+Expires: 2025-12-31T23:59:59.000Z
+Preferred-Languages: fr, en
+Policy: https://musique-facile.fr/security-policy
+Canonical: https://musique-facile.fr/.well-known/security.txt

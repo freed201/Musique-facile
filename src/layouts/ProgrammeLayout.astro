@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ExternalResources from '../components/ExternalResources.astro';
 import '@fontsource/poppins';
 import '@fontsource/raleway';
 import '../styles/global.css';
@@ -11,37 +12,11 @@ interface Props {
   ogImage: string;
   theme?: 'guitar' | 'piano' | 'ukulele' | 'solfege';
   url: string;
-  author?: string;
-  datePublished?: string;
-  dateModified?: string;
-  price?: string;
-  duration?: string;
-  provider?: {
-    name: string;
-    url: string;
-    logo: string;
-  };
 }
 
-const {
-  title,
-  description,
-  ogImage,
-  theme = 'guitar',
-  url,
-  author = 'Musique Facile',
-  datePublished = new Date().toISOString(),
-  dateModified = new Date().toISOString(),
-  price = '99 EUR',
-  duration = 'P20H', // Format ISO 8601 pour la durée
-  provider = {
-    name: 'Musique Facile',
-    url: 'https://musique-facile.fr',
-    logo: 'https://musique-facile.fr/logo.jpg'
-  }
-} = Astro.props;
+const { title, description, ogImage, theme = 'guitar', url } = Astro.props;
 
-// Construction du schema.org amélioré
+// Construction du schema.org pour le programme
 const schema = {
   "@context": "https://schema.org",
   "@type": "Course",
@@ -49,72 +24,62 @@ const schema = {
   "description": description,
   "provider": {
     "@type": "Organization",
-    "name": provider.name,
-    "url": provider.url,
+    "name": "Musique Facile",
+    "url": "https://musique-facile.fr",
     "logo": {
       "@type": "ImageObject",
-      "url": provider.logo
+      "url": "https://musique-facile.fr/logo.jpg"
     }
   },
-  "author": {
-    "@type": "Organization",
-    "name": author
-  },
-  "datePublished": datePublished,
-  "dateModified": dateModified,
-  "url": url,
   "image": ogImage,
-  "inLanguage": "fr-FR",
-  "offers": {
-    "@type": "Offer",
-    "price": price.split(' ')[0],
-    "priceCurrency": "EUR",
-    "availability": "https://schema.org/InStock"
-  },
-  "timeRequired": duration,
-  "educationalLevel": "Beginner",
-  "teaches": ["Guitare", "Musique"],
-  "hasCourseInstance": {
-    "@type": "CourseInstance",
-    "courseMode": "online",
-    "courseWorkload": "PT1H30M per week"
-  }
+  "url": url,
+  "inLanguage": "fr-FR"
 };
 ---
 
 <!doctype html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NP758HSC');</script>
+    <!-- End Google Tag Manager -->
     
-    <!-- SEO Meta Tags -->
-    <title>{title} | Musique Facile</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="author" content={author} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={url} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
-    <!-- Open Graph Meta Tags -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:url" content={url} />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Musique Facile" />
-    <meta property="og:locale" content="fr_FR" />
     
-    <!-- Twitter Card Meta Tags -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={url} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     
-    <!-- Schema.org JSON-LD -->
+    <!-- Schema.org -->
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    
+    <ExternalResources />
+    <title>{title}</title>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NP758HSC"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class={`theme-${theme}`}>
       <Header />
       <main>
@@ -124,7 +89,3 @@ const schema = {
     </div>
   </body>
 </html>
-
-<style>
-  /* Les styles restent inchangés */
-</style>

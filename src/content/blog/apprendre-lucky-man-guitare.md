@@ -1,12 +1,12 @@
 ---
-title: "Lucky Man : Une ballade intemporelle de The Verve"
+title: "Lucky Man : Découvrez l’histoire et les accords de ce titre culte"
 description: "Plongez dans 'Lucky Man', une chanson emblématique de The Verve, et découvrez comment l'apprendre facilement à la guitare."
-ogImage: "/images/blog/apprendre-lucky-man-guitare.jpg"
+ogImage: "/images/blog/apprendre-lucky-man-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-06"
 introduction: "Avec 'Lucky Man', The Verve nous offre une chanson pleine d'émotion et de profondeur. Découvrez son histoire et apprenez à jouer ce classique de la Britpop."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "48"
   tempo: "78"
   chordCount: "5"
-  key: "N/A"
-  difficulty: "Facile"
+  key: ""
+  difficulty: "2/5"
 
 videos:
   - title: "The Verve - Lucky Man (Official Video)"

@@ -1,12 +1,12 @@
 ---
-title: "Stand by Me : L'hymne intemporel de Ben E. King"
+title: "Jouez Stand by Me de Ben E. King avec notre tutoriel guitare"
 description: "Découvrez 'Stand by Me', un classique intemporel de Ben E. King, et apprenez à jouer cette ballade iconique à la guitare."
-ogImage: "/images/blog/apprendre-stand-by-me-guitare.jpg"
+ogImage: "/images/blog/apprendre-stand-by-me-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.jpg"
-datePublished: "2025-01-24"
-dateModified: "2025-01-24"
+publisherLogo: "https://musique-facile.fr/logo.webp"
+datePublished: "2024-03-05"
+dateModified: "2025-01-17"
 introduction: "Avec 'Stand by Me', Ben E. King a créé un hymne à la loyauté et au soutien, qui traverse les époques. Découvrez son histoire et apprenez à jouer ce morceau légendaire."
 
 songInfo:
@@ -14,8 +14,8 @@ songInfo:
   bookPage: "72"
   tempo: "61"
   chordCount: "4"
-  key: "N/A"
-  difficulty: "Facile"
+  key: ""
+  difficulty: "2/5"
 
 videos:
   - title: "Commencer avec Stand by Me - Tutoriel simplifié"
