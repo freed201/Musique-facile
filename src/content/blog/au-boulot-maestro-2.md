@@ -1,5 +1,6 @@
 ---
 title: "10 Erreurs qui Freinent ta Progression en Musique"
+prod: Y
 description: "Découvre les 10 erreurs qui freinent ta progression musicale et apprends comment les éviter pour jouer avec fluidité et plaisir."
 ogImage: "/images/blog/au-boulot-maestro-2.webp"
 author: "Fred Fieffé"

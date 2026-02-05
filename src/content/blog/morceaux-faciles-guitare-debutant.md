@@ -2,7 +2,7 @@
 title: "3 Morceaux Faciles à la Guitare avec 3 Accords"
 description: "Apprenez vos premières chansons à la guitare 🎸 ! 3 morceaux faciles avec des accords simples pour débutants. Jouez rapidement avec nos conseils !"
 ogImage: "/images/blog/accords-guitare-debutant-guide-ultime.webp"
-prod: "N"
+prod: N
 multi: "Y"
 prev: "erreurs-debutant-guitare-solutions"
 next: "astuces-progresser-guitare-debutant"

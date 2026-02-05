@@ -1,5 +1,6 @@
 ---
 title: "Optimisez Votre Mémoire Musicale : Techniques"
+prod: Y
 description: "Découvrez comment optimiser votre mémoire musicale grâce à des techniques simples et des astuces pratiques dans ce podcast animé par Fred."
 ogImage: "/images/blog/au-boulot-maestro-3.webp"
 author: "Fred Fieffé"

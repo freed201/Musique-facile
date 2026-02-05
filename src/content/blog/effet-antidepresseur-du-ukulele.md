@@ -1,5 +1,6 @@
 ---
 title: "Ukulélé et Santé Mentale : Les Bienfaits Prouvés"
+prod: Y
 description: "Le ukulélé améliore l'humeur et réduit le stress : preuves scientifiques (UCLA). Dopamine +31%, cortisol -22% en 8 semaines de pratique."
 meta: "Ukulélé et santé mentale : études scientifiques prouvant l'effet antidépresseur, musicothérapie, bienfaits sur dopamine, stress et anxiété. Guide complet 2025."
 keywords: "ukulélé bienfaits santé mentale, ukulélé contre dépression, ukulélé antidépresseur naturel, musicothérapie ukulélé, apprendre ukulélé bien-être, ukulélé stress anxiété, bienfaits ukulélé cerveau, ukulélé dopamine, instrument thérapeutique, musique santé mentale, apprendre ukulélé débutant"

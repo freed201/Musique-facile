@@ -1,5 +1,6 @@
 ---
 title: "Une Belle Histoire (Fugain) - Tutoriel Guitare"
+prod: Y
 description: "Une Belle Histoire de Michel Fugain à la guitare : 8 accords variés, chanson française des années 70. Tutoriel vidéo."
 ogImage: "/images/blog/apprendre-une-belle-histoire-guitare.webp"
 author: "Fred Fieffé"

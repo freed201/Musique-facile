@@ -1,5 +1,6 @@
 ---
 title: "Au Boulot Maestro : Le Pouvoir de la Musique"
+prod: Y
 description: "Explorez comment la musique peut impacter votre cerveau et booster votre bien-être grâce à la neuroplasticité."
 ogImage: "/images/blog/au-boulot-maestro-1.webp"
 author: "Fred Fieffé"

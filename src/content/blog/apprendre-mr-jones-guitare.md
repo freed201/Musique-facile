@@ -1,5 +1,6 @@
 ---
 title: "Mr. Jones (Counting Crows) - Tutoriel Guitare"
+prod: Y
 description: "Mr. Jones des Counting Crows à la guitare : 5 accords faciles, rythmique rock alternatif, hit 1993. Tutoriel débutants/intermédiaires."
 ogImage: "/images/blog/apprendre-mr-jones-guitare.webp"
 author: "Fred Fieffé"

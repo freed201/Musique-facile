@@ -1,5 +1,6 @@
 ---
 title: "Lucky Man (The Verve) - Tutoriel Guitare"
+prod: Y
 description: "Lucky Man de The Verve à la guitare : 5 accords simples, rythmique Britpop, classique 1997. Tutoriel vidéo débutants."
 ogImage: "/images/blog/apprendre-lucky-man-guitare.webp"
 author: "Fred Fieffé"

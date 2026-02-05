@@ -1,5 +1,6 @@
 ---
 title: "So Lonely (The Police) - Tutoriel Guitare"
+prod: Y
 description: "So Lonely de The Police à la guitare : 4 accords avec capo case 5, fusion rock-reggae 1978. Tutoriel vidéo intermédiaires."
 ogImage: "/images/blog/apprendre-so-lonely-guitare.webp"
 author: "Fred Fieffé"

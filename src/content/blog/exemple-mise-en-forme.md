@@ -1,7 +1,7 @@
 ---
 title: "Guide complet de mise en forme des articles"
 description: "Découvrez toutes les possibilités de mise en forme des articles avec des exemples concrets et des explications détaillées."
-prod: "N"
+prod: N
 theme: "piano"
 ogImage: "/images/blog/exemple-mise-en-forme.jpg"
 author: "Fred Fieffé"

@@ -4,7 +4,7 @@ description: "10 conseils incontournables pour apprendre la guitare efficacement
 ogImage: "/images/blog/conseils-pour-debuter-la-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
-prod: "N"
+prod: N
 
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-03-14"

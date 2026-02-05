@@ -1,5 +1,6 @@
 ---
 title: "Riche (Claudio Capéo) - Tutoriel Guitare"
+prod: Y
 description: "Riche de Claudio Capéo à la guitare : 7 accords avec capo case 2, rythmique folk-pop. Tutoriel vidéo intermédiaires."
 ogImage: "/images/blog/apprendre-riche-guitare.webp"
 author: "Fred Fieffé"

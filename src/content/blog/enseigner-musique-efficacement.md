@@ -7,7 +7,7 @@ datePublished: "2025-03-24"
 dateModified: "2026-02-04"
 introduction: "T’as déjà pris un cours avec un musicien ultra-talentueux… et t’es ressorti encore plus perdu qu’avant ? Pas de panique, tu n’es pas seul ! Certains génies de la musique ont du mal à enseigner, et cela porte un nom : **la malédiction du savoir**. Explications et solutions pour progresser efficacement."
 
-prod: "N"
+prod: N
 meta: "Un bon musicien n’est pas toujours un bon prof ! Découvre pourquoi certains virtuoses peinent à enseigner et comment mieux apprendre."
 keywords: "musicien professeur, pourquoi bons musiciens mauvais profs, pédagogie musicale, apprendre la musique efficacement, enseigner la musique"
 

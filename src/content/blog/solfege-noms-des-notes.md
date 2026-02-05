@@ -6,7 +6,7 @@ author: "Fred Fieffé"
 datePublished: "2025-04-07"
 dateModified: "2026-02-04"
 introduction: "Si tu joues d’un instrument, tu utilises Do, Ré, Mi, Fa, Sol, La, Si tous les jours. Mais pourquoi ces syllabes-là et pas d’autres ? Cet épisode du podcast *Au boulot maestro* remonte un millénaire en arrière pour découvrir l’origine fascinante des noms des notes !"
-prod: "N"
+prod: N
 meta: "Pourquoi Do, Ré, Mi et pas autre chose ? Remonte le temps et découvre l’histoire du solfège et des noms des notes de musique."
 keywords: "origine des notes de musique, histoire du solfège, pourquoi Do Ré Mi, Guido d’Arezzo musique, notation musicale"
 

@@ -1,5 +1,6 @@
 ---
 title: "More Than Words (Extreme) - Tutoriel Guitare"
+prod: Y
 description: "More Than Words d'Extreme à la guitare : ballade acoustique 1990, technique avancée, accordage spécial. Tutoriel confirmés."
 ogImage: "/images/blog/tutoriel-more-than-words-guitare.webp"
 author: "Fred Fieffé"

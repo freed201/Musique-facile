@@ -2,7 +2,7 @@
 title: "Techniques pour Jouer les Accords de Guitare"
 description: "Découvrez les meilleures techniques pour enchaîner les accords sans effort. Astuces et exercices pour fluidifier votre jeu."
 ogImage: "/images/blog/accords-guitare-debutant-guide-ultime.webp"
-prod: "N"
+prod: N
 multi: "Y"
 prev: "accords-guitare-debutant-guide-ultime"
 next: "exercices-accords-guitare-debutant"

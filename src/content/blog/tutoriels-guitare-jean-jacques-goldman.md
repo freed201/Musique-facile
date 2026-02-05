@@ -1,5 +1,6 @@
 ---
 title: "Jean-Jacques Goldman à la Guitare - Tutoriels"
+prod: Y
 description: "Jean-Jacques Goldman à la guitare : tutoriels pour On ira, À nos actes manqués. Vidéos complètes pour tous niveaux."
 ogImage: "/images/blog/tutoriels-guitare-jean-jacques-goldman.webp"
 author: "Fred Fieffé"

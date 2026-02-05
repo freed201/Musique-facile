@@ -1,5 +1,6 @@
 ---
 title: "Top 5 Accords Guitare Débutants - Enchaînement Facile"
+prod: Y
 description: "Apprenez à jouer de la guitare rapidement avec les accords Em, C, G, D, Am"
 meta: "Découvrez les cinq accords de guitare essentiels pour débutants, apprenez à les enchaîner facilement et commencez à jouer rapidement avec notre guide pratique."
 keywords: "accords guitare débutant, enchaîner accords guitare, cours guitare facile, apprendre guitare adulte"

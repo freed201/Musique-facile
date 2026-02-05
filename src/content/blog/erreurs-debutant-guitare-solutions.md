@@ -2,7 +2,7 @@
 title: "6 Erreurs Guitare Débutant et Comment les Éviter"
 description: "📢 Vos accords sonnent mal ? Transitions lentes ? Découvrez les erreurs fréquentes des débutants et comment les corriger pour jouer proprement !"
 ogImage: "/images/blog/accords-guitare-debutant-guide-ultime.webp"
-prod: "N"
+prod: N
 multi: "Y"
 prev: "exercices-accords-guitare-debutant"
 next: "morceaux-faciles-guitare-debutant"

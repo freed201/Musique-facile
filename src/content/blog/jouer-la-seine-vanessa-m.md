@@ -1,5 +1,6 @@
 ---
 title: "La Seine (Vanessa Paradis & -M-) - Guitare"
+prod: Y
 description: "La Seine de Vanessa Paradis & -M- à la guitare : 8 accords avec capo case 5, ballade poétique 2011. Tutoriel intermédiaires."
 ogImage: "/images/blog/jouer-la-seine-vanessa-m.webp"
 author: "Fred Fieffé"

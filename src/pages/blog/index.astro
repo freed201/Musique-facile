@@ -15,9 +15,12 @@ const currentDate = new Date();
 // Filtrer les articles publiés
 const publishedPosts = allPosts
   .filter(post => {
-    if (post.data.prod !== 'Y') return false;
+    // Exclure si prod: N (article en brouillon)
+    if (post.data.prod === 'N') return false;
+    // Exclure si date de publication future
     const publishDate = new Date(post.data.datePublished);
     if (publishDate > currentDate) return false;
+    // Exclure si fait partie d'une série (prev indique un article précédent)
     if (post.data.prev) return false;
     return true;
   })

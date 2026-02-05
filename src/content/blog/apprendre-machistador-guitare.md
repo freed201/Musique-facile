@@ -1,5 +1,6 @@
 ---
 title: "Machistador (-M-) - Tutoriel Guitare Funk"
+prod: Y
 description: "Machistador de -M- à la guitare : groove funky, rythmique énergique, 4 accords en barré. Tutoriel guitaristes intermédiaires."
 ogImage: "/images/blog/apprendre-machistador-guitare.webp"
 author: "Fred Fieffé"

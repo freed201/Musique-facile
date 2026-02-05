@@ -1,5 +1,6 @@
 ---
 title: "Wild World (Cat Stevens) - Tutoriel Guitare"
+prod: Y
 description: "Wild World de Cat Stevens à la guitare : 8 accords, ballade folk 1970, riffs caractéristiques. Tutoriel guitaristes intermédiaires."
 ogImage: "/images/blog/apprendre-wild-world-guitare.webp"
 author: "Fred Fieffé"

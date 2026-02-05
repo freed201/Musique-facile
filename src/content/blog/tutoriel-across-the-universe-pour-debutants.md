@@ -1,5 +1,6 @@
 ---
 title: "Across the Universe (Beatles) - Tutoriel Guitare"
+prod: Y
 description: "Across the Universe des Beatles : 8 accords avec capo case 2, ballade psychédélique 1969. Tutoriel guitare intermédiaires."
 ogImage: "/images/blog/tutoriel-across-the-universe-pour-debutants.webp"
 

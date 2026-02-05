@@ -1,5 +1,6 @@
 ---
 title: "Coldplay : Un Voyage Musical à Travers les Étoiles"
+prod: Y
 description: "Plongez dans l'univers de Coldplay avec nos tutoriels musicaux et apprenez à jouer leurs plus grands succès."
 ogImage: "/images/blog/apprendre-coldplay-piano-guitare-ukulele.webp"
 author: "Fred Fieffé"

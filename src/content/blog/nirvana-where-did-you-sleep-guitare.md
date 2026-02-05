@@ -1,5 +1,6 @@
 ---
 title: "Where Did You Sleep Last Night (Nirvana) - Guitare"
+prod: Y
 description: "Where Did You Sleep Last Night de Nirvana : 6 accords, reprise folk-grunge MTV Unplugged 1993. Tutoriel guitare intermédiaire."
 ogImage: "/images/blog/nirvana-where-did-you-sleep-guitare.webp"
 author: "Fred Fieffé"

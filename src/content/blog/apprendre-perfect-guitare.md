@@ -1,5 +1,6 @@
 ---
 title: "Apprendre Perfect à la Guitare (Ed Sheeran) - Tutoriel 2025"
+prod: Y
 description: "Maîtrisez Perfect d'Ed Sheeran à la guitare : 8 accords simples, ballade pop romantique de 2017, tempo 95 BPM. Tutoriel vidéo facile pour débutants."
 ogImage: "/images/blog/apprendre-perfect-guitare.webp"
 author: "Fred Fieffé"

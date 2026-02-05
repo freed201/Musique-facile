@@ -1,5 +1,6 @@
 ---
 title: "Don't Stop Me Now (Queen) - Tutoriel Guitare"
+prod: Y
 description: "Don't Stop Me Now de Queen à la guitare : 10 accords avancés, hymne de Freddie Mercury 1979, 150 BPM. Tutoriel confirmés."
 ogImage: "/images/blog/tutoriel-dont-stop-me-now-queen.webp"
 author: "Fred Fieffé"

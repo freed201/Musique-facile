@@ -2,7 +2,7 @@
 title: "FAQ Guitare Débutant : Réponses à vos Questions"
 description: "Vous avez des questions sur l’apprentissage de la guitare 🎸 ? Découvrez les réponses aux questions les plus courantes des débutants !"
 ogImage: "/images/blog/accords-guitare-debutant-guide-ultime.webp"
-prod: "N"
+prod: N
 multi: "Y"
 prev: "astuces-progresser-guitare-debutant"
 number: "7/7"

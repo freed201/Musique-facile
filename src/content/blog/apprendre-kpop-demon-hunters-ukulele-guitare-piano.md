@@ -1,5 +1,6 @@
 ---
 title: "K-pop Demon Hunters : Jouer les Hits à l'Ukulélé"
+prod: Y
 description: "Jouez Briller, Golden et Soda Pop de K-pop Demon Hunters à l'ukulélé ou guitare. Tutoriels complets pour ces tubes Netflix."
 ogImage: "/images/blog/apprendre-kpop-demon-hunters-ukulele-guitare-piano.webp"
 author: "Fred Fieffé"

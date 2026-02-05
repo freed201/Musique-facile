@@ -1,5 +1,6 @@
 ---
 title: "Foule Sentimentale (Souchon) - Tutoriel Guitare"
+prod: Y
 description: "Foule Sentimentale d'Alain Souchon à la guitare : 5 accords simples, critique sociale poétique 1993. Tutoriel vidéo facile."
 ogImage: "/images/blog/tutoriel-foule-sentimentale-chanson.webp"
 author: "Fred Fieffé"

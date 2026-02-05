@@ -1,5 +1,6 @@
 ---
 title: "Guitare : 10 Erreurs de Débutant à Éviter Absolument"
+prod: Y
 description: "Les 10 pièges qui bloquent 87% des guitaristes débutants. Solutions testées sur 80 000 élèves pour progresser 3x plus vite."
 meta: "Apprendre la guitare facilement : évitez les 10 erreurs fatales des débutants. Posture, accords, rythme, progression - solutions testées pour réussir rapidement."
 keywords: "apprendre la guitare, apprendre la guitare débutant, erreurs débutant guitare, cours de guitare gratuit, débuter la guitare, guitare pour débutant, méthode guitare débutant, apprendre guitare facilement, accords guitare débutant, progression guitare, technique guitare, comment apprendre la guitare"

@@ -2,7 +2,7 @@
 title: "Accords Guitare Débutant - Guide Ultime"
 description: "Découvrez les accords de guitare essentiels pour débutants. Schémas détaillés, astuces pratiques et conseils pros."
 ogImage: "/images/blog/accords-guitare-debutant-guide-ultime.webp"
-prod: "N"
+prod: N
 multi: "Y"
 next: "techniques-jouer-accords-guitare"
 number: "1/7"

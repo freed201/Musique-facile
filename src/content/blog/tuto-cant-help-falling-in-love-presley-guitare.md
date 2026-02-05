@@ -1,5 +1,6 @@
 ---
 title: "Can't Help Falling in Love (Elvis) - Guitare"
+prod: Y
 description: "Can't Help Falling in Love d'Elvis Presley : 10 accords en Do majeur, ballade romantique 1961. Tutoriel guitare intermédiaires."
 ogImage: "/images/blog/tuto-cant-help-falling-in-love-presley-guitare.webp"
 author: "Fred Fieffé"

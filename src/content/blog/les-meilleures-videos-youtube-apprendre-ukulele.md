@@ -1,5 +1,6 @@
 ---
 title: "Les Meilleures Vidéos YouTube pour Apprendre le Ukulélé"
+prod: Y
 description: "Découvrez des ressources pour débuter et progresser à votre rythme"
 meta: "Découvrez les meilleures vidéos YouTube pour débuter au ukulélé. Des conseils pour choisir des tutoriels efficaces, organiser votre apprentissage et rester motivé pour progresser à votre rythme."
 keywords: "vidéos ukulélé débutant, apprendre ukulélé YouTube, chaînes YouTube ukulélé, cours ukulélé en ligne"

@@ -1,5 +1,6 @@
 ---
 title: "Respire (Mickey 3D) - Tutoriel Guitare"
+prod: Y
 description: "Respire de Mickey 3D à la guitare : 6 accords simples, hymne écologique 2003. Tutoriel vidéo facile débutants."
 ogImage: "/images/blog/apprendre-respire-guitare.webp"
 author: "Fred Fieffé"

@@ -1,5 +1,6 @@
 ---
 title: "Hallelujah (Jeff Buckley) - Tutoriel Guitare"
+prod: Y
 description: "Hallelujah de Jeff Buckley à la guitare : 6 accords avec capo case 1, reprise de Leonard Cohen. Tutoriel intermédiaires."
 ogImage: "/images/blog/jouer-hallelujah-jeff-buckley-guitare.webp"
 author: "Fred Fieffé"

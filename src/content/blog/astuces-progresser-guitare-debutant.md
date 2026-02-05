@@ -2,7 +2,7 @@
 title: "7 Astuces pour Progresser Rapidement à la Guitare"
 description: "Accélérez votre progression à la guitare 🎶 ! Découvrez 7 conseils pour améliorer votre jeu, gagner en rapidité et jouer avec plus d’aisance."
 ogImage: "/images/blog/accords-guitare-debutant-guide-ultime.webp"
-prod: "N"
+prod: N
 multi: "Y"
 prev: "morceaux-faciles-guitare-debutant"
 next: "faq-apprendre-guitare-debutant"

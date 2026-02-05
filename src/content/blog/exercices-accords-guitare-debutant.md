@@ -2,7 +2,7 @@
 title: "5 Exercices pour Maîtriser les Accords de Guitare"
 description: "📢 Améliorez votre fluidité et enchaînez les accords plus vite 🎵. Découvrez des exercices simples et efficaces pour progresser rapidement !"
 ogImage: "/images/blog/accords-guitare-debutant-guide-ultime.webp"
-prod: "N"
+prod: N
 multi: "Y"
 prev: "techniques-jouer-accords-guitare"
 next: "erreurs-debutant-guitare-solutions"

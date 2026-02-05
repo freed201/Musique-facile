@@ -1,5 +1,6 @@
 ---
 title: "Comment Bien Choisir son Ukulélé en 2025 ?"
+prod: Y
 description: "Trouver le bon ukulélé peut être un vrai casse-tête. Taille, bois, sonorité… Dans cet article, je te guide pour choisir le modèle idéal !"
 ogImage: "/images/blog/choisir-ukulele-2025.webp"
 author: "Fred Fieffé"

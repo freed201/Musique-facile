@@ -1,5 +1,6 @@
 ---
 title: "Apprendre One à la Guitare (U2) - Tutoriel 2025"
+prod: Y
 description: "Maîtrisez One de U2 à la guitare : 5 accords simples, ballade rock émotionnelle de 1991, hymne à l'unité. Tutoriel vidéo facile pour débutants."
 ogImage: "/images/blog/apprendre-one-guitare.webp"
 author: "Fred Fieffé"
