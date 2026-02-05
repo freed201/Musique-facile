@@ -1,20 +1,19 @@
 ---
-title: "Everybody Hurts : Histoire et accords de ce titre bouleversant"
-description: "Découvrez 'Everybody Hurts', une chanson intemporelle de R.E.M. qui offre réconfort et espoir à travers des paroles simples et touchantes."
+title: "Everybody Hurts (R.E.M.) - Tutoriel Guitare"
+description: "Everybody Hurts de R.E.M. à la guitare : 9 accords simples, ballade rock 1992, hymne d'espoir. Tutoriel vidéo débutants."
 ogImage: "/images/blog/tutoriel-everybody-hurts-facile.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-02-01"
+dateModified: "2026-02-04"
 introduction: "Avec 'Everybody Hurts', R.E.M. a créé un hymne de réconfort et d'humanité qui transcende les générations. Plongez dans l'histoire, l'impact et les subtilités de ce morceau emblématique."
 
 songInfo:
   inBook: true
-  bookPage: "20"
-  tempo: "65"
-  chordCount: "9"
-  key: ""
+  bookPage: 20
+  tempo: 65
+  chordCount: 9
   difficulty: "2/5"
 
 videos:
@@ -32,12 +31,15 @@ conclusion: |
 
 
 relatedLinks:
-  - title: "Les chansons les plus émouvantes de R.E.M."
-    url: "/articles/chansons-emouvantes-rem"
-    description: "Un aperçu des morceaux les plus poignants de R.E.M."
-  - title: "Histoire de l'album 'Automatic for the People'"
-    url: "/articles/automatic-for-the-people"
-    description: "Découvrez les secrets et l'impact de l'album légendaire de R.E.M."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour maîtriser les ballades rock."
+  - title: "Chasing Cars - Snow Patrol"
+    url: "/blog/apprendre-chasing-cars-guitare"
+    description: "Une autre ballade rock émouvante et accessible."
+  - title: "Wild World - Cat Stevens"
+    url: "/blog/apprendre-wild-world-guitare"
+    description: "Une ballade folk touchante des années 70."
 ---
 # "Everybody Hurts" de R.E.M. : Plongée dans un classique intemporel
 

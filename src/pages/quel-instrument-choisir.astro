@@ -1,0 +1,764 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Quel Instrument Choisir ? Quiz Gratuit | Musique Facile";
+const description = "Découvrez l'instrument idéal pour vous en 3 questions ! Piano, guitare, ukulélé ou solfège : notre quiz gratuit vous guide vers le bon choix.";
+const canonicalURL = new URL('/quel-instrument-choisir', Astro.site || 'https://musique-facile.fr').toString();
+
+// Questions du quiz
+const quizData = {
+  questions: [
+    {
+      id: 1,
+      question: "Quel est votre objectif musical principal ?",
+      options: [
+        { text: "Jouer mes chansons préférées rapidement", points: { ukulele: 3, guitare: 2, piano: 1 } },
+        { text: "Maîtriser un instrument complet", points: { piano: 3, guitare: 2, ukulele: 1 } },
+        { text: "Accompagner mes chants ou jouer en groupe", points: { guitare: 3, ukulele: 2, piano: 1 } },
+        { text: "Comprendre la théorie musicale", points: { piano: 3, solfege: 3, guitare: 1 } }
+      ]
+    },
+    {
+      id: 2,
+      question: "Combien de temps pouvez-vous pratiquer par jour ?",
+      options: [
+        { text: "10-15 minutes (je suis très occupé)", points: { ukulele: 3, guitare: 2, piano: 1 } },
+        { text: "30 minutes à 1 heure", points: { guitare: 3, piano: 2, ukulele: 2 } },
+        { text: "Plus d'1 heure (j'adore la musique !)", points: { piano: 3, guitare: 2, solfege: 2 } }
+      ]
+    },
+    {
+      id: 3,
+      question: "Quel style de musique vous attire le plus ?",
+      options: [
+        { text: "Pop, folk, chansons françaises", points: { guitare: 3, ukulele: 2, piano: 2 } },
+        { text: "Classique, jazz, musique de film", points: { piano: 3, guitare: 1, solfege: 2 } },
+        { text: "Reggae, hawaïen, musique légère", points: { ukulele: 3, guitare: 1, piano: 1 } },
+        { text: "Rock, blues, musique énergique", points: { guitare: 3, piano: 2, ukulele: 0 } }
+      ]
+    }
+  ],
+  results: {
+    piano: {
+      title: "🎹 Le Piano est fait pour vous !",
+      description: "Le piano est l'instrument idéal pour vous ! Il offre une compréhension complète de la musique, permet de jouer mélodie et accompagnement simultanément, et convient à tous les styles musicaux.",
+      benefits: [
+        "Instrument complet pour comprendre la musique",
+        "Idéal pour composer et créer",
+        "Adapté au classique, jazz, pop",
+        "Base solide pour apprendre d'autres instruments"
+      ],
+      course: {
+        title: "Piano Facile pour Débutants",
+        url: "/cours/piano-facile-apprendre-debutant",
+        price: "299€",
+        image: "/images/cours/piano-facile-apprendre-debutant/hero.webp"
+      }
+    },
+    guitare: {
+      title: "🎸 La Guitare est faite pour vous !",
+      description: "La guitare est l'instrument parfait pour vous ! Polyvalente et accessible, elle vous permet d'accompagner vos chansons préférées et de jouer dans tous les styles musicaux.",
+      benefits: [
+        "Instrument polyvalent et populaire",
+        "Parfaite pour accompagner le chant",
+        "Idéale pour jouer en groupe",
+        "Adapté au rock, pop, folk, blues"
+      ],
+      course: {
+        title: "Guitare Débutant Complet",
+        url: "/cours/apprendre-guitare-debutant",
+        price: "99€",
+        image: "/images/cours/apprendre-guitare-debutant/hero.webp"
+      }
+    },
+    ukulele: {
+      title: "🏝️ L'Ukulélé est fait pour vous !",
+      description: "L'ukulélé est l'instrument idéal pour vous ! Facile à apprendre, transportable et joyeux, il vous permet de jouer rapidement vos premières chansons avec un son ensoleillé.",
+      benefits: [
+        "Le plus facile à apprendre",
+        "Compact et transportable",
+        "Sons joyeux et relaxants",
+        "Résultats rapides pour débutants"
+      ],
+      course: {
+        title: "Ukulélé pour Tous - Débutant",
+        url: "/cours/apprendre-ukulele-debutant",
+        price: "79€",
+        image: "/images/cours/apprendre-ukulele-debutant/hero.webp"
+      }
+    },
+    solfege: {
+      title: "🎼 Le Solfège est fait pour vous !",
+      description: "Le solfège est parfait pour vous ! Vous voulez comprendre la musique en profondeur et avoir des bases solides. Le solfège ouvre toutes les portes musicales.",
+      benefits: [
+        "Compréhension profonde de la musique",
+        "Facilite l'apprentissage de tous instruments",
+        "Lecture de partitions maîtrisée",
+        "Base théorique solide"
+      ],
+      course: {
+        title: "Solfège Expert - Formation Complète",
+        url: "/cours/solfege-expert-formation",
+        price: "149€",
+        image: "/images/cours/solfege-expert-formation/hero.webp"
+      }
+    }
+  }
+};
+---
+
+<Layout title={title}>
+  <head>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://musique-facile.fr/images/quiz-instruments.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+  </head>
+
+  <body>
+    <Header />
+
+    <main class="quiz-page">
+      <!-- Hero Section -->
+      <section class="quiz-hero">
+        <div class="container">
+          <h1>🎵 Quel Instrument est Fait Pour Vous ?</h1>
+          <p class="quiz-subtitle">Répondez à 3 questions simples et découvrez l'instrument idéal pour commencer la musique !</p>
+          <div class="quiz-stats">
+            <div class="stat">
+              <span class="stat-icon">👥</span>
+              <span class="stat-text">+15 000 personnes ont trouvé leur instrument</span>
+            </div>
+            <div class="stat">
+              <span class="stat-icon">⏱️</span>
+              <span class="stat-text">Quiz en 60 secondes</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quiz Container -->
+      <section class="quiz-container">
+        <div class="container">
+          <!-- Progress Bar -->
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <p class="progress-text">Question <span id="currentQuestion">1</span> sur 3</p>
+          </div>
+
+          <!-- Quiz Card -->
+          <div class="quiz-card" id="quizCard">
+            <!-- Questions will be injected here -->
+          </div>
+
+          <!-- Results Section (hidden initially) -->
+          <div class="quiz-results hidden" id="resultsSection">
+            <div class="result-content">
+              <div class="result-icon" id="resultIcon"></div>
+              <h2 id="resultTitle"></h2>
+              <p id="resultDescription"></p>
+
+              <div class="result-benefits">
+                <h3>Pourquoi cet instrument vous convient :</h3>
+                <ul id="resultBenefits"></ul>
+              </div>
+
+              <div class="result-course">
+                <h3>🎁 Commencez dès maintenant avec notre cours :</h3>
+                <div class="course-card" id="courseCard">
+                  <!-- Course details will be injected -->
+                </div>
+              </div>
+
+              <div class="result-actions">
+                <button class="btn-restart" onclick="restartQuiz()">
+                  🔄 Refaire le quiz
+                </button>
+                <a href="/cours" class="btn-explore">
+                  👀 Explorer tous les cours
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social Proof -->
+      <section class="quiz-testimonials">
+        <div class="container">
+          <h2>Ils ont trouvé leur instrument grâce au quiz</h2>
+          <div class="testimonials-grid">
+            <div class="testimonial">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>"Le quiz m'a orienté vers l'ukulélé et je ne regrette rien ! En 2 semaines je jouais déjà mes premières chansons."</p>
+              <strong>- Sophie, 34 ans</strong>
+            </div>
+            <div class="testimonial">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>"J'hésitais entre piano et guitare. Le quiz m'a aidé à choisir le piano et c'était le bon choix pour moi !"</p>
+              <strong>- Marc, 28 ans</strong>
+            </div>
+            <div class="testimonial">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>"Super quiz ! J'ai découvert que la guitare correspondait parfaitement à mes objectifs musicaux."</p>
+              <strong>- Julie, 42 ans</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</Layout>
+
+<style>
+  .quiz-page {
+    background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+    min-height: 100vh;
+  }
+
+  .quiz-hero {
+    text-align: center;
+    padding: 6rem 0 3rem;
+    background: linear-gradient(135deg, #00c28e 0%, #00a077 100%);
+    color: white;
+  }
+
+  .quiz-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+
+  .quiz-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  .quiz-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+  }
+
+  .stat-icon {
+    font-size: 1.5rem;
+  }
+
+  .stat-text {
+    font-weight: 500;
+  }
+
+  .quiz-container {
+    padding: 4rem 0;
+  }
+
+  .progress-container {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00c28e, #00a077);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    width: 33.33%;
+  }
+
+  .progress-text {
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-dark);
+    font-size: 1.1rem;
+  }
+
+  .quiz-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .question-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--color-dark);
+    text-align: center;
+  }
+
+  .options-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .option-button {
+    background: white;
+    border: 3px solid #e0e0e0;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: left;
+    color: var(--color-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .option-button::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background: linear-gradient(135deg, #00c28e, #00a077);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+  }
+
+  .option-button:hover {
+    border-color: #00c28e;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 194, 142, 0.2);
+  }
+
+  .option-button:hover::before {
+    transform: scaleY(1);
+  }
+
+  .option-button.selected {
+    border-color: #00c28e;
+    background: linear-gradient(135deg, rgba(0, 194, 142, 0.1), rgba(0, 160, 119, 0.1));
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .quiz-results {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .result-content {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .result-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+  }
+
+  .result-content h2 {
+    font-size: 2.5rem;
+    color: #00c28e;
+    margin-bottom: 1.5rem;
+  }
+
+  .result-content > p {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .result-benefits {
+    text-align: left;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+  }
+
+  .result-benefits h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark);
+  }
+
+  .result-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .result-benefits li {
+    padding-left: 2rem;
+    position: relative;
+    font-size: 1.1rem;
+    color: var(--color-dark);
+  }
+
+  .result-benefits li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    font-size: 1.3rem;
+  }
+
+  .result-course {
+    margin: 3rem 0;
+  }
+
+  .result-course h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-dark);
+  }
+
+  .course-card {
+    background: linear-gradient(135deg, var(--bg-light), white);
+    border: 3px solid #00c28e;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: left;
+    transition: transform 0.3s ease;
+  }
+
+  .course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 194, 142, 0.2);
+  }
+
+  .course-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+  }
+
+  .course-title {
+    font-size: 1.5rem;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+  }
+
+  .course-price {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #00c28e;
+    margin-bottom: 1.5rem;
+  }
+
+  .course-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, #00c28e, #00a077);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .course-cta:hover {
+    transform: scale(1.05);
+  }
+
+  .result-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-restart, .btn-explore {
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-restart {
+    background: white;
+    border: 2px solid #00c28e;
+    color: #00c28e;
+  }
+
+  .btn-restart:hover {
+    background: #00c28e;
+    color: white;
+  }
+
+  .btn-explore {
+    background: var(--color-dark);
+    color: white;
+    border: 2px solid var(--color-dark);
+  }
+
+  .btn-explore:hover {
+    background: transparent;
+    color: var(--color-dark);
+  }
+
+  .quiz-testimonials {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .quiz-testimonials h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: var(--color-dark);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .testimonial {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .stars {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .testimonial p {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+    line-height: 1.6;
+  }
+
+  .testimonial strong {
+    color: #00c28e;
+  }
+
+  @media (max-width: 768px) {
+    .quiz-hero h1 {
+      font-size: 2rem;
+    }
+
+    .quiz-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .quiz-stats {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .quiz-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .question-title {
+      font-size: 1.5rem;
+    }
+
+    .result-content {
+      padding: 2rem 1.5rem;
+    }
+
+    .result-content h2 {
+      font-size: 2rem;
+    }
+
+    .result-actions {
+      flex-direction: column;
+    }
+
+    .btn-restart, .btn-explore {
+      width: 100%;
+    }
+  }
+</style>
+
+<script define:vars={{ quizData }}>
+  let currentQuestionIndex = 0;
+  let scores = { piano: 0, guitare: 0, ukulele: 0, solfege: 0 };
+
+  function renderQuestion(questionIndex) {
+    const question = quizData.questions[questionIndex];
+    const quizCard = document.getElementById('quizCard');
+
+    let optionsHTML = '';
+    question.options.forEach((option, index) => {
+      optionsHTML += `
+        <button class="option-button" data-option="${index}">
+          ${option.text}
+        </button>
+      `;
+    });
+
+    quizCard.innerHTML = `
+      <h2 class="question-title">${question.question}</h2>
+      <div class="options-grid">
+        ${optionsHTML}
+      </div>
+    `;
+
+    // Add click handlers
+    const buttons = quizCard.querySelectorAll('.option-button');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove previous selection
+        buttons.forEach(btn => btn.classList.remove('selected'));
+        // Mark as selected
+        button.classList.add('selected');
+
+        // Get points
+        const optionIndex = parseInt(button.dataset.option);
+        const points = question.options[optionIndex].points;
+
+        // Add points to scores
+        Object.keys(points).forEach(instrument => {
+          scores[instrument] += points[instrument];
+        });
+
+        // Wait a bit and move to next question
+        setTimeout(() => {
+          currentQuestionIndex++;
+          updateProgress();
+
+          if (currentQuestionIndex < quizData.questions.length) {
+            renderQuestion(currentQuestionIndex);
+          } else {
+            showResults();
+          }
+        }, 500);
+      });
+    });
+  }
+
+  function updateProgress() {
+    const progress = ((currentQuestionIndex + 1) / quizData.questions.length) * 100;
+    document.getElementById('progressBar').style.width = `${progress}%`;
+    document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+  }
+
+  function showResults() {
+    // Find instrument with highest score
+    let maxScore = 0;
+    let recommendedInstrument = 'guitare';
+
+    Object.keys(scores).forEach(instrument => {
+      if (scores[instrument] > maxScore) {
+        maxScore = scores[instrument];
+        recommendedInstrument = instrument;
+      }
+    });
+
+    const result = quizData.results[recommendedInstrument];
+
+    // Hide quiz card
+    document.getElementById('quizCard').classList.add('hidden');
+
+    // Show results
+    const resultsSection = document.getElementById('resultsSection');
+    resultsSection.classList.remove('hidden');
+
+    // Populate results
+    document.getElementById('resultIcon').textContent = result.title.split(' ')[0];
+    document.getElementById('resultTitle').textContent = result.title;
+    document.getElementById('resultDescription').textContent = result.description;
+
+    // Benefits
+    const benefitsList = document.getElementById('resultBenefits');
+    benefitsList.innerHTML = result.benefits.map(benefit => `<li>${benefit}</li>`).join('');
+
+    // Course card
+    const courseCard = document.getElementById('courseCard');
+    courseCard.innerHTML = `
+      <img src="${result.course.image}" alt="${result.course.title}" class="course-image" />
+      <h4 class="course-title">${result.course.title}</h4>
+      <div class="course-price">${result.course.price}</div>
+      <a href="${result.course.url}" class="course-cta">
+        🚀 Découvrir le cours
+      </a>
+    `;
+
+    // Scroll to results
+    setTimeout(() => {
+      resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+
+  function restartQuiz() {
+    currentQuestionIndex = 0;
+    scores = { piano: 0, guitare: 0, ukulele: 0, solfege: 0 };
+
+    document.getElementById('resultsSection').classList.add('hidden');
+    document.getElementById('quizCard').classList.remove('hidden');
+
+    updateProgress();
+    renderQuestion(0);
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Make restartQuiz available globally
+  window.restartQuiz = restartQuiz;
+
+  // Initialize quiz
+  document.addEventListener('DOMContentLoaded', () => {
+    renderQuestion(0);
+    updateProgress();
+  });
+</script>

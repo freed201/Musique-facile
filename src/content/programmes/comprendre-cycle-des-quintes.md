@@ -2,7 +2,7 @@
 # Data SEO
 title: "Cycle des quintes et tonalités : Maîtrisez la théorie musicale"
 description: "Apprenez la théorie musicale avec cette formation dédiée aux cycles des quintes, tonalités et gammes. Idéal pour maîtriser les bases de l'harmonie et des accords."
-ogImage: "/images/cours/comprendre-cycle-des-quintes/hero.jpg"
+ogImage: "/images/cours/comprendre-cycle-des-quintes/hero.webp"
 theme: "solfege"
 lienAchat: "https://ecole.musique-facile.fr/le-cycle-des-quintes-l-outil-magique-pour-les-musiciens/buy"
 author: "Musique Facile"

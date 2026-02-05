@@ -2,11 +2,12 @@
 affichage: "Y"
 classement: 1
 title: "Ukulélé pour Tous : Guide Complet du Débutant"
-description: "Maîtrisez l'ukulélé de zéro à héros avec notre formation complète pour débutants. 41 leçons détaillées pour apprendre à jouer de l'ukulélé facilement. Commencez dès maintenant !"
-ogImage: "/images/cours/apprendre-ukulele-debutant/hero.jpg"
+description: "Apprenez l'ukulélé de zéro avec 41 leçons vidéo. Formation complète pour débutants : accords, rythmiques et premiers morceaux. Progressez rapidement !"
+ogImage: "/images/cours/apprendre-ukulele-debutant/hero.webp"
 theme: "ukulele"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -25,6 +26,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT10H" # Format ISO 8601 pour la durée
+  courseWorkload: "PT10H"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"

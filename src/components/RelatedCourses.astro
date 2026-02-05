@@ -1,0 +1,302 @@
+---
+import { getCollection } from 'astro:content';
+
+/**
+ * Composant Cours Connexes
+ * Recommande des cours basés sur le thème (instrument)
+ */
+
+interface Props {
+  currentSlug: string;
+  currentTheme: string;
+  maxCourses?: number;
+}
+
+const {
+  currentSlug,
+  currentTheme,
+  maxCourses = 3
+} = Astro.props;
+
+// Récupérer tous les cours actifs
+const allCourses = await getCollection('courses');
+
+const activeCourses = allCourses.filter(course =>
+  course.slug !== currentSlug &&
+  course.data.affichage === 'Y'
+);
+
+// Priorité aux cours du même thème, puis autres thèmes
+const sameThemeCourses = activeCourses.filter(course => course.data.theme === currentTheme);
+const otherCourses = activeCourses.filter(course => course.data.theme !== currentTheme);
+
+// Combiner : d'abord même thème, puis autres
+const relatedCourses = [
+  ...sameThemeCourses.sort((a, b) => (a.data.classement || 99) - (b.data.classement || 99)),
+  ...otherCourses.sort((a, b) => (a.data.classement || 99) - (b.data.classement || 99))
+].slice(0, maxCourses);
+
+// Fonction pour obtenir l'icône du thème
+function getThemeIcon(theme: string): string {
+  const icons: Record<string, string> = {
+    guitar: '🎸',
+    piano: '🎹',
+    ukulele: '🏖️',
+    solfege: '🎼'
+  };
+  return icons[theme] || '🎵';
+}
+
+// Fonction pour obtenir le label du thème
+function getThemeLabel(theme: string): string {
+  const labels: Record<string, string> = {
+    guitar: 'Guitare',
+    piano: 'Piano',
+    ukulele: 'Ukulélé',
+    solfege: 'Solfège'
+  };
+  return labels[theme] || 'Musique';
+}
+---
+
+{relatedCourses.length > 0 && (
+  <section class="related-courses">
+    <div class="container">
+      <h2 class="related-title">Ces formations pourraient aussi vous plaire</h2>
+      <div class="related-grid">
+        {relatedCourses.map(course => (
+          <a href={`/cours/${course.slug}`} class="related-card">
+            <div class="card-image" style={`background-image: url(/images/cours/${course.slug}/hero.webp)`}>
+              <div class="card-badge">
+                {getThemeIcon(course.data.theme)} {getThemeLabel(course.data.theme)}
+              </div>
+              {course.data.bestSeller && (
+                <div class="bestseller-badge">Best-seller</div>
+              )}
+              <div class="card-overlay">
+                <span class="see-course">Voir la formation →</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">{course.data.title}</h3>
+              <p class="card-description">{course.data.description.slice(0, 100)}...</p>
+              <div class="card-footer">
+                <span class="card-price">{course.data.hasCourseInstance?.offers?.price}€</span>
+                {course.data.hero?.stats && (
+                  <span class="card-stat">
+                    {course.data.hero.stats.find(s => s.label.includes('élève'))?.value || ''} élèves
+                  </span>
+                )}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="see-all-wrapper">
+        <a href="/cours" class="btn-see-all">Voir tous nos cours →</a>
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .related-courses {
+    padding: 5rem 0;
+    background: var(--bg-light);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .related-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    color: var(--theme-current);
+    font-weight: 700;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .related-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .related-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-image {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .card-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    backdrop-filter: blur(10px);
+  }
+
+  .bestseller-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--theme-current);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .related-card:hover .card-overlay {
+    opacity: 1;
+  }
+
+  .see-course {
+    color: white;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid white;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+  }
+
+  .related-card:hover .see-course {
+    background: white;
+    color: var(--color-dark);
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-dark);
+    line-height: 1.4;
+    font-weight: 700;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    margin: 0 0 1rem;
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .card-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--theme-current);
+  }
+
+  .card-stat {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+  }
+
+  .see-all-wrapper {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .btn-see-all {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 2px solid var(--theme-current);
+    color: var(--theme-current);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-see-all:hover {
+    background: var(--theme-current);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 1024px) {
+    .related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .related-courses {
+      padding: 3rem 0;
+    }
+
+    .related-title {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .card-image {
+      height: 160px;
+    }
+
+    .card-content {
+      padding: 1.25rem;
+    }
+  }
+</style>

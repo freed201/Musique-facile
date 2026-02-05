@@ -1,20 +1,19 @@
 ---
-title: "Jouez Un Autre Monde de Téléphone : Un classique rock à la guitare"
-description: "Découvrez 'Un Autre Monde', un classique du rock français signé Téléphone, et apprenez à jouer ce morceau emblématique à la guitare."
+title: "Un Autre Monde (Téléphone) - Tutoriel Guitare"
+description: "Un Autre Monde de Téléphone à la guitare : 6 accords avec sus4, rythmique rock français, hit 1984. Tutoriel intermédiaires."
 ogImage: "/images/blog/apprendre-un-autre-monde-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-01-19"
-introduction: "Avec 'Un Autre Monde', Téléphone offre une vision musicale d'évasion et de renouveau. Découvrez son histoire et apprenez à jouer ce chef-d'œuvre."
+dateModified: "2026-02-04"
+introduction: "Avec 'Un Autre Monde', Téléphone offre une vision musicale d'évasion et de renouveau, tirée de l'album éponyme de 1984. Découvrez l'histoire de ce chef-d'œuvre du rock français et apprenez à jouer ses riffs caractéristiques avec accords sus4."
 
 songInfo:
   inBook: true
-  bookPage: "76"
-  tempo: "142"
-  chordCount: "6"
-  key: ""
+  bookPage: 76
+  tempo: 142
+  chordCount: 6
   difficulty: "3/5"
 
 videos:
@@ -31,12 +30,15 @@ conclusion: |
   "Un Autre Monde" reste une invitation au rêve et à l'exploration musicale. Téléphone, en tant que porte-drapeau du rock français, a su insuffler une énergie et une poésie uniques à chaque accord et parole. En saisissant votre guitare, vous entrez dans ce monde sonore alternatif, où chaque note est un voyage, chaque riff une aventure. Explorez, jouez, et continuez d'enrichir votre propre univers musical.<br><br>Pour découvrir plus de contenu inspirant, suivez Téléphone et Jean-Louis Aubert sur leurs réseaux sociaux et sites officiels.
 
 relatedLinks:
-  - title: "Les chansons incontournables de Téléphone"
-    url: "/articles/morceaux-incontournables-telephone"
-    description: "Découvrez les titres qui ont marqué l'histoire de Téléphone."
-  - title: "Analyse de l'album 'Un Autre Monde'"
-    url: "/articles/un-autre-monde-album-analyse"
-    description: "Explorez les secrets de l'album qui a donné naissance à ce classique."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour maîtriser le rock français à la guitare."
+  - title: "Foule Sentimentale - Alain Souchon"
+    url: "/blog/tutoriel-foule-sentimentale-chanson"
+    description: "Un autre classique du rock français poétique."
+  - title: "Machistador - -M-"
+    url: "/blog/apprendre-machistador-guitare"
+    description: "Le groove funky de Matthieu Chedid."
 ---
 ## Présentation de l'artiste : Téléphone
 

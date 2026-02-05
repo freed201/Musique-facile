@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 
 // Récupérer uniquement les cours de guitare
 const allCourses = await getCollection('courses');
@@ -10,44 +11,237 @@ const guitarCourses = allCourses
   .filter(course => course.data.theme === 'guitar' && course.data.affichage === 'Y')
   .sort((a, b) => a.data.classement - b.data.classement);
 
+// Construction de l'URL canonique
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://musique-facile.fr').toString();
+
+// Métadonnées pour la page
+const title = "Cours de Guitare en Ligne | Musique Facile";
+const description = "Apprenez la guitare avec Fred Fieffé : 400+ leçons vidéo HD, méthode progressive, accords, rythmiques et techniques. 80 000+ élèves formés depuis 2015. Essai gratuit 7 jours disponible.";
+
 // Schema.org pour la liste des cours
 const coursesSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
+  "name": "Cours de Guitare en Ligne",
+  "description": "Formation complète pour apprendre la guitare, des bases aux techniques avancées",
+  "url": canonicalURL,
+  "inLanguage": "fr",
   "itemListElement": guitarCourses.map((course, index) => ({
     "@type": "ListItem",
     "position": index + 1,
     "item": {
       "@type": "Course",
+      "@id": `https://musique-facile.fr/cours/${course.slug}#course`,
       "name": course.data.title,
       "description": course.data.description,
       "provider": {
         "@type": "Organization",
         "name": "Musique Facile",
         "sameAs": "https://musique-facile.fr"
-      }
+      },
+      "offers": {
+        "category": course.data.category || "Cours de musique",
+        "@type": "Offer",
+        "price": course.data.hasCourseInstance?.offers?.price || "79.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": `https://musique-facile.fr/cours/${course.slug}`
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "duration": course.data.hasCourseInstance?.duration || "P3M",
+        "courseWorkload": course.data.hasCourseInstance?.courseWorkload || "PT2H",  // <= nouvelle ligne
+        "offers": {
+          "@type": "Offer",
+          "category": course.data.category || "Cours de musique",  // <= nouvelle ligne
+          "price": course.data.hasCourseInstance?.offers?.price || "79.00",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      "inLanguage": "fr",
+      "url": `https://musique-facile.fr/cours/${course.slug}`
     }
   }))
 };
+
+// JSON-LD pour le cours principal
+const courseLDSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Cours de Guitare en Ligne",
+  "description": "Apprenez la guitare à votre rythme avec nos cours en ligne adaptés à tous les niveaux. Progressez facilement grâce à des vidéos claires et des exercices pratiques.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Musique Facile",
+    "url": "https://musique-facile.fr"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": canonicalURL,
+    "price": "89.00",
+    "priceCurrency": "EUR"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "startDate": new Date().toISOString().split('T')[0],
+    "endDate": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+    "location": {
+      "@type": "VirtualLocation",
+      "url": canonicalURL
+    }
+  }
+};
+
+// FAQ Schema pour la page de cours de guitare
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quels sont les avantages des cours de guitare en ligne ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les cours de guitare en ligne offrent une flexibilité totale pour apprendre à votre rythme, sans contrainte de déplacement. Vous pouvez revoir chaque leçon autant de fois que nécessaire et bénéficier d'un accès illimité aux ressources pédagogiques. De plus, le prix est généralement plus abordable que les cours en présentiel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ai-je besoin d'une guitare spécifique pour commencer ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, vous pouvez commencer avec n'importe quelle guitare acoustique ou électrique. Pour les débutants, une simple guitare acoustique est souvent recommandée. L'important est de vous sentir à l'aise avec votre instrument pour pratiquer régulièrement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les cours sont-ils adaptés aux débutants complets ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolument ! Nos cours commencent depuis le niveau zéro et expliquent toutes les bases : comment tenir l'instrument, accorder une guitare, jouer vos premiers accords et apprendre vos premières chansons, même si vous n'avez jamais touché une guitare auparavant."
+      }
+    },
+    {
+      "@type": "Question", 
+      "name": "Comment accéder aux vidéos des leçons ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Après votre inscription, vous obtenez un accès immédiat et illimité à toutes les vidéos de cours via notre plateforme en ligne. Vous pouvez les visionner depuis n'importe quel appareil (ordinateur, tablette, smartphone) disposant d'une connexion internet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je apprendre à jouer mes chansons préférées ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui ! Nous vous apprenons les techniques et accords fondamentaux qui vous permettront progressivement de jouer vos morceaux préférés. Notre blog propose également des tutoriels spécifiques pour des chansons populaires."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Y a-t-il un support en cas de questions ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bien sûr, vous pouvez nous contacter par email pour poser vos questions. Nous vous répondrons dans un délai de 24h ouvrées pour vous aider à résoudre vos difficultés techniques ou musicales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps faut-il pour voir des progrès ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avec une pratique régulière de 15-20 minutes par jour, vous constaterez des progrès significatifs en quelques semaines. De nombreux élèves parviennent à jouer leur première chanson complète en moins d'un mois."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les cours couvrent-ils différents styles musicaux ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, nos cours abordent divers styles comme le rock, la pop, le folk, et le blues. Vous apprendrez différentes techniques de jeu applicables à vos genres musicaux préférés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je suivre les cours sur mobile ou tablette ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolument ! Notre plateforme est entièrement responsive et optimisée pour tous les appareils. Vous pouvez suivre vos leçons sur smartphone, tablette ou ordinateur, où que vous soyez."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Y a-t-il des exercices pour pratiquer entre les leçons ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, chaque module de cours s'accompagne d'exercices pratiques à réaliser entre les leçons pour consolider vos acquis. Vous disposerez également de ressources téléchargeables comme des tablatures et des PDF récapitulatifs."
+      }
+    }
+  ]
+};
 ---
 
-<Layout title="Cours de Guitare - Musique Facile">
+<Layout title={title}>
+  <head>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="cours de guitare en ligne, apprendre la guitare à distance, cours de guitare pour débutants, leçons de guitare en vidéo, formation guitare en ligne" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://musique-facile.fr/images/og-cours-guitare.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://musique-facile.fr/images/og-cours-guitare.jpg" />
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(coursesSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(courseLDSchema)} />
+  </head>
+
   <Header />
   
-  <script type="application/ld+json" set:html={JSON.stringify(coursesSchema)} />
-
   <main>
+    <!-- Fil d'Ariane -->
+    <BreadcrumbNav 
+      items={[
+        { name: "Accueil", url: "/" },
+        { name: "Cours", url: "/cours" },
+        { name: "Cours de Guitare", url: "/cours/cours-de-guitare" }
+      ]}
+    />
+    
     <section class="courses-hero theme-guitar">
       <div class="hero-background" style="background-image: url('/images/cours/hero-guitare.jpg')"></div>
       <div class="hero-overlay"></div>
       <div class="container">
-        <h1>Cours de Guitare</h1>
-        <p class="subtitle">Découvrez nos formations pour apprendre la guitare à votre rythme</p>
+        <h1>Cours de Guitare en Ligne</h1>
+        <p class="subtitle">Apprenez la guitare à votre rythme avec nos cours en ligne adaptés à tous les niveaux. Progressez facilement grâce à des vidéos claires et des exercices pratiques.</p>
+        <div class="hero-cta">
+          <a href="#courses-list" class="cta-button">
+            Découvrir nos formations
+            <span class="cta-arrow">↓</span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="courses-grid">
+    <section class="courses-grid" id="courses-list">
       <div class="container">
+        <h2 class="section-title">Nos Cours de Guitare</h2>
+        <p class="section-subtitle">Du débutant à l'expert, nous vous accompagnons à chaque étape de votre apprentissage</p>
+        
         <div class="courses-wrapper">
           {guitarCourses.map(course => (
             <article class="course-card">
@@ -74,10 +268,182 @@ const coursesSchema = {
             </article>
           ))}
         </div>
+      </div>
+    </section>
 
-        <div class="all-courses-cta">
-          <a href="/cours" class="btn-all-courses">
-            Découvrez tous nos cours
+    <!-- Section Pourquoi Apprendre la Guitare en Ligne -->
+    <section class="why-online">
+      <div class="container">
+        <h2 class="section-title">Pourquoi apprendre la guitare en ligne ?</h2>
+        
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">⏱️</div>
+            <h3>Flexibilité totale</h3>
+            <p>Apprenez quand vous le souhaitez, à votre rythme, sans contrainte de déplacement. Nos cours sont accessibles 24h/24, 7j/7.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">🎯</div>
+            <h3>Progression adaptée</h3>
+            <p>Des parcours conçus pour tous les niveaux, du débutant total au guitariste confirmé, avec des objectifs clairs à chaque étape.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">🎬</div>
+            <h3>Vidéos explicatives</h3>
+            <p>Nos leçons filmées sous plusieurs angles vous permettent de visualiser clairement chaque technique et position des mains.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">📝</div>
+            <h3>Ressources complètes</h3>
+            <p>Tablatures, partitions et exercices interactifs pour consolider vos acquis et développer votre technique.</p>
+          </div>
+        </div>
+        
+        <div class="online-learning-description">
+          <p>Les cours de guitare en ligne offrent une flexibilité totale : apprenez quand vous le souhaitez, à votre rythme, sans contrainte de déplacement. Nos leçons sont conçues pour les débutants comme pour les guitaristes avancés, avec des vidéos explicatives, des tablatures et des exercices interactifs. Vous bénéficiez d'un suivi personnalisé et de ressources variées pour progresser efficacement. Rejoignez plus de 80 000 élèves formés d'apprenants et découvrez le plaisir de jouer de la guitare depuis chez vous.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title">Questions fréquentes</h2>
+        
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Quels sont les avantages des cours de guitare en ligne ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Les cours de guitare en ligne offrent une flexibilité totale pour apprendre à votre rythme, sans contrainte de déplacement. Vous pouvez revoir chaque leçon autant de fois que nécessaire et bénéficier d'un accès illimité aux ressources pédagogiques. De plus, le prix est généralement plus abordable que les cours en présentiel.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Ai-je besoin d'une guitare spécifique pour commencer ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Non, vous pouvez commencer avec n'importe quelle guitare acoustique ou électrique. Pour les débutants, une simple guitare acoustique est souvent recommandée. L'important est de vous sentir à l'aise avec votre instrument pour pratiquer régulièrement.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Les cours sont-ils adaptés aux débutants complets ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Absolument ! Nos cours commencent depuis le niveau zéro et expliquent toutes les bases : comment tenir l'instrument, accorder une guitare, jouer vos premiers accords et apprendre vos premières chansons, même si vous n'avez jamais touché une guitare auparavant.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Comment accéder aux vidéos des leçons ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Après votre inscription, vous obtenez un accès immédiat et illimité à toutes les vidéos de cours via notre plateforme en ligne. Vous pouvez les visionner depuis n'importe quel appareil (ordinateur, tablette, smartphone) disposant d'une connexion internet.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Puis-je apprendre à jouer mes chansons préférées ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Oui ! Nous vous apprenons les techniques et accords fondamentaux qui vous permettront progressivement de jouer vos morceaux préférés. Notre blog propose également des tutoriels spécifiques pour des chansons populaires.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Y a-t-il un support en cas de questions ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Bien sûr, vous pouvez nous contacter par email pour poser vos questions. Nous vous répondrons dans un délai de 24h ouvrées pour vous aider à résoudre vos difficultés techniques ou musicales.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Combien de temps faut-il pour voir des progrès ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Avec une pratique régulière de 15-20 minutes par jour, vous constaterez des progrès significatifs en quelques semaines. De nombreux élèves parviennent à jouer leur première chanson complète en moins d'un mois.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Les cours couvrent-ils différents styles musicaux ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Oui, nos cours abordent divers styles comme le rock, la pop, le folk, et le blues. Vous apprendrez différentes techniques de jeu applicables à vos genres musicaux préférés.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Puis-je suivre les cours sur mobile ou tablette ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Absolument ! Notre plateforme est entièrement responsive et optimisée pour tous les appareils. Vous pouvez suivre vos leçons sur smartphone, tablette ou ordinateur, où que vous soyez.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Y a-t-il des exercices pour pratiquer entre les leçons ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Oui, chaque module de cours s'accompagne d'exercices pratiques à réaliser entre les leçons pour consolider vos acquis. Vous disposerez également de ressources téléchargeables comme des tablatures et des PDF récapitulatifs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Prêt à commencer votre aventure musicale ?</h2>
+          <p>Rejoignez des milliers d'élèves qui ont appris à jouer de la guitare grâce à nos cours en ligne</p>
+          <a href="#courses-list" class="btn-all-courses">
+            Découvrir nos formations
             <span class="arrow">→</span>
           </a>
         </div>
@@ -89,6 +455,7 @@ const coursesSchema = {
 </Layout>
 
 <style>
+  /* Hero Section */
   .courses-hero {
     padding: 8rem 0 4rem;
     background: linear-gradient(135deg, var(--theme-guitar) 0%, var(--theme-guitar-dark) 100%);
@@ -110,7 +477,7 @@ const coursesSchema = {
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
     z-index: 1;
   }
 
@@ -128,12 +495,45 @@ const coursesSchema = {
   .subtitle {
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
   }
 
+  .hero-cta {
+    margin-top: 2rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    color: var(--theme-guitar);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover .cta-arrow {
+    transform: translateY(3px);
+  }
+
+  /* Courses Section */
   .courses-grid {
-    padding: 4rem 0;
+    padding: 6rem 0;
     background: var(--bg-light);
   }
 
@@ -141,6 +541,23 @@ const coursesSchema = {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--theme-guitar);
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
   }
 
   .courses-wrapper {
@@ -151,22 +568,27 @@ const coursesSchema = {
   }
 
   .course-card {
-    background: white;
+    background: #ffffff !important;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .course-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   }
 
   .course-link {
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   .course-image {
@@ -180,6 +602,8 @@ const coursesSchema = {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    display: flex;
+    gap: 0.5rem;
   }
 
   .best-seller-tag {
@@ -193,10 +617,20 @@ const coursesSchema = {
     font-weight: 600;
     color: #000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
   }
 
   .course-content {
     padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   .course-content h2 {
@@ -207,20 +641,20 @@ const coursesSchema = {
   }
 
   .course-content p {
-    color: var(--color-dark);
-    opacity: 0.8;
+    color: #333333 !important;
     margin-bottom: 1.5rem;
     line-height: 1.6;
     font-size: 0.95rem;
+    flex: 1;
   }
 
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--theme-guitar);
-    font-weight: 600;
-    transition: all 0.3s ease;
+  .course-content .cta-button {
+    align-self: flex-start;
+    margin-top: auto;
+    background: var(--theme-guitar);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 
   .arrow {
@@ -231,35 +665,213 @@ const coursesSchema = {
     transform: translateX(5px);
   }
 
-  .all-courses-cta {
+  /* Why Learn Guitar Online Section */
+  .why-online {
+    padding: 6rem 0;
+    background: white;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .benefit-card {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: var(--border-radius);
     text-align: center;
-    margin-top: 4rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--theme-guitar);
+  }
+
+  .benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .benefit-card h3 {
+    color: var(--theme-guitar);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .benefit-card p {
+    color: var(--color-dark);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .online-learning-description {
+    background: rgba(var(--theme-guitar-rgb), 0.05);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--theme-guitar);
+  }
+
+  .online-learning-description p {
+    color: var(--color-dark);
+    line-height: 1.8;
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 6rem 0;
+    background: var(--bg-light);
+  }
+
+  .faq-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .faq-item:hover {
+    border-color: var(--theme-guitar);
+  }
+
+  .question-wrapper {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .question-wrapper h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    padding-right: 2rem;
+  }
+
+  .toggle-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .plus-minus {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--theme-guitar);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+  }
+
+  .plus-minus::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: var(--theme-guitar);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+  }
+
+  .faq-item.active .plus-minus::after {
+    transform: translateX(-50%) scaleY(0);
+  }
+
+  .answer {
+    padding: 0 1.5rem;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .answer p {
+    padding-bottom: 1.5rem;
+    margin: 0;
+    color: var(--color-dark);
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  .faq-item.active .answer {
+    height: auto;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--theme-guitar) 0%, var(--theme-guitar-dark) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
   }
 
   .btn-all-courses {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--theme-guitar);
-    color: white;
+    background: white;
+    color: var(--theme-guitar);
     padding: 1rem 2rem;
     border-radius: var(--border-radius);
     text-decoration: none;
     font-weight: 600;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
   }
 
   .btn-all-courses:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
 
   .btn-all-courses:hover .arrow {
     transform: translateX(5px);
   }
 
+  /* Responsive Styles */
   @media (max-width: 1200px) {
     .courses-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .benefits-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
@@ -272,5 +884,81 @@ const coursesSchema = {
     .courses-wrapper {
       grid-template-columns: 1fr;
     }
+    
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .courses-hero h1 {
+      font-size: 2rem;
+    }
+    
+    .subtitle {
+      font-size: 1rem;
+    }
+    
+    .course-content {
+      padding: 1.5rem;
+    }
+    
+    .benefit-card {
+      padding: 1.5rem;
+    }
   }
 </style>
+
+<script>
+  // FAQ Toggle functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const questionWrapper = item.querySelector('.question-wrapper');
+      
+      questionWrapper.addEventListener('click', () => {
+        // Check if this item is already active
+        const isActive = item.classList.contains('active');
+        
+        // Close all items
+        faqItems.forEach(faqItem => {
+          faqItem.classList.remove('active');
+          const answer = faqItem.querySelector('.answer');
+          answer.style.height = '0';
+        });
+        
+        // If the clicked item wasn't active, open it
+        if (!isActive) {
+          item.classList.add('active');
+          const answer = item.querySelector('.answer');
+          answer.style.height = answer.scrollHeight + 'px';
+        }
+      });
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>

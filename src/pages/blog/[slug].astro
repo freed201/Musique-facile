@@ -1,13 +1,32 @@
 ---
 import { getCollection } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+import BreadcrumbsSchema from '../../components/BreadcrumbsSchema.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+  
+  // Filtrer les articles par date et prod status
+  const currentDate = new Date();
+  return blogEntries
+    .filter(entry => {
+      // Ne pas générer si l'article a prod="N"
+      if (entry.data.prod !== 'Y') return false;
+      
+      // Ne pas générer si la date de publication est dans le futur
+      const publishDate = new Date(entry.data.datePublished);
+      if (publishDate > currentDate) return false;
+      
+      // Sinon, générer la page
+      return true;
+    })
+    .map(entry => ({
+      params: { slug: entry.slug },
+      props: { entry },
+    }));
 }
 
 // Fonction utilitaire pour extraire l'ID YouTube d'une URL et gérer les shorts
@@ -34,30 +53,62 @@ const {
   author,
   datePublished,
   dateModified,
+  theme,
+  schemaType = 'BlogPosting',
   introduction,
   songInfo,
   videos,
   podcast,
   conclusion,
-  relatedLinks
+  relatedLinks,
+  faqs
 } = entry.data;
 
+const { Content, headings } = await entry.render();
 
-// Récupérer tous les articles pour la section "Articles similaires"
-const allPosts = await getCollection('blog');
-// Exclure l'article courant
-const otherPosts = allPosts.filter(post => post.slug !== entry.slug);
+// Déterminer si l'article est "long" (5+ headings H2/H3)
+const showTOC = headings.filter(h => h.depth === 2 || h.depth === 3).length >= 5;
 
-// Mélanger les articles et en prendre 3 au hasard
-const randomPosts = otherPosts
-  .sort(() => Math.random() - 0.5)
-  .slice(0, 3);
-
-
-const { Content } = await entry.render();
+// Calcul du temps de lecture (estimation basée sur le contenu)
+const wordCount = entry.body.split(/\s+/).length; // Nombre de mots
+const readingTime = Math.ceil(wordCount / 250); // 250 mots/minute en moyenne
 
 // Construction de l'URL complète pour schema.org
 const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
+
+// Construction du schema.org
+const schema = {
+  "@context": "https://schema.org",
+  "@type": schemaType,
+  "headline": title,
+  "description": description,
+  "image": ogImage,
+  "author": {
+    "@type": "Person",
+    "name": author
+  },
+}
+
+// Construction des breadcrumbs dynamiques
+const breadcrumbItems = [
+  { name: "Accueil", url: "/" },
+  { name: "Blog", url: "/blog" }
+];
+
+// Ajouter un niveau intermédiaire si l'article a un instrument spécifique
+if (entry.data.instrument && entry.data.instrument !== 'général') {
+  const instrumentMap: Record<string, { name: string; url: string }> = {
+    'guitare': { name: 'Guitare', url: '/blog/guitare' },
+    'piano': { name: 'Piano', url: '/blog/piano' },
+    'ukulele': { name: 'Ukulélé', url: '/blog/ukulele' },
+    'solfege': { name: 'Solfège', url: '/blog/solfege' }
+  };
+
+  const instrumentData = instrumentMap[entry.data.instrument];
+  if (instrumentData) {
+    breadcrumbItems.push(instrumentData);
+  }
+}
 ---
 
 <ArticleLayout
@@ -68,12 +119,27 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
   datePublished={datePublished}
   dateModified={dateModified}
   url={canonicalURL.toString()}
+  theme={theme}
+  videos={videos}
+  songInfo={songInfo}
+  showAutoFaq={!(faqs && faqs.length > 0)}
 >
   <article>
+    <!-- Breadcrumbs -->
+    <BreadcrumbsSchema
+      items={breadcrumbItems}
+      currentPage={title}
+    />
+
     <section class="article-hero">
       <div class="article-hero-bg" style={`background-image: url(${ogImage})`}></div>
       <div class="article-hero-content">
         <div class="article-meta">
+          {entry.data.number && (
+            <span class="article-number" title={`Page ${entry.data.number}`}>
+              {entry.data.number}
+            </span>
+          )}
           <time datetime={datePublished}>
             {new Date(datePublished).toLocaleDateString('fr-FR', {
               year: 'numeric',
@@ -82,17 +148,45 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
             })}
           </time>
           <span class="article-author">Par {author}</span>
+          <span class="reading-time" title={`Environ ${readingTime} minute${readingTime > 1 ? 's' : ''} de lecture`}>
+            📖 {readingTime} min
+          </span>
         </div>
         <h1 class="article-title">{title}</h1>
         <p class="article-description">{description}</p>
       </div>
     </section>
 
+    <!-- Navigation entre les pages (en haut) -->
+    {entry.data.multi === 'Y' && (
+      <nav class="article-navigation top-nav">
+        {entry.data.prev && (
+          <a href={`/blog/${entry.data.prev}`} class="nav-link prev">
+            <span class="nav-arrow">←</span>
+            <span class="nav-text">Page précédente</span>
+          </a>
+        )}
+        {entry.data.next && (
+          <a href={`/blog/${entry.data.next}`} class="nav-link next">
+            <span class="nav-text">Page suivante</span>
+            <span class="nav-arrow">→</span>
+          </a>
+        )}
+      </nav>
+    )}
+
   {songInfo && songInfo.inBook && (
   <div class="song-info">
     <div class="song-info-content">
       <div class="song-info-book">
-        <img src="https://www.musicroom.fr/product/image/large/carmf2838_0.jpg" alt="40 chansons françaises et hits pop-rock - Livre de guitare avec tablatures et partitions" />
+        <img
+          src="/images/livres/CARMF2838.jpg"
+          alt="40 chansons françaises et hits pop-rock - Livre de guitare avec tablatures et partitions"
+          width="720"
+          height="1024"
+          loading="lazy"
+          decoding="async"
+        />
         <div class="book-details">
           {songInfo.bookPage && (
             <p class="book-message">Plonge directement dans ce morceau avec tous les conseils et la tablature complète à la page {songInfo.bookPage} de mon livre ! 🎸</p>
@@ -136,11 +230,16 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
   </div>
 )}
 
-    <div class="article-content">
-      <!-- Introduction -->
-      <div class="article-intro">
-        {introduction}
-      </div>
+    <div class={`article-content ${showTOC ? 'with-toc' : ''}`}>
+      {showTOC && (
+        <TableOfContents headings={headings} />
+      )}
+
+      <div class="article-main">
+        <!-- Introduction -->
+        <div class="article-intro">
+          {introduction}
+        </div>
 
 <!-- Vidéos (si présentes) -->
 {videos && videos.length > 0 && (
@@ -183,41 +282,128 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
         <Content />
       </div>
 
-      <!-- Conclusion -->
-      <section class="article-conclusion">
-        <div class="conclusion-content">
-          <h2>Conclusion</h2>
-          <div set:html={conclusion}></div>
-        </div>
-      </section>
+      <!-- Conclusion (seulement si présente et non vide) -->
+      {conclusion && conclusion.trim() !== '' && (
+        <section class="article-conclusion">
+          <div class="conclusion-content">
+            <h2>Conclusion</h2>
+            <div set:html={conclusion}></div>
+          </div>
+        </section>
+      )}
 
-     <!-- Section Articles Similaires -->
-      <section class="similar-posts">
+      <!-- Navigation entre les pages -->
+      {entry.data.multi === 'Y' && (
+        <nav class="article-navigation bottom-nav">
+          {entry.data.prev && (
+            <a href={`/blog/${entry.data.prev}`} class="nav-link prev">
+              <span class="nav-arrow">←</span>
+              <span class="nav-text">Page précédente</span>
+            </a>
+          )}
+          {entry.data.next && (
+            <a href={`/blog/${entry.data.next}`} class="nav-link next">
+              <span class="nav-text">Page suivante</span>
+              <span class="nav-arrow">→</span>
+            </a>
+          )}
+        </nav>
+      )}
+
+      <section class="course-buttons">
         <div class="container">
-          <h2>Articles qui pourraient vous intéresser</h2>
-          <div class="posts-grid">
-            {randomPosts.map(post => (
-              <a href={`/blog/${post.slug}`} class="post-card">
-                <div class="post-image" style={`background-image: url(${post.data.ogImage})`}>
-                  <div class="post-overlay">
-                    <span class="read-more">Lire l'article →</span>
-                  </div>
+          <h2 class="section-title">Alors, prêt(e) à rejoindre l'aventure ?</h2>
+          <div class="buttons-grid">
+            <a href="/cours/cours-de-guitare" class="course-button theme-guitar">
+              <div class="button-background" style="background-image: url('/images/cours/cours-de-guitare.webp')"></div>
+              <div class="button-content">
+                <span class="button-icon">🎸</span>
+                <div class="button-text-wrapper">
+                  <span class="button-title">Cours de Guitare</span>
+                  <span class="button-description">Apprenez la guitare pas à pas</span>
                 </div>
-                <div class="post-content">
-                  <h3>{post.data.title}</h3>
-                  <p>{post.data.description.slice(0, 100)}...</p>
+                <span class="button-arrow">→</span>
+              </div>
+            </a>
+
+            <a href="/cours/cours-de-piano" class="course-button theme-piano">
+              <div class="button-background" style="background-image: url('/images/cours/cours-de-piano.webp')"></div>
+              <div class="button-content">
+                <span class="button-icon">🎹</span>
+                <div class="button-text-wrapper">
+                  <span class="button-title">Cours de Piano</span>
+                  <span class="button-description">Découvrez le piano facilement</span>
                 </div>
-              </a>
-            ))}
+                <span class="button-arrow">→</span>
+              </div>
+            </a>
+
+            <a href="/cours/cours-de-ukulele" class="course-button theme-ukulele">
+              <div class="button-background" style="background-image: url('/images/cours/cours-de-ukulele.webp')"></div>
+              <div class="button-content">
+                <span class="button-icon">🏖️</span>
+                <div class="button-text-wrapper">
+                  <span class="button-title">Cours d'Ukulélé</span>
+                  <span class="button-description">Initiez-vous à l'ukulélé</span>
+                </div>
+                <span class="button-arrow">→</span>
+              </div>
+            </a>
+
+            <a href="/cours/cours-de-solfege" class="course-button theme-solfege">
+              <div class="button-background" style="background-image: url('/images/cours/cours-de-solfege.webp')"></div>
+              <div class="button-content">
+                <span class="button-icon">🎼</span>
+                <div class="button-text-wrapper">
+                  <span class="button-title">Cours de Solfège</span>
+                  <span class="button-description">Maîtrisez la théorie musicale</span>
+                </div>
+                <span class="button-arrow">→</span>
+              </div>
+            </a>
           </div>
         </div>
       </section>
 
-    </div>
+      </div> <!-- Fin .article-main -->
+    </div> <!-- Fin .article-content -->
+
+    <!-- FAQ Section (si présente) - En pleine largeur -->
+    {faqs && faqs.length > 0 && (
+      <FAQSchema faqs={faqs} showVisual={true} />
+    )}
+
+    <!-- Section Articles Similaires (Intelligent) - En pleine largeur -->
+    <RelatedArticles
+      currentSlug={entry.slug}
+      currentTags={entry.data.tags || []}
+      currentInstrument={entry.data.instrument}
+      currentLevel={entry.data.level}
+      maxArticles={3}
+    />
   </article>
 </ArticleLayout>
 
 <style>
+  .article-number {
+    background: var(--theme-current);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: help;
+  }
+
+  .reading-time {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: help;
+  }
+
   .song-info {
     position: relative;
     max-width: 800px;
@@ -333,104 +519,212 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
     }
   }
 
-    .similar-posts {
+  .course-buttons {
     padding: 4rem 0;
     background: var(--bg-light);
   }
 
-  .similar-posts h2 {
+  .course-buttons .section-title {
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
     color: var(--theme-current);
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 0.6s ease forwards;
   }
 
-  .posts-grid {
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .buttons-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
 
-  .post-card {
-    background: white;
+  .course-button {
+    position: relative;
+    height: 200px;
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-decoration: none;
-    color: inherit;
+    color: white;
     transition: all 0.3s ease;
   }
 
-  .post-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .post-image {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-  }
-
-  .post-overlay {
+  .button-background {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+  }
+
+  .button-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.8)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .button-icon {
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    border-radius: 50%;
+    margin-bottom: auto;
   }
 
-  .post-card:hover .post-overlay {
-    opacity: 1;
+  .button-text-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .read-more {
-    color: white;
+  .button-title {
+    font-size: 1.3rem;
     font-weight: 600;
-    padding: 0.5rem 1rem;
-    border: 2px solid white;
-    border-radius: var(--border-radius);
   }
 
-  .post-content {
-    padding: 1.5rem;
-  }
-
-  .post-content h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: var(--color-dark);
-    line-height: 1.4;
-  }
-
-  .post-content p {
+  .button-description {
     font-size: 0.9rem;
-    color: var(--color-dark);
-    opacity: 0.8;
-    margin: 0;
-    line-height: 1.6;
+    opacity: 0.9;
   }
 
-  @media (max-width: 1024px) {
-    .posts-grid {
+  .button-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .course-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .course-button:hover .button-background {
+    transform: scale(1.1);
+  }
+
+  .course-button:hover .button-content {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.9)
+    );
+  }
+
+  .course-button:hover .button-arrow {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 1200px) {
+    .buttons-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (max-width: 768px) {
-    .posts-grid {
+  @media (max-width: 640px) {
+    .buttons-grid {
       grid-template-columns: 1fr;
     }
 
-    .similar-posts h2 {
-      font-size: 1.8rem;
+    .course-button {
+      height: 160px;
+    }
+
+    .button-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+    }
+
+    .button-title {
+      font-size: 1.2rem;
+    }
+  }
+
+  /* Styles spécifiques pour la navigation du haut */
+  .article-navigation.top-nav {
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 0 1.5rem;
+  }
+
+  /* Styles communs pour les deux navigations */
+  .article-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  /* Styles spécifiques pour la navigation du bas */
+  .article-navigation.bottom-nav {
+    margin: 4rem auto;
+    max-width: 800px;
+    padding: 0 1.5rem;
+  }
+
+  /* Layout de base - Pas de grille par défaut */
+  .article-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Par défaut, article-main prend toute la largeur disponible */
+  .article-main {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Layout TOC avec grille - SEULEMENT quand .with-toc est présent */
+  .article-content.with-toc {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+  }
+
+  /* Dans la grille, article-main occupe la 2e colonne */
+  .article-content.with-toc .article-main {
+    min-width: 0; /* Fix pour grid overflow */
+    max-width: none; /* Pas de limite dans la grille */
+    margin: 0; /* Pas de centrage dans la grille */
+  }
+
+  @media (max-width: 1024px) {
+    .article-content.with-toc {
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
   }
 </style>

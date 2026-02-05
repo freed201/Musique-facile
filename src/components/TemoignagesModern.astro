@@ -1,0 +1,478 @@
+---
+/**
+ * TemoignagesModern.astro
+ * Section témoignages avec carousel moderne
+ */
+
+interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  image?: string;
+  quote: string;
+  rating: number;
+  instrument: 'guitar' | 'piano' | 'ukulele' | 'solfege';
+}
+
+interface Props {
+  title?: string;
+  testimonials?: Testimonial[];
+}
+
+const defaultTestimonials: Testimonial[] = [
+  {
+    id: '1',
+    name: 'Marie Dubois',
+    role: 'Élève en guitare',
+    image: '/images/marie.webp',
+    quote: "Grâce à Musique Facile, j'ai pu apprendre la guitare à mon rythme. En seulement quelques mois, je peux déjà jouer mes morceaux préférés !",
+    rating: 5,
+    instrument: 'guitar'
+  },
+  {
+    id: '2',
+    name: 'Thomas Martin',
+    role: 'Élève en piano',
+    image: '/images/thomas.webp',
+    quote: "Je cherchais une méthode flexible pour apprendre le piano et j'ai trouvé exactement ce qu'il me fallait. La progression est bien pensée.",
+    rating: 5,
+    instrument: 'piano'
+  },
+  {
+    id: '3',
+    name: 'Sophie Laurent',
+    role: 'Élève en ukulélé',
+    image: '/images/marie.webp',
+    quote: "Le ukulélé semblait si simple et pourtant j'avais du mal à progresser seule. Fred explique tout de manière claire et accessible !",
+    rating: 5,
+    instrument: 'ukulele'
+  }
+];
+
+const {
+  title = "Ce que nos élèves en disent",
+  testimonials = defaultTestimonials
+} = Astro.props;
+---
+
+<section class="testimonials-section">
+  <div class="testimonials-container">
+    <!-- Header -->
+    <div class="testimonials-header">
+      <h2 class="testimonials-title">{title}</h2>
+      <div class="testimonials-rating">
+        <div class="stars">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <svg class={star <= 4.7 ? 'star-filled' : 'star-partial'} width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          ))}
+        </div>
+        <span class="rating-text">4.7/5 sur 2 847 avis</span>
+      </div>
+    </div>
+
+    <!-- Carousel -->
+    <div class="testimonials-carousel" id="testimonials-carousel">
+      <div class="carousel-track">
+        {testimonials.map((testimonial) => (
+          <article class={`testimonial-card theme-${testimonial.instrument}`}>
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                {testimonial.image ? (
+                  <img
+                    src={testimonial.image}
+                    alt={`Photo de ${testimonial.name}`}
+                    width="56"
+                    height="56"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="avatar-placeholder">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                )}
+              </div>
+              <div class="testimonial-info">
+                <h3 class="testimonial-name">{testimonial.name}</h3>
+                <p class="testimonial-role">{testimonial.role}</p>
+              </div>
+              <div class="testimonial-stars">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <svg class={star <= testimonial.rating ? 'star-filled' : ''} width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
+              </div>
+            </div>
+
+            <blockquote class="testimonial-quote">
+              <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M10 11H6a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1v7c0 2.21-1.79 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M19 11h-4a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1v7c0 2.21-1.79 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              {testimonial.quote}
+            </blockquote>
+          </article>
+        ))}
+      </div>
+
+      <!-- Navigation -->
+      <div class="carousel-nav">
+        <button class="carousel-btn prev" aria-label="Témoignage précédent">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M12 15l-5-5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="carousel-dots">
+          {testimonials.map((_, index) => (
+            <button
+              class={`carousel-dot ${index === 0 ? 'active' : ''}`}
+              aria-label={`Aller au témoignage ${index + 1}`}
+              data-index={index}
+            ></button>
+          ))}
+        </div>
+        <button class="carousel-btn next" aria-label="Témoignage suivant">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M8 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="testimonials-stats">
+      <div class="stat">
+        <span class="stat-value">80 000+</span>
+        <span class="stat-label">Élèves formés</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">95%</span>
+        <span class="stat-label">Satisfaction</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">1 400+</span>
+        <span class="stat-label">Vidéos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    padding: var(--space-20) var(--space-4);
+    background: var(--bg-card);
+  }
+
+  .testimonials-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .testimonials-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .testimonials-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+
+  .stars {
+    display: flex;
+    gap: 2px;
+  }
+
+  .star-filled {
+    color: #fbbf24;
+  }
+
+  .star-partial {
+    color: var(--gray-300);
+  }
+
+  .rating-text {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    font-weight: var(--font-medium);
+  }
+
+  /* Carousel */
+  .testimonials-carousel {
+    position: relative;
+    margin-bottom: var(--space-12);
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: var(--space-6);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: var(--space-4);
+    margin: calc(var(--space-4) * -1);
+  }
+
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Card */
+  .testimonial-card {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    background: var(--bg-page);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    border: 1px solid var(--border-default);
+    transition: all 0.3s ease;
+  }
+
+  @media (min-width: 768px) {
+    .testimonial-card {
+      flex: 0 0 calc(50% - var(--space-3));
+    }
+  }
+
+  /* Thèmes */
+  .testimonial-card.theme-guitar .quote-icon { color: var(--guitar-300); }
+  .testimonial-card.theme-piano .quote-icon { color: var(--piano-300); }
+  .testimonial-card.theme-ukulele .quote-icon { color: var(--ukulele-300); }
+  .testimonial-card.theme-solfege .quote-icon { color: var(--solfege-300); }
+
+  /* Card Header */
+  .testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  .testimonial-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--brand-100);
+    color: var(--brand-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-bold);
+    font-size: var(--text-xl);
+  }
+
+  .testimonial-info {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .testimonial-name {
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .testimonial-role {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .testimonial-stars {
+    display: flex;
+    gap: 2px;
+  }
+
+  .testimonial-stars svg {
+    color: var(--text-muted);
+  }
+
+  .testimonial-stars .star-filled {
+    color: #fbbf24;
+  }
+
+  /* Quote */
+  .testimonial-quote {
+    position: relative;
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+    margin: 0;
+    padding-left: var(--space-10);
+  }
+
+  .quote-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+  }
+
+  /* Navigation */
+  .carousel-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-btn:hover {
+    background: var(--brand-500);
+    border-color: var(--brand-500);
+    color: white;
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: var(--space-2);
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: var(--text-muted);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-dot.active {
+    width: 24px;
+    background: var(--brand-500);
+  }
+
+  /* Stats */
+  .testimonials-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    padding: var(--space-8);
+    background: var(--bg-page);
+    border-radius: var(--radius-2xl);
+    text-align: center;
+  }
+
+  .stat-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: var(--font-bold);
+    color: var(--brand-500);
+  }
+
+  .stat-label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-track {
+      scroll-behavior: auto;
+    }
+  }
+</style>
+
+<script>
+  const carousel = document.getElementById('testimonials-carousel');
+  if (carousel) {
+    const track = carousel.querySelector('.carousel-track') as HTMLElement;
+    const dots = carousel.querySelectorAll('.carousel-dot');
+    const prevBtn = carousel.querySelector('.prev');
+    const nextBtn = carousel.querySelector('.next');
+
+    let currentIndex = 0;
+    const totalCards = dots.length;
+
+    function updateDots(index: number) {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    function scrollToIndex(index: number) {
+      const card = track?.children[index] as HTMLElement;
+      if (card && track) {
+        track.scrollTo({
+          left: card.offsetLeft - track.offsetLeft,
+          behavior: 'smooth'
+        });
+        currentIndex = index;
+        updateDots(index);
+      }
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      const newIndex = currentIndex > 0 ? currentIndex - 1 : totalCards - 1;
+      scrollToIndex(newIndex);
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      const newIndex = currentIndex < totalCards - 1 ? currentIndex + 1 : 0;
+      scrollToIndex(newIndex);
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index') || '0');
+        scrollToIndex(index);
+      });
+    });
+
+    // Update dots on scroll
+    track?.addEventListener('scroll', () => {
+      const scrollLeft = track.scrollLeft;
+      const cardWidth = (track.children[0] as HTMLElement)?.offsetWidth || 0;
+      const newIndex = Math.round(scrollLeft / (cardWidth + 24)); // 24 = gap
+      if (newIndex !== currentIndex && newIndex >= 0 && newIndex < totalCards) {
+        currentIndex = newIndex;
+        updateDots(newIndex);
+      }
+    });
+  }
+</script>

@@ -3,40 +3,40 @@ const courses = [
   {
     title: "Guitare Kids",
     description: "Un apprentissage ludique de la guitare pour les 6-12 ans",
-    image: "https://kids.musique-facile.fr/images/guitare-kids.jpg",
+    image: "/images/guitare-kids.webp",
     features: [
       "Méthode adaptée aux petites mains",
       "Progression par jeux et challenges",
       "Récompenses et badges à gagner"
     ],
     icon: "🎸",
-    color: "var(--theme-guitar)",
+    color: "var(--guitar-500)",
     url: "https://kids.musique-facile.fr/cours-guitare-debutant-enfant"
   },
   {
     title: "Piano Kids",
     description: "Découvrir le piano en s'amusant dès 6 ans",
-    image: "https://kids.musique-facile.fr/images/piano-kids.jpg",
+    image: "/images/piano-kids.webp",
     features: [
       "Exercices interactifs et colorés",
       "Histoires musicales captivantes",
       "Suivi des progrès personnalisé"
     ],
     icon: "🎹",
-    color: "var(--theme-piano)",
+    color: "var(--piano-500)",
     url: "https://kids.musique-facile.fr/cours-piano-debutant-enfant"
   },
   {
     title: "Ukulélé Kids",
     description: "L'instrument parfait pour débuter la musique dès 6 ans",
-    image: "https://kids.musique-facile.fr/images/ukulele-kids.jpg",
+    image: "/images/ukulele-kids.webp",
     features: [
       "Instrument adapté aux enfants",
       "Apprentissage par le jeu",
       "Premières mélodies rapidement"
     ],
     icon: "🏖️",
-    color: "var(--theme-ukulele)",
+    color: "var(--ukulele-500)",
     url: "https://kids.musique-facile.fr/cours-ukulele-debutant-enfant"
   }
 ];
@@ -81,109 +81,149 @@ const courses = [
 
 <style>
   .kids-section {
-    padding: 4rem 0;
+    padding: var(--space-20) 0;
     background: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 100%);
     position: relative;
     overflow: hidden;
   }
 
+  .kids-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.15;
+  }
+
   .container {
+    position: relative;
+    z-index: 1;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 var(--space-6);
   }
 
   .section-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-12);
   }
 
   .section-badge {
     display: inline-block;
     background: white;
-    color: var(--theme-current);
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+    color: #FF6B6B;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-4);
+    box-shadow: var(--shadow-md);
   }
 
   .section-header h2 {
     color: white;
-    font-size: 2.2rem;
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+    font-weight: var(--font-extrabold);
     margin: 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: var(--leading-tight);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
 
   .courses-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 3rem;
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
   }
 
   .course-card {
+    position: relative;
     background: white;
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: var(--transition-base);
     display: flex;
     flex-direction: column;
+    box-shadow: var(--shadow-md);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+  }
+
+  .course-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--card-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-base) var(--ease-out);
   }
 
   .course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-2xl);
+  }
+
+  .course-card:hover::before {
+    transform: scaleX(1);
   }
 
   .card-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+    padding: var(--space-3);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   }
 
   .course-icon {
-    font-size: 1.8rem;
-    background: var(--card-color);
-    width: 45px;
-    height: 45px;
-    display: flex;
+    font-size: 2.1rem;
+    background: linear-gradient(135deg, var(--card-color) 0%, rgba(255,255,255,0.2) 100%);
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: var(--radius-full);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   }
 
   .card-header h3 {
     color: var(--card-color);
-    font-size: 1.2rem;
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    font-weight: var(--font-extrabold);
     margin: 0;
+    letter-spacing: 0.4px;
   }
 
   .course-description {
-    font-size: 0.95rem;
-    color: var(--color-dark);
-    opacity: 0.8;
-    margin-bottom: 1rem;
-    line-height: 1.5;
+    font-size: var(--text-base);
+    color: var(--gray-700);
+    margin-bottom: var(--space-4);
+    line-height: var(--leading-relaxed);
   }
 
   .course-features {
     list-style: none;
     padding: 0;
-    margin: 0 0 1.5rem;
+    margin: 0 0 var(--space-6);
     flex-grow: 1;
   }
 
   .course-features li {
-    font-size: 0.9rem;
-    color: var(--color-dark);
-    opacity: 0.8;
-    margin-bottom: 0.5rem;
-    padding-left: 1.2rem;
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+    margin-bottom: var(--space-2);
+    padding-left: var(--space-5);
     position: relative;
   }
 
@@ -192,13 +232,14 @@ const courses = [
     position: absolute;
     left: 0;
     color: var(--card-color);
+    font-size: 1.2rem;
   }
 
   .discover-btn {
     color: var(--card-color);
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: transform 0.3s ease;
+    font-weight: var(--font-semibold);
+    font-size: var(--text-sm);
+    transition: transform var(--duration-base) var(--ease-out);
     display: inline-block;
   }
 
@@ -213,26 +254,28 @@ const courses = [
   .btn-primary {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-2);
     background: white;
-    color: var(--theme-current);
-    padding: 0.8rem 2rem;
-    border-radius: var(--border-radius);
+    color: #FF6B6B;
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-lg);
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    font-weight: var(--font-semibold);
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-lg);
   }
 
   .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
   }
 
   .cta-note {
     color: white;
-    font-size: 0.9rem;
-    margin-top: 0.8rem;
-    opacity: 0.9;
+    font-size: var(--text-sm);
+    margin-top: var(--space-3);
+    opacity: 0.95;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
 
   @media (max-width: 992px) {
@@ -242,16 +285,12 @@ const courses = [
   }
 
   @media (max-width: 768px) {
-    .section-header h2 {
-      font-size: 1.8rem;
-    }
-
     .courses-grid {
       grid-template-columns: 1fr;
     }
 
     .course-card {
-      padding: 1.2rem;
+      padding: var(--space-6);
     }
   }
 </style>

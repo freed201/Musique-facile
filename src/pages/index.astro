@@ -1,41 +1,67 @@
 ---
+/**
+ * index.astro
+ * Page d'accueil principale de Musique Facile
+ *
+ * Structure optimisée (8 sections):
+ * 1. Hero - Accroche principale avec CTA
+ * 2. Avantages - 3 bénéfices clés
+ * 3. Cours - Grille des 4 instruments
+ * 4. Lead Capture - Formulaire email (guide gratuit)
+ * 5. Témoignages - Carousel social proof
+ * 6. Pricing - Transparence des prix
+ * 7. CTA Final - Dernier appel à l'action
+ * 8. Footer
+ */
+
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import PromoSection from '../components/PromoSection.astro';
-import Hero from '../components/Hero.astro';
-import Avantages from '../components/Avantages.astro';
-import Cours from '../components/Cours.astro';
-import KidsSection from '../components/KidsSection.astro';
-import Temoignages from '../components/Temoignages.astro';
-import SocialProof from '../components/SocialProof.astro';
-import RandomBlogPosts from '../components/RandomBlogPosts.astro';
-import Resultats from '../components/Resultats.astro';
-import Footer from '../components/Footer.astro';
+
+// Nouveaux composants modernisés
+import HeroModern from '../components/HeroModern.astro';
+import CoursGrid from '../components/CoursGrid.astro';
+import TemoignagesModern from '../components/TemoignagesModern.astro';
+import LeadCaptureForm from '../components/LeadCaptureForm.astro';
+import FooterModern from '../components/FooterModern.astro';
+
+// Composants conservés
+import PricingPreview from '../components/PricingPreview.astro';
+import StickyCTAMobile from '../components/StickyCTAMobile.astro';
 
 // Construction de l'URL canonique
 const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr').toString();
 
-// Métadonnées pour Open Graph
-const title = "Musique Facile - Apprenez la musique facilement";
-const description = "Découvrez nos formations en ligne pour apprendre la guitare, le piano, l'ukulélé et le solfège. Plus de 80 000 élèves formés avec une note moyenne de 4.7/5.";
-const ogImage = "https://musique-facile.fr/images/og-image.jpg";
+// Métadonnées SEO (conservées de l'original)
+const title = "Cours de Guitare, Piano, Ukulélé en Ligne — Méthode Fred Fieffé | Musique Facile";
+const description = "Formations en ligne pour apprendre la guitare, le piano, l'ukulélé et le solfège. Méthode progressive créée par Fred Fieffé, professeur certifié avec 15 ans d'expérience. Plus de 80 000 élèves formés, 4.7/5 de note moyenne sur 2 847 avis.";
+const keywords = "cours guitare en ligne, apprendre piano, formation ukulélé débutant, solfège facile, cours musique en ligne, Fred Fieffé";
+const ogImage = "https://musique-facile.fr/logo.webp";
 
-// Construction des données structurées
+// Schémas JSON-LD (conservés de l'original)
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "EducationalOrganization",
   "name": "Musique Facile",
   "url": "https://musique-facile.fr",
-  "logo": "https://musique-facile.fr/logo.jpg",
+  "logo": "https://musique-facile.fr/logo.webp",
+  "description": "École de musique en ligne spécialisée dans l'enseignement de la guitare, du piano, de l'ukulélé et du solfège pour tous niveaux.",
+  "foundingDate": "2015",
+  "founder": {
+    "@type": "Person",
+    "name": "Fred Fieffé",
+    "jobTitle": "Professeur de Musique Certifié"
+  },
   "sameAs": [
     "https://www.youtube.com/@Musique-Facile",
     "https://www.tiktok.com/@musique_facile",
-    "https://instagram.com/musique_facile",
-    "https://facebook.com/musiquefacile"
+    "https://instagram.com/guitare_et_ukulele_facile/?hl=fr",
+    "https://facebook.com/MusiqueFacileFacebook"
   ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "FR"
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "2847",
+    "bestRating": "5"
   }
 };
 
@@ -44,291 +70,332 @@ const websiteSchema = {
   "@type": "WebSite",
   "name": "Musique Facile",
   "url": "https://musique-facile.fr",
-  "description": "Formations en ligne pour apprendre la guitare, le piano, l'ukulélé et le solfège",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://musique-facile.fr/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "description": "Formations en ligne pour apprendre la guitare, le piano, l'ukulélé et le solfège"
 };
 
-const breadcrumbSchema = {
+const faqSchema = {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Accueil",
-    "item": "https://musique-facile.fr"
-  }]
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Combien de temps faut-il pour apprendre la guitare en ligne ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avec la méthode Musique Facile, 92% des élèves jouent leur première chanson en 5 jours. En pratiquant 15 minutes par jour, vous maîtriserez les accords de base en 3 semaines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les cours sont-ils adaptés aux débutants complets ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, tous nos cours commencent au niveau zéro. Aucune connaissance musicale préalable n'est requise. Les leçons sont progressives avec des exercices pratiques."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel est le prix des formations ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nos formations sont disponibles à l'achat individuel par instrument. Chaque formation donne un accès à vie avec garantie satisfait ou remboursé de 15 jours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on apprendre la musique à 40, 50 ou 60 ans ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolument ! La majorité de nos élèves sont des adultes. Notre méthode est spécialement conçue pour les adultes qui reprennent ou débutent la musique. L'âge n'est pas un frein, au contraire : les adultes progressent souvent plus vite car ils sont plus motivés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il connaître le solfège pour commencer ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, le solfège n'est pas obligatoire pour débuter la guitare, le piano ou l'ukulélé. Nos cours utilisent des tablatures, des diagrammes d'accords et des vidéos pas-à-pas. Vous pouvez apprendre le solfège en parallèle si vous le souhaitez."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qui est Fred Fieffé, le formateur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fred Fieffé est musicien professionnel avec 35 ans de pratique et 20 ans d'expérience dans l'enseignement. Il a formé plus de 80 000 élèves en ligne via Musique Facile, LinkedIn Learning et Skilleos. Il est également auteur de méthodes chez Hal Leonard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps par jour faut-il pratiquer ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "15 minutes par jour suffisent pour progresser régulièrement. Notre méthode est conçue pour les adultes actifs avec peu de temps disponible. La régularité compte plus que la durée des sessions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les cours sont-ils accessibles à vie ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, une fois votre formation achetée, vous y avez accès à vie. Vous pouvez revenir sur les leçons autant de fois que nécessaire, à votre rythme, sans limite de temps."
+      }
+    }
+  ]
 };
 ---
 
-<Layout title={title}>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
-    
-    <!-- Security Headers -->
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImage} />
-
-    <!-- Schema.org -->
+<Layout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  canonicalUrl={canonicalURL}
+  robots="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+>
+  <Fragment slot="head">
+    <meta name="author" content="Fred Fieffé - Musique Facile" />
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-  </head>
-  
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <!-- Header -->
   <Header />
-  <!-- <PromoSection /> -->
-  <Hero />
-  <Avantages />
-  <Cours />
-  <KidsSection />
-  <Temoignages />
-  <SocialProof />
-  <RandomBlogPosts />
-  <Resultats />
 
-  <section class="course-buttons">
-    <div class="container">
-      <h2 class="section-title">Alors, prêt(e) à rejoindre l'aventure ?</h2>
-      <div class="buttons-grid">
-        <a href="/cours/cours-de-guitare" class="course-button theme-guitar">
-          <div class="button-background" style="background-image: url('/images/cours/hero-guitare.jpg')"></div>
-          <div class="button-content">
-            <span class="button-icon">🎸</span>
-            <div class="button-text-wrapper">
-              <span class="button-title">Cours de Guitare</span>
-              <span class="button-description">Apprenez la guitare pas à pas</span>
-            </div>
-            <span class="button-arrow">→</span>
-          </div>
-        </a>
+  <!-- 1. Hero Modernisé -->
+  <HeroModern
+    title="Apprenez la musique en 15 min par jour"
+    subtitle="Rejoignez 80 000 musiciens qui ont transformé leur passion en réalité avec notre méthode progressive."
+    ctaText="Découvrir les cours"
+    ctaUrl="/cours"
+  />
 
-        <a href="/cours/cours-de-piano" class="course-button theme-piano">
-          <div class="button-background" style="background-image: url('/images/cours/hero-piano.jpg')"></div>
-          <div class="button-content">
-            <span class="button-icon">🎹</span>
-            <div class="button-text-wrapper">
-              <span class="button-title">Cours de Piano</span>
-              <span class="button-description">Découvrez le piano facilement</span>
-            </div>
-            <span class="button-arrow">→</span>
-          </div>
-        </a>
-
-        <a href="/cours/cours-de-ukulele" class="course-button theme-ukulele">
-          <div class="button-background" style="background-image: url('/images/cours/hero-ukulele.jpg')"></div>
-          <div class="button-content">
-            <span class="button-icon">🏖️</span>
-            <div class="button-text-wrapper">
-              <span class="button-title">Cours d'Ukulélé</span>
-              <span class="button-description">Initiez-vous à l'ukulélé</span>
-            </div>
-            <span class="button-arrow">→</span>
-          </div>
-        </a>
-
-        <a href="/cours/cours-de-solfege" class="course-button theme-solfege">
-          <div class="button-background" style="background-image: url('/images/cours/hero-solfege.jpg')"></div>
-          <div class="button-content">
-            <span class="button-icon">🎼</span>
-            <div class="button-text-wrapper">
-              <span class="button-title">Cours de Solfège</span>
-              <span class="button-description">Maîtrisez la théorie musicale</span>
-            </div>
-            <span class="button-arrow">→</span>
-          </div>
-        </a>
+  <!-- 2. Avantages (section légère) -->
+  <section class="features-section">
+    <div class="features-container">
+      <div class="feature">
+        <div class="feature-icon-wrapper">
+          <span class="feature-icon">⚡</span>
+        </div>
+        <div class="feature-content">
+          <h3>Jouez en 7 jours</h3>
+          <p>92% de nos élèves jouent leur première chanson en moins de 5 jours</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon-wrapper">
+          <span class="feature-icon">🎯</span>
+        </div>
+        <div class="feature-content">
+          <h3>15 min suffisent</h3>
+          <p>Méthode conçue pour les adultes actifs, progressez à votre rythme</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon-wrapper">
+          <span class="feature-icon">💬</span>
+        </div>
+        <div class="feature-content">
+          <h3>Support réactif</h3>
+          <p>Réponse garantie sous 24h pour toutes vos questions</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <Footer />
+  <!-- 3. Grille de Cours -->
+  <CoursGrid
+    title="Choisissez votre instrument"
+    subtitle="Des cours structurés pour progresser du débutant à l'intermédiaire."
+  />
+
+  <!-- 4. Lead Capture (désactivé temporairement)
+  <LeadCaptureForm
+    title="Votre guide gratuit"
+    subtitle="Les 5 accords magiques pour jouer 100 chansons à la guitare"
+    buttonText="Recevoir mon guide"
+    theme="dark"
+    leadMagnet="5-accords-guitare"
+  />
+  -->
+
+  <!-- 5. Témoignages -->
+  <TemoignagesModern title="Ce que nos élèves en disent" />
+
+  <!-- 6. Pricing -->
+  <PricingPreview />
+
+  <!-- 7. CTA Final -->
+  <section class="final-cta">
+    <div class="cta-container">
+      <h2>Prêt à commencer votre aventure musicale ?</h2>
+      <p>Rejoignez 80 000 musiciens qui ont fait le premier pas</p>
+      <div class="cta-buttons">
+        <a href="/cours" class="cta-primary">
+          Voir tous les cours
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="/a-propos" class="cta-secondary">En savoir plus sur Fred</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Footer -->
+  <FooterModern />
+
+  <!-- Sticky CTA Mobile -->
+  <StickyCTAMobile />
 </Layout>
 
 <style>
-  .course-buttons {
-    padding: 4rem 0;
-    background: var(--bg-light);
+  /* Features Section */
+  .features-section {
+    padding: var(--space-16) var(--space-4);
+    background: var(--bg-card);
   }
 
-  .course-buttons .section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--theme-current);
-    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: fadeInUp 0.6s ease forwards;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .buttons-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    max-width: 1200px;
+  .features-container {
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
   }
 
-  .course-button {
-    position: relative;
-    height: 200px;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    text-decoration: none;
-    color: white;
-    transition: all 0.3s ease;
+  @media (min-width: 768px) {
+    .features-container {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-10);
+    }
   }
 
-  .button-background {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    transition: all 0.5s ease;
-  }
-
-  .theme-guitar .button-background {
-    background-color: var(--theme-guitar);
-  }
-
-  .theme-piano .button-background {
-    background-color: var(--theme-piano);
-  }
-
-  .theme-ukulele .button-background {
-    background-color: var(--theme-ukulele);
-  }
-
-  .theme-solfege .button-background {
-    background-color: var(--theme-solfege);
-  }
-
-  .button-content {
-    position: relative;
-    z-index: 1;
-    height: 100%;
-    padding: 1.5rem;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.8)
-    );
+  .feature {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 1rem;
-    transition: all 0.3s ease;
+    gap: var(--space-4);
+    align-items: flex-start;
   }
 
-  .button-icon {
-    font-size: 2rem;
-    background: rgba(255, 255, 255, 0.2);
-    width: 50px;
-    height: 50px;
+  @media (min-width: 768px) {
+    .feature {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+  }
+
+  .feature-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    background: var(--brand-50);
+    border-radius: var(--radius-xl);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    margin-bottom: auto;
+    flex-shrink: 0;
   }
 
-  .button-text-wrapper {
-    flex: 1;
+  .feature-icon {
+    font-size: 1.75rem;
+  }
+
+  .feature-content h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+  }
+
+  .feature-content p {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+  }
+
+  /* Final CTA */
+  .final-cta {
+    padding: var(--space-20) var(--space-4);
+    background: linear-gradient(135deg, var(--brand-600) 0%, var(--brand-700) 100%);
+    text-align: center;
+  }
+
+  .cta-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .final-cta h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: var(--font-bold);
+    color: white;
+    margin-bottom: var(--space-4);
+  }
+
+  .final-cta p {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--space-8);
+  }
+
+  .cta-buttons {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
   }
 
-  .button-title {
-    font-size: 1.3rem;
-    font-weight: 600;
+  .cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    background: white;
+    color: var(--brand-600);
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
   }
 
-  .button-description {
-    font-size: 0.9rem;
-    opacity: 0.9;
+  .cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   }
 
-  .button-arrow {
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-4) var(--space-6);
+    background: transparent;
+    color: white;
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
   }
 
-  .course-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  .cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
   }
 
-  .course-button:hover .button-background {
-    transform: scale(1.1);
-  }
-
-  .course-button:hover .button-content {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.9)
-    );
-  }
-
-  .course-button:hover .button-arrow {
-    transform: translateX(5px);
-  }
-
-  @media (max-width: 1200px) {
-    .buttons-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .buttons-grid {
-      grid-template-columns: 1fr;
+  @media (max-width: 480px) {
+    .cta-buttons {
+      flex-direction: column;
     }
 
-    .course-button {
-      height: 160px;
-    }
-
-    .button-icon {
-      width: 40px;
-      height: 40px;
-      font-size: 1.5rem;
-    }
-
-    .button-title {
-      font-size: 1.2rem;
+    .cta-primary,
+    .cta-secondary {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>

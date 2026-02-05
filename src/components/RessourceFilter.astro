@@ -1,0 +1,108 @@
+---
+interface Props {
+  activeInstrument?: 'all' | 'guitare' | 'piano' | 'ukulele';
+  baseUrl?: string;
+}
+
+const { 
+  activeInstrument = 'all',
+  baseUrl = '/ressources-gratuites'
+} = Astro.props;
+
+const filters = [
+  { id: 'all', label: 'Toutes les ressources', url: `${baseUrl}/`, icon: '🎵' },
+  { id: 'guitare', label: 'Guitare', url: `${baseUrl}/guitare/`, icon: '🎸' },
+  { id: 'piano', label: 'Piano', url: `${baseUrl}/piano/`, icon: '🎹' },
+  { id: 'ukulele', label: 'Ukulélé', url: `${baseUrl}/ukulele/`, icon: '🏝️' }
+];
+---
+
+<div class="filter-container">
+  <h2 class="filter-title">Filtrer par instrument</h2>
+  <div class="filter-buttons">
+    {filters.map(filter => (
+      <a 
+        href={filter.url} 
+        class={`filter-btn ${filter.id === activeInstrument ? 'active' : ''} ${filter.id !== 'all' ? `theme-${filter.id === 'ukulele' ? 'ukulele' : filter.id}` : ''}`}
+      >
+        <span class="filter-icon">{filter.icon}</span>
+        <span class="filter-label">{filter.label}</span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .filter-container {
+    margin-bottom: 3rem;
+  }
+
+  .filter-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark);
+    text-align: center;
+  }
+
+  .filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    background: white;
+    color: var(--color-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+  }
+
+  .filter-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .filter-btn.active {
+    background: var(--theme-current);
+    color: white;
+    font-weight: 600;
+  }
+
+  .filter-btn.theme-guitar.active {
+    background: var(--theme-guitar);
+  }
+
+  .filter-btn.theme-piano.active {
+    background: var(--theme-piano);
+  }
+
+  .filter-btn.theme-ukulele.active {
+    background: var(--theme-ukulele);
+  }
+
+  .filter-icon {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 768px) {
+    .filter-buttons {
+      flex-direction: column;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .filter-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

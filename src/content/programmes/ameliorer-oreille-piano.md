@@ -2,7 +2,7 @@
 # Data SEO
 title: "Améliorer son Écoute au Piano"
 description: "Formation complète pour développer votre oreille musicale au piano : apprenez à reconnaître les intervalles, les rythmes et à improviser comme un pro."
-ogImage: "/images/cours/ameliorer-oreille-piano/hero.jpg"
+ogImage: "/images/cours/ameliorer-oreille-piano/hero.webp"
 theme: "piano"
 lienAchat: "https://ecole.musique-facile.fr/ameliorer-ecoute-piano/buy"
 author: "Musique Facile"

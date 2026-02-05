@@ -1,0 +1,132 @@
+---
+/**
+ * Composant AutoFAQ - Génère automatiquement des FAQ pertinentes
+ * pour les articles blog selon leur type (tutoriel ou informatif)
+ */
+
+import FAQSchema from './FAQSchema.astro';
+
+interface Props {
+  title: string;
+  theme?: 'guitar' | 'piano' | 'ukulele' | 'solfege';
+  songInfo?: {
+    inBook?: boolean;
+    bookPage?: number;
+    tempo?: number | string;
+    chordCount?: number;
+    difficulty?: string;
+  };
+  showVisual?: boolean;
+}
+
+const { title, theme, songInfo, showVisual = true } = Astro.props;
+
+// Mapper les thèmes vers les noms d'instruments
+const instrumentMap: Record<string, string> = {
+  'guitar': 'guitare',
+  'piano': 'piano',
+  'ukulele': 'ukulélé',
+  'solfege': 'solfège'
+};
+
+const instrument = theme && instrumentMap[theme] ? instrumentMap[theme] : 'instrument';
+
+// Déterminer si c'est un tutoriel (présence de songInfo)
+const isTutorial = !!songInfo;
+
+// Générer des FAQ pertinentes selon le type de contenu
+let faqs: Array<{ question: string; answer: string }> = [];
+
+if (isTutorial && songInfo) {
+  // FAQ pour les tutoriels de chansons
+  const baseFAQs = [
+    {
+      question: `Combien d'accords faut-il connaître pour jouer ${title} ?`,
+      answer: songInfo.chordCount
+        ? `Pour jouer ${title}, vous devez maîtriser <strong>${songInfo.chordCount} accords</strong>. Ces accords sont détaillés dans notre tutoriel vidéo complet, avec des diagrammes et des explications pour bien les positionner.`
+        : `Les accords nécessaires pour jouer ${title} sont détaillés dans notre tutoriel vidéo complet, avec des diagrammes et des explications pour bien les positionner.`
+    },
+    {
+      question: instrument !== 'instrument'
+        ? `Quel est le niveau de difficulté de ${title} au ${instrument} ?`
+        : `Quel est le niveau de difficulté de ${title} ?`,
+      answer: songInfo.difficulty
+        ? `Le niveau de difficulté de ${title} est évalué à <strong>${songInfo.difficulty}</strong>. ${
+            songInfo.difficulty.includes('1') || songInfo.difficulty.includes('2')
+              ? 'Ce morceau est accessible aux débutants avec un peu de pratique. Nos tutoriels vous guident pas à pas pour réussir chaque étape.'
+              : songInfo.difficulty.includes('3')
+              ? 'Ce morceau convient aux musiciens de niveau intermédiaire. Avec une pratique régulière, vous le maîtriserez rapidement.'
+              : 'Ce morceau demande un bon niveau de maîtrise de l\'instrument. Nos tutoriels décomposent les passages difficiles pour faciliter l\'apprentissage.'
+          }`
+        : `Ce morceau est adapté aux débutants et intermédiaires. Nos tutoriels vidéo vous guident étape par étape pour progresser à votre rythme.`
+    },
+    {
+      question: `Combien de temps faut-il pour apprendre ${title} ?`,
+      answer: songInfo.difficulty
+        ? `Le temps d'apprentissage dépend de votre niveau. ${
+            songInfo.difficulty.includes('1') || songInfo.difficulty.includes('2')
+              ? 'Pour un débutant, comptez <strong>2-3 semaines de pratique régulière</strong> (15-20 minutes par jour).'
+              : songInfo.difficulty.includes('3')
+              ? 'Pour un niveau intermédiaire, comptez <strong>1-2 semaines de pratique régulière</strong>.'
+              : 'Pour un niveau avancé, comptez <strong>quelques jours de pratique intensive</strong> pour maîtriser les subtilités.'
+          } Nos tutoriels incluent des exercices progressifs pour faciliter l'apprentissage.`
+        : `Le temps d'apprentissage varie selon votre niveau. Avec une pratique régulière de 15-20 minutes par jour, la plupart de nos élèves jouent le morceau en <strong>1-3 semaines</strong>. Nos tutoriels vidéo incluent des exercices progressifs pour vous aider.`
+    },
+    {
+      question: `Faut-il savoir lire le solfège pour apprendre ${title} ?`,
+      answer: `<strong>Non, vous n'avez pas besoin de savoir lire le solfège</strong> pour apprendre ${title}. Notre méthode utilise des tablatures, des diagrammes d'accords et des vidéos explicatives. Vous apprenez visuellement et à l'oreille, comme la plupart des musiciens modernes.`
+    }
+  ];
+
+  faqs = [...baseFAQs];
+
+  // Ajouter une question sur le tempo si disponible
+  if (songInfo.tempo) {
+    const tempoValue = typeof songInfo.tempo === 'number' ? songInfo.tempo : parseInt(songInfo.tempo);
+    if (!isNaN(tempoValue)) {
+      faqs.push({
+        question: `Quel est le tempo de ${title} ?`,
+        answer: `Le tempo original de ${title} est de <strong>${tempoValue} BPM</strong> (battements par minute). Pour débuter, nous recommandons de commencer à 60-70% de ce tempo avec un métronome, puis d'augmenter progressivement la vitesse au fur et à mesure que vous gagnez en aisance.`
+      });
+    }
+  }
+
+  // Ajouter une question sur le livre si le morceau est dans un livre
+  if (songInfo.inBook && songInfo.bookPage) {
+    faqs.push({
+      question: `Où trouver la partition complète de ${title} ?`,
+      answer: `La partition complète de ${title} se trouve à la <strong>page ${songInfo.bookPage}</strong> de notre méthode "Musique Facile". Le livre inclut les paroles, les accords, les tablatures et des conseils d'interprétation pour jouer le morceau comme l'original.`
+    });
+  }
+
+} else {
+  // FAQ génériques pour les articles informatifs
+  const instrumentCapitalized = instrument.charAt(0).toUpperCase() + instrument.slice(1);
+
+  faqs = [
+    {
+      question: `Comment débuter l'apprentissage ${instrument !== 'instrument' ? `du ${instrument}` : 'd\'un instrument de musique'} ?`,
+      answer: `Pour débuter ${instrument !== 'instrument' ? `le ${instrument}` : 'un instrument de musique'}, nous recommandons de commencer par les bases : <strong>apprendre les accords fondamentaux</strong>, <strong>pratiquer régulièrement</strong> (15-20 minutes par jour), et <strong>suivre une méthode progressive</strong>. Nos cours en ligne incluent des vidéos explicatives, des exercices progressifs et un suivi personnalisé.`
+    },
+    {
+      question: `Faut-il prendre des cours pour apprendre ${instrument !== 'instrument' ? `le ${instrument}` : 'la musique'} ?`,
+      answer: `Les <strong>cours en ligne sont une excellente alternative</strong> aux cours traditionnels. Ils offrent flexibilité, tarifs avantageux et possibilité d'apprendre à votre rythme. Notre plateforme Musique Facile combine vidéos HD, partitions interactives et accompagnement pédagogique pour garantir votre progression.`
+    },
+    {
+      question: `Combien de temps faut-il pour savoir jouer ${instrument !== 'instrument' ? `du ${instrument}` : 'd\'un instrument'} ?`,
+      answer: `Avec une <strong>pratique régulière de 15-20 minutes par jour</strong>, vous pouvez jouer vos premiers morceaux en <strong>4-6 semaines</strong>. Après 3-6 mois, vous aurez acquis les bases solides pour jouer de nombreuses chansons. La clé est la régularité et la progression structurée, que nous assurons avec nos programmes pédagogiques.`
+    },
+    {
+      question: `Quels sont les morceaux les plus faciles pour débuter ${instrument !== 'instrument' ? `au ${instrument}` : ''} ?`,
+      answer: `Les morceaux les plus faciles sont ceux qui utilisent <strong>3-4 accords simples</strong> et un <strong>rythme régulier</strong>. Sur Musique Facile, nous proposons plus de 60 tutoriels classés par niveau de difficulté, avec des versions simplifiées pour débutants. Chaque tutoriel inclut des vidéos pas-à-pas et des play-along pour pratiquer.`
+    },
+    {
+      question: `Comment progresser rapidement ${instrument !== 'instrument' ? `au ${instrument}` : 'en musique'} ?`,
+      answer: `Pour progresser rapidement, suivez ces 4 principes : <strong>1) Pratiquez régulièrement</strong> (mieux vaut 15 minutes par jour que 2 heures le weekend), <strong>2) Travaillez méthodiquement</strong> (échauffement, technique, morceaux), <strong>3) Enregistrez-vous</strong> pour identifier vos points d'amélioration, <strong>4) Suivez une méthode structurée</strong> comme celle de Musique Facile qui garantit une progression logique.`
+    }
+  ];
+}
+---
+
+<!-- Passer les FAQ au composant FAQSchema qui gère le schema et l'affichage -->
+<FAQSchema faqs={faqs} showVisual={showVisual} />

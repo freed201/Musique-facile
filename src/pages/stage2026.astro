@@ -1,0 +1,819 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import OptimizedImage from '../components/OptimizedImage.astro';
+
+const title = "Stage Ukulélé Grasse Février 2026 | Musique Facile";
+const description = "Stage d'ukulélé à Grasse du 23 au 27 février 2026 à la Happiness School. Deux formats au choix : 3 jours (100€) ou 5 jours (150€). Deux niveaux (débutant ou initié). Inscription par email.";
+const canonicalUrl = new URL('/stage2026/', Astro.site || 'https://musique-facile.fr').toString();
+const ogImage = "https://musique-facile.fr/images/stage-ukulele-2026-groupe-toussaint.webp";
+
+const eventSchema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Stage d'ukulélé à Grasse — Février 2026",
+  "description": "Stage d'ukulélé à Grasse avec deux formats au choix (3 jours ou 5 jours) et deux niveaux (débutant ou initié). Une semaine de progression et de plaisir musical.",
+  "startDate": "2026-02-23T09:30:00+01:00",
+  "endDate": "2026-02-27T16:00:00+01:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "Happiness School",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "95 Av. de la Libération",
+      "addressLocality": "Grasse",
+      "postalCode": "06130",
+      "addressCountry": "FR"
+    }
+  },
+  "image": ogImage,
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Format 3 jours",
+      "price": "100",
+      "priceCurrency": "EUR",
+      "url": canonicalUrl,
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Format 5 jours",
+      "price": "150",
+      "priceCurrency": "EUR",
+      "url": canonicalUrl,
+      "availability": "https://schema.org/InStock"
+    }
+  ],
+  "performer": [
+    {
+      "@type": "Person",
+      "name": "Fred Fieffé"
+    },
+    {
+      "@type": "Person",
+      "name": "Christophe Damay"
+    }
+  ],
+  "organizer": {
+    "@type": "Organization",
+    "name": "Musique Facile",
+    "url": "https://musique-facile.fr"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Puis-je faire les deux stages ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Pour un bon apprentissage, on ne fait qu'un seul des deux stages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "C'est quoi le niveau Initié ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tu as déjà fait le stage débutant ou tu joues un peu. Pas besoin d'être un pro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Je suis débutant complet, c'est ok ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, c'est parfait. Le stage Débutant est conçu pour partir de zéro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment réserver ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il suffit de nous écrire via la section Contact, on te répond rapidement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que dois-je apporter ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ukulélé si tu en as, carnet, bouteille d'eau. On peut prêter un ukulélé sur demande."
+      }
+    }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={ogImage}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+  <Header />
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-background">
+        <div class="gradient-overlay"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Stages d'ukulélé à Grasse — Février 2026</p>
+          <h1>Ado / Adulte — Débutant ou Initié</h1>
+          <p class="hero-subtitle">Happiness School — 95 Av. de la Libération, 06130 Grasse</p>
+          <div class="hero-highlights">
+            <span class="highlight-pill">Du 23 au 27 février 2026</span>
+            <span class="highlight-pill">3 jours : 100€ | 5 jours : 150€</span>
+            <span class="highlight-pill">Places limitées</span>
+          </div>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary btn-lg">Je réserve ma place</a>
+            <a href="#stages" class="btn btn-secondary btn-lg">Choisir mon stage</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stages section" id="stages">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Choisir son stage</h2>
+          <p class="section-subtitle">Tu choisis 1 seul stage (matin OU après-midi) et le format qui te convient.</p>
+        </div>
+        <div class="stage-grid">
+          <div class="card card-ukulele stage-card">
+            <div class="stage-card-header">
+              <h3>Initié</h3>
+              <span class="stage-time">9h30 – 12h</span>
+            </div>
+            <p>
+              Tu as déjà fait le stage débutant ou tu joues un peu. Pas besoin d'être un pro : on consolide
+              les bases et on avance ensemble.
+            </p>
+          </div>
+          <div class="card card-ukulele stage-card">
+            <div class="stage-card-header">
+              <h3>Débutant</h3>
+              <span class="stage-time">13h30 – 16h</span>
+            </div>
+            <p>On part de zéro : tu apprends les premières positions, le rythme, et tu joues tes premiers morceaux.</p>
+          </div>
+        </div>
+        
+        <div class="formats-section">
+          <h3 class="formats-title">Deux formats au choix</h3>
+          <div class="formats-grid">
+            <div class="format-card">
+              <h4>3 jours</h4>
+              <p class="format-dates">Lundi → Mercredi</p>
+              <p class="format-price">100€</p>
+              <p>Parfait pour une initiation intensive ou un rappel des bases.</p>
+            </div>
+            <div class="format-card">
+              <h4>5 jours</h4>
+              <p class="format-dates">Lundi → Vendredi</p>
+              <p class="format-price">150€</p>
+              <p>Idéal pour une immersion complète et une progression plus approfondie.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="programme section section-light" id="programme">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Ce qu'on apprend</h2>
+          <p class="section-subtitle">Un stage concret, progressif et joyeux.</p>
+        </div>
+        <ul class="checklist">
+          <li>Les accords essentiels et leurs enchaînements</li>
+          <li>Le rythme de la main droite, simple et efficace</li>
+          <li>Jouer une chanson complète en fin de stage</li>
+          <li>Travailler l'écoute et le sens du tempo</li>
+          <li>Jouer ensemble et se repérer dans un groupe</li>
+          <li>Petites astuces pour progresser vite chez soi</li>
+          <li>Découvrir plusieurs sonorités d'ukulélés</li>
+        </ul>
+        <div class="programme-advanced">
+          <p class="programme-intro">Si tu as déjà quelques bases, on va plus loin : technique, arpèges et mise en pratique.</p>
+          <ul class="checklist">
+            <li>Techniques spécifiques au ukulélé (attaque, son, placement, etc.)</li>
+            <li>Travail des arpèges (pour accompagner et embellir)</li>
+            <li>Méthode de travail : comment pratiquer pour progresser mieux et plus vite</li>
+            <li>Mise en pratique sur des morceaux variés (selon le groupe)</li>
+            <li>Rythmique + accords : enrichir ses accompagnements</li>
+            <li>Programme adaptatif : on ajuste selon le niveau et les demandes des musiciens présents</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials section" id="temoignages">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Ils en parlent mieux que nous</h2>
+          <p class="section-subtitle">Retours simples, vrais, et motivants.</p>
+        </div>
+        <div class="testimonial-grid">
+          <figure class="card testimonial-card">
+            <blockquote>
+              “La semaine d'après le stage, j'ai commencé à jouer en classe. Les enfants étaient ravis.”
+            </blockquote>
+            <figcaption>Mireille</figcaption>
+          </figure>
+          <figure class="card testimonial-card">
+            <blockquote>
+              “C'est un vrai rêve. J'avais essayé la guitare mais j'avais abandonné. Christophe et Fred m'ont
+              redonné le goût de jouer de l'ukulélé. Merci.”
+            </blockquote>
+            <figcaption>Maude</figcaption>
+          </figure>
+          <figure class="card testimonial-card">
+            <blockquote>
+              “Qui penserait qu'un instrument si simple puisse être au final si agréable et fun. J'adore.”
+            </blockquote>
+            <figcaption>Maxime</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="photo section" id="photo">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Une semaine qui fait du bien (photo du dernier stage)</h2>
+        </div>
+        <figure class="photo-figure">
+          <OptimizedImage
+            src="/images/stage-ukulele-2026-groupe-toussaint.webp"
+            alt="Photo de groupe des participants au stage d'ukulélé à Grasse"
+            width={800}
+            height={450}
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, 720px"
+            class="photo-image"
+          />
+          <figcaption>Photo de groupe — stage de Toussaint.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="infos section section-light" id="infos-pratiques">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Infos pratiques</h2>
+          <p class="section-subtitle">Tout ce qu'il faut pour venir sereinement.</p>
+        </div>
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-icon">📍</div>
+            <h3>Adresse</h3>
+            <p>Happiness School</p>
+            <p>95 Av. de la Libération, 06130 Grasse</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">👶 👨‍🦰</div>
+            <h3>Public</h3>
+            <p>Ado et adulte</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🎸</div>
+            <h3>Instruments</h3>
+            <p>Prêt possible sur demande (à préciser dans le formulaire)</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🎒</div>
+            <h3>Matériel à prévoir</h3>
+            <p>Ukulélé si tu en as, carnet, bouteille d'eau</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🚗</div>
+            <h3>Parking & accès</h3>
+            <p>Parking à proximité</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🍽️</div>
+            <h3>Restauration</h3>
+            <p>Non incluse – restaurants et snacks à proximité</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Questions fréquentes</h2>
+          <p class="section-subtitle">Tu hésites ? On t'éclaire.</p>
+        </div>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Puis-je faire les deux stages ?</h3>
+            </div>
+            <div class="answer">
+              <p>Non. Pour un bon apprentissage, on ne fait qu'un seul des deux stages.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>C'est quoi le niveau Initié ?</h3>
+            </div>
+            <div class="answer">
+              <p>Tu as déjà fait le stage débutant ou tu joues un peu. Pas besoin d'être un pro.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Je suis débutant complet, c'est ok ?</h3>
+            </div>
+            <div class="answer">
+              <p>Oui, c'est parfait. Le stage Débutant est conçu pour partir de zéro.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Comment réserver ?</h3>
+            </div>
+            <div class="answer">
+              <p>Il suffit de nous écrire via la section Contact, on te répond rapidement.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Que dois-je apporter ?</h3>
+            </div>
+            <div class="answer">
+              <p>Ukulélé si tu en as, carnet, bouteille d'eau. On peut prêter un ukulélé sur demande.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact & Inscription</h2>
+        <div class="contact-content">
+          <div class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <h3>Pour toute question ou inscription</h3>
+            <p>Envoyez-nous un email avec vos coordonnées et précisez si vous avez besoin d'un prêt d'ukulélé.</p>
+            <p class="format-reminder">N'oubliez pas de préciser le nombre de jours souhaité (3 ou 5 jours).</p>
+            <a href="mailto:contact@musique-facile.fr" class="email-button">
+              contact@musique-facile.fr
+            </a>
+            <p class="contact-details">
+              Merci de préciser dans votre email :
+            </p>
+            <ul class="contact-list">
+              <li>Votre nom et prénom</li>
+              <li>Votre numéro de téléphone</li>
+              <li>Le format choisi (3 jours ou 5 jours)</li>
+              <li>Si vous souhaitez réserver une place</li>
+              <li>Si vous avez besoin d'un ukulélé (prêt gratuit)</li>
+              <li>Toute question spécifique que vous pourriez avoir</li>
+            </ul>
+            <p class="response-time">
+              Nous vous répondrons dans les plus brefs délais, généralement sous 24-48h.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .section {
+    padding: 6rem 0;
+  }
+
+  .section-light {
+    background: var(--bg-light);
+  }
+
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 6rem 0;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url('/images/stage2024ukulele.webp');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 128, 96, 0.82) 0%, rgba(0, 194, 142, 0.72) 100%);
+  }
+
+  .hero-content {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+  }
+
+  .hero-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  .hero-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .highlight-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    font-weight: 600;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .stage-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .formats-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+  }
+
+  .formats-title {
+    text-align: center;
+    color: var(--theme-ukulele);
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+  }
+
+  .formats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .format-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--theme-ukulele);
+  }
+
+  .format-card h4 {
+    color: var(--theme-ukulele);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .format-dates {
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+  }
+
+  .format-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--theme-ukulele);
+    margin-bottom: 1rem;
+  }
+
+  .format-reminder {
+    font-weight: 600;
+    color: var(--theme-ukulele);
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .stage-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .stage-card h3 {
+    font-size: 1.6rem;
+    color: var(--theme-ukulele);
+  }
+
+  .stage-time {
+    font-weight: 600;
+    color: var(--gray-700);
+  }
+
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 860px;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .checklist li {
+    background: white;
+    padding: 1.1rem 1.4rem 1.1rem 3rem;
+    border-radius: var(--radius-lg);
+    position: relative;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .checklist li::before {
+    content: '✓';
+    position: absolute;
+    left: 1.2rem;
+    top: 1rem;
+    color: var(--theme-ukulele);
+    font-weight: 700;
+  }
+
+  .programme-advanced {
+    margin-top: 2.5rem;
+  }
+
+  .programme-intro {
+    font-size: 1.1rem;
+    color: var(--gray-700);
+    max-width: 760px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .testimonial-card blockquote {
+    margin: 0 0 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .testimonial-card figcaption {
+    font-weight: 700;
+    color: var(--theme-ukulele);
+  }
+
+  .photo {
+    background: white;
+  }
+
+  .photo-figure {
+    margin: 0 auto;
+    max-width: 860px;
+    text-align: center;
+  }
+
+  .photo-image {
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-md);
+  }
+
+  .photo-figure figcaption {
+    margin-top: 1rem;
+    color: var(--gray-600);
+    font-size: 1rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .info-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--theme-ukulele);
+  }
+
+  .faq {
+    background: var(--bg-light);
+  }
+
+  .faq-grid {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .question-wrapper h3 {
+    margin: 0 0 0.6rem;
+    color: var(--theme-ukulele);
+  }
+
+  .answer p {
+    margin: 0;
+  }
+
+  .contact {
+    padding: 6rem 0;
+    background: white;
+  }
+
+  .contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .contact-card {
+    background: var(--bg-light);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+  }
+
+  .contact-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--theme-ukulele);
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+
+  .contact-card h3 {
+    font-size: 1.8rem;
+    color: var(--theme-ukulele);
+    margin-bottom: 1rem;
+  }
+
+  .contact-card p {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .email-button {
+    display: inline-block;
+    background: var(--theme-ukulele);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .email-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .contact-details {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    text-align: left;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .contact-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--theme-ukulele);
+  }
+
+  .response-time {
+    font-style: italic;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 1024px) {
+    .stage-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .testimonial-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .formats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 70vh;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>

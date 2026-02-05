@@ -1,20 +1,19 @@
 ---
-title: "L'Opportuniste : L’histoire et les accords de ce classique de Jacques Dutronc"
-description: "Explorez 'L'opportuniste', un morceau satirique et incontournable de Jacques Dutronc, et découvrez comment le jouer à la guitare."
+title: "L'Opportuniste (Dutronc) - Tutoriel Guitare"
+description: "Maîtrisez L'Opportuniste de Jacques Dutronc à la guitare : 5 accords, satire politique de 1968, rythmique yé-yé rock. Tutoriel vidéo pour intermédiaires."
 ogImage: "/images/blog/jouer-lopportuniste-dutronc-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-01-28"
-introduction: "Avec 'L'opportuniste', Jacques Dutronc propose une critique politique mordante sur une mélodie entraînante. Découvrez ce classique et apprenez à le jouer."
+dateModified: "2026-02-04"
+introduction: "Avec 'L'Opportuniste', Jacques Dutronc propose une critique politique mordante sortie en 1968, sur une mélodie entraînante yé-yé rock. Découvrez l'histoire de ce classique satirique et apprenez à le jouer avec notre tutoriel accessible."
 
 songInfo:
   inBook: true
-  bookPage: "40"
-  tempo: "94"
-  chordCount: "5"
-  key: ""
+  bookPage: 40
+  tempo: 94
+  chordCount: 5
   difficulty: "3/5"
 
 videos:
@@ -31,12 +30,15 @@ conclusion: |
   "L'opportuniste" est bien plus qu'une chanson ; c'est une capsule temporelle qui capte une époque tout en continuant à résonner tant par sa critique fine que par sa musicalité. Que vous soyez musicien amateur ou simple auditeur, faites-vous le plaisir de redécouvrir ce classique incontournable. Et pourquoi pas, ajoutez-le à votre répertoire pour ses accords simples et son tempo accessible. Laissez ici Jacques Dutronc vous mener à travers ce voyage musical, entre ironie et vérités déguisées.<br><br>En continuant d'explorer l'œuvre de Jacques Dutronc, vous partirez à la découverte de son impact considérable sur la musique française. Alors, n'attendez plus, attrapez votre guitare et laissez-vous emporter par la magie de "L'opportuniste" !
 
 relatedLinks:
-  - title: "Les chansons incontournables de Jacques Dutronc"
-    url: "/articles/chansons-incontournables-jacques-dutronc"
-    description: "Un aperçu des morceaux qui ont marqué la carrière de Jacques Dutronc."
-  - title: "Analyse de l'album 'L'opportuniste'"
-    url: "/articles/album-l-opportuniste-analyse"
-    description: "Découvrez l'album qui a donné naissance à ce classique satirique."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour maîtriser la chanson française vintage."
+  - title: "Foule Sentimentale - Alain Souchon"
+    url: "/blog/tutoriel-foule-sentimentale-chanson"
+    description: "Un autre classique satirique de la chanson française."
+  - title: "Un Autre Monde - Téléphone"
+    url: "/blog/apprendre-un-autre-monde-guitare"
+    description: "Le rock français des années 80."
 ---
 # Jacques Dutronc : Un artiste aux multiples facettes
 

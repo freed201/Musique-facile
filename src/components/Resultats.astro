@@ -20,7 +20,7 @@ const stats = [
 <section class="resultats">
   <div class="container">
     <div class="header-section">
-      <h2>Une communauté grandissante de passionnés</h2>
+      <h2>Plus de 80 000 musiciens formés</h2>
       <div class="stats-banner">
         {stats.map(stat => (
           <div class="stat-item">
@@ -66,8 +66,8 @@ const stats = [
 
 <style>
   .resultats {
-    padding: 6rem 0;
-    background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+    padding: var(--space-24) 0;
+    background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -84,13 +84,15 @@ const stats = [
   .header-section {
     text-align: center;
     max-width: 900px;
-    margin: 0 auto 4rem;
+    margin: 0 auto var(--space-16);
   }
 
   .header-section h2 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+    font-weight: var(--font-extrabold);
+    margin-bottom: var(--space-8);
+    line-height: var(--leading-tight);
+    background: linear-gradient(135deg, var(--brand-400) 0%, var(--brand-300) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -98,8 +100,8 @@ const stats = [
   .stats-banner {
     display: flex;
     justify-content: center;
-    gap: 4rem;
-    margin-top: 2rem;
+    gap: var(--space-16);
+    margin-top: var(--space-8);
   }
 
   .stat-item {
@@ -107,14 +109,15 @@ const stats = [
   }
 
   .stat-number {
-    font-size: 3rem;
-    font-weight: bold;
-    color: var(--theme-current);
-    margin-bottom: 0.5rem;
+    font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
+    font-weight: var(--font-extrabold);
+    color: var(--brand-400);
+    margin-bottom: var(--space-2);
+    line-height: var(--leading-tight);
   }
 
   .stat-label {
-    font-size: 1.1rem;
+    font-size: var(--text-lg);
     opacity: 0.9;
   }
 
@@ -125,25 +128,26 @@ const stats = [
 
   .description-section {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: var(--space-16);
   }
 
   .main-text {
-    font-size: 1.3rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-8);
   }
 
   .insight-box {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius);
-    padding: 2rem;
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--space-6);
     max-width: 800px;
     margin: 0 auto;
     backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.15);
   }
 
   .insight-icon {
@@ -152,29 +156,49 @@ const stats = [
   }
 
   .insight-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
     margin: 0;
   }
 
   .partners-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-bottom: 4rem;
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
   }
 
   .partner-card {
+    position: relative;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    transition: transform 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    transition: var(--transition-base);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+  }
+
+  .partner-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--brand-500);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-base) var(--ease-out);
   }
 
   .partner-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .partner-card:hover::before {
+    transform: scaleX(1);
   }
 
   .logo-container {
@@ -208,47 +232,49 @@ const stats = [
   }
 
   .partner-content h3 {
-    color: var(--theme-current);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+    color: var(--brand-400);
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-4);
   }
 
   .partner-content p {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
     opacity: 0.9;
   }
 
   .cta-section {
     text-align: center;
-    margin-top: 4rem;
+    margin-top: var(--space-16);
   }
 
   .cta-text {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
   }
 
   .cta-button {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    background: var(--theme-current);
+    gap: var(--space-2);
+    background: var(--brand-500);
     color: white;
-    padding: 1rem 2rem;
-    border-radius: var(--border-radius);
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-lg);
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    font-weight: var(--font-semibold);
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-brand);
   }
 
   .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 24px rgba(0, 194, 142, 0.35);
   }
 
   .arrow {
-    transition: transform 0.3s ease;
+    transition: transform var(--duration-base) var(--ease-out);
   }
 
   .cta-button:hover .arrow {
@@ -262,23 +288,15 @@ const stats = [
   }
 
   @media (max-width: 768px) {
-    .header-section h2 {
-      font-size: 2.2rem;
-    }
-
     .stats-banner {
       flex-direction: column;
-      gap: 2rem;
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
+      gap: var(--space-8);
     }
 
     .insight-box {
       flex-direction: column;
       text-align: center;
-      padding: 1.5rem;
+      padding: var(--space-6);
     }
 
     .partners-grid {
@@ -286,11 +304,7 @@ const stats = [
     }
 
     .partner-card {
-      padding: 1.5rem;
-    }
-
-    .cta-text {
-      font-size: 1.3rem;
+      padding: var(--space-6);
     }
   }
 </style>

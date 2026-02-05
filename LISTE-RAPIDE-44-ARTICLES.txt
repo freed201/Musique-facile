@@ -1,0 +1,110 @@
+═══════════════════════════════════════════════════════════════
+  📋 LISTE DES 44 ARTICLES À AMÉLIORER - Blog Musique Facile
+═══════════════════════════════════════════════════════════════
+
+Critère : dateModified < 2025-04-01
+Date analyse : 26 octobre 2025
+
+───────────────────────────────────────────────────────────────
+🔴 PRIORITÉ HAUTE - 19 articles (Janvier 2025) - > 9 mois
+───────────────────────────────────────────────────────────────
+
+1.  apprendre-hey-jude-guitare.md
+2.  apprendre-ironic-guitare.md
+3.  apprendre-lucky-man-guitare.md
+4.  apprendre-machistador-guitare.md
+5.  apprendre-mr-jones-guitare.md
+6.  apprendre-partons-vite-guitare.md
+7.  apprendre-riche-guitare.md
+8.  apprendre-smells-like-teen-spirit-guitare.md
+9.  apprendre-stand-by-me-guitare.md
+10. apprendre-sweet-dreams-guitare.md
+11. apprendre-un-autre-monde-guitare.md
+12. apprendre-whats-up-guitare.md
+13. apprendre-wild-world-guitare.md
+14. jouer-clandestino-guitare-tutoriel.md
+15. jouer-hallelujah-jeff-buckley-guitare.md
+16. jouer-fields-of-gold-sting.md
+17. jouer-hey-ya-outkast-guitare.md
+18. jouer-lopportuniste-dutronc-guitare.md
+19. jouer-la-seine-vanessa-m.md
+
+───────────────────────────────────────────────────────────────
+🟡 PRIORITÉ MOYENNE - 10 articles (Fév 2025) - 8-9 mois
+───────────────────────────────────────────────────────────────
+
+20. Nous-on-sait-guitare-tuto.md
+21. tutoriel-across-the-universe-pour-debutants.md
+22. tutoriel-everybody-hurts-facile.md
+23. tutoriel-dont-stop-me-now-queen.md
+24. tutoriel-foule-sentimentale-chanson.md
+25. tutoriel-jveux-du-soleil-chanson-francaise.md
+26. au-boulot-maestro-1.md
+27. au-boulot-maestro-2.md
+28. au-boulot-maestro-3.md
+29. apprendre-coldplay-piano-guitare-ukulele.md
+
+───────────────────────────────────────────────────────────────
+🟢 PRIORITÉ NORMALE - 15 articles (Mars 2025) - < 8 mois
+───────────────────────────────────────────────────────────────
+
+PIANO (9 articles)
+30. faq-piano-debutant.md
+31. techniques-essentielles-piano.md
+32. ressources-apprendre-le-piano.md
+33. plan-travail-progresser-piano.md
+34. methodes-apprentissage-piano-debutant.md
+35. debuter-le-piano-bases-essentielles.md
+36. erreurs-frequentes-piano-debutant.md
+37. conclusion-apprentissage-piano.md
+38. pourquoi-apprendre-le-piano.md (en attente)
+
+GÉNÉRAL (6 articles)
+39. choisir-ukulele-2025.md
+40. tutoriels-guitare-jean-jacques-goldman.md
+41. conseils-pour-debuter-la-guitare.md
+42. exemple-mise-en-forme.md
+43. booster-progression-musicale.md
+44. enseigner-musique-efficacement.md
+
+═══════════════════════════════════════════════════════════════
+  📊 STATISTIQUES
+═══════════════════════════════════════════════════════════════
+
+Total articles à améliorer : 44
+Priorité HAUTE   : 19 (43%)
+Priorité MOYENNE : 10 (23%)
+Priorité NORMALE : 15 (34%)
+
+Thèmes :
+- Général (Guitare) : 35 (79.5%)
+- Piano             : 9  (20.5%)
+
+═══════════════════════════════════════════════════════════════
+  ✅ CHECKLIST PAR ARTICLE
+═══════════════════════════════════════════════════════════════
+
+Pour chaque article :
+
+□ Lire l'article actuel
+□ Mettre à jour le contenu (min 1500 mots)
+□ Optimiser le SEO (titre, meta, keywords)
+□ Ajouter 3-5 images WebP optimisées
+□ Intégrer vidéos YouTube
+□ Structurer H2/H3
+□ Ajouter FAQ si pertinent
+□ Liens internes vers cours
+□ Call-to-action clairs
+□ Mettre à jour dateModified
+□ Vérifier build sans erreur
+□ Marquer comme terminé
+
+═══════════════════════════════════════════════════════════════
+  🎯 OBJECTIF : 44 articles améliorés en 4 semaines
+═══════════════════════════════════════════════════════════════
+
+Rythme suggéré : 2-3 articles/jour
+Temps estimé : 1-2h par article
+Effort quotidien : 2-6h/jour
+
+GO ! 🚀

@@ -1,0 +1,335 @@
+---
+interface Props {
+  totalPages: number;
+  currentPage?: number;
+  articlesPerPage?: number;
+}
+
+const { totalPages, currentPage = 1, articlesPerPage = 12 } = Astro.props;
+---
+
+<nav class="pagination" id="blogPagination" aria-label="Navigation par pagination des articles">
+  <div class="pagination-info" role="status" aria-live="polite">
+    Affichage de <span id="paginationStart">1</span>-<span id="paginationEnd">{articlesPerPage}</span>
+    sur <span id="paginationTotal">0</span> article(s)
+  </div>
+
+  <div class="pagination-controls" role="navigation" aria-label="Pages">
+    <button
+      class="pagination-btn pagination-prev"
+      id="paginationPrev"
+      aria-label="Aller à la page précédente"
+      disabled
+    >
+      ← Précédent
+    </button>
+
+    <div class="pagination-numbers" id="paginationNumbers" role="list">
+      <!-- Les numéros seront générés dynamiquement -->
+    </div>
+
+    <button
+      class="pagination-btn pagination-next"
+      id="paginationNext"
+      aria-label="Aller à la page suivante"
+    >
+      Suivant →
+    </button>
+  </div>
+</nav>
+
+<style>
+  .pagination {
+    margin: 4rem auto 2rem;
+    max-width: 1000px;
+  }
+
+  .pagination-info {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+
+  .pagination-info span {
+    color: var(--theme-current);
+    font-weight: 700;
+  }
+
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pagination-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    background: white;
+    color: var(--color-dark);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .pagination-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--theme-current);
+    color: var(--theme-current);
+  }
+
+  .pagination-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .pagination-numbers {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .pagination-number {
+    min-width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    background: white;
+    color: var(--color-dark);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .pagination-number:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--theme-current);
+  }
+
+  .pagination-number.active {
+    background: linear-gradient(135deg, var(--theme-current), var(--theme-current-light));
+    border-color: var(--theme-current);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 194, 142, 0.3);
+  }
+
+  .pagination-ellipsis {
+    padding: 0 0.5rem;
+    color: var(--color-dark);
+    opacity: 0.5;
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .pagination-controls {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .pagination-btn {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .pagination-numbers {
+      order: -1;
+    }
+
+    .pagination-number {
+      min-width: 38px;
+      height: 38px;
+      font-size: 0.95rem;
+    }
+
+    .pagination-info {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
+<script define:vars={{ articlesPerPage }}>
+  // Vérifier si le script a déjà été exécuté
+  if (window.__paginationInitialized) {
+    console.warn('⚠️ Pagination already initialized - skipping duplicate initialization');
+    return;
+  }
+  window.__paginationInitialized = true;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('🚀 Pagination script initializing...');
+    let currentPage = 1;
+    let totalArticles = 0;
+    let filteredArticles = 0;
+
+    const paginationElement = document.getElementById('blogPagination');
+    const prevBtn = document.getElementById('paginationPrev');
+    const nextBtn = document.getElementById('paginationNext');
+    const numbersContainer = document.getElementById('paginationNumbers');
+    const paginationStart = document.getElementById('paginationStart');
+    const paginationEnd = document.getElementById('paginationEnd');
+    const paginationTotal = document.getElementById('paginationTotal');
+
+    if (!paginationElement) {
+      console.error('❌ Pagination element not found');
+      return;
+    }
+    console.log('✅ Pagination elements found');
+
+    function getTotalPages() {
+      return Math.ceil(filteredArticles / articlesPerPage) || 1;
+    }
+
+    function updatePaginationInfo() {
+      const start = (currentPage - 1) * articlesPerPage + 1;
+      const end = Math.min(currentPage * articlesPerPage, filteredArticles);
+
+      paginationStart.textContent = filteredArticles > 0 ? start : 0;
+      paginationEnd.textContent = end;
+      paginationTotal.textContent = filteredArticles;
+    }
+
+    function generatePageNumbers() {
+      if (!numbersContainer) return;
+
+      numbersContainer.innerHTML = '';
+      const totalPages = getTotalPages();
+
+      // Logique d'affichage des numéros de page
+      let pagesToShow = [];
+
+      if (totalPages <= 7) {
+        // Afficher toutes les pages si <= 7
+        pagesToShow = Array.from({ length: totalPages }, (_, i) => i + 1);
+      } else {
+        // Logique avec ellipsis
+        if (currentPage <= 3) {
+          pagesToShow = [1, 2, 3, 4, '...', totalPages];
+        } else if (currentPage >= totalPages - 2) {
+          pagesToShow = [1, '...', totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+        } else {
+          pagesToShow = [1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages];
+        }
+      }
+
+      pagesToShow.forEach(page => {
+        if (page === '...') {
+          const ellipsis = document.createElement('span');
+          ellipsis.className = 'pagination-ellipsis';
+          ellipsis.textContent = '...';
+          numbersContainer.appendChild(ellipsis);
+        } else {
+          const button = document.createElement('button');
+          button.className = 'pagination-number';
+          button.textContent = page;
+          button.setAttribute('data-page', page);
+
+          if (page === currentPage) {
+            button.classList.add('active');
+          }
+
+          // Pas d'event listener ici - on utilise la délégation d'événements
+          numbersContainer.appendChild(button);
+        }
+      });
+    }
+
+    function updateButtons() {
+      const totalPages = getTotalPages();
+
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+
+      generatePageNumbers();
+      updatePaginationInfo();
+    }
+
+    function goToPage(page) {
+      if (page === currentPage) {
+        console.log('⚠️ Already on page', page, '- skipping');
+        return; // Éviter de changer vers la même page
+      }
+
+      console.log('📄 Going to page', page);
+      currentPage = page;
+
+      // Déclencher l'événement de changement de page
+      const event = new CustomEvent('pageChange', {
+        detail: {
+          page: currentPage,
+          articlesPerPage: articlesPerPage
+        }
+      });
+      console.log('📤 Dispatching pageChange event');
+      document.dispatchEvent(event);
+
+      updateButtons();
+
+      // Scroll vers le haut de la grille
+      const blogGrid = document.querySelector('.blog-grid');
+      if (blogGrid) {
+        const yOffset = -100;
+        const y = blogGrid.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+
+    // Délégation d'événements pour les numéros de page
+    numbersContainer?.addEventListener('click', (e) => {
+      const target = e.target;
+      console.log('🖱️ Pagination click detected on:', target.className);
+      if (target.classList.contains('pagination-number')) {
+        const page = parseInt(target.getAttribute('data-page'));
+        console.log('  Page number clicked:', page);
+        if (!isNaN(page)) {
+          goToPage(page);
+        }
+      }
+    });
+
+    // Boutons précédent/suivant
+    prevBtn?.addEventListener('click', () => {
+      console.log('⬅️ Previous button clicked');
+      if (currentPage > 1) {
+        goToPage(currentPage - 1);
+      }
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      console.log('➡️ Next button clicked');
+      const totalPages = getTotalPages();
+      if (currentPage < totalPages) {
+        goToPage(currentPage + 1);
+      }
+    });
+
+    // Écouter les changements de filtrage/recherche
+    document.addEventListener('articlesFiltered', (e) => {
+      console.log('📊 Pagination received articlesFiltered:', e.detail.count, 'articles');
+      filteredArticles = e.detail.count;
+      totalArticles = e.detail.total || filteredArticles;
+      currentPage = e.detail.currentPage || 1; // Utiliser la page fournie par l'événement
+      console.log('  Current page set to:', currentPage);
+      updateButtons();
+    });
+
+    // Initialisation
+    const blogCards = document.querySelectorAll('.article-card');
+    filteredArticles = blogCards.length;
+    totalArticles = blogCards.length;
+    updateButtons();
+  });
+</script>

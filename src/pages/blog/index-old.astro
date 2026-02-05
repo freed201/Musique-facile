@@ -1,0 +1,432 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+// Récupérer et trier les articles par date
+const allPosts = await getCollection('blog');
+const currentDate = new Date();
+
+// Filtrer les articles publiés et les trier par date
+const latestPosts = allPosts
+  .filter(post => {
+    // Filtrer les articles non publiés
+    if (post.data.prod === 'N') return false;
+    
+    // Filtrer les articles avec date de publication future
+    const publishDate = new Date(post.data.datePublished);
+    if (publishDate > currentDate) return false;
+    
+    // Ne pas afficher les pages suivantes des articles multi-pages
+    if (post.data.prev) return false;
+    
+    return true;
+  })
+  .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime())
+  .slice(0, 50); // Prendre les 50 derniers articles
+
+// Construction de l'URL canonique
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://musique-facile.fr').toString();
+
+// Métadonnées pour la page
+const title = "Blog Musical : Conseils pour Apprendre la Guitare, le Piano et l'Ukulélé | Musique Facile";
+const description = "Découvre tous nos articles pour progresser en musique : techniques, artistes, morceaux, conseils d'apprentissage, astuces de pratique… Un concentré d'inspiration pour musiciens passionnés, débutants ou curieux.";
+const ogImage = "/images/og-blog.jpg";
+
+// Schema.org pour la liste des articles
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog Musique Facile",
+  "description": "Articles, conseils et astuces pour progresser en musique",
+  "url": canonicalURL,
+  "blogPost": latestPosts.map(post => ({
+    "@type": "BlogPosting",
+    "headline": post.data.title,
+    "description": post.data.description,
+    "image": post.data.ogImage,
+    "datePublished": post.data.datePublished,
+    "dateModified": post.data.dateModified,
+    "author": {
+      "@type": "Person",
+      "name": post.data.author
+    },
+    "url": `${Astro.url.origin}/blog/${post.slug}`
+  }))
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  canonicalUrl={canonicalURL}
+  keywords="blog musique en ligne, articles sur l'apprentissage musical, blog guitare piano ukulélé, conseils pour musiciens débutants, actualité musicale et pédagogie"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
+  </Fragment>
+  
+  <Header />
+  
+  <main>
+    <section class="blog-hero">
+      <div class="hero-background"></div>
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <h1>Blog Musique Facile</h1>
+        <p class="subtitle">Découvre tous nos articles pour progresser en musique : techniques, artistes, morceaux, conseils d'apprentissage, astuces de pratique… Un concentré d'inspiration pour musiciens passionnés, débutants ou curieux.</p>
+      </div>
+    </section>
+
+    <section class="blog-content">
+      <div class="container">
+
+
+        <div class="blog-grid">
+          {latestPosts.map(post => (
+            <article class="blog-card">
+              <a href={`/blog/${post.slug}`} class="card-link">
+                <div class="card-image" style={`background-image: url(${post.data.ogImage})`}>
+                  <div class="card-overlay">
+                    <time datetime={post.data.datePublished}>
+                      {new Date(post.data.datePublished).toLocaleDateString('fr-FR', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </time>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h2>{post.data.title}</h2>
+                  <p>{post.data.description}</p>
+                  <div class="card-footer">
+                    <span class="author">Par {post.data.author}</span>
+                    <span class="read-more">Lire l'article →</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+        
+        <div class="blog-about">
+          <h2>Notre blog musical</h2>
+          <div class="blog-about-content">
+            <p>Le blog Musique Facile est un espace pensé pour t'accompagner dans ton parcours musical, quel que soit ton niveau ou ton instrument. Tu y trouveras des articles pour apprendre la guitare, le piano ou l'ukulélé, mais aussi des réflexions sur l'apprentissage, des portraits d'artistes, des méthodes pour mieux t'entraîner et progresser. Que tu sois autodidacte, élève, parent ou simple amateur, chaque article t'apporte des idées concrètes, motivantes et faciles à mettre en pratique. La musique est une aventure : ce blog est là pour t'inspirer à chaque étape.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .blog-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/blog/hero.webp');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 100%);
+    z-index: 1;
+  }
+
+  .blog-hero .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .blog-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    animation: fadeIn 0.6s ease-in-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .blog-content {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .sort-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .sort-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    background: white;
+    color: var(--color-dark);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .sort-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .sort-btn.active {
+    background: var(--theme-current);
+    color: white;
+  }
+
+  .sort-icon {
+    font-size: 1.2rem;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .blog-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    font-size: 0.9rem;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .card-content h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+    line-height: 1.4;
+  }
+
+  .card-content p {
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    flex: 1;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+  }
+
+  .author {
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+  }
+
+  .read-more {
+    color: var(--theme-current);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+  }
+
+  .blog-card:hover .read-more {
+    transform: translateX(5px);
+  }
+
+  /* Section blog-about : un texte enrichi en SEO en bas de page */
+  .blog-about {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    margin-top: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .blog-about h2 {
+    color: var(--theme-current);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .blog-about-content p {
+    color: var(--color-dark);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 1200px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .blog-hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sort-controls {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .blog-about {
+      padding: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .blog-hero h1 {
+      font-size: 2rem;
+    }
+    
+    .subtitle {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  // Gestion du tri des articles avec animation
+  document.addEventListener('DOMContentLoaded', () => {
+    const sortBtns = document.querySelectorAll('.sort-btn');
+    const blogGrid = document.querySelector('.blog-grid');
+
+    if (!blogGrid) return;
+
+    sortBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Mise à jour des classes active
+        sortBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Récupération des articles
+        const articles = Array.from(blogGrid.children);
+        
+        // Animation de fade out
+        articles.forEach(article => {
+          article.style.opacity = '0';
+          article.style.transform = 'translateY(20px)';
+        });
+
+        // Tri des articles
+        setTimeout(() => {
+          articles.sort((a, b) => {
+            const dateA = new Date(a.querySelector('time').dateTime);
+            const dateB = new Date(b.querySelector('time').dateTime);
+            
+            return btn.dataset.sort === 'latest' 
+              ? dateB - dateA 
+              : dateA - dateB;
+          });
+
+          // Réinsertion des articles triés avec animation
+          articles.forEach((article, index) => {
+            setTimeout(() => {
+              blogGrid.appendChild(article);
+              article.style.opacity = '1';
+              article.style.transform = 'translateY(0)';
+            }, index * 100);
+          });
+        }, 300);
+      });
+    });
+  });
+</script>

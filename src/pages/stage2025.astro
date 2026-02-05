@@ -1,0 +1,945 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Construction de l'URL canonique
+const canonicalURL = new URL('/stage2025', Astro.site || 'https://musique-facile.fr').toString();
+
+// Métadonnées pour la page
+const title = "Stage Ukulélé Cannes Juillet 2025 – Enfants & Adultes";
+const description = "Participe à un stage d'ukulélé du 7 au 11 juillet à la MJC Picaud (Cannes) avec Fred et Christophe. Enfants et adultes – débutants bienvenus !";
+const ogImage = "/images/stage2024ukulele.webp";
+
+// Construction du schema.org
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Stage d'Ukulélé à Cannes – Enfants & Adultes",
+  "description": "Un stage d'initiation ou de perfectionnement à l'ukulélé dans un cadre estival et motivant ! Deux formateurs passionnés, des groupes à taille humaine, et une progression garantie, même si tu débutes complètement !",
+  "startDate": "2025-07-07T09:00:00+02:00",
+  "endDate": "2025-07-11T16:00:00+02:00",
+  "location": {
+    "@type": "Place",
+    "name": "MJC Picaud",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cannes",
+      "addressRegion": "PACA",
+      "addressCountry": "FR"
+    }
+  },
+  "image": `https://musique-facile.fr${ogImage}`,
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Tarif adulte plein",
+      "price": "150",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2025-01-01"
+    },
+    {
+      "@type": "Offer",
+      "name": "Tarif adulte adhérent MJC",
+      "price": "130",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2025-01-01"
+    },
+    {
+      "@type": "Offer",
+      "name": "Tarif enfant plein",
+      "price": "110",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2025-01-01"
+    },
+    {
+      "@type": "Offer",
+      "name": "Tarif enfant adhérent MJC",
+      "price": "100",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2025-01-01"
+    }
+  ],
+  "performer": [
+    {
+      "@type": "Person",
+      "name": "Fred Fieffé"
+    },
+    {
+      "@type": "Person",
+      "name": "Christophe Damay"
+    }
+  ],
+  "organizer": {
+    "@type": "Organization",
+    "name": "Musique Facile",
+    "url": "https://musique-facile.fr"
+  }
+};
+
+// FAQ pour schema.org
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Faut-il avoir déjà fait de la musique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, ce stage est parfait pour débuter !"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Et si je suis adulte ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aucun souci ! Il y a deux groupes distincts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dois-je venir toute la semaine ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, c'est un stage progressif, chaque jour compte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Et si je n'ai pas d'ukulélé ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On peut t'en prêter un gratuitement (sur réservation)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que c'est ludique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Carrément. On apprend en s'amusant, dans une super ambiance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le stage est-il adapté à tous les niveaux ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, le stage est ouvert à tous les niveaux. Les débutants sont les bienvenus, mais aussi ceux qui savent déjà jouer. Des groupes seront créés afin que chacun puisse travailler à son niveau. Des moments tous ensemble seront également organisés pour favoriser le partage et l'apprentissage collaboratif."
+      }
+    }
+  ]
+};
+---
+
+<Layout title={title}>
+  <head>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="stage ukulélé, cours ukulélé Cannes, apprendre ukulélé, stage musique été, ukulélé débutant, stage enfants ukulélé, stage adultes ukulélé" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`https://musique-facile.fr${ogImage}`} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={`https://musique-facile.fr${ogImage}`} />
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </head>
+  
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-background">
+        <div class="gradient-overlay"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Stage d'Ukulélé à Cannes – Enfants & Adultes</h1>
+          <p class="hero-subtitle">Du 7 au 11 juillet 2025 – À la MJC Picaud – Pour débutants & intermédiaires</p>
+          <a href="#contact" class="btn btn-primary btn-lg">
+            Je veux en savoir plus
+            <span class="arrow">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Présentation du stage -->
+    <section class="presentation" id="presentation">
+      <div class="container">
+        <div class="presentation-content">
+          <h2 class="section-title">Un stage pour tous les niveaux</h2>
+          
+          <p class="intro-text">
+            Un stage d'initiation ou de perfectionnement à l'ukulélé dans un cadre estival et motivant !
+            Deux formateurs passionnés, des groupes à taille humaine, et une progression garantie, même si tu débutes complètement !
+          </p>
+          
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="info-icon">📍</div>
+              <h3>Lieu</h3>
+              <p>MJC Picaud, Cannes (06)</p>
+              <p>1 Av. Jean de Lattre de Tassigny</p>
+            </div>
+            
+            <div class="info-card">
+              <div class="info-icon">👶 👨‍🦰</div>
+              <h3>Public</h3>
+              <p>Enfants (à partir de 7 ans), ados et adultes</p>
+            </div>
+            
+            <div class="info-card">
+              <div class="info-icon">🎯</div>
+              <h3>Niveau</h3>
+              <p>Débutant / intermédiaire</p>
+            </div>
+            
+            <div class="info-card">
+              <div class="info-icon">👨‍🏫</div>
+              <h3>Encadrants</h3>
+              <p>Fred de Musique Facile & Christophe Damay</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Horaires & Tarifs -->
+    <section class="schedule-pricing" id="tarifs">
+      <div class="container">
+        <h2 class="section-title">Horaires & Tarifs</h2>
+        
+        <div class="table-responsive">
+          <table class="pricing-table">
+            <thead>
+              <tr>
+                <th>Public</th>
+                <th>Horaires</th>
+                <th>Tarif plein</th>
+                <th>Tarif adhérent MJC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ado / Adulte</td>
+                <td>9h - 12h</td>
+                <td>150€</td>
+                <td>130€</td>
+              </tr>
+              <tr>
+                <td>Enfant</td>
+                <td>14h - 16h</td>
+                <td>110€</td>
+                <td>100€</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Programme type -->
+    <section class="program" id="programme">
+      <div class="container">
+        <h2 class="section-title">Programme type</h2>
+        
+        <div class="program-content">
+          <div class="program-card">
+            <p class="program-intro">
+              Durant cette semaine de stage, vous bénéficierez d'un programme complet et varié, adapté à votre niveau. Chaque journée est structurée pour favoriser l'apprentissage tout en maintenant une ambiance détendue et conviviale.
+            </p>
+            
+            <h3>Chaque jour, des activités variées :</h3>
+            
+            <ul class="program-list">
+              <li>
+                <strong>🎵 Échauffements rythmiques et jeux d'écoute</strong> - Développez votre sens musical et votre coordination à travers des exercices ludiques et accessibles.
+              </li>
+              <li>
+                <strong>🎸 Apprentissage progressif d'accords et de rythmiques</strong> - Maîtrisez les techniques fondamentales avec des méthodes adaptées à votre niveau, faciles à mémoriser et à reproduire.
+              </li>
+              <li>
+                <strong>🎤 Chansons simples en petits groupes</strong> - Mettez en pratique vos acquis dans une ambiance collaborative et bienveillante, avec un répertoire adapté à tous les niveaux.
+              </li>
+              <li>
+                <strong>👨‍🏫 Conseils personnalisés</strong> - Bénéficiez d'un suivi individualisé pour améliorer votre technique et surmonter vos difficultés spécifiques.
+              </li>
+              <li>
+                <strong>🎹 Essai de différents modèles d'ukulélés</strong> - Découvrez les différentes sonorités et caractéristiques des ukulélés (soprano, concert, ténor) pour trouver l'instrument qui vous correspond le mieux.
+              </li>
+              <li>
+                <strong>🎉 Moments de partage musical</strong> - Profitez d'une ambiance décontractée et bienveillante pour jouer ensemble et créer des souvenirs musicaux inoubliables.
+              </li>
+            </ul>
+            
+            <p class="program-conclusion">
+              Notre approche pédagogique est basée sur le plaisir et la progression. Vous serez surpris de vos progrès en seulement quelques jours, même si vous n'avez jamais touché un instrument auparavant !
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Infos pratiques -->
+    <section class="practical-info" id="infos">
+      <div class="container">
+        <h2 class="section-title">Infos pratiques</h2>
+        
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-icon">🎸</div>
+            <h3>Instruments</h3>
+            <p>Prêt possible sur demande (à préciser dans le formulaire)</p>
+          </div>
+          
+          <div class="info-card">
+            <div class="info-icon">🎒</div>
+            <h3>Matériel à prévoir</h3>
+            <p>Ukulélé si tu en as, carnet, bouteille d'eau</p>
+          </div>
+          
+          <div class="info-card">
+            <div class="info-icon">🚗</div>
+            <h3>Parking & accès</h3>
+            <p>Parking à proximité, accessible en bus et train</p>
+          </div>
+          
+          <div class="info-card">
+            <div class="info-icon">🍽️</div>
+            <h3>Restauration</h3>
+            <p>Non incluse – restaurants et snacks à proximité</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2 class="section-title">Questions fréquentes</h2>
+        
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Faut-il avoir déjà fait de la musique ?</h3>
+            </div>
+            <div class="answer">
+              <p>Non, ce stage est parfait pour débuter !</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Et si je suis adulte ?</h3>
+            </div>
+            <div class="answer">
+              <p>Aucun souci ! Il y a deux groupes distincts.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Dois-je venir toute la semaine ?</h3>
+            </div>
+            <div class="answer">
+              <p>Oui, c'est un stage progressif, chaque jour compte.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Et si je n'ai pas d'ukulélé ?</h3>
+            </div>
+            <div class="answer">
+              <p>On peut t'en prêter un gratuitement (sur réservation).</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Est-ce que c'est ludique ?</h3>
+            </div>
+            <div class="answer">
+              <p>Carrément. On apprend en s'amusant, dans une super ambiance.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Le stage est-il adapté à tous les niveaux ?</h3>
+            </div>
+            <div class="answer">
+              <p>Oui, le stage est ouvert à tous les niveaux. Les débutants sont les bienvenus, mais aussi ceux qui savent déjà jouer. Des groupes seront créés afin que chacun puisse travailler à son niveau. Des moments tous ensemble seront également organisés pour favoriser le partage et l'apprentissage collaboratif.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact / Email -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact & Inscription</h2>
+        
+        <div class="contact-content">
+          <div class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <h3>Pour toute question ou inscription</h3>
+            <p>Envoyez-nous un email avec vos coordonnées et précisez si vous avez besoin d'un prêt d'ukulélé.</p>
+            <a href="mailto:contact@musique-facile.fr" class="email-button">
+              contact@musique-facile.fr
+            </a>
+            <p class="contact-details">
+              Merci de préciser dans votre email :
+            </p>
+            <ul class="contact-list">
+              <li>Votre nom et prénom</li>
+              <li>Votre numéro de téléphone</li>
+              <li>Si vous souhaitez réserver une place</li>
+              <li>Si vous avez besoin d'un ukulélé (prêt gratuit)</li>
+              <li>Toute question spécifique que vous pourriez avoir</li>
+            </ul>
+            <p class="response-time">
+              Nous vous répondrons dans les plus brefs délais, généralement sous 24-48h.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA final -->
+    <section class="final-cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Prêt à vivre une semaine musicale inoubliable ?</h2>
+          <a href="#contact" class="btn btn-primary btn-lg">
+            Je veux réserver ma place
+            <span class="arrow">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url('/images/stage2024ukulele.webp');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(239, 181, 4, 0.8) 0%, rgba(239, 181, 4, 0.6) 100%);
+  }
+
+  .hero-content {
+    max-width: 800px;
+    padding: 2rem;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    animation: fadeInUp 0.8s ease forwards;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    animation: fadeInUp 0.8s ease forwards 0.2s;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    color: var(--theme-ukulele);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-lg {
+    font-size: 1.2rem;
+    padding: 1.2rem 2.5rem;
+  }
+
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .btn:hover .arrow {
+    transform: translateY(3px);
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Présentation Section */
+  .presentation {
+    padding: 6rem 0;
+    background: var(--bg-light);
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--theme-ukulele);
+  }
+
+  .intro-text {
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+    color: var(--color-dark);
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .info-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--theme-ukulele);
+  }
+
+  .info-card p {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Horaires & Tarifs */
+  .schedule-pricing {
+    padding: 6rem 0;
+    background: white;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .pricing-table th {
+    background: var(--theme-ukulele);
+    color: white;
+    padding: 1.2rem;
+    text-align: left;
+  }
+
+  .pricing-table td {
+    padding: 1.2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .pricing-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .pricing-table tr:hover td {
+    background: rgba(239, 181, 4, 0.05);
+  }
+
+  /* Programme */
+  .program {
+    padding: 6rem 0;
+    background: var(--bg-light);
+  }
+
+  .program-card {
+    background: white;
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .program-intro {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--color-dark);
+    line-height: 1.8;
+  }
+
+  .program-card h3 {
+    font-size: 1.5rem;
+    color: var(--theme-ukulele);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--theme-ukulele);
+    padding-bottom: 0.5rem;
+  }
+
+  .program-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+  }
+
+  .program-list li {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .program-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--theme-ukulele);
+    font-size: 1.5rem;
+  }
+
+  .program-list li strong {
+    color: var(--theme-ukulele);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .program-conclusion {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--color-dark);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  /* Infos pratiques */
+  .practical-info {
+    padding: 6rem 0;
+    background: white;
+  }
+
+  /* FAQ */
+  .faq {
+    padding: 6rem 0;
+    background: var(--bg-light);
+  }
+
+  .faq-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+
+  .question-wrapper {
+    margin-bottom: 1rem;
+  }
+
+  .question-wrapper h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--theme-ukulele);
+    font-weight: 600;
+  }
+
+  .answer p {
+    margin: 0;
+    color: var(--color-dark);
+    line-height: 1.6;
+  }
+
+  /* Contact */
+  .contact {
+    padding: 6rem 0;
+    background: white;
+  }
+
+  .contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .contact-card {
+    background: var(--bg-light);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .contact-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--theme-ukulele);
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+
+  .contact-card h3 {
+    font-size: 1.8rem;
+    color: var(--theme-ukulele);
+    margin-bottom: 1rem;
+  }
+
+  .contact-card p {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .email-button {
+    display: inline-block;
+    background: var(--theme-ukulele);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .email-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-details {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+  }
+
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    text-align: left;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .contact-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--theme-ukulele);
+  }
+
+  .response-time {
+    font-style: italic;
+    color: var(--color-dark);
+    opacity: 0.8;
+  }
+
+  /* CTA Final */
+  .final-cta {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--theme-ukulele) 0%, var(--theme-ukulele-dark) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: white;
+  }
+
+  .final-cta .btn {
+    background: white;
+    color: var(--theme-ukulele);
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 1200px) {
+    .info-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 800px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 70vh;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .pricing-table th,
+    .pricing-table td {
+      padding: 0.8rem;
+    }
+
+    .program-card {
+      padding: 1.5rem;
+    }
+
+    .contact-card {
+      padding: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-content {
+      padding: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+    }
+
+    .btn-lg {
+      width: 100%;
+    }
+  }
+</style>

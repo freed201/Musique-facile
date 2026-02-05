@@ -1,0 +1,909 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+
+// Construction de l'URL canonique
+const canonicalURL = new URL('/pack-vacances-ukulele', Astro.site || 'https://musique-facile.fr').toString();
+
+// Métadonnées pour la page
+const title = "Offre Spéciale Été – Pack Vacances Ukulélé | Musique Facile";
+const description = "Offrez à votre classe un nouvel élan musical dès la rentrée, avec une méthode clé en main et ultra-accessible pour TOUS les enseignants, même débutants.";
+const ogImage = "/images/pack-vacances-ukulele.webp";
+
+// Construction du schema.org
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Pack Vacances Ukulélé",
+  "description": "Offrez à votre classe un nouvel élan musical dès la rentrée, avec une méthode clé en main et ultra-accessible pour TOUS les enseignants, même débutants.",
+  "image": `https://musique-facile.fr${ogImage}`,
+  "offers": {
+    "@type": "Offer",
+    "price": "45.00",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "url": canonicalURL
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "Musique Facile"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Marie, enseignante en primaire"
+    },
+    "reviewBody": "Je fais un peu de musique tous les matins avec mes élèves et ils adorent ! Alors que je ne connaissais rien il y a quelques mois."
+  }
+};
+
+// FAQ Schema pour la page
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Je n'ai jamais joué de musique, est-ce adapté ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, c'est conçu pour les vrais débutants, aucune base musicale nécessaire !"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand vais-je recevoir mon pack ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vous recevez l'accès à la formation et les PDF des livres sous 24h par email."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je l'utiliser avec des élèves en maternelle ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, le contenu est adapté de la PS au CM2."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Je veux un conseil pour choisir un ukulélé, comment faire ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Envoyez-moi un mail à contact@musique-facile.fr, je vous réponds sous 24h avec une liste de modèles recommandés."
+      }
+    }
+  ]
+};
+---
+
+<Layout title={title}>
+  <head>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="ukulélé enseignants, pack ukulélé école, méthode ukulélé primaire, ukulélé maternelle, musique école primaire, atelier ukulélé classe" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`https://musique-facile.fr${ogImage}`} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={`https://musique-facile.fr${ogImage}`} />
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </head>
+  
+  <Header />
+  
+  <main>
+    <!-- Fil d'Ariane -->
+    <BreadcrumbNav 
+      items={[
+        { name: "Accueil", url: "/" },
+        { name: "Pack Vacances Ukulélé", url: "/pack-vacances-ukulele" }
+      ]}
+    />
+    
+    <!-- Hero Section -->
+    <section class="hero theme-ukulele">
+      <div class="hero-background">
+        <div class="gradient-overlay"></div>
+        <div class="pattern-overlay"></div>
+      </div>
+      <div class="container">
+        <div class="limited-offer-badge">
+          <span class="badge-icon">⏰</span>
+          Réservé aux enseignants – Offre limitée été 2025
+        </div>
+        
+        <h1>Offre Spéciale Été – Pack Vacances Ukulélé 🎶</h1>
+        <p class="hero-subtitle">Offrez à votre classe un nouvel élan musical dès la rentrée, avec une méthode clé en main et ultra-accessible pour TOUS les enseignants, même débutants.</p>
+        
+        <a href="https://www.paypal.com/ncp/payment/NYDULKUVJBSH6" class="cta-button" target="_blank">
+          Commander le Pack Vacances Ukulélé – 45 €
+        </a>
+      </div>
+    </section>
+    
+    <!-- Bénéfices Section -->
+    <section class="benefits">
+      <div class="container">
+        <h2 class="section-title">Pourquoi choisir ce pack ?</h2>
+        
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">🎯</div>
+            <h3>Facile à prendre en main</h3>
+            <p>Même si vous n'avez jamais joué d'un instrument, vous allez réussir !</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">🏆</div>
+            <h3>Méthode approuvée</h3>
+            <p>Déjà utilisée par des centaines de professeurs dans toute la France.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">🗓️</div>
+            <h3>Utilisable dès la rentrée</h3>
+            <p>Préparez-vous cet été, lancez votre projet musique dès septembre.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contenu du Pack -->
+    <section class="pack-content">
+      <div class="container">
+        <h2 class="section-title">Ce que contient le pack</h2>
+        
+        <div class="content-grid">
+          <div class="content-item">
+            <div class="content-icon">📘</div>
+            <h3>Livre "Les plus belles comptines avec mon ukulélé"</h3>
+            <p>Un recueil de comptines populaires adaptées pour le ukulélé, avec tablatures et accords simplifiés. Le pack d'apprentissage vidéo est fourni avec le livre, pour apprendre à jouer facilement ces comptines.</p>
+            <div class="comptines-list">
+              <h4>Liste des comptines incluses :</h4>
+              <ul>
+                <li>Une fourmi</li>
+                <li>Une souris verte</li>
+                <li>Les petits poissons</li>
+                <li>Do do l'enfant do</li>
+                <li>Une poule sur un mur</li>
+                <li>Petit Escargot</li>
+                <li>Au feu les pompiers</li>
+                <li>Un éléphant</li>
+                <li>C'est la baleine</li>
+                <li>Le rock-n roll des gallinacés</li>
+                <li>Ah les Crococos</li>
+                <li>Fais dodo</li>
+                <li>Dans la ferme de Mathurin</li>
+                <li>J'fais pipi</li>
+                <li>Le grand cerf</li>
+                <li>Alouette, gentille alouette</li>
+                <li>Ainsi font font font</li>
+                <li>Tourne tourne</li>
+                <li>Dans la forêt lointaine</li>
+                <li>C'est Gugusse</li>
+              </ul>
+            </div>
+            <a href="https://musique-facile.fr/livres/les-plus-belles-comptines-ukulele-1/" class="content-link" target="_blank">
+              Voir le livre
+              <span class="arrow">→</span>
+            </a>
+          </div>
+          
+          <div class="content-item">
+            <div class="content-icon">📚</div>
+            <h3>Livre d'histoires à raconter avec un ukulélé</h3>
+            <p>Des histoires captivantes pour les enfants, accompagnées de musique simple à jouer au ukulélé.</p>
+            <a href="https://musique-facile.fr/livres/kaili-et-son-ukulele/" class="content-link" target="_blank">
+              Voir le livre d'histoires
+              <span class="arrow">→</span>
+            </a>
+          </div>
+          
+          <div class="content-item">
+            <div class="content-icon">🎥</div>
+            <h3>Accès à la formation vidéo "8 semaines pour débuter"</h3>
+            <p>Une formation complète en vidéo pour apprendre le ukulélé pas à pas, même sans expérience musicale.</p>
+            <a href="https://musique-facile.fr/cours/apprendre-ukulele-debutant/" class="content-link" target="_blank">
+              Voir la formation
+              <span class="arrow">→</span>
+            </a>
+          </div>
+          
+          <div class="content-item">
+            <div class="content-icon">💌</div>
+            <h3>Conseils personnalisés par email</h3>
+            <p>Si besoin, je vous aide à choisir votre ukulélé ou à lancer votre atelier.</p>
+            <a href="mailto:contact@musique-facile.fr" class="content-link">
+              Me contacter
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="price-tag">
+          <span class="price-label">Prix du pack :</span>
+          <span class="price-value">45 € TTC</span>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Témoignages -->
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="section-title">Ce qu'en disent les enseignants</h2>
+        
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">Je fais un peu de musique tous les matins avec mes élèves et ils adorent ! Alors que je ne connaissais rien il y a quelques mois.</p>
+          <div class="testimonial-author">
+            <em>- Marie, enseignante en primaire</em>
+          </div>
+        </div>
+        
+        <p class="social-proof">Outil déjà utilisé dans des dizaines d'écoles maternelles et élémentaires.</p>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section" id="acheter">
+      <div class="container">
+        <h2>Prêt à lancer votre projet musical ?</h2>
+        <a href="https://www.paypal.com/ncp/payment/NYDULKUVJBSH6" class="cta-button" target="_blank">
+          Commander le Pack Vacances Ukulélé – 45 €
+        </a>
+        <p class="cta-note">Paiement sécurisé par PayPal</p>
+      </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title">Questions fréquentes</h2>
+        
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Je n'ai jamais joué de musique, est-ce adapté ?</h3>
+            <p>Oui, c'est conçu pour les vrais débutants, aucune base musicale nécessaire !</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>Quand vais-je recevoir mon pack ?</h3>
+            <p>Vous recevez l'accès à la formation et les PDF des livres sous 24h par email.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>Puis-je l'utiliser avec des élèves en maternelle ?</h3>
+            <p>Oui, le contenu est adapté de la PS au CM2.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>Je veux un conseil pour choisir un ukulélé, comment faire ?</h3>
+            <p>Envoyez-moi un mail à <a href="mailto:contact@musique-facile.fr">contact@musique-facile.fr</a>, je vous réponds sous 24h avec une liste de modèles recommandés.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+      <div class="container">
+        <div class="badges-grid">
+          <div class="badge-item">
+            <div class="badge-icon">✅</div>
+            <p>Satisfait ou remboursé sous 14 jours</p>
+          </div>
+          
+          <div class="badge-item">
+            <div class="badge-icon">📧</div>
+            <p>Livraison rapide par email</p>
+          </div>
+          
+          <div class="badge-item">
+            <div class="badge-icon">💬</div>
+            <p>Support réactif par email : <a href="mailto:contact@musique-facile.fr">contact@musique-facile.fr</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Sticky Mobile CTA -->
+    <div class="mobile-cta">
+      <a href="https://www.paypal.com/ncp/payment/NYDULKUVJBSH6" class="mobile-cta-button" target="_blank">
+        Commander maintenant – 45 €
+      </a>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    padding: 8rem 0 4rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+      var(--theme-ukulele) 0%,
+      var(--theme-ukulele-dark) 100%
+    );
+    opacity: 0.9;
+    z-index: -1;
+  }
+
+  .pattern-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  .limited-offer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .badge-icon {
+    font-size: 1.2rem;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background: white;
+    color: var(--theme-ukulele);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Section Titles */
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--theme-ukulele);
+  }
+  
+  /* Benefits Section */
+  .benefits {
+    padding: 6rem 0;
+    background: var(--bg-light);
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .benefit-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--theme-ukulele);
+  }
+  
+  .benefit-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--theme-ukulele);
+  }
+  
+  .benefit-card p {
+    color: var(--color-dark);
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+  
+  /* Pack Content Section */
+  .pack-content {
+    padding: 6rem 0;
+    background: white;
+  }
+  
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+  
+  .content-item {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .content-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--theme-ukulele);
+  }
+  
+  .content-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--theme-ukulele);
+  }
+  
+  .content-item p {
+    color: var(--color-dark);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+    flex: 1;
+  }
+  
+  .comptines-list {
+    background: rgba(var(--theme-ukulele-rgb), 0.05);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+  }
+  
+  .comptines-list h4 {
+    color: var(--theme-ukulele);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .comptines-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    columns: 2;
+    column-gap: 1.5rem;
+  }
+  
+  .comptines-list li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+    break-inside: avoid;
+  }
+  
+  .comptines-list li::before {
+    content: '🎵';
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+  }
+  
+  .content-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--theme-ukulele);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: auto;
+  }
+  
+  .content-link:hover {
+    color: var(--theme-ukulele-dark);
+  }
+  
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+  
+  .content-link:hover .arrow {
+    transform: translateX(5px);
+  }
+  
+  .price-tag {
+    text-align: center;
+    margin-top: 3rem;
+    background: var(--bg-light);
+    padding: 1.5rem 3rem;
+    border-radius: var(--border-radius);
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .price-label {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    margin-right: 1rem;
+    opacity: 0.8;
+  }
+  
+  .price-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--theme-ukulele);
+  }
+  
+  /* Testimonials Section */
+  .testimonials {
+    padding: 6rem 0;
+    background: var(--bg-light);
+  }
+  
+  .testimonial-card {
+    background: white;
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .quote-icon {
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    font-size: 4rem;
+    color: var(--theme-ukulele);
+    opacity: 0.2;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+  
+  .testimonial-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: var(--color-dark);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .testimonial-author {
+    text-align: right;
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+  }
+  
+  .social-proof {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    background: rgba(var(--theme-ukulele-rgb), 0.1);
+    border-radius: 50px;
+    border: 1px solid rgba(var(--theme-ukulele-rgb), 0.3);
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--theme-ukulele) 0%, var(--theme-ukulele-dark) 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+  }
+  
+  .cta-section h2 {
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cta-section .cta-button {
+    background: white;
+    color: var(--theme-ukulele);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cta-section .cta-button:hover {
+    background: #f8fafc;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .cta-note {
+    margin-top: 1rem;
+    font-size: 1rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* FAQ Section */
+  .faq-section {
+    padding: 6rem 0;
+    background: var(--bg-light);
+  }
+  
+  .faq-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .faq-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .faq-item h3 {
+    font-size: 1.2rem;
+    color: var(--theme-ukulele);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .faq-item p {
+    color: var(--color-dark);
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.8;
+  }
+  
+  .faq-item a {
+    color: var(--theme-ukulele);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .faq-item a:hover {
+    color: var(--theme-ukulele-dark);
+    text-decoration: underline;
+  }
+  
+  /* Trust Badges */
+  .trust-badges {
+    padding: 4rem 0;
+    background: white;
+  }
+  
+  .badges-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .badge-item {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    background: var(--bg-light);
+    transition: all 0.3s ease;
+  }
+  
+  .badge-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .badge-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--theme-ukulele);
+  }
+  
+  .badge-item p {
+    color: var(--color-dark);
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.8;
+  }
+  
+  .badge-item a {
+    color: var(--theme-ukulele);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .badge-item a:hover {
+    color: var(--theme-ukulele-dark);
+    text-decoration: underline;
+  }
+  
+  /* Mobile CTA */
+  .mobile-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    text-align: center;
+  }
+  
+  .mobile-cta-button {
+    display: inline-block;
+    background: var(--theme-ukulele);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 600;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .benefits-grid,
+    .badges-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .comptines-list ul {
+      columns: 1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+    
+    .benefits-grid,
+    .content-grid,
+    .badges-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .testimonial-card {
+      padding: 2rem;
+    }
+    
+    .testimonial-text {
+      font-size: 1.1rem;
+    }
+    
+    .cta-button {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .mobile-cta {
+      display: block;
+    }
+    
+    /* Add padding to the bottom to account for the fixed CTA */
+    main {
+      padding-bottom: 80px;
+    }
+  }
+</style>

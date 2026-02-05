@@ -1,20 +1,19 @@
 ---
-title: "J'veux du Soleil : Hymne lumineux d'Au P'tit Bonheur"
-description: "Plongez dans 'J'veux du Soleil', un classique joyeux des années 90, et découvrez comment l'apprendre facilement à la guitare."
+title: "J'veux du Soleil - Tutoriel Guitare Facile"
+description: "J'veux du Soleil (Au P'tit Bonheur) à la guitare : 3 accords simples, hymne pop des années 90. Tutoriel vidéo débutants."
 ogImage: "/images/blog/tutoriel-jveux-du-soleil-chanson-francaise.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-02-03"
+dateModified: "2026-02-04"
 introduction: "Avec 'J'veux du Soleil', Au P'tit Bonheur a marqué les années 90 avec une chanson joyeuse et intemporelle. Découvrez l'histoire et apprenez à jouer ce morceau lumineux."
 
 songInfo:
   inBook: true
-  bookPage: "34"
-  tempo: "108"
-  chordCount: "3"
-  key: ""
+  bookPage: 34
+  tempo: 108
+  chordCount: 3
   difficulty: "3/5"
 
 videos:
@@ -31,12 +30,15 @@ conclusion: |
   En fin de compte, "J'veux du Soleil" n'est pas seulement un retour aux sons joyeux de son époque, mais aussi une invitation à découvrir la musique sous un angle rafraîchissant et libérateur. Que tu sois sur le point d'isoler des accords dans ta chambre ou de le jouer lors d'une promenade en plein air, ce morceau est un rappel vivant que la musique, à son essence la plus pure, est un partage de joie. <br><br>Alors, pourquoi ne pas accorder ta guitare et t’immerger dans cet hymne lumineux ? N'oublie pas de partager cette lumière avec ceux qui t'entourent, car après tout, un peu de soleil dans la vie de chacun ne fait jamais de mal.
 
 relatedLinks:
-  - title: "Les classiques de la chanson française des années 90"
-    url: "/articles/classiques-chanson-francaise-90"
-    description: "Découvrez les morceaux les plus marquants des années 90 en France."
-  - title: "L'histoire d'Au P'tit Bonheur et de 'J'veux du Soleil'"
-    url: "/articles/au-ptit-bonheur-histoire"
-    description: "Explorez le parcours du groupe et l'impact de leur chanson culte."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour débuter avec les classiques français."
+  - title: "Foule Sentimentale - Alain Souchon"
+    url: "/blog/tutoriel-foule-sentimentale-chanson"
+    description: "Un autre classique de la chanson française des années 90."
+  - title: "L'Opportuniste - Jacques Dutronc"
+    url: "/blog/jouer-lopportuniste-dutronc-guitare"
+    description: "Une chanson française satirique et accessible."
 ---
 
 ## Le Contexte Ironique et Joyeux de "J'veux du Soleil"

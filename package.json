@@ -9,15 +9,27 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "generate-sitemap": "tsc -p tsconfig.sitemap.json && node dist/scripts/generate-sitemap.js"
+    "generate-sitemap": "tsc -p tsconfig.sitemap.json && node dist/scripts/generate-sitemap.js",
+    "optimize-images": "node scripts/convert-to-webp.js",
+    "build:prod": "astro build && npm run analyze:bundle",
+    "analyze:bundle": "du -sh dist && echo '\n📦 Bundle size:' && find dist -name '*.js' -type f -exec du -h {} + | sort -rh | head -10"
   },
   "dependencies": {
+    "@fontsource/poppins": "^5.0.17",
+    "@fontsource/raleway": "^5.0.17",
     "astro": "^4.15.3",
-    "@fontsource/poppins": "^5.0.8",
-    "@fontsource/raleway": "^5.0.8"
+    "image-size": "^2.0.2",
+    "rehype-stringify": "^9.0.3",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "unified": "^10.1.0"
   },
   "devDependencies": {
+    "@types/node": "^20.11.0",
+    "astro-compress": "^2.3.9",
+    "sharp": "^0.34.4",
+    "terser": "^5.44.0",
     "typescript": "^5.0.0",
-    "@types/node": "^20.11.0"
+    "unist-util-visit": "^5.0.0"
   }
 }

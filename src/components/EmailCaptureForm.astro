@@ -1,0 +1,332 @@
+---
+interface Props {
+  ressourceTitle: string;
+  instrument: 'guitare' | 'piano' | 'ukulele';
+  resourceId?: string;
+}
+
+const { ressourceTitle, instrument, resourceId = `dl_${instrument}_guide_deb` } = Astro.props;
+
+// Fonction pour obtenir la classe de thème basée sur l'instrument
+function getThemeClass(instrument: string) {
+  switch(instrument) {
+    case 'guitare': return 'theme-guitar';
+    case 'piano': return 'theme-piano';
+    case 'ukulele': return 'theme-ukulele';
+    default: return 'theme-main';
+  }
+}
+
+const themeClass = getThemeClass(instrument);
+---
+
+<div class={`email-capture-form ${themeClass}`}>
+  <div class="form-header">
+    <h3>Télécharge cette ressource gratuitement</h3>
+    <p>Remplis le formulaire ci-dessous pour recevoir <strong>"{ressourceTitle}"</strong> directement dans ta boîte mail.</p>
+  </div>
+
+  <form id="email-form" action="/api/download" method="POST" class="form-content">
+    <div class="form-group">
+      <label for="firstName">Prénom</label>
+      <input type="text" id="firstName" name="firstName" placeholder="Ton prénom" required>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Nom</label>
+      <input type="text" id="lastName" name="lastName" placeholder="Ton nom" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Ton adresse email" required>
+    </div>
+
+    <input type="hidden" name="instrument" value={instrument}>
+    <input type="hidden" name="resourceId" value={resourceId}>
+
+    <div class="form-checkbox">
+      <input type="checkbox" id="consent" name="consent" required>
+      <label for="consent">
+        J'accepte de recevoir des emails de Musique Facile. Je pourrai me désinscrire à tout moment.
+      </label>
+    </div>
+
+    <button type="submit" class="submit-button">
+      <span class="button-text">Télécharger maintenant</span>
+      <span class="button-icon">↓</span>
+    </button>
+
+    <div class="form-footer">
+      <p>🔒 Tes données sont en sécurité. Nous ne spammons jamais.</p>
+    </div>
+  </form>
+  
+  <div id="success-message" class="success-message" style="display: none;">
+    <div class="success-icon">✅</div>
+    <h3>Merci !</h3>
+    <p>Ta ressource a été envoyée à ton adresse email.</p>
+    <p>(Pense à vérifier tes spams, au cas où)</p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('email-form');
+    const successMessage = document.getElementById('success-message');
+    
+    if (form && successMessage) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Simuler l'envoi du formulaire (à remplacer par votre logique d'envoi réelle)
+        setTimeout(() => {
+          form.style.display = 'none';
+          successMessage.style.display = 'block';
+          
+          // Analytique
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'form_submission', {
+              'event_category': 'ressource',
+              'event_label': document.title
+            });
+          }
+        }, 1000);
+      });
+    }
+  });
+</script>
+
+<style>
+  .email-capture-form {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .email-capture-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--theme-current);
+  }
+
+  .theme-guitar::before {
+    background: var(--theme-guitar);
+  }
+
+  .theme-piano::before {
+    background: var(--theme-piano);
+  }
+
+  .theme-ukulele::before {
+    background: var(--theme-ukulele);
+  }
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .form-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--theme-current);
+  }
+
+  .theme-guitar .form-header h3 {
+    color: var(--theme-guitar);
+  }
+
+  .theme-piano .form-header h3 {
+    color: var(--theme-piano);
+  }
+
+  .theme-ukulele .form-header h3 {
+    color: var(--theme-ukulele);
+  }
+
+  .form-header p {
+    color: var(--color-dark);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-dark);
+  }
+
+  .form-group input {
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-group input:focus {
+    outline: none;
+    border-color: var(--theme-current);
+    box-shadow: 0 0 0 2px rgba(var(--theme-current-rgb), 0.2);
+  }
+
+  .theme-guitar .form-group input:focus {
+    border-color: var(--theme-guitar);
+    box-shadow: 0 0 0 2px rgba(var(--theme-guitar-rgb), 0.2);
+  }
+
+  .theme-piano .form-group input:focus {
+    border-color: var(--theme-piano);
+    box-shadow: 0 0 0 2px rgba(var(--theme-piano-rgb), 0.2);
+  }
+
+  .theme-ukulele .form-group input:focus {
+    border-color: var(--theme-ukulele);
+    box-shadow: 0 0 0 2px rgba(var(--theme-ukulele-rgb), 0.2);
+  }
+
+  .form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .form-checkbox input {
+    margin-top: 0.3rem;
+  }
+
+  .form-checkbox label {
+    font-size: 0.85rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    line-height: 1.5;
+  }
+
+  .submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    background: var(--theme-current);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .theme-guitar .submit-button {
+    background: var(--theme-guitar);
+  }
+
+  .theme-piano .submit-button {
+    background: var(--theme-piano);
+  }
+
+  .theme-ukulele .submit-button {
+    background: var(--theme-ukulele);
+  }
+
+  .submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .button-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .submit-button:hover .button-icon {
+    transform: translateY(3px);
+  }
+
+  .form-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-dark);
+    opacity: 0.7;
+  }
+
+  .success-message {
+    text-align: center;
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .success-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: scaleIn 0.5s ease forwards;
+  }
+
+  @keyframes scaleIn {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+  }
+
+  .success-message h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--theme-current);
+  }
+
+  .theme-guitar .success-message h3 {
+    color: var(--theme-guitar);
+  }
+
+  .theme-piano .success-message h3 {
+    color: var(--theme-piano);
+  }
+
+  .theme-ukulele .success-message h3 {
+    color: var(--theme-ukulele);
+  }
+
+  .success-message p {
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .email-capture-form {
+      padding: 1.5rem;
+    }
+
+    .form-header h3 {
+      font-size: 1.3rem;
+    }
+  }
+</style>

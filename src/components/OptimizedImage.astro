@@ -1,0 +1,134 @@
+---
+import { Image } from 'astro:assets';
+
+/**
+ * Composant Image Optimisé pour Musique Facile v2.0
+ * - Utilise le système d'optimisation natif d'Astro
+ * - Génère automatiquement WebP + srcset responsive
+ * - Lazy loading par défaut avec placeholder
+ * - Préserve le ratio d'aspect (évite CLS)
+ * - Optimisation automatique au build
+ */
+
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+  sizes?: string;
+  quality?: number;
+  widths?: number[];
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  loading = 'lazy',
+  class: className = '',
+  sizes = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
+  quality = 80,
+  widths = [320, 640, 768, 1024, 1280, 1536]
+} = Astro.props;
+
+// Déterminer si c'est une image locale ou externe
+const isExternal = src.startsWith('http://') || src.startsWith('https://');
+
+// Générer les largeurs responsive basées sur la largeur originale
+const responsiveWidths = widths.filter(w => w <= width * 2);
+---
+
+{isExternal ? (
+  <!-- Images externes : utiliser img standard avec optimisation manuelle -->
+  <div class={`optimized-image-wrapper ${className}`} style={`aspect-ratio: ${width} / ${height};`}>
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading}
+      decoding="async"
+      fetchpriority={loading === 'eager' ? 'high' : 'auto'}
+      class="optimized-image"
+    />
+  </div>
+) : (
+  <!-- Images locales : utiliser le composant Image d'Astro pour optimisation complète -->
+  <div class={`optimized-image-wrapper ${className}`} style={`aspect-ratio: ${width} / ${height};`}>
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading}
+      decoding="async"
+      quality={quality}
+      widths={responsiveWidths}
+      sizes={sizes}
+      format="webp"
+      class="optimized-image"
+      fetchpriority={loading === 'eager' ? 'high' : 'auto'}
+    />
+  </div>
+)}
+
+<style>
+  .optimized-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .optimized-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    opacity: 1;
+  }
+
+  /* Animation de chargement pour les images lazy */
+  .optimized-image[loading="lazy"]:not([src*=".webp"]):not([src*=".jpg"]):not([src*=".png"]) {
+    opacity: 0;
+  }
+
+  .optimized-image[loading="lazy"].loaded {
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Placeholder pendant le chargement - uniquement pour lazy loading */
+  .optimized-image-wrapper:has(img[loading="lazy"]:not(.loaded))::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      #f0f0f0 25%,
+      #e0e0e0 50%,
+      #f0f0f0 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    z-index: 0;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+</style>

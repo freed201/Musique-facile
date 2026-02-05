@@ -1,0 +1,260 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  author: string;
+  datePublished: string;
+  instrument?: 'guitare' | 'piano' | 'ukulele' | 'solfege';
+}
+
+const { slug, title, description, image, author, datePublished, instrument } = Astro.props;
+
+// Déterminer l'instrument depuis le titre ou le contenu
+function detectInstrument(title: string, description: string): string {
+  const content = `${title} ${description}`.toLowerCase();
+
+  if (content.includes('guitare')) return 'guitare';
+  if (content.includes('piano')) return 'piano';
+  if (content.includes('ukulele') || content.includes('ukulélé')) return 'ukulele';
+  if (content.includes('solfege') || content.includes('solfège')) return 'solfege';
+
+  return 'general';
+}
+
+const detectedInstrument = instrument || detectInstrument(title, description);
+
+// Mapping des instruments
+const instrumentConfig = {
+  guitare: { icon: '🎸', label: 'Guitare', color: '#88be00' },
+  piano: { icon: '🎹', label: 'Piano', color: '#1ca5af' },
+  ukulele: { icon: '🏝️', label: 'Ukulélé', color: '#efb504' },
+  solfege: { icon: '🎼', label: 'Solfège', color: '#be0a00' },
+  general: { icon: '🎵', label: 'Général', color: '#00c28e' }
+};
+
+const config = instrumentConfig[detectedInstrument] || instrumentConfig.general;
+---
+
+<article class="article-card" data-instrument={detectedInstrument}>
+  <a href={`/blog/${slug}`} class="card-link">
+    <div class="card-image" style={`background-image: url(${image})`}>
+      <div class="card-badges">
+        <span class="badge badge-instrument" style={`background-color: ${config.color}`}>
+          {config.icon} {config.label}
+        </span>
+      </div>
+      <div class="card-overlay">
+        <time datetime={datePublished}>
+          {new Date(datePublished).toLocaleDateString('fr-FR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </time>
+      </div>
+    </div>
+
+    <div class="card-content">
+      <h2 class="card-title">{title}</h2>
+      <p class="card-description">{description}</p>
+
+      <div class="card-footer">
+        <span class="card-author">Par {author}</span>
+        <span class="card-read-more">Lire l'article →</span>
+      </div>
+    </div>
+  </a>
+</article>
+
+<style>
+  .article-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .article-card.filtering {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .article-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .card-image {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 100%);
+    transition: opacity 0.3s ease;
+  }
+
+  .article-card:hover .card-image::after {
+    opacity: 0.8;
+  }
+
+  .card-badges {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    transition: transform 0.3s ease;
+  }
+
+  .article-card:hover .badge {
+    transform: scale(1.05);
+  }
+
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    font-size: 0.9rem;
+    z-index: 1;
+    font-weight: 500;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .card-title {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-weight: 700;
+    transition: color 0.3s ease;
+  }
+
+  .article-card:hover .card-title {
+    color: var(--theme-current);
+  }
+
+  .card-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-default);
+    margin-top: auto;
+  }
+
+  .card-author {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .card-read-more {
+    color: var(--theme-current);
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .article-card:hover .card-read-more {
+    transform: translateX(5px);
+  }
+
+  /* Animation d'apparition */
+  @keyframes cardFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .article-card {
+    animation: cardFadeIn 0.5s ease forwards;
+  }
+
+  @media (max-width: 768px) {
+    .card-image {
+      height: 200px;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+    }
+
+    .card-content {
+      padding: 1.25rem;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.75rem;
+    }
+  }
+</style>

@@ -1,0 +1,748 @@
+---
+import Layout from '../layouts/Layout.astro';
+import OptimizedImage from '../components/OptimizedImage.astro';
+
+const title = "À propos de Fred Fieffé et Musique Facile — Professeur de Musique en Ligne";
+const description = "Découvrez Fred Fieffé, professeur de musique certifié avec 15 ans d'expérience. Fondateur de Musique Facile, il a formé plus de 80 000 élèves en guitare, piano, ukulélé et solfège depuis 2015. Élu meilleur formateur Skilleos 2023/2024.";
+
+// Schema.org pour la page About
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "À propos de Fred Fieffé et Musique Facile",
+  "description": description,
+  "url": "https://musique-facile.fr/a-propos",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Fred Fieffé",
+    "jobTitle": "Professeur de Musique Certifié",
+    "description": "Professeur de guitare, piano, ukulélé et solfège avec 15 ans d'expérience dans l'enseignement musical. Fondateur de Musique Facile en 2015, Fred a développé une méthode progressive et pratique qui a formé plus de 80 000 élèves.",
+    "url": "https://musique-facile.fr/a-propos",
+    "image": "https://musique-facile.fr/images/prof/fred.webp",
+    "sameAs": [
+      "https://www.youtube.com/@Musique-Facile",
+      "https://www.tiktok.com/@musique_facile"
+    ],
+    "knowsAbout": [
+      "Enseignement de la guitare",
+      "Enseignement du piano",
+      "Enseignement de l'ukulélé",
+      "Enseignement du solfège",
+      "Formation musicale en ligne",
+      "Pédagogie musicale progressive"
+    ],
+    "award": "Meilleur formateur Skilleos 2023/2024",
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Formation professionnelle d'enseignant de musique"
+    }
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://musique-facile.fr"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "À propos",
+      "item": "https://musique-facile.fr/a-propos"
+    }
+  ]
+};
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <meta name="author" content="Fred Fieffé - Musique Facile">
+    <link rel="canonical" href="https://musique-facile.fr/a-propos">
+    <script type="application/ld+json" set:html={JSON.stringify(aboutPageSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <article class="about-page">
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <ol>
+            <li><a href="/">Accueil</a></li>
+            <li aria-current="page">À propos</li>
+          </ol>
+        </nav>
+
+        <div class="about-hero__grid">
+          <div class="about-hero__content">
+            <span class="badge">À propos</span>
+            <h1>Fred Fieffé : Professeur de Musique Passionné depuis 15 ans</h1>
+            <p class="lead">Fondateur de <strong>Musique Facile</strong>, Fred Fieffé est un professeur de musique certifié qui a développé une méthode unique pour rendre l'apprentissage de la guitare, du piano, de l'ukulélé et du solfège accessible à tous, quel que soit l'âge ou le niveau.</p>
+
+            <div class="about-hero__stats">
+              <div class="stat">
+                <span class="stat__number">80 000+</span>
+                <span class="stat__label">Élèves formés</span>
+              </div>
+              <div class="stat">
+                <span class="stat__number">4.7/5</span>
+                <span class="stat__label">Note moyenne</span>
+              </div>
+              <div class="stat">
+                <span class="stat__number">15 ans</span>
+                <span class="stat__label">D'expérience</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-hero__image">
+            <OptimizedImage
+              src="/images/prof/fred.webp"
+              alt="Fred Fieffé, professeur de musique certifié, fondateur de Musique Facile - 15 ans d'expérience en enseignement de la guitare, piano, ukulélé et solfège - 80 000 élèves formés"
+              width={500}
+              height={500}
+              loading="eager"
+              quality={90}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="about-content">
+      <div class="container">
+        <div class="content-grid">
+          <!-- Left column: Main content -->
+          <div class="main-content">
+            <h2 id="qui-est-fred-fieffe">Qui est Fred Fieffé ?</h2>
+            <p>Fred Fieffé est un <strong>professeur de musique certifié</strong> avec 15 ans d'expérience dans l'enseignement musical. Passionné de pédagogie et de musique depuis son plus jeune âge, Fred a commencé à enseigner la guitare en 2009 avant d'élargir ses compétences au piano, à l'ukulélé et au solfège.</p>
+
+            <p>En 2015, Fred fonde <strong>Musique Facile</strong>, une école de musique en ligne avec une mission claire : rendre l'apprentissage de la musique accessible à tous, peu importe l'âge, le niveau de départ ou la situation géographique. Son approche se distingue par sa simplicité, sa progressivité et son efficacité.</p>
+
+            <h3>Une reconnaissance professionnelle</h3>
+            <p>En 2023 et 2024, Fred Fieffé a été élu <strong>Meilleur formateur Skilleos</strong>, une distinction décernée par l'une des plus grandes plateformes françaises de formation en ligne. Cette reconnaissance témoigne de la qualité de ses cours, de sa pédagogie claire et de son engagement envers ses élèves.</p>
+
+            <h2 id="methode-pedagogique">La méthode Fred Fieffé : 4 piliers pour réussir</h2>
+            <p>Contrairement aux méthodes traditionnelles qui commencent par des mois de solfège théorique, la méthode Fred Fieffé privilégie <strong>la pratique immédiate</strong>. Dès la première leçon, vous jouez de la musique. Cette approche repose sur 4 piliers fondamentaux :</p>
+
+            <div class="pillars-grid">
+              <div class="pillar-card">
+                <div class="pillar-icon">🎥</div>
+                <h3>Vidéos HD en gros plan</h3>
+                <p>Toutes les vidéos sont filmées en haute définition avec des plans rapprochés sur les mains. Vous voyez exactement où placer vos doigts, comment attaquer les cordes, et quels mouvements effectuer. Aucun détail technique n'est laissé au hasard.</p>
+              </div>
+
+              <div class="pillar-card">
+                <div class="pillar-icon">💬</div>
+                <h3>Explications claires sans jargon</h3>
+                <p>Fred utilise un langage simple et accessible. Pas de termes techniques compliqués ou de jargon musical inutile. Chaque concept est expliqué de manière progressive, avec des analogies et des exemples concrets.</p>
+              </div>
+
+              <div class="pillar-card">
+                <div class="pillar-icon">🎯</div>
+                <h3>Exercices pratiques à chaque étape</h3>
+                <p>Chaque cours inclut des exercices pratiques à réaliser immédiatement. Vous ne passez jamais des heures à regarder des vidéos sans jouer. La pratique est au cœur de l'apprentissage, avec des objectifs clairs et atteignables.</p>
+              </div>
+
+              <div class="pillar-card">
+                <div class="pillar-icon">🎵</div>
+                <h3>Morceaux connus pour appliquer</h3>
+                <p>Vous apprenez en jouant des chansons que vous connaissez et aimez : "Wonderwall", "Let It Be", "Stand By Me", "Hallelujah"... Jouer des morceaux familiers maintient votre motivation et vous permet de mesurer concrètement vos progrès.</p>
+              </div>
+            </div>
+
+            <h2 id="parcours">Le parcours de Fred Fieffé</h2>
+            <h3>Les débuts (2009-2015)</h3>
+            <p>Fred commence à enseigner la guitare en cours particuliers en 2009. Rapidement, il constate les limites des méthodes traditionnelles : trop théoriques, trop lentes, et souvent décourageantes pour les adultes qui souhaitent simplement jouer quelques chansons.</p>
+
+            <p>Il développe alors sa propre approche pédagogique, basée sur la pratique immédiate et l'apprentissage progressif. Ses élèves obtiennent des résultats rapides et restent motivés. Le bouche-à-oreille fonctionne, et Fred se retrouve rapidement avec une liste d'attente conséquente.</p>
+
+            <h3>La création de Musique Facile (2015)</h3>
+            <p>En 2015, Fred décide de passer au format en ligne pour toucher plus d'élèves. Il crée <strong>Musique Facile</strong>, une plateforme de cours vidéo structurés par niveau. Les premiers cours de guitare rencontrent un succès immédiat : en quelques mois, plusieurs milliers d'élèves se forment avec ses vidéos.</p>
+
+            <p>Fort de ce succès, Fred élargit son offre au piano, à l'ukulélé et au solfège, toujours avec la même philosophie : <strong>apprendre en pratiquant</strong>.</p>
+
+            <h3>Les partenariats (2017-aujourd'hui)</h3>
+            <p>Dès 2017, Musique Facile noue des partenariats avec les plus grandes plateformes d'apprentissage en ligne et marques d'instruments reconnues :</p>
+
+            <ul>
+              <li><strong>Skilleos</strong> : Plateforme française leader avec plus de 30 000 élèves formés en musique via les cours de Fred</li>
+              <li><strong>Hal Leonard</strong> : Éditeur musical mondial de référence, leader de l'édition pédagogique musicale depuis 1947</li>
+              <li><strong>PRS Guitars</strong> : Fabricant américain de guitares haut de gamme, reconnu pour sa qualité exceptionnelle</li>
+              <li><strong>Kala Brand Music</strong> : Leader mondial du ukulélé, réputé pour l'innovation et la qualité de ses instruments</li>
+              <li><strong>Roland Corporation</strong> : Pionnier japonais des instruments électroniques et pianos numériques</li>
+              <li><strong>Ortega Guitars</strong> : Fabricant allemand d'instruments à cordes, spécialisé en guitares classiques et ukulélés</li>
+              <li><strong>Arturia</strong> : Marque française innovante en synthétiseurs, pianos numériques et contrôleurs MIDI</li>
+            </ul>
+
+            <p>Ces partenariats permettent à Fred de toucher une audience internationale et de bénéficier de retours d'élèves du monde entier pour améliorer continuellement ses méthodes.</p>
+
+            <h3>Aujourd'hui (2025)</h3>
+            <p>Aujourd'hui, Fred Fieffé a formé plus de <strong>80 000 élèves</strong> à travers le monde. Ses cours totalisent plus de <strong>1 400 vidéos pédagogiques</strong> et continuent d'évoluer avec de nouveaux contenus ajoutés régulièrement.</p>
+
+            <p>La note moyenne de <strong>4.7/5 sur 2 847 avis vérifiés</strong> témoigne de la satisfaction des élèves. 92% des débutants jouent leur première chanson en 5 jours, et 95% des élèves actifs se déclarent satisfaits de leur progression.</p>
+
+            <h2 id="resultats">Les résultats de la méthode Musique Facile</h2>
+            <p>Les chiffres parlent d'eux-mêmes. La méthode Fred Fieffé obtient des résultats concrets et mesurables :</p>
+
+            <ul>
+              <li><strong>80 000+ élèves formés</strong> depuis 2015 sur toutes les plateformes (Musique Facile, Skilleos, Hal Leonard)</li>
+              <li><strong>4.7/5 de note moyenne</strong> sur 2 847 avis vérifiés par les élèves</li>
+              <li><strong>92% des débutants</strong> jouent leur première chanson complète en 5 jours maximum</li>
+              <li><strong>1 400+ vidéos pédagogiques</strong> disponibles et régulièrement mises à jour</li>
+              <li><strong>95% de taux de satisfaction</strong> auprès des élèves actifs qui suivent régulièrement les cours</li>
+              <li><strong>30 000+ élèves actifs</strong> sur Skilleos uniquement, ce qui fait de Fred le formateur musical n°1 de la plateforme</li>
+            </ul>
+
+            <h2 id="philosophie">La philosophie d'enseignement de Fred</h2>
+            <blockquote>
+              <p>"Mon objectif n'est pas de former des virtuoses ou des professionnels de la musique. Mon objectif est de permettre à chacun de jouer les morceaux qu'il aime, de prendre du plaisir à faire de la musique, et de développer une pratique musicale régulière et enrichissante."</p>
+              <cite>— Fred Fieffé</cite>
+            </blockquote>
+
+            <p>Cette philosophie se traduit dans chaque aspect des cours :</p>
+
+            <ul>
+              <li><strong>Pas de compétition</strong> : vous progressez à votre rythme, sans pression ni comparaison avec d'autres élèves</li>
+              <li><strong>Plaisir immédiat</strong> : dès la première leçon, vous jouez quelque chose de musical, pas de gammes ennuyeuses pendant des mois</li>
+              <li><strong>Objectifs atteignables</strong> : chaque cours a un objectif clair et réaliste que vous pouvez atteindre en une session de pratique</li>
+              <li><strong>Soutien continu</strong> : Fred et son équipe répondent aux questions sous 24h et organisent des lives mensuels pour échanger avec les élèves</li>
+            </ul>
+
+            <h2 id="contact">Contacter Fred et l'équipe Musique Facile</h2>
+            <p>Vous avez une question sur les cours, la méthode ou votre progression ? L'équipe de Musique Facile est disponible pour vous aider :</p>
+
+            <ul>
+              <li><strong>Email</strong> : <a href="mailto:contact@musique-facile.fr">contact@musique-facile.fr</a> (réponse sous 24h)</li>
+              <li><strong>Lives mensuels</strong> : sessions Q&A en direct avec Fred pour poser vos questions</li>
+            </ul>
+
+            <div class="cta-box">
+              <h3>Prêt à commencer votre voyage musical ?</h3>
+              <p>Rejoignez les 80 000 élèves qui ont déjà appris avec Fred Fieffé</p>
+              <div class="cta-buttons">
+                <a href="/cours" class="btn btn-primary btn-lg">Découvrir les cours</a>
+                <a href="/contact" class="btn btn-secondary btn-lg">Nous contacter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right column: Sidebar -->
+          <aside class="sidebar">
+            <div class="sidebar-card">
+              <h3>Navigation rapide</h3>
+              <nav class="page-nav">
+                <ul>
+                  <li><a href="#qui-est-fred-fieffe">Qui est Fred Fieffé ?</a></li>
+                  <li><a href="#methode-pedagogique">La méthode pédagogique</a></li>
+                  <li><a href="#parcours">Le parcours de Fred</a></li>
+                  <li><a href="#resultats">Les résultats</a></li>
+                  <li><a href="#philosophie">La philosophie d'enseignement</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="sidebar-card">
+              <h3>En chiffres</h3>
+              <dl class="stats-list">
+                <dt>Année de création</dt>
+                <dd>2015</dd>
+
+                <dt>Élèves formés</dt>
+                <dd>80 000+</dd>
+
+                <dt>Note moyenne</dt>
+                <dd>4.7/5 ⭐</dd>
+
+                <dt>Avis vérifiés</dt>
+                <dd>2 847</dd>
+
+                <dt>Vidéos disponibles</dt>
+                <dd>1 400+</dd>
+
+                <dt>Taux de satisfaction</dt>
+                <dd>95%</dd>
+
+                <dt>Distinction</dt>
+                <dd>Meilleur formateur Skilleos 2023/2024</dd>
+              </dl>
+            </div>
+
+            <div class="sidebar-card">
+              <h3>Nos cours</h3>
+              <ul class="course-links">
+                <li><a href="/cours/cours-de-guitare">🎸 Cours de Guitare</a></li>
+                <li><a href="/cours/cours-de-piano">🎹 Cours de Piano</a></li>
+                <li><a href="/cours/cours-de-ukulele">🏖️ Cours de Ukulélé</a></li>
+                <li><a href="/cours/cours-de-solfege">🎼 Cours de Solfège</a></li>
+              </ul>
+            </div>
+
+            <div class="sidebar-card">
+              <h3>Partenaires</h3>
+              <ul class="partners-list">
+                <li><strong>Skilleos</strong><br><span>Plateforme de formation en ligne</span></li>
+                <li><strong>Hal Leonard</strong><br><span>Éditeur musical mondial</span></li>
+                <li><strong>PRS Guitars</strong><br><span>Guitares haut de gamme</span></li>
+                <li><strong>Kala Brand Music</strong><br><span>Leader mondial du ukulélé</span></li>
+                <li><strong>Roland</strong><br><span>Pianos et instruments électroniques</span></li>
+                <li><strong>Ortega Guitars</strong><br><span>Guitares et ukulélés</span></li>
+                <li><strong>Arturia</strong><br><span>Synthétiseurs et pianos numériques</span></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  /* Hero Section */
+  .about-hero {
+    background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+    color: white;
+    padding: var(--space-20) 0 var(--space-16);
+  }
+
+  .breadcrumb {
+    margin-bottom: var(--space-8);
+  }
+
+  .breadcrumb ol {
+    display: flex;
+    gap: var(--space-2);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: var(--text-sm);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: '›';
+    margin-left: var(--space-2);
+    color: var(--gray-400);
+  }
+
+  .breadcrumb a {
+    color: var(--gray-300);
+    text-decoration: none;
+    transition: var(--transition-base);
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  .about-hero__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-4);
+    background: var(--brand-500);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-4);
+  }
+
+  .about-hero h1 {
+    font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
+    font-weight: var(--font-extrabold);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-6);
+    color: white;
+  }
+
+  .lead {
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-8);
+  }
+
+  .lead strong {
+    color: var(--brand-400);
+  }
+
+  .about-hero__stats {
+    display: flex;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat__number {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-extrabold);
+    color: var(--brand-400);
+    line-height: 1;
+    margin-bottom: var(--space-2);
+  }
+
+  .stat__label {
+    font-size: var(--text-sm);
+    color: var(--gray-300);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .about-hero__image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-2xl);
+  }
+
+  /* Main Content */
+  .about-content {
+    padding: var(--space-20) 0;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-12);
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .main-content {
+    max-width: 800px;
+  }
+
+  .main-content h2 {
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+    font-weight: var(--font-extrabold);
+    color: var(--gray-900);
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-6);
+    line-height: var(--leading-tight);
+    scroll-margin-top: var(--space-20);
+  }
+
+  .main-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .main-content h3 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--gray-900);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+  }
+
+  .main-content p {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--gray-700);
+    margin-bottom: var(--space-4);
+  }
+
+  .main-content strong {
+    color: var(--brand-600);
+    font-weight: var(--font-semibold);
+  }
+
+  .main-content ul,
+  .main-content ol {
+    margin: var(--space-4) 0;
+    padding-left: var(--space-8);
+  }
+
+  .main-content li {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--gray-700);
+    margin-bottom: var(--space-3);
+  }
+
+  /* Pillars Grid */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    margin: var(--space-8) 0;
+  }
+
+  .pillar-card {
+    background: white;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    transition: var(--transition-base);
+  }
+
+  .pillar-card:hover {
+    border-color: var(--brand-300);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .pillar-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .pillar-card h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--gray-900);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  .pillar-card p {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--gray-600);
+    margin: 0;
+  }
+
+  /* Blockquote */
+  blockquote {
+    background: var(--gray-50);
+    border-left: 4px solid var(--brand-500);
+    padding: var(--space-6);
+    margin: var(--space-8) 0;
+    border-radius: var(--radius-lg);
+  }
+
+  blockquote p {
+    font-size: var(--text-xl);
+    font-style: italic;
+    color: var(--gray-800);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  cite {
+    display: block;
+    font-size: var(--text-base);
+    font-style: normal;
+    font-weight: var(--font-semibold);
+    color: var(--brand-600);
+  }
+
+  /* CTA Box */
+  .cta-box {
+    background: linear-gradient(135deg, var(--brand-500) 0%, var(--brand-600) 100%);
+    color: white;
+    padding: var(--space-10);
+    border-radius: var(--radius-2xl);
+    text-align: center;
+    margin-top: var(--space-16);
+  }
+
+  .cta-box h3 {
+    color: white;
+    font-size: var(--text-3xl);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  .cta-box p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: var(--text-lg);
+    margin: 0 0 var(--space-6) 0;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .sidebar-card {
+    background: white;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    position: sticky;
+    top: var(--space-20);
+  }
+
+  .sidebar-card h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--gray-900);
+    margin: 0 0 var(--space-4) 0;
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--brand-200);
+  }
+
+  .page-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .page-nav li {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-nav a {
+    color: var(--brand-600);
+    text-decoration: none;
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+    transition: var(--transition-base);
+  }
+
+  .page-nav a:hover {
+    color: var(--brand-700);
+    text-decoration: underline;
+  }
+
+  .stats-list {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .stats-list dt {
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+    font-weight: var(--font-medium);
+  }
+
+  .stats-list dd {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--brand-600);
+    margin: 0 0 var(--space-2) 0;
+  }
+
+  .course-links,
+  .partners-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .course-links li {
+    margin-bottom: var(--space-3);
+  }
+
+  .course-links a {
+    color: var(--brand-600);
+    text-decoration: none;
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+    transition: var(--transition-base);
+  }
+
+  .course-links a:hover {
+    color: var(--brand-700);
+    text-decoration: underline;
+  }
+
+  .partners-list li {
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .partners-list li:last-child {
+    border-bottom: none;
+  }
+
+  .partners-list strong {
+    font-size: var(--text-base);
+    color: var(--gray-900);
+  }
+
+  .partners-list span {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+    margin-top: var(--space-1);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .about-hero__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-hero__image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      order: -1;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .sidebar-card {
+      flex: 1;
+      min-width: 280px;
+      position: static;
+    }
+
+    .pillars-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-hero {
+      padding: var(--space-16) 0 var(--space-12);
+    }
+
+    .about-hero__stats {
+      gap: var(--space-6);
+    }
+
+    .stat__number {
+      font-size: var(--text-3xl);
+    }
+
+    .about-content {
+      padding: var(--space-12) 0;
+    }
+
+    .main-content h2 {
+      margin-top: var(--space-12);
+    }
+
+    .sidebar {
+      flex-direction: column;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .cta-buttons .btn {
+      width: 100%;
+    }
+  }
+</style>

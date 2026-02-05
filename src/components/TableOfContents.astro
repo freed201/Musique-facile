@@ -1,0 +1,276 @@
+---
+/**
+ * Composant Table des Matières Auto-Générée
+ * - Parse les headings H2 et H3 du contenu markdown
+ * - Génère des ancres automatiques
+ * - Sticky sur desktop
+ * - Indicateur de section active
+ */
+
+interface Heading {
+  text: string;
+  slug: string;
+  level?: number;
+  depth?: number;
+}
+
+type TocHeading = {
+  text: string;
+  slug: string;
+  level: number;
+};
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+
+// Normaliser les niveaux de titres (Astro fournit `depth` sur les headings Markdown)
+const tocHeadings: TocHeading[] = headings
+  .map((heading) => {
+    const level = heading.level ?? heading.depth;
+    if (!level) return null;
+
+    return {
+      text: heading.text,
+      slug: heading.slug,
+      level
+    };
+  })
+  .filter((heading): heading is TocHeading => heading.level === 2 || heading.level === 3);
+---
+
+{tocHeadings.length > 0 && (
+  <aside class="table-of-contents" id="toc">
+    <div class="toc-container">
+      <h2 class="toc-title">Sommaire</h2>
+      <nav class="toc-nav" aria-label="Table des matières">
+        <ol class="toc-list">
+          {tocHeadings.map(heading => (
+            <li class={`toc-item toc-level-${heading.level}`}>
+              <a
+                href={`#${heading.slug}`}
+                class="toc-link"
+                data-heading={heading.slug}
+              >
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      <!-- Barre de progression de lecture -->
+      <div class="reading-progress">
+        <div class="progress-label">Progression</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+)}
+
+<style>
+  .table-of-contents {
+    position: sticky;
+    top: 6rem;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--gray-200);
+  }
+
+  .toc-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .toc-title {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--theme-current);
+    font-weight: var(--font-bold);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .toc-nav {
+    flex: 1;
+  }
+
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .toc-item {
+    position: relative;
+  }
+
+  .toc-level-2 {
+    font-weight: 600;
+  }
+
+  .toc-level-3 {
+    padding-left: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .toc-link {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: var(--gray-700);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+  }
+
+  .toc-link:hover {
+    color: var(--theme-current);
+    background: var(--bg-light);
+    border-left-color: var(--theme-current);
+  }
+
+  .toc-link.active {
+    color: var(--theme-current);
+    background: rgba(var(--theme-current-rgb), 0.1);
+    border-left-color: var(--theme-current);
+    font-weight: 600;
+  }
+
+  .reading-progress {
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .progress-label {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .progress-bar {
+    height: 6px;
+    background: var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--theme-current), var(--theme-current-light));
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 10px;
+  }
+
+  /* Scrollbar personnalisée */
+  .table-of-contents::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .table-of-contents::-webkit-scrollbar-track {
+    background: var(--bg-light);
+    border-radius: 10px;
+  }
+
+  .table-of-contents::-webkit-scrollbar-thumb {
+    background: var(--gray-400);
+    border-radius: 10px;
+  }
+
+  .table-of-contents::-webkit-scrollbar-thumb:hover {
+    background: var(--theme-current);
+  }
+
+  @media (max-width: 1024px) {
+    .table-of-contents {
+      position: relative;
+      top: 0;
+      max-height: none;
+      margin-bottom: 2rem;
+    }
+  }
+</style>
+
+<script>
+  // Script d'activation des liens TOC au scroll
+  document.addEventListener('DOMContentLoaded', () => {
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const progressFill = document.getElementById('progressFill');
+
+    if (!tocLinks.length) return;
+
+    // Observer pour détecter la section visible
+    const observerOptions = {
+      rootMargin: '-20% 0px -35% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+
+          // Retirer active de tous les liens
+          tocLinks.forEach(link => link.classList.remove('active'));
+
+          // Ajouter active au lien correspondant
+          const activeLink = document.querySelector(`.toc-link[data-heading="${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observer tous les headings
+    const headings = document.querySelectorAll('h2[id], h3[id]');
+    headings.forEach(heading => observer.observe(heading));
+
+    // Barre de progression
+    function updateProgress() {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight - windowHeight;
+      const scrolled = window.scrollY;
+      const progress = (scrolled / documentHeight) * 100;
+
+      if (progressFill) {
+        progressFill.style.width = `${Math.min(progress, 100)}%`;
+      }
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress(); // Init
+
+    // Smooth scroll sur clic
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href')?.slice(1);
+        const targetElement = document.getElementById(targetId || '');
+
+        if (targetElement) {
+          const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 100;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>

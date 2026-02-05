@@ -1,0 +1,694 @@
+---
+/**
+ * Quiz de Personnalisation - 3 Questions
+ * Aide à recommander l'instrument et le parcours idéal
+ * Impact estimé: +30% qualification leads
+ */
+---
+
+<section class="personalization-quiz">
+  <div class="container">
+    <div class="quiz-header">
+      <h2 class="quiz-title">Quel instrument est fait pour vous ?</h2>
+      <p class="quiz-subtitle">Répondez à 3 questions simples pour découvrir votre parcours musical idéal</p>
+    </div>
+
+    <div class="quiz-container">
+      <!-- Progress Bar -->
+      <div class="quiz-progress">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-text">Question <span id="current-question">1</span> sur 3</span>
+      </div>
+
+      <!-- Question 1: Style Musical -->
+      <div class="quiz-question active" data-question="1">
+        <h3 class="question-title">Quel style musical vous attire le plus ?</h3>
+        <div class="options-grid">
+          <button class="option-card" data-value="rock" data-instruments='["guitare", "piano"]'>
+            <span class="option-icon">🎸</span>
+            <span class="option-label">Rock & Pop</span>
+            <span class="option-description">Énergique et moderne</span>
+          </button>
+          <button class="option-card" data-value="classique" data-instruments='["piano"]'>
+            <span class="option-icon">🎼</span>
+            <span class="option-label">Classique</span>
+            <span class="option-description">Élégant et intemporel</span>
+          </button>
+          <button class="option-card" data-value="jazz" data-instruments='["piano", "guitare"]'>
+            <span class="option-icon">🎺</span>
+            <span class="option-label">Jazz & Blues</span>
+            <span class="option-description">Sophistiqué et improvisé</span>
+          </button>
+          <button class="option-card" data-value="folk" data-instruments='["guitare", "ukulele"]'>
+            <span class="option-icon">🏖️</span>
+            <span class="option-label">Folk & Acoustique</span>
+            <span class="option-description">Chaleureux et authentique</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Question 2: Temps Disponible -->
+      <div class="quiz-question" data-question="2">
+        <h3 class="question-title">Combien de temps pouvez-vous pratiquer par semaine ?</h3>
+        <div class="options-grid">
+          <button class="option-card" data-value="15min" data-level="debutant">
+            <span class="option-icon">⏱️</span>
+            <span class="option-label">15 min/jour</span>
+            <span class="option-description">Apprentissage rapide</span>
+          </button>
+          <button class="option-card" data-value="30min" data-level="regulier">
+            <span class="option-icon">⏰</span>
+            <span class="option-label">30 min/jour</span>
+            <span class="option-description">Progression optimale</span>
+          </button>
+          <button class="option-card" data-value="1h" data-level="intense">
+            <span class="option-icon">🔥</span>
+            <span class="option-label">1h+ par jour</span>
+            <span class="option-description">Progression accélérée</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Question 3: Objectif -->
+      <div class="quiz-question" data-question="3">
+        <h3 class="question-title">Quel est votre objectif principal ?</h3>
+        <div class="options-grid">
+          <button class="option-card" data-value="plaisir" data-goal="plaisir">
+            <span class="option-icon">😊</span>
+            <span class="option-label">Plaisir personnel</span>
+            <span class="option-description">Jouer pour se détendre</span>
+          </button>
+          <button class="option-card" data-value="accompagnement" data-goal="accompagnement">
+            <span class="option-icon">🎤</span>
+            <span class="option-label">Accompagnement vocal</span>
+            <span class="option-description">Chanter en jouant</span>
+          </button>
+          <button class="option-card" data-value="groupe" data-goal="groupe">
+            <span class="option-icon">👥</span>
+            <span class="option-label">Jouer en groupe</span>
+            <span class="option-description">Rejoindre un groupe</span>
+          </button>
+          <button class="option-card" data-value="pro" data-goal="professionnel">
+            <span class="option-icon">🎓</span>
+            <span class="option-label">Devenir pro</span>
+            <span class="option-description">Carrière musicale</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Résultats -->
+      <div class="quiz-results" id="quiz-results">
+        <div class="results-animation">
+          <span class="results-icon">🎉</span>
+        </div>
+        <h3 class="results-title">Votre parcours personnalisé est prêt !</h3>
+        <p class="results-subtitle">Basé sur vos réponses, nous vous recommandons :</p>
+
+        <div class="recommended-instrument">
+          <div class="instrument-icon" id="recommended-icon">🎸</div>
+          <h4 class="instrument-name" id="recommended-name">La Guitare</h4>
+          <p class="instrument-reason" id="recommended-reason">
+            Parfait pour le rock et l'accompagnement vocal. Avec 15 minutes par jour, vous jouerez votre premier morceau en moins d'une semaine !
+          </p>
+        </div>
+
+        <div class="results-cta">
+          <a href="/cours/cours-de-guitare" class="quiz-cta-button" id="quiz-cta">
+            Découvrir les Cours de Guitare
+            <span class="cta-arrow">→</span>
+          </a>
+          <button class="quiz-restart-button" id="restart-quiz">
+            ↻ Refaire le quiz
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="quiz-navigation">
+        <button class="quiz-nav-button" id="prev-button" disabled>
+          ← Précédent
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .personalization-quiz {
+    padding: var(--section-padding);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  }
+
+  .quiz-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .quiz-title {
+    font-size: 2.8rem;
+    color: var(--theme-current);
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .quiz-subtitle {
+    font-size: 1.3rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+  }
+
+  .quiz-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: 3rem;
+    box-shadow: var(--box-shadow);
+  }
+
+  /* Progress Bar */
+  .quiz-progress {
+    margin-bottom: 3rem;
+  }
+
+  .progress-bar {
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
+    width: 33.33%;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 10px;
+  }
+
+  .progress-text {
+    display: block;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--color-dark);
+    opacity: 0.7;
+    font-weight: 600;
+  }
+
+  /* Questions */
+  .quiz-question {
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .quiz-question.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .question-title {
+    font-size: 1.8rem;
+    color: var(--color-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .option-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 2rem 1.5rem;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .option-card:hover {
+    border-color: var(--theme-current);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 194, 142, 0.2);
+  }
+
+  .option-card.selected {
+    border-color: var(--theme-current);
+    background: linear-gradient(135deg, rgba(0, 194, 142, 0.1) 0%, rgba(0, 194, 142, 0.05) 100%);
+    box-shadow: 0 10px 25px rgba(0, 194, 142, 0.3);
+  }
+
+  .option-icon {
+    font-size: 3rem;
+  }
+
+  .option-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-dark);
+  }
+
+  .option-description {
+    font-size: 0.95rem;
+    color: var(--color-dark);
+    opacity: 0.7;
+  }
+
+  /* Results */
+  .quiz-results {
+    display: none;
+    animation: fadeIn 0.5s ease;
+    text-align: center;
+  }
+
+  .quiz-results.active {
+    display: block;
+  }
+
+  .results-animation {
+    margin-bottom: 2rem;
+  }
+
+  .results-icon {
+    font-size: 5rem;
+    display: inline-block;
+    animation: bounce 1s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .results-title {
+    font-size: 2.2rem;
+    color: var(--theme-current);
+    margin-bottom: 1rem;
+  }
+
+  .results-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin-bottom: 2rem;
+  }
+
+  .recommended-instrument {
+    background: linear-gradient(135deg, rgba(0, 194, 142, 0.1) 0%, rgba(0, 194, 142, 0.05) 100%);
+    border: 2px solid var(--theme-current);
+    border-radius: var(--border-radius-lg);
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .instrument-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+  }
+
+  .instrument-name {
+    font-size: 2rem;
+    color: var(--theme-current);
+    margin-bottom: 1rem;
+  }
+
+  .instrument-reason {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .results-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .quiz-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--theme-current);
+    color: white;
+    padding: 1.5rem 3rem;
+    border-radius: var(--border-radius-lg);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 8px 20px rgba(0, 194, 142, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .quiz-cta-button:hover {
+    background: var(--theme-current-dark);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 194, 142, 0.5);
+  }
+
+  .cta-arrow {
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+  }
+
+  .quiz-cta-button:hover .cta-arrow {
+    transform: translateX(5px);
+  }
+
+  .quiz-restart-button {
+    background: transparent;
+    border: 2px solid var(--theme-current);
+    color: var(--theme-current);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius-lg);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .quiz-restart-button:hover {
+    background: var(--theme-current);
+    color: white;
+  }
+
+  /* Navigation */
+  .quiz-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+
+  .quiz-nav-button {
+    padding: 1rem 2rem;
+    background: var(--theme-current);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-lg);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .quiz-nav-button:hover:not(:disabled) {
+    background: var(--theme-current-dark);
+    transform: translateY(-3px);
+  }
+
+  .quiz-nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .quiz-container {
+      padding: 2rem 1.5rem;
+    }
+
+    .quiz-title {
+      font-size: 2.2rem;
+    }
+
+    .quiz-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .question-title {
+      font-size: 1.5rem;
+    }
+
+    .options-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .option-card {
+      padding: 1.5rem 1rem;
+    }
+
+    .results-title {
+      font-size: 1.8rem;
+    }
+
+    .instrument-icon {
+      font-size: 4rem;
+    }
+
+    .quiz-cta-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  // Quiz State
+  let currentQuestion = 1;
+  const totalQuestions = 3;
+  const userAnswers = {
+    style: '',
+    instruments: [],
+    time: '',
+    level: '',
+    goal: '',
+    goalType: ''
+  };
+
+  // Elements
+  const progressFill = document.getElementById('progress-fill');
+  const currentQuestionSpan = document.getElementById('current-question');
+  const prevButton = document.getElementById('prev-button');
+  const quizResults = document.getElementById('quiz-results');
+  const restartButton = document.getElementById('restart-quiz');
+
+  // Instrument Recommendations
+  const instrumentData = {
+    guitare: {
+      icon: '🎸',
+      name: 'La Guitare',
+      url: '/cours/cours-de-guitare',
+      reasons: {
+        rock: 'Parfait pour le rock et la pop moderne.',
+        folk: 'Idéal pour le folk et l\'accompagnement acoustique.',
+        plaisir: 'Avec 15 minutes par jour, vous jouerez votre premier morceau en moins d\'une semaine !',
+        accompagnement: 'Excellent pour accompagner vos chansons préférées !',
+        groupe: 'Instrument incontournable pour jouer en groupe !'
+      }
+    },
+    piano: {
+      icon: '🎹',
+      name: 'Le Piano',
+      url: '/cours/cours-de-piano',
+      reasons: {
+        classique: 'L\'instrument roi de la musique classique.',
+        jazz: 'Parfait pour explorer le jazz et l\'improvisation.',
+        plaisir: 'Progrès rapides garantis avec notre méthode adaptée !',
+        accompagnement: 'Accompagnez-vous au chant avec élégance !',
+        pro: 'Base solide pour une carrière musicale professionnelle !'
+      }
+    },
+    ukulele: {
+      icon: '🏖️',
+      name: 'L\'Ukulélé',
+      url: '/cours/cours-de-ukulele',
+      reasons: {
+        folk: 'Son chaleureux parfait pour le folk et les ambiances conviviales.',
+        plaisir: 'L\'instrument le plus facile pour débuter ! Résultats en 7 jours.',
+        accompagnement: 'Compact et parfait pour chanter en toute occasion !',
+        '15min': 'Avec seulement 15 minutes par jour, des résultats garantis !'
+      }
+    }
+  };
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    setupQuiz();
+  });
+
+  function setupQuiz() {
+    // Option Cards Click
+    const optionCards = document.querySelectorAll('.option-card');
+    optionCards.forEach(card => {
+      card.addEventListener('click', () => handleOptionClick(card));
+    });
+
+    // Previous Button
+    prevButton.addEventListener('click', goToPreviousQuestion);
+
+    // Restart Button
+    restartButton.addEventListener('click', restartQuiz);
+  }
+
+  function handleOptionClick(card) {
+    const question = card.closest('.quiz-question');
+    const questionNum = parseInt(question.dataset.question);
+
+    // Remove previous selection
+    question.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+
+    // Select current
+    card.classList.add('selected');
+
+    // Store answer
+    if (questionNum === 1) {
+      userAnswers.style = card.dataset.value;
+      userAnswers.instruments = JSON.parse(card.dataset.instruments);
+    } else if (questionNum === 2) {
+      userAnswers.time = card.dataset.value;
+      userAnswers.level = card.dataset.level;
+    } else if (questionNum === 3) {
+      userAnswers.goal = card.dataset.value;
+      userAnswers.goalType = card.dataset.goal;
+    }
+
+    // Auto-advance after 500ms
+    setTimeout(() => {
+      if (currentQuestion < totalQuestions) {
+        goToNextQuestion();
+      } else {
+        showResults();
+      }
+    }, 500);
+  }
+
+  function goToNextQuestion() {
+    currentQuestion++;
+    updateQuiz();
+  }
+
+  function goToPreviousQuestion() {
+    if (currentQuestion > 1) {
+      currentQuestion--;
+      updateQuiz();
+    }
+  }
+
+  function updateQuiz() {
+    // Update progress
+    const progress = (currentQuestion / totalQuestions) * 100;
+    progressFill.style.width = `${progress}%`;
+    currentQuestionSpan.textContent = currentQuestion;
+
+    // Update questions visibility
+    document.querySelectorAll('.quiz-question').forEach(q => {
+      q.classList.remove('active');
+    });
+    document.querySelector(`[data-question="${currentQuestion}"]`).classList.add('active');
+
+    // Update navigation
+    prevButton.disabled = currentQuestion === 1;
+  }
+
+  function showResults() {
+    // Hide questions and navigation
+    document.querySelectorAll('.quiz-question').forEach(q => q.style.display = 'none');
+    document.querySelector('.quiz-navigation').style.display = 'none';
+    document.querySelector('.quiz-progress').style.display = 'none';
+
+    // Calculate recommendation
+    const recommendation = calculateRecommendation();
+
+    // Update results
+    document.getElementById('recommended-icon').textContent = recommendation.icon;
+    document.getElementById('recommended-name').textContent = recommendation.name;
+    document.getElementById('recommended-reason').textContent = recommendation.reason;
+    document.getElementById('quiz-cta').href = recommendation.url;
+    document.getElementById('quiz-cta').innerHTML = `
+      Découvrir les Cours ${recommendation.name.replace('Le ', '').replace('La ', '').replace('L\'', '')}
+      <span class="cta-arrow">→</span>
+    `;
+
+    // Show results
+    quizResults.classList.add('active');
+  }
+
+  function calculateRecommendation() {
+    // Priority scoring
+    let scores = { guitare: 0, piano: 0, ukulele: 0 };
+
+    // Style-based scoring
+    userAnswers.instruments.forEach(inst => {
+      scores[inst] += 3;
+    });
+
+    // Time-based preference
+    if (userAnswers.time === '15min') {
+      scores.ukulele += 2;
+      scores.guitare += 1;
+    } else if (userAnswers.time === '1h') {
+      scores.piano += 2;
+    }
+
+    // Goal-based preference
+    if (userAnswers.goalType === 'professionnel') {
+      scores.piano += 2;
+    } else if (userAnswers.goalType === 'accompagnement') {
+      scores.guitare += 2;
+      scores.ukulele += 1;
+    } else if (userAnswers.goalType === 'plaisir') {
+      scores.ukulele += 2;
+    }
+
+    // Find highest score
+    const recommended = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+    // Build reason
+    let reason = instrumentData[recommended].reasons[userAnswers.style] || '';
+    reason += ' ' + (instrumentData[recommended].reasons[userAnswers.goalType] || '');
+    reason += ' ' + (instrumentData[recommended].reasons[userAnswers.time] || '');
+
+    return {
+      icon: instrumentData[recommended].icon,
+      name: instrumentData[recommended].name,
+      url: instrumentData[recommended].url,
+      reason: reason.trim()
+    };
+  }
+
+  function restartQuiz() {
+    // Reset state
+    currentQuestion = 1;
+    userAnswers.style = '';
+    userAnswers.instruments = [];
+    userAnswers.time = '';
+    userAnswers.level = '';
+    userAnswers.goal = '';
+    userAnswers.goalType = '';
+
+    // Reset UI
+    document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+    quizResults.classList.remove('active');
+    document.querySelectorAll('.quiz-question').forEach(q => q.style.display = '');
+    document.querySelector('.quiz-navigation').style.display = '';
+    document.querySelector('.quiz-progress').style.display = '';
+
+    updateQuiz();
+  }
+</script>

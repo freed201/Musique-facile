@@ -2,11 +2,12 @@
 affichage: "Y"
 classement: 2
 title: "Maîtriser les Accords au Piano : Cours Complet en Ligne"
-description: "Découvrez le monde des accords au piano ! De l'apprentissage des intervalles à la création de triades, ce guide complet vous offre techniques, exemples et astuces. Perfectionnez votre jeu et maîtrisez chaque accord avec aisance et confiance. Idéal pour tous niveaux."
-ogImage: "/images/cours/apprendre-les-accords-piano/hero.jpg"
+description: "Maîtrisez les accords au piano : intervalles, triades et techniques complètes. Guide pratique avec exemples pour tous niveaux. Jouez avec confiance !"
+ogImage: "/images/cours/apprendre-les-accords-piano/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -25,6 +26,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT3H30M" # Format ISO 8601 pour la durée
+  courseWorkload: "PT3H30M"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"
@@ -41,7 +43,7 @@ hero:
     text: "Accéder pour €79 "
     price: "ou 2 paiements mensuels de €40"
   video:
-    id: "1057421752"
+    id: "1062020089"
   stats:
     - value: "3000+"
       label: "élèves formés"

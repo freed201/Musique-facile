@@ -1,0 +1,493 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import UrgencyBanner from '../components/UrgencyBanner.astro';
+import PromoSection from '../components/PromoSection.astro';
+import Hero from '../components/Hero.astro';
+import HeroNew from '../components/HeroNew.astro';
+import Avantages from '../components/Avantages.astro';
+import Cours from '../components/Cours.astro';
+import KidsSection from '../components/KidsSection.astro';
+import Temoignages from '../components/Temoignages.astro';
+import FreePianoCourse from '../components/FreePianoCourse.astro';
+import SocialProof from '../components/SocialProof.astro';
+import RandomBlogPosts from '../components/RandomBlogPosts.astro';
+import Resultats from '../components/Resultats.astro';
+import LeadMagnetCTA from '../components/LeadMagnetCTA.astro';
+import FAQ from '../components/FAQ.astro';
+import About from '../components/About.astro';
+import QuizCTA from '../components/QuizCTA.astro';
+import Footer from '../components/Footer.astro';
+import StickyCTAMobile from '../components/StickyCTAMobile.astro';
+import InteractiveChordWidget from '../components/InteractiveChordWidget.astro';
+import PersonalizationQuiz from '../components/PersonalizationQuiz.astro';
+import PricingPreview from '../components/PricingPreview.astro';
+import FOMONotifications from '../components/FOMONotifications.astro';
+
+// Construction de l'URL canonique
+const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr').toString();
+
+// Métadonnées pour SEO + LLM (style enseignant, non marketing)
+const title = "Cours de Guitare, Piano, Ukulélé en Ligne — Méthode Fred Fieffé | Musique Facile";
+const description = "Formations en ligne pour apprendre la guitare, le piano, l'ukulélé et le solfège. Méthode progressive créée par Fred Fieffé, professeur certifié avec 15 ans d'expérience. Plus de 80 000 élèves formés, 4.7/5 de note moyenne sur 2 847 avis. Cours adaptés aux débutants et intermédiaires, avec vidéos pas-à-pas et exercices pratiques.";
+const keywords = "cours guitare en ligne, apprendre piano, formation ukulélé débutant, solfège facile, cours musique en ligne, Fred Fieffé, tutoriel guitare débutant, méthode piano, école musique online";
+const ogImage = "https://musique-facile.fr/logo.webp";
+
+// Construction des données structurées enrichies pour LLM
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Musique Facile",
+  "url": "https://musique-facile.fr",
+  "logo": "https://musique-facile.fr/logo.webp",
+  "description": "École de musique en ligne spécialisée dans l'enseignement de la guitare, du piano, de l'ukulélé et du solfège pour tous niveaux. Plus de 80 000 élèves formés depuis 2015.",
+  "foundingDate": "2015",
+  "founder": {
+    "@type": "Person",
+    "name": "Fred Fieffé",
+    "jobTitle": "Professeur de Musique Certifié",
+    "description": "Professeur de guitare, piano, ukulélé et solfège avec 15 ans d'expérience. Créateur de la méthode Musique Facile, Fred a formé plus de 80 000 élèves avec une approche progressive et pratique.",
+    "sameAs": [
+      "https://www.youtube.com/@Musique-Facile",
+      "https://www.tiktok.com/@musique_facile"
+    ]
+  },
+  "sameAs": [
+    "https://www.youtube.com/@Musique-Facile",
+    "https://www.tiktok.com/@musique_facile",
+    "https://instagram.com/guitare_et_ukulele_facile/?hl=fr",
+    "https://facebook.com/MusiqueFacileFacebook"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "FR"
+  },
+  "knowsAbout": ["Guitare", "Piano", "Ukulélé", "Solfège", "Formation musicale en ligne", "Enseignement musical progressif"],
+  "areaServed": "FR",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "2847",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Musique Facile",
+  "url": "https://musique-facile.fr",
+  "description": "Formations en ligne pour apprendre la guitare, le piano, l'ukulélé et le solfège",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://musique-facile.fr/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Accueil",
+    "item": "https://musique-facile.fr"
+  }]
+};
+
+// FAQPage Schema pour LLM
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Combien de temps faut-il pour apprendre la guitare en ligne ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avec la méthode Musique Facile, 92% des élèves jouent leur première chanson en 5 jours. En pratiquant 15 minutes par jour, vous maîtriserez les accords de base en 3 semaines. Vous apprendrez à jouer vos premiers morceaux et à vous amuser en quelques leçons. Notre progression est structurée en petites étapes : vous commencez par 3 accords simples (Do, Sol, Ré), puis apprenez à les enchaîner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qui est Fred Fieffé et quelle est sa méthode d'enseignement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fred Fieffé est un professeur de musique certifié avec 15 ans d'expérience. Il a formé plus de 80 000 élèves via ses cours en ligne de guitare, piano, ukulélé et solfège, avec une note moyenne de 4.7/5 sur 2 847 avis vérifiés. Fred utilise une approche progressive basée sur la pratique immédiate. Sa méthode repose sur 4 piliers : 1) Vidéos HD en gros plan sur les mains, 2) Explications claires sans jargon, 3) Exercices pratiques à chaque étape, 4) Application immédiate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les cours sont-ils adaptés aux débutants complets ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, tous nos cours commencent au niveau zéro. Aucune connaissance musicale préalable n'est requise. Les leçons sont progressives, expliquées pas à pas en vidéo, avec des exercices pratiques à chaque étape. Les cours ont été réalisés avec l'apport des neurosciences pour les organiser d'une manière adaptée à un apprentissage efficace pour les adultes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel est le prix des formations et existe-t-il un essai gratuit ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nos formations sont disponibles à l'achat individuel par instrument (guitare, piano, ukulélé, solfège). Chaque formation donne un accès à vie à tous les cours de l'instrument choisi, avec entre 30 et 190 vidéos selon l'instrument. Une garantie satisfait ou remboursé de 15 jours est incluse. Des offres spéciales sont régulièrement disponibles sur la page /offre."
+      }
+    }
+  ]
+};
+
+// Course Schemas pour chaque instrument
+const courseSchemas = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Course",
+      "@id": "https://musique-facile.fr/cours/cours-de-guitare",
+      "name": "Cours de Guitare pour Débutants",
+      "description": "Apprenez la guitare avec une méthode progressive en vidéo. Plus de 400 leçons pour maîtriser les accords, les rythmiques et jouer vos morceaux préférés. 92% des élèves jouent leur première chanson en 5 jours.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "Musique Facile",
+        "url": "https://musique-facile.fr"
+      },
+      "instructor": {
+        "@type": "Person",
+        "name": "Fred Fieffé",
+        "description": "Professeur de musique certifié avec 15 ans d'expérience et 80 000+ élèves formés"
+      },
+      "educationalLevel": "Débutant à Intermédiaire",
+      "inLanguage": "fr-FR",
+      "isAccessibleForFree": false,
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "PT15M"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://musique-facile.fr/cours/cours-de-piano",
+      "name": "Cours de Piano pour Débutants",
+      "description": "Découvrez le piano avec une méthode accessible et progressive. Apprenez à lire les partitions, maîtriser les accords et jouer vos morceaux préférés. Plus de 300 leçons vidéo pour tous niveaux.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "Musique Facile",
+        "url": "https://musique-facile.fr"
+      },
+      "instructor": {
+        "@type": "Person",
+        "name": "Fred Fieffé"
+      },
+      "educationalLevel": "Débutant à Intermédiaire",
+      "inLanguage": "fr-FR",
+      "isAccessibleForFree": false
+    },
+    {
+      "@type": "Course",
+      "@id": "https://musique-facile.fr/cours/cours-de-ukulele",
+      "name": "Cours d'Ukulélé pour Débutants",
+      "description": "Initiez-vous à l'ukulélé avec une méthode simple et ludique. Apprenez les accords de base, les rythmiques et jouez vos premières chansons en quelques jours. Plus de 200 leçons vidéo progressives.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "Musique Facile",
+        "url": "https://musique-facile.fr"
+      },
+      "instructor": {
+        "@type": "Person",
+        "name": "Fred Fieffé"
+      },
+      "educationalLevel": "Débutant à Intermédiaire",
+      "inLanguage": "fr-FR",
+      "isAccessibleForFree": false
+    },
+    {
+      "@type": "Course",
+      "@id": "https://musique-facile.fr/cours/cours-de-solfege",
+      "name": "Cours de Solfège pour Débutants",
+      "description": "Maîtrisez les bases de la théorie musicale avec une approche progressive et pratique. Apprenez à lire les notes, comprendre les rythmes et le cycle des quintes. Plus de 150 leçons vidéo.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "Musique Facile",
+        "url": "https://musique-facile.fr"
+      },
+      "instructor": {
+        "@type": "Person",
+        "name": "Fred Fieffé"
+      },
+      "educationalLevel": "Débutant à Intermédiaire",
+      "inLanguage": "fr-FR",
+      "isAccessibleForFree": false
+    }
+  ]
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  canonicalUrl={canonicalURL}
+  robots="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+>
+  <Fragment slot="head">
+    <meta name="author" content="Fred Fieffé - Musique Facile" />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(courseSchemas)} />
+  </Fragment>
+
+  <Header />
+  <UrgencyBanner />
+  <!-- <PromoSection /> -->
+  <!-- <Hero /> -->
+  <HeroNew />
+  <Avantages />
+  <!-- <InteractiveChordWidget /> -->
+  <!-- <QuizCTA variant="full" /> -->
+  <Cours />
+  <KidsSection />
+  <Temoignages />
+  <!-- <PersonalizationQuiz /> -->
+  <!-- <LeadMagnetCTA variant="full" /> -->
+  <FAQ />
+  <FreePianoCourse />
+
+  <!-- <SocialProof /> -->
+  <RandomBlogPosts />
+  <PricingPreview />
+  <Resultats />
+  <About />
+
+  <section class="course-buttons">
+    <div class="container">
+      <h2 class="section-title">Alors, prêt(e) à rejoindre l'aventure ?</h2>
+      <div class="buttons-grid">
+        <a href="/cours/cours-de-guitare" class="course-button theme-guitar">
+          <div class="button-background" style="background-image: url('/images/cours/hero-guitare.webp')"></div>
+          <div class="button-content">
+            <span class="button-icon">🎸</span>
+            <div class="button-text-wrapper">
+              <span class="button-title">Cours de Guitare</span>
+              <span class="button-description">Apprenez la guitare pas à pas</span>
+            </div>
+            <span class="button-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="/cours/cours-de-piano" class="course-button theme-piano">
+          <div class="button-background" style="background-image: url('/images/cours/hero-piano.webp')"></div>
+          <div class="button-content">
+            <span class="button-icon">🎹</span>
+            <div class="button-text-wrapper">
+              <span class="button-title">Cours de Piano</span>
+              <span class="button-description">Découvrez le piano facilement</span>
+            </div>
+            <span class="button-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="/cours/cours-de-ukulele" class="course-button theme-ukulele">
+          <div class="button-background" style="background-image: url('/images/cours/hero-ukulele.webp')"></div>
+          <div class="button-content">
+            <span class="button-icon">🏖️</span>
+            <div class="button-text-wrapper">
+              <span class="button-title">Cours d'Ukulélé</span>
+              <span class="button-description">Initiez-vous à l'ukulélé</span>
+            </div>
+            <span class="button-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="/cours/cours-de-solfege" class="course-button theme-solfege">
+          <div class="button-background" style="background-image: url('/images/cours/hero-solfege.webp')"></div>
+          <div class="button-content">
+            <span class="button-icon">🎼</span>
+            <div class="button-text-wrapper">
+              <span class="button-title">Cours de Solfège</span>
+              <span class="button-description">Maîtrisez la théorie musicale</span>
+            </div>
+            <span class="button-arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+  <StickyCTAMobile />
+  <FOMONotifications />
+</Layout>
+
+<style>
+  .course-buttons {
+    padding: var(--section-padding);
+    background: var(--bg-light);
+  }
+
+  .course-buttons .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--section-gap);
+    color: var(--theme-current);
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--card-gap);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .course-button {
+    position: relative;
+    height: 200px;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    transition: var(--transition-base);
+    box-shadow: var(--box-shadow);
+  }
+
+  .button-background {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+  }
+
+  .theme-guitar .button-background {
+    background-color: var(--theme-guitar);
+  }
+
+  .theme-piano .button-background {
+    background-color: var(--theme-piano);
+  }
+
+  .theme-ukulele .button-background {
+    background-color: var(--theme-ukulele);
+  }
+
+  .theme-solfege .button-background {
+    background-color: var(--theme-solfege);
+  }
+
+  .button-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.8)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .button-icon {
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: auto;
+  }
+
+  .button-text-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .button-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .button-description {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .button-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .course-button:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .course-button:hover .button-background {
+    transform: scale(1.1);
+  }
+
+  .course-button:hover .button-content {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.9)
+    );
+  }
+
+  .course-button:hover .button-arrow {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 1200px) {
+    .buttons-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .buttons-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .course-button {
+      height: 160px;
+    }
+
+    .button-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+    }
+
+    .button-title {
+      font-size: 1.2rem;
+    }
+  }
+</style>

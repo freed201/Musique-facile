@@ -2,11 +2,12 @@
 affichage: "N"
 classement: 3
 title: "Piano Expressif : L'Art de Jouer avec Force et Finesse"
-description: "Explorez l'art du piano, de la douceur délicate à la puissance maîtrisée. Apprenez à moduler la force des doigts pour une interprétation nuancée et expressive. Techniques, gammes et exercices pratiques pour transformer votre jeu."
-ogImage: "/images/cours/piano-force/hero.jpg"
+description: "Maîtrisez les nuances au piano : de la douceur à la puissance. Exercices pratiques pour une interprétation nuancée et expressive."
+ogImage: "/images/cours/piano-force-agilite/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -25,6 +26,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT10H" # Format ISO 8601 pour la durée
+  courseWorkload: "PT10H"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"

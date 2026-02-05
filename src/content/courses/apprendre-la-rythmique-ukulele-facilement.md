@@ -1,12 +1,13 @@
 ---
 affichage: "Y"
 classement: 2
-title: "Les Secrets du Rythme à l'Ukulélé: Techniques et Variations Inédites"
-description: "Réinventez votre rythme, révélez votre art : transformez chaque accord en magie musicale !"
-ogImage: "/images/cours/apprendre-la-rythmique-ukulele-facilement/hero.jpg"
+title: "Secrets du Rythme Ukulélé : Formation Complète"
+description: "Maîtrisez les rythmiques ukulélé avec 43 chapitres progressifs. Du shuffle aux variations avancées, pour tous niveaux. 750+ élèves formés."
+ogImage: "/images/cours/apprendre-la-rythmique-ukulele-facilement/hero.webp"
 theme: "ukulele"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -26,6 +27,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT2H" # Format ISO 8601 pour la durée
+  courseWorkload: "PT2H"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"

@@ -1,0 +1,359 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  instrument: 'guitare' | 'piano' | 'ukulele';
+  type: 'pdf' | 'lien' | 'video';
+  url: string;
+  image: string;
+  featured?: boolean;
+}
+
+const { title, description, instrument, type, url, image, featured = false } = Astro.props;
+
+// Fonction pour obtenir la classe de thème basée sur l'instrument
+function getThemeClass(instrument: string) {
+  switch(instrument) {
+    case 'guitare': return 'theme-guitar';
+    case 'piano': return 'theme-piano';
+    case 'ukulele': return 'theme-ukulele';
+    default: return 'theme-main';
+  }
+}
+
+// Fonction pour obtenir l'icône basée sur le type
+function getTypeIcon(type: string) {
+  switch(type) {
+    case 'pdf': return '📄';
+    case 'lien': return '🔗';
+    case 'video': return '🎬';
+    default: return '📦';
+  }
+}
+
+// Fonction pour obtenir le label basé sur le type
+function getTypeLabel(type: string) {
+  switch(type) {
+    case 'pdf': return 'PDF';
+    case 'lien': return 'Lien';
+    case 'video': return 'Vidéo';
+    default: return 'Ressource';
+  }
+}
+
+const themeClass = getThemeClass(instrument);
+const typeIcon = getTypeIcon(type);
+const typeLabel = getTypeLabel(type);
+---
+
+<article class={`ressource-card ${themeClass} ${featured ? 'featured' : ''}`}>
+  <a href={url} class="card-link">
+    <div class="card-image">
+      <img src={image} alt={title} loading="lazy" width="400" height="225" />
+      <div class="card-overlay"></div>
+      {featured && <span class="featured-badge">Populaire</span>}
+      <span class={`type-badge ${type}`}>
+        <span class="type-icon">{typeIcon}</span>
+        <span class="type-label">{typeLabel}</span>
+      </span>
+    </div>
+    <div class="card-content">
+      <div class="instrument-tag">
+        <span class="instrument-icon">
+          {instrument === 'guitare' && '🎸'}
+          {instrument === 'piano' && '🎹'}
+          {instrument === 'ukulele' && '🏝️'}
+        </span>
+        <span class="instrument-label">
+          {instrument === 'guitare' && 'Guitare'}
+          {instrument === 'piano' && 'Piano'}
+          {instrument === 'ukulele' && 'Ukulélé'}
+        </span>
+      </div>
+      <h3 class="card-title">{title}</h3>
+      <p class="card-description">{description}</p>
+      <div class="card-footer">
+        <span class="btn-download">Télécharger gratuitement</span>
+        <span class="arrow">→</span>
+      </div>
+    </div>
+  </a>
+</article>
+
+<style>
+  .ressource-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .ressource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .ressource-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--theme-current);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .ressource-card:hover::before {
+    opacity: 1;
+  }
+
+  .theme-guitar::before {
+    background: var(--theme-guitar);
+  }
+
+  .theme-piano::before {
+    background: var(--theme-piano);
+  }
+
+  .theme-ukulele::before {
+    background: var(--theme-ukulele);
+  }
+
+  .card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .ressource-card:hover .card-image img {
+    transform: scale(1.1);
+  }
+
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  .ressource-card:hover .card-overlay {
+    opacity: 0.9;
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .type-badge {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+    z-index: 10;
+  }
+
+  .type-badge.pdf {
+    background: rgba(220, 53, 69, 0.9);
+  }
+
+  .type-badge.lien {
+    background: rgba(13, 110, 253, 0.9);
+  }
+
+  .type-badge.video {
+    background: rgba(25, 135, 84, 0.9);
+  }
+
+  .type-icon {
+    font-size: 1.1rem;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .instrument-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: rgba(var(--theme-current-rgb), 0.1);
+    color: var(--theme-current);
+    width: fit-content;
+  }
+
+  .theme-guitar .instrument-tag {
+    background: rgba(var(--theme-guitar-rgb), 0.1);
+    color: var(--theme-guitar);
+  }
+
+  .theme-piano .instrument-tag {
+    background: rgba(var(--theme-piano-rgb), 0.1);
+    color: var(--theme-piano);
+  }
+
+  .theme-ukulele .instrument-tag {
+    background: rgba(var(--theme-ukulele-rgb), 0.1);
+    color: var(--theme-ukulele);
+  }
+
+  .instrument-icon {
+    font-size: 1.1rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-dark);
+    line-height: 1.4;
+  }
+
+  .theme-guitar .card-title {
+    color: var(--theme-guitar);
+  }
+
+  .theme-piano .card-title {
+    color: var(--theme-piano);
+  }
+
+  .theme-ukulele .card-title {
+    color: var(--theme-ukulele);
+  }
+
+  .card-description {
+    color: var(--color-dark);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex: 1;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-download {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--theme-current);
+  }
+
+  .theme-guitar .btn-download {
+    color: var(--theme-guitar);
+  }
+
+  .theme-piano .btn-download {
+    color: var(--theme-piano);
+  }
+
+  .theme-ukulele .btn-download {
+    color: var(--theme-ukulele);
+  }
+
+  .arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    color: var(--theme-current);
+  }
+
+  .theme-guitar .arrow {
+    color: var(--theme-guitar);
+  }
+
+  .theme-piano .arrow {
+    color: var(--theme-piano);
+  }
+
+  .theme-ukulele .arrow {
+    color: var(--theme-ukulele);
+  }
+
+  .ressource-card:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  /* Style spécial pour les ressources en vedette */
+  .ressource-card.featured {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .ressource-card.featured:hover {
+    transform: scale(1.02) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+  }
+
+  @media (max-width: 768px) {
+    .card-content {
+      padding: 1.2rem;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+    }
+
+    .card-description {
+      font-size: 0.9rem;
+    }
+  }
+</style>

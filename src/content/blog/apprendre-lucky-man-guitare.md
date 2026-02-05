@@ -1,20 +1,19 @@
 ---
-title: "Lucky Man : Découvrez l’histoire et les accords de ce titre culte"
-description: "Plongez dans 'Lucky Man', une chanson emblématique de The Verve, et découvrez comment l'apprendre facilement à la guitare."
+title: "Lucky Man (The Verve) - Tutoriel Guitare"
+description: "Lucky Man de The Verve à la guitare : 5 accords simples, rythmique Britpop, classique 1997. Tutoriel vidéo débutants."
 ogImage: "/images/blog/apprendre-lucky-man-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-01-06"
-introduction: "Avec 'Lucky Man', The Verve nous offre une chanson pleine d'émotion et de profondeur. Découvrez son histoire et apprenez à jouer ce classique de la Britpop."
+dateModified: "2026-02-04"
+introduction: "Avec 'Lucky Man', The Verve nous offre une chanson pleine d'émotion et de profondeur, tirée de l'album légendaire Urban Hymns (1997). Découvrez l'histoire de ce classique de la Britpop et apprenez à le jouer à la guitare avec nos tutoriels vidéo détaillés, accessibles aux débutants."
 
 songInfo:
   inBook: true
-  bookPage: "48"
-  tempo: "78"
-  chordCount: "5"
-  key: ""
+  bookPage: 48
+  tempo: 78
+  chordCount: 5
   difficulty: "2/5"
 
 videos:
@@ -33,12 +32,15 @@ conclusion: |
   "Lucky Man" reste l'un des morceaux les plus appréciés de The Verve, incitant les auditeurs à la contemplation et à la reconnaissance de la beauté de la vie. À travers sa mélodie douce et ses paroles puissantes, ce morceau invite chacun à se reconnecter avec les petites choses qui nous rendent heureux.<br><br>Que vous soyez un fan dévoué de la Britpop ou un musicien en herbe cherchant à enrichir votre répertoire, "Lucky Man" offre un trésor de plaisir musical et d'apprentissage. N'hésitez plus à explorer les autres chefs-d'œuvre de The Verve et à vous laisser emporter par leur pouvoir émotionnel.
 
 relatedLinks:
-  - title: "Les meilleurs morceaux de The Verve"
-    url: "/articles/meilleurs-morceaux-the-verve"
-    description: "Découvrez les titres qui ont marqué la carrière de The Verve."
-  - title: "Analyse de l'album 'Urban Hymns'"
-    url: "/articles/urban-hymns-analyse"
-    description: "Explorez les secrets de l'album légendaire contenant 'Lucky Man'."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation complète pour débuter la guitare avec les bonnes bases."
+  - title: "Wonderwall - Tutoriel Guitare Britpop"
+    url: "/blog/apprendre-wonderwall-guitare"
+    description: "Un autre classique Britpop incontournable des années 90."
+  - title: "Chasing Cars - Cours de Guitare"
+    url: "/blog/apprendre-chasing-cars-guitare"
+    description: "Apprenez cette ballade rock avec des accords suspendus."
 ---
 ## Présentation de l’artiste et du morceau
 

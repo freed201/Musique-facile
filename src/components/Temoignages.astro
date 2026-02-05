@@ -1,16 +1,18 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
+
 const testimonials = [
   {
     name: "Marie Dubois",
     role: "Élève en guitare",
-    image: "/images/marie.jpg",
+    image: "/images/marie.webp",
     quote: "Grâce à Musique Facile, j'ai pu apprendre la guitare à mon rythme. Les cours sont très bien structurés et les explications sont claires. En seulement quelques mois, je peux déjà jouer mes morceaux préférés !",
     rating: 5
   },
   {
     name: "Thomas Martin",
     role: "Élève en piano",
-    image: "/images/thomas.jpg", 
+    image: "/images/thomas.webp", 
     quote: "Je cherchais une méthode flexible pour apprendre le piano et j'ai trouvé exactement ce qu'il me fallait. La progression est bien pensée et le support est très réactif. Je recommande vivement !",
     rating: 5
   }
@@ -30,7 +32,35 @@ const stats = [
     label: " vidéos disponibles"
   }
 ];
+
+// Schema.org Review pour chaque témoignage
+const reviewSchemas = testimonials.map(testimonial => ({
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "author": {
+    "@type": "Person",
+    "name": testimonial.name
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": testimonial.rating.toString(),
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "reviewBody": testimonial.quote,
+  "itemReviewed": {
+    "@type": "EducationalOrganization",
+    "name": "Musique Facile",
+    "url": "https://musique-facile.fr"
+  },
+  "datePublished": new Date().toISOString().split('T')[0]
+}));
 ---
+
+<!-- Schema.org Review pour chaque témoignage -->
+{reviewSchemas.map(schema => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}
 
 <section class="testimonials">
   <div class="container">
@@ -41,12 +71,13 @@ const stats = [
       {testimonials.map(testimonial => (
         <div class="testimonial-card">
           <div class="testimonial-header">
-            <img 
-              src={testimonial.image} 
-              alt={testimonial.name}
+            <OptimizedImage
+              src={testimonial.image}
+              alt={`Photo de ${testimonial.name}, élève satisfait de Musique Facile`}
+              width={80}
+              height={80}
+              loading="lazy"
               class="testimonial-image"
-              width="80"
-              height="80"
             />
             <div class="testimonial-meta">
               <h3>{testimonial.name}</h3>
@@ -78,82 +109,111 @@ const stats = [
 
 <style>
   .testimonials {
-    padding: 8rem 0;
-    background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+    padding: var(--space-20) 0;
+    background: linear-gradient(180deg, var(--surface-white) 0%, var(--surface-light) 100%);
   }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 var(--space-6);
   }
 
   .section-title {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--color-dark);
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+    font-weight: var(--font-extrabold);
+    margin-bottom: var(--space-4);
+    color: var(--gray-900);
+    line-height: var(--leading-tight);
   }
 
   .section-subtitle {
     text-align: center;
-    font-size: 1.2rem;
-    color: var(--color-dark);
-    opacity: 0.8;
+    font-size: var(--text-lg);
+    color: var(--gray-600);
+    line-height: var(--leading-relaxed);
     max-width: 600px;
-    margin: 0 auto 4rem;
+    margin: 0 auto var(--space-16);
   }
 
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-bottom: 4rem;
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
   }
 
   .testimonial-card {
+    position: relative;
     background: white;
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--gray-200);
+    transition: var(--transition-base);
+    overflow: hidden;
+  }
+
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--brand-500);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-base) var(--ease-out);
   }
 
   .testimonial-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--brand-300);
+  }
+
+  .testimonial-card:hover::before {
+    transform: scaleX(1);
   }
 
   .testimonial-header {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
   }
 
-  .testimonial-image {
+  .testimonial-image,
+  .testimonial-image :global(.optimized-image-wrapper) {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--theme-current);
+    overflow: hidden;
+  }
+
+  .testimonial-image :global(.optimized-image) {
+    border: 3px solid var(--brand-500);
+    border-radius: 50%;
   }
 
   .testimonial-meta h3 {
-    font-size: 1.2rem;
-    margin: 0 0 0.25rem;
-    color: var(--color-dark);
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    margin: 0 0 var(--space-1);
+    color: var(--gray-900);
   }
 
   .testimonial-role {
-    font-size: 0.9rem;
-    color: var(--color-dark);
-    opacity: 0.8;
-    margin: 0 0 0.5rem;
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+    margin: 0 0 var(--space-2);
   }
 
   .testimonial-rating {
     display: flex;
-    gap: 0.25rem;
+    gap: var(--space-1);
   }
 
   .star {
@@ -161,9 +221,9 @@ const stats = [
   }
 
   .testimonial-quote {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--color-dark);
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--gray-700);
     margin: 0;
     font-style: italic;
   }
@@ -171,30 +231,32 @@ const stats = [
   .stats-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    background: var(--theme-current);
-    padding: 3rem;
-    border-radius: var(--border-radius);
-    margin-top: 4rem;
+    gap: var(--space-8);
+    background: linear-gradient(135deg, var(--brand-500), var(--brand-600));
+    padding: var(--space-12);
+    border-radius: var(--radius-2xl);
+    margin-top: var(--space-16);
     text-align: center;
     color: white;
+    box-shadow: var(--shadow-brand);
   }
 
   .stat-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-2);
   }
 
   .stat-number {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: clamp(var(--text-4xl), 4vw, var(--text-5xl));
+    font-weight: var(--font-extrabold);
+    line-height: var(--leading-tight);
   }
 
   .stat-label {
-    font-size: 1.1rem;
-    opacity: 0.9;
+    font-size: var(--text-lg);
+    opacity: 0.95;
   }
 
   @media (max-width: 768px) {
@@ -204,15 +266,11 @@ const stats = [
 
     .stats-container {
       grid-template-columns: 1fr;
-      padding: 2rem;
-    }
-
-    .section-title {
-      font-size: 2rem;
+      padding: var(--space-8);
     }
 
     .testimonial-card {
-      padding: 1.5rem;
+      padding: var(--space-6);
     }
 
     .testimonial-header {

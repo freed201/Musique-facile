@@ -22,3 +22,13 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# n8n files (contiennent des secrets)
+root/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Workflow files (peuvent contenir des clés API)
+workflows.json
+full-n8n-backup.tar.gz

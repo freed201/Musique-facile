@@ -2,11 +2,12 @@
 affichage: "Y"
 classement: 2
 title: "Piano pour Guitaristes : Améliorez Votre Jeu de Guitare"
-description: "Découvrez comment le piano peut enrichir votre compréhension musicale et améliorer votre jeu de guitare. Une formation dédiée aux guitaristes souhaitant élargir leurs compétences."
-ogImage: "/images/cours/apprendre-piano-facile-guitaristes/hero.jpg"
+description: "Le piano pour enrichir votre jeu de guitare. Formation dédiée aux guitaristes : compréhension musicale et nouvelles compétences."
+ogImage: "/images/cours/apprendre-piano-facile-guitaristes/hero.webp"
 theme: "guitar"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -25,6 +26,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT3H10M" # Format ISO 8601 pour la durée
+  courseWorkload: "PT3H10M"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"
@@ -176,7 +178,7 @@ cta:
   subtitle: "Rejoignez la formation 'Piano pour Guitaristes' et découvrez comment cet instrument peut enrichir vos compétences musicales."
   buttonText: "Je m'inscris maintenant !"
   buttonLink: "https://ecole.musique-facile.fr/piano-pour-guitaristes/buy"
-  backgroundImage: "/images/cours/piano-facile-apprendre-debutant/hero.jpg"
+  backgroundImage: "/images/cours/piano-facile-apprendre-debutant/hero.webp"
   features:
     - icon: "⭐"
       text: "Accès immédiat au cours complet"

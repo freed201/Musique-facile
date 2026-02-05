@@ -1,20 +1,19 @@
 ---
-title: "Sweet Dreams (Are Made of This) : L'empreinte indélébile d'Eurythmics"
-description: "Explorez l'histoire, l'impact et les techniques musicales du morceau culte d'Eurythmics, emblématique de la synth-pop des années 80."
+title: "Sweet Dreams (Eurythmics) - Tutoriel Guitare"
+description: "Sweet Dreams d'Eurythmics à la guitare : 5 accords, rythmique synth-pop, hit années 80. Tutoriel vidéo intermédiaires."
 ogImage: "/images/blog/apprendre-sweet-dreams-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-01-18"
-introduction: "Plongez dans l'univers électronique et révolutionnaire de 'Sweet Dreams (Are Made of This)', l'un des morceaux les plus emblématiques des années 80, créé par le duo légendaire Eurythmics."
+dateModified: "2026-02-04"
+introduction: "Plongez dans l'univers électronique et révolutionnaire de 'Sweet Dreams (Are Made of This)', l'un des morceaux les plus emblématiques des années 80 créé par Eurythmics. Découvrez comment adapter ce classique synth-pop de 1983 à la guitare avec notre tutoriel détaillé."
 
 songInfo:
   inBook: true
-  bookPage: "74"
-  tempo: "93"
-  chordCount: "5"
-  key: ""
+  bookPage: 74
+  tempo: 93
+  chordCount: 5
   difficulty: "3/5"
 
 videos:
@@ -31,12 +30,15 @@ conclusion: |
   Eurythmics a laissé une empreinte indélébile sur l'industrie musicale avec "Sweet Dreams (Are Made of This)". Plus qu'une simple chanson, c'est un hymne à la persévérance et à l'authenticité. En apprenant à jouer ce morceau, vous emportez avec vous un peu de l'esprit rebelle et créatif des années 80. Alors, n'hésitez pas à vous lancer dans ce projet, et rappelez-vous, ce qui compte c'est de continuer à jouer, apprendre, et surtout apprécier chaque instant musical.
 
 relatedLinks:
-  - title: "Les meilleurs morceaux des années 80 à la guitare"
-    url: "/articles/meilleurs-morceaux-annees-80"
-    description: "Découvrez une sélection des titres phares des années 80 à jouer à la guitare."
-  - title: "L'évolution de la synth-pop : des années 80 à aujourd'hui"
-    url: "/articles/evolution-synth-pop"
-    description: "Un voyage à travers l'histoire de la synth-pop et ses artistes les plus influents."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour maîtriser les classiques pop-rock à la guitare."
+  - title: "Don't Stop Me Now - Queen"
+    url: "/blog/tutoriel-dont-stop-me-now-queen"
+    description: "Un autre classique énergique des années 80."
+  - title: "Smells Like Teen Spirit - Nirvana"
+    url: "/blog/apprendre-smells-like-teen-spirit-guitare"
+    description: "Le classique grunge des années 90."
 ---
 ## Eurythmics : La Naissance d'un Duo Iconique
 

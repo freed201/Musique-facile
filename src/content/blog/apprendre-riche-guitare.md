@@ -1,20 +1,19 @@
 ---
-title: "Riche : La chanson émouvante de Claudio Capéo"
-description: "Découvrez 'Riche', un hymne à la richesse intérieure par Claudio Capéo, et apprenez à jouer ce morceau à la guitare."
+title: "Riche (Claudio Capéo) - Tutoriel Guitare"
+description: "Riche de Claudio Capéo à la guitare : 7 accords avec capo case 2, rythmique folk-pop. Tutoriel vidéo intermédiaires."
 ogImage: "/images/blog/apprendre-riche-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-01-14"
-introduction: "Avec 'Riche', Claudio Capéo nous rappelle que la vraie richesse se mesure en amour et en souvenirs partagés. Découvrez l'histoire de cette chanson et apprenez à la jouer sur votre guitare."
+dateModified: "2026-02-04"
+introduction: "Avec 'Riche', Claudio Capéo nous rappelle que la vraie richesse se mesure en amour et en souvenirs partagés, non en biens matériels. Découvrez l'histoire touchante de cette chanson tirée de son album éponyme (2016) et apprenez à la jouer à la guitare avec notre tutoriel détaillé."
 
 songInfo:
   inBook: true
-  bookPage: "66"
-  tempo: "165"
-  chordCount: "7"
-  key: ""
+  bookPage: 66
+  tempo: 165
+  chordCount: 7
   difficulty: "3/5"
 
 videos:
@@ -32,12 +31,15 @@ conclusion: |
   Claudio Capéo, avec sa chanson "Riche", a su nous rappeler que la richesse ne se mesure pas seulement en termes financiers mais en souvenirs, en moments partagés et en amour. Le message intemporel de cette chanson résonne chez beaucoup, et sa popularité en témoigne.<br><br>Alors, que vous soyez un fan de longue date ou que vous découvriez la musique de Claudio Capéo pour la première fois, "Riche" est une chanson à ne pas manquer. N'oubliez pas de vous connecter avec Claudio sur ses réseaux sociaux et son site officiel pour rester à jour avec ses dernières nouvelles musicales. Qui sait quelles autres merveilles cet artiste talentueux a encore en réserve pour nous ?
 
 relatedLinks:
-  - title: "Les meilleures chansons de Claudio Capéo"
-    url: "/articles/meilleures-chansons-claudio-capeo"
-    description: "Un aperçu des morceaux qui ont marqué la carrière de Claudio Capéo."
-  - title: "Analyse de l'album éponyme 'Claudio Capéo'"
-    url: "/articles/claudio-capeo-album-analyse"
-    description: "Découvrez les secrets de l'album contenant 'Riche' et d'autres succès."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour maîtriser la chanson française à la guitare."
+  - title: "La Seine - Vanessa Paradis & -M-"
+    url: "/blog/jouer-la-seine-vanessa-m"
+    description: "Une belle ballade poétique française."
+  - title: "J'veux du Soleil - Au P'tit Bonheur"
+    url: "/blog/tutoriel-jveux-du-soleil-chanson-francaise"
+    description: "Un autre hit feel-good de la chanson française."
 ---
 
 ## Qui est Claudio Capéo?

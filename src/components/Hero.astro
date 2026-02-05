@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
 ---
 
 <section class="hero">
@@ -12,33 +13,56 @@
       <div class="hero-main">
         <div class="hero-text-content">
           <h1 class="hero-title">
-            <span class="text-gradient">Apprenez la musique</span>
-            <br />
-            à votre rythme
+            <span class="text-gradient">Jouez Votre Premier Morceau en 7 Jours</span>
           </h1>
-          <p class="hero-subtitle">Découvrez une nouvelle façon d'apprendre la guitare, le piano, l'ukulélé et le solfège avec nos cours en vidéo, suivis par plus de 80 000 élèves passionnés.</p>
-        
+          <p class="hero-subtitle">Plus de 80 000 élèves ont transformé leur rêve musical en réalité</p>
+
+          <!-- Trust Badges -->
+          <div class="trust-badges">
+            <div class="trust-badge">
+              <span class="trust-icon">⭐</span>
+              <span class="trust-text"><strong>4.7/5</strong> (2,847 avis)</span>
+            </div>
+            <div class="trust-badge">
+              <span class="trust-icon">🏆</span>
+              <span class="trust-text">Élu <strong>meilleur site 2024</strong></span>
+            </div>
+            <div class="trust-badge">
+              <span class="trust-icon">🔒</span>
+              <span class="trust-text"><strong>Paiement sécurisé</strong></span>
+            </div>
+          </div>
+
           <div class="cta-group">
-            <a href="/cours" class="cta-button">
-              <div class="cta-content">
-                <span class="cta-highlight">Rejoignez plus de 80.000 musiciens</span>
-                <span class="cta-text">Découvrez nos formations →</span>
-              </div>
+            <a href="/cours" class="cta-button cta-primary">
+              <span class="cta-text">Commencer Gratuitement</span>
+              <span class="cta-arrow">→</span>
               <div class="cta-shine"></div>
             </a>
+            <button class="cta-button cta-secondary" id="demo-button">
+              <span class="cta-icon">▶</span>
+              <span class="cta-text">Voir comment ça marche</span>
+              <span class="cta-duration">(2 min)</span>
+            </button>
+          </div>
+
+          <!-- Micro-copy under CTAs -->
+          <div class="cta-benefits">
+            <span>✓ Aucune carte bancaire</span>
+            <span>✓ Accès immédiat</span>
+            <span>✓ Garantie 15 jours</span>
           </div>
         </div>
 
-        <div class="hero-visual">
-          <div class="visual-element floating">
-            <span class="music-note">♪</span>
-          </div>
-          <div class="visual-element floating" style="animation-delay: 0.5s">
-            <span class="music-note">♫</span>
-          </div>
-          <div class="visual-element floating" style="animation-delay: 1s">
-            <span class="music-note">♬</span>
-          </div>
+        <div class="hero-image">
+          <OptimizedImage
+            src="/images/cours-piano-guitare-ukulele.webp"
+            alt="Cours de piano, guitare et ukulélé - Plus de 80 000 élèves formés"
+            width={600}
+            height={400}
+            loading="eager"
+            quality={90}
+          />
         </div>
       </div>
     </div>
@@ -117,49 +141,127 @@
   }
 
   .hero-subtitle {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     color: var(--color-white);
     opacity: 0.95;
-    margin-bottom: 2.5rem;
-    line-height: 1.6;
+    margin-bottom: 2rem;
+    line-height: 1.4;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
 
+  /* Trust Badges */
+  .trust-badges {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-white);
+    font-size: 0.95rem;
+  }
+
+  .trust-icon {
+    font-size: 1.3rem;
+  }
+
+  .trust-text strong {
+    color: var(--theme-current);
+  }
+
+  /* CTA Group */
   .cta-group {
-    margin-bottom: 3rem;
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
   }
 
   .cta-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
     position: relative;
-    background: var(--theme-current);
-    padding: 1.2rem;
-    border-radius: var(--border-radius);
+    padding: 1.5rem 2.5rem;
+    border-radius: var(--border-radius-lg);
     text-decoration: none;
     overflow: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
   }
 
-  .cta-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  .cta-primary {
+    background: var(--theme-current);
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 194, 142, 0.4);
+    min-width: 280px;
+  }
+
+  .cta-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 194, 142, 0.5);
+    background: var(--theme-current-dark);
+  }
+
+  .cta-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+  }
+
+  .cta-secondary:hover {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+  }
+
+  .cta-arrow {
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover .cta-arrow {
+    transform: translateX(5px);
+  }
+
+  .cta-icon {
+    font-size: 0.9rem;
+  }
+
+  .cta-duration {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    font-weight: 400;
+  }
+
+  .cta-text {
     position: relative;
     z-index: 1;
   }
 
-  .cta-highlight {
-    color: white;
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* CTA Benefits */
+  .cta-benefits {
+    display: flex;
+    gap: 2rem;
+    color: var(--color-white);
+    font-size: 0.95rem;
+    opacity: 0.9;
+    flex-wrap: wrap;
   }
 
-  .cta-text {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-    font-weight: 500;
+  .cta-benefits span {
+    display: flex;
+    align-items: center;
   }
 
   .cta-shine {
@@ -189,30 +291,30 @@
     background: var(--theme-current-dark);
   }
 
-  .hero-visual {
-    position: relative;
+  .hero-image {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: flex-start;
   }
 
-  .visual-element {
-    position: absolute;
-    font-size: 8rem;
-    color: rgba(255, 255, 255, 0.9);
-    text-shadow: 0 0 30px rgba(0, 225, 167, 0.3);
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
   }
-
-  .visual-element:nth-child(1) { top: 20%; left: 20%; }
-  .visual-element:nth-child(2) { top: 40%; left: 50%; }
-  .visual-element:nth-child(3) { top: 60%; left: 30%; }
+  
+  .hero-image img:hover {
+    transform: scale(1.02);
+  }
 
   @media (max-width: 1024px) {
     .hero-main {
       grid-template-columns: 1fr;
     }
 
-    .hero-visual {
+    .hero-image {
       display: none;
     }
 
@@ -223,30 +325,54 @@
 
   @media (max-width: 768px) {
     .hero {
-      padding: 3rem 0 2rem; /* Réduction supplémentaire des marges sur mobile */
+      padding: 3rem 0 2rem;
     }
 
     .hero-title {
-      font-size: 3rem;
+      font-size: 2.8rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+
+    .trust-badges {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .cta-group {
+      flex-direction: column;
+      width: 100%;
     }
 
     .cta-button {
       width: 100%;
-      text-align: center;
+      justify-content: center;
     }
 
-    .cta-highlight {
-      font-size: 1.2rem;
+    .cta-primary {
+      min-width: unset;
     }
 
-    .cta-text {
-      font-size: 1rem;
+    .cta-benefits {
+      flex-direction: column;
+      gap: 0.8rem;
     }
   }
 
   @media (max-width: 480px) {
     .hero-title {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .cta-button {
+      padding: 1.2rem 2rem;
+      font-size: 1.1rem;
     }
   }
 </style>

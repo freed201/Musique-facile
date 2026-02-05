@@ -2,11 +2,12 @@
 affichage: "Y"
 classement: 2
 title: "Guitare Odyssée : 52 Semaines de Perfectionnement"
-description: "Embarquez pour une année de progression continue avec 'Guitare Odyssée'. Chaque semaine, découvrez de nouvelles leçons pour améliorer votre technique, compréhension musicale et expression à la guitare."
-ogImage: "/images/cours/maitrise-technique-guitare-avancee/hero.jpg"
+description: "52 semaines de progression guitare : technique, compréhension musicale et expression. Une leçon par semaine pour progresser régulièrement."
+ogImage: "/images/cours/maitrise-technique-guitare-avancee/hero.webp"
 theme: "guitar"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -25,6 +26,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT12H30M" # Format ISO 8601 pour la durée
+  courseWorkload: "PT12H30M"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"
@@ -52,7 +54,7 @@ hero:
     - value: "4.5/5"
       label: "note moyenne"
       icon: "⭐"
-  imageBK: "https://ecole.musique-facile.fr/images/guitare-odyssee-hero.jpg"
+  imageBK: "https://ecole.musique-facile.fr/images/guitare-odyssee-hero.webp"
 
 teachers:
   mainTeachers:

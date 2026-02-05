@@ -1,0 +1,718 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import EmailCaptureForm from '../../components/EmailCaptureForm.astro';
+
+export async function getStaticPaths() {
+  const ressources = await getCollection('ressources');
+  return ressources.map(ressource => ({
+    params: { slug: ressource.slug },
+    props: { ressource },
+  }));
+}
+
+const { ressource } = Astro.props;
+const { Content } = await ressource.render();
+
+// Construction de l'URL canonique
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://musique-facile.fr').toString();
+
+// Métadonnées pour la page
+const title = ressource.data.seoTitle;
+const description = ressource.data.seoDescription;
+const ogImage = ressource.data.image;
+const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `https://musique-facile.fr${ogImage}`;
+const keywords = `ressource gratuite ${ressource.data.instrument}, ${ressource.data.type} ${ressource.data.instrument} gratuit, apprendre ${ressource.data.instrument} gratuitement`;
+
+// Fonction pour obtenir la classe de thème basée sur l'instrument
+function getThemeClass(instrument: string) {
+  switch(instrument) {
+    case 'guitare': return 'theme-guitar';
+    case 'piano': return 'theme-piano';
+    case 'ukulele': return 'theme-ukulele';
+    default: return 'theme-main';
+  }
+}
+
+// Fonction pour obtenir l'icône basée sur le type
+function getTypeIcon(type: string) {
+  switch(type) {
+    case 'pdf': return '📄';
+    case 'lien': return '🔗';
+    case 'video': return '🎬';
+    default: return '📦';
+  }
+}
+
+// Fonction pour obtenir le label basé sur le type
+function getTypeLabel(type: string) {
+  switch(type) {
+    case 'pdf': return 'PDF';
+    case 'lien': return 'Lien';
+    case 'video': return 'Vidéo';
+    default: return 'Ressource';
+  }
+}
+
+// Fonction pour extraire l'ID YouTube d'une URL
+function getYouTubeId(url: string) {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+}
+
+const themeClass = getThemeClass(ressource.data.instrument);
+const typeIcon = getTypeIcon(ressource.data.type);
+const typeLabel = getTypeLabel(ressource.data.type);
+
+// Extraire l'ID YouTube si c'est une vidéo
+const youtubeId = ressource.data.type === 'video' && ressource.data.externalLink 
+  ? getYouTubeId(ressource.data.externalLink)
+  : null;
+
+// Construction du schema.org pour la ressource
+const ressourceSchema = {
+  "@context": "https://schema.org",
+  "@type": ressource.data.type === "pdf" ? "DigitalDocument" : "CreativeWork",
+  "name": ressource.data.title,
+  "description": ressource.data.description,
+  "url": canonicalURL,
+  "image": `https://musique-facile.fr${ressource.data.image}`,
+  "datePublished": ressource.data.datePublished,
+  "dateModified": ressource.data.dateModified,
+  "fileFormat": ressource.data.type === "pdf" ? "application/pdf" : undefined,
+  "contentUrl": ressource.data.externalLink || undefined,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock"
+  }
+};
+
+// Déterminer les liens de navigation pour les ressources similaires
+const allRessources = await getCollection('ressources');
+const similarRessources = allRessources
+  .filter(r => r.data.instrument === ressource.data.instrument && r.slug !== ressource.slug)
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 3);
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogImage={absoluteOgImage}
+  canonicalUrl={canonicalURL}
+  keywords={keywords}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(ressourceSchema)} />
+  </Fragment>
+  
+  <Header />
+  
+  <main>
+    <!-- Fil d'Ariane -->
+    <BreadcrumbNav 
+      items={[
+        { name: "Accueil", url: "/" },
+        { name: "Ressources Gratuites", url: "/ressources-gratuites" },
+        { name: ressource.data.instrument === 'guitare' ? 'Guitare' : 
+               ressource.data.instrument === 'piano' ? 'Piano' : 'Ukulélé', 
+          url: `/ressources-gratuites/${ressource.data.instrument}` },
+        { name: ressource.data.title, url: Astro.url.pathname }
+      ]}
+    />
+    
+    <section class={`ressource-hero ${themeClass}`}>
+      <div class="ressource-hero-content">
+        <div class="ressource-image">
+          <img 
+            src={ressource.data.image} 
+            alt={ressource.data.title}
+            width="600"
+            height="400"
+          />
+          <div class="ressource-badges">
+            <span class={`type-badge ${ressource.data.type}`}>
+              <span class="type-icon">{typeIcon}</span>
+              <span class="type-label">{typeLabel}</span>
+            </span>
+            <span class="instrument-badge">
+              <span class="instrument-icon">
+                {ressource.data.instrument === 'guitare' && '🎸'}
+                {ressource.data.instrument === 'piano' && '🎹'}
+                {ressource.data.instrument === 'ukulele' && '🏝️'}
+              </span>
+              <span class="instrument-label">
+                {ressource.data.instrument === 'guitare' && 'Guitare'}
+                {ressource.data.instrument === 'piano' && 'Piano'}
+                {ressource.data.instrument === 'ukulele' && 'Ukulélé'}
+              </span>
+            </span>
+          </div>
+        </div>
+        <div class="ressource-info">
+          <h1>{ressource.data.title}</h1>
+          <p class="ressource-description">{ressource.data.description}</p>
+          
+          <div class="ressource-meta">
+            {ressource.data.fileSize && (
+              <div class="meta-item">
+                <span class="meta-icon">📦</span>
+                <span class="meta-label">Taille</span>
+                <span class="meta-value">{ressource.data.fileSize}</span>
+              </div>
+            )}
+            {ressource.data.fileFormat && (
+              <div class="meta-item">
+                <span class="meta-icon">📄</span>
+                <span class="meta-label">Format</span>
+                <span class="meta-value">{ressource.data.fileFormat}</span>
+              </div>
+            )}
+            {ressource.data.videoLength && (
+              <div class="meta-item">
+                <span class="meta-icon">⏱️</span>
+                <span class="meta-label">Durée</span>
+                <span class="meta-value">{ressource.data.videoLength}</span>
+              </div>
+            )}
+            <div class="meta-item">
+              <span class="meta-icon">🔄</span>
+              <span class="meta-label">Mise à jour</span>
+              <span class="meta-value">
+                {new Date(ressource.data.dateModified).toLocaleDateString('fr-FR', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ressource-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <div class="content-wrapper">
+              <Content />
+              
+              {ressource.data.type === 'video' && youtubeId && (
+                <div class="video-container">
+                  <h2>Regarder la vidéo</h2>
+                  <div class="video-wrapper">
+                    <iframe 
+                      width="560" 
+                      height="315" 
+                      src={`https://www.youtube.com/embed/${youtubeId}`} 
+                      title={ressource.data.title}
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+              )}
+            </div>
+            
+            {similarRessources.length > 0 && (
+              <div class="similar-ressources">
+                <h2>Ressources similaires</h2>
+                <div class="similar-grid">
+                  {similarRessources.map(similar => (
+                    <a href={similar.data.url} class={`similar-card ${getThemeClass(similar.data.instrument)}`}>
+                      <div class="similar-image">
+                        <img 
+                          src={similar.data.image} 
+                          alt={similar.data.title}
+                          width="100"
+                          height="60"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div class="similar-content">
+                        <h3>{similar.data.title}</h3>
+                        <span class="similar-type">
+                          {getTypeIcon(similar.data.type)} {getTypeLabel(similar.data.type)}
+                        </span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+          
+          <aside class="sidebar">
+            {ressource.data.type === 'pdf' && (
+              <div class={`download-form ${themeClass}`}>
+                <EmailCaptureForm 
+                  ressourceTitle={ressource.data.title}
+                  instrument={ressource.data.instrument}
+                  resourceId={ressource.data.resourceId}
+                />
+              </div>
+            )}
+            
+            {ressource.data.type === 'lien' && ressource.data.externalLink && (
+              <div class={`external-link-box ${themeClass}`}>
+                <h3>Accéder à la ressource</h3>
+                <p>Clique sur le bouton ci-dessous pour accéder directement à la ressource :</p>
+                <a href={ressource.data.externalLink} target="_blank" rel="noopener noreferrer" class="external-link-button">
+                  <span>Accéder maintenant</span>
+                  <span class="external-icon">↗</span>
+                </a>
+              </div>
+            )}
+            
+            <div class="sidebar-cta">
+              <h3>Envie d'aller plus loin ?</h3>
+              <p>Découvre notre formation complète pour progresser rapidement</p>
+              <a href={`/cours/cours-de-${ressource.data.instrument === 'ukulele' ? 'ukulele' : ressource.data.instrument}`} class="cta-link">
+                <span>Nos cours de {ressource.data.instrument === 'guitare' ? 'guitare' : 
+                                   ressource.data.instrument === 'piano' ? 'piano' : 'ukulélé'}</span>
+                <span class="arrow">→</span>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Hero Section */
+  .ressource-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-dark) 100%);
+    color: white;
+  }
+
+  .theme-guitar {
+    --theme-current: var(--theme-guitar);
+    --theme-current-dark: var(--theme-guitar-dark);
+    --theme-current-light: var(--theme-guitar-light);
+  }
+
+  .theme-piano {
+    --theme-current: var(--theme-piano);
+    --theme-current-dark: var(--theme-piano-dark);
+    --theme-current-light: var(--theme-piano-light);
+  }
+
+  .theme-ukulele {
+    --theme-current: var(--theme-ukulele);
+    --theme-current-dark: var(--theme-ukulele-dark);
+    --theme-current-light: var(--theme-ukulele-light);
+  }
+
+  .ressource-hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .ressource-image {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .ressource-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ressource-badges {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .type-badge, .instrument-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  .type-badge.pdf {
+    background: rgba(220, 53, 69, 0.9);
+  }
+
+  .type-badge.lien {
+    background: rgba(13, 110, 253, 0.9);
+  }
+
+  .type-badge.video {
+    background: rgba(25, 135, 84, 0.9);
+  }
+
+  .instrument-badge {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .ressource-info h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+
+  .ressource-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+  }
+
+  .ressource-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+  }
+
+  .meta-icon {
+    font-size: 1.5rem;
+  }
+
+  .meta-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .meta-value {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  /* Content Section */
+  .ressource-content {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+  }
+
+  .content-wrapper {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+  }
+
+  .content-wrapper :global(h1) {
+    font-size: 2.5rem;
+    color: var(--theme-current);
+    margin-bottom: 1.5rem;
+  }
+
+  .content-wrapper :global(h2) {
+    font-size: 1.8rem;
+    color: var(--color-dark);
+    margin: 2.5rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--theme-current);
+  }
+
+  .content-wrapper :global(h3) {
+    font-size: 1.4rem;
+    color: var(--theme-current);
+    margin: 2rem 0 1rem;
+  }
+
+  .content-wrapper :global(p) {
+    color: var(--color-dark);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-wrapper :global(ul) {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-wrapper :global(li) {
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .content-wrapper :global(strong) {
+    color: var(--theme-current);
+  }
+
+  .video-container {
+    margin-top: 3rem;
+  }
+
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .similar-ressources {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .similar-ressources h2 {
+    font-size: 1.8rem;
+    color: var(--color-dark);
+    margin-bottom: 2rem;
+  }
+
+  .similar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .similar-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+  }
+
+  .similar-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .similar-image {
+    width: 80px;
+    height: 60px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .similar-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .similar-content {
+    flex: 1;
+  }
+
+  .similar-content h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--theme-current);
+  }
+
+  .similar-type {
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+  }
+
+  .external-link-box {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .external-link-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--theme-current);
+  }
+
+  .external-link-box h3 {
+    font-size: 1.5rem;
+    color: var(--theme-current);
+    margin-bottom: 1rem;
+  }
+
+  .external-link-box p {
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .external-link-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background: var(--theme-current);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .external-link-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .external-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .external-link-button:hover .external-icon {
+    transform: translate(3px, -3px);
+  }
+
+  .sidebar-cta {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .sidebar-cta h3 {
+    font-size: 1.5rem;
+    color: var(--theme-current);
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-cta p {
+    color: var(--color-dark);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--theme-current);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .cta-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-link:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .ressource-hero-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .ressource-hero {
+      padding: 6rem 0 3rem;
+    }
+
+    .ressource-info h1 {
+      font-size: 2.5rem;
+    }
+
+    .ressource-meta {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content-wrapper {
+      padding: 1.5rem;
+    }
+
+    .similar-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,302 @@
+---
+// Composant CTA pour promouvoir le lead magnet
+interface Props {
+  variant?: 'full' | 'compact' | 'inline';
+}
+
+const { variant = 'full' } = Astro.props;
+---
+
+{variant === 'full' && (
+  <section class="lead-magnet-cta full">
+    <div class="container">
+      <div class="lm-cta-content">
+        <div class="lm-cta-left">
+          <span class="lm-cta-badge">🎁 GUIDE GRATUIT</span>
+          <h2 class="lm-cta-title">
+            Téléchargez les <span class="highlight">5 Accords Magiques</span>
+            pour Jouer 100+ Chansons
+          </h2>
+          <p class="lm-cta-description">
+            Recevez notre guide PDF exclusif avec vidéos de démonstration.
+            <strong>Parfait pour les débutants</strong> qui veulent des résultats rapides.
+          </p>
+          <ul class="lm-cta-benefits">
+            <li>✓ 5 accords faciles en diagrammes HD</li>
+            <li>✓ Liste de 100 chansons populaires</li>
+            <li>✓ Vidéos de chaque accord</li>
+            <li>✓ Bonus : rythmique universelle</li>
+          </ul>
+        </div>
+        <div class="lm-cta-right">
+          <a href="/5-accords-magiques" class="lm-cta-btn large">
+            <span class="btn-text">📥 Je Télécharge le Guide Gratuit</span>
+            <span class="btn-subtext">+ de 80 000 téléchargements</span>
+          </a>
+          <p class="lm-cta-trust">
+            🔒 100% Gratuit • Sans engagement • Email protégé
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+{variant === 'compact' && (
+  <div class="lead-magnet-cta compact">
+    <div class="compact-content">
+      <div class="compact-icon">🎁</div>
+      <div class="compact-text">
+        <h3>Guide Gratuit : Les 5 Accords Magiques</h3>
+        <p>Jouez 100+ chansons dès aujourd'hui</p>
+      </div>
+      <a href="/5-accords-magiques" class="lm-cta-btn compact-btn">
+        Télécharger →
+      </a>
+    </div>
+  </div>
+)}
+
+{variant === 'inline' && (
+  <div class="lead-magnet-cta inline">
+    <p class="inline-text">
+      💡 <strong>Astuce :</strong> Téléchargez notre guide gratuit
+      <a href="/5-accords-magiques" class="inline-link">"Les 5 Accords Magiques"</a>
+      pour accélérer votre apprentissage
+    </p>
+  </div>
+)}
+
+<style>
+  /* Version Full */
+  .lead-magnet-cta.full {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f8f9fc 0%, #e8eef7 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lead-magnet-cta.full::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(136, 190, 0, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .lm-cta-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .lm-cta-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #88be00, #a3d826);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .lm-cta-title {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .lm-cta-title .highlight {
+    color: #88be00;
+    position: relative;
+  }
+
+  .lm-cta-description {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .lm-cta-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .lm-cta-benefits li {
+    color: #333;
+    font-size: 1.05rem;
+  }
+
+  .lm-cta-right {
+    text-align: center;
+  }
+
+  .lm-cta-btn {
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .lm-cta-btn.large {
+    background: linear-gradient(135deg, #88be00, #a3d826);
+    color: white;
+    padding: 1.5rem 2.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(136, 190, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .lm-cta-btn.large:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(136, 190, 0, 0.4);
+  }
+
+  .btn-text {
+    font-size: 1.2rem;
+  }
+
+  .btn-subtext {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 400;
+  }
+
+  .lm-cta-trust {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  /* Version Compact */
+  .lead-magnet-cta.compact {
+    background: linear-gradient(135deg, #88be00, #a3d826);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .compact-content {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .compact-icon {
+    font-size: 3rem;
+    background: rgba(255, 255, 255, 0.2);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+  }
+
+  .compact-text {
+    color: white;
+  }
+
+  .compact-text h3 {
+    font-size: 1.3rem;
+    margin: 0 0 0.25rem;
+  }
+
+  .compact-text p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .lm-cta-btn.compact-btn {
+    background: white;
+    color: #88be00;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .lm-cta-btn.compact-btn:hover {
+    transform: scale(1.05);
+  }
+
+  /* Version Inline */
+  .lead-magnet-cta.inline {
+    background: #fff3cd;
+    border-left: 4px solid #88be00;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+  }
+
+  .inline-text {
+    margin: 0;
+    color: #856404;
+    font-size: 1.05rem;
+  }
+
+  .inline-link {
+    color: #88be00;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .inline-link:hover {
+    color: #729f00;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .lm-cta-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .lm-cta-benefits {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .compact-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .compact-icon {
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .lm-cta-title {
+      font-size: 2rem;
+    }
+
+    .lm-cta-btn.large {
+      width: 100%;
+    }
+
+    .btn-text {
+      font-size: 1.1rem;
+    }
+  }
+</style>

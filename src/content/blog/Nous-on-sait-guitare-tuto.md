@@ -1,22 +1,20 @@
 ---
-title: "Comment jouer \"Nous on sait\" de Pierre Garnier : Tutoriel guitare complet"
-description: "Apprenez à jouer \"Nous on sait\", le hit de Pierre Garnier, avec un tutoriel détaillé pour guitaristes débutants et intermédiaires."
+title: "Nous On Sait (Pierre Garnier) - Tutoriel Guitare"
+description: "Nous On Sait de Pierre Garnier à la guitare : 8 accords simples, pop française, hit Star Academy 2023. Tutoriel débutants."
 ogImage: "/images/blog/Nous-on-sait-guitare-tuto.webp"
 
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-05-21"
-dateModified: "2025-01-30"
+dateModified: "2026-02-04"
 introduction: "Vous avez toujours rêvé de jouer 'Nous on sait' de Pierre Garnier, l'un des titres phares de la Star Academy ? Ce guide détaillé vous accompagne pas à pas dans l'apprentissage de ce morceau emblématique."
 
 
 songInfo:
   inBook: false
-  bookPage: ""
-  tempo: "180"
-  chordCount: "8"
-  key: ""
+  tempo: 180
+  chordCount: 8
   difficulty: "Facile"
 
 videos:
@@ -31,12 +29,15 @@ conclusion: |
   En suivant ce tuto, vous pourrez non seulement jouer "Nous on sait" avec aisance, mais aussi comprendre l'émotion que Pierre Garnier transmet à travers ses mots et ses mélodies. N'attendez plus pour vous plonger dans cet univers musical riche et captivant.
 
 relatedLinks:
-  - title: "Découvrez d'autres tutoriels guitare"
-    url: "/blog/tutoriels-guitare"
-    description: "Une sélection de tutoriels pour guitaristes débutants et confirmés."
-  - title: "Pierre Garnier : Biographie complète"
-    url: "/blog/biographie-pierre-garnier"
-    description: "Apprenez-en plus sur l'artiste révélé par la Star Academy 2023."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour débuter avec les hits pop modernes."
+  - title: "Perfect - Ed Sheeran"
+    url: "/blog/apprendre-perfect-guitare"
+    description: "Une autre ballade pop romantique et moderne."
+  - title: "Hey Jude - The Beatles"
+    url: "/blog/apprendre-hey-jude-guitare"
+    description: "Un classique pop intemporel et accessible."
 ---
 
 ## Pierre Garnier et l'histoire de "Nous on sait"

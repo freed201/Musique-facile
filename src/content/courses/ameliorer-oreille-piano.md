@@ -1,12 +1,14 @@
 ---
 affichage: "Y"
 classement: 2
-title: "Piano Écoute Active : Maîtriser l'Art de l'Oreille Musicale"
-description: "Développez une oreille musicale raffinée avec 'Piano Écoute Active'. À travers des techniques intuitives, transformez votre jeu et jouez avec plus de confiance et de précision. Explorez la richesse des notes et maîtrisez le piano en harmonie avec votre écoute."
-ogImage: "/images/cours/ameliorer-oreille-piano/hero.jpg"
+title: "Piano Écoute Active : Développez Votre Oreille"
+description: "Développez une oreille musicale raffinée au piano. Techniques intuitives pour jouer avec confiance et précision. Formation complète pour tous niveaux."
+ogImage: "/images/cours/ameliorer-oreille-piano/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
+
 
 # Données schema.org
 provider:
@@ -25,6 +27,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT2H" # Format ISO 8601 pour la durée
+  courseWorkload: "PT2H"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"
@@ -41,7 +44,7 @@ hero:
     text: "Accéder pour €69 "
     price: " ou 2 paiements mensuels de €35"
   video:
-    id: "1057421752"
+    id: "1062020026"
   stats:
     - value: "1150+"
       label: "élèves formés"

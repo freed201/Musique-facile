@@ -1,20 +1,19 @@
 ---
-title: "Partons Vite : Une évasion musicale avec Kaolin"
-description: "Découvrez 'Partons Vite', un classique de Kaolin, et apprenez à jouer ce morceau incontournable du rock français à la guitare."
+title: "Partons Vite (Kaolin) - Tutoriel Guitare"
+description: "Partons Vite de Kaolin à la guitare : 7 accords avec capo case 3, rythmique rock français. Tutoriel débutants/intermédiaires."
 ogImage: "/images/blog/apprendre-partons-vite-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-01-10"
-introduction: "Avec 'Partons Vite', Kaolin nous offre un morceau poétique et mélodieux, invitant à l’évasion. Découvrez son histoire et apprenez à le jouer sur votre guitare."
+dateModified: "2026-02-04"
+introduction: "Avec 'Partons Vite', Kaolin nous offre un morceau poétique et mélodieux invitant à l'évasion, extrait de l'album 'Mélanger les couleurs'. Découvrez l'histoire de ce classique du rock français des années 2000 et apprenez à le jouer avec notre tutoriel accessible."
 
 songInfo:
   inBook: true
-  bookPage: "56"
-  tempo: "98"
-  chordCount: "7"
-  key: ""
+  bookPage: 56
+  tempo: 98
+  chordCount: 7
   difficulty: "2/5"
 
 videos:
@@ -31,12 +30,15 @@ conclusion: |
   "Partons Vite" de Kaolin est plus qu'un simple morceau, c'est une invitation à l'évasion et à la réflexion. C'est un morceau qui continue de captiver l'audience avec son charme intemporel. Que vous soyez un fan de leur première heure ou que vous découvriez ce groupe pour la première fois, laissez-vous emporter par la magie de Kaolin et explorez leurs autres créations qui valent tout autant le détour.<br><br>Découvrez leurs autres morceaux pour explorer l'évolution de leur style et comprendre l'impact significatif qu'ils ont eu sur la musique française contemporaine. 
 
 relatedLinks:
-  - title: "Les classiques incontournables de Kaolin"
-    url: "/articles/classiques-kaolin"
-    description: "Un aperçu des morceaux qui ont marqué la carrière de Kaolin."
-  - title: "Analyse de l'album 'Mélanger les couleurs'"
-    url: "/articles/melanger-les-couleurs-analyse"
-    description: "Découvrez les secrets de l'album contenant 'Partons Vite'."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour maîtriser le rock français à la guitare."
+  - title: "Foule Sentimentale - Alain Souchon"
+    url: "/blog/tutoriel-foule-sentimentale-chanson"
+    description: "Un autre classique poétique du rock français."
+  - title: "Un Autre Monde - Téléphone"
+    url: "/blog/apprendre-un-autre-monde-guitare"
+    description: "Le rock français énergique des années 80."
 ---
 Originaire de Montluçon, le groupe Kaolin s'est formé dans les années 2000. Composé par notamment Ludovic Rocca, Guillaume Cantillon, et Oliver Valty, le groupe s'est rapidement distingué par son approche unique de la musique rock française. Le parcours de Kaolin est marqué par une recherche constante de la mélodie parfaite, alliée à des textes qui résonnent profondément avec leur auditoire. Le groupe s'est souvent inspiré des réalités quotidiennes et des sentiments humains pour composer des morceaux émouvants et authentiques. Avec "Partons Vite", Kaolin a su capturer l'essence même de leur musique : émotive, réfléchie et engageante.
 

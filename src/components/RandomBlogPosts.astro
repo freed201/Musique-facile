@@ -4,10 +4,18 @@ import { getCollection } from 'astro:content';
 // Récupérer tous les articles
 const allPosts = await getCollection('blog');
 
+// Obtenir la date du jour
+const currentDate = new Date();
+
 // Trier les articles par date de publication (du plus récent au plus ancien)
-const sortedPosts = allPosts.sort((a, b) => {
-  return new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime();
-});
+const sortedPosts = allPosts
+  .filter(post => 
+    post.data.prod !== 'N' && 
+    new Date(post.data.datePublished) <= currentDate
+  )
+  .sort((a, b) => {
+    return new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime();
+  });
 
 // Prendre le dernier article (le plus récent)
 const latestPost = sortedPosts[0];
@@ -52,7 +60,7 @@ const displayPosts = [latestPost, ...randomPosts];
 
 <style>
   .random-posts {
-    padding: 4rem 0;
+    padding: var(--section-padding);
     background: var(--bg-light);
   }
 
@@ -64,31 +72,33 @@ const displayPosts = [latestPost, ...randomPosts];
 
   h2 {
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: var(--theme-current);
+    font-size: 2.5rem;
+    margin-bottom: var(--section-gap);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: var(--card-gap);
   }
 
   .post-card {
     background: white;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-lg);
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: var(--transition-base);
     position: relative;
   }
 
   .post-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   }
 
   .post-image {

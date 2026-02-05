@@ -1,0 +1,218 @@
+---
+interface Props {
+  placeholder?: string;
+}
+
+const { placeholder = "Rechercher un article, un artiste, un morceau..." } = Astro.props;
+---
+
+<div class="search-bar">
+  <div class="search-wrapper">
+    <span class="search-icon">🔍</span>
+    <input
+      type="text"
+      id="blogSearch"
+      class="search-input"
+      placeholder={placeholder}
+      autocomplete="off"
+      aria-label="Rechercher dans les articles"
+    />
+    <button class="search-clear" id="searchClear" aria-label="Effacer la recherche" style="display: none;">
+      ×
+    </button>
+  </div>
+  <div class="search-results-count" id="searchResultsCount" style="display: none;" role="status" aria-live="polite">
+    <span id="resultCount">0</span> résultat(s) trouvé(s)
+  </div>
+</div>
+
+<!-- Screen reader announcer for search results -->
+<div class="sr-only" role="status" aria-live="polite" aria-atomic="true" id="searchAnnouncer"></div>
+
+<style>
+  .search-bar {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    animation: fadeIn 0.6s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .search-wrapper:focus-within {
+    box-shadow: 0 6px 30px rgba(0, 194, 142, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 1.5rem;
+    font-size: 1.5rem;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .search-input {
+    flex: 1;
+    padding: 1.25rem 4rem 1.25rem 4rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    outline: none;
+    background: transparent;
+  }
+
+  .search-input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .search-clear {
+    position: absolute;
+    right: 1.5rem;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: var(--bg-elevated);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+  }
+
+  .search-clear:hover {
+    opacity: 1;
+    background: var(--border-default);
+    transform: scale(1.1);
+  }
+
+  .search-results-count {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  #resultCount {
+    color: var(--theme-current);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    .search-input {
+      padding: 1rem 3.5rem 1rem 3.5rem;
+      font-size: 1rem;
+    }
+
+    .search-icon {
+      left: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .search-clear {
+      right: 1rem;
+      width: 28px;
+      height: 28px;
+      font-size: 1.3rem;
+    }
+
+    .search-input::placeholder {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
+<script>
+  // Recherche instantanée
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('blogSearch');
+    const searchClear = document.getElementById('searchClear');
+    const searchResultsCount = document.getElementById('searchResultsCount');
+    const resultCountSpan = document.getElementById('resultCount');
+
+    if (!searchInput) return;
+
+    let searchTimeout;
+
+    // Fonction de recherche
+    function performSearch() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+
+      // Afficher/masquer le bouton clear
+      if (searchTerm) {
+        searchClear.style.display = 'flex';
+      } else {
+        searchClear.style.display = 'none';
+      }
+
+      // Déclencher l'événement de recherche personnalisé
+      const event = new CustomEvent('blogSearch', {
+        detail: { searchTerm }
+      });
+      document.dispatchEvent(event);
+    }
+
+    // Recherche avec debounce (300ms)
+    searchInput.addEventListener('input', () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = window.setTimeout(performSearch, 300);
+    });
+
+    // Bouton clear
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      searchClear.style.display = 'none';
+      searchResultsCount.style.display = 'none';
+      performSearch();
+      searchInput.focus();
+    });
+
+    // Écouter les résultats de recherche pour mettre à jour le compteur
+    document.addEventListener('searchResults', (e) => {
+      const count = e.detail.count;
+      resultCountSpan.textContent = count.toString();
+      searchResultsCount.style.display = searchInput.value ? 'block' : 'none';
+    });
+
+    // Raccourci clavier : Ctrl/Cmd + K pour focus
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+
+      // ESC pour clear
+      if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.value = '';
+        searchClear.style.display = 'none';
+        searchResultsCount.style.display = 'none';
+        performSearch();
+      }
+    });
+  });
+</script>

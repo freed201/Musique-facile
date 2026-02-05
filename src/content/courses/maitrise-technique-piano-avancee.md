@@ -2,11 +2,12 @@
 affichage: "Y"
 classement: 1
 title: "Piano Odyssée : 52 Semaines de Perfectionnement"
-description: "Transformez votre jeu et enrichissez votre musicalité avec notre formation complète de 52 semaines. Des techniques fondamentales à l'improvisation avancée, progressez à votre rythme avec des experts passionnés."
-ogImage: "/images/cours/maitrise-technique-piano-avancee/hero.jpg"
+description: "52 semaines de perfectionnement piano : des techniques fondamentales à l'improvisation avancée. Progressez à votre rythme."
+ogImage: "/images/cours/maitrise-technique-piano-avancee/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -25,6 +26,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT14H" # Format ISO 8601 pour la durée
+  courseWorkload: "PT14H"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"
@@ -204,7 +206,7 @@ benefices:
     - icon: "⏰"
       title: "Apprenez à votre rythme"
       description: "Profitez d'un programme flexible et adapté à votre emploi du temps, accessible à tout moment."
-  backgroundImage: "public/images/cours/maitrise-technique-piano-avancee/hero.jpg"
+  backgroundImage: "public/images/cours/maitrise-technique-piano-avancee/hero.webp"
 
 cta:
   title: "Passez au niveau supérieur avec votre piano"

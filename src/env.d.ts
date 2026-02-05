@@ -9,6 +9,8 @@ declare module 'astro:content' {
         title: string;
         description: string;
         ogImage: string;
+        schemaType?: string;
+        theme?: 'guitar' | 'piano' | 'ukulele' | 'solfege';
         author: string;
         datePublished: string;
         dateModified: string;

@@ -1,0 +1,445 @@
+---
+/**
+ * preview-refonte.astro
+ * Page de preview pour tester les nouveaux composants
+ * URL: /preview-refonte
+ *
+ * Cette page montre l'assemblage des composants modernisés
+ * À utiliser pour valider le design avant de remplacer l'accueil
+ */
+
+import Layout from '../layouts/Layout.astro';
+import HeroModern from '../components/HeroModern.astro';
+import CoursGrid from '../components/CoursGrid.astro';
+import TemoignagesModern from '../components/TemoignagesModern.astro';
+import LeadCaptureForm from '../components/LeadCaptureForm.astro';
+import FooterModern from '../components/FooterModern.astro';
+import VideoPlayer from '../components/VideoPlayer.astro';
+
+// SEO
+const title = "Preview Refonte — Musique Facile";
+const description = "Page de test pour la nouvelle version du site";
+---
+
+<Layout
+  title={title}
+  description={description}
+  robots="noindex, nofollow"
+>
+  <!-- Hero Modernisé -->
+  <HeroModern
+    title="Apprenez la musique en 15 min par jour"
+    subtitle="Rejoignez 80 000 musiciens qui ont transformé leur passion en réalité avec notre méthode progressive."
+    ctaText="Essayer gratuitement"
+    ctaUrl="/cours"
+  />
+
+  <!-- Section Avantages Rapide -->
+  <section class="features-section">
+    <div class="features-container">
+      <div class="feature">
+        <span class="feature-icon">⚡</span>
+        <div class="feature-content">
+          <h3>7 jours pour jouer</h3>
+          <p>92% de nos élèves jouent leur première chanson en moins de 5 jours</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🎯</span>
+        <div class="feature-content">
+          <h3>15 min suffisent</h3>
+          <p>Méthode conçue pour les adultes actifs, progressez à votre rythme</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">💬</span>
+        <div class="feature-content">
+          <h3>Support réactif</h3>
+          <p>Réponse garantie sous 24h pour toutes vos questions</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grille de Cours -->
+  <CoursGrid
+    title="Choisissez votre instrument"
+    subtitle="Des cours structurés pour progresser à votre rythme, du débutant à l'intermédiaire."
+  />
+
+  <!-- Section Vidéo Démo -->
+  <section class="demo-section">
+    <div class="demo-container">
+      <div class="demo-content">
+        <span class="demo-badge">Découvrez la méthode</span>
+        <h2 class="demo-title">Voyez comment Fred enseigne</h2>
+        <p class="demo-text">
+          Un aperçu de notre pédagogie : explications claires, gros plans sur les mains,
+          et exercices pratiques à chaque étape.
+        </p>
+        <ul class="demo-list">
+          <li>✓ Vidéos HD avec zoom sur les mains</li>
+          <li>✓ Explications sans jargon technique</li>
+          <li>✓ Exercices progressifs</li>
+        </ul>
+      </div>
+      <div class="demo-video">
+        <VideoPlayer
+          url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          title="Aperçu de la méthode Musique Facile"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Capture -->
+  <LeadCaptureForm
+    title="Recevez votre guide gratuit"
+    subtitle="Les 5 accords magiques pour jouer 100 chansons à la guitare"
+    buttonText="Recevoir mon guide"
+    theme="dark"
+  />
+
+  <!-- Témoignages -->
+  <TemoignagesModern
+    title="Ce que nos élèves en disent"
+  />
+
+  <!-- Pricing Simplifié -->
+  <section class="pricing-preview">
+    <div class="pricing-container">
+      <h2 class="pricing-title">Des tarifs transparents</h2>
+      <p class="pricing-subtitle">Achetez une fois, gardez l'accès à vie. Pas d'abonnement.</p>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <span class="price-icon">🎸</span>
+          <h3>Guitare</h3>
+          <div class="price">99€</div>
+          <span class="price-note">82 chapitres • 4h de cours</span>
+          <a href="/cours/cours-de-guitare" class="price-btn">Découvrir</a>
+        </div>
+        <div class="price-card featured">
+          <span class="price-badge">Populaire</span>
+          <span class="price-icon">🎹</span>
+          <h3>Piano</h3>
+          <div class="price">299€</div>
+          <span class="price-note">148 leçons • 10h de cours</span>
+          <a href="/cours/cours-de-piano" class="price-btn">Découvrir</a>
+        </div>
+        <div class="price-card">
+          <span class="price-icon">🪕</span>
+          <h3>Ukulélé</h3>
+          <div class="price">79€</div>
+          <span class="price-note">41 vidéos • 10h de cours</span>
+          <a href="/cours/cours-de-ukulele" class="price-btn">Découvrir</a>
+        </div>
+      </div>
+
+      <p class="pricing-guarantee">
+        🔒 Paiement sécurisé • ↩️ Garantie 15 jours satisfait ou remboursé
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="final-cta">
+    <div class="cta-container">
+      <h2>Prêt à commencer votre aventure musicale ?</h2>
+      <p>Rejoignez 80 000 musiciens qui ont fait le premier pas</p>
+      <a href="/cours" class="cta-button">
+        Voir tous les cours
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer Modernisé -->
+  <FooterModern />
+</Layout>
+
+<style>
+  /* Features Section */
+  .features-section {
+    padding: var(--space-16) var(--space-4);
+    background: white;
+  }
+
+  .features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .features-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .feature {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .feature h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-1);
+  }
+
+  .feature p {
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+  }
+
+  /* Demo Section */
+  .demo-section {
+    padding: var(--space-20) var(--space-4);
+    background: var(--surface-light);
+  }
+
+  .demo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .demo-container {
+      grid-template-columns: 1fr 1.2fr;
+    }
+  }
+
+  .demo-badge {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--brand-600);
+    background: var(--brand-50);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-4);
+  }
+
+  .demo-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: var(--font-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+  }
+
+  .demo-text {
+    font-size: var(--text-base);
+    color: var(--gray-600);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-6);
+  }
+
+  .demo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .demo-list li {
+    font-size: var(--text-sm);
+    color: var(--gray-700);
+  }
+
+  /* Pricing Preview */
+  .pricing-preview {
+    padding: var(--space-20) var(--space-4);
+    background: white;
+    text-align: center;
+  }
+
+  .pricing-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .pricing-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: var(--font-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-2);
+  }
+
+  .pricing-subtitle {
+    font-size: var(--text-lg);
+    color: var(--gray-600);
+    margin-bottom: var(--space-12);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .pricing-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .price-card {
+    position: relative;
+    background: var(--surface-light);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    border: 2px solid var(--gray-200);
+    transition: all 0.3s ease;
+  }
+
+  .price-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .price-card.featured {
+    border-color: var(--brand-500);
+    background: white;
+  }
+
+  .price-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--brand-500);
+    color: white;
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    padding: var(--space-1) var(--space-4);
+    border-radius: var(--radius-full);
+  }
+
+  .price-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .price-card h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-2);
+  }
+
+  .price {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: var(--font-bold);
+    color: var(--brand-600);
+    margin-bottom: var(--space-2);
+  }
+
+  .price-note {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--gray-500);
+    margin-bottom: var(--space-6);
+  }
+
+  .price-btn {
+    display: inline-block;
+    width: 100%;
+    padding: var(--space-3) var(--space-6);
+    background: var(--gray-900);
+    color: white;
+    text-decoration: none;
+    font-weight: var(--font-semibold);
+    border-radius: var(--radius-lg);
+    transition: background 0.3s ease;
+  }
+
+  .price-btn:hover {
+    background: var(--brand-600);
+  }
+
+  .price-card.featured .price-btn {
+    background: var(--brand-500);
+  }
+
+  .price-card.featured .price-btn:hover {
+    background: var(--brand-600);
+  }
+
+  .pricing-guarantee {
+    font-size: var(--text-sm);
+    color: var(--gray-500);
+  }
+
+  /* Final CTA */
+  .final-cta {
+    padding: var(--space-20) var(--space-4);
+    background: linear-gradient(135deg, var(--brand-600) 0%, var(--brand-700) 100%);
+    text-align: center;
+  }
+
+  .cta-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .final-cta h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: var(--font-bold);
+    color: white;
+    margin-bottom: var(--space-4);
+  }
+
+  .final-cta p {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--space-8);
+  }
+
+  .final-cta .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    background: white;
+    color: var(--brand-600);
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+  }
+
+  .final-cta .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+</style>

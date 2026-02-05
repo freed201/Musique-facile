@@ -1,12 +1,12 @@
 ---
-title: "Comment Éviter les 10 Erreurs qui Freinent ta Progression en Musique"
+title: "10 Erreurs qui Freinent ta Progression en Musique"
 description: "Découvre les 10 erreurs qui freinent ta progression musicale et apprends comment les éviter pour jouer avec fluidité et plaisir."
 ogImage: "/images/blog/au-boulot-maestro-2.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-02-10"
-dateModified: "2025-02-10"
+dateModified: "2026-02-04"
 introduction: "Dans cet épisode d’'Au Boulot Maestro', nous passons en revue les 10 erreurs courantes qui ralentissent ta progression musicale et comment les éviter pour jouer avec plus de plaisir et d’aisance. C'est le deuxième épisode, et je suis ravi de continuer cette aventure avec toi pour t’aider à progresser plus efficacement en musique. La consultation du podcast dans le bloc ci-dessous. Il y a l'intégralité de l'épisode. Bonne écoute et bienvenue dans 'Au Boulot Maestro' !"
 
 podcast:

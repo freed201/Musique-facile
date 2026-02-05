@@ -1,12 +1,13 @@
 ---
 affichage: "Y"
 classement: 1
-title: "Lecture de Notes Simplifiée (Partie 1)- Fondamentaux du Solfège"
-description: "Transformez votre manière de lire la musique avec notre formation 'Lecture de Notes Simplifiée - Fondamentaux du Solfège'. Apprenez à déchiffrer les partitions facilement et efficacement."
-ogImage: "/images/cours/lecture-de-notes-niveau-debutant/hero.jpg"
+title: "Lecture de Notes Simplifiée : Fondamentaux"
+description: "Apprenez à lire les partitions facilement avec notre formation solfège. Fondamentaux de la lecture de notes pour débutants."
+ogImage: "/images/cours/lecture-de-notes-niveau-debutant/hero.webp"
 theme: "solfege"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -25,6 +26,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT2H20M" # Format ISO 8601 pour la durée
+  courseWorkload: "PT2H20M"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"

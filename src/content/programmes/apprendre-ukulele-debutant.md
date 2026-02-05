@@ -2,7 +2,7 @@
 # Data SEO
 title: "Guide Complet pour Débuter le Ukulélé"
 description: "Apprenez le ukulélé facilement avec notre guide complet : accords, rythmiques, techniques essentielles et exercices pratiques pour bien débuter."
-ogImage: "/images/cours/apprendre-ukulele-debutant/hero.jpg"
+ogImage: "/images/cours/apprendre-ukulele-debutant/hero.webp"
 theme: "ukulele"
 lienAchat: "https://ecole.musique-facile.fr/ukulele-guide-complet-debutant/buy"
 author: "Musique Facile"

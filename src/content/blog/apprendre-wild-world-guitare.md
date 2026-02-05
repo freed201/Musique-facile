@@ -1,20 +1,19 @@
 ---
-title: "Wild World de Cat Stevens : Un incontournable folk à la guitare"
-description: "Découvrez 'Wild World', un chef-d'œuvre de Cat Stevens mêlant émotion et mélodie, et apprenez à jouer cette chanson culte à la guitare."
+title: "Wild World (Cat Stevens) - Tutoriel Guitare"
+description: "Wild World de Cat Stevens à la guitare : 8 accords, ballade folk 1970, riffs caractéristiques. Tutoriel guitaristes intermédiaires."
 ogImage: "/images/blog/apprendre-wild-world-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-01-24"
-introduction: "Avec 'Wild World', Cat Stevens livre une chanson qui transcende les époques avec sa profondeur émotionnelle et sa simplicité mélodique. Découvrez son histoire et apprenez à la jouer."
+dateModified: "2026-02-04"
+introduction: "Avec 'Wild World', Cat Stevens livre une chanson qui transcende les époques depuis 1970 avec sa profondeur émotionnelle et sa simplicité mélodique. Issue de l'album légendaire 'Tea for the Tillerman', découvrez l'histoire de cette ballade folk et apprenez à jouer ses riffs caractéristiques."
 
 songInfo:
   inBook: true
-  bookPage: "92"
-  tempo: "75"
-  chordCount: "8"
-  key: ""
+  bookPage: 92
+  tempo: 75
+  chordCount: 8
   difficulty: "4/5"
 
 videos:
@@ -32,12 +31,15 @@ conclusion: |
 
 
 relatedLinks:
-  - title: "Les chansons incontournables de Cat Stevens"
-    url: "/articles/morceaux-incontournables-cat-stevens"
-    description: "Découvrez les morceaux qui ont marqué la carrière de Cat Stevens."
-  - title: "Analyse de l'album 'Tea for the Tillerman'"
-    url: "/articles/tea-for-the-tillerman-analyse"
-    description: "Explorez l'album légendaire qui contient 'Wild World'."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour maîtriser les ballades folk à la guitare."
+  - title: "Fields of Gold - Sting"
+    url: "/blog/jouer-fields-of-gold-sting"
+    description: "Une autre ballade folk-pop intemporelle."
+  - title: "Stand by Me - Ben E. King"
+    url: "/blog/apprendre-stand-by-me-guitare"
+    description: "Un classique des années 60 avec progression simple."
 ---
 # Wild World par Cat Stevens : Un Voyage Émotionnel dans la Bouleversante Année 1970
 

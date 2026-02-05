@@ -1,20 +1,19 @@
 ---
-title: "Machistador : Le groove captivant de -M-"
-description: "Découvrez 'Machistador', un classique funky de Matthieu Chedid, et apprenez à jouer ce morceau emblématique à la guitare."
+title: "Machistador (-M-) - Tutoriel Guitare Funk"
+description: "Machistador de -M- à la guitare : groove funky, rythmique énergique, 4 accords en barré. Tutoriel guitaristes intermédiaires."
 ogImage: "/images/blog/apprendre-machistador-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-01-07"
-introduction: "Avec 'Machistador', Matthieu Chedid, alias -M-, nous offre une explosion de funk et d'énergie. Découvrez l'histoire de ce morceau et apprenez à le jouer."
+dateModified: "2026-02-04"
+introduction: "Avec 'Machistador', Matthieu Chedid alias -M- nous offre une explosion de funk et d'énergie pure, tirée de l'album culte 'Je dis aime' (1999). Découvrez l'histoire de ce morceau emblématique du rock français et apprenez à le jouer avec notre tutoriel adapté aux guitaristes intermédiaires."
 
 songInfo:
   inBook: true
-  bookPage: "50"
-  tempo: "110"
-  chordCount: "4"
-  key: ""
+  bookPage: 50
+  tempo: 110
+  chordCount: 4
   difficulty: "5/5"
 
 videos:
@@ -28,12 +27,15 @@ videos:
 conclusion: |
   "Machistador" représente bien plus qu'un simple morceau : c'est une invitation à explorer l'art de -M- et à se laisser emporter par son groove unique. Ce titre, avec son énergie débordante et sa rythmique entraînante, continue de marquer les esprits et de faire vibrer les amateurs de musique.<br><br>Si vous êtes prêt à relever le défi, prenez votre guitare et plongez dans l'univers captivant de Matthieu Chedid. En explorant "Machistador", vous découvrirez non seulement une nouvelle dimension de votre pratique instrumentale, mais également une ouverture vers un monde musical riche et inspirant.<br><br>Ne manquez pas d'explorer d'autres morceaux de -M- et de suivre son actualité sur ses réseaux sociaux et son site officiel. L'aventure musicale ne fait que commencer, et "Machistador" n'est que le premier pas dans cet univers vibrant et coloré.
 relatedLinks:
-  - title: "Les morceaux incontournables de Matthieu Chedid"
-    url: "/articles/morceaux-incontournables-m"
-    description: "Un aperçu des titres les plus marquants de la carrière de Matthieu Chedid."
-  - title: "Analyse de l'album 'Je dis aime'"
-    url: "/articles/je-dis-aime-analyse"
-    description: "Découvrez les secrets de l'album qui a marqué un tournant dans la carrière de -M-."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation complète pour maîtriser les techniques de guitare."
+  - title: "Maîtrise Technique Guitare Avancée"
+    url: "/cours/maitrise-technique-guitare-avancee"
+    description: "Perfectionnez vos barrés et votre groove funky."
+  - title: "Un Autre Monde - Téléphone"
+    url: "/blog/apprendre-un-autre-monde-guitare"
+    description: "Un autre classique du rock français énergique."
 ---
 
 ### L’aventure musicale de "Machistador"

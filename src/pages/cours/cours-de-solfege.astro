@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 
 // Récupérer uniquement les cours de solfège
 const allCourses = await getCollection('courses');
@@ -10,47 +11,277 @@ const solfegeCourses = allCourses
   .filter(course => course.data.theme === 'solfege' && course.data.affichage === 'Y')
   .sort((a, b) => a.data.classement - b.data.classement);
 
+// Construction de l'URL canonique
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://musique-facile.fr').toString();
+
+// Métadonnées pour la page
+const title = "Cours de Solfège en Ligne | Musique Facile";
+const description = "Apprends le solfège avec Fred Fieffé : 200+ leçons vidéo HD, lecture de partitions, rythmes, théorie musicale. Méthode progressive sans pré-requis. 80 000+ élèves formés depuis 2015. Essai gratuit 7 jours.";
+
+// Schema.org pour le fil d'Ariane
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://musique-facile.fr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Cours",
+      "item": "https://musique-facile.fr/cours/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Cours de Solfège",
+      "item": canonicalURL
+    }
+  ]
+};
+
 // Schema.org pour la liste des cours
 const coursesSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
+  "name": "Cours de Solfège en Ligne",
+  "description": "Formation complète pour apprendre le solfège et la théorie musicale",
+  "url": canonicalURL,
+  "inLanguage": "fr",
   "itemListElement": solfegeCourses.map((course, index) => ({
     "@type": "ListItem",
     "position": index + 1,
     "item": {
       "@type": "Course",
+      "@id": `https://musique-facile.fr/cours/${course.slug}#course`,
       "name": course.data.title,
       "description": course.data.description,
       "provider": {
         "@type": "Organization",
         "name": "Musique Facile",
         "sameAs": "https://musique-facile.fr"
-      }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": course.data.hasCourseInstance?.offers?.price || "69.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": `https://musique-facile.fr/cours/${course.slug}`
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "duration": course.data.hasCourseInstance?.duration || "P3M",
+        "offers": {
+          "@type": "Offer",
+          "price": course.data.hasCourseInstance?.offers?.price || "69.00",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      "inLanguage": "fr",
+      "url": `https://musique-facile.fr/cours/${course.slug}`
     }
   }))
 };
+
+// JSON-LD pour le cours principal
+const courseLDSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": "https://musique-facile.fr/cours/cours-de-solfege#course",
+  "name": "Cours de Solfège en Ligne",
+  "description": "Apprends le solfège en ligne en toute simplicité. Des cours clairs, progressifs et concrets pour comprendre la musique, lire une partition et développer ton oreille musicale efficacement.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Musique Facile",
+    "url": "https://musique-facile.fr"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": canonicalURL,
+    "price": "69.00",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "startDate": new Date().toISOString().split('T')[0],
+    "endDate": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+    "location": {
+      "@type": "VirtualLocation",
+      "url": canonicalURL
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "69.00",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    }
+  },
+  "inLanguage": "fr",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalURL
+  }
+};
+
+// FAQ Schema pour la page de cours de solfège
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Le solfège est-il indispensable pour faire de la musique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, il est possible de faire de la musique sans connaître le solfège, mais l'apprendre facilite considérablement l'apprentissage de tout instrument. C'est un langage universel qui permet de lire, comprendre et communiquer la musique plus efficacement. Notre méthode propose une approche progressive qui démystifie le solfège et le rend accessible à tous."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "À quel âge peut-on commencer à apprendre le solfège ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On peut commencer à tout âge ! Pour les enfants, il est recommandé d'attendre l'âge de 6-7 ans pour une meilleure compréhension des concepts. Pour les adultes, il n'y a absolument aucune limite d'âge : nos cours sont conçus pour s'adapter à tous les niveaux et rythmes d'apprentissage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il un instrument pour suivre les cours ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, aucun instrument n'est nécessaire pour apprendre le solfège. En revanche, si vous possédez déjà un instrument, vous pourrez appliquer immédiatement les concepts appris, ce qui peut faciliter l'intégration. Notre formation reste 100% accessible même sans instrument."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment sont structurées les leçons de solfège en ligne ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nos cours sont organisés en modules progressifs avec des vidéos explicatives, des exercices interactifs et des quiz. Chaque concept est introduit pas à pas avec de nombreux exemples pratiques. Les leçons abordent la lecture de notes, le rythme, les intervalles et tous les éléments essentiels à une compréhension complète du langage musical."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je apprendre à lire une partition rapidement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, notre méthode vous permet d'apprendre à lire les partitions de façon progressive et efficace. La plupart des élèves commencent à déchiffrer des partitions simples après seulement quelques semaines de pratique régulière. Notre approche visuelle et intuitive facilite l'apprentissage rapide de la lecture musicale."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les exercices sont-ils corrigés ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolument ! Tous nos exercices sont accompagnés de leurs corrections détaillées. De plus, de nombreux quiz interactifs vous permettent d'obtenir un retour immédiat sur vos réponses, vous aidant ainsi à identifier rapidement vos points forts et les aspects à améliorer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle est la différence entre théorie et solfège ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La théorie musicale englobe l'ensemble des connaissances qui expliquent les principes fondamentaux de la musique, tandis que le solfège est la mise en pratique de cette théorie, notamment via la lecture et l'écriture musicale. Notre formation couvre ces deux aspects de manière équilibrée pour une compréhension complète du langage musical."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le solfège aide-t-il à mieux jouer d'un instrument ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, absolument ! Le solfège vous permet de comprendre la structure des morceaux, de lire des partitions, d'améliorer votre oreille musicale et de communiquer plus facilement avec d'autres musiciens. Ces compétences sont précieuses quel que soit votre instrument et votre niveau."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Y a-t-il un certificat à la fin de la formation ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, un certificat d'accomplissement est délivré à la fin de nos formations complètes. Ce document atteste des compétences acquises et peut être utile pour valoriser votre parcours musical, notamment si vous envisagez de rejoindre un groupe ou de poursuivre d'autres formations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on suivre les cours sans connexion permanente ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une connexion internet est nécessaire pour accéder aux vidéos de cours. Cependant, tous les supports PDF sont téléchargeables et peuvent être consultés hors ligne. Il est donc possible de télécharger les ressources puis de travailler sans connexion pour une partie de votre apprentissage."
+      }
+    }
+  ]
+};
 ---
 
-<Layout title="Cours de Solfège - Musique Facile">
+<Layout title={title}>
+  <head>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="cours de solfège en ligne, apprendre le solfège facilement, solfège pour débutants, formation théorie musicale à distance, leçons de solfège interactives" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://musique-facile.fr/images/og-cours-solfege.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://musique-facile.fr/images/og-cours-solfege.jpg" />
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(coursesSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(courseLDSchema)} />
+  </head>
+
   <Header />
   
-  <script type="application/ld+json" set:html={JSON.stringify(coursesSchema)} />
-
   <main>
+    <!-- Fil d'Ariane -->
+    <BreadcrumbNav 
+      items={[
+        { name: "Accueil", url: "/" },
+        { name: "Cours", url: "/cours" },
+        { name: "Cours de Solfège", url: "/cours/cours-de-solfege" }
+      ]}
+    />
+    
     <section class="courses-hero theme-solfege">
       <div class="hero-background" style="background-image: url('/images/cours/hero-solfege.jpg')"></div>
       <div class="hero-overlay"></div>
       <div class="container">
-        <h1>Cours de Solfège</h1>
-        <p class="subtitle">Découvrez nos formations pour apprendre le solfège à votre rythme</p>
+        <h1>Cours de Solfège en Ligne</h1>
+        <p class="subtitle">Apprends le solfège en ligne en toute simplicité. Des cours clairs, progressifs et concrets pour comprendre la musique, lire une partition et développer ton oreille musicale efficacement.</p>
+        <div class="hero-cta">
+          <a href="#courses-list" class="cta-button">
+            Découvrir nos formations
+            <span class="cta-arrow">↓</span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="courses-grid">
+    <section class="courses-grid" id="courses-list">
       <div class="container">
+        <h2 class="section-title">Nos Cours de Solfège</h2>
+        <p class="section-subtitle">Du débutant à l'expert, nous vous accompagnons à chaque étape de votre apprentissage</p>
+        
         <div class="courses-wrapper">
-          {solfegeCourses.map(course => (
-            <article class="course-card">
+          {solfegeCourses.map((course, index) => (
+            <article class="course-card" id={`course-${index + 1}`}>
               <a href={`/cours/${course.slug}`} class="course-link">
                 <div class="course-image" style={`background-image: url(${course.data.ogImage})`}>
                   <div class="course-meta">
@@ -65,6 +296,10 @@ const coursesSchema = {
                 <div class="course-content">
                   <h2>{course.data.title}</h2>
                   <p>{course.data.description}</p>
+                  <div class="course-details">
+                    <span class="course-price">{course.data.hasCourseInstance?.offers?.price || "69 €"}</span>
+                    <span class="course-duration">{course.data.hasCourseInstance?.duration ? `Durée: ${course.data.hasCourseInstance.duration}` : "Accès illimité"}</span>
+                  </div>
                   <span class="cta-button">
                     Découvrir le cours
                     <span class="arrow">→</span>
@@ -74,10 +309,182 @@ const coursesSchema = {
             </article>
           ))}
         </div>
+      </div>
+    </section>
 
-        <div class="all-courses-cta">
-          <a href="/cours" class="btn-all-courses">
-            Découvrez tous nos cours
+    <!-- Section Pourquoi Apprendre le Solfège en Ligne -->
+    <section class="why-online">
+      <div class="container">
+        <h2 class="section-title">Pourquoi apprendre le solfège en ligne ?</h2>
+        
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">🧠</div>
+            <h3>Une base essentielle</h3>
+            <p>Comprendre le langage musical et les partitions pour progresser plus rapidement sur tout instrument.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">⏱️</div>
+            <h3>À votre rythme</h3>
+            <p>Apprenez sans pression, avec des leçons accessibles 24h/24 et visionnables autant de fois que nécessaire.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">🎯</div>
+            <h3>Méthode progressive</h3>
+            <p>Des explications simples et concrètes, adaptées aux débutants comme aux musiciens autodidactes.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">👂</div>
+            <h3>Développez votre oreille</h3>
+            <p>Exercices pratiques pour affiner votre perception musicale et gagner en précision.</p>
+          </div>
+        </div>
+        
+        <div class="online-learning-description">
+          <p>Le solfège, c'est la base pour comprendre et lire la musique. En ligne, tu progresses à ton rythme, sans pression. Les vidéos sont simples, bien expliquées, et illustrées avec des exemples concrets. Tu vas enfin comprendre les rythmes, les notes, les clés, et comment fonctionnent les partitions. C'est idéal pour les autodidactes, les débutants ou les musiciens qui veulent combler des lacunes. Grâce aux cours en ligne, tu développes ton oreille, tu gagnes en confiance, et tu deviens plus à l'aise avec ton instrument. C'est une compétence qui change tout.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title">Questions fréquentes</h2>
+        
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Le solfège est-il indispensable pour faire de la musique ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Non, il est possible de faire de la musique sans connaître le solfège, mais l'apprendre facilite considérablement l'apprentissage de tout instrument. C'est un langage universel qui permet de lire, comprendre et communiquer la musique plus efficacement. Notre méthode propose une approche progressive qui démystifie le solfège et le rend accessible à tous.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>À quel âge peut-on commencer à apprendre le solfège ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>On peut commencer à tout âge ! Pour les enfants, il est recommandé d'attendre l'âge de 6-7 ans pour une meilleure compréhension des concepts. Pour les adultes, il n'y a absolument aucune limite d'âge : nos cours sont conçus pour s'adapter à tous les niveaux et rythmes d'apprentissage.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Faut-il un instrument pour suivre les cours ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Non, aucun instrument n'est nécessaire pour apprendre le solfège. En revanche, si vous possédez déjà un instrument, vous pourrez appliquer immédiatement les concepts appris, ce qui peut faciliter l'intégration. Notre formation reste 100% accessible même sans instrument.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Comment sont structurées les leçons de solfège en ligne ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Nos cours sont organisés en modules progressifs avec des vidéos explicatives, des exercices interactifs et des quiz. Chaque concept est introduit pas à pas avec de nombreux exemples pratiques. Les leçons abordent la lecture de notes, le rythme, les intervalles et tous les éléments essentiels à une compréhension complète du langage musical.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Puis-je apprendre à lire une partition rapidement ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Oui, notre méthode vous permet d'apprendre à lire les partitions de façon progressive et efficace. La plupart des élèves commencent à déchiffrer des partitions simples après seulement quelques semaines de pratique régulière. Notre approche visuelle et intuitive facilite l'apprentissage rapide de la lecture musicale.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Les exercices sont-ils corrigés ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Absolument ! Tous nos exercices sont accompagnés de leurs corrections détaillées. De plus, de nombreux quiz interactifs vous permettent d'obtenir un retour immédiat sur vos réponses, vous aidant ainsi à identifier rapidement vos points forts et les aspects à améliorer.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Quelle est la différence entre théorie et solfège ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>La théorie musicale englobe l'ensemble des connaissances qui expliquent les principes fondamentaux de la musique, tandis que le solfège est la mise en pratique de cette théorie, notamment via la lecture et l'écriture musicale. Notre formation couvre ces deux aspects de manière équilibrée pour une compréhension complète du langage musical.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Le solfège aide-t-il à mieux jouer d'un instrument ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Oui, absolument ! Le solfège vous permet de comprendre la structure des morceaux, de lire des partitions, d'améliorer votre oreille musicale et de communiquer plus facilement avec d'autres musiciens. Ces compétences sont précieuses quel que soit votre instrument et votre niveau.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Y a-t-il un certificat à la fin de la formation ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Oui, un certificat d'accomplissement est délivré à la fin de nos formations complètes. Ce document atteste des compétences acquises et peut être utile pour valoriser votre parcours musical, notamment si vous envisagez de rejoindre un groupe ou de poursuivre d'autres formations.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Peut-on suivre les cours sans connexion permanente ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Une connexion internet est nécessaire pour accéder aux vidéos de cours. Cependant, tous les supports PDF sont téléchargeables et peuvent être consultés hors ligne. Il est donc possible de télécharger les ressources puis de travailler sans connexion pour une partie de votre apprentissage.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Prêt à démystifier la musique ?</h2>
+          <p>Rejoignez plus de 80 000 élèves formés d'apprenants et maîtrisez le langage musical à votre rythme</p>
+          <a href="#courses-list" class="btn-all-courses">
+            Découvrir nos formations de solfège
             <span class="arrow">→</span>
           </a>
         </div>
@@ -89,6 +496,7 @@ const coursesSchema = {
 </Layout>
 
 <style>
+  /* Hero Section */
   .courses-hero {
     padding: 8rem 0 4rem;
     background: linear-gradient(135deg, var(--theme-solfege) 0%, var(--theme-solfege-dark) 100%);
@@ -110,13 +518,13 @@ const coursesSchema = {
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
     z-index: 1;
   }
 
   .courses-hero .container {
     position: relative;
-    z-index:  2;
+    z-index: 2;
   }
 
   .courses-hero h1 {
@@ -128,12 +536,45 @@ const coursesSchema = {
   .subtitle {
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
   }
 
+  .hero-cta {
+    margin-top: 2rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    color: var(--theme-solfege);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover .cta-arrow {
+    transform: translateY(3px);
+  }
+
+  /* Courses Section */
   .courses-grid {
-    padding: 4rem 0;
+    padding: 6rem 0;
     background: var(--bg-light);
   }
 
@@ -141,6 +582,23 @@ const coursesSchema = {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--theme-solfege);
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
   }
 
   .courses-wrapper {
@@ -151,22 +609,27 @@ const coursesSchema = {
   }
 
   .course-card {
-    background: white;
+    background: #ffffff !important;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .course-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   }
 
   .course-link {
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   .course-image {
@@ -180,6 +643,8 @@ const coursesSchema = {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    display: flex;
+    gap: 0.5rem;
   }
 
   .best-seller-tag {
@@ -193,10 +658,20 @@ const coursesSchema = {
     font-weight: 600;
     color: #000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
   }
 
   .course-content {
     padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   .course-content h2 {
@@ -207,20 +682,37 @@ const coursesSchema = {
   }
 
   .course-content p {
-    color: var(--color-dark);
-    opacity: 0.8;
+    color: #333333 !important;
     margin-bottom: 1.5rem;
     line-height: 1.6;
     font-size: 0.95rem;
+    flex: 1;
   }
 
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+  .course-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .course-price {
+    font-weight: 700;
     color: var(--theme-solfege);
-    font-weight: 600;
-    transition: all 0.3s ease;
+  }
+
+  .course-duration {
+    color: var(--color-dark);
+    opacity: 0.7;
+  }
+
+  .course-content .cta-button {
+    align-self: flex-start;
+    margin-top: auto;
+    background: var(--theme-solfege);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 
   .arrow {
@@ -231,35 +723,213 @@ const coursesSchema = {
     transform: translateX(5px);
   }
 
-  .all-courses-cta {
+  /* Why Learn Solfege Online Section */
+  .why-online {
+    padding: 6rem 0;
+    background: white;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .benefit-card {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: var(--border-radius);
     text-align: center;
-    margin-top: 4rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--theme-solfege);
+  }
+
+  .benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .benefit-card h3 {
+    color: var(--theme-solfege);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .benefit-card p {
+    color: var(--color-dark);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .online-learning-description {
+    background: rgba(var(--theme-solfege-rgb), 0.05);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--theme-solfege);
+  }
+
+  .online-learning-description p {
+    color: var(--color-dark);
+    line-height: 1.8;
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 6rem 0;
+    background: var(--bg-light);
+  }
+
+  .faq-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .faq-item:hover {
+    border-color: var(--theme-solfege);
+  }
+
+  .question-wrapper {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .question-wrapper h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    padding-right: 2rem;
+  }
+
+  .toggle-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .plus-minus {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--theme-solfege);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+  }
+
+  .plus-minus::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: var(--theme-solfege);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+  }
+
+  .faq-item.active .plus-minus::after {
+    transform: translateX(-50%) scaleY(0);
+  }
+
+  .answer {
+    padding: 0 1.5rem;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .answer p {
+    padding-bottom: 1.5rem;
+    margin: 0;
+    color: var(--color-dark);
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  .faq-item.active .answer {
+    height: auto;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--theme-solfege) 0%, var(--theme-solfege-dark) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
   }
 
   .btn-all-courses {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--theme-solfege);
-    color: white;
+    background: white;
+    color: var(--theme-solfege);
     padding: 1rem 2rem;
     border-radius: var(--border-radius);
     text-decoration: none;
     font-weight: 600;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
   }
 
   .btn-all-courses:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
 
   .btn-all-courses:hover .arrow {
     transform: translateX(5px);
   }
 
+  /* Responsive Styles */
   @media (max-width: 1200px) {
     .courses-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .benefits-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
@@ -272,5 +942,81 @@ const coursesSchema = {
     .courses-wrapper {
       grid-template-columns: 1fr;
     }
+    
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .courses-hero h1 {
+      font-size: 2rem;
+    }
+    
+    .subtitle {
+      font-size: 1rem;
+    }
+    
+    .course-content {
+      padding: 1.5rem;
+    }
+    
+    .benefit-card {
+      padding: 1.5rem;
+    }
   }
 </style>
+
+<script>
+  // FAQ Toggle functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const questionWrapper = item.querySelector('.question-wrapper');
+      
+      questionWrapper.addEventListener('click', () => {
+        // Check if this item is already active
+        const isActive = item.classList.contains('active');
+        
+        // Close all items
+        faqItems.forEach(faqItem => {
+          faqItem.classList.remove('active');
+          const answer = faqItem.querySelector('.answer');
+          answer.style.height = '0';
+        });
+        
+        // If the clicked item wasn't active, open it
+        if (!isActive) {
+          item.classList.add('active');
+          const answer = item.querySelector('.answer');
+          answer.style.height = answer.scrollHeight + 'px';
+        }
+      });
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>

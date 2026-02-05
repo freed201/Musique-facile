@@ -1,12 +1,13 @@
 ---
 affichage: "Y"
 classement: 2
-title: "Solfège Expert : Altérations, Intervalles et Plus - Solfège 3"
-description: "Plongez dans l'univers du solfège avancé avec 'Solfège Expert'. Maîtrisez les altérations, intervalles et accords pour transformer votre pratique musicale, de la théorie à l'interprétation."
-ogImage: "/images/cours/solfege-expert-formation/hero.jpg"
+title: "Solfège Expert : Altérations et Intervalles"
+description: "Solfège avancé : maîtrisez altérations, intervalles et accords. Formation complète de la théorie à l'interprétation musicale."
+ogImage: "/images/cours/solfege-expert-formation/hero.webp"
 theme: "solfege"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -25,6 +26,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT1H25M" # Format ISO 8601 pour la durée
+  courseWorkload: "PT1H25M"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"
@@ -52,7 +54,7 @@ hero:
     - value: "4.8/5"
       label: "note moyenne"
       icon: "⭐"
-  imageBK: "https://ecole.musique-facile.fr/images/solfege-3-hero.jpg"
+  imageBK: "https://ecole.musique-facile.fr/images/solfege-3-hero.webp"
 
 teachers:
   mainTeachers:

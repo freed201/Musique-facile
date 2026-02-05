@@ -1,0 +1,585 @@
+---
+/**
+ * Widget Interactif - Jouez votre premier accord
+ * Démo interactive pour engager les visiteurs
+ */
+---
+
+<section class="interactive-widget section-padding">
+  <div class="container">
+    <div class="widget-header">
+      <span class="widget-badge">Essayez Maintenant</span>
+      <h2>Jouez Votre Premier Accord en 30 Secondes</h2>
+      <p>Cliquez sur les notes pour entendre le son. C'est aussi simple que ça !</p>
+    </div>
+
+    <div class="widget-content">
+      <div class="instrument-tabs">
+        <button class="tab-button active" data-instrument="guitar">
+          🎸 Guitare
+        </button>
+        <button class="tab-button" data-instrument="piano">
+          🎹 Piano
+        </button>
+        <button class="tab-button" data-instrument="ukulele">
+          🏖️ Ukulélé
+        </button>
+      </div>
+
+      <!-- Guitar Widget -->
+      <div class="instrument-widget active" id="guitar-widget">
+        <div class="chord-display">
+          <h3>Accord de <span class="chord-name">Do Majeur (C)</span></h3>
+          <p class="chord-description">Un des accords les plus simples pour débuter</p>
+        </div>
+
+        <div class="guitar-fretboard">
+          <div class="string" data-note="E">
+            <button class="fret" data-fret="0">○</button>
+            <button class="fret" data-fret="1"></button>
+            <button class="fret" data-fret="2"></button>
+            <button class="fret" data-fret="3" data-highlight="true">●</button>
+          </div>
+          <div class="string" data-note="B">
+            <button class="fret" data-fret="0"></button>
+            <button class="fret" data-fret="1" data-highlight="true">●</button>
+            <button class="fret" data-fret="2"></button>
+            <button class="fret" data-fret="3"></button>
+          </div>
+          <div class="string" data-note="G">
+            <button class="fret" data-fret="0">○</button>
+            <button class="fret" data-fret="1"></button>
+            <button class="fret" data-fret="2"></button>
+            <button class="fret" data-fret="3"></button>
+          </div>
+          <div class="string" data-note="D">
+            <button class="fret" data-fret="0"></button>
+            <button class="fret" data-fret="1"></button>
+            <button class="fret" data-fret="2" data-highlight="true">●</button>
+            <button class="fret" data-fret="3"></button>
+          </div>
+          <div class="string" data-note="A">
+            <button class="fret" data-fret="0"></button>
+            <button class="fret" data-fret="1"></button>
+            <button class="fret" data-fret="2"></button>
+            <button class="fret" data-fret="3" data-highlight="true">●</button>
+          </div>
+          <div class="string" data-note="E">
+            <button class="fret muted">✕</button>
+            <button class="fret" data-fret="1"></button>
+            <button class="fret" data-fret="2"></button>
+            <button class="fret" data-fret="3"></button>
+          </div>
+        </div>
+
+        <button class="play-chord-button" id="play-guitar-chord">
+          <span class="play-icon">▶</span>
+          Jouer l'accord complet
+        </button>
+      </div>
+
+      <!-- Piano Widget -->
+      <div class="instrument-widget" id="piano-widget">
+        <div class="chord-display">
+          <h3>Accord de <span class="chord-name">Do Majeur (C)</span></h3>
+          <p class="chord-description">Do - Mi - Sol (C - E - G)</p>
+        </div>
+
+        <div class="piano-keyboard">
+          <button class="key white" data-note="C">Do</button>
+          <button class="key black" data-note="C#"></button>
+          <button class="key white" data-note="D">Ré</button>
+          <button class="key black" data-note="D#"></button>
+          <button class="key white highlight" data-note="E">Mi</button>
+          <button class="key white" data-note="F">Fa</button>
+          <button class="key black" data-note="F#"></button>
+          <button class="key white highlight" data-note="G">Sol</button>
+          <button class="key black" data-note="G#"></button>
+          <button class="key white" data-note="A">La</button>
+          <button class="key black" data-note="A#"></button>
+          <button class="key white" data-note="B">Si</button>
+          <button class="key white highlight" data-note="C2">Do</button>
+        </div>
+
+        <button class="play-chord-button" id="play-piano-chord">
+          <span class="play-icon">▶</span>
+          Jouer l'accord complet
+        </button>
+      </div>
+
+      <!-- Ukulele Widget -->
+      <div class="instrument-widget" id="ukulele-widget">
+        <div class="chord-display">
+          <h3>Accord de <span class="chord-name">Do Majeur (C)</span></h3>
+          <p class="chord-description">L'accord le plus simple au ukulélé !</p>
+        </div>
+
+        <div class="ukulele-fretboard">
+          <div class="uke-string" data-note="A">
+            <button class="uke-fret" data-fret="0">○</button>
+            <button class="uke-fret" data-fret="1"></button>
+            <button class="uke-fret" data-fret="2"></button>
+            <button class="uke-fret" data-fret="3" data-highlight="true">●</button>
+          </div>
+          <div class="uke-string" data-note="E">
+            <button class="uke-fret" data-fret="0">○</button>
+            <button class="uke-fret" data-fret="1"></button>
+            <button class="uke-fret" data-fret="2"></button>
+            <button class="uke-fret" data-fret="3"></button>
+          </div>
+          <div class="uke-string" data-note="C">
+            <button class="uke-fret" data-fret="0">○</button>
+            <button class="uke-fret" data-fret="1"></button>
+            <button class="uke-fret" data-fret="2"></button>
+            <button class="uke-fret" data-fret="3"></button>
+          </div>
+          <div class="uke-string" data-note="G">
+            <button class="uke-fret" data-fret="0">○</button>
+            <button class="uke-fret" data-fret="1"></button>
+            <button class="uke-fret" data-fret="2"></button>
+            <button class="uke-fret" data-fret="3"></button>
+          </div>
+        </div>
+
+        <button class="play-chord-button" id="play-ukulele-chord">
+          <span class="play-icon">▶</span>
+          Jouer l'accord complet
+        </button>
+      </div>
+
+      <div class="widget-success" id="success-message" style="display: none;">
+        <div class="success-content">
+          <span class="success-icon">🎉</span>
+          <h3>Bravo ! Vous venez de jouer votre premier accord !</h3>
+          <p>Prêt à apprendre 100+ accords et jouer vos morceaux préférés ?</p>
+          <a href="/cours" class="success-cta">Commencer Gratuitement →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .interactive-widget {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .widget-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+
+  .widget-badge {
+    display: inline-block;
+    background: var(--gradient-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .widget-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .widget-header p {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+  }
+
+  .widget-content {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Tabs */
+  .instrument-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tab-button {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--color-gray);
+    background: white;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .tab-button:hover {
+    border-color: var(--theme-current);
+    transform: translateY(-2px);
+  }
+
+  .tab-button.active {
+    background: var(--theme-current);
+    border-color: var(--theme-current);
+    color: white;
+  }
+
+  /* Instrument Widgets */
+  .instrument-widget {
+    display: none;
+  }
+
+  .instrument-widget.active {
+    display: block;
+  }
+
+  .chord-display {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+  }
+
+  .chord-display h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .chord-name {
+    color: var(--theme-current);
+  }
+
+  .chord-description {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  /* Guitar Fretboard */
+  .guitar-fretboard {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+    margin: 2rem auto;
+    max-width: 600px;
+  }
+
+  .string {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .fret {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--color-gray);
+    background: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+  }
+
+  .fret:hover:not(.muted) {
+    background: var(--theme-current-light);
+    border-color: var(--theme-current);
+    transform: scale(1.1);
+  }
+
+  .fret[data-highlight="true"] {
+    background: var(--theme-current);
+    border-color: var(--theme-current);
+    color: white;
+  }
+
+  .fret.muted {
+    background: #ff4444;
+    color: white;
+    cursor: not-allowed;
+  }
+
+  /* Piano Keyboard */
+  .piano-keyboard {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto;
+    max-width: 700px;
+    position: relative;
+    height: 200px;
+  }
+
+  .key {
+    border: 2px solid #333;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .key.white {
+    width: 50px;
+    height: 200px;
+    background: white;
+    border-radius: 0 0 8px 8px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 1rem;
+  }
+
+  .key.black {
+    width: 30px;
+    height: 120px;
+    background: #333;
+    color: white;
+    position: absolute;
+    z-index: 2;
+    border-radius: 0 0 4px 4px;
+  }
+
+  /* Position black keys */
+  .key.black:nth-child(2) { left: 35px; }
+  .key.black:nth-child(4) { left: 85px; }
+  .key.black:nth-child(7) { left: 160px; }
+  .key.black:nth-child(9) { left: 210px; }
+  .key.black:nth-child(11) { left: 260px; }
+
+  .key.white:hover {
+    background: #f0f0f0;
+  }
+
+  .key.black:hover {
+    background: #555;
+  }
+
+  .key.white.highlight {
+    background: var(--theme-current);
+    color: white;
+  }
+
+  .key.active {
+    transform: translateY(2px);
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Ukulele Fretboard */
+  .ukulele-fretboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem auto;
+    max-width: 500px;
+  }
+
+  .uke-string {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .uke-fret {
+    width: 70px;
+    height: 70px;
+    border: 2px solid var(--color-gray);
+    background: white;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .uke-fret:hover {
+    background: var(--theme-ukulele-light);
+    border-color: var(--theme-ukulele);
+    transform: scale(1.1);
+  }
+
+  .uke-fret[data-highlight="true"] {
+    background: var(--theme-ukulele);
+    border-color: var(--theme-ukulele);
+    color: white;
+  }
+
+  /* Play Button */
+  .play-chord-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto 0;
+    padding: 1.2rem 2rem;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-lg);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .play-chord-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 194, 142, 0.3);
+  }
+
+  .play-icon {
+    font-size: 1.2rem;
+  }
+
+  /* Success Message */
+  .widget-success {
+    text-align: center;
+    padding: 3rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: var(--border-radius-lg);
+    color: white;
+    margin-top: 2rem;
+    animation: slideInUp 0.5s ease;
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .success-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .success-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .success-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .success-cta {
+    display: inline-block;
+    background: white;
+    color: var(--theme-current);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all var(--transition-base);
+  }
+
+  .success-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .widget-content {
+      padding: 1.5rem;
+    }
+
+    .widget-header h2 {
+      font-size: 2rem;
+    }
+
+    .guitar-fretboard,
+    .ukulele-fretboard {
+      gap: 0.3rem;
+    }
+
+    .fret,
+    .uke-fret {
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+    }
+
+    .piano-keyboard {
+      transform: scale(0.8);
+    }
+  }
+</style>
+
+<script>
+  // Tab switching
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab-button');
+    const widgets = document.querySelectorAll('.instrument-widget');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const instrument = tab.dataset.instrument;
+
+        // Update active tab
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Update active widget
+        widgets.forEach(w => w.classList.remove('active'));
+        document.getElementById(`${instrument}-widget`)?.classList.add('active');
+      });
+    });
+
+    // Play chord buttons
+    const playButtons = document.querySelectorAll('.play-chord-button');
+    playButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Simulate playing sound
+        button.classList.add('playing');
+        setTimeout(() => {
+          button.classList.remove('playing');
+          // Show success message
+          const successMsg = document.getElementById('success-message');
+          if (successMsg) {
+            successMsg.style.display = 'block';
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 1000);
+      });
+    });
+
+    // Note click interactions
+    const notes = document.querySelectorAll('.fret, .key, .uke-fret');
+    notes.forEach(note => {
+      note.addEventListener('click', (e) => {
+        if (!note.classList.contains('muted')) {
+          // Visual feedback
+          note.classList.add('active');
+          setTimeout(() => {
+            note.classList.remove('active');
+          }, 300);
+
+          // Could add Web Audio API for actual sound here
+        }
+      });
+    });
+  });
+</script>

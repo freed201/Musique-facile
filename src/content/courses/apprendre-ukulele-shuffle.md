@@ -1,12 +1,13 @@
 ---
 affichage: "Y"
 classement: 3
-title: "Le Secret du Shuffle : Perfectionnez Votre Ukulélé en 15 Leçons"
-description: "Maîtrisez l'art du shuffle à l'ukulélé avec notre formation complète de 15 leçons. Transformez votre jeu avec des rythmes envoûtants et des techniques exclusives, adaptées à tous les niveaux."
-ogImage: "/images/cours/apprendre-ukulele-shuffle/hero.jpg"
+title: "Shuffle Ukulélé : Perfectionnement en 15 Leçons"
+description: "Maîtrisez le shuffle à l'ukulélé en 15 leçons. Rythmes envoûtants et techniques exclusives pour transformer votre jeu. Tous niveaux."
+ogImage: "/images/cours/apprendre-ukulele-shuffle/hero.webp"
 theme: "ukulele"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -25,6 +26,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT1H" # Format ISO 8601 pour la durée
+  courseWorkload: "PT1H"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"

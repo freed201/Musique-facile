@@ -1,0 +1,682 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const title = "5 Accords Magiques pour 100 Chansons | Musique Facile";
+const description = "Téléchargez GRATUITEMENT notre guide exclusif : apprenez 5 accords de guitare simples et jouez plus de 100 chansons dès aujourd'hui. Méthode garantie pour débutants.";
+const ogImage = "https://musique-facile.fr/images/lead-magnet-5-accords.webp";
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NP758HSC');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://musique-facile.fr/5-accords-magiques" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://musique-facile.fr/5-accords-magiques" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NP758HSC"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <Header />
+
+    <main class="lead-magnet-page">
+      <!-- Hero Section -->
+      <section class="lm-hero">
+        <div class="container">
+          <div class="lm-hero-content">
+            <div class="lm-hero-left">
+              <span class="lm-badge">🎁 GUIDE GRATUIT</span>
+              <h1 class="lm-title">
+                Les <span class="highlight">5 Accords Magiques</span><br />
+                pour Jouer <span class="highlight">100+ Chansons</span>
+              </h1>
+              <p class="lm-subtitle">
+                Apprenez en <strong>24 heures</strong> les 5 accords qui vous permettront de jouer vos chansons préférées à la guitare.
+                <strong>80 000+ guitaristes</strong> ont déjà transformé leur jeu grâce à cette méthode simple.
+              </p>
+
+              <!-- Bénéfices -->
+              <ul class="lm-benefits">
+                <li>
+                  <span class="benefit-icon">✓</span>
+                  <span><strong>5 accords faciles</strong> en diagrammes clairs</span>
+                </li>
+                <li>
+                  <span class="benefit-icon">✓</span>
+                  <span><strong>Vidéo de démonstration</strong> pour chaque accord</span>
+                </li>
+                <li>
+                  <span class="benefit-icon">✓</span>
+                  <span><strong>Liste de 100 chansons</strong> à jouer immédiatement</span>
+                </li>
+                <li>
+                  <span class="benefit-icon">✓</span>
+                  <span><strong>3 exercices progressifs</strong> pour maîtriser les transitions</span>
+                </li>
+                <li>
+                  <span class="benefit-icon">✓</span>
+                  <span><strong>Bonus</strong> : Rythmique universelle en vidéo</span>
+                </li>
+              </ul>
+
+              <!-- Social Proof -->
+              <div class="lm-social-proof">
+                <div class="lm-avatars">
+                  <img src="/images/marie.webp" alt="Élève satisfait" />
+                  <img src="/images/thomas.webp" alt="Élève satisfait" />
+                  <span class="avatar-count">+80 000</span>
+                </div>
+                <div class="lm-proof-text">
+                  <div class="stars">⭐⭐⭐⭐⭐</div>
+                  <p>Téléchargé par plus de 80 000 guitaristes</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lm-hero-right">
+              <!-- Formulaire de capture -->
+              <div class="lm-form-card">
+                <div class="lm-form-header">
+                  <h2>Téléchargez Votre Guide GRATUIT</h2>
+                  <p>Recevez-le par email en moins de 2 minutes</p>
+                </div>
+
+                <form class="lm-form" id="leadMagnetForm">
+                  <div class="form-group">
+                    <label for="firstName">Prénom</label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      placeholder="Ex: Marie"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="votre@email.com"
+                      required
+                    />
+                  </div>
+
+                  <button type="submit" class="lm-submit-btn">
+                    <span>📥 Recevoir le Guide Gratuit</span>
+                    <small>100% Gratuit • Sans engagement</small>
+                  </button>
+
+                  <p class="lm-privacy">
+                    🔒 Vos données sont protégées. Pas de spam, désinscription en 1 clic.
+                  </p>
+                </form>
+
+                <!-- Urgence -->
+                <div class="lm-urgency">
+                  ⏰ <strong>Attention</strong> : Ce guide est gratuit pour une durée limitée
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section "Aperçu du contenu" -->
+      <section class="lm-preview">
+        <div class="container">
+          <h2 class="section-title">Ce que vous allez découvrir</h2>
+
+          <div class="preview-grid">
+            <div class="preview-card">
+              <div class="preview-icon">🎸</div>
+              <h3>Les 5 Accords Essentiels</h3>
+              <p>Em, G, D, C, Am - Les fondations de milliers de chansons, avec photos et vidéos HD.</p>
+            </div>
+
+            <div class="preview-card">
+              <div class="preview-icon">🎵</div>
+              <h3>100 Chansons Populaires</h3>
+              <p>De Bob Marley à Coldplay, jouez vos artistes préférés dès le premier jour.</p>
+            </div>
+
+            <div class="preview-card">
+              <div class="preview-icon">💪</div>
+              <h3>Exercices Progressifs</h3>
+              <p>3 exercices testés sur 80 000+ élèves pour des transitions fluides en 7 jours.</p>
+            </div>
+
+            <div class="preview-card">
+              <div class="preview-icon">🎬</div>
+              <h3>Vidéos de Démonstration</h3>
+              <p>Chaque accord filmé sous plusieurs angles + ralentis pour bien comprendre.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Témoignages -->
+      <section class="lm-testimonials">
+        <div class="container">
+          <h2 class="section-title">Ils ont transformé leur jeu grâce à ce guide</h2>
+
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testimonial-text">
+                "En 3 jours, je jouais déjà 'Knockin' on Heaven's Door' !
+                Ces 5 accords sont vraiment magiques. Merci Fred !"
+              </p>
+              <div class="testimonial-author">
+                <img src="/images/marie.webp" alt="Marie D." />
+                <div>
+                  <strong>Marie D.</strong>
+                  <span>Débutante, 34 ans</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testimonial-text">
+                "J'avais essayé pendant des mois sans succès. Ce guide m'a tout débloqué.
+                La liste des 100 chansons est incroyable !"
+              </p>
+              <div class="testimonial-author">
+                <img src="/images/thomas.webp" alt="Thomas L." />
+                <div>
+                  <strong>Thomas L.</strong>
+                  <span>Étudiant, 22 ans</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Final -->
+      <section class="lm-cta-final">
+        <div class="container">
+          <div class="cta-final-content">
+            <h2>Prêt à Impressionner Vos Amis ?</h2>
+            <p>Recevez votre guide gratuit maintenant et jouez votre première chanson ce soir</p>
+            <a href="#leadMagnetForm" class="cta-final-btn">
+              📥 Oui, je veux le guide gratuit !
+            </a>
+            <small>✓ Téléchargement instantané • ✓ Sans engagement • ✓ 100% Gratuit</small>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .lead-magnet-page {
+    background: #f8f9fc;
+  }
+
+  /* Hero Section */
+  .lm-hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding: 6rem 0;
+    color: white;
+  }
+
+  .lm-hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .lm-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #88be00, #a3d826);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .lm-title {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+
+  .lm-title .highlight {
+    color: #88be00;
+    position: relative;
+  }
+
+  .lm-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+  }
+
+  .lm-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+  }
+
+  .lm-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .benefit-icon {
+    background: #88be00;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  .lm-social-proof {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .lm-avatars {
+    display: flex;
+    align-items: center;
+  }
+
+  .lm-avatars img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-left: -10px;
+  }
+
+  .lm-avatars img:first-child {
+    margin-left: 0;
+  }
+
+  .avatar-count {
+    background: #88be00;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+  }
+
+  .lm-proof-text {
+    flex: 1;
+  }
+
+  .stars {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .lm-proof-text p {
+    font-size: 0.95rem;
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  /* Formulaire */
+  .lm-form-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 100px;
+  }
+
+  .lm-form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .lm-form-header h2 {
+    color: #1a1a1a;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .lm-form-header p {
+    color: #666;
+    font-size: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-group input:focus {
+    outline: none;
+    border-color: #88be00;
+    box-shadow: 0 0 0 3px rgba(136, 190, 0, 0.1);
+  }
+
+  .lm-submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #88be00, #a3d826);
+    color: white;
+    border: none;
+    padding: 1.25rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .lm-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(136, 190, 0, 0.3);
+  }
+
+  .lm-submit-btn small {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    font-weight: 400;
+  }
+
+  .lm-privacy {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 1rem;
+  }
+
+  .lm-urgency {
+    background: #fff3cd;
+    color: #856404;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+    border: 1px solid #ffeaa7;
+  }
+
+  /* Preview Section */
+  .lm-preview {
+    padding: 6rem 0;
+    background: white;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+  }
+
+  .preview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .preview-card {
+    background: #f8f9fc;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .preview-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .preview-card h3 {
+    color: #1a1a1a;
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .preview-card p {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* Testimonials */
+  .lm-testimonials {
+    padding: 6rem 0;
+    background: #f8f9fc;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .testimonial-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .testimonial-stars {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-text {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .testimonial-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #88be00;
+  }
+
+  .testimonial-author strong {
+    display: block;
+    color: #1a1a1a;
+  }
+
+  .testimonial-author span {
+    display: block;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  /* CTA Final */
+  .lm-cta-final {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #88be00, #a3d826);
+    color: white;
+  }
+
+  .cta-final-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-final-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-final-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  .cta-final-btn {
+    display: inline-block;
+    background: white;
+    color: #88be00;
+    padding: 1.25rem 3rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-final-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-final-content small {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    opacity: 0.9;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .lm-hero-content {
+      grid-template-columns: 1fr;
+    }
+
+    .lm-form-card {
+      position: static;
+    }
+
+    .preview-grid,
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .lm-title {
+      font-size: 2.2rem;
+    }
+
+    .lm-hero {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<script>
+  // Gestion du formulaire
+  const form = document.getElementById('leadMagnetForm');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = {
+        firstName: formData.get('firstName'),
+        email: formData.get('email'),
+        leadMagnet: '5-accords-magiques'
+      };
+
+      // Ici, vous intégrerez votre service d'email (ActiveCampaign, Mailchimp, etc.)
+      console.log('Lead capturé:', data);
+
+      // Redirection vers page de remerciement (à créer)
+      window.location.href = '/merci-lead-magnet';
+
+      // Ou afficher un message de succès
+      // alert('✅ Vérifiez votre boîte mail ! Le guide arrive dans 2 minutes.');
+    });
+  }
+
+  // Smooth scroll pour le CTA final
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+</script>

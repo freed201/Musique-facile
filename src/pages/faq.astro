@@ -1,0 +1,239 @@
+---
+/**
+ * faq.astro
+ * Page FAQ dédiée avec schéma JSON-LD
+ */
+
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FAQ from '../components/FAQ.astro';
+import FooterModern from '../components/FooterModern.astro';
+
+const title = "Questions Fréquentes — Musique Facile";
+const description = "Réponses aux questions les plus posées sur nos cours de guitare, piano, ukulélé et solfège en ligne. Tarifs, méthode d'apprentissage, garanties.";
+const canonicalURL = new URL('/faq', 'https://musique-facile.fr').toString();
+
+// FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Combien de temps faut-il pour apprendre la guitare en ligne ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avec la méthode Musique Facile, 92% des élèves jouent leur première chanson en 5 jours. En pratiquant 15 minutes par jour, vous maîtriserez les accords de base en 3 semaines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qui est Fred Fieffé et quelle est sa méthode d'enseignement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fred Fieffé est un professeur de musique certifié avec 15 ans d'expérience. Il a formé plus de 80 000 élèves via ses cours en ligne de guitare, piano, ukulélé et solfège, avec une note moyenne de 4.7/5 sur 2 847 avis vérifiés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les cours sont-ils adaptés aux débutants complets ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, tous nos cours commencent au niveau zéro. Aucune connaissance musicale préalable n'est requise. Les leçons sont progressives avec des exercices pratiques."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionne l'apprentissage en ligne sur Musique Facile ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vous accédez à une plateforme vidéo avec plus de 1 400 leçons organisées par niveau. Chaque cours dure entre 5 et 15 minutes. Vous progressez à votre rythme."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel est le prix des formations ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nos formations sont disponibles à l'achat individuel par instrument. Chaque formation donne un accès à vie avec garantie satisfait ou remboursé de 15 jours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on apprendre le piano sans piano acoustique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, vous pouvez commencer avec un clavier numérique de 61 touches (à partir de 150€). Un piano acoustique n'est pas nécessaire pour apprendre les bases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le solfège est-il obligatoire pour apprendre un instrument ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, le solfège n'est pas obligatoire. Nos cours utilisent des tablatures et diagrammes d'accords. Le solfège est proposé en option."
+      }
+    }
+  ]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://musique-facile.fr"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "FAQ",
+      "item": "https://musique-facile.fr/faq"
+    }
+  ]
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalURL}
+  robots="index, follow"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <Header />
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="/">Accueil</a></li>
+        <li aria-current="page">FAQ</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- FAQ Component -->
+  <FAQ />
+
+  <!-- CTA Section -->
+  <section class="faq-bottom-cta">
+    <div class="container">
+      <h2>Prêt à commencer ?</h2>
+      <p>Rejoignez 80 000 musiciens qui ont fait le premier pas</p>
+      <div class="cta-buttons">
+        <a href="/cours" class="btn-primary">Voir les cours</a>
+        <a href="/contact" class="btn-secondary">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <FooterModern />
+</Layout>
+
+<style>
+  .breadcrumb {
+    background: var(--surface-light);
+    padding: var(--space-4) 0;
+    margin-top: 80px;
+  }
+
+  .breadcrumb ol {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--text-sm);
+  }
+
+  .breadcrumb li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: '/';
+    color: var(--gray-400);
+  }
+
+  .breadcrumb a {
+    color: var(--gray-600);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--brand-600);
+  }
+
+  .breadcrumb [aria-current="page"] {
+    color: var(--gray-900);
+    font-weight: var(--font-medium);
+  }
+
+  .faq-bottom-cta {
+    padding: var(--space-16) var(--space-4);
+    background: var(--brand-600);
+    text-align: center;
+  }
+
+  .faq-bottom-cta h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: var(--font-bold);
+    color: white;
+    margin-bottom: var(--space-2);
+  }
+
+  .faq-bottom-cta p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--space-6);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    padding: var(--space-3) var(--space-6);
+    background: white;
+    color: var(--brand-600);
+    font-weight: var(--font-semibold);
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-secondary {
+    padding: var(--space-3) var(--space-6);
+    background: transparent;
+    color: white;
+    font-weight: var(--font-medium);
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.1);
+  }
+</style>

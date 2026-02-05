@@ -1,20 +1,19 @@
 ---
-title: "Apprenez Mr. Jones des Counting Crows : Un classique à jouer à la guitare"
-description: "Découvrez 'Mr Jones', un hymne des années 90 des Counting Crows, et apprenez à jouer ce morceau emblématique à la guitare."
+title: "Mr. Jones (Counting Crows) - Tutoriel Guitare"
+description: "Mr. Jones des Counting Crows à la guitare : 5 accords faciles, rythmique rock alternatif, hit 1993. Tutoriel débutants/intermédiaires."
 ogImage: "/images/blog/apprendre-mr-jones-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-01-08"
-introduction: "Avec 'Mr Jones', Counting Crows nous offrent une chanson introspective et universelle sur le désir de reconnaissance. Découvrez l’histoire de ce morceau et apprenez à le jouer."
+dateModified: "2026-02-04"
+introduction: "Avec 'Mr. Jones', Counting Crows nous offrent une chanson introspective et universelle sur le désir de reconnaissance, extraite de l'album 'August and Everything After' (1993). Découvrez l'histoire fascinante de ce hit des années 90 et apprenez à le jouer avec notre tutoriel détaillé."
 
 songInfo:
   inBook: true
-  bookPage: "42"
-  tempo: "102"
-  chordCount: "5"
-  key: ""
+  bookPage: 42
+  tempo: 102
+  chordCount: 5
   difficulty: "3/5"
 
 videos:
@@ -33,12 +32,15 @@ conclusion: |
  La beauté de "Mr Jones" réside dans sa capacité à résonner encore aujourd'hui. Que vous l'écoutiez en nostalgie des années 90 ou que vous le découvriez pour la première fois, la chanson donne une voix aux désirs et aux espoirs universels. Counting Crows a réalisé bien plus qu'un simple hit ; ils ont capturé un moment de vie que chacun peut revivre en appuyant sur play.<br><br>En conclusion, "Mr Jones" n'est pas seulement une chanson ; c'est une expérience qui continue d'inspirer et d'unir les gens à travers la musique. Alors, guitare à la main ou écouteurs aux oreilles, laissez-vous transporter par le pouvoir évocateur de Counting Crows.
 
 relatedLinks:
-  - title: "Les morceaux incontournables de Counting Crows"
-    url: "/articles/meilleurs-morceaux-counting-crows"
-    description: "Découvrez les titres qui ont marqué la carrière des Counting Crows."
-  - title: "Analyse de l'album 'August and Everything After'"
-    url: "/articles/august-and-everything-after-analyse"
-    description: "Explorez les secrets de l'album légendaire contenant 'Mr Jones'."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation complète pour débuter la guitare rock alternatif."
+  - title: "What's Up - 4 Non Blondes"
+    url: "/blog/apprendre-whats-up-guitare"
+    description: "Un autre classique rock alternatif des années 90."
+  - title: "Wonderwall - Oasis"
+    url: "/blog/apprendre-wonderwall-guitare"
+    description: "Le hit Britpop incontournable à la guitare."
 ---
 subtilités, et plongeons dans ce qui fait de "Mr Jones" une chanson si spéciale.
 

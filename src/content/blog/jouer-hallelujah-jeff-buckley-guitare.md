@@ -1,20 +1,19 @@
 ---
-title: "Hallelujah : Jeff Buckley et l'interprétation qui transcende le temps"
-description: "Explorez l'histoire et l'impact de 'Hallelujah', chef-d'œuvre revisité par Jeff Buckley, une œuvre intemporelle mêlant émotion et musicalité."
+title: "Hallelujah (Jeff Buckley) - Tutoriel Guitare"
+description: "Hallelujah de Jeff Buckley à la guitare : 6 accords avec capo case 1, reprise de Leonard Cohen. Tutoriel intermédiaires."
 ogImage: "/images/blog/jouer-hallelujah-jeff-buckley-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-01-26"
-introduction: "Plongez dans l'univers musical et émotionnel de Jeff Buckley avec 'Hallelujah', une chanson iconique qui continue de résonner profondément chez les auditeurs et les musiciens du monde entier."
+dateModified: "2026-02-04"
+introduction: "Plongez dans l'univers musical et émotionnel de Jeff Buckley avec 'Hallelujah', sa reprise iconique de Leonard Cohen sortie en 1994 sur l'album 'Grace'. Découvrez comment jouer cette chanson intemporelle qui continue de résonner profondément chez les musiciens du monde entier."
 
 songInfo:
   inBook: true
-  bookPage: "24"
-  tempo: "70"
-  chordCount: "6"
-  key: ""
+  bookPage: 24
+  tempo: 70
+  chordCount: 6
   difficulty: "3/5"
 
 videos:
@@ -31,12 +30,15 @@ conclusion: |
   Jeff Buckley, avec sa voix angélique et son approche musicale novatrice, continue d'inspirer les artistes et de toucher les auditeurs, même des décennies après sa disparition. Sa version de "Hallelujah" reste un testament de son génie artistique rare, capturant une symbiose parfaite entre la parole et la musique, entre l'homme et ses émotions. À travers chaque accord et chaque vers, "Hallelujah" poursuit son voyage intemporel, résidant non seulement dans son histoire, mais au cœur de ceux qui la jouent et l'écoutent.<br><br>Prenez votre guitare et laissez-vous emporter par cette balade émotionnelle. Partagez votre propre interprétation avec le monde, car c'est dans le partage que la musique trouve son sens ultime. <br><br>Pour rester connecté à l'univers de Jeff Buckley et découvrir davantage d'articles comme celui-ci, pensez à consulter ses réseaux sociaux et son site officiel qui regorgent de ressources fascinantes sur son œuvre et son héritage.
 
 relatedLinks:
-  - title: "Les plus grandes reprises de 'Hallelujah'"
-    url: "/articles/reprises-hallelujah"
-    description: "Découvrez les différentes interprétations qui ont marqué cette chanson culte."
-  - title: "Les morceaux incontournables de Jeff Buckley"
-    url: "/articles/meilleurs-morceaux-jeff-buckley"
-    description: "Un voyage à travers les chansons les plus mémorables de Jeff Buckley."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour maîtriser les ballades émotionnelles."
+  - title: "Wild World - Cat Stevens"
+    url: "/blog/apprendre-wild-world-guitare"
+    description: "Une autre ballade folk intemporelle et touchante."
+  - title: "Fields of Gold - Sting"
+    url: "/blog/jouer-fields-of-gold-sting"
+    description: "La ballade poétique de Sting à la guitare."
 ---
 "Hallelujah" est une chanson initialement écrite par Leonard Cohen, un auteur-compositeur-interprète canadien connu pour ses textes poétiques et spirituels. Sortie en 1984 sur l'album "Various Positions", la chanson a mis du temps à percer, mais elle n'a jamais cessé d'évoluer, s'imprégnant de nouvelles significations au fil des reprises. Jeff Buckley en a livré une version en 1994 dans son seul album studio complet, "Grace". 
 

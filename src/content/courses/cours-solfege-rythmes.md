@@ -1,10 +1,11 @@
 ---
-title: "L'Art du Rythme en Musique : Techniques et Applications Avancées - Solfège 2"
-description: "Approfondissez votre compréhension des rythmes complexes avec notre cours 'Solfège Partie 2'. 55 leçons détaillées pour maîtriser les techniques avancées du solfège. Commencez dès maintenant !"
-ogImage: "/images/cours/cours-solfege-rythmes/hero.jpg"
+title: "Art du Rythme : Techniques Avancées Solfège 2"
+description: "Maîtrisez les rythmes complexes avec 55 leçons de solfège avancé. Techniques détaillées pour améliorer votre compétence rythmique."
+ogImage: "/images/cours/cours-solfege-rythmes/hero.webp"
 theme: "solfege"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -23,6 +24,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT2H" # Format ISO 8601 pour la durée
+  courseWorkload: "PT2H"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"

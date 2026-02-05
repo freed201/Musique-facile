@@ -2,12 +2,13 @@
 affichage: "Y"
 classement: 1
 title: "Cours de Guitare pour Débutants en Ligne"
-description: "Apprenez à jouer de la guitare avec notre cours en ligne pour débutants. Des leçons structurées pour maîtriser les bases et progresser rapidement. Commencez dès maintenant !"
+description: "Cours de guitare en ligne pour débutants : leçons structurées pour maîtriser les bases et progresser rapidement. Commencez dès maintenant !"
 bestSeller: true 
-ogImage: "https://musique-facile.fr/images/cours/apprendre-guitare-debutant/hero.jpg"
+ogImage: "/images/cours/apprendre-guitare-debutant/hero.webp"
 theme: "guitar"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -26,6 +27,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT4H" # Format ISO 8601 pour la durée
+  courseWorkload: "PT4H"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"

@@ -2,22 +2,60 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import SearchBar from '../../components/blog/SearchBar.astro';
+import FilterBar from '../../components/blog/FilterBar.astro';
+import ArticleCard from '../../components/blog/ArticleCard.astro';
+import Pagination from '../../components/blog/Pagination.astro';
 import { getCollection } from 'astro:content';
 
-// Récupérer et trier les articles par date
+// Récupérer TOUS les articles (pas de limite à 50)
 const allPosts = await getCollection('blog');
-const latestPosts = allPosts
-  .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime())
-  .slice(0, 50); // Prendre les 30 derniers articles
+const currentDate = new Date();
 
-// Schema.org pour la liste des articles
+// Filtrer les articles publiés
+const publishedPosts = allPosts
+  .filter(post => {
+    if (post.data.prod !== 'Y') return false;
+    const publishDate = new Date(post.data.datePublished);
+    if (publishDate > currentDate) return false;
+    if (post.data.prev) return false;
+    return true;
+  })
+  .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime());
+
+// Fonction pour détecter l'instrument
+function detectInstrument(post: any): string {
+  const content = `${post.data.title} ${post.data.description || ''}`.toLowerCase();
+  if (content.includes('guitare')) return 'guitare';
+  if (content.includes('piano')) return 'piano';
+  if (content.includes('ukulele') || content.includes('ukulélé')) return 'ukulele';
+  if (content.includes('solfege') || content.includes('solfège')) return 'solfege';
+  return 'general';
+}
+
+// Compter les articles par instrument
+const instrumentCounts = {
+  total: publishedPosts.length,
+  guitare: publishedPosts.filter(p => detectInstrument(p) === 'guitare').length,
+  piano: publishedPosts.filter(p => detectInstrument(p) === 'piano').length,
+  ukulele: publishedPosts.filter(p => detectInstrument(p) === 'ukulele').length,
+  solfege: publishedPosts.filter(p => detectInstrument(p) === 'solfege').length,
+};
+
+// Métadonnées
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://musique-facile.fr').toString();
+const title = "Blog Musical | Guitare, Piano, Ukulélé — Musique Facile";
+const description = "Découvre tous nos articles pour progresser en musique : techniques, artistes, morceaux, conseils d'apprentissage, astuces de pratique… Un concentré d'inspiration pour musiciens passionnés, débutants ou curieux.";
+const ogImage = "/images/og-blog.jpg";
+
+// Schema.org Blog
 const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
   "name": "Blog Musique Facile",
   "description": "Articles, conseils et astuces pour progresser en musique",
-  "url": new URL(Astro.url.pathname, Astro.site || 'https://musique-facile.fr').toString(),
-  "blogPost": latestPosts.map(post => ({
+  "url": canonicalURL,
+  "blogPost": publishedPosts.slice(0, 20).map(post => ({
     "@type": "BlogPosting",
     "headline": post.data.title,
     "description": post.data.description,
@@ -27,56 +65,104 @@ const blogSchema = {
     "author": {
       "@type": "Person",
       "name": post.data.author
-    }
+    },
+    "url": `${Astro.url.origin}/blog/${post.slug}`
   }))
 };
+
+// Schema.org ItemList pour améliorer le référencement du listing
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Articles du Blog Musique Facile",
+  "description": "Liste complète des articles pour apprendre la musique",
+  "numberOfItems": publishedPosts.length,
+  "itemListElement": publishedPosts.map((post, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "url": `${Astro.url.origin}/blog/${post.slug}`,
+    "name": post.data.title,
+    "description": post.data.description
+  }))
+};
+
+const ARTICLES_PER_PAGE = 12;
+const totalPages = Math.ceil(publishedPosts.length / ARTICLES_PER_PAGE);
 ---
 
-<Layout title="Blog Musique Facile">
+<Layout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  canonicalUrl={canonicalURL}
+  keywords="blog musique en ligne, articles sur l'apprentissage musical, blog guitare piano ukulélé, conseils pour musiciens débutants, actualité musicale et pédagogie"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  </Fragment>
+
   <Header />
-  
-  <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
 
   <main>
+    <!-- Hero Section -->
     <section class="blog-hero">
       <div class="hero-background"></div>
       <div class="hero-overlay"></div>
       <div class="container">
         <h1>Blog Musique Facile</h1>
-        <p class="subtitle">Découvrez nos articles, conseils et astuces pour progresser en musique</p>
+        <p class="subtitle">
+          Découvre {publishedPosts.length} articles pour progresser en musique : techniques, artistes, morceaux, conseils d'apprentissage, astuces de pratique… Un concentré d'inspiration pour musiciens passionnés, débutants ou curieux.
+        </p>
       </div>
     </section>
 
+    <!-- Contenu Principal -->
     <section class="blog-content">
       <div class="container">
-      
+        <!-- Barre de Recherche -->
+        <SearchBar />
 
-        <div class="blog-grid">
-          {latestPosts.map(post => (
-            <article class="blog-card">
-              <a href={`/blog/${post.slug}`} class="card-link">
-                <div class="card-image" style={`background-image: url(${post.data.ogImage})`}>
-                  <div class="card-overlay">
-                    <time datetime={post.data.datePublished}>
-                      {new Date(post.data.datePublished).toLocaleDateString('fr-FR', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                      })}
-                    </time>
-                  </div>
-                </div>
-                <div class="card-content">
-                  <h2>{post.data.title}</h2>
-                  <p>{post.data.description}</p>
-                  <div class="card-footer">
-                    <span class="author">Par {post.data.author}</span>
-                    <span class="read-more">Lire l'article →</span>
-                  </div>
-                </div>
-              </a>
-            </article>
+        <!-- Filtres -->
+        <FilterBar counts={instrumentCounts} />
+
+        <!-- Statistiques -->
+        <div class="blog-stats" id="blogStats">
+          <span id="statsText">Affichage de {publishedPosts.length} articles</span>
+        </div>
+
+        <!-- Grille d'articles -->
+        <div class="blog-grid" id="blogGrid">
+          {publishedPosts.map((post) => (
+            <ArticleCard
+              slug={post.slug}
+              title={post.data.title}
+              description={post.data.description || ''}
+              image={post.data.ogImage}
+              author={post.data.author}
+              datePublished={post.data.datePublished}
+              instrument={detectInstrument(post)}
+            />
           ))}
+        </div>
+
+        <!-- État vide (caché par défaut) -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <div class="empty-icon">🔍</div>
+          <h2>Aucun article trouvé</h2>
+          <p>Essayez de modifier vos filtres ou votre recherche</p>
+          <button class="btn-reset" id="resetFilters">Réinitialiser les filtres</button>
+        </div>
+
+        <!-- Pagination -->
+        <Pagination totalPages={totalPages} articlesPerPage={ARTICLES_PER_PAGE} />
+
+        <!-- Section About -->
+        <div class="blog-about">
+          <h2>Notre blog musical</h2>
+          <div class="blog-about-content">
+            <p>Le blog Musique Facile est un espace pensé pour t'accompagner dans ton parcours musical, quel que soit ton niveau ou ton instrument. Tu y trouveras des articles pour apprendre la guitare, le piano ou l'ukulélé, mais aussi des réflexions sur l'apprentissage, des portraits d'artistes, des méthodes pour mieux t'entraîner et progresser. Que tu sois autodidacte, élève, parent ou simple amateur, chaque article t'apporte des idées concrètes, motivantes et faciles à mettre en pratique. La musique est une aventure : ce blog est là pour t'inspirer à chaque étape.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -86,6 +172,7 @@ const blogSchema = {
 </Layout>
 
 <style>
+  /* Hero */
   .blog-hero {
     padding: 8rem 0 4rem;
     background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
@@ -121,18 +208,34 @@ const blogSchema = {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     color: white;
+    animation: fadeIn 0.6s ease-in-out;
   }
 
   .subtitle {
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    animation: fadeIn 0.6s ease-in-out 0.2s forwards;
+    opacity: 0;
   }
 
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Content */
   .blog-content {
     padding: 4rem 0;
-    background: var(--bg-light);
+    background: var(--bg-page);
   }
 
   .container {
@@ -141,140 +244,91 @@ const blogSchema = {
     padding: 0 1.5rem;
   }
 
-  .sort-controls {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+  /* Stats */
+  .blog-stats {
+    text-align: center;
     margin-bottom: 3rem;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 600;
   }
 
-  .sort-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: var(--border-radius);
-    background: white;
-    color: var(--color-dark);
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .sort-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .sort-btn.active {
-    background: var(--theme-current);
-    color: white;
-  }
-
-  .sort-icon {
-    font-size: 1.2rem;
-  }
-
+  /* Grille */
   .blog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-bottom: 4rem;
+    min-height: 400px;
   }
 
-  .blog-card {
-    background: white;
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--bg-card);
     border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    height: 100%;
-    display: flex;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
 
-  .blog-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .card-link {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .card-image {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-  }
-
-  .card-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1.5rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    color: white;
-    font-size: 0.9rem;
-  }
-
-  .card-content {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .card-content h2 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: var(--color-dark);
-    line-height: 1.4;
-  }
-
-  .card-content p {
-    color: var(--color-dark);
-    opacity: 0.8;
+  .empty-icon {
+    font-size: 5rem;
     margin-bottom: 1.5rem;
-    line-height: 1.6;
-    font-size: 0.95rem;
-    flex: 1;
+    opacity: 0.5;
   }
 
-  .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    margin-top: auto;
+  .empty-state h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
   }
 
-  .author {
-    font-size: 0.9rem;
-    color: var(--color-dark);
-    opacity: 0.8;
+  .empty-state p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
   }
 
-  .read-more {
-    color: var(--theme-current);
+  .btn-reset {
+    padding: 1rem 2rem;
+    background: var(--theme-current);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
     font-weight: 600;
-    font-size: 0.9rem;
-    transition: transform 0.3s ease;
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
 
-  .blog-card:hover .read-more {
-    transform: translateX(5px);
+  .btn-reset:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 194, 142, 0.3);
   }
 
+  /* About */
+  .blog-about {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    margin-top: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .blog-about h2 {
+    color: var(--theme-current);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .blog-about-content p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+
+  /* Responsive */
   @media (max-width: 1200px) {
     .blog-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -286,61 +340,162 @@ const blogSchema = {
       font-size: 2.5rem;
     }
 
-    .blog-grid {
-      grid-template-columns: 1fr;
+    .subtitle {
+      font-size: 1rem;
     }
 
-    .sort-controls {
-      flex-direction: column;
-      align-items: stretch;
+    .blog-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .blog-about {
+      padding: 2rem;
     }
   }
 </style>
 
-<script>
-  // Gestion du tri des articles avec animation
+<script define:vars={{ ARTICLES_PER_PAGE }}>
   document.addEventListener('DOMContentLoaded', () => {
-    const sortBtns = document.querySelectorAll('.sort-btn');
-    const blogGrid = document.querySelector('.blog-grid');
+    // Récupérer tous les articles
+    const allArticles = Array.from(document.querySelectorAll('.article-card'));
+    let filteredArticles = [...allArticles];
+    let currentFilter = 'all';
+    let currentSearchTerm = '';
+    let currentPage = 1;
 
-    if (!blogGrid) return;
+    const blogGrid = document.getElementById('blogGrid');
+    const emptyState = document.getElementById('emptyState');
+    const statsText = document.getElementById('statsText');
 
-    sortBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Mise à jour des classes active
-        sortBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    // Fonction pour afficher/masquer les articles selon la pagination
+    function paginateArticles() {
+      const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
+      const endIndex = startIndex + ARTICLES_PER_PAGE;
 
-        // Récupération des articles
-        const articles = Array.from(blogGrid.children);
-        
-        // Animation de fade out
-        articles.forEach(article => {
-          article.style.opacity = '0';
-          article.style.transform = 'translateY(20px)';
-        });
-
-        // Tri des articles
-        setTimeout(() => {
-          articles.sort((a, b) => {
-            const dateA = new Date(a.querySelector('time').dateTime);
-            const dateB = new Date(b.querySelector('time').dateTime);
-            
-            return btn.dataset.sort === 'latest' 
-              ? dateB - dateA 
-              : dateA - dateB;
-          });
-
-          // Réinsertion des articles triés avec animation
-          articles.forEach((article, index) => {
-            setTimeout(() => {
-              blogGrid.appendChild(article);
-              article.style.opacity = '1';
-              article.style.transform = 'translateY(0)';
-            }, index * 100);
-          });
-        }, 300);
+      // D'abord, masquer TOUS les articles
+      allArticles.forEach(article => {
+        article.style.display = 'none';
       });
+
+      // Ensuite, afficher seulement les articles filtrés pour la page courante
+      filteredArticles.forEach((article, index) => {
+        if (index >= startIndex && index < endIndex) {
+          article.style.display = '';
+          article.style.animation = `cardFadeIn 0.5s ease ${(index - startIndex) * 0.05}s forwards`;
+        }
+      });
+
+      // Dispatcher event pour mettre à jour la pagination
+      document.dispatchEvent(new CustomEvent('articlesFiltered', {
+        detail: {
+          count: filteredArticles.length,
+          total: allArticles.length,
+          currentPage: currentPage
+        }
+      }));
+    }
+
+    // Fonction de recherche
+    function searchArticles(searchTerm) {
+      currentSearchTerm = searchTerm;
+      applyFilters();
+    }
+
+    // Fonction de filtrage
+    function filterByInstrument(filter) {
+      currentFilter = filter;
+      applyFilters();
+    }
+
+    // Appliquer tous les filtres
+    function applyFilters() {
+      filteredArticles = allArticles.filter(article => {
+        // Filtre par instrument
+        if (currentFilter !== 'all') {
+          const instrument = article.dataset.instrument;
+          if (instrument !== currentFilter) return false;
+        }
+
+        // Filtre par recherche
+        if (currentSearchTerm) {
+          const title = article.querySelector('.card-title')?.textContent.toLowerCase() || '';
+          const description = article.querySelector('.card-description')?.textContent.toLowerCase() || '';
+          const searchLower = currentSearchTerm.toLowerCase();
+
+          if (!title.includes(searchLower) && !description.includes(searchLower)) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+
+      // Réinitialiser à la page 1
+      currentPage = 1;
+
+      // Afficher/masquer empty state
+      if (filteredArticles.length === 0) {
+        blogGrid.style.display = 'none';
+        emptyState.style.display = 'block';
+      } else {
+        blogGrid.style.display = 'grid';
+        emptyState.style.display = 'none';
+        paginateArticles();
+      }
+
+      // Mettre à jour les stats
+      updateStats();
+
+      // Dispatcher résultats de recherche
+      document.dispatchEvent(new CustomEvent('searchResults', {
+        detail: { count: filteredArticles.length }
+      }));
+    }
+
+    // Mettre à jour les statistiques
+    function updateStats() {
+      if (currentSearchTerm || currentFilter !== 'all') {
+        statsText.textContent = `${filteredArticles.length} article(s) trouvé(s)`;
+      } else {
+        statsText.textContent = `Affichage de ${allArticles.length} articles`;
+      }
+    }
+
+    // Écouter les événements
+    document.addEventListener('blogSearch', (e) => {
+      searchArticles(e.detail.searchTerm);
     });
+
+    document.addEventListener('blogFilter', (e) => {
+      filterByInstrument(e.detail.filter);
+    });
+
+    document.addEventListener('pageChange', (e) => {
+      console.log('📥 Blog received pageChange event:', e.detail.page);
+      currentPage = e.detail.page;
+      paginateArticles();
+    });
+
+    // Bouton reset
+    const resetBtn = document.getElementById('resetFilters');
+    resetBtn?.addEventListener('click', () => {
+      currentFilter = 'all';
+      currentSearchTerm = '';
+      currentPage = 1;
+
+      // Reset search input
+      const searchInput = document.getElementById('blogSearch');
+      if (searchInput) searchInput.value = '';
+
+      // Reset filter buttons
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('[data-filter="all"]')?.classList.add('active');
+
+      applyFilters();
+    });
+
+    // Initialisation
+    paginateArticles();
   });
 </script>

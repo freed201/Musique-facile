@@ -1,12 +1,12 @@
 ---
-title: "Au Boulot Maestro : Découvrez le Pouvoir Transformateur de la Musique"
+title: "Au Boulot Maestro : Le Pouvoir de la Musique"
 description: "Explorez comment la musique peut impacter votre cerveau et booster votre bien-être grâce à la neuroplasticité."
 ogImage: "/images/blog/au-boulot-maestro-1.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-02-03"
-dateModified: "2025-02-03"
+dateModified: "2026-02-04"
 introduction: "Bienvenue dans l'univers d''Au Boulot Maestro', le podcast qui vous accompagne dans l'apprentissage musical.Dans ce premier épisode, découvrez comment la musique peut transformer votre vie, renforcer votre cerveau et vous offrir un bien-être durable.Je suis fier de vous présenter ce tout premier épisode, le début d'une aventure où l'on va explorer ensemble les secrets de l'apprentissage musical.La consultation du podcast dans le bloc ci-dessous. Il y a l'intégralité de l'épisode. Bonne écoute et bienvenue dans 'Au Boulot Maestro' !."
 
 podcast:

@@ -1,20 +1,19 @@
 ---
-title: "Foule Sentimentale : L’hymne de toute une génération à apprendre à la guitare"
-description: "Explorez 'Foule Sentimentale', une chanson emblématique d'Alain Souchon qui critique la société de consommation avec poésie et douceur."
+title: "Foule Sentimentale (Souchon) - Tutoriel Guitare"
+description: "Foule Sentimentale d'Alain Souchon à la guitare : 5 accords simples, critique sociale poétique 1993. Tutoriel vidéo facile."
 ogImage: "/images/blog/tutoriel-foule-sentimentale-chanson.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-02-02"
+dateModified: "2026-02-04"
 introduction: "Avec 'Foule Sentimentale', Alain Souchon nous invite à réfléchir sur notre société moderne à travers une mélodie touchante et des paroles empreintes de poésie et d'ironie."
 
 songInfo:
   inBook: true
-  bookPage: "22"
-  tempo: "55"
-  chordCount: "5"
-  key: ""
+  bookPage: 22
+  tempo: 55
+  chordCount: 5
   difficulty: "2/5"
 
 videos:
@@ -31,12 +30,15 @@ conclusion: |
   "Foule Sentimentale" est bien plus qu'une simple chanson, c'est un voyage émotionnel et introspectif dans notre société moderne. Alain Souchon, avec sa plume légendaire, a su créer une œuvre d'art intemporelle qui continue de résonner dans le cœur des auditeurs. Que vous soyez amateur de musique ou guitariste en quête de nouveaux défis, vous plonger dans l'univers de cette chanson est une expérience enrichissante. <br><br>N'hésitez pas à explorer davantage l'œuvre d'Alain Souchon et ses collaborations avec Laurent Voulzy. Leur travail commun est une mine d'or pour les passionnés de musique française. Pour plus de ressources, rendez-vous sur les réseaux sociaux et le site officiel de Souchon pour découvrir ses dernières créations et actualités.
 
 relatedLinks:
-  - title: "Les meilleures collaborations entre Souchon et Voulzy"
-    url: "/articles/souchon-voulzy-collaborations"
-    description: "Un aperçu des morceaux les plus emblématiques créés par ce duo légendaire."
-  - title: "Analyse de l'album 'C'est déjà ça'"
-    url: "/articles/album-cest-deja-ca"
-    description: "Explorez l'album qui a donné naissance à 'Foule Sentimentale' et d'autres grands classiques."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour maîtriser la chanson française."
+  - title: "L'Opportuniste - Jacques Dutronc"
+    url: "/blog/jouer-lopportuniste-dutronc-guitare"
+    description: "Une autre chanson française satirique et engagée."
+  - title: "Les Copains d'Abord - Georges Brassens"
+    url: "/blog/tutoriel-les-copains-dabord-guitare"
+    description: "Un classique intemporel de la chanson française."
 ---
 
 Alain Souchon, de son vrai nom Alain Kienast, est né le 27 mai 1944 à Casablanca, au Maroc. C'est un artiste polyvalent, auteur-compositeur-interprète qui a marqué la scène musicale française par son style unique mêlant poésie, ironie, et tendresse. Son parcours musical a été jalonné de collaborations notables, notamment avec Laurent Voulzy, avec qui il a souvent partagé la scène et co-écrit de nombreux morceaux.

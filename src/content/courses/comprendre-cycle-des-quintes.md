@@ -2,11 +2,12 @@
 affichage: "Y"
 classement: 2
 title: "Maîtriser le Cycle des Quintes"
-description: "Découvrez le cycle des quintes, l'outil magique pour les musiciens, et élevez votre pratique musicale. Apprenez les relations entre les notes, les gammes et les tonalités pour enrichir votre compréhension musicale."
-ogImage: "/images/cours/comprendre-cycle-des-quintes/hero.jpg"
+description: "Maîtrisez le cycle des quintes, l'outil essentiel des musiciens. Comprenez les relations notes-gammes-tonalités pour enrichir votre pratique."
+ogImage: "/images/cours/comprendre-cycle-des-quintes/hero.webp"
 theme: "solfege"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -25,6 +26,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT2H40" # Format ISO 8601 pour la durée
+  courseWorkload: "PT2H40"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"
@@ -41,7 +43,7 @@ hero:
     text: "Accéder pour €79 "
     price: " ou 2 paiements mensuels de €40"
   video:
-    id: "1057421726"
+    id: "1062020152"
   stats:
     - value: "1600+"
       label: "élèves formés"

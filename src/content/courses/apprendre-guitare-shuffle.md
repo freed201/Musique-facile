@@ -1,12 +1,13 @@
 ---
 affichage: "Y"
 classement: 3
-title: "L'Essentiel du Shuffle : Maîtrisez le Groove à la Guitare"
-description: "Découvrez l'art du shuffle à la guitare grâce à notre formation complète. Développez un jeu fluide et rythmique en maîtrisant les bases et les techniques avancées du shuffle."
-ogImage: "/images/cours/apprendre-guitare-shuffle/hero.jpg"
+title: "Shuffle Guitare : Maîtrisez le Groove Essentiel"
+description: "Maîtrisez le shuffle guitare avec notre formation complète. Techniques de base et avancées pour un jeu fluide et rythmique."
+ogImage: "/images/cours/apprendre-guitare-shuffle/hero.webp"
 theme: "guitar"
 datePublished: "2025-02-21"
 dateModified: "2025-02-21"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -26,6 +27,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT1H" # Format ISO 8601 pour la durée
+  courseWorkload: "PT1H"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"

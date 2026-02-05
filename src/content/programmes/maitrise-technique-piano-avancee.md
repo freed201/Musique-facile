@@ -2,7 +2,7 @@
 # Data SEO
 title: "Techniques Avancées pour le Piano"
 description: "Maîtrisez les techniques avancées du piano : arpèges, accords enrichis, indépendance des mains et interprétation musicale avec des exercices progressifs."
-ogImage: "/images/cours/piano-techniques-avancees/hero.jpg"
+ogImage: "/images/cours/piano-techniques-avancees/hero.webp"
 theme: "piano"
 lienAchat: "https://ecole.musique-facile.fr/piano-techniques-avancees/buy"
 author: "Musique Facile"

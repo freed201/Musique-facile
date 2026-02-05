@@ -2,7 +2,7 @@
 # Data SEO
 title: "Solfège Expert (Partie 3) : Altérations, Intervalles et Plus"
 description: "Approfondissez vos connaissances en solfège avec ce cours de niveau 3 : lecture avancée, rythme complexe, dictée musicale et harmonie."
-ogImage: "/images/cours/solfege-3/hero.jpg"
+ogImage: "/images/cours/solfege-expert-formation/hero.webp"
 theme: "solfege"
 lienAchat: "https://ecole.musique-facile.fr/solfege-3/buy"
 author: "Musique Facile"

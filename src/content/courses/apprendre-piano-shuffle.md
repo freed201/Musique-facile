@@ -2,11 +2,12 @@
 affichage: "Y"
 classement: 3
 title: "Le Secret du Shuffle : Transformez Votre Jeu au Piano"
-description: "Maîtrisez l'art du shuffle au piano avec notre formation complète. Découvrez les rythmes captivants du shuffle et enrichissez votre jeu musical. Commencez dès maintenant pour seulement €29."
-ogImage: "/images/cours/apprendre-piano-shuffle/hero.jpg"
+description: "Maîtrisez le shuffle au piano avec notre formation complète. Rythmes captivants et techniques essentielles pour enrichir votre jeu."
+ogImage: "/images/cours/apprendre-piano-shuffle/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -25,6 +26,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT1H" # Format ISO 8601 pour la durée
+  courseWorkload: "PT1H"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"

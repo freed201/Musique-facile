@@ -1,0 +1,208 @@
+---
+const faqs = [
+  {
+    question: "Combien de temps faut-il pour apprendre la guitare en ligne ?",
+    answer: "Avec la méthode Musique Facile, 92% des élèves jouent leur première chanson en 5 jours. En pratiquant 15 minutes par jour, vous maîtriserez les accords de base en 3 semaines.",
+    details: "Vous apprendrez à jouer vos premiers morceaux et à vous amuser en quelques leçons. Notre progression est structurée en petites étapes. Vous commencez par 3 accords simples (Do, Sol, Ré), puis apprenez à les enchaîner sur des chansons faciles. Chaque cours inclut : 1) Démonstration vidéo, 2) Explication pas à pas, 3) Exercice pratique, 4) Application immédiate."
+  },
+  {
+    question: "Qui est Fred Fieffé et quelle est sa méthode d'enseignement ?",
+    answer: "Fred Fieffé est un professeur de musique certifié avec 15 ans d'expérience. Il a formé plus de 80 000 élèves via ses cours en ligne de guitare, piano, ukulélé et solfège, avec une note moyenne de 4.7/5 sur 2 847 avis vérifiés.",
+    details: "Fred utilise une approche progressive basée sur la pratique immédiate. Dès la première leçon, vous jouez un morceau simple. Sa méthode repose sur 4 piliers : 1) Vidéos HD en gros plan sur les mains, 2) Explications claires sans jargon, 3) Exercices pratiques à chaque étape, 4) Application immédiate."
+  },
+  {
+    question: "Les cours sont-ils adaptés aux débutants complets ?",
+    answer: "Oui, tous nos cours commencent au niveau zéro. Aucune connaissance musicale préalable n'est requise. Les leçons sont progressives, expliquées pas à pas en vidéo, avec des exercices pratiques à chaque étape.",
+    details: "Les cours ont été réalisés avec l'apport des neurosciences pour les organiser d'une manière adaptée à un apprentissage efficace pour les adultes."
+  },
+  {
+    question: "Comment fonctionne l'apprentissage en ligne sur Musique Facile ?",
+    answer: "Vous accédez à une plateforme vidéo avec plus de 1 400 leçons organisées par niveau. Chaque cours dure entre 5 et 15 minutes. Vous progressez à votre rythme et revenez en arrière si nécessaire.",
+    details: "Vous pouvez ralentir les vidéos, activer les sous-titres et télécharger les partitions/tablatures."
+  },
+  {
+    question: "Quel est le prix des formations et existe-t-il un essai gratuit ?",
+    answer: "Nos formations sont disponibles à l'achat individuel par instrument (guitare, piano, ukulélé, solfège). Chaque formation donne un accès à vie à tous les cours de l'instrument choisi. Vous bénéficiez d'une garantie satisfait ou remboursé de 15 jours.",
+    details: "Chaque formation inclut entre 30 et 190 vidéos selon l'instrument, avec un accès illimité à vie. Les tarifs incluent : accès 24h/24 sans limite de temps, support réactif sous 24h, et mises à jour gratuites à vie. Des offres spéciales sont régulièrement disponibles sur notre page /offre."
+  },
+  {
+    question: "Peut-on apprendre le piano sans posséder de piano acoustique ?",
+    answer: "Oui, vous pouvez commencer avec un clavier numérique de 61 touches (à partir de 150€). Fred Fieffé recommande des modèles adaptés aux débutants. Un piano acoustique n'est pas nécessaire pour apprendre les bases.",
+    details: "Les modèles GO:PIANO | Digital Piano (GO-61P) sont top pour commencer. Si vous cherchez un numérique en début de gamme, je conseille plutôt un Roland qu'un Yamaha. Les claviers numériques modernes offrent des touches sensibles à la vélocité, suffisantes pour apprendre la technique. Un piano acoustique devient pertinent après 1-2 ans de pratique, quand vous maîtrisez les fondamentaux."
+  },
+  {
+    question: "Les cours de solfège sont-ils obligatoires pour apprendre un instrument ?",
+    answer: "Non, le solfège n'est pas obligatoire pour jouer de la guitare, du piano ou de l'ukulélé. Nos cours d'instruments utilisent des tablatures, diagrammes d'accords et méthodes visuelles. Le solfège est proposé en option pour ceux qui souhaitent approfondir la théorie musicale.",
+    details: "Fred Fieffé privilégie l'apprentissage pratique : vous apprenez en jouant. Le solfège est enseigné progressivement à travers la pratique (lecture de notes simples, rythmes de base). Si vous souhaitez lire des partitions classiques ou composer, le cours de solfège dédié est disponible séparément."
+  }
+];
+---
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Questions fréquentes</span>
+      <h2 class="section-title">Tout savoir sur l'apprentissage de la musique en ligne</h2>
+      <p class="section-subtitle">Réponses aux questions les plus posées par nos élèves avant de commencer leur formation</p>
+    </div>
+
+    <div class="faq-grid">
+      {faqs.map((faq, index) => (
+        <article class="faq-item" itemscope itemtype="https://schema.org/Question">
+          <h3 class="faq-question" itemprop="name">{faq.question}</h3>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p class="faq-answer-main"><strong>Réponse :</strong> {faq.answer}</p>
+              <p class="faq-answer-details">{faq.details}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="faq-cta">
+      <p>Vous avez d'autres questions ?</p>
+      <a href="/contact" class="btn btn-secondary">Contactez-nous</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    padding: var(--space-20) 0;
+    background: linear-gradient(180deg, var(--surface-light) 0%, var(--surface-white) 100%);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-16);
+  }
+
+  .section-header .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-4);
+    background: var(--brand-50);
+    color: var(--brand-700);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-title {
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+    font-weight: var(--font-extrabold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+    line-height: var(--leading-tight);
+  }
+
+  .section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  .faq-grid {
+    display: grid;
+    gap: var(--space-6);
+    max-width: 900px;
+    margin: 0 auto var(--space-12);
+  }
+
+  .faq-item {
+    position: relative;
+    background: var(--bg-card);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    border: 2px solid var(--border-default);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+    overflow: hidden;
+  }
+
+  .faq-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--brand-500);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-base) var(--ease-out);
+  }
+
+  .faq-item:hover {
+    border-color: var(--brand-300);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .faq-item:hover::before {
+    transform: scaleX(1);
+  }
+
+  .faq-question {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+    line-height: var(--leading-tight);
+  }
+
+  .faq-answer {
+    color: var(--text-secondary);
+  }
+
+  .faq-answer-main {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-3);
+  }
+
+  .faq-answer-main strong {
+    color: var(--brand-600);
+    font-weight: var(--font-semibold);
+  }
+
+  .faq-answer-details {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .faq-cta {
+    text-align: center;
+    padding: var(--space-8);
+    background: var(--bg-elevated);
+    border-radius: var(--radius-2xl);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .faq-cta p {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .faq-item {
+      padding: var(--space-6);
+    }
+
+    .faq-question {
+      font-size: var(--text-lg);
+    }
+
+    .faq-answer-main,
+    .faq-answer-details {
+      font-size: var(--text-sm);
+    }
+  }
+</style>

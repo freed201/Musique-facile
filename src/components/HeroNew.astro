@@ -1,0 +1,212 @@
+---
+import OptimizedImage from './OptimizedImage.astro';
+---
+
+<section class="hero-new">
+  <div class="hero-new__background">
+    <div class="hero-new__gradient"></div>
+    <div class="hero-new__pattern"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-new__grid">
+      <!-- Contenu textuel -->
+      <div class="hero-new__content">
+        <h1 class="hero-new__title">
+          Cours de Guitare, Piano, Ukulélé et Solfège en Ligne
+          <span class="text-gradient">— Méthode Fred Fieffé</span>
+        </h1>
+
+        <!-- Résumé contextuel pour LLM -->
+        <div class="hero-new__intro">
+          <p><strong>Musique Facile</strong> propose des formations en ligne pour apprendre la guitare, le piano, l'ukulélé et le solfège. Créées par Fred Fieffé, professeur certifié avec 15 ans d'expérience, nos méthodes ont formé plus de 80 000 élèves avec un taux de satisfaction de 95% (note moyenne 4.7/5 sur 2 847 avis). Les cours sont accessibles à tous niveaux, du débutant complet au musicien intermédiaire, avec un apprentissage progressif en vidéo.</p>
+        </div>
+
+        <!-- Trust badges -->
+        <div class="hero-new__trust-row">
+          <div class="hero-new__trust-badge">
+            <span aria-hidden="true" class="hero-new__trust-icon">⭐</span>
+            <span><strong>4.7/5</strong> (2 847 avis)</span>
+          </div>
+          <div class="hero-new__trust-badge">
+            <span aria-hidden="true" class="hero-new__trust-icon">🏆</span>
+            <span><strong>Meilleur formateur Skilleos</strong> 2023/2024</span>
+          </div>
+          <div class="hero-new__trust-badge">
+            <span aria-hidden="true" class="hero-new__trust-icon">🔒</span>
+            <span><strong>Paiement sécurisé</strong></span>
+          </div>
+        </div>
+
+        <!-- CTAs avec nouvelles classes -->
+        <div class="hero-new__cta-group">
+          <a href="/cours" class="btn btn-primary btn-lg">
+            Découvrir
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <!-- Micro-copy sous CTAs -->
+        <ul class="hero-new__benefits">
+          <li>✓ Aucune carte bancaire</li>
+          <li>✓ Accès immédiat</li>
+          <li>✓ Garantie 15 jours</li>
+        </ul>
+      </div>
+
+      <!-- Image -->
+      <div class="hero-new__visual">
+        <OptimizedImage
+          src="/images/cours-piano-guitare-ukulele.webp"
+          alt="Fred Fieffé enseigne la guitare, le piano et l'ukulélé en ligne - Formations vidéo avec méthode progressive pour débutants et intermédiaires, 80 000 élèves formés"
+          width={600}
+          height={450}
+          loading="eager"
+          quality={90}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-new {
+    position: relative;
+    min-height: 80vh;
+    max-height: 900px;
+    display: flex;
+    align-items: center;
+    padding: var(--space-20) 0 var(--space-12);
+    overflow: hidden;
+  }
+
+  .hero-new__background {
+    position: absolute;
+    inset: 0;
+    background: url('/images/hero.jpg') center/cover no-repeat, var(--gray-900);
+    z-index: -2;
+  }
+
+  .hero-new__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: -1;
+  }
+
+  .hero-new__pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  .hero-new__grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .hero-new__title {
+    font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
+    line-height: var(--leading-tight);
+    font-weight: var(--font-extrabold);
+    color: white;
+    margin-bottom: var(--space-6);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .hero-new__intro {
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+  }
+
+  .hero-new__intro p {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.95);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+  }
+
+  .hero-new__intro strong {
+    color: var(--brand-400);
+    font-weight: var(--font-bold);
+  }
+
+  .hero-new__trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  .hero-new__trust-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: white;
+    font-size: var(--text-sm);
+  }
+
+  .hero-new__trust-icon {
+    font-size: 1.3rem;
+  }
+
+  .hero-new__trust-badge strong {
+    color: var(--brand-400);
+  }
+
+  .hero-new__cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-new__benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: var(--text-sm);
+  }
+
+  .hero-new__visual img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-2xl);
+  }
+
+  @media (max-width: 1024px) {
+    .hero-new__grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-new__visual {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-new {
+      min-height: auto;
+      padding: var(--space-16) 0 var(--space-8);
+    }
+    .hero-new__cta-group {
+      flex-direction: column;
+    }
+    .btn-lg {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

@@ -2,12 +2,13 @@
 affichage: "Y"
 classement: 1
 title: "Pack Débutant Piano : Tout pour Bien Commencer"
-description: "Maîtrisez le piano de A à Z avec notre formation complète pour débutants. Découvrez les bases du clavier, les accords, les rythmes et bien plus encore. Commencez votre aventure musicale dès maintenant !"
+description: "Formation piano complète pour débutants : bases du clavier, accords, rythmes. 148 leçons pour apprendre de A à Z. Commencez maintenant !"
 bestSeller: true 
-ogImage: "/images/cours/piano-facile-apprendre-debutant/hero.jpg"
+ogImage: "/images/cours/piano-facile-apprendre-debutant/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -26,10 +27,11 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT10H" # Format ISO 8601 pour la durée
+  courseWorkload: "PT10H"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"
-    price: "149.00"
+    price: "299.00"
     availability: "https://schema.org/InStock"
     category: "Paid"
 
@@ -38,10 +40,10 @@ hero:
   title: "Apprenez le piano de A à Z"
   subtitle: "Une formation complète pour maîtriser le piano, des bases aux techniques avancées, avec un parcours structuré et progressif."
   cta:
-    text: "Accéder pour €149 "
-    price: "ou 3 paiements mensuels de €50"
+    text: "Accéder pour €299 "
+    price: " ou 3 paiements mensuels de €100"
   video:
-    id: "1057421752"
+    id: "1066493251"
   stats:
     - value: "21000+"
       label: "élèves formés"

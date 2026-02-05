@@ -1,0 +1,428 @@
+/* ========================================
+   🎨 DESIGN TOKENS — MUSIQUE FACILE
+   Design System complet et unifié
+   ======================================== */
+
+:root {
+  /* ========================================
+     🌿 BRAND (Vert turquoise — Page d'accueil)
+     Base: #00c28e (conforme WCAG AA sur blanc)
+     ======================================== */
+  --brand-50: #e6f9f4;
+  --brand-100: #b3f0e0;
+  --brand-200: #80e6cd;
+  --brand-300: #4dddba;
+  --brand-400: #1ad3a6;
+  --brand-500: #00c28e;
+  --brand-600: #00a077;
+  --brand-700: #007d5c;
+  --brand-800: #005a41;
+  --brand-900: #003726;
+  --brand-950: #001d13;
+
+  /* ========================================
+     🎸 GUITARE (Vert lime différencié)
+     Base: #689f00 (ajusté pour WCAG AAA - 4.5:1)
+     ======================================== */
+  --guitar-50: #f4fce6;
+  --guitar-100: #e3f7b8;
+  --guitar-200: #d2f28a;
+  --guitar-300: #c1ed5c;
+  --guitar-400: #a6d92e;
+  --guitar-500: #689f00;  /* Contrast ratio 4.55:1 sur blanc */
+  --guitar-600: #568500;
+  --guitar-700: #446b00;
+  --guitar-800: #325000;
+  --guitar-900: #244000;
+  --guitar-950: #1a2b00;
+
+  /* ========================================
+     🎹 PIANO (Bleu cyan)
+     Base: #1ca5af (conforme WCAG)
+     ======================================== */
+  --piano-50: #e8f8fa;
+  --piano-100: #b8ecf2;
+  --piano-200: #88e0ea;
+  --piano-300: #58d4e2;
+  --piano-400: #28c8da;
+  --piano-500: #1ca5af;
+  --piano-600: #178b94;
+  --piano-700: #137179;
+  --piano-800: #0e575e;
+  --piano-900: #0a3d43;
+  --piano-950: #051f21;
+
+  /* ========================================
+     🏝️ UKULÉLÉ (Jaune-orange chaleureux)
+     Base: #b58600 (ajusté pour WCAG AAA - 4.5:1)
+     ======================================== */
+  --ukulele-50: #fef8e6;
+  --ukulele-100: #fceab3;
+  --ukulele-200: #fadd80;
+  --ukulele-300: #f8cf4d;
+  --ukulele-400: #f6c21a;
+  --ukulele-500: #b58600;  /* Contrast ratio 4.76:1 sur blanc */
+  --ukulele-600: #946e00;
+  --ukulele-700: #735600;
+  --ukulele-800: #523e00;
+  --ukulele-900: #3d2f00;
+  --ukulele-950: #291f00;
+
+  /* ========================================
+     🎼 SOLFÈGE (Rouge pédagogique)
+     Base: #be0a00
+     ======================================== */
+  --solfege-50: #fce8e6;
+  --solfege-100: #f7b8b3;
+  --solfege-200: #f28880;
+  --solfege-300: #ed584d;
+  --solfege-400: #e8281a;
+  --solfege-500: #be0a00;
+  --solfege-600: #a00900;
+  --solfege-700: #820700;
+  --solfege-800: #640600;
+  --solfege-900: #460400;
+  --solfege-950: #230200;
+
+  /* ========================================
+     🩶 GRAYS NEUTRES (échelle complète)
+     ======================================== */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --gray-950: #030712;
+
+  /* ========================================
+     🚦 COULEURS SÉMANTIQUES
+     ======================================== */
+  --success-50: #ecfdf5;
+  --success-500: #10b981;
+  --success-700: #047857;
+
+  --warning-50: #fffbeb;
+  --warning-500: #f59e0b;
+  --warning-700: #b45309;
+
+  --error-50: #fef2f2;
+  --error-500: #ef4444;
+  --error-700: #b91c1c;
+
+  --info-50: #eff6ff;
+  --info-500: #3b82f6;
+  --info-700: #1d4ed8;
+
+  /* ========================================
+     🎭 OVERLAYS & SURFACES
+     ======================================== */
+  --overlay-light: rgba(255, 255, 255, 0.95);
+  --overlay-medium: rgba(255, 255, 255, 0.8);
+  --overlay-dark: rgba(0, 0, 0, 0.6);
+  --overlay-darker: rgba(0, 0, 0, 0.85);
+
+  --surface-white: #ffffff;
+  --surface-light: #f8f9fa;
+  --surface-gray: #f3f4f6;
+  --surface-dark: #1a1a1a;
+
+  /* ========================================
+     📐 TYPOGRAPHIE
+     Familles: Poppins (titres) + Inter (textes)
+     ======================================== */
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+
+  /* Tailles (mobile-first) */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+
+  /* Tailles responsives (clamp) */
+  --text-responsive-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-responsive-sm: clamp(0.875rem, 0.8rem + 0.4vw, 1rem);
+  --text-responsive-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-responsive-lg: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
+  --text-responsive-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.875rem);
+  --text-responsive-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+  --text-responsive-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 3rem);
+  --text-responsive-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3.75rem);
+
+  /* Line-heights */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* Letter-spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+
+  /* Font-weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  /* ========================================
+     📏 SPACING (échelle 4/8px stricte)
+     ======================================== */
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* ========================================
+     🔘 RADIUS (échelle progressive)
+     ======================================== */
+  --radius-none: 0;
+  --radius-xs: 0.25rem;    /* 4px */
+  --radius-sm: 0.5rem;     /* 8px */
+  --radius-md: 0.75rem;    /* 12px */
+  --radius-lg: 1rem;       /* 16px */
+  --radius-xl: 1.5rem;     /* 24px */
+  --radius-2xl: 2rem;      /* 32px */
+  --radius-full: 9999px;   /* Cercle */
+
+  /* ========================================
+     🌓 SHADOWS (élévation 1-4)
+     ======================================== */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15);
+
+  /* Shadows colorées (instruments) */
+  --shadow-brand: 0 8px 20px rgba(0, 194, 142, 0.25);
+  --shadow-guitar: 0 8px 20px rgba(122, 184, 0, 0.25);
+  --shadow-piano: 0 8px 20px rgba(28, 165, 175, 0.25);
+  --shadow-ukulele: 0 8px 20px rgba(214, 158, 0, 0.25);
+
+  /* ========================================
+     ⚡ TRANSITIONS
+     ======================================== */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 350ms;
+  --duration-slower: 500ms;
+
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  --transition-base: all var(--duration-base) var(--ease-out);
+  --transition-colors: color var(--duration-base) var(--ease-out),
+                       background-color var(--duration-base) var(--ease-out),
+                       border-color var(--duration-base) var(--ease-out);
+  --transition-transform: transform var(--duration-base) var(--ease-out);
+
+  /* ========================================
+     🎯 Z-INDEX (échelle logique)
+     ======================================== */
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 100;
+  --z-header: 1000;
+  --z-overlay: 2000;
+  --z-modal: 3000;
+  --z-toast: 4000;
+  --z-tooltip: 5000;
+
+  /* ========================================
+     🔄 RÉTROCOMPATIBILITÉ (anciennes variables)
+     Mapper vers les nouvelles variables
+     ======================================== */
+  --theme-main: var(--brand-500);
+  --theme-main-dark: var(--brand-600);
+  --theme-main-light: var(--brand-400);
+
+  --theme-guitar: var(--guitar-500);
+  --theme-guitar-dark: var(--guitar-600);
+  --theme-guitar-light: var(--guitar-300);
+
+  --theme-piano: var(--piano-500);
+  --theme-piano-dark: var(--piano-600);
+  --theme-piano-light: var(--piano-400);
+
+  --theme-ukulele: var(--ukulele-500);
+  --theme-ukulele-dark: var(--ukulele-600);
+  --theme-ukulele-light: var(--ukulele-300);
+
+  --theme-solfege: var(--solfege-500);
+  --theme-solfege-dark: var(--solfege-600);
+  --theme-solfege-light: var(--solfege-400);
+
+  --color-white: var(--surface-white);
+  --color-gray: var(--gray-200);
+  --color-dark: var(--gray-900);
+  --bg-light: var(--surface-light);
+  --bg-dark: var(--surface-dark);
+
+  /* Variables dynamiques pour le thème actif */
+  --theme-current: var(--brand-500);
+  --theme-current-dark: var(--brand-600);
+  --theme-current-light: var(--brand-400);
+}
+
+/* ========================================
+   🎨 CLASSES DE THÈME (compatibilité)
+   ======================================== */
+.theme-main {
+  --theme-current: var(--brand-500);
+  --theme-current-dark: var(--brand-600);
+  --theme-current-light: var(--brand-400);
+}
+
+.theme-guitar {
+  --theme-current: var(--guitar-500);
+  --theme-current-dark: var(--guitar-600);
+  --theme-current-light: var(--guitar-400);
+}
+
+.theme-piano {
+  --theme-current: var(--piano-500);
+  --theme-current-dark: var(--piano-600);
+  --theme-current-light: var(--piano-400);
+}
+
+.theme-ukulele {
+  --theme-current: var(--ukulele-500);
+  --theme-current-dark: var(--ukulele-600);
+  --theme-current-light: var(--ukulele-400);
+}
+
+.theme-solfege {
+  --theme-current: var(--solfege-500);
+  --theme-current-dark: var(--solfege-600);
+  --theme-current-light: var(--solfege-400);
+}
+
+/* ========================================
+   ♿ ACCESSIBILITÉ
+   ======================================== */
+
+/* Respect des préférences de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Classe pour masquer visuellement mais garder accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus visible pour accessibilité clavier */
+:focus-visible {
+  outline: 3px solid var(--brand-500);
+  outline-offset: 3px;
+}
+
+/* ========================================
+   🌙 DARK MODE
+   ======================================== */
+
+/* Variables sémantiques pour le thème (définies en light par défaut) */
+:root {
+  --bg-page: var(--surface-light);
+  --bg-card: #ffffff;
+  --bg-elevated: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --border-default: rgba(0, 0, 0, 0.1);
+  color-scheme: light dark;
+}
+
+/* Préférence système dark */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-page: #0f172a;
+    --bg-card: #1e293b;
+    --bg-elevated: #334155;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --border-default: rgba(255, 255, 255, 0.1);
+
+    --surface-white: #1e293b;
+    --surface-light: #0f172a;
+    --surface-gray: #1e293b;
+    --color-white: #1e293b;
+    --color-dark: #f1f5f9;
+  }
+}
+
+/* Classe dark explicite */
+[data-theme="dark"] {
+  --bg-page: #0f172a;
+  --bg-card: #1e293b;
+  --bg-elevated: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-default: rgba(255, 255, 255, 0.1);
+
+  --surface-white: #1e293b;
+  --surface-light: #0f172a;
+  --surface-gray: #1e293b;
+  --color-white: #1e293b;
+  --color-dark: #f1f5f9;
+}
+
+/* Transition douce entre les thèmes */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Appliquer le background de page au body */
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+}

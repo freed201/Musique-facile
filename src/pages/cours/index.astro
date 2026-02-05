@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 
 // Récupérer tous les cours
 const allCourses = await getCollection('courses');
@@ -19,6 +20,25 @@ const sortedCourses = allCourses
     return new Date(b.data.dateModified).getTime() - new Date(a.data.dateModified).getTime();
   });
 
+// Organiser les cours par thème
+const guitarCourses = sortedCourses.filter(course => course.data.theme === 'guitar');
+const pianoCourses = sortedCourses.filter(course => course.data.theme === 'piano');
+const ukeleleCourses = sortedCourses.filter(course => course.data.theme === 'ukulele');
+const solfegeCourses = sortedCourses.filter(course => course.data.theme === 'solfege');
+
+// Sélectionner les cours mis en avant (bestsellers ou premiers de chaque catégorie)
+const featuredCourses = sortedCourses
+  .filter(course => course.data.bestSeller || course.data.classement === 1)
+  .slice(0, 4);
+
+// Construction de l'URL canonique
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://musique-facile.fr').toString();
+
+// Métadonnées pour la page
+const title = "Cours de Musique en Ligne | Guitare, Piano, Ukulélé, Solfège";
+const description = "Explore tous nos cours en ligne pour apprendre la musique facilement. Guitare, piano, ukulélé, solfège : des formations claires, progressives et accessibles, pensées pour t'aider à progresser.";
+
+// Les instruments pour le filtrage
 const instruments = [
   { id: 'guitar', name: 'Guitare', label: 'Guitare', theme: 'guitar' },
   { id: 'piano', name: 'Piano', label: 'Piano', theme: 'piano' },
@@ -26,10 +46,12 @@ const instruments = [
   { id: 'solfege', name: 'Formation Musicale', label: 'Formation Musicale', theme: 'solfege' }
 ];
 
-// Construction du schema.org pour la liste des cours
-const coursesSchema = {
+// Schema.org pour la page de cours
+const courseListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
+  "name": "Cours de Musique en Ligne",
+  "description": "Liste complète des cours de musique disponibles sur Musique Facile",
   "itemListElement": sortedCourses.map((course, index) => ({
     "@type": "ListItem",
     "position": index + 1,
@@ -37,10 +59,131 @@ const coursesSchema = {
       "@type": "Course",
       "name": course.data.title,
       "description": course.data.description,
-      "url": `${Astro.url.origin}/cours/${course.slug}`,
-      "image": course.data.ogImage
+      "provider": {
+        "@type": "Organization",
+        "name": "Musique Facile",
+        "sameAs": "https://musique-facile.fr"
+      },
+      "url": `${Astro.url.origin}/cours/${course.slug}`
     }
   }))
+};
+
+// JSON-LD pour l'ensemble des cours
+const mainCourseLDSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Cours de Musique en Ligne",
+  "description": "Explore tous nos cours en ligne pour apprendre la musique facilement. Guitare, piano, ukulélé, solfège : des formations claires, progressives et accessibles, pensées pour t'aider à progresser.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Musique Facile",
+    "url": "https://musique-facile.fr"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": canonicalURL,
+    "price": "89.00",
+    "priceCurrency": "EUR"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "startDate": new Date().toISOString().split('T')[0],
+    "endDate": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+    "location": {
+      "@type": "VirtualLocation",
+      "url": canonicalURL
+    }
+  }
+};
+
+// FAQ Schema pour la page de cours
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Les cours sont-ils accessibles aux grands débutants ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, tous nos cours sont conçus avec un parcours progressif qui démarre au niveau zéro. Nous expliquons chaque notion depuis le début, sans prérequis. Vous pouvez commencer même si vous n'avez jamais touché un instrument auparavant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ai-je besoin de savoir lire la musique pour commencer ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, ce n'est pas nécessaire. Nos cours sont conçus pour être suivis sans connaissance préalable en lecture musicale. Nous utilisons des méthodes visuelles (tablatures, diagrammes d'accords) qui permettent de progresser sans solfège. Pour ceux qui souhaitent l'apprendre, nous proposons également des cours de solfège adaptés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je suivre plusieurs cours en parallèle ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tout à fait ! Vous pouvez suivre plusieurs formations simultanément. C'est particulièrement enrichissant de combiner l'apprentissage d'un instrument avec le solfège, ou d'explorer plusieurs instruments qui se complètent (comme la guitare et le ukulélé)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les cours sont-ils adaptés aux enfants ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nos cours principaux sont conçus pour les adolescents et adultes. Pour les enfants de 6 à 12 ans, nous avons une plateforme spécifique avec des cours adaptés à leur âge sur kids.musique-facile.fr, avec une pédagogie ludique et des exercices adaptés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que je peux apprendre sans professeur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, nos formations sont spécialement conçues pour l'auto-apprentissage. Chaque notion est expliquée en détail avec différents angles de caméra pour bien voir les mouvements, et des exercices pratiques pour consolider vos acquis. De plus, vous pouvez nous contacter par email si vous avez des questions spécifiques."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps faut-il pour voir des progrès ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avec une pratique régulière de 15-20 minutes par jour, la plupart des élèves constatent des progrès significatifs dès les premières semaines. Vous pourrez jouer vos premières mélodies simples après quelques jours seulement, et des morceaux complets en quelques semaines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les leçons sont-elles disponibles à vie ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, une fois que vous achetez un cours, vous y avez accès à vie. Vous pouvez revoir les leçons autant de fois que vous le souhaitez et suivre votre progression à votre propre rythme, sans limite de temps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il un logiciel ou une application pour suivre les cours ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, aucun logiciel spécifique n'est nécessaire. Nos cours sont accessibles directement depuis un navigateur web (Chrome, Firefox, Safari, Edge) sur n'importe quel appareil connecté à internet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Y a-t-il des supports écrits en complément des vidéos ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, la plupart de nos cours incluent des supports écrits téléchargeables (PDF) avec des résumés, des diagrammes d'accords, des tablatures ou des partitions selon le type de cours. Ces documents vous permettent de pratiquer même sans connexion internet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce possible de suivre les cours depuis une tablette ou un smartphone ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolument ! Notre plateforme est entièrement responsive et optimisée pour les appareils mobiles. Vous pouvez suivre les cours depuis votre smartphone, tablette ou ordinateur, ce qui vous permet d'apprendre même en déplacement."
+      }
+    }
+  ]
 };
 
 // Fonction pour obtenir le label d'un instrument
@@ -48,67 +191,408 @@ function getInstrumentLabel(theme) {
   const instrument = instruments.find(i => i.id === theme);
   return instrument ? instrument.label : theme;
 }
+
+// Stats pour la section "Pourquoi apprendre en ligne"
+const onlineStats = [
+  {
+    number: "24/7",
+    label: "Accès aux cours",
+    icon: "⏱️"
+  },
+  {
+    number: "15-20",
+    label: "Minutes par jour suffisent",
+    icon: "⏰"
+  },
+  {
+    number: "80k+",
+    label: "Élèves satisfaits",
+    icon: "👨‍🎓"
+  },
+  {
+    number: "4.7/5",
+    label: "Avis moyen sur nos cours",
+    icon: "⭐"
+  }
+];
+
+// Avantages pour la section "Pourquoi apprendre en ligne"
+const advantages = [
+  {
+    title: "À votre rythme",
+    description: "Progressez selon votre emploi du temps, sans pression ni contrainte horaire. Revoyez chaque leçon aussi souvent que nécessaire.",
+    icon: "⏱️"
+  },
+  {
+    title: "Méthode progressive",
+    description: "Nos cours sont structurés par étapes claires, partant de zéro pour une évolution constante et motivante.",
+    icon: "📈"
+  },
+  {
+    title: "Contenu multimedia",
+    description: "Vidéos HD multi-angles, exercices interactifs et ressources téléchargeables pour une expérience d'apprentissage complète.",
+    icon: "🎬"
+  },
+  {
+    title: "Suivi personnalisé",
+    description: "Des exercices adaptés à votre niveau et un support par email pour répondre à toutes vos questions.",
+    icon: "📝"
+  },
+  {
+    title: "Résultats visibles",
+    description: "Jouez vos premiers morceaux rapidement et constatez des progrès tangibles dès les premières semaines.",
+    icon: "🎯"
+  },
+  {
+    title: "Économique",
+    description: "Un investissement unique pour un accès illimité à l'ensemble du contenu, bien plus économique que des cours particuliers.",
+    icon: "💰"
+  }
+];
 ---
 
-<Layout title="Nos Cours | Musique Facile">
-  <Header />
-    <script type="application/ld+json" set:html={JSON.stringify(coursesSchema)} />
+<Layout title={title}>
+  <head>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="cours de musique en ligne, apprendre la musique à distance, formation guitare piano ukulélé, cours pour débutants en musique, plateforme d'apprentissage musical" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://musique-facile.fr/images/og-cours.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://musique-facile.fr/images/og-cours.jpg" />
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(courseListSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(mainCourseLDSchema)} />
+  </head>
 
+  <Header />
+  
   <main>
+    <!-- Fil d'Ariane -->
+    <BreadcrumbNav 
+      items={[
+        { name: "Accueil", url: "/" },
+        { name: "Cours", url: "/cours" }
+      ]}
+    />
+    
+    <!-- Hero Section -->
     <section class="courses-hero">
+      <div class="hero-background"></div>
       <div class="container">
-        <h1>Nos Cours de Musique</h1>
-        <p class="subtitle">Découvrez nos formations pour progresser en musique</p>
+        <h1>Cours de Musique en Ligne</h1>
+        <p class="subtitle">Explore tous nos cours en ligne pour apprendre la musique facilement. Guitare, piano, ukulélé, solfège : des formations claires, progressives et accessibles, pensées pour t'aider à progresser.</p>
+        <div class="instrument-buttons">
+          <a href="/cours/cours-de-guitare" class="instrument-button theme-guitar">
+            <span class="button-icon">🎸</span>
+            <span>Guitare</span>
+          </a>
+          <a href="/cours/cours-de-piano" class="instrument-button theme-piano">
+            <span class="button-icon">🎹</span>
+            <span>Piano</span>
+          </a>
+          <a href="/cours/cours-de-ukulele" class="instrument-button theme-ukulele">
+            <span class="button-icon">🏖️</span>
+            <span>Ukulélé</span>
+          </a>
+          <a href="/cours/cours-de-solfege" class="instrument-button theme-solfege">
+            <span class="button-icon">🎼</span>
+            <span>Solfège</span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="courses-grid">
+    <!-- Featured Courses -->
+    <section class="featured-section">
       <div class="container">
-        <!-- Filtres par instrument -->
-        <div class="instrument-filters">
+        <h2 class="section-title">Nos formations les plus populaires</h2>
+        <p class="section-subtitle">Des cours adaptés à tous les niveaux, conçus pour un apprentissage rapide et efficace</p>
+        
+        <div class="featured-grid">
+          {featuredCourses.map(course => (
+            <article class={`featured-card theme-${course.data.theme}`}>
+              <div class="card-image">
+                <img 
+                  src={course.data.ogImage} 
+                  alt={course.data.title}
+                  loading="lazy"
+                />
+                {course.data.bestSeller && (
+                  <div class="bestseller-badge">Meilleure vente</div>
+                )}
+              </div>
+              <div class="card-content">
+                <span class="instrument-tag">{getInstrumentLabel(course.data.theme)}</span>
+                <h3>{course.data.title}</h3>
+                <p>{course.data.description}</p>
+                <a href={`/cours/${course.slug}`} class="view-course-btn">
+                  Découvrir le cours
+                  <span class="arrow-icon">→</span>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Courses Section -->
+    <section class="all-courses">
+      <div class="container">
+        <h2 class="section-title">Tous nos cours de musique</h2>
+        <p class="section-subtitle">Filtrez par instrument pour trouver la formation qui vous convient</p>
+        
+        <!-- Instrument filter buttons -->
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">
+            Tous les cours
+          </button>
           {instruments.map(instrument => (
             <button 
-              class={`filter-btn theme-${instrument.theme}`}
-              data-instrument={instrument.id}
-              aria-pressed="true"
+              class={`filter-btn theme-${instrument.theme}`} 
+              data-filter={instrument.id}
             >
               {instrument.name}
             </button>
           ))}
         </div>
+        
+        <div class="courses-grid">
+          {sortedCourses.map(course => (
+            <article class={`course-card theme-${course.data.theme}`} data-category={course.data.theme}>
+              <a href={`/cours/${course.slug}`} class="course-link">
+                <div class="course-image">
+                  <img 
+                    src={course.data.ogImage} 
+                    alt={course.data.title}
+                    loading="lazy"
+                  />
+                  {course.data.bestSeller && (
+                    <div class="bestseller-badge">Meilleure vente</div>
+                  )}
+                </div>
+                <div class="course-content">
+                  <span class="instrument-tag">{getInstrumentLabel(course.data.theme)}</span>
+                  <h3>{course.data.title}</h3>
+                  <p>{course.data.description}</p>
+                  <div class="course-footer">
+                    <span class="view-course">En savoir plus</span>
+                    <span class="arrow-icon">→</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
 
-<div class="courses-wrapper">
-  {sortedCourses.map(course => {
-    const { title, description, ogImage, theme } = course.data;
-    return (
-      <article class={`course-card theme-${theme}`} data-instrument={theme}>
-        <a href={`/cours/${course.slug}`} class="course-link">
-          <div class="course-image" style={`background-image: url(${ogImage})`}>
-            <div class="course-meta">
-              <span class="course-theme">{getInstrumentLabel(theme)}</span>
-              {course.data.bestSeller && (
-                <span class="best-seller-tag">
-                  <span class="best-seller-icon">🏆</span>
-                  Meilleure vente
-                </span>
-              )}
+    <!-- Pourquoi apprendre en ligne -->
+    <section class="why-online">
+      <div class="container">
+        <h2 class="section-title">Pourquoi apprendre la musique en ligne ?</h2>
+        <p class="section-subtitle">Des avantages uniques qui font la différence pour votre progression musicale</p>
+        
+        <div class="stats-banner">
+          {onlineStats.map(stat => (
+            <div class="stat-item">
+              <div class="stat-icon">{stat.icon}</div>
+              <div class="stat-number">{stat.number}</div>
+              <div class="stat-label">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+        
+        <div class="advantages-grid">
+          {advantages.map(advantage => (
+            <div class="advantage-card">
+              <div class="advantage-icon">{advantage.icon}</div>
+              <div class="advantage-content">
+                <h3>{advantage.title}</h3>
+                <p>{advantage.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div class="online-description">
+          <p>Tu cherches un moyen simple et efficace d'apprendre la musique ? Cette page regroupe toutes nos formations : guitare, piano, ukulélé et solfège. Chaque cours a été conçu pour que tu puisses progresser à ton rythme, avec des vidéos claires, des exercices pratiques et des conseils concrets. Que tu sois totalement débutant ou en reprise, tu trouveras un parcours adapté à ton niveau et à ton emploi du temps. Apprendre la musique n'a jamais été aussi accessible : il suffit de choisir ton instrument, de te lancer, et de te laisser guider.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title">Questions fréquentes</h2>
+        
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Les cours sont-ils accessibles aux grands débutants ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Oui, tous nos cours sont conçus avec un parcours progressif qui démarre au niveau zéro. Nous expliquons chaque notion depuis le début, sans prérequis. Vous pouvez commencer même si vous n'avez jamais touché un instrument auparavant.</p>
             </div>
           </div>
-          <div class="course-content">
-            <h2>{title}</h2>
-            <p>{description.split(' ').slice(0, 8).join(' ')}...</p>
-            <span class="cta-button">
-              Découvrir le cours
-              <span class="arrow">→</span>
-            </span>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Ai-je besoin de savoir lire la musique pour commencer ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Non, ce n'est pas nécessaire. Nos cours sont conçus pour être suivis sans connaissance préalable en lecture musicale. Nous utilisons des méthodes visuelles (tablatures, diagrammes d'accords) qui permettent de progresser sans solfège. Pour ceux qui souhaitent l'apprendre, nous proposons également des cours de solfège adaptés.</p>
+            </div>
           </div>
-        </a>
-      </article>
-    );
-  })}
-</div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Puis-je suivre plusieurs cours en parallèle ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Tout à fait ! Vous pouvez suivre plusieurs formations simultanément. C'est particulièrement enrichissant de combiner l'apprentissage d'un instrument avec le solfège, ou d'explorer plusieurs instruments qui se complètent (comme la guitare et le ukulélé).</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Les cours sont-ils adaptés aux enfants ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Nos cours principaux sont conçus pour les adolescents et adultes. Pour les enfants de 6 à 12 ans, nous avons une plateforme spécifique avec des cours adaptés à leur âge sur <a href="https://kids.musique-facile.fr/" target="_blank" rel="noopener">kids.musique-facile.fr</a>, avec une pédagogie ludique et des exercices adaptés.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Est-ce que je peux apprendre sans professeur ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Oui, nos formations sont spécialement conçues pour l'auto-apprentissage. Chaque notion est expliquée en détail avec différents angles de caméra pour bien voir les mouvements, et des exercices pratiques pour consolider vos acquis. De plus, vous pouvez nous contacter par email si vous avez des questions spécifiques.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Combien de temps faut-il pour voir des progrès ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Avec une pratique régulière de 15-20 minutes par jour, la plupart des élèves constatent des progrès significatifs dès les premières semaines. Vous pourrez jouer vos premières mélodies simples après quelques jours seulement, et des morceaux complets en quelques semaines.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Les leçons sont-elles disponibles à vie ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Oui, une fois que vous achetez un cours, vous y avez accès à vie. Vous pouvez revoir les leçons autant de fois que vous le souhaitez et suivre votre progression à votre propre rythme, sans limite de temps.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Faut-il un logiciel ou une application pour suivre les cours ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Non, aucun logiciel spécifique n'est nécessaire. Nos cours sont accessibles directement depuis un navigateur web (Chrome, Firefox, Safari, Edge) sur n'importe quel appareil connecté à internet.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Y a-t-il des supports écrits en complément des vidéos ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Oui, la plupart de nos cours incluent des supports écrits téléchargeables (PDF) avec des résumés, des diagrammes d'accords, des tablatures ou des partitions selon le type de cours. Ces documents vous permettent de pratiquer même sans connexion internet.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Est-ce possible de suivre les cours depuis une tablette ou un smartphone ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Absolument ! Notre plateforme est entièrement responsive et optimisée pour les appareils mobiles. Vous pouvez suivre les cours depuis votre smartphone, tablette ou ordinateur, ce qui vous permet d'apprendre même en déplacement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Prêt à commencer votre voyage musical ?</h2>
+          <p>Choisissez l'instrument qui vous passionne et lancez-vous dans l'aventure dès aujourd'hui.</p>
+          
+          <div class="cta-instruments">
+            <a href="/cours/cours-de-guitare" class="cta-instrument theme-guitar">
+              <span class="instrument-icon">🎸</span>
+              <span class="instrument-name">Guitare</span>
+              <span class="arrow">→</span>
+            </a>
+            <a href="/cours/cours-de-piano" class="cta-instrument theme-piano">
+              <span class="instrument-icon">🎹</span>
+              <span class="instrument-name">Piano</span>
+              <span class="arrow">→</span>
+            </a>
+            <a href="/cours/cours-de-ukulele" class="cta-instrument theme-ukulele">
+              <span class="instrument-icon">🏖️</span>
+              <span class="instrument-name">Ukulélé</span>
+              <span class="arrow">→</span>
+            </a>
+            <a href="/cours/cours-de-solfege" class="cta-instrument theme-solfege">
+              <span class="instrument-icon">🎼</span>
+              <span class="instrument-name">Solfège</span>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -117,32 +601,113 @@ function getInstrumentLabel(theme) {
 </Layout>
 
 <style>
+  /* Hero Section */
   .courses-hero {
     padding: 8rem 0 4rem;
-    background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, var(--theme-main) 0%, var(--theme-main-dark) 100%);
     color: white;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/cours/hero-bg.webp');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 0;
+  }
+
+  .courses-hero .container {
+    position: relative;
+    z-index: 1;
   }
 
   .courses-hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  /* background: linear-gradient(135deg, var(--color-primary) 0%, var(--theme-main-light) 100%); */
-  /* -webkit-background-clip: text; */
-  /* -webkit-text-fill-color: transparent; */
-  color: #fff; /* Force le texte en blanc */
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    animation: fadeInUp 0.6s ease-out;
+  }
 
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .subtitle {
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+    opacity: 0;
   }
 
-  .courses-grid {
-    padding: 4rem 0;
+  .instrument-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    animation: fadeInUp 0.6s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+
+  .instrument-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .instrument-button:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .theme-guitar:hover {
+    border-color: var(--theme-guitar);
+  }
+
+  .theme-piano:hover {
+    border-color: var(--theme-piano);
+  }
+
+  .theme-ukulele:hover {
+    border-color: var(--theme-ukulele);
+  }
+
+  .theme-solfege:hover {
+    border-color: var(--theme-solfege);
+  }
+
+  .button-icon {
+    font-size: 1.5rem;
+  }
+
+  /* Featured Courses Section */
+  .featured-section {
+    padding: 6rem 0;
     background: var(--bg-light);
   }
 
@@ -152,28 +717,266 @@ function getInstrumentLabel(theme) {
     padding: 0 1.5rem;
   }
 
-  /* Styles des filtres */
-  .instrument-filters {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--theme-current);
   }
 
-  .filter-btn {
-    padding: 1rem 2rem;
-    border: none;
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .featured-card {
+    background: #ffffff !important;
     border-radius: var(--border-radius);
-    font-weight: 600;
-    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    background: white;
-    font-size: 1rem;
+    height: 100%;
+  }
+
+  .featured-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .featured-card .card-image {
+    flex: 0 0 40%;
     position: relative;
     overflow: hidden;
   }
 
-  .filter-btn::before {
+  .featured-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .featured-card:hover .card-image img {
+    transform: scale(1.1);
+  }
+
+  .bestseller-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .featured-card .card-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .instrument-tag {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .theme-guitar .instrument-tag {
+    background: var(--theme-guitar);
+  }
+
+  .theme-piano .instrument-tag {
+    background: var(--theme-piano);
+  }
+
+  .theme-ukulele .instrument-tag {
+    background: var(--theme-ukulele);
+  }
+
+  .theme-solfege .instrument-tag {
+    background: var(--theme-solfege);
+  }
+
+  .card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .theme-guitar h3 {
+    color: var(--theme-guitar);
+  }
+
+  .theme-piano h3 {
+    color: var(--theme-piano);
+  }
+
+  .theme-ukulele h3 {
+    color: var(--theme-ukulele);
+  }
+
+  .theme-solfege h3 {
+    color: var(--theme-solfege);
+  }
+
+  .card-content p {
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    flex: 1;
+  }
+
+  .view-course-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: white;
+    margin-top: auto;
+  }
+
+  .theme-guitar .view-course-btn {
+    background: var(--theme-guitar);
+  }
+
+  .theme-piano .view-course-btn {
+    background: var(--theme-piano);
+  }
+
+  .theme-ukulele .view-course-btn {
+    background: var(--theme-ukulele);
+  }
+
+  .theme-solfege .view-course-btn {
+    background: var(--theme-solfege);
+  }
+
+  .view-course-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .arrow-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .view-course-btn:hover .arrow-icon {
+    transform: translateX(5px);
+  }
+
+  /* All Courses Section */
+  .all-courses {
+    padding: 6rem 0;
+    background: white;
+  }
+
+  .filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .filter-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    background: var(--bg-light);
+    color: var(--color-dark);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+
+  .filter-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .filter-btn.active {
+    background: var(--theme-current);
+    color: white;
+    font-weight: 600;
+  }
+
+  .theme-guitar.active, .theme-guitar:hover {
+    background: var(--theme-guitar);
+    color: white;
+  }
+
+  .theme-piano.active, .theme-piano:hover {
+    background: var(--theme-piano);
+    color: white;
+  }
+
+  .theme-ukulele.active, .theme-ukulele:hover {
+    background: var(--theme-ukulele);
+    color: white;
+  }
+
+  .theme-solfege.active, .theme-solfege:hover {
+    background: var(--theme-solfege);
+    color: white;
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .course-card {
+    background: #ffffff !important;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .course-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -181,191 +984,423 @@ function getInstrumentLabel(theme) {
     width: 100%;
     height: 4px;
     background: var(--theme-current);
-    transform: scaleX(1);
-    transform-origin: left;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .theme-guitar::before {
+    background: var(--theme-guitar);
+  }
+
+  .theme-piano::before {
+    background: var(--theme-piano);
+  }
+
+  .theme-ukulele::before {
+    background: var(--theme-ukulele);
+  }
+
+  .theme-solfege::before {
+    background: var(--theme-solfege);
+  }
+
+  .course-card:hover::before {
+    opacity: 1;
+  }
+
+  .course-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .course-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .course-card:hover .course-image img {
+    transform: scale(1.1);
+  }
+
+  .course-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .course-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .course-content p {
+    color: #333333;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex: 1;
+  }
+
+  .course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+  }
+
+  .view-course {
+    font-weight: 600;
+  }
+
+  .theme-guitar .view-course,
+  .theme-guitar .arrow-icon {
+    color: var(--theme-guitar);
+  }
+
+  .theme-piano .view-course,
+  .theme-piano .arrow-icon {
+    color: var(--theme-piano);
+  }
+
+  .theme-ukulele .view-course,
+  .theme-ukulele .arrow-icon {
+    color: var(--theme-ukulele);
+  }
+
+  .theme-solfege .view-course,
+  .theme-solfege .arrow-icon {
+    color: var(--theme-solfege);
+  }
+
+  .arrow-icon {
     transition: transform 0.3s ease;
   }
 
-  .filter-btn[aria-pressed="false"]::before {
-    transform: scaleX(0);
+  .course-card:hover .arrow-icon {
+    transform: translateX(5px);
   }
 
-  .filter-btn:hover {
-    transform: translateY(-2px);
+  /* Why Learn Online Section */
+  .why-online {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
   }
 
-  .courses-wrapper {
+  .why-online::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+  }
+
+  .why-online .section-title,
+  .why-online .section-subtitle {
+    color: white;
+    position: relative;
+  }
+
+  .why-online .section-title {
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .stats-banner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 4rem;
+    position: relative;
+  }
+
+  .stat-item {
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+  }
+
+  .stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+  }
+
+  .advantages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-bottom: 4rem;
   }
 
- .course-card {
-  background: white;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.course-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.course-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.course-image {
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.course-meta {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  color: white;
-}
-
-.course-theme {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background: var(--theme-current);
-  border-radius: 50px;
-  font-weight: 500;
-  font-size: 0.9rem;
-}
-
-.course-content {
-  padding: 2rem;
-}
-.course-meta {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  color: white;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
-}
-
-.best-seller-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, #FFD700, #FFA500);
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  animation: shine 2s infinite;
-}
-
-.best-seller-icon {
-  font-size: 1.1rem;
-}
-
-@keyframes shine {
-  0% { opacity: 1; }
-  50% { opacity: 0.8; }
-  100% { opacity: 1; }
-}
-.course-content h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--theme-current);
-  line-height: 1.4;
-}
-
-.course-content p {
-  color: var(--color-dark);
-  opacity: 0.8;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-.cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--theme-current);
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: var(--border-radius);
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.arrow {
-  transition: transform 0.3s ease;
-}
-
-.course-card:hover .arrow {
-  transform: translateX(3px);
-}
-
-
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--theme-current);
-    color: white;
-    text-decoration: none;
-    padding: 0.8rem 1.5rem;
+  .advantage-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
     border-radius: var(--border-radius);
-    font-weight: 600;
+    display: flex;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .advantage-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--theme-current);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .advantage-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+
+  .advantage-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--theme-current);
+  }
+
+  .advantage-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .online-description {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--theme-current);
+  }
+
+  .online-description p {
+    margin: 0;
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 6rem 0;
+    background: var(--bg-light);
+  }
+
+  .faq-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
   }
 
-  .cta-button:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  .faq-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .question-wrapper {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .question-wrapper h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+  }
+
+  .toggle-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .plus-minus {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--theme-current);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+  }
+
+  .plus-minus::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: var(--theme-current);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+  }
+
+  .faq-item.active .plus-minus::after {
+    transform: translateX(-50%) scaleY(0);
+  }
+
+  .answer {
+    padding: 0 1.5rem;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .answer p {
+    padding-bottom: 1.5rem;
+    margin: 0;
+    color: var(--color-dark);
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  .faq-item.active .answer {
+    height: auto;
+  }
+
+  /* Final CTA Section */
+  .final-cta {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--theme-current) 0%, var(--theme-current-dark) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-instruments {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .cta-instrument {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+
+  .cta-instrument:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .instrument-icon {
+    font-size: 1.5rem;
+  }
+
+  .instrument-name {
+    font-weight: 600;
   }
 
   .arrow {
     transition: transform 0.3s ease;
   }
 
-  .cta-button:hover .arrow {
-    transform: translateX(3px);
+  .cta-instrument:hover .arrow {
+    transform: translateX(5px);
   }
 
+  /* Responsive Styles */
   @media (max-width: 1200px) {
-    .courses-wrapper {
+    .featured-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .courses-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .advantages-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (max-width: 992px) {
-    .courses-wrapper {
-      grid-template-columns: repeat(2, 1fr);
+    .courses-hero h1 {
+      font-size: 3rem;
     }
-
-    .instrument-filters {
-      flex-wrap: wrap;
+    
+    .instrument-buttons {
+      flex-direction: column;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
     }
-
-    .filter-btn {
-      flex: 1;
-      min-width: 150px;
+    
+    .instrument-button {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .stats-banner {
+      padding: 2rem;
     }
   }
 
@@ -373,41 +1408,165 @@ function getInstrumentLabel(theme) {
     .courses-hero h1 {
       font-size: 2.5rem;
     }
-
-    .courses-wrapper {
+    
+    .subtitle {
+      font-size: 1.1rem;
+    }
+    
+    .courses-grid {
       grid-template-columns: 1fr;
+    }
+    
+    .advantages-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .advantage-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    
+    .stats-banner {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+    
+    .cta-instruments {
+      flex-direction: column;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-instrument {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .courses-hero h1 {
+      font-size: 2rem;
+    }
+    
+    .featured-card {
+      flex-direction: column;
+    }
+    
+    .featured-card .card-image {
+      height: 200px;
+    }
+    
+    .filter-buttons {
+      flex-direction: column;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .filter-btn {
+      width: 100%;
+    }
+    
+    .card-content {
+      padding: 1.5rem;
     }
   }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Filter functionality
     const filterButtons = document.querySelectorAll('.filter-btn');
     const courseCards = document.querySelectorAll('.course-card');
-
-    // Fonction pour mettre à jour l'affichage des cours
-    function updateCourses() {
-      const activeInstruments = Array.from(filterButtons)
-        .filter(btn => btn.getAttribute('aria-pressed') === 'true')
-        .map(btn => btn.dataset.instrument);
-
-      courseCards.forEach(card => {
-        const cardInstrument = card.dataset.instrument;
-        if (activeInstruments.includes(cardInstrument)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    // Gestion des clics sur les boutons de filtre
+    
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
-        const isPressed = button.getAttribute('aria-pressed') === 'true';
-        button.setAttribute('aria-pressed', !isPressed);
-        updateCourses();
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        // Get filter value
+        const filter = button.getAttribute('data-filter');
+        
+        // Filter courses
+        courseCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          
+          if (filter === 'all' || filter === category) {
+            card.style.display = 'flex';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 100);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
       });
     });
+    
+    // FAQ Toggle
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const questionWrapper = item.querySelector('.question-wrapper');
+      
+      questionWrapper.addEventListener('click', () => {
+        // Check if this item is already active
+        const isActive = item.classList.contains('active');
+        
+        // Close all FAQ items
+        faqItems.forEach(faqItem => {
+          faqItem.classList.remove('active');
+          const answer = faqItem.querySelector('.answer');
+          answer.style.height = '0';
+        });
+        
+        // If the clicked item wasn't active, open it
+        if (!isActive) {
+          item.classList.add('active');
+          const answer = item.querySelector('.answer');
+          answer.style.height = answer.scrollHeight + 'px';
+        }
+      });
+    });
+    
+    // Show animations when elements come into view
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.featured-grid, .courses-grid, .stats-banner, .advantages-grid');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.classList.add('animated');
+        }
+      });
+    };
+    
+    // Run on scroll
+    window.addEventListener('scroll', animateOnScroll);
+    // Run once on load
+    animateOnScroll();
   });
 </script>

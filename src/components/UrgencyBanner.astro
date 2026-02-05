@@ -1,0 +1,177 @@
+---
+// Composant de bannière d'urgence pour augmenter les conversions
+// Système de rotation automatique : 10 jours ON / 10 jours OFF
+---
+
+<div class="urgency-banner" style="display: none;">
+  <div class="container">
+    <div class="urgency-content">
+      <span class="urgency-icon">⏰</span>
+      <span class="urgency-text">
+        <strong>Offre Spéciale -30%</strong>
+        <span class="urgency-validity"></span> •
+        Code : <strong class="promo-code">PROMO30</strong> •
+        Plus que <strong class="urgency-spots">47</strong> places disponibles
+      </span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .urgency-banner {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 70px;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: slideDown 0.5s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .urgency-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .urgency-icon {
+    font-size: 1.5rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  .urgency-text {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .urgency-text strong {
+    font-weight: 700;
+  }
+
+  .urgency-validity {
+    font-weight: 700;
+  }
+
+  .promo-code {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+  }
+
+  .urgency-spots {
+    color: #fff59d;
+    animation: blink 1.5s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  @media (max-width: 768px) {
+    .urgency-banner {
+      position: relative;
+      top: 0;
+    }
+
+    .urgency-content {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .urgency-text {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<script>
+  // Système de rotation automatique : 10 jours ON / 10 jours OFF
+  // Date de référence : 1er janvier 2025 à 00:00:00
+  const REFERENCE_DATE = new Date('2025-01-01T00:00:00');
+  const CYCLE_DURATION = 20; // 20 jours par cycle (10 ON + 10 OFF)
+  const PROMO_DURATION = 10; // 10 jours de promo
+
+  function initUrgencyBanner() {
+    const now = new Date();
+    const banner = document.querySelector('.urgency-banner');
+    const validityElement = document.querySelector('.urgency-validity');
+    const spotsElement = document.querySelector('.urgency-spots');
+
+    if (!banner || !validityElement) return;
+
+    // Calculer le nombre de jours écoulés depuis la date de référence
+    const daysSinceReference = Math.floor((now - REFERENCE_DATE) / (1000 * 60 * 60 * 24));
+
+    // Trouver la position dans le cycle actuel (0-19)
+    const positionInCycle = daysSinceReference % CYCLE_DURATION;
+
+    // Vérifier si nous sommes dans une période de promo (jours 0-9 du cycle)
+    const isPromoActive = positionInCycle < PROMO_DURATION;
+
+    if (!isPromoActive) {
+      // Période OFF : cacher complètement la bannière
+      banner.style.display = 'none';
+      return;
+    }
+
+    // Période ON : afficher la bannière
+    banner.style.display = 'block';
+
+    // Calculer les jours restants dans la promo
+    const daysRemaining = PROMO_DURATION - positionInCycle;
+
+    // Calculer la date de fin
+    const endDate = new Date(now);
+    endDate.setDate(endDate.getDate() + daysRemaining - 1);
+    endDate.setHours(23, 59, 59, 999);
+
+    // Afficher le texte approprié
+    if (daysRemaining === 1) {
+      validityElement.innerHTML = '<strong style="color: #fff59d; animation: blink 1s ease-in-out infinite;">🔥 DERNIER JOUR 🔥</strong>';
+    } else {
+      const options = { day: 'numeric', month: 'long', year: 'numeric' };
+      validityElement.textContent = `valable jusqu'au ${endDate.toLocaleDateString('fr-FR', options)}`;
+    }
+
+    // Simuler une réduction des places disponibles (optionnel)
+    if (spotsElement) {
+      // Varier le nombre de places selon le jour dans la promo
+      const initialSpots = 50 - (10 - daysRemaining) * 3;
+      spotsElement.textContent = Math.max(25, initialSpots).toString();
+
+      setInterval(() => {
+        const currentSpots = parseInt(spotsElement.textContent);
+        if (currentSpots > 25) {
+          spotsElement.textContent = (currentSpots - 1).toString();
+        }
+      }, 60000); // Diminue de 1 toutes les 60 secondes
+    }
+  }
+
+  // Initialiser au chargement de la page
+  document.addEventListener('DOMContentLoaded', initUrgencyBanner);
+</script>

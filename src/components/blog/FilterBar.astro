@@ -1,0 +1,299 @@
+---
+interface FilterCount {
+  total: number;
+  guitare: number;
+  piano: number;
+  ukulele: number;
+  solfege: number;
+}
+
+interface Props {
+  counts: FilterCount;
+}
+
+const { counts } = Astro.props;
+---
+
+<div class="filter-bar" role="region" aria-label="Filtres d'articles par instrument">
+  <div class="filter-title" id="filter-label">Filtrer par instrument :</div>
+  <div class="filter-buttons" role="group" aria-labelledby="filter-label">
+    <button
+      class="filter-btn active"
+      data-filter="all"
+      data-count={counts.total}
+      aria-label={`Afficher tous les articles (${counts.total})`}
+      aria-pressed="true"
+    >
+      <span class="filter-icon" aria-hidden="true">🎵</span>
+      <span class="filter-text">Tous</span>
+      <span class="filter-count" aria-label={`${counts.total} articles`}>{counts.total}</span>
+    </button>
+
+    <button
+      class="filter-btn theme-guitar"
+      data-filter="guitare"
+      data-count={counts.guitare}
+      aria-label={`Afficher les articles de guitare (${counts.guitare})`}
+      aria-pressed="false"
+    >
+      <span class="filter-icon" aria-hidden="true">🎸</span>
+      <span class="filter-text">Guitare</span>
+      <span class="filter-count" aria-label={`${counts.guitare} articles`}>{counts.guitare}</span>
+    </button>
+
+    <button
+      class="filter-btn theme-piano"
+      data-filter="piano"
+      data-count={counts.piano}
+      aria-label={`Afficher les articles de piano (${counts.piano})`}
+      aria-pressed="false"
+    >
+      <span class="filter-icon" aria-hidden="true">🎹</span>
+      <span class="filter-text">Piano</span>
+      <span class="filter-count" aria-label={`${counts.piano} articles`}>{counts.piano}</span>
+    </button>
+
+    <button
+      class="filter-btn theme-ukulele"
+      data-filter="ukulele"
+      data-count={counts.ukulele}
+      aria-label={`Afficher les articles d'ukulélé (${counts.ukulele})`}
+      aria-pressed="false"
+    >
+      <span class="filter-icon" aria-hidden="true">🏝️</span>
+      <span class="filter-text">Ukulélé</span>
+      <span class="filter-count" aria-label={`${counts.ukulele} articles`}>{counts.ukulele}</span>
+    </button>
+
+    <button
+      class="filter-btn theme-solfege"
+      data-filter="solfege"
+      data-count={counts.solfege}
+      aria-label={`Afficher les articles de solfège (${counts.solfege})`}
+      aria-pressed="false"
+    >
+      <span class="filter-icon" aria-hidden="true">🎼</span>
+      <span class="filter-text">Solfège</span>
+      <span class="filter-count" aria-label={`${counts.solfege} articles`}>{counts.solfege}</span>
+    </button>
+  </div>
+</div>
+
+<style>
+  .filter-bar {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    animation: fadeIn 0.6s ease 0.2s forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .filter-title {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--border-default);
+    border-radius: var(--border-radius);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .filter-btn:hover::before {
+    left: 100%;
+  }
+
+  .filter-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .filter-icon {
+    font-size: 1.5rem;
+  }
+
+  .filter-text {
+    font-weight: 600;
+  }
+
+  .filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 0.5rem;
+    background: var(--bg-elevated);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+  }
+
+  /* États actifs */
+  .filter-btn.active {
+    border-color: var(--theme-current);
+    background: linear-gradient(135deg, var(--theme-current), var(--theme-current-light));
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 194, 142, 0.3);
+  }
+
+  .filter-btn.active .filter-count {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+  }
+
+  /* Couleurs par thème */
+  .theme-guitar.active {
+    --theme-current: #88be00;
+    --theme-current-light: #a3d826;
+  }
+
+  .theme-piano.active {
+    --theme-current: #1ca5af;
+    --theme-current-light: #45bbc4;
+  }
+
+  .theme-ukulele.active {
+    --theme-current: #efb504;
+    --theme-current-light: #ffc726;
+  }
+
+  .theme-solfege.active {
+    --theme-current: #be0a00;
+    --theme-current-light: #e61200;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .filter-buttons {
+      gap: 0.75rem;
+    }
+
+    .filter-btn {
+      padding: 0.85rem 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .filter-icon {
+      font-size: 1.3rem;
+    }
+
+    .filter-count {
+      min-width: 24px;
+      height: 24px;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .filter-title {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .filter-buttons {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .filter-btn {
+      width: 100%;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+    }
+
+    .filter-btn .filter-text {
+      flex: 1;
+      text-align: left;
+      margin-left: 0.5rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    let currentFilter = 'all';
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Retirer la classe active de tous les boutons
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
+        });
+
+        // Ajouter la classe active au bouton cliqué
+        button.classList.add('active');
+        button.setAttribute('aria-pressed', 'true');
+
+        // Récupérer le filtre
+        currentFilter = button.dataset.filter || 'all';
+
+        // Déclencher l'événement de filtrage
+        const event = new CustomEvent('blogFilter', {
+          detail: { filter: currentFilter }
+        });
+        document.dispatchEvent(event);
+
+        // Scroll smooth vers les résultats
+        const blogGrid = document.querySelector('.blog-grid');
+        if (blogGrid) {
+          blogGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    });
+
+    // Mettre à jour les compteurs dynamiquement après recherche/filtrage
+    document.addEventListener('updateFilterCounts', (e) => {
+      const counts = e.detail.counts;
+      filterButtons.forEach(button => {
+        const filter = button.dataset.filter;
+        const countSpan = button.querySelector('.filter-count');
+        if (countSpan && counts[filter] !== undefined) {
+          countSpan.textContent = counts[filter];
+        }
+      });
+    });
+  });
+</script>

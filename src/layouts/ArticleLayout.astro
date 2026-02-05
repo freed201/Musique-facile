@@ -2,9 +2,12 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ExternalResources from '../components/ExternalResources.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AutoFAQ from '../components/AutoFAQ.astro';
 import '@fontsource/poppins';
 import '@fontsource/raleway';
 import '../styles/global.css';
+import '../styles/article.css';
 
 interface Props {
   title: string;
@@ -14,21 +17,128 @@ interface Props {
   datePublished: string;
   dateModified: string;
   url: string;
+  theme?: 'guitar' | 'piano' | 'ukulele' | 'solfege';
+  videos?: Array<{ url: string; title?: string; description?: string; duration?: string; thumbnail?: string }>;
+  songInfo?: {
+    inBook?: boolean;
+    bookPage?: number;
+    tempo?: number | string;
+    chordCount?: number;
+    difficulty?: string;
+  };
+  showAutoFaq?: boolean;
 }
 
-const { title, description, ogImage, author, datePublished, dateModified, url } = Astro.props;
+const { title, description, ogImage, author, datePublished, dateModified, url, theme = 'main', videos, songInfo, showAutoFaq = true } = Astro.props;
+const siteUrl = 'https://musique-facile.fr';
+const ogImageValue = ogImage || '/images/og-default.jpg';
+const absoluteOgImage = ogImageValue.startsWith('http') ? ogImageValue : `${siteUrl}${ogImageValue}`;
+
+// Fonction d'enrichissement automatique du titre pour SEO/LLM
+const enrichTitle = () => {
+  if (!songInfo) return title;
+
+  const parts = [title];
+
+  // Ajouter le nombre d'accords (priorité haute pour différenciation)
+  if (songInfo.chordCount) {
+    parts.push(`${songInfo.chordCount} Accords`);
+  }
+
+  // Ajouter la difficulté si disponible
+  if (songInfo.difficulty) {
+    parts.push(`Difficulté ${songInfo.difficulty}`);
+  }
+
+  // Ajouter l'instrument basé sur le thème
+  const instrumentMap = {
+    'guitar': 'Guitare',
+    'piano': 'Piano',
+    'ukulele': 'Ukulélé',
+    'solfege': 'Solfège'
+  };
+  if (theme && theme !== 'main' && instrumentMap[theme]) {
+    parts.push(instrumentMap[theme]);
+  }
+
+  // Ajouter le tempo si disponible et pas trop long
+  if (songInfo.tempo && parts.join(' | ').length < 55) {
+    const tempoStr = typeof songInfo.tempo === 'number' ? `${songInfo.tempo} BPM` : songInfo.tempo;
+    parts.push(tempoStr);
+  }
+
+  return parts.join(' | ');
+};
+
+// Fonction d'enrichissement de la meta description
+const enrichDescription = () => {
+  if (!songInfo) return description;
+
+  let enrichedDesc = '';
+
+  // Ajouter les infos techniques en préfixe
+  const infos = [];
+  if (songInfo.chordCount) infos.push(`${songInfo.chordCount} accords`);
+  if (songInfo.difficulty) infos.push(`niveau ${songInfo.difficulty}`);
+  if (songInfo.tempo) {
+    const tempoStr = typeof songInfo.tempo === 'number' ? `tempo ${songInfo.tempo} BPM` : songInfo.tempo;
+    infos.push(tempoStr);
+  }
+
+  if (infos.length > 0) {
+    enrichedDesc = `Tutoriel complet : ${infos.join(', ')}. `;
+  }
+
+  // Ajouter la description originale (tronquée si nécessaire)
+  const remainingChars = 155 - enrichedDesc.length;
+  if (description.length > remainingChars) {
+    enrichedDesc += description.substring(0, remainingChars - 3) + '...';
+  } else {
+    enrichedDesc += description;
+  }
+
+  return enrichedDesc;
+};
+
+// Titres et descriptions enrichis
+const pageTitle = enrichTitle();
+const pageDescription = enrichDescription();
+
+// Construction des breadcrumbs
+const breadcrumbItems = [];
+
+// Ajouter catégorie blog si on a un thème
+if (theme && theme !== 'main') {
+  const themeMap = {
+    'guitar': { name: 'Guitare', url: 'https://musique-facile.fr/blog/guitare' },
+    'piano': { name: 'Piano', url: 'https://musique-facile.fr/blog/piano' },
+    'ukulele': { name: 'Ukulélé', url: 'https://musique-facile.fr/blog/ukulele' },
+    'solfege': { name: 'Solfège', url: 'https://musique-facile.fr/blog/solfege' }
+  };
+
+  breadcrumbItems.push(
+    { name: 'Blog', url: 'https://musique-facile.fr/blog' },
+    themeMap[theme],
+    { name: title, url: url }
+  );
+} else {
+  breadcrumbItems.push(
+    { name: 'Blog', url: 'https://musique-facile.fr/blog' },
+    { name: title, url: url }
+  );
+}
 
 // Formatage des dates pour schema.org
 const isoDatePublished = new Date(datePublished).toISOString();
 const isoDateModified = new Date(dateModified).toISOString();
 
-// Construction du schema.org
+// Construction du schema.org BlogPosting
 const schema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": title,
-  "description": description,
-  "image": ogImage,
+  "headline": pageTitle,
+  "description": pageDescription,
+  "image": absoluteOgImage,
   "author": {
     "@type": "Person",
     "name": author
@@ -48,6 +158,119 @@ const schema = {
     "@id": url
   }
 };
+
+// Helper pour extraire ID YouTube
+const extractYouTubeId = (url: string) => {
+  if (url.includes('/shorts/')) {
+    return url.split('/shorts/')[1].split('?')[0];
+  }
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+};
+
+// Construction du schema VideoObject si vidéos présentes
+const videoSchemas = videos && videos.length > 0 ? videos.map(video => {
+  const videoId = extractYouTubeId(video.url);
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": video.title || pageTitle,
+    "description": video.description || pageDescription,
+    "thumbnailUrl": video.thumbnail || (videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : absoluteOgImage),
+    "uploadDate": isoDatePublished,
+    "contentUrl": video.url,
+    "embedUrl": videoId ? `https://www.youtube.com/embed/${videoId}` : video.url,
+    "duration": video.duration,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Musique Facile",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://musique-facile.fr/logo.webp"
+      }
+    }
+  };
+}) : [];
+
+// Construction du schema HowTo pour les tutoriels
+const howToSchema = songInfo ? {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": pageTitle,
+  "description": pageDescription,
+  "image": absoluteOgImage,
+  "totalTime": songInfo.tempo ? `PT${Math.ceil(300 / (songInfo.tempo / 60))}M` : "PT15M", // Estimation basée sur le tempo
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "EUR",
+    "value": "0"
+  },
+  "supply": [
+    {
+      "@type": "HowToSupply",
+      "name": theme === 'guitar' ? "Guitare" : theme === 'piano' ? "Piano" : theme === 'ukulele' ? "Ukulélé" : "Instrument de musique"
+    }
+  ],
+  "tool": videos && videos.length > 0 ? [
+    {
+      "@type": "HowToTool",
+      "name": "Vidéos tutoriels YouTube"
+    }
+  ] : [],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Apprendre les accords",
+      "text": `Maîtrisez les ${songInfo.chordCount || ''} accords nécessaires pour jouer ce morceau.`,
+      "url": url,
+      "image": absoluteOgImage
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Pratiquer les transitions",
+      "text": "Entraînez-vous aux transitions entre les accords lentement, puis augmentez progressivement le tempo.",
+      "url": url,
+      "image": absoluteOgImage
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Travailler la rythmique",
+      "text": songInfo.tempo ? `Travaillez la rythmique au tempo de ${songInfo.tempo} BPM avec un métronome.` : "Travaillez la rythmique avec un métronome.",
+      "url": url,
+      "image": absoluteOgImage
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Jouer le morceau complet",
+      "text": "Assemblez tous les éléments et jouez le morceau du début à la fin.",
+      "url": url,
+      "image": absoluteOgImage,
+      "video": videos && videos.length > 0 ? {
+        "@type": "VideoObject",
+        "name": videos[0].title || pageTitle,
+        "description": pageDescription,
+        "thumbnailUrl": extractYouTubeId(videos[0].url) ? `https://img.youtube.com/vi/${extractYouTubeId(videos[0].url)}/maxresdefault.jpg` : absoluteOgImage,
+        "contentUrl": videos[0].url,
+        "uploadDate": isoDatePublished
+      } : undefined
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Musique Facile",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://musique-facile.fr/logo.webp"
+    }
+  },
+  "datePublished": isoDatePublished,
+  "dateModified": isoDateModified
+} : null;
 ---
 
 <!doctype html>
@@ -63,45 +286,61 @@ const schema = {
     
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
+    <meta name="description" content={pageDescription} />
     <meta name="author" content={author} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={url} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content={url} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={absoluteOgImage} />
     <meta property="article:published_time" content={isoDatePublished} />
     <meta property="article:modified_time" content={isoDateModified} />
     <meta property="article:author" content={author} />
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={url} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
-    
-    <!-- Schema.org -->
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={absoluteOgImage} />
+
+    <!-- Schema.org BlogPosting -->
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    
+
+    <!-- Schema.org VideoObject (si vidéos présentes) -->
+    {videoSchemas.length > 0 && videoSchemas.map(videoSchema => (
+      <script type="application/ld+json" set:html={JSON.stringify(videoSchema)} />
+    ))}
+
+    <!-- Schema.org HowTo (si tutoriel avec songInfo) -->
+    {howToSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+    )}
+
     <ExternalResources />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NP758HSC"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+   <div class={`theme-${theme}`}>
     <Header />
+    <Breadcrumbs items={breadcrumbItems} />
     <main>
       <slot />
     </main>
+    {showAutoFaq && (
+      <AutoFAQ title={title} theme={theme} songInfo={songInfo} showVisual={true} />
+    )}
     <Footer />
+   </div>
   </body>
 </html>
 
@@ -317,9 +556,13 @@ const schema = {
   }
 
   .article-content {
-    max-width: 800px;
     margin: 4rem auto;
     padding: 0 1.5rem;
+  }
+
+  /* Sans TOC, largeur normale */
+  .article-content:not(.with-toc) {
+    max-width: 800px;
   }
 
   .article-intro {

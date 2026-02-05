@@ -1,0 +1,342 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import RessourceCard from '../../components/RessourceCard.astro';
+import RessourceFilter from '../../components/RessourceFilter.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import { getCollection } from 'astro:content';
+
+// Récupérer les ressources de piano
+const allRessources = await getCollection('ressources');
+const pianoRessources = allRessources
+  .filter(ressource => ressource.data.instrument === 'piano')
+  .sort((a, b) => {
+    // D'abord trier par featured
+    if (a.data.featured && !b.data.featured) return -1;
+    if (!a.data.featured && b.data.featured) return 1;
+    
+    // Ensuite par date
+    return new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime();
+  });
+
+// Construction de l'URL canonique
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://musique-facile.fr').toString();
+
+// Métadonnées pour la page
+const title = "Ressources Piano Gratuites pour Débuter | Musique Facile";
+const description = "Télécharge des ressources gratuites pour apprendre le piano. PDF, vidéos et exercices pour progresser à ton rythme.";
+const ogImage = "/images/og-ressources-piano.jpg";
+
+// Schema.org pour la liste des ressources
+const ressourcesSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Ressources Piano Gratuites",
+  "description": "Collection de ressources gratuites pour apprendre le piano : PDF, vidéos et liens utiles.",
+  "url": canonicalURL,
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": pianoRessources.map((ressource, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": ressource.data.type === "pdf" ? "DigitalDocument" : "CreativeWork",
+        "name": ressource.data.title,
+        "description": ressource.data.description,
+        "url": `https://musique-facile.fr${ressource.data.url}`,
+        "image": `https://musique-facile.fr${ressource.data.image}`,
+        "datePublished": ressource.data.datePublished,
+        "dateModified": ressource.data.dateModified,
+        "fileFormat": ressource.data.type === "pdf" ? "application/pdf" : undefined,
+        "contentUrl": ressource.data.externalLink || undefined
+      }
+    }))
+  }
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  canonicalUrl={canonicalURL}
+  keywords="ressources piano gratuites, pdf piano gratuit, exercices piano gratuits, tutoriels piano gratuits, apprendre piano gratuitement"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(ressourcesSchema)} />
+  </Fragment>
+  
+  <Header />
+  
+  <main>
+    <!-- Fil d'Ariane -->
+    <BreadcrumbNav 
+      items={[
+        { name: "Accueil", url: "/" },
+        { name: "Ressources Gratuites", url: "/ressources-gratuites" },
+        { name: "Piano", url: "/ressources-gratuites/piano" }
+      ]}
+    />
+    
+    <!-- Hero Section -->
+    <section class="ressources-hero theme-piano">
+      <div class="hero-background" style="background-image: url('/images/ressource/piano.webp')"></div>
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <h1>Ressources Piano Gratuites</h1>
+        <p class="subtitle">Télécharge gratuitement nos PDF, vidéos et fiches pour progresser au piano</p>
+      </div>
+    </section>
+
+    <!-- Filtres -->
+    <section class="filter-section">
+      <div class="container">
+        <RessourceFilter activeInstrument="piano" />
+      </div>
+    </section>
+
+    <!-- Liste des ressources -->
+    <section class="ressources-grid">
+      <div class="container">
+        {pianoRessources.length > 0 ? (
+          <div class="ressources-wrapper">
+            {pianoRessources.map(ressource => (
+              <RessourceCard
+                title={ressource.data.title}
+                description={ressource.data.description}
+                instrument={ressource.data.instrument}
+                type={ressource.data.type}
+                url={ressource.data.url}
+                image={ressource.data.image}
+                featured={ressource.data.featured}
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="no-ressources">
+            <p>Aucune ressource disponible pour le moment. Revenez bientôt !</p>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Envie d'aller plus loin avec le piano ?</h2>
+          <p>Découvre notre formation complète pour progresser rapidement et de manière structurée</p>
+          
+          <a href="/cours/cours-de-piano" class="cta-button">
+            <span class="button-icon">🎹</span>
+            <span>Découvrir nos cours de piano</span>
+            <span class="button-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Hero Section */
+  .ressources-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(135deg, var(--theme-piano) 0%, var(--theme-piano-dark) 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
+    z-index: 1;
+  }
+
+  .ressources-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+    z-index: 2;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 3;
+  }
+
+  .ressources-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  /* Filter Section */
+  .filter-section {
+    padding: 3rem 0 1rem;
+    background: var(--bg-light);
+  }
+
+  /* Ressources Grid */
+  .ressources-grid {
+    padding: 2rem 0 6rem;
+    background: var(--bg-light);
+    min-height: 400px;
+  }
+
+  .ressources-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .no-ressources {
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .no-ressources p {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--theme-piano) 0%, var(--theme-piano-dark) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+  }
+
+  .cta-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: white;
+    color: var(--theme-piano);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .button-icon {
+    font-size: 1.5rem;
+  }
+
+  .button-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover .button-arrow {
+    transform: translateX(5px);
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 1200px) {
+    .ressources-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .ressources-hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .ressources-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

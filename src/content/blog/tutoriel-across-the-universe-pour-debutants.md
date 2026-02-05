@@ -1,21 +1,20 @@
 ---
-title: "Across The Universe : L’un des plus beaux morceaux des Beatles à la guitare"
-description: "Découvrez 'Across The Universe', une chanson mystique et poétique des Beatles qui continue de captiver les auditeurs avec sa profondeur et sa sérénité."
+title: "Across the Universe (Beatles) - Tutoriel Guitare"
+description: "Across the Universe des Beatles : 8 accords avec capo case 2, ballade psychédélique 1969. Tutoriel guitare intermédiaires."
 ogImage: "/images/blog/tutoriel-across-the-universe-pour-debutants.webp"
 
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-01-31"
+dateModified: "2026-02-04"
 introduction: "Plongez dans 'Across The Universe', une œuvre inoubliable des Beatles qui allie la poésie introspective de John Lennon à une mélodie envoûtante, transportant l’auditeur dans un voyage sonore unique."
 
 songInfo:
   inBook: true
-  bookPage: "6"
-  tempo: "76"
-  chordCount: "8"
-  key: ""
+  bookPage: 6
+  tempo: 76
+  chordCount: 8
   difficulty: "4/5"
 
 videos:
@@ -30,12 +29,15 @@ conclusion: |
   "Across The Universe" est bien plus qu’une simple chanson. C'est une œuvre d'art transcendante qui nous rappelle la puissance des paroles et de la mélodie pour nous transporter loin des réalités terrestres. Inspirée par un moment de vie intimiste, elle continue d'émerveiller par sa beauté intemporelle et son message universel.<br><br> Si vous êtes fan des Beatles ou simplement curieux de découvrir d’autres chefs-d’œuvre, il n’y a pas de meilleur moment que maintenant pour plonger dans leur univers musical. Que vous soyez guitariste ou mélomane, laissez-vous emporter par la magie des Beatles et explorez les subtilités de cette chanson.
 
 relatedLinks:
-  - title: "Les chansons les plus poétiques des Beatles"
-    url: "/articles/chansons-poetiques-beatles"
-    description: "Une sélection des morceaux des Beatles mettant en avant leur talent lyrique."
-  - title: "Les meilleurs morceaux de John Lennon"
-    url: "/articles/meilleurs-morceaux-john-lennon"
-    description: "Un tour d'horizon des chansons incontournables de John Lennon."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour maîtriser les classiques des Beatles."
+  - title: "Hey Jude - The Beatles"
+    url: "/blog/apprendre-hey-jude-guitare"
+    description: "Un autre chef-d'œuvre des Beatles à la guitare."
+  - title: "Where Did You Sleep Last Night - Nirvana"
+    url: "/blog/nirvana-where-did-you-sleep-guitare"
+    description: "Une autre ballade folk-rock puissante."
 
 ---
 ### L’artiste : Les Beatles et John Lennon

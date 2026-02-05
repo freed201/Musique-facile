@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import CourseLayout from '../../layouts/CourseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import RelatedCourses from '../../components/RelatedCourses.astro';
 
 export async function getStaticPaths() {
   const courses = await getCollection('courses');
@@ -12,6 +13,9 @@ export async function getStaticPaths() {
 }
 
 const { course } = Astro.props;
+// Récupération du slug dès le début (utilisé dans les schemas)
+const { slug } = Astro.params;
+
 const {
   title,
   description,
@@ -28,47 +32,117 @@ const {
   faq
 } = course.data;
 
-// Construction du schema.org enrichi
-const schema = {
+// Schema.org Review pour les témoignages du cours
+const reviewSchemas = preuveSociale.testimonials.map((testimonial, index) => ({
   "@context": "https://schema.org",
-  "@type": "Course",
-  "name": title,
-  "description": description,
-  "provider": {
-    "@type": "Organization",
-    "name": "Musique Facile",
-    "url": "https://musique-facile.fr"
+  "@type": "Review",
+  "author": {
+    "@type": "Person",
+    "name": testimonial.author
   },
-  "hasCourseInstance": {
-    "@type": "CourseInstance",
-    "courseMode": "online",
-    "courseWorkload": "PT2H per week"
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "5",
+    "bestRating": "5",
+    "worstRating": "1"
   },
+  "reviewBody": testimonial.text,
+  "itemReviewed": {
+    "@type": "Course",
+    "name": title,
+    "provider": {
+      "@type": "Organization",
+      "name": "Musique Facile"
+    }
+  },
+  "datePublished": course.data.datePublished
+}));
+
+// Schema.org HowTo pour le programme de la formation (timeline)
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": `Programme de la formation ${title}`,
+  "description": `Découvrez le programme complet de la formation ${title} étape par étape`,
   "image": ogImage,
-  "url": Astro.url.toString()
+  "totalTime": course.data.hasCourseInstance?.duration || "PT2H",
+  "step": timeline.map((item, index) => ({
+    "@type": "HowToStep",
+    "position": item.number,
+    "name": item.title,
+    "text": item.objective,
+    "image": `/images/cours/${slug}/timeline-${item.number}.webp`,
+    "url": `${Astro.url.toString()}#step-${item.number}`,
+    "itemListElement": item.details.map((detail, detailIndex) => ({
+      "@type": "HowToDirection",
+      "text": detail,
+      "position": detailIndex + 1
+    }))
+  }))
+};
+
+// Schema.org FAQPage pour les questions fréquentes du cours
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.questions.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+
+const offerSchema = {
+  "@context": "https://schema.org",
+  "@type": "Offer",
+  "price": course.data.hasCourseInstance?.offers?.price || "79.00",
+  "priceCurrency": course.data.hasCourseInstance?.offers?.priceCurrency || "EUR",
+  "availability": course.data.hasCourseInstance?.offers?.availability || "https://schema.org/InStock",
+  "url": Astro.url.toString(),
+  "itemOffered": {
+    "@type": "Course",
+    "name": title,
+    "url": Astro.url.toString()
+  }
 };
 
 // Fonction utilitaire pour construire les chemins d'images
 function getCoursePaths(slug: string) {
   return {
-    hero: `/images/cours/${slug}/hero.jpg`,
-    timeline: (index: number) => `/images/cours/${slug}/timeline-${index}.jpg`,
-    testimonial: (index: number) => `/images/cours/${slug}/testimonial-${index}.jpg`
+    hero: `/images/cours/${slug}/hero.webp`,
+    timeline: (index: number) => `/images/cours/${slug}/timeline-${index}.webp`,
+    testimonial: (index: number) => `/images/cours/${slug}/testimonial-${index}.webp`
   };
 }
-
-// Récupération des données du cours
-const { slug } = Astro.params;
 
 // Obtention des chemins d'images pour ce cours
 const imagePaths = getCoursePaths(slug);
 ---
+
+<!-- Schema.org Review pour les témoignages -->
+{reviewSchemas.map(schema => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}
+
+<!-- Schema.org HowTo pour le programme -->
+<script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+
+<!-- Schema.org FAQPage pour les questions du cours -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<!-- Schema.org Offer pour le cours -->
+<script type="application/ld+json" set:html={JSON.stringify(offerSchema)} />
 
 <CourseLayout
   title={title}
   description={description}
   ogImage={ogImage}
   theme={theme}
+  hero={hero}
+  teachers={teachers}
   datePublished={course.data.datePublished}
   dateModified={course.data.dateModified}
   educationalLevel={course.data.educationalLevel}
@@ -100,7 +174,7 @@ const imagePaths = getCoursePaths(slug);
           </p>
           <div class="cta-group">
             <a href={cta.buttonLink} class="btn btn-primary btn-lg pulsing">
-              {hero.cta.text}
+              {hero.cta.text} 
               <span class="price-tag">{hero.cta.price}</span>
             </a>
           </div>
@@ -177,7 +251,7 @@ const imagePaths = getCoursePaths(slug);
     <div class="timeline-wrapper">
       {timeline.map((item) => {
         // Construire le chemin de l'image de timeline de manière dynamique
-        const timelineImagePath = `/images/cours/${Astro.params.slug}/timeline-${item.number}.jpg`;
+        const timelineImagePath = `/images/cours/${Astro.params.slug}/timeline-${item.number}.webp`;
         
         return (
           <div class="timeline-item">
@@ -219,7 +293,7 @@ const imagePaths = getCoursePaths(slug);
 
 <!-- Modals pour les images -->
 {timeline.map((item) => {
-  const timelineImagePath = `/images/cours/${Astro.params.slug}/timeline-${item.number}.jpg`;
+  const timelineImagePath = `/images/cours/${Astro.params.slug}/timeline-${item.number}.webp`;
   
   return (
     <div id={`modal-${item.number}`} class="modal">
@@ -304,7 +378,7 @@ const imagePaths = getCoursePaths(slug);
   <div class="container">
     <div class="testimonials-wrapper" role="region" aria-label="Témoignages">
       {preuveSociale.testimonials.map((testimonial, index) => {
-        const testimonialImagePath = `/images/cours/${Astro.params.slug}/testimonial-${index + 1}.jpg`;
+        const testimonialImagePath = `/images/cours/${Astro.params.slug}/testimonial-${index + 1}.webp`;
         
         return (
           <div class="testimonial">
@@ -406,6 +480,12 @@ const imagePaths = getCoursePaths(slug);
       </div>
     </div>
   </section>
+
+  <RelatedCourses
+    currentSlug={slug}
+    currentTheme={theme}
+    maxCourses={3}
+  />
 
   <section class="faq-section">
     <div class="faq-background"></div>

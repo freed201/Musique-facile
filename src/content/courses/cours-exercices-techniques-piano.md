@@ -2,11 +2,12 @@
 affichage: "Y"
 classement: 3
 title: "Maîtrise Digitale au Piano : 5 Exercices Clés"
-description: "Renforcez le contrôle et l'agilité de vos doigts au piano avec notre cours complet. Plus de 50 vidéos détaillées pour améliorer votre technique, adaptées à tous les niveaux."
-ogImage: "/images/cours/cours-exercices-techniques-piano/hero.jpg"
+description: "Renforcez l'agilité de vos doigts au piano avec 50+ vidéos. Exercices techniques pour améliorer contrôle et précision. Tous niveaux."
+ogImage: "/images/cours/cours-exercices-techniques-piano/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+category: "Cours de musique"      # pour Offer
 
 # Données schema.org
 provider:
@@ -25,6 +26,7 @@ audience:
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
   duration: "PT2H15M" # Format ISO 8601 pour la durée
+  courseWorkload: "PT2H15M"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"

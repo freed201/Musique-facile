@@ -22,7 +22,6 @@ const coursesCollection = defineCollection({
     }),
     educationalLevel: z.array(z.string()).default(['Beginner']),
     courseMode: z.string().default(['Online']),
-    ogImage: z.string(),
     audience: z.object({
       type: z.string(),
       audienceType: z.array(z.string())
@@ -192,7 +191,63 @@ const livresCollection = defineCollection({
   })
 });
 
+const blogCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    meta: z.string().optional(),
+    keywords: z.string().optional(),
+    author: z.string(),
+    publisher: z.string().optional(),
+    publisherLogo: z.string().optional(),
+    ogImage: z.string(),
+    datePublished: z.string(),
+    dateModified: z.string(),
+    theme: z.enum(['guitar', 'piano', 'ukulele', 'solfege', 'general']).optional(),
+
+    // Nouveaux champs pour maillage interne (Phase 3)
+    tags: z.array(z.string()).default([]),
+    category: z.enum(['débutant', 'intermédiaire', 'avancé', 'théorie', 'pratique', 'tutoriel', 'général']).optional(),
+    level: z.enum(['débutant', 'intermédiaire', 'avancé', 'tous-niveaux']).default('tous-niveaux'),
+    instrument: z.enum(['guitare', 'piano', 'ukulele', 'solfege', 'général']).optional(),
+
+    schemaType: z.string().optional(),
+    prod: z.enum(['Y', 'N']).optional(),
+    multi: z.enum(['Y', 'N']).optional(),
+    number: z.string().optional(),
+    prev: z.string().optional(),
+    next: z.string().optional(),
+    introduction: z.string().optional(),
+    conclusion: z.string().optional(),
+    songInfo: z.object({
+      inBook: z.boolean(),
+      bookPage: z.number().optional(),
+      tempo: z.number().optional(),
+      chordCount: z.number().optional(),
+      key: z.string().optional(),
+      difficulty: z.string().optional()
+    }).optional(),
+    videos: z.array(z.object({
+      title: z.string(),
+      url: z.string()
+    })).optional(),
+    podcast: z.object({
+      url: z.string()
+    }).optional(),
+    relatedLinks: z.array(z.object({
+      title: z.string(),
+      url: z.string()
+    })).optional(),
+    faqs: z.array(z.object({
+      question: z.string(),
+      answer: z.string()
+    })).optional()
+  })
+});
+
 export const collections = {
   'courses': coursesCollection,
-  'livres': livresCollection
+  'livres': livresCollection,
+  'blog': blogCollection
 };

@@ -1,20 +1,19 @@
 ---
-title: "Fields of Gold : Apprenez cette ballade envoûtante de Sting à la guitare"
-description: "Explorez l'univers poétique et émouvant de 'Fields of Gold', un morceau emblématique de Sting qui capture l'essence de l'amour et de la nature."
+title: "Fields of Gold (Sting) - Tutoriel Guitare"
+description: "Fields of Gold de Sting à la guitare : 6 accords avec capo case 2, ballade folk-pop 1993, arpèges. Tutoriel intermédiaires."
 ogImage: "/images/blog/jouer-fields-of-gold-sting.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-01-26"
-introduction: "Laissez-vous emporter par 'Fields of Gold', une ballade intemporelle où Sting explore l'amour, la nostalgie et la beauté de la nature. Un chef-d'œuvre musical à découvrir ou redécouvrir."
+dateModified: "2026-02-04"
+introduction: "Laissez-vous emporter par 'Fields of Gold', la ballade intemporelle de Sting extraite de l'album 'Ten Summoner's Tales' (1993). Découvrez comment jouer cette chanson qui explore l'amour, la nostalgie et la beauté de la nature avec des arpèges poétiques."
 
 songInfo:
   inBook: true
-  bookPage: "17"
-  tempo: "104"
-  chordCount: "6"
-  key: ""
+  bookPage: 17
+  tempo: 104
+  chordCount: 6
   difficulty: "3/5"
 
 videos:
@@ -31,12 +30,15 @@ conclusion: |
   "Fields of Gold" est une invitation à la contemplation et à l'émotion. En apprenant ce morceau, vous découvrez non seulement un chef-d'œuvre musical, mais aussi une fenêtre ouverte sur la poésie et l'humanité qui caractérisent Sting. Continuez à explorer, jouer et partager cette mélodie intemporelle.
 
 relatedLinks:
-  - title: "Les ballades incontournables pour guitaristes"
-    url: "/articles/ballades-guitare"
-    description: "Découvrez les ballades essentielles à ajouter à votre répertoire."
-  - title: "Exploration de la carrière solo de Sting"
-    url: "/articles/sting-carriere-solo"
-    description: "Une analyse des moments marquants de la carrière solo de Sting."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour maîtriser les ballades folk-pop."
+  - title: "Hallelujah - Jeff Buckley"
+    url: "/blog/jouer-hallelujah-jeff-buckley-guitare"
+    description: "La reprise légendaire de Leonard Cohen."
+  - title: "Wild World - Cat Stevens"
+    url: "/blog/apprendre-wild-world-guitare"
+    description: "Un classique folk des années 70."
 ---
 ### Fields of Gold : Un Voyage Musical avec Sting 
 

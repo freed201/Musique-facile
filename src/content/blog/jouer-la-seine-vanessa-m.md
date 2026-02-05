@@ -1,20 +1,19 @@
 ---
-title: "La Seine : Une ballade poétique au cœur de Paris"
-description: "Découvrez 'La Seine', un duo captivant entre Vanessa Paradis et -M-, et apprenez à jouer ce chef-d'œuvre musical inspiré de Paris."
+title: "La Seine (Vanessa Paradis & -M-) - Guitare"
+description: "La Seine de Vanessa Paradis & -M- à la guitare : 8 accords avec capo case 5, ballade poétique 2011. Tutoriel intermédiaires."
 ogImage: "/images/blog/jouer-la-seine-vanessa-m.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-01-28"
+dateModified: "2026-02-04"
 introduction: "Avec 'La Seine', Vanessa Paradis et -M- nous offrent une immersion poétique dans l'atmosphère unique de Paris. Découvrez cette chanson iconique et apprenez à la jouer."
 
 songInfo:
   inBook: true
-  bookPage: "36"
-  tempo: "55"
-  chordCount: "8"
-  key: ""
+  bookPage: 36
+  tempo: 55
+  chordCount: 8
   difficulty: "4/5"
 
 videos:
@@ -31,12 +30,15 @@ conclusion: |
  En somme, "La Seine" est une représentation musicale de Paris enchâssée dans la culture contemporaine. Elle est une ode à la beauté, à la simplicité et à la complexité du quotidien parisien. Ce qui fait son succès, c'est sa capacité à capturer l’auditeur et à le convier à un voyage sensoriel au cœur de la ville lumière. Pour ceux qui se laissent emporter par son charme, d'autres compositions offrent une aventure similaire, plongeant dans l'univers mélodieux de Paradis et -M-.
 
 relatedLinks:
-  - title: "Les collaborations marquantes de Vanessa Paradis et -M-"
-    url: "/articles/vanessa-paradis-m-collaborations"
-    description: "Explorez les moments clés de cette collaboration artistique emblématique."
-  - title: "L'histoire de 'La Seine' et son impact musical"
-    url: "/articles/la-seine-histoire"
-    description: "Découvrez les secrets et l'impact de cette chanson sur la scène musicale française."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour maîtriser les ballades françaises."
+  - title: "Clandestino - Manu Chao"
+    url: "/blog/jouer-clandestino-guitare-tutoriel"
+    description: "Un classique français accessible et poétique."
+  - title: "Hallelujah - Jeff Buckley"
+    url: "/blog/jouer-hallelujah-jeff-buckley-guitare"
+    description: "Une autre ballade romantique et touchante."
 ---
 ### Plongée dans l'Univers de "La Seine"
 

@@ -1,0 +1,389 @@
+---
+/**
+ * LeadCaptureForm.astro
+ * Formulaire de capture d'email moderne avec intégration prête
+ *
+ * IMPORTANT: Connecter à ActiveCampaign/SendGrid en production
+ * Voir la section <script> pour l'endpoint API
+ */
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  buttonText?: string;
+  successMessage?: string;
+  leadMagnet?: string;
+  theme?: 'light' | 'dark';
+}
+
+const {
+  title = "Recevez votre guide gratuit",
+  subtitle = "Les 5 accords magiques pour jouer 100 chansons à la guitare",
+  buttonText = "Recevoir mon guide",
+  successMessage = "Vérifiez votre boîte mail !",
+  leadMagnet = "5-accords-guitare",
+  theme = "dark"
+} = Astro.props;
+---
+
+<section class={`lead-capture ${theme}`}>
+  <div class="lead-container">
+    <div class="lead-content">
+      <div class="lead-icon">🎁</div>
+      <h2 class="lead-title">{title}</h2>
+      <p class="lead-subtitle">{subtitle}</p>
+    </div>
+
+    <form
+      class="lead-form"
+      id="lead-capture-form"
+      data-lead-magnet={leadMagnet}
+    >
+      <div class="form-group">
+        <label for="lead-email" class="sr-only">Votre email</label>
+        <input
+          type="email"
+          id="lead-email"
+          name="email"
+          placeholder="votre@email.com"
+          required
+          autocomplete="email"
+          class="form-input"
+        />
+        <button type="submit" class="form-button">
+          <span class="button-text">{buttonText}</span>
+          <span class="button-loading" aria-hidden="true">
+            <svg class="spinner" width="20" height="20" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="31.4 31.4" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <svg class="button-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <p class="form-privacy">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M7 1v5m0 4h.01M13 7A6 6 0 111 7a6 6 0 0112 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        Pas de spam. Désinscription en 1 clic.
+      </p>
+
+      <!-- Message de succès -->
+      <div class="form-success" aria-live="polite">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2"/>
+          <path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>{successMessage}</span>
+      </div>
+
+      <!-- Message d'erreur -->
+      <div class="form-error" aria-live="polite">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10 6v5m0 2h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Une erreur est survenue. Réessayez.</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+  .lead-capture {
+    padding: var(--space-16) var(--space-4);
+  }
+
+  .lead-capture.dark {
+    background: linear-gradient(135deg, #0a1628 0%, #1a2744 100%);
+    color: white;
+  }
+
+  .lead-capture.light {
+    background: var(--bg-page);
+    color: var(--text-primary);
+  }
+
+  .lead-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Content */
+  .lead-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .lead-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-2);
+  }
+
+  .lead-capture.dark .lead-title {
+    color: white;
+  }
+
+  .lead-subtitle {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-8);
+    opacity: 0.9;
+  }
+
+  .lead-capture.dark .lead-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Form */
+  .lead-form {
+    position: relative;
+  }
+
+  .form-group {
+    display: flex;
+    gap: var(--space-3);
+    max-width: 480px;
+    margin: 0 auto var(--space-4);
+  }
+
+  @media (max-width: 540px) {
+    .form-group {
+      flex-direction: column;
+    }
+  }
+
+  .form-input {
+    flex: 1;
+    padding: var(--space-4) var(--space-5);
+    font-size: var(--text-base);
+    border-radius: var(--radius-lg);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-family: inherit;
+  }
+
+  .lead-capture.dark .form-input {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .lead-capture.dark .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .lead-capture.light .form-input {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border-color: var(--border-default);
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--brand-500);
+  }
+
+  /* Button */
+  .form-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-6);
+    background: var(--brand-500);
+    color: white;
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    min-width: 160px;
+  }
+
+  .form-button:hover:not(:disabled) {
+    background: var(--brand-600);
+    transform: translateY(-2px);
+  }
+
+  .form-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .button-loading {
+    display: none;
+  }
+
+  .form-button.loading .button-text,
+  .form-button.loading .button-arrow {
+    display: none;
+  }
+
+  .form-button.loading .button-loading {
+    display: block;
+  }
+
+  .spinner {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .button-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .form-button:hover .button-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Privacy */
+  .form-privacy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    opacity: 0.7;
+  }
+
+  /* Success & Error */
+  .form-success,
+  .form-error {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-4);
+    font-weight: var(--font-medium);
+  }
+
+  .form-success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+  }
+
+  .form-error {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+  }
+
+  .lead-form.success .form-group,
+  .lead-form.success .form-privacy {
+    display: none;
+  }
+
+  .lead-form.success .form-success {
+    display: flex;
+  }
+
+  .lead-form.error .form-error {
+    display: flex;
+  }
+
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>
+
+<script>
+  /**
+   * Lead Capture Form Handler
+   *
+   * TODO: Remplacer l'URL API par votre endpoint réel
+   * Options recommandées:
+   * - ActiveCampaign: https://accountname.api-us1.com/api/3/contacts
+   * - SendGrid: https://api.sendgrid.com/v3/marketing/contacts
+   * - Netlify Functions: /.netlify/functions/subscribe
+   * - Custom API: /api/subscribe
+   */
+
+  const forms = document.querySelectorAll('#lead-capture-form');
+
+  forms.forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formElement = e.target as HTMLFormElement;
+      const button = formElement.querySelector('.form-button') as HTMLButtonElement;
+      const emailInput = formElement.querySelector('#lead-email') as HTMLInputElement;
+      const leadMagnet = formElement.getAttribute('data-lead-magnet');
+      const email = emailInput?.value;
+
+      if (!email) return;
+
+      // UI: Loading state
+      button.classList.add('loading');
+      button.disabled = true;
+      formElement.classList.remove('error', 'success');
+
+      try {
+        // ========================================
+        // TODO: REMPLACER PAR VOTRE API RÉELLE
+        // ========================================
+
+        // Option 1: Netlify Functions (recommandé)
+        // const response = await fetch('/.netlify/functions/subscribe', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify({ email, leadMagnet })
+        // });
+
+        // Option 2: API custom
+        // const response = await fetch('/api/subscribe', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify({ email, leadMagnet })
+        // });
+
+        // Simulation temporaire (à supprimer en production)
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const response = { ok: true };
+
+        // Track event in GTM
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'lead_capture', {
+            event_category: 'engagement',
+            event_label: leadMagnet,
+            value: email
+          });
+        }
+
+        if (response.ok) {
+          formElement.classList.add('success');
+        } else {
+          throw new Error('Submission failed');
+        }
+
+      } catch (error) {
+        console.error('Form submission error:', error);
+        formElement.classList.add('error');
+      } finally {
+        button.classList.remove('loading');
+        button.disabled = false;
+      }
+    });
+  });
+</script>

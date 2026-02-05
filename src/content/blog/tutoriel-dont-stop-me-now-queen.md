@@ -1,20 +1,19 @@
 ---
-title: "Don't Stop Me Now : L’énergie de Queen à portée de guitare"
-description: "Découvrez 'Don't Stop Me Now', une ode à la joie et à l'esprit libre de Freddie Mercury et Queen, une chanson intemporelle qui continue d'inspirer."
+title: "Don't Stop Me Now (Queen) - Tutoriel Guitare"
+description: "Don't Stop Me Now de Queen à la guitare : 10 accords avancés, hymne de Freddie Mercury 1979, 150 BPM. Tutoriel confirmés."
 ogImage: "/images/blog/tutoriel-dont-stop-me-now-queen.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-02-01"
+dateModified: "2026-02-04"
 introduction: "Avec 'Don't Stop Me Now', Queen a livré une explosion d'énergie et de positivité. Découvrez cette chanson légendaire et l'héritage musical de Freddie Mercury."
 
 songInfo:
   inBook: true
-  bookPage: "14"
-  tempo: "150"
-  chordCount: "10"
-  key: ""
+  bookPage: 14
+  tempo: 150
+  chordCount: 10
   difficulty: "5/5"
 
 videos:
@@ -30,12 +29,15 @@ conclusion: |
 
 
 relatedLinks:
-  - title: "Les meilleures performances live de Queen"
-    url: "/articles/meilleures-performances-queen"
-    description: "Une sélection des concerts les plus mémorables du groupe Queen."
-  - title: "Freddie Mercury : Le génie derrière Queen"
-    url: "/articles/freddie-mercury-genie"
-    description: "Explorez l'histoire et l'héritage de Freddie Mercury, leader iconique de Queen."
+  - title: "Apprendre la Guitare Débutant : Cours Complet"
+    url: "/cours/apprendre-guitare-debutant"
+    description: "Formation pour progresser vers les morceaux rock avancés."
+  - title: "Hey Ya! - Outkast"
+    url: "/blog/jouer-hey-ya-outkast-guitare"
+    description: "Un autre hit énergique et joyeux à la guitare."
+  - title: "Viva La Vida - Coldplay"
+    url: "/blog/apprendre-viva-la-vida-guitare"
+    description: "Un classique pop-rock dynamique et accessible."
 
 ---
 ## Un Peu d'Histoire

@@ -1,0 +1,116 @@
+---
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+// Ajouter "Accueil" au début si pas déjà présent
+const breadcrumbItems = items[0]?.name !== "Accueil"
+  ? [{ name: "Accueil", url: "https://musique-facile.fr" }, ...items]
+  : items;
+
+// Générer le schema BreadcrumbList
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbItems.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": item.url
+  }))
+};
+---
+
+<!-- Schema BreadcrumbList -->
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<!-- Navigation breadcrumb visuelle -->
+<nav aria-label="Fil d'Ariane" class="breadcrumbs">
+  <ol class="breadcrumb-list">
+    {breadcrumbItems.map((item, index) => (
+      <li class="breadcrumb-item">
+        {index < breadcrumbItems.length - 1 ? (
+          <>
+            <a href={item.url} class="breadcrumb-link">{item.name}</a>
+            <span class="breadcrumb-separator" aria-hidden="true">›</span>
+          </>
+        ) : (
+          <span class="breadcrumb-current" aria-current="page">{item.name}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumbs {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--theme-current);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1.2rem;
+  }
+
+  .breadcrumb-current {
+    color: var(--theme-current);
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .breadcrumb-list {
+      font-size: 0.85rem;
+    }
+
+    .breadcrumb-link,
+    .breadcrumb-current {
+      padding: 0.2rem 0.3rem;
+    }
+
+    .breadcrumb-separator {
+      margin: 0 0.3rem;
+    }
+  }
+</style>

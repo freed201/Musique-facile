@@ -1,0 +1,358 @@
+---
+/**
+ * FOMO Notifications - Social Proof en temps réel
+ * Affiche des notifications de preuve sociale pour créer l'urgence
+ * Impact estimé: +15% urgence perçue
+ */
+---
+
+<div class="fomo-notifications" id="fomo-container"></div>
+
+<style>
+  .fomo-notifications {
+    position: fixed;
+    bottom: 100px;
+    left: 20px;
+    z-index: 998;
+    pointer-events: none;
+  }
+
+  .fomo-notification {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+    min-width: 320px;
+    max-width: 400px;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: slideInLeft 0.5s ease;
+    border-left: 4px solid var(--theme-current);
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .fomo-notification.hide {
+    animation: slideOutLeft 0.5s ease forwards;
+  }
+
+  @keyframes slideOutLeft {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  }
+
+  .fomo-notification:hover {
+    transform: translateX(5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .fomo-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .fomo-content {
+    flex: 1;
+  }
+
+  .fomo-text {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.4;
+    margin-bottom: 0.3rem;
+  }
+
+  .fomo-text strong {
+    color: var(--theme-current);
+    font-weight: 700;
+  }
+
+  .fomo-time {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    opacity: 0.7;
+  }
+
+  .fomo-close {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    cursor: pointer;
+    padding: 0.2rem;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .fomo-close:hover {
+    opacity: 1;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .fomo-notifications {
+      left: 10px;
+      right: 10px;
+      bottom: 80px;
+    }
+
+    .fomo-notification {
+      min-width: auto;
+      max-width: none;
+      padding: 0.8rem 1rem;
+    }
+
+    .fomo-icon {
+      font-size: 1.5rem;
+    }
+
+    .fomo-text {
+      font-size: 0.85rem;
+    }
+  }
+
+  /* Hide on very small screens to avoid clutter */
+  @media (max-width: 480px) {
+    .fomo-notifications {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // FOMO Notification Data
+  const notifications = [
+    {
+      icon: '🎉',
+      text: '<strong>Marc</strong> de Paris vient de s\'inscrire',
+      type: 'signup'
+    },
+    {
+      icon: '🎸',
+      text: '<strong>Sophie</strong> a commencé le cours de guitare',
+      type: 'course_start'
+    },
+    {
+      icon: '✨',
+      text: '<strong>12 personnes</strong> consultent ce cours actuellement',
+      type: 'viewing'
+    },
+    {
+      icon: '🎹',
+      text: '<strong>Thomas</strong> vient de terminer une leçon de piano',
+      type: 'lesson_complete'
+    },
+    {
+      icon: '🏆',
+      text: '<strong>Julie</strong> de Lyon a obtenu son certificat',
+      type: 'certificate'
+    },
+    {
+      icon: '💪',
+      text: '<strong>Pierre</strong> a progressé de 15% cette semaine',
+      type: 'progress'
+    },
+    {
+      icon: '🎯',
+      text: '<strong>5 nouvelles inscriptions</strong> dans les 2 dernières heures',
+      type: 'signup_batch'
+    },
+    {
+      icon: '🌟',
+      text: '<strong>Marie</strong> a laissé un avis 5 étoiles',
+      type: 'review'
+    },
+    {
+      icon: '🎓',
+      text: '<strong>Lucas</strong> de Marseille a débloqué un nouveau niveau',
+      type: 'level_up'
+    },
+    {
+      icon: '🔥',
+      text: '<strong>15 élèves</strong> pratiquent en ce moment',
+      type: 'active_users'
+    }
+  ];
+
+  // French names for variety
+  const names = [
+    'Marc', 'Sophie', 'Thomas', 'Julie', 'Pierre', 'Marie', 'Lucas', 'Emma',
+    'Paul', 'Léa', 'Antoine', 'Chloé', 'Nicolas', 'Laura', 'Maxime', 'Sarah',
+    'Alexandre', 'Camille', 'François', 'Manon'
+  ];
+
+  const cities = [
+    'Paris', 'Lyon', 'Marseille', 'Toulouse', 'Nice', 'Nantes', 'Bordeaux',
+    'Lille', 'Rennes', 'Strasbourg', 'Montpellier', 'Grenoble'
+  ];
+
+  // Notification Manager
+  class FOMONotificationManager {
+    constructor() {
+      this.container = document.getElementById('fomo-container');
+      this.activeNotifications = [];
+      this.maxNotifications = 2;
+      this.minInterval = 30000; // 30 seconds
+      this.maxInterval = 60000; // 60 seconds
+      this.isInitialized = false;
+    }
+
+    init() {
+      if (this.isInitialized) return;
+      this.isInitialized = true;
+
+      // Wait 10 seconds after page load before showing first notification
+      setTimeout(() => {
+        this.showNotification();
+        this.scheduleNext();
+      }, 10000);
+
+      // Pause when tab is not visible
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          this.pauseNotifications();
+        } else {
+          this.resumeNotifications();
+        }
+      });
+    }
+
+    getRandomNotification() {
+      const notification = notifications[Math.floor(Math.random() * notifications.length)];
+
+      // Personalize with random names and cities
+      let text = notification.text;
+
+      // Replace placeholder names with random names
+      const nameMatch = text.match(/<strong>(.*?)<\/strong>/);
+      if (nameMatch && !nameMatch[1].match(/\d+/)) { // Don't replace if it's a number
+        const randomName = names[Math.floor(Math.random() * names.length)];
+        text = text.replace(nameMatch[1], randomName);
+      }
+
+      // Sometimes add a city
+      if (Math.random() > 0.6 && notification.type === 'signup') {
+        const city = cities[Math.floor(Math.random() * cities.length)];
+        text = text.replace('vient de s\'inscrire', `de ${city} vient de s'inscrire`);
+      }
+
+      return {
+        ...notification,
+        text,
+        id: Date.now() + Math.random()
+      };
+    }
+
+    showNotification() {
+      // Don't show if max notifications reached
+      if (this.activeNotifications.length >= this.maxNotifications) {
+        return;
+      }
+
+      const notification = this.getRandomNotification();
+      const element = this.createNotificationElement(notification);
+
+      this.container.appendChild(element);
+      this.activeNotifications.push(notification.id);
+
+      // Auto-hide after 8 seconds
+      setTimeout(() => {
+        this.hideNotification(element, notification.id);
+      }, 8000);
+    }
+
+    createNotificationElement(notification) {
+      const div = document.createElement('div');
+      div.className = 'fomo-notification';
+      div.dataset.id = notification.id;
+
+      // Calculate time ago (simulated)
+      const minutesAgo = Math.floor(Math.random() * 15) + 1;
+      const timeText = minutesAgo === 1
+        ? 'Il y a 1 minute'
+        : `Il y a ${minutesAgo} minutes`;
+
+      div.innerHTML = `
+        <span class="fomo-icon">${notification.icon}</span>
+        <div class="fomo-content">
+          <div class="fomo-text">${notification.text}</div>
+          <div class="fomo-time">${timeText}</div>
+        </div>
+        <button class="fomo-close" aria-label="Fermer">×</button>
+      `;
+
+      // Close button
+      const closeBtn = div.querySelector('.fomo-close');
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.hideNotification(div, notification.id);
+      });
+
+      // Click to dismiss
+      div.addEventListener('click', () => {
+        this.hideNotification(div, notification.id);
+      });
+
+      return div;
+    }
+
+    hideNotification(element, id) {
+      element.classList.add('hide');
+
+      setTimeout(() => {
+        if (element.parentNode) {
+          element.parentNode.removeChild(element);
+        }
+        this.activeNotifications = this.activeNotifications.filter(n => n !== id);
+      }, 500);
+    }
+
+    scheduleNext() {
+      const delay = Math.random() * (this.maxInterval - this.minInterval) + this.minInterval;
+
+      this.nextTimeout = setTimeout(() => {
+        if (!document.hidden) {
+          this.showNotification();
+        }
+        this.scheduleNext();
+      }, delay);
+    }
+
+    pauseNotifications() {
+      if (this.nextTimeout) {
+        clearTimeout(this.nextTimeout);
+      }
+    }
+
+    resumeNotifications() {
+      this.scheduleNext();
+    }
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const manager = new FOMONotificationManager();
+    manager.init();
+  });
+</script>

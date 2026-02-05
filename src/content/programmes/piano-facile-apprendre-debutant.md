@@ -2,13 +2,13 @@
 # Data SEO
 title: "Cours de Piano Débutant - Guide Complet"
 description: "Formation complète pour débutants au piano : apprenez les bases du clavier, des accords et techniques rythmiques jusqu'aux morceaux avancés. Découvrez 100+ vidéos et exercices pédagogiques."
-ogImage: "https://test.musique-facile.fr/images/cours_de_piano.jpg"
+ogImage: "/images/cours/piano-facile-apprendre-debutant/hero.webp"
 theme: "piano"
 lienAchat: "https://ecole.musique-facile.fr/piano-debutant-guide-complet/buy"
 author: "Musique Facile"
 datePublished: "2025-01-28"
 dateModified: "2025-01-28"
-price: "129 EUR"
+price: "299 EUR"
 duration: "P15H"
 provider:
   name: "Musique Facile"

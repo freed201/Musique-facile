@@ -1,0 +1,415 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BreadcrumbsSchema from '../../components/BreadcrumbsSchema.astro';
+import { getCollection } from 'astro:content';
+
+// Récupérer les articles de solfège
+const allPosts = await getCollection('blog', ({ data }) => data.prod === 'Y');
+const currentDate = new Date();
+const solfegePosts = allPosts
+  .filter(post => {
+    const publishDate = new Date(post.data.datePublished);
+    if (publishDate > currentDate) return false;
+    return post.data.instrument === 'solfege' || post.data.theme === 'solfege';
+  })
+  .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime());
+
+// Catégoriser par niveau
+const debutantPosts = solfegePosts.filter(p => p.data.level === 'débutant');
+const intermediairePosts = solfegePosts.filter(p => p.data.level === 'intermédiaire');
+const avancePosts = solfegePosts.filter(p => p.data.level === 'avancé');
+
+// Catégoriser par type
+const theoriePosts = solfegePosts.filter(p => p.data.category === 'théorie');
+const pratiquePosts = solfegePosts.filter(p => p.data.category === 'pratique');
+const generalPosts = solfegePosts.filter(p => p.data.category === 'général');
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://musique-facile.fr').toString();
+const title = "Blog Solfège & Théorie Musicale | Musique Facile";
+const description = "Découvrez nos articles sur le solfège et la théorie musicale : lecture de notes, rythmes, intervalles. Apprenez à comprendre la musique.";
+
+// Schema.org CollectionPage
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Blog Solfège & Théorie - Musique Facile",
+  "description": "Tous nos articles sur le solfège et la théorie musicale",
+  "url": canonicalURL,
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": solfegePosts.length,
+    "itemListElement": solfegePosts.slice(0, 20).map((post, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "url": `https://musique-facile.fr/blog/${post.slug}`
+    }))
+  }
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalURL}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+
+  <Header />
+
+  <main>
+    <BreadcrumbsSchema
+      items={[
+        { name: "Accueil", url: "/" },
+        { name: "Blog", url: "/blog" }
+      ]}
+      currentPage="Solfège"
+    />
+
+    <section class="category-hero theme-solfege">
+      <div class="container">
+        <h1>🎼 Blog Solfège & Théorie Musicale</h1>
+        <p class="subtitle">Comprenez la musique avec nos articles sur le solfège et la théorie musicale</p>
+        <div class="hub-stats">
+          <div class="stat-card">
+            <span class="stat-number">{solfegePosts.length}</span>
+            <span class="stat-label">Articles</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">{debutantPosts.length}</span>
+            <span class="stat-label">Débutant</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">{intermediairePosts.length}</span>
+            <span class="stat-label">Intermédiaire</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">{avancePosts.length}</span>
+            <span class="stat-label">Avancé</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {debutantPosts.length > 0 && (
+      <section class="hub-section">
+        <div class="container">
+          <h2 class="section-title">🌱 Pour Commencer</h2>
+          <p class="section-subtitle">Articles parfaits pour débuter le solfège</p>
+          <div class="posts-wrapper">
+            {debutantPosts.slice(0, 6).map(post => (
+              <article class="post-card">
+                <a href={`/blog/${post.slug}`}>
+                  <div class="post-image" style={`background-image: url(${post.data.ogImage})`}></div>
+                  <div class="post-content">
+                    <div class="post-badges">
+                      <span class="badge badge-level">Débutant</span>
+                      {post.data.category && <span class="badge badge-category">{post.data.category}</span>}
+                    </div>
+                    <h3>{post.data.title}</h3>
+                    <p>{post.data.description}</p>
+                    <time datetime={post.data.datePublished}>
+                      {new Date(post.data.datePublished).toLocaleDateString('fr-FR', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </time>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {theoriePosts.length > 0 && (
+      <section class="hub-section section-alt">
+        <div class="container">
+          <h2 class="section-title">📚 Théorie Musicale</h2>
+          <p class="section-subtitle">Comprenez les concepts fondamentaux de la musique</p>
+          <div class="posts-wrapper">
+            {theoriePosts.slice(0, 9).map(post => (
+              <article class="post-card">
+                <a href={`/blog/${post.slug}`}>
+                  <div class="post-image" style={`background-image: url(${post.data.ogImage})`}></div>
+                  <div class="post-content">
+                    <div class="post-badges">
+                      {post.data.level && <span class="badge badge-level">{post.data.level}</span>}
+                      <span class="badge badge-category">Théorie</span>
+                    </div>
+                    <h3>{post.data.title}</h3>
+                    <p>{post.data.description}</p>
+                    <time datetime={post.data.datePublished}>
+                      {new Date(post.data.datePublished).toLocaleDateString('fr-FR', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </time>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {pratiquePosts.length > 0 && (
+      <section class="hub-section">
+        <div class="container">
+          <h2 class="section-title">🏋️ Exercices Pratiques</h2>
+          <p class="section-subtitle">Développez vos compétences en solfège</p>
+          <div class="posts-wrapper">
+            {pratiquePosts.slice(0, 6).map(post => (
+              <article class="post-card">
+                <a href={`/blog/${post.slug}`}>
+                  <div class="post-image" style={`background-image: url(${post.data.ogImage})`}></div>
+                  <div class="post-content">
+                    <div class="post-badges">
+                      {post.data.level && <span class="badge badge-level">{post.data.level}</span>}
+                      <span class="badge badge-category">Pratique</span>
+                    </div>
+                    <h3>{post.data.title}</h3>
+                    <p>{post.data.description}</p>
+                    <time datetime={post.data.datePublished}>
+                      {new Date(post.data.datePublished).toLocaleDateString('fr-FR', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </time>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <section class="hub-cta">
+      <div class="container">
+        <h2>Prêt à passer à l'étape suivante ?</h2>
+        <p>Découvrez nos formations complètes pour maîtriser le solfège</p>
+        <a href="/cours/cours-de-solfege" class="cta-button">Découvrir les formations solfège</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .category-hero {
+    padding: 6rem 0 4rem;
+    background: linear-gradient(135deg, var(--theme-solfege) 0%, var(--theme-solfege-dark) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .category-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .hub-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.25rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .hub-section {
+    padding: 4rem 0;
+  }
+
+  .section-alt {
+    background: #f8f9fa;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--color-dark);
+    opacity: 0.7;
+    margin-bottom: 3rem;
+  }
+
+  .posts-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .post-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .post-card a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .post-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .post-content {
+    padding: 1.5rem;
+  }
+
+  .post-badges {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .badge-level {
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+
+  .badge-category {
+    background: #f3e5f5;
+    color: #7b1fa2;
+  }
+
+  .post-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: var(--theme-solfege);
+  }
+
+  .post-content p {
+    color: var(--color-dark);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .post-content time {
+    font-size: 0.85rem;
+    color: var(--color-dark);
+    opacity: 0.6;
+  }
+
+  .hub-cta {
+    background: linear-gradient(135deg, var(--theme-solfege) 0%, var(--theme-solfege-dark) 100%);
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .hub-cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hub-cta p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: white;
+    color: var(--theme-solfege);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .category-hero h1 {
+      font-size: 2rem;
+    }
+
+    .posts-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .hub-stats {
+      gap: 1rem;
+    }
+
+    .stat-card {
+      padding: 0.75rem 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>

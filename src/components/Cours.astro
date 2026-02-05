@@ -3,38 +3,50 @@ const cours = [
   {
     titre: "Cours de Guitare",
     description: "Apprenez à jouer de la guitare avec des cours adaptés à votre niveau",
-    image: "/images/cours/cours-de-guitare.jpg",
-    couleur: "var(--color-primary)",
+    image: "/images/cours/cours-de-guitare.webp",
+    alt: "Apprendre la guitare en ligne avec Fred Fieffé - Formation complète avec 400+ vidéos pour maîtriser les accords, les rythmiques et les techniques avancées. Méthode progressive pour débutants et intermédiaires.",
+    couleur: "var(--guitar-500)",
+    couleurLight: "var(--guitar-300)",
     icon: "🎸",
     features: ["Accords de base", "Techniques avancées", "Notes et gammes"],
-    url: "/cours/cours-de-guitare"
+    url: "/cours/cours-de-guitare",
+    theme: "guitar"
   },
   {
     titre: "Cours de Piano",
     description: "Découvrez le piano à travers des leçons personnalisées",
-    image: "/images/cours/cours-de-piano.jpg",
-    couleur: "var(--color-piano)",
+    image: "/images/cours/cours-de-piano.webp",
+    alt: "Cours de piano en ligne par Fred Fieffé - Apprenez à lire les partitions, maîtriser les accords et jouer vos morceaux préférés. Plus de 300 leçons vidéo pour tous niveaux, du débutant à l'intermédiaire.",
+    couleur: "var(--piano-500)",
+    couleurLight: "var(--piano-300)",
     icon: "🎹",
     features: ["Lecture de partitions", "Technique des doigts", "Harmonie"],
-    url: "/cours/cours-de-piano"
+    url: "/cours/cours-de-piano",
+    theme: "piano"
   },
   {
     titre: "Cours de Ukulélé",
     description: "Initiez-vous au ukulélé dans une ambiance décontractée",
-    image: "/images/cours/cours-de-ukulele.jpg",
-    couleur: "var(--color-ukulele)",
+    image: "/images/cours/cours-de-ukulele.webp",
+    alt: "Formation ukulélé en ligne avec Fred Fieffé - Méthode simple et ludique pour apprendre les accords, les rythmiques et jouer vos premières chansons en quelques jours. Plus de 200 leçons pour débutants.",
+    couleur: "var(--ukulele-500)",
+    couleurLight: "var(--ukulele-300)",
     icon: "🏖️",
     features: ["Accords simples", "Rythmiques", "Shuffle"],
-    url: "/cours/cours-de-ukulele"
+    url: "/cours/cours-de-ukulele",
+    theme: "ukulele"
   },
   {
     titre: "Cours de Solfège",
     description: "Maîtrisez les bases de la théorie musicale",
-    image: "/images/cours/cours-de-solfege.jpg",
-    couleur: "var(--color-solfege)",
+    image: "/images/cours/cours-de-solfege.webp",
+    alt: "Cours de solfège en ligne par Fred Fieffé - Apprenez à lire les notes, comprendre les rythmes et maîtriser le cycle des quintes avec une approche progressive et pratique. Plus de 150 leçons vidéo.",
+    couleur: "var(--solfege-500)",
+    couleurLight: "var(--solfege-300)",
     icon: "🎼",
     features: ["Lecture de notes", "Rythme", "Cycle des Quintes "],
-    url: "/cours/cours-de-solfege"
+    url: "/cours/cours-de-solfege",
+    theme: "solfege"
   }
 ];
 ---
@@ -48,9 +60,9 @@ const cours = [
 
     <div class="cours-grid">
       {cours.map(cours => (
-        <a href={cours.url} class="cours-card" style={`--cours-color: ${cours.couleur}`}>
+        <a href={cours.url} class={`cours-card card-${cours.theme}`} style={`--cours-color: ${cours.couleur}; --cours-color-light: ${cours.couleurLight}`}>
           <div class="cours-image-wrapper">
-            <img src={cours.image} alt={cours.titre} />
+            <img src={cours.image} alt={cours.alt} loading="lazy" />
             <div class="cours-overlay">
               <span class="cours-icon">{cours.icon}</span>
             </div>
@@ -83,14 +95,14 @@ const cours = [
 <style>
   .cours {
     background: var(--bg-light);
-    padding: 8rem 0;
+    padding: var(--section-padding);
   }
 
   .cours-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin-top: 4rem;
+    gap: var(--card-gap);
+    margin-top: var(--section-gap);
   }
 
   .cours-card {
@@ -119,11 +131,32 @@ const cours = [
 
   .cours-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   }
 
   .cours-card:hover::before {
     transform: scaleX(1);
+  }
+
+  /* Variantes de couleurs améliorées */
+  .card-guitar:hover {
+    border-color: var(--guitar-300);
+    box-shadow: var(--shadow-guitar);
+  }
+
+  .card-piano:hover {
+    border-color: var(--piano-300);
+    box-shadow: var(--shadow-piano);
+  }
+
+  .card-ukulele:hover {
+    border-color: var(--ukulele-300);
+    box-shadow: var(--shadow-ukulele);
+  }
+
+  .card-solfege:hover {
+    border-color: var(--solfege-300);
+    box-shadow: 0 20px 40px rgba(190, 10, 0, 0.25);
   }
 
   .cours-image-wrapper {

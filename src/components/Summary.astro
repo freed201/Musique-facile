@@ -1,0 +1,74 @@
+---
+interface Props {
+  links: {
+    url: string;
+    title: string;
+    icon: string;
+    color: string;
+    textColor?: string;
+  }[];
+}
+
+const { links } = Astro.props;
+---
+
+<div class="summary">
+  <h3 class="summary-title">📖 Sommaire</h3>
+  <div class="summary-grid">
+    {links.map(link => (
+      <a href={link.url} class="summary-link" style={`--link-color: ${link.color}; --text-color: ${link.textColor || '#333'};`}>
+        <span class="link-icon">{link.icon}</span>
+        <span class="link-text">{link.title}</span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .summary {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .summary-title {
+    text-align: center;
+    color: var(--color-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .summary-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--link-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .summary-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .link-icon {
+    font-size: 1.2rem;
+  }
+
+  .link-text {
+    flex: 1;
+    text-align: center;
+  }
+</style>

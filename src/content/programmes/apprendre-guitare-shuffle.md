@@ -2,7 +2,7 @@
 # Data SEO
 title: "Cours Swing & Groove : L'Essentiel du Shuffle à la Guitare"
 description: "Formation pour apprendre à jouer le shuffle à la guitare : exploration des bases du groove, entraînements rythmiques et accompagnements pour perfectionner votre jeu."
-ogImage: "/images/cours/swing-groove-shuffle-guitare/hero.jpg"
+ogImage: "/images/cours/swing-groove-shuffle-guitare/hero.webp"
 theme: "guitare"
 lienAchat: "https://ecole.musique-facile.fr/swing-groove-l-essentiel-du-shuffle-a-la-guitare/buy"
 author: "Musique Facile"

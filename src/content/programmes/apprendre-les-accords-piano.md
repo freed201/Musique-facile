@@ -2,7 +2,7 @@
 # Data SEO
 title: "Maitriser les accords au piano"
 description: "Apprenez à maîtriser les accords au piano grâce à cette formation complète. Des vidéos explicatives, des exercices pratiques et des applications sur le clavier pour une progression assurée."
-ogImage: "/images/cours/apprendre-les-accords-piano/hero.jpg"
+ogImage: "/images/cours/apprendre-les-accords-piano/hero.webp"
 theme: "piano"
 lienAchat: "https://ecole.musique-facile.fr/maitriser-accords-piano/buy"
 author: "Musique Facile"

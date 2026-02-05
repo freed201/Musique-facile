@@ -3,54 +3,285 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 
 // Récupérer uniquement les cours de ukulélé
 const allCourses = await getCollection('courses');
-const ukuleleCourses = allCourses
+const ukeleleCourses = allCourses
   .filter(course => course.data.theme === 'ukulele' && course.data.affichage === 'Y')
   .sort((a, b) => a.data.classement - b.data.classement);
+
+// Construction de l'URL canonique
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://musique-facile.fr').toString();
+
+// Métadonnées pour la page
+const title = "Cours d'Ukulélé en Ligne | Musique Facile";
+const description = "Apprends l'ukulélé avec Fred Fieffé : 250+ leçons vidéo HD, méthode progressive, accords simples et rythmiques. 80 000+ élèves formés depuis 2015. L'instrument le plus facile pour débuter. Essai gratuit 7 jours.";
+
+// Schema.org pour le fil d'Ariane
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://musique-facile.fr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Cours",
+      "item": "https://musique-facile.fr/cours/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Cours d'Ukulélé",
+      "item": canonicalURL
+    }
+  ]
+};
 
 // Schema.org pour la liste des cours
 const coursesSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "itemListElement": ukuleleCourses.map((course, index) => ({
+  "name": "Cours d'Ukulélé en Ligne",
+  "description": "Formation complète pour apprendre l'ukulélé, des bases aux techniques avancées",
+  "url": canonicalURL,
+  "inLanguage": "fr",
+  "itemListElement": ukeleleCourses.map((course, index) => ({
     "@type": "ListItem",
     "position": index + 1,
     "item": {
       "@type": "Course",
+      "@id": `https://musique-facile.fr/cours/${course.slug}#course`,
       "name": course.data.title,
       "description": course.data.description,
       "provider": {
         "@type": "Organization",
         "name": "Musique Facile",
         "sameAs": "https://musique-facile.fr"
-      }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": course.data.hasCourseInstance?.offers?.price || "79.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": `https://musique-facile.fr/cours/${course.slug}`
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "duration": course.data.hasCourseInstance?.duration || "P3M",
+        "offers": {
+          "@type": "Offer",
+          "price": course.data.hasCourseInstance?.offers?.price || "79.00",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      "inLanguage": "fr",
+      "url": `https://musique-facile.fr/cours/${course.slug}`
     }
   }))
 };
+
+// JSON-LD pour le cours principal
+const courseLDSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": "https://musique-facile.fr/cours/cours-de-ukulele#course",
+  "name": "Cours d'Ukulélé en Ligne",
+  "description": "Apprends l'ukulélé en ligne à ton rythme avec des cours clairs et motivants. Idéal pour débuter facilement, où tu veux, quand tu veux, sans aucune pression.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Musique Facile",
+    "url": "https://musique-facile.fr"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": canonicalURL,
+    "price": "79.00",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "startDate": new Date().toISOString().split('T')[0],
+    "endDate": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+    "location": {
+      "@type": "VirtualLocation",
+      "url": canonicalURL
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "79.00",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    }
+  },
+  "inLanguage": "fr",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalURL
+  }
+};
+
+// FAQ Schema pour la page de cours d'ukulélé
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "L'ukulélé est-il facile à apprendre pour un adulte débutant ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolument ! L'ukulélé est considéré comme l'un des instruments les plus faciles à apprendre, même pour un adulte n'ayant jamais pratiqué de musique. Son manche étroit, ses 4 cordes douces et ses accords simples permettent de jouer des chansons dès les premières semaines d'apprentissage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il connaître le solfège pour suivre les cours ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, aucune connaissance en solfège n'est nécessaire. Nos cours sont conçus pour être accessibles à tous, avec des diagrammes d'accords visuels et des tablatures intuitives. Vous apprendrez à jouer sans avoir besoin de lire une partition traditionnelle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel type d'ukulélé dois-je acheter pour commencer ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pour débuter, nous recommandons un ukulélé soprano ou concert de qualité moyenne (entre 40€ et 80€). Ces formats sont les plus courants et parfaits pour apprendre. Nous donnons des conseils d'achat détaillés dans le premier module de notre formation pour vous aider à choisir l'instrument qui vous convient."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps faut-il pour jouer une chanson simple ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avec seulement 15 minutes de pratique quotidienne, vous pourrez jouer votre première chanson complète en 1 à 2 semaines. L'ukulélé permet un apprentissage rapide et gratifiant, c'est pourquoi il est si apprécié des débutants."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les cours sont-ils adaptés aux enfants ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, nos cours conviennent aux enfants à partir de 8 ans environ. L'ukulélé est parfait pour les jeunes grâce à sa petite taille et ses cordes douces. Nous proposons également des parcours spécifiques pour les enfants avec une pédagogie ludique et adaptée."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je suivre les leçons depuis mon téléphone ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tout à fait ! Notre plateforme est entièrement responsive et optimisée pour tous les appareils. Vous pouvez suivre les cours depuis votre smartphone, tablette ou ordinateur, où que vous soyez."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Y a-t-il un suivi de progression ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, notre plateforme inclut un système de suivi qui vous permet de marquer les leçons comme complétées et de visualiser votre progression. Des quiz réguliers vous aident également à vérifier vos acquis tout au long de votre parcours d'apprentissage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quels styles musicaux peut-on jouer à l'ukulélé ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'ukulélé est extrêmement polyvalent ! Vous pourrez jouer du hawaiien bien sûr, mais aussi du pop, rock, folk, jazz, et même des morceaux classiques. Nos cours explorent différents styles pour enrichir votre répertoire et votre technique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les accords sont-ils expliqués pas à pas ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolument ! Chaque accord est décomposé en détail, avec des gros plans sur le placement des doigts et des astuces pour faciliter la transition entre les positions. Nous avons développé une méthode progressive où chaque nouvel accord s'appuie sur ce que vous maîtrisez déjà."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que je peux apprendre seul sans professeur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, nos cours en ligne sont conçus pour un apprentissage autonome réussi. Les explications sont détaillées et visuelles, et vous pouvez revoir chaque leçon autant de fois que nécessaire. De plus, notre équipe est disponible par email pour répondre à vos questions si vous rencontrez des difficultés."
+      }
+    }
+  ]
+};
 ---
 
-<Layout title="Cours de Ukulélé - Musique Facile">
+<Layout title={title}>
+  <head>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="cours d'ukulélé en ligne, apprendre l'ukulélé facilement, cours d'ukulélé pour débutants, leçons ukulélé à distance, formation ukulélé interactive" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://musique-facile.fr/images/og-cours-ukulele.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://musique-facile.fr/images/og-cours-ukulele.jpg" />
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(coursesSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(courseLDSchema)} />
+  </head>
+
   <Header />
   
-  <script type="application/ld+json" set:html={JSON.stringify(coursesSchema)} />
-
   <main>
+    <!-- Fil d'Ariane -->
+    <BreadcrumbNav 
+      items={[
+        { name: "Accueil", url: "/" },
+        { name: "Cours", url: "/cours" },
+        { name: "Cours d'Ukulélé", url: "/cours/cours-de-ukulele" }
+      ]}
+    />
+    
     <section class="courses-hero theme-ukulele">
       <div class="hero-background" style="background-image: url('/images/cours/hero-ukulele.jpg')"></div>
       <div class="hero-overlay"></div>
       <div class="container">
-        <h1>Cours de Ukulélé</h1>
-        <p class="subtitle">Découvrez nos formations pour apprendre le ukulélé à votre rythme</p>
+        <h1>Cours d'Ukulélé en Ligne</h1>
+        <p class="subtitle">Apprends l'ukulélé en ligne à ton rythme avec des cours clairs et motivants. Idéal pour débuter facilement, où tu veux, quand tu veux, sans aucune pression.</p>
+        <div class="hero-cta">
+          <a href="#courses-list" class="cta-button">
+            Découvrir nos formations
+            <span class="cta-arrow">↓</span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="courses-grid">
+    <section class="courses-grid" id="courses-list">
       <div class="container">
+        <h2 class="section-title">Nos Cours d'Ukulélé</h2>
+        <p class="section-subtitle">Du débutant à l'expert, nous t'accompagnons à chaque étape de ton apprentissage</p>
+        
         <div class="courses-wrapper">
-          {ukuleleCourses.map(course => (
-            <article class="course-card">
+          {ukeleleCourses.map((course, index) => (
+            <article class="course-card" id={`course-${index + 1}`}>
               <a href={`/cours/${course.slug}`} class="course-link">
                 <div class="course-image" style={`background-image: url(${course.data.ogImage})`}>
                   <div class="course-meta">
@@ -65,6 +296,10 @@ const coursesSchema = {
                 <div class="course-content">
                   <h2>{course.data.title}</h2>
                   <p>{course.data.description}</p>
+                  <div class="course-details">
+                    <span class="course-price">{course.data.hasCourseInstance?.offers?.price || "79 €"}</span>
+                    <span class="course-duration">{course.data.hasCourseInstance?.duration ? `Durée: ${course.data.hasCourseInstance.duration}` : "Accès illimité"}</span>
+                  </div>
                   <span class="cta-button">
                     Découvrir le cours
                     <span class="arrow">→</span>
@@ -74,10 +309,182 @@ const coursesSchema = {
             </article>
           ))}
         </div>
+      </div>
+    </section>
 
-        <div class="all-courses-cta">
-          <a href="/cours" class="btn-all-courses">
-            Découvrez tous nos cours
+    <!-- Section Pourquoi Apprendre l'Ukulélé en Ligne -->
+    <section class="why-online">
+      <div class="container">
+        <h2 class="section-title">Pourquoi apprendre l'ukulélé en ligne ?</h2>
+        
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">🌈</div>
+            <h3>Simple et joyeux</h3>
+            <p>L'ukulélé est l'un des instruments les plus faciles à apprendre, avec des résultats rapides et gratifiants.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">⏱️</div>
+            <h3>À ton rythme</h3>
+            <p>Progresse quand tu le souhaites, revois les leçons autant que nécessaire, sans stress ni pression.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">🎬</div>
+            <h3>Cours visuels</h3>
+            <p>Des vidéos claires qui montrent précisément le placement des doigts et les techniques de jeu.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">🎵</div>
+            <h3>Résultats rapides</h3>
+            <p>Joue tes premières mélodies en quelques jours seulement, même sans connaissance musicale préalable.</p>
+          </div>
+        </div>
+        
+        <div class="online-learning-description">
+          <p>L'ukulélé est un instrument simple, joyeux et parfait pour commencer la musique. Grâce aux cours en ligne, tu avances à ton rythme, sans stress, avec des vidéos courtes, des diagrammes clairs et des exercices faciles à suivre. Tu peux rejouer les leçons autant que tu veux et progresser quand tu as le temps. Pas besoin de lire la musique, tout est pensé pour les débutants. L'apprentissage est ludique, rapide, et te permet de jouer tes premières mélodies dès les premières sessions. C'est l'instrument idéal pour se faire plaisir et se détendre.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title">Questions fréquentes</h2>
+        
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>L'ukulélé est-il facile à apprendre pour un adulte débutant ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Absolument ! L'ukulélé est considéré comme l'un des instruments les plus faciles à apprendre, même pour un adulte n'ayant jamais pratiqué de musique. Son manche étroit, ses 4 cordes douces et ses accords simples permettent de jouer des chansons dès les premières semaines d'apprentissage.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Faut-il connaître le solfège pour suivre les cours ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Non, aucune connaissance en solfège n'est nécessaire. Nos cours sont conçus pour être accessibles à tous, avec des diagrammes d'accords visuels et des tablatures intuitives. Vous apprendrez à jouer sans avoir besoin de lire une partition traditionnelle.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Quel type d'ukulélé dois-je acheter pour commencer ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Pour débuter, nous recommandons un ukulélé soprano ou concert de qualité moyenne (entre 40€ et 80€). Ces formats sont les plus courants et parfaits pour apprendre. Nous donnons des conseils d'achat détaillés dans le premier module de notre formation pour vous aider à choisir l'instrument qui vous convient.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Combien de temps faut-il pour jouer une chanson simple ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Avec seulement 15 minutes de pratique quotidienne, vous pourrez jouer votre première chanson complète en 1 à 2 semaines. L'ukulélé permet un apprentissage rapide et gratifiant, c'est pourquoi il est si apprécié des débutants.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Les cours sont-ils adaptés aux enfants ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Oui, nos cours conviennent aux enfants à partir de 8 ans environ. L'ukulélé est parfait pour les jeunes grâce à sa petite taille et ses cordes douces. Nous proposons également des parcours spécifiques pour les enfants avec une pédagogie ludique et adaptée.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Puis-je suivre les leçons depuis mon téléphone ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Tout à fait ! Notre plateforme est entièrement responsive et optimisée pour tous les appareils. Vous pouvez suivre les cours depuis votre smartphone, tablette ou ordinateur, où que vous soyez.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Y a-t-il un suivi de progression ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Oui, notre plateforme inclut un système de suivi qui vous permet de marquer les leçons comme complétées et de visualiser votre progression. Des quiz réguliers vous aident également à vérifier vos acquis tout au long de votre parcours d'apprentissage.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Quels styles musicaux peut-on jouer à l'ukulélé ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>L'ukulélé est extrêmement polyvalent ! Vous pourrez jouer du hawaiien bien sûr, mais aussi du pop, rock, folk, jazz, et même des morceaux classiques. Nos cours explorent différents styles pour enrichir votre répertoire et votre technique.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Les accords sont-ils expliqués pas à pas ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Absolument ! Chaque accord est décomposé en détail, avec des gros plans sur le placement des doigts et des astuces pour faciliter la transition entre les positions. Nous avons développé une méthode progressive où chaque nouvel accord s'appuie sur ce que vous maîtrisez déjà.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="question-wrapper">
+              <h3>Est-ce que je peux apprendre seul sans professeur ?</h3>
+              <div class="toggle-icon">
+                <span class="plus-minus"></span>
+              </div>
+            </div>
+            <div class="answer">
+              <p>Oui, nos cours en ligne sont conçus pour un apprentissage autonome réussi. Les explications sont détaillées et visuelles, et vous pouvez revoir chaque leçon autant de fois que nécessaire. De plus, notre équipe est disponible par email pour répondre à vos questions si vous rencontrez des difficultés.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Prêt à découvrir le plaisir de jouer de l'ukulélé ?</h2>
+          <p>Rejoins des milliers d'élèves qui apprennent l'ukulélé avec nos cours en ligne</p>
+          <a href="#courses-list" class="btn-all-courses">
+            Voir nos formations d'ukulélé
             <span class="arrow">→</span>
           </a>
         </div>
@@ -89,6 +496,7 @@ const coursesSchema = {
 </Layout>
 
 <style>
+  /* Hero Section */
   .courses-hero {
     padding: 8rem 0 4rem;
     background: linear-gradient(135deg, var(--theme-ukulele) 0%, var(--theme-ukulele-dark) 100%);
@@ -110,7 +518,7 @@ const coursesSchema = {
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
     z-index: 1;
   }
 
@@ -128,12 +536,45 @@ const coursesSchema = {
   .subtitle {
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
   }
 
+  .hero-cta {
+    margin-top: 2rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    color: var(--theme-ukulele);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover .cta-arrow {
+    transform: translateY(3px);
+  }
+
+  /* Courses Section */
   .courses-grid {
-    padding: 4rem 0;
+    padding: 6rem 0;
     background: var(--bg-light);
   }
 
@@ -141,6 +582,23 @@ const coursesSchema = {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--theme-ukulele);
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
   }
 
   .courses-wrapper {
@@ -151,22 +609,27 @@ const coursesSchema = {
   }
 
   .course-card {
-    background: white;
+    background: #ffffff !important;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .course-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   }
 
   .course-link {
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   .course-image {
@@ -180,6 +643,8 @@ const coursesSchema = {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    display: flex;
+    gap: 0.5rem;
   }
 
   .best-seller-tag {
@@ -193,10 +658,20 @@ const coursesSchema = {
     font-weight: 600;
     color: #000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
   }
 
   .course-content {
     padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   .course-content h2 {
@@ -207,20 +682,37 @@ const coursesSchema = {
   }
 
   .course-content p {
-    color: var(--color-dark);
-    opacity: 0.8;
+    color: #333333 !important;
     margin-bottom: 1.5rem;
     line-height: 1.6;
     font-size: 0.95rem;
+    flex: 1;
   }
 
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+  .course-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .course-price {
+    font-weight: 700;
     color: var(--theme-ukulele);
-    font-weight: 600;
-    transition: all 0.3s ease;
+  }
+
+  .course-duration {
+    color: var(--color-dark);
+    opacity: 0.7;
+  }
+
+  .course-content .cta-button {
+    align-self: flex-start;
+    margin-top: auto;
+    background: var(--theme-ukulele);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 
   .arrow {
@@ -231,35 +723,213 @@ const coursesSchema = {
     transform: translateX(5px);
   }
 
-  .all-courses-cta {
+  /* Why Learn Ukulele Online Section */
+  .why-online {
+    padding: 6rem 0;
+    background: white;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .benefit-card {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: var(--border-radius);
     text-align: center;
-    margin-top: 4rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--theme-ukulele);
+  }
+
+  .benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .benefit-card h3 {
+    color: var(--theme-ukulele);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .benefit-card p {
+    color: var(--color-dark);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .online-learning-description {
+    background: rgba(var(--theme-ukulele-rgb), 0.05);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--theme-ukulele);
+  }
+
+  .online-learning-description p {
+    color: var(--color-dark);
+    line-height: 1.8;
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 6rem 0;
+    background: var(--bg-light);
+  }
+
+  .faq-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .faq-item:hover {
+    border-color: var(--theme-ukulele);
+  }
+
+  .question-wrapper {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .question-wrapper h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    padding-right: 2rem;
+  }
+
+  .toggle-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .plus-minus {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--theme-ukulele);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+  }
+
+  .plus-minus::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: var(--theme-ukulele);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+  }
+
+  .faq-item.active .plus-minus::after {
+    transform: translateX(-50%) scaleY(0);
+  }
+
+  .answer {
+    padding: 0 1.5rem;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .answer p {
+    padding-bottom: 1.5rem;
+    margin: 0;
+    color: var(--color-dark);
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  .faq-item.active .answer {
+    height: auto;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--theme-ukulele) 0%, var(--theme-ukulele-dark) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
   }
 
   .btn-all-courses {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--theme-ukulele);
-    color: white;
+    background: white;
+    color: var(--theme-ukulele);
     padding: 1rem 2rem;
     border-radius: var(--border-radius);
     text-decoration: none;
     font-weight: 600;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
   }
 
   .btn-all-courses:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
 
   .btn-all-courses:hover .arrow {
     transform: translateX(5px);
   }
 
+  /* Responsive Styles */
   @media (max-width: 1200px) {
     .courses-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .benefits-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
@@ -272,5 +942,81 @@ const coursesSchema = {
     .courses-wrapper {
       grid-template-columns: 1fr;
     }
+    
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .courses-hero h1 {
+      font-size: 2rem;
+    }
+    
+    .subtitle {
+      font-size: 1rem;
+    }
+    
+    .course-content {
+      padding: 1.5rem;
+    }
+    
+    .benefit-card {
+      padding: 1.5rem;
+    }
   }
 </style>
+
+<script>
+  // FAQ Toggle functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const questionWrapper = item.querySelector('.question-wrapper');
+      
+      questionWrapper.addEventListener('click', () => {
+        // Check if this item is already active
+        const isActive = item.classList.contains('active');
+        
+        // Close all items
+        faqItems.forEach(faqItem => {
+          faqItem.classList.remove('active');
+          const answer = faqItem.querySelector('.answer');
+          answer.style.height = '0';
+        });
+        
+        // If the clicked item wasn't active, open it
+        if (!isActive) {
+          item.classList.add('active');
+          const answer = item.querySelector('.answer');
+          answer.style.height = answer.scrollHeight + 'px';
+        }
+      });
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>
