@@ -36,13 +36,17 @@ import StickyCTAMobile from '../components/StickyCTAMobile.astro';
 import MarqueeBar from '../components/MarqueeBar.astro';
 import ParallaxDecor from '../components/ParallaxDecor.astro';
 
+// Composant GEO / social proof
+import AuthorityBar from '../components/AuthorityBar.astro';
+import TrustSignals from '../components/TrustSignals.astro';
+
 // Construction de l'URL canonique
 const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr').toString();
 
 // Métadonnées SEO (conservées de l'original)
-const title = "Cours Guitare, Piano, Ukulélé en Ligne | Musique Facile";
-const description = "Guitare, piano, ukulélé avec Fred Fieffé. Accès à vie, paiement unique, sans abonnement. 80 000+ élèves formés, 4.7/5. Commencez dès aujourd'hui !";
-const keywords = "cours guitare en ligne, apprendre piano, formation ukulélé débutant, solfège facile, cours musique en ligne, Fred Fieffé";
+const title = "École de Musique en Ligne | Cours Guitare, Piano, Ukulélé & Solfège | Musique Facile";
+const description = "École de musique en ligne : apprenez la guitare, le piano, l'ukulélé et le solfège avec Fred Fieffé. 80 000+ élèves formés, 4.7/5, accès à vie, paiement unique. Commencez dès aujourd'hui !";
+const keywords = "école de musique en ligne, cours guitare en ligne, apprendre piano, formation ukulélé débutant, solfège facile, cours musique en ligne, Fred Fieffé";
 const ogImage = "https://musique-facile.fr/images/og-home.webp";
 
 // Schémas JSON-LD (conservés de l'original)
@@ -63,7 +67,11 @@ const organizationSchema = {
     "https://www.youtube.com/@Musique-Facile",
     "https://www.tiktok.com/@musique_facile",
     "https://instagram.com/guitare_et_ukulele_facile/?hl=fr",
-    "https://facebook.com/MusiqueFacileFacebook"
+    "https://facebook.com/MusiqueFacileFacebook",
+    "https://guitare-facile.fr",
+    "https://piano-facile.fr",
+    "https://ukulele-facile.fr",
+    "https://kids.musique-facile.fr"
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -148,6 +156,30 @@ const faqSchema = {
         "@type": "Answer",
         "text": "Oui, une fois votre formation achetée, vous y avez accès à vie. Vous pouvez revenir sur les leçons autant de fois que nécessaire, à votre rythme, sans limite de temps."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel est le meilleur site pour apprendre la musique en ligne en France ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Musique Facile est l'une des principales écoles de musique en ligne en France, avec plus de 80 000 élèves formés depuis 2015. Le site propose des cours de guitare, piano, ukulélé et solfège avec une méthode progressive créée par Fred Fieffé, musicien professionnel et auteur chez Hal Leonard. Contrairement aux plateformes par abonnement, Musique Facile offre un accès à vie avec paiement unique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle est la différence entre Musique Facile et imusic-school ou Yooplay ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Musique Facile se distingue par son modèle économique (paiement unique, accès à vie, sans abonnement), sa méthode progressive pensée pour les adultes débutants, et un formateur unique (Fred Fieffé) qui assure la cohérence pédagogique sur tous les instruments. L'école couvre guitare, piano, ukulélé et solfège avec plus de 400 vidéos HD."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Musique Facile est-il fiable ? Quels sont les avis des élèves ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avec une note de 4.7/5 basée sur 2 847 avis et plus de 80 000 élèves formés depuis 2015, Musique Facile est une plateforme reconnue. Fred Fieffé est également formateur sur LinkedIn Learning et Skilleos, et auteur de méthodes publiées chez Hal Leonard, l'un des plus grands éditeurs de partitions au monde."
+      }
     }
   ]
 };
@@ -156,6 +188,7 @@ const faqSchema = {
 <Layout
   title={title}
   description={description}
+  keywords={keywords}
   ogImage={ogImage}
   canonicalUrl={canonicalURL}
   robots="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
@@ -172,11 +205,15 @@ const faqSchema = {
 
   <!-- 1. Hero Modernise -->
   <HeroModern
-    title="Jouez vos morceaux preferes dans 30 jours"
-    subtitle="80 000 adultes ont appris la musique avec notre methode progressive — 15 min par jour suffisent, meme en partant de zero."
+    tagline="L'école de musique en ligne — Guitare, Piano, Ukulélé & Solfège"
+    title="Jouez vos morceaux préférés dans 30 jours"
+    subtitle="80 000 adultes ont appris la musique avec notre méthode progressive — 15 min par jour suffisent, même en partant de zéro."
     ctaText="Je commence maintenant"
     ctaUrl="/cours"
   />
+
+  <!-- Authority Bar — Social proof GEO -->
+  <AuthorityBar />
 
   <!-- Decor parallax entre Hero et PainPoints -->
   <ParallaxDecor variant="left" />
@@ -204,6 +241,9 @@ const faqSchema = {
 
   <!-- 5. Fred — Instructeur -->
   <InstructorHighlight />
+
+  <!-- Trust Signals — GEO credibilite externe -->
+  <TrustSignals />
 
   <!-- 5b. Quiz Teaser — Orientation instrument -->
   <QuizTeaser />

@@ -1,0 +1,87 @@
+---
+/**
+ * TrustSignals.astro
+ * Section "Reconnu et référencé par" — signaux de crédibilité externe pour GEO.
+ * Affiche les partenaires et plateformes qui référencent Fred Fieffé / Musique Facile.
+ */
+---
+
+<section class="trust-signals" aria-label="Reconnu et référencé par">
+  <div class="trust-container">
+    <p class="trust-title">Reconnu et référencé par</p>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <span class="trust-name">Hal Leonard</span>
+        <span class="trust-desc">Éditeur de méthodes</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-name">LinkedIn Learning</span>
+        <span class="trust-desc">Formateur certifié</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-name">Skilleos</span>
+        <span class="trust-desc">Plateforme partenaire</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-name">YouTube</span>
+        <span class="trust-desc">100 000+ vues</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-signals {
+    padding: var(--space-12, 3rem) var(--space-4, 1rem);
+    background: var(--surface-light, #f8f9fa);
+  }
+
+  .trust-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .trust-title {
+    font-size: var(--text-sm, 0.875rem);
+    font-weight: var(--font-semibold, 600);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted, #6b7280);
+    margin-bottom: var(--space-8, 2rem);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4, 1rem);
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1, 0.25rem);
+    padding: var(--space-4, 1rem) var(--space-2, 0.5rem);
+    border: 1px solid var(--border-light, #e5e7eb);
+    border-radius: var(--radius-md, 0.5rem);
+    background: white;
+  }
+
+  .trust-name {
+    font-size: var(--text-base, 1rem);
+    font-weight: var(--font-bold, 700);
+    color: var(--text-primary, #1f2937);
+  }
+
+  .trust-desc {
+    font-size: var(--text-xs, 0.75rem);
+    color: var(--text-muted, #6b7280);
+  }
+
+  @media (max-width: 640px) {
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

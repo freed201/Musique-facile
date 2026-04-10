@@ -38,7 +38,7 @@ const currentYear = new Date().getFullYear();
           <span class="logo-text">Musique Facile</span>
         </a>
         <p class="footer-tagline">
-          Apprenez la guitare, le piano et l'ukulélé à votre rythme avec Fred Fieffé.
+          Apprenez la guitare, le piano, l'ukulélé et le solfège à votre rythme avec Fred Fieffé.
         </p>
         <div class="footer-social">
           {socialLinks.map((link) => (
@@ -102,6 +102,20 @@ const currentYear = new Date().getFullYear();
           </ul>
         </div>
       </nav>
+    </div>
+
+    <!-- Ecosysteme Musique Facile -->
+    <div class="footer-ecosystem">
+      <div class="footer-ecosystem-inner">
+        <p class="ecosystem-title">L'univers Musique Facile</p>
+        <p class="ecosystem-text">
+          Un m&ecirc;me professeur, une m&ecirc;me m&eacute;thode, plusieurs instruments :
+          <a href="https://guitare-facile.fr" target="_blank" rel="noopener">Guitare-Facile.fr</a> &middot;
+          <a href="https://piano-facile.fr" target="_blank" rel="noopener">Piano-Facile.fr</a> &middot;
+          <a href="https://ukulele-facile.fr" target="_blank" rel="noopener">Ukul&eacute;l&eacute;-Facile.fr</a> &middot;
+          <a href="https://kids.musique-facile.fr" target="_blank" rel="noopener">Kids.Musique-Facile.fr</a>
+        </p>
+      </div>
     </div>
 
     <!-- Bottom Section -->
@@ -235,6 +249,48 @@ const currentYear = new Date().getFullYear();
 
   .footer-col a:hover {
     color: var(--brand-400);
+  }
+
+  /* Ecosystem Section */
+  .footer-ecosystem {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--space-6) 0;
+    margin-top: var(--space-2);
+    text-align: center;
+  }
+
+  .footer-ecosystem-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ecosystem-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: var(--space-2);
+  }
+
+  .ecosystem-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+  }
+
+  .ecosystem-text a {
+    color: var(--brand-400);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .ecosystem-text a:hover {
+    color: var(--brand-300);
+    text-decoration: underline;
   }
 
   /* Bottom Section */

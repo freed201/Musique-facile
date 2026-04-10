@@ -9,6 +9,7 @@ import Icon from './Icon.astro';
 interface Props {
   title?: string;
   subtitle?: string;
+  tagline?: string;
   ctaText?: string;
   ctaUrl?: string;
   videoUrl?: string;
@@ -18,6 +19,7 @@ interface Props {
 const {
   title = "Apprenez la musique en 15 min par jour",
   subtitle = "Rejoignez 80 000 musiciens qui ont transformé leur passion en réalité avec notre méthode progressive.",
+  tagline,
   ctaText = "Essayer gratuitement",
   ctaUrl = "/cours",
   videoUrl = "#",
@@ -39,6 +41,9 @@ const {
         <span class="badge-icon">★</span>
         <span class="badge-text">4.7/5 sur 2 847 avis</span>
       </div>
+
+      <!-- Tagline GEO (positionnement ecole de musique en ligne) -->
+      {tagline && <p class="hero-tagline">{tagline}</p>}
 
       <!-- Titre principal -->
       <h1 class="hero-title">{title}</h1>
@@ -242,6 +247,18 @@ const {
     color: rgba(255, 255, 255, 0.9);
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
+  }
+
+  /* Tagline GEO */
+  .hero-tagline {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--brand-300, #c4b5fd);
+    margin-bottom: var(--space-4);
   }
 
   /* Title */

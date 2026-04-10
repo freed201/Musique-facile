@@ -1,0 +1,162 @@
+---
+/**
+ * AuthorityBar.astro
+ * Barre de signaux d'autorite / social proof — GEO optimisation
+ * Affiche 4 indicateurs de credibilite sous le hero de la homepage
+ * 4 colonnes desktop, grille 2x2 mobile
+ */
+---
+
+<section class="authority-bar" aria-label="Indicateurs de confiance">
+  <div class="authority-container">
+
+    <div class="authority-item">
+      <div class="authority-icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+          <path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5"/>
+        </svg>
+      </div>
+      <div class="authority-text">
+        <span class="authority-value">80 000+</span>
+        <span class="authority-label">élèves formés</span>
+      </div>
+    </div>
+
+    <div class="authority-item">
+      <div class="authority-icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor" opacity="0.15"/>
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div class="authority-text">
+        <span class="authority-value">4.7/5 <span class="authority-stars" aria-label="4.7 étoiles sur 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+        <span class="authority-label">satisfaction élèves</span>
+      </div>
+    </div>
+
+    <div class="authority-item">
+      <div class="authority-icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="6"/>
+          <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+        </svg>
+      </div>
+      <div class="authority-text">
+        <span class="authority-value">Hal Leonard</span>
+        <span class="authority-label">auteur partenaire</span>
+      </div>
+    </div>
+
+    <div class="authority-item">
+      <div class="authority-icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" opacity="0.15"/>
+          <polygon points="5 3 19 12 5 21 5 3"/>
+        </svg>
+      </div>
+      <div class="authority-text">
+        <span class="authority-value">LinkedIn Learning</span>
+        <span class="authority-label">& Skilleos</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .authority-bar {
+    background: var(--surface-light, #f8f9fa);
+    border-bottom: 1px solid var(--gray-200, #e5e7eb);
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .authority-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 768px) {
+    .authority-container {
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+    }
+
+    .authority-bar {
+      padding: var(--space-8) var(--space-4);
+    }
+  }
+
+  .authority-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    justify-content: center;
+    padding: var(--space-3) var(--space-2);
+    border-radius: var(--radius-lg);
+    transition: background 0.2s ease;
+  }
+
+  .authority-item:hover {
+    background: rgba(108, 63, 160, 0.04);
+  }
+
+  .authority-icon {
+    flex-shrink: 0;
+    color: var(--brand-500, #6c3fa0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .authority-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .authority-value {
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--gray-800, #1f2937);
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .authority-stars {
+    color: #f59e0b;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+  }
+
+  .authority-label {
+    font-size: var(--text-xs, 0.75rem);
+    color: var(--gray-500, #6b7280);
+    line-height: 1.2;
+  }
+
+  /* Mobile compact */
+  @media (max-width: 767px) {
+    .authority-value {
+      font-size: var(--text-sm);
+    }
+
+    .authority-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .authority-item {
+      transition: none;
+    }
+  }
+</style>
