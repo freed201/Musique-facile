@@ -7,6 +7,8 @@ ogImage: "/images/cours/piano-force-agilite/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.8"
+reviewCount: "75"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -36,11 +38,11 @@ hasCourseInstance:
 
 hero:
   badge: "Pour tous niveaux"
-  title: "Piano Expressif : L'Art de Jouer avec Force et Finesse"
-  subtitle: "Transformez votre jeu en maîtrisant la force et l'agilité de vos doigts pour une interprétation nuancée."
+  title: "Gagnez en force et en finesse au piano avec 5 exercices clés"
+  subtitle: "Des exercices ciblés pour développer l'agilité et le contrôle de vos doigts. 1 000 pianistes ont déjà progressé."
   cta:
-    text: "Accéder pour €79 "
-    price: "€79 ou 2 paiements mensuels de €40"
+    text: "Je gagne en expressivité - 79€"
+    price: "ou 2x 40€ sans frais"
   video:
     id: "1057421752"
   stats:
@@ -59,10 +61,15 @@ teachers:
   mainTeachers:
     - firstName: "Fred"
       lastName: "Fieffé"
-      subtitle: "Professeur principal de guitare"
-      description: "20 ans d'expérience dans l'enseignement de la guitare, spécialisé dans la pédagogie pour débutants."
+      subtitle: "Ton professeur de Piano"
+      description: "13 ans d'expérience dans l'enseignement de la musique en ligne."
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
 
 

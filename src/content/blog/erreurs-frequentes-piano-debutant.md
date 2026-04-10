@@ -1,4 +1,5 @@
 ---
+siloSlug: "guide-complet-apprentissage-piano"
 title: "Erreurs de Débutant au Piano : Comment les Corriger"
 description: "Découvre les erreurs les plus courantes des débutants au piano et comment les éviter. Améliore ton jeu et progresse plus rapidement avec ces conseils !"
 ogImage: "/images/blog/pourquoi-apprendre-le-piano.webp"

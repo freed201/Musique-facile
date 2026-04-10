@@ -1,4 +1,5 @@
 ---
+siloSlug: "guide-complet-apprentissage-piano"
 title: "Apprendre le Piano : Guide Complet Débutant"
 description: "Guide complet pour apprendre le piano en 9 chapitres. Techniques, erreurs à éviter et plan de travail. Formation gratuite incluse."
 ogImage: "/images/blog/pourquoi-apprendre-le-piano.webp"

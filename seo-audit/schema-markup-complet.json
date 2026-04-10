@@ -1,0 +1,661 @@
+{
+  "pages": {
+    "/": {
+      "url": "https://musique-facile.fr/",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "EducationalOrganization",
+              "@id": "https://musique-facile.fr/#organization",
+              "name": "Musique Facile",
+              "url": "https://musique-facile.fr",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://musique-facile.fr/logo.webp",
+                "width": 200,
+                "height": 60
+              },
+              "foundingDate": "2015",
+              "description": "École de musique en ligne fondée par Fred Fieffé en 2015. Plus de 80 000 élèves formés à la guitare, au piano, à l'ukulélé et au solfège grâce à plus de 1 400 vidéos pédagogiques.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "FR"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.7",
+                "bestRating": "5",
+                "worstRating": "1",
+                "reviewCount": "2847"
+              },
+              "sameAs": [
+                "https://www.youtube.com/@Musique-Facile",
+                "https://www.tiktok.com/@musique_facile",
+                "https://www.instagram.com/guitare_et_ukulele_facile"
+              ],
+              "founder": {
+                "@type": "Person",
+                "@id": "https://musique-facile.fr/#fred-fieffe",
+                "name": "Fred Fieffé"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Cours de musique en ligne",
+                "itemListElement": [
+                  { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Cours de Guitare" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Cours de Piano" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Cours d'Ukulélé" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Cours de Solfège" } }
+                ]
+              }
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://musique-facile.fr/#website",
+              "name": "Musique Facile",
+              "url": "https://musique-facile.fr",
+              "inLanguage": "fr-FR",
+              "description": "Apprenez la guitare, le piano, l'ukulélé et le solfège en ligne avec Fred Fieffé. Plus de 80 000 élèves, 1 400 vidéos, méthodes progressives pour débutants et avancés.",
+              "publisher": { "@id": "https://musique-facile.fr/#organization" },
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://musique-facile.fr/?s={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://musique-facile.fr/#fred-fieffe",
+              "name": "Fred Fieffé",
+              "givenName": "Fred",
+              "familyName": "Fieffé",
+              "jobTitle": "Professeur de Musique",
+              "description": "Fred Fieffé est professeur de musique, guitariste et fondateur de Musique Facile. Depuis 2015, il a formé plus de 80 000 élèves à la guitare, au piano, à l'ukulélé et au solfège. Auteur publié chez Hal Leonard, formateur partenaire LinkedIn Learning et Skilleos.",
+              "url": "https://musique-facile.fr/a-propos",
+              "image": "https://musique-facile.fr/images/fred-fieffe.webp",
+              "knowsAbout": ["Guitare", "Piano", "Ukulélé", "Solfège", "Pédagogie musicale", "Guitare acoustique", "Guitare électrique", "Théorie musicale"],
+              "worksFor": { "@id": "https://musique-facile.fr/#organization" },
+              "sameAs": [
+                "https://www.youtube.com/@Musique-Facile",
+                "https://www.linkedin.com/learning/instructors/fred-fieffe",
+                "https://www.tiktok.com/@musique_facile",
+                "https://www.instagram.com/guitare_et_ukulele_facile"
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr/" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "/cours/apprendre-guitare-debutant": {
+      "url": "https://musique-facile.fr/cours/apprendre-guitare-debutant",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Course",
+              "@id": "https://musique-facile.fr/cours/apprendre-guitare-debutant#course",
+              "name": "Cours de Guitare pour Débutants en Ligne",
+              "description": "Apprenez la guitare en partant de zéro avec Fred Fieffé. Ce cours en ligne complet vous guide pas à pas : accords essentiels, rythmique, mélodies et morceaux emblématiques. Méthode progressive adaptée aux débutants absolus, sans prérequis musical.",
+              "url": "https://musique-facile.fr/cours/apprendre-guitare-debutant",
+              "image": "https://musique-facile.fr/images/cours/apprendre-guitare-debutant/hero.webp",
+              "provider": { "@type": "EducationalOrganization", "@id": "https://musique-facile.fr/#organization" },
+              "instructor": { "@type": "Person", "@id": "https://musique-facile.fr/#fred-fieffe" },
+              "courseMode": "Online",
+              "educationalLevel": "Beginner",
+              "inLanguage": "fr-FR",
+              "coursePrerequisites": "Aucun prérequis",
+              "teaches": ["Accords de guitare pour débutants", "Rythmique guitare", "Lecture de tablatures", "Techniques de base guitare acoustique et électrique"],
+              "hasCourseInstance": {
+                "@type": "CourseInstance",
+                "courseMode": "Online",
+                "courseWorkload": "PT4H",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "89",
+                  "priceCurrency": "EUR",
+                  "availability": "https://schema.org/InStock",
+                  "url": "https://musique-facile.fr/cours/apprendre-guitare-debutant",
+                  "priceValidUntil": "2026-12-31"
+                }
+              },
+              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "bestRating": "5", "worstRating": "1", "reviewCount": "180" }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr/" },
+                { "@type": "ListItem", "position": 2, "name": "Cours", "item": "https://musique-facile.fr/cours" },
+                { "@type": "ListItem", "position": 3, "name": "Guitare Débutant", "item": "https://musique-facile.fr/cours/apprendre-guitare-debutant" }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Faut-il savoir jouer de la guitare avant de commencer ce cours ?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Non, aucun prérequis n'est nécessaire. Ce cours de guitare est spécialement conçu pour les débutants absolus. Vous apprendrez tout depuis le début : tenir la guitare, placer les doigts, jouer les premiers accords et enchaîner vos premières chansons." }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Combien de temps par jour faut-il pratiquer pour progresser rapidement ?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "15 à 30 minutes de pratique quotidienne suffisent pour progresser efficacement. La régularité est beaucoup plus importante que la durée des séances. Avec ce rythme, vous serez capable de jouer vos premiers morceaux en quelques semaines." }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Y a-t-il une garantie de remboursement ?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Oui, une garantie satisfait ou remboursé de 15 jours est incluse avec ce cours. Si vous n'êtes pas entièrement satisfait dans les 15 jours suivant votre achat, vous serez remboursé intégralement, sans question ni justification." }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "/cours/piano-facile-apprendre-debutant": {
+      "url": "https://musique-facile.fr/cours/piano-facile-apprendre-debutant",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Course",
+              "@id": "https://musique-facile.fr/cours/piano-facile-apprendre-debutant#course",
+              "name": "Pack Débutant Piano : Tout pour Bien Commencer",
+              "description": "Le pack complet pour apprendre le piano en partant de zéro. 148 leçons vidéo progressives avec Fred Fieffé couvrant la lecture de notes, les accords, la technique pianistique et des morceaux variés.",
+              "url": "https://musique-facile.fr/cours/piano-facile-apprendre-debutant",
+              "image": "https://musique-facile.fr/images/cours/piano-facile-apprendre-debutant/hero.webp",
+              "provider": { "@type": "EducationalOrganization", "@id": "https://musique-facile.fr/#organization" },
+              "instructor": { "@type": "Person", "@id": "https://musique-facile.fr/#fred-fieffe" },
+              "courseMode": "Online",
+              "educationalLevel": "Beginner",
+              "inLanguage": "fr-FR",
+              "coursePrerequisites": "Aucun prérequis",
+              "numberOfCredits": 148,
+              "teaches": ["Lecture de notes de piano", "Accords de piano", "Technique pianistique débutant", "Morceaux de piano pour débutants", "Indépendance des mains"],
+              "hasCourseInstance": {
+                "@type": "CourseInstance",
+                "courseMode": "Online",
+                "courseWorkload": "PT10H",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "299",
+                  "priceCurrency": "EUR",
+                  "availability": "https://schema.org/InStock",
+                  "url": "https://musique-facile.fr/cours/piano-facile-apprendre-debutant",
+                  "priceValidUntil": "2026-12-31"
+                }
+              },
+              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "bestRating": "5", "worstRating": "1", "reviewCount": "1500" }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr/" },
+                { "@type": "ListItem", "position": 2, "name": "Cours", "item": "https://musique-facile.fr/cours" },
+                { "@type": "ListItem", "position": 3, "name": "Pack Débutant Piano", "item": "https://musique-facile.fr/cours/piano-facile-apprendre-debutant" }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Ai-je besoin d'un vrai piano pour suivre ces cours ?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Un clavier numérique 61 touches suffit largement pour débuter. Vous n'avez pas besoin d'un piano acoustique coûteux. L'important est de disposer d'un instrument avec des touches sensibles à la vélocité pour bien travailler votre technique." }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Y a-t-il une garantie de remboursement ?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Oui, une garantie satisfait ou remboursé de 15 jours est incluse. Si vous n'êtes pas entièrement satisfait dans les 15 premiers jours, vous serez remboursé intégralement, sans conditions." }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "/cours/maitrise-technique-guitare-avancee": {
+      "url": "https://musique-facile.fr/cours/maitrise-technique-guitare-avancee",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Course",
+              "@id": "https://musique-facile.fr/cours/maitrise-technique-guitare-avancee#course",
+              "name": "Maîtrise Technique Guitare Avancée — Guitare Odyssée",
+              "description": "Franchissez un palier décisif dans votre pratique de la guitare. Plus de 160 vidéos pour maîtriser les techniques avancées : sweep picking, tapping, legato, bending expressif, gammes modales et improvisation.",
+              "url": "https://musique-facile.fr/cours/maitrise-technique-guitare-avancee",
+              "image": "https://musique-facile.fr/images/cours/maitrise-technique-guitare-avancee/hero.webp",
+              "provider": { "@type": "EducationalOrganization", "@id": "https://musique-facile.fr/#organization" },
+              "instructor": { "@type": "Person", "@id": "https://musique-facile.fr/#fred-fieffe" },
+              "courseMode": "Online",
+              "educationalLevel": "Advanced",
+              "inLanguage": "fr-FR",
+              "coursePrerequisites": "Connaître les accords de base et savoir jouer des morceaux simples",
+              "teaches": ["Sweep picking", "Tapping guitare", "Legato avancé", "Bending expressif", "Gammes modales", "Improvisation guitare"],
+              "hasCourseInstance": {
+                "@type": "CourseInstance",
+                "courseMode": "Online",
+                "courseWorkload": "PT15H",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "149",
+                  "priceCurrency": "EUR",
+                  "availability": "https://schema.org/InStock",
+                  "url": "https://musique-facile.fr/cours/maitrise-technique-guitare-avancee",
+                  "priceValidUntil": "2026-12-31"
+                }
+              },
+              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.5", "bestRating": "5", "worstRating": "1", "reviewCount": "500" }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr/" },
+                { "@type": "ListItem", "position": 2, "name": "Cours", "item": "https://musique-facile.fr/cours" },
+                { "@type": "ListItem", "position": 3, "name": "Guitare Avancée", "item": "https://musique-facile.fr/cours/maitrise-technique-guitare-avancee" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "/cours/apprendre-ukulele-debutant": {
+      "url": "https://musique-facile.fr/cours/apprendre-ukulele-debutant",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Course",
+              "@id": "https://musique-facile.fr/cours/apprendre-ukulele-debutant#course",
+              "name": "Cours d'Ukulélé pour Débutants en Ligne",
+              "description": "Apprenez l'ukulélé facilement avec Fred Fieffé. 41 vidéos progressives pour maîtriser les accords essentiels, les rythmiques et jouer vos premières chansons en moins de 30 jours.",
+              "url": "https://musique-facile.fr/cours/apprendre-ukulele-debutant",
+              "image": "https://musique-facile.fr/images/cours/apprendre-ukulele-debutant/hero.webp",
+              "provider": { "@type": "EducationalOrganization", "@id": "https://musique-facile.fr/#organization" },
+              "instructor": { "@type": "Person", "@id": "https://musique-facile.fr/#fred-fieffe" },
+              "courseMode": "Online",
+              "educationalLevel": "Beginner",
+              "inLanguage": "fr-FR",
+              "coursePrerequisites": "Aucun prérequis",
+              "teaches": ["Accords d'ukulélé débutant", "Rythmique ukulélé", "Chansons simples à l'ukulélé", "Technique de strumming"],
+              "hasCourseInstance": {
+                "@type": "CourseInstance",
+                "courseMode": "Online",
+                "courseWorkload": "PT2H30M",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "79",
+                  "priceCurrency": "EUR",
+                  "availability": "https://schema.org/InStock",
+                  "url": "https://musique-facile.fr/cours/apprendre-ukulele-debutant",
+                  "priceValidUntil": "2026-12-31"
+                }
+              },
+              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "bestRating": "5", "worstRating": "1", "reviewCount": "200" }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr/" },
+                { "@type": "ListItem", "position": 2, "name": "Cours", "item": "https://musique-facile.fr/cours" },
+                { "@type": "ListItem", "position": 3, "name": "Ukulélé Débutant", "item": "https://musique-facile.fr/cours/apprendre-ukulele-debutant" }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Quel ukulélé acheter pour débuter ?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Pour débuter, un ukulélé soprano ou concert de marque Kala, Mahalo ou Lanikai entre 40 et 80 euros est tout à fait adapté. L'essentiel est d'avoir un instrument accordé et bien réglé." }
+                },
+                {
+                  "@type": "Question",
+                  "name": "L'ukulélé est-il plus facile que la guitare ?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Oui, l'ukulélé est généralement considéré comme plus facile à prendre en main que la guitare. Il n'a que 4 cordes en nylon (douces pour les doigts), un manche plus court et moins de cordes à mémoriser. La plupart des débutants jouent leur première chanson dès la première semaine." }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Y a-t-il une garantie de remboursement ?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Oui, une garantie satisfait ou remboursé de 15 jours est incluse. Si vous n'êtes pas satisfait dans les 15 premiers jours suivant votre achat, vous serez remboursé intégralement, sans question." }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "/cours/lecture-de-notes-niveau-debutant": {
+      "url": "https://musique-facile.fr/cours/lecture-de-notes-niveau-debutant",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Course",
+              "@id": "https://musique-facile.fr/cours/lecture-de-notes-niveau-debutant#course",
+              "name": "Solfège : Lecture de Notes pour Débutants",
+              "description": "Apprenez à lire la musique en partant de zéro avec ce cours de solfège en ligne. 35 vidéos pour maîtriser la lecture des notes, les valeurs rythmiques, les clés de sol et de fa.",
+              "url": "https://musique-facile.fr/cours/lecture-de-notes-niveau-debutant",
+              "image": "https://musique-facile.fr/images/cours/lecture-de-notes-niveau-debutant/hero.webp",
+              "provider": { "@type": "EducationalOrganization", "@id": "https://musique-facile.fr/#organization" },
+              "instructor": { "@type": "Person", "@id": "https://musique-facile.fr/#fred-fieffe" },
+              "courseMode": "Online",
+              "educationalLevel": "Beginner",
+              "inLanguage": "fr-FR",
+              "coursePrerequisites": "Aucun prérequis",
+              "teaches": ["Lecture de notes en clé de sol", "Lecture de notes en clé de fa", "Valeurs rythmiques", "Armures et tonalités", "Déchiffrage musical"],
+              "hasCourseInstance": {
+                "@type": "CourseInstance",
+                "courseMode": "Online",
+                "courseWorkload": "PT3H30M",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "79",
+                  "priceCurrency": "EUR",
+                  "availability": "https://schema.org/InStock",
+                  "url": "https://musique-facile.fr/cours/lecture-de-notes-niveau-debutant",
+                  "priceValidUntil": "2026-12-31"
+                }
+              },
+              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "bestRating": "5", "worstRating": "1", "reviewCount": "150" }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr/" },
+                { "@type": "ListItem", "position": 2, "name": "Cours", "item": "https://musique-facile.fr/cours" },
+                { "@type": "ListItem", "position": 3, "name": "Solfège Lecture de Notes", "item": "https://musique-facile.fr/cours/lecture-de-notes-niveau-debutant" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "/cours/cours-de-guitare": {
+      "url": "https://musique-facile.fr/cours/cours-de-guitare",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Course",
+              "@id": "https://musique-facile.fr/cours/cours-de-guitare#course",
+              "name": "Cours de Guitare en Ligne — Tous Niveaux",
+              "description": "Découvrez tous les cours de guitare en ligne de Musique Facile : du débutant absolu au guitariste avancé. Guitare acoustique, électrique, rythme, mélodie, improvisation. Méthodes progressives créées par Fred Fieffé, plus de 80 000 élèves formés depuis 2015.",
+              "url": "https://musique-facile.fr/cours/cours-de-guitare",
+              "provider": { "@type": "EducationalOrganization", "@id": "https://musique-facile.fr/#organization" },
+              "instructor": { "@type": "Person", "@id": "https://musique-facile.fr/#fred-fieffe" },
+              "courseMode": "Online",
+              "inLanguage": "fr-FR",
+              "teaches": ["Guitare acoustique", "Guitare électrique", "Accords de guitare", "Techniques de jeu", "Improvisation guitare", "Théorie musicale appliquée à la guitare"]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr/" },
+                { "@type": "ListItem", "position": 2, "name": "Cours", "item": "https://musique-facile.fr/cours" },
+                { "@type": "ListItem", "position": 3, "name": "Guitare", "item": "https://musique-facile.fr/cours/cours-de-guitare" }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Peut-on vraiment apprendre la guitare en ligne ?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Oui, tout à fait. Apprendre la guitare en ligne est parfaitement efficace, à condition de choisir une méthode structurée avec un bon professeur. Chez Musique Facile, plus de 80 000 élèves ont appris la guitare en ligne avec Fred Fieffé depuis 2015." }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Quel niveau faut-il pour s'inscrire aux cours de guitare ?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Il existe des cours pour tous les niveaux : débutant absolu, intermédiaire et avancé. Les cours débutants ne nécessitent aucune connaissance préalable en musique ou en guitare." }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Quelle guitare acheter pour débuter ?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Pour débuter, une guitare acoustique ou électrique d'entrée de gamme de marque sérieuse (Yamaha, Fender, Epiphone) entre 100 et 200 euros suffit largement. L'important est d'avoir un instrument bien réglé pour ne pas souffrir des doigts et rester motivé." }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Combien de temps faut-il pour jouer ses premières chansons à la guitare ?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Avec 15 à 30 minutes de pratique régulière par jour, la plupart des débutants jouent leurs premières chansons complètes en 4 à 8 semaines." }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Les cours de guitare sont-ils accessibles à vie ?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Oui, une fois votre cours acheté, vous y avez accès à vie et pouvez le suivre à votre rythme, depuis n'importe quel appareil connecté à internet." }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "/blog": {
+      "url": "https://musique-facile.fr/blog",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Blog",
+              "@id": "https://musique-facile.fr/blog#blog",
+              "name": "Blog Musique Facile",
+              "description": "Conseils, méthodes et guides pratiques pour apprendre la guitare, le piano, l'ukulélé et le solfège. Articles rédigés par Fred Fieffé, professeur de musique et fondateur de Musique Facile.",
+              "url": "https://musique-facile.fr/blog",
+              "inLanguage": "fr-FR",
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://musique-facile.fr/#organization",
+                "name": "Musique Facile",
+                "logo": { "@type": "ImageObject", "url": "https://musique-facile.fr/logo.webp" }
+              },
+              "author": { "@type": "Person", "@id": "https://musique-facile.fr/#fred-fieffe" }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr/" },
+                { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://musique-facile.fr/blog" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "/blog/[slug]": {
+      "note": "Template pour tous les articles de blog. Remplacer [slug] par le slug réel.",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BlogPosting",
+              "@id": "https://musique-facile.fr/blog/[slug]#article",
+              "headline": "[Titre de l'article]",
+              "description": "[Description de l'article]",
+              "url": "https://musique-facile.fr/blog/[slug]",
+              "image": { "@type": "ImageObject", "url": "https://musique-facile.fr/images/blog/[slug].webp", "width": 1200, "height": 630 },
+              "datePublished": "[YYYY-MM-DD]",
+              "dateModified": "[YYYY-MM-DD]",
+              "inLanguage": "fr-FR",
+              "author": { "@type": "Person", "@id": "https://musique-facile.fr/#fred-fieffe", "name": "Fred Fieffé" },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://musique-facile.fr/#organization",
+                "name": "Musique Facile",
+                "logo": { "@type": "ImageObject", "url": "https://musique-facile.fr/logo.webp", "width": 200, "height": 60 }
+              },
+              "mainEntityOfPage": { "@type": "WebPage", "@id": "https://musique-facile.fr/blog/[slug]" },
+              "articleSection": "[Guitare | Piano | Ukulélé | Solfège]",
+              "keywords": ["[mot-clé 1]", "[mot-clé 2]", "[mot-clé 3]"]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr/" },
+                { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://musique-facile.fr/blog" },
+                { "@type": "ListItem", "position": 3, "name": "[Titre article]", "item": "https://musique-facile.fr/blog/[slug]" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "/livres": {
+      "url": "https://musique-facile.fr/livres",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Book",
+              "@id": "https://musique-facile.fr/livres#comptines-ukulele",
+              "name": "Les Plus Belles Comptines pour Ukulélé",
+              "description": "Recueil de comptines et chansons pour ukulélé avec partitions et tablatures, idéal pour les enfants et débutants. Publié chez Hal Leonard.",
+              "url": "https://musique-facile.fr/livres",
+              "author": { "@type": "Person", "@id": "https://musique-facile.fr/#fred-fieffe", "name": "Fred Fieffé" },
+              "publisher": { "@type": "Organization", "name": "Hal Leonard", "url": "https://www.halleonard.com" },
+              "inLanguage": "fr-FR",
+              "genre": "Méthode musicale",
+              "about": { "@type": "Thing", "name": "Ukulélé" },
+              "image": "https://musique-facile.fr/images/livre-comptines-ukulele.webp",
+              "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "EUR" }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr/" },
+                { "@type": "ListItem", "position": 2, "name": "Livres", "item": "https://musique-facile.fr/livres" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "/a-propos": {
+      "url": "https://musique-facile.fr/a-propos",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Person",
+              "@id": "https://musique-facile.fr/#fred-fieffe",
+              "name": "Fred Fieffé",
+              "givenName": "Fred",
+              "familyName": "Fieffé",
+              "jobTitle": "Professeur de Musique et Guitariste",
+              "description": "Fred Fieffé est professeur de musique, guitariste professionnel et entrepreneur. Fondateur de Musique Facile en 2015, il a développé une méthode pédagogique innovante qui lui a permis de former plus de 80 000 élèves à la guitare, au piano, à l'ukulélé et au solfège. Auteur de livres publiés chez Hal Leonard, formateur partenaire de LinkedIn Learning et Skilleos, il collabore avec des marques prestigieuses comme PRS Guitars, Eastman et Röde.",
+              "url": "https://musique-facile.fr/a-propos",
+              "image": "https://musique-facile.fr/images/fred-fieffe.webp",
+              "worksFor": { "@type": "EducationalOrganization", "@id": "https://musique-facile.fr/#organization" },
+              "knowsAbout": ["Guitare", "Piano", "Ukulélé", "Solfège", "Pédagogie musicale", "Guitare acoustique", "Guitare électrique", "Théorie musicale", "Formation en ligne", "Improvisation musicale"],
+              "hasCredential": [
+                { "@type": "EducationalOccupationalCredential", "credentialCategory": "Partenariat", "recognizedBy": { "@type": "Organization", "name": "Hal Leonard" } },
+                { "@type": "EducationalOccupationalCredential", "credentialCategory": "Formateur certifié", "recognizedBy": { "@type": "Organization", "name": "LinkedIn Learning" } },
+                { "@type": "EducationalOccupationalCredential", "credentialCategory": "Formateur partenaire", "recognizedBy": { "@type": "Organization", "name": "Skilleos" } }
+              ],
+              "sameAs": [
+                "https://www.youtube.com/@Musique-Facile",
+                "https://www.linkedin.com/learning/instructors/fred-fieffe",
+                "https://www.tiktok.com/@musique_facile",
+                "https://www.instagram.com/guitare_et_ukulele_facile"
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr/" },
+                { "@type": "ListItem", "position": 2, "name": "À propos", "item": "https://musique-facile.fr/a-propos" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "/faq": {
+      "url": "https://musique-facile.fr/faq",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "FAQPage",
+              "name": "FAQ — Questions fréquentes sur les cours Musique Facile",
+              "url": "https://musique-facile.fr/faq",
+              "mainEntity": [
+                { "@type": "Question", "name": "Quelle est la différence entre un cours en ligne et un cours en présentiel ?", "acceptedAnswer": { "@type": "Answer", "text": "Les cours en ligne Musique Facile vous permettent d'apprendre à votre rythme, où vous voulez et quand vous voulez. Contrairement aux cours en présentiel, vous pouvez revoir chaque vidéo autant de fois que nécessaire, sans contrainte d'horaire ni de déplacement. Le contenu est structuré de façon progressive et pensé pour l'apprentissage autonome." } },
+                { "@type": "Question", "name": "Quel niveau musical faut-il avoir pour commencer ?", "acceptedAnswer": { "@type": "Answer", "text": "Aucun niveau n'est requis pour nos cours débutants. Que vous n'ayez jamais touché un instrument de votre vie ou que vous souhaitiez passer au niveau supérieur, il existe un cours adapté à votre situation." } },
+                { "@type": "Question", "name": "Quels instruments peut-on apprendre sur Musique Facile ?", "acceptedAnswer": { "@type": "Answer", "text": "Musique Facile propose des cours pour la guitare (acoustique et électrique), le piano, l'ukulélé et le solfège. Chaque discipline dispose de parcours allant du niveau débutant absolu au niveau avancé, créés et animés par Fred Fieffé." } },
+                { "@type": "Question", "name": "Combien coûtent les cours et y a-t-il des abonnements ?", "acceptedAnswer": { "@type": "Answer", "text": "Les cours sont disponibles à l'achat unique, sans abonnement mensuel. Les prix varient selon le cours : de 79 euros pour les cours courts à 299 euros pour les packs complets. Une fois acheté, vous avez accès au cours à vie." } },
+                { "@type": "Question", "name": "Y a-t-il une garantie de remboursement ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, tous les cours sont garantis satisfait ou remboursé pendant 15 jours. Si vous n'êtes pas entièrement satisfait dans les 15 jours suivant votre achat, vous pouvez demander un remboursement intégral, sans condition ni justification." } },
+                { "@type": "Question", "name": "Les cours sont-ils accessibles à vie ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, tous les cours achetés sont accessibles à vie. Vous pouvez les suivre à votre rythme, les mettre en pause et y revenir quand vous le souhaitez, depuis n'importe quel appareil (ordinateur, tablette, smartphone)." } },
+                { "@type": "Question", "name": "Combien de temps faut-il pour apprendre un instrument ?", "acceptedAnswer": { "@type": "Answer", "text": "Avec une pratique régulière de 15 à 30 minutes par jour, vous pouvez jouer vos premières chansons en quelques semaines. Atteindre un bon niveau intermédiaire demande généralement 6 à 12 mois de pratique régulière." } },
+                { "@type": "Question", "name": "Est-il possible d'apprendre plusieurs instruments en même temps ?", "acceptedAnswer": { "@type": "Answer", "text": "Il est possible d'apprendre plusieurs instruments, mais il est généralement conseillé de se concentrer sur un instrument principal au départ. Une fois que vous avez acquis de bonnes bases (6 mois à 1 an), vous pouvez commencer à explorer un second instrument." } }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr/" },
+                { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://musique-facile.fr/faq" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "/podcast": {
+      "url": "https://musique-facile.fr/podcast",
+      "note": "Page à créer — podcast actuellement lien externe vers Ausha",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "PodcastSeries",
+              "@id": "https://musique-facile.fr/podcast#podcast",
+              "name": "Au Boulot Maestro",
+              "description": "Le podcast de Musique Facile animé par Fred Fieffé. Conseils pratiques, motivation et méthodes pour progresser en musique, surmonter les blocages et développer une pratique régulière et efficace.",
+              "url": "https://musique-facile.fr/podcast",
+              "inLanguage": "fr-FR",
+              "author": { "@type": "Person", "@id": "https://musique-facile.fr/#fred-fieffe", "name": "Fred Fieffé" },
+              "publisher": { "@type": "Organization", "@id": "https://musique-facile.fr/#organization", "name": "Musique Facile" },
+              "genre": "Education",
+              "about": [
+                { "@type": "Thing", "name": "Apprentissage musical" },
+                { "@type": "Thing", "name": "Pratique de la musique" },
+                { "@type": "Thing", "name": "Développement personnel musical" }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr/" },
+                { "@type": "ListItem", "position": 2, "name": "Podcast Au Boulot Maestro", "item": "https://musique-facile.fr/podcast" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

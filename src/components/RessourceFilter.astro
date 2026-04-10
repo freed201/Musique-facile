@@ -1,19 +1,20 @@
 ---
+import Icon from './Icon.astro';
 interface Props {
   activeInstrument?: 'all' | 'guitare' | 'piano' | 'ukulele';
   baseUrl?: string;
 }
 
-const { 
+const {
   activeInstrument = 'all',
   baseUrl = '/ressources-gratuites'
 } = Astro.props;
 
 const filters = [
-  { id: 'all', label: 'Toutes les ressources', url: `${baseUrl}/`, icon: '🎵' },
-  { id: 'guitare', label: 'Guitare', url: `${baseUrl}/guitare/`, icon: '🎸' },
-  { id: 'piano', label: 'Piano', url: `${baseUrl}/piano/`, icon: '🎹' },
-  { id: 'ukulele', label: 'Ukulélé', url: `${baseUrl}/ukulele/`, icon: '🏝️' }
+  { id: 'all', label: 'Toutes les ressources', url: `${baseUrl}/`, iconName: 'note' },
+  { id: 'guitare', label: 'Guitare', url: `${baseUrl}/guitare/`, iconName: 'guitar' },
+  { id: 'piano', label: 'Piano', url: `${baseUrl}/piano/`, iconName: 'piano' },
+  { id: 'ukulele', label: 'Ukulélé', url: `${baseUrl}/ukulele/`, iconName: 'ukulele' }
 ];
 ---
 
@@ -25,7 +26,7 @@ const filters = [
         href={filter.url} 
         class={`filter-btn ${filter.id === activeInstrument ? 'active' : ''} ${filter.id !== 'all' ? `theme-${filter.id === 'ukulele' ? 'ukulele' : filter.id}` : ''}`}
       >
-        <span class="filter-icon">{filter.icon}</span>
+        <span class="filter-icon"><Icon name={filter.iconName} size={16} /></span>
         <span class="filter-label">{filter.label}</span>
       </a>
     ))}

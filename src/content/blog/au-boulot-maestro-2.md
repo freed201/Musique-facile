@@ -1,4 +1,5 @@
 ---
+siloSlug: "pourquoi-tu-stagnes-en-musique"
 title: "10 Erreurs qui Freinent ta Progression en Musique"
 prod: Y
 description: "Découvre les 10 erreurs qui freinent ta progression musicale et apprends comment les éviter pour jouer avec fluidité et plaisir."
@@ -8,14 +9,10 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-02-10"
 dateModified: "2026-02-04"
-introduction: "Dans cet épisode d’'Au Boulot Maestro', nous passons en revue les 10 erreurs courantes qui ralentissent ta progression musicale et comment les éviter pour jouer avec plus de plaisir et d’aisance. C'est le deuxième épisode, et je suis ravi de continuer cette aventure avec toi pour t’aider à progresser plus efficacement en musique. La consultation du podcast dans le bloc ci-dessous. Il y a l'intégralité de l'épisode. Bonne écoute et bienvenue dans 'Au Boulot Maestro' !"
-
-podcast:
-    title: Comment Éviter les 10 Erreurs qui Freinent ta Progression en Musique
-    url: https://player.ausha.co/?showId=E5Z3vHA76APj&color=%23751CBF&podcastId=z53EnFKgO2MD&v=3&playerId=ausha-UkCS
+introduction: "On passe en revue les 10 erreurs courantes qui ralentissent ta progression musicale et comment les éviter pour jouer avec plus de plaisir et d’aisance."
 
 conclusion: |
-    Merci d’avoir suivi cet épisode d’Au Boulot Maestro ! Mets en pratique ces conseils et partage ton expérience en commentaire.
+    Mets en pratique ces conseils et tu verras la différence rapidement dans ta progression musicale.
 
 ---
 

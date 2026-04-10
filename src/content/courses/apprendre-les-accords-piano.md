@@ -7,6 +7,8 @@ ogImage: "/images/cours/apprendre-les-accords-piano/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.8"
+reviewCount: "220"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -37,11 +39,11 @@ hasCourseInstance:
 
 hero:
   badge: "Tous niveaux"
-  title: "Maîtrise des Accords au Piano : De l'Initiation à l'Expertise"
-  subtitle: "Transformez votre jeu musical en maîtrisant les accords au piano, des bases aux techniques avancées."
+  title: "Jouez n'importe quel accord au piano avec confiance"
+  subtitle: "65 chapitres pour maîtriser tous les accords, des triades aux renversements. 3 000 pianistes ont franchi le cap."
   cta:
-    text: "Accéder pour €79 "
-    price: "ou 2 paiements mensuels de €40"
+    text: "Je maîtrise les accords - 79€"
+    price: "ou 2x 40€ sans frais"
   video:
     id: "1062020089"
   stats:
@@ -60,12 +62,17 @@ teachers:
   mainTeachers:
     - firstName: "Fred"
       lastName: "Fieffé"
-      subtitle: "Pianiste depuis l'age de 5 ans"
+      subtitle: "Pianiste depuis l'âge de 5 ans"
       description: "Connaître les accords, c'est se libérer pour jouer de façon ludique et agréable"
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
-      
+
 timeline:
   - number: 1
     title: "Introduction & Bases Musicales"

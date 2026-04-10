@@ -1,17 +1,14 @@
 ---
+siloSlug: "pourquoi-tu-stagnes-en-musique"
 title: "Musique : Pourquoi les Enfants Apprennent Plus Vite ?"
 description: "Pourquoi les enfants apprennent-ils la musique plus vite ? Un éclairage simple sur la mémoire, l’écoute et ce que les adultes peuvent en tirer."
 ogImage: "/images/blog/enfants-apprennent-musique-plus-vite.webp"
 author: "Musique Facile"
 datePublished: "2026-03-16"
-dateModified: "2026-02-04"
-introduction: "Un enfant de 6 ans maîtrise une mélodie en 10 minutes. Vous, à 35 ans, vous galérez depuis 3 heures. Injuste ? Pas vraiment. Les neurosciences révèlent que les adultes possèdent 5 avantages cognitifs majeurs que les enfants n'ont pas. Dans cet épisode du podcast *Au boulot maestro*, on décortique les mécanismes cérébraux et on vous donne LA méthode pour apprendre 2x plus efficacement qu'un enfant."
+dateModified: "2026-03-16"
+introduction: "Un enfant de 6 ans maîtrise une mélodie en 10 minutes. Vous, à 35 ans, vous galérez depuis 3 heures. Injuste ? Pas vraiment. Les neurosciences révèlent que les adultes possèdent 5 avantages cognitifs majeurs que les enfants n'ont pas. On décortique les mécanismes cérébraux et on vous donne LA méthode pour apprendre 2x plus efficacement qu'un enfant."
 meta: "Plasticité cérébrale, myélinisation, fenêtres critiques : la science explique pourquoi les enfants apprennent vite la musique et comment les adultes peuvent exceller autrement."
 keywords: "neuroplasticité musique, apprentissage musical adulte vs enfant, plasticité cérébrale instrument, myélinisation musicale, fenêtre critique musique, mémoire procédurale musique, dopamine apprentissage musical"
-
-podcast:
-  title: "Pourquoi les enfants apprennent-ils la musique plus vite que les adultes ? - Au Boulot Maestro #8"
-  url: "https://player.ausha.co/?showId=E5Z3vHA76APj&color=%23751CBF&podcastId=mEZG3c0O1Kl0&v=3&playerId=ausha-gnPb"
 
 conclusion: "Les enfants ont la plasticité, les adultes ont la stratégie. Les enfants ont la spontanéité, les adultes ont l'expérience. Arrêtez de vous comparer à un cerveau de 7 ans et exploitez vos super-pouvoirs d'adulte : analyse, connexions, discipline et motivation intrinsèque. Avec les bonnes méthodes, vous pouvez non seulement rattraper un enfant, mais le dépasser sur le long terme. La musique n'a pas d'âge, elle a juste besoin de la bonne approche. Maintenant, à vos instruments !"
 

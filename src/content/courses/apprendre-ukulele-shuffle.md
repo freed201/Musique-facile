@@ -7,6 +7,8 @@ ogImage: "/images/cours/apprendre-ukulele-shuffle/hero.webp"
 theme: "ukulele"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.8"
+reviewCount: "8"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -36,10 +38,10 @@ hasCourseInstance:
 
 hero:
   badge: "Nouveau Cours"
-  title: "Le Secret du Shuffle : Perfectionnez Votre Ukulélé en 15 Leçons"
-  subtitle: "Maîtrisez l'art du shuffle et transformez votre jeu à l'ukulélé avec des rythmes envoûtants."
+  title: "Ajoutez le groove du shuffle à votre ukulélé en 15 leçons"
+  subtitle: "Maîtrisez les rythmes shuffle et blues pour donner du caractère à chaque morceau."
   cta:
-    text: "Accéder pour €29"
+    text: "Je commence le shuffle - 29€"
     price: ""
   video:
     id: "1057421741"
@@ -63,6 +65,11 @@ teachers:
       description: "L'ukulélé, instrument ultime pour jouer : simple, joyeux et toujours beau."
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
 
 

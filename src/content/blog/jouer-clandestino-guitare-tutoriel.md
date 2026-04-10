@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Clandestino (Manu Chao) - Tutoriel Guitare"
 description: "Clandestino de Manu Chao avec trois accords faciles, capo case 2 et rythmique douce. Guide clair pour jouer le morceau complet."
 author: "Musique Facile"

@@ -1,6 +1,6 @@
 ---
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import FooterModern from '../components/FooterModern.astro';
 import ExternalResources from '../components/ExternalResources.astro';
 import JsonLD from '../components/JsonLD.astro';
 import '@fontsource/poppins';
@@ -18,10 +18,12 @@ interface Props {
   teachers?: {
     mainTeachers?: Array<{ firstName: string; lastName: string }>;
   };
+  ratingValue?: string;
+  reviewCount?: string;
 }
 
 
-const { title, description, ogImage, theme = 'guitar', hero, teachers } = Astro.props;
+const { title, description, ogImage, theme = 'guitar', hero, teachers, ratingValue, reviewCount } = Astro.props;
 const siteUrl = 'https://musique-facile.fr';
 const ogImageValue = ogImage || '/images/og-default.jpg';
 const absoluteOgImage = ogImageValue.startsWith('http') ? ogImageValue : `${siteUrl}${ogImageValue}`;
@@ -33,9 +35,9 @@ const enrichTitle = () => {
   // Base : titre + marque
   let baseTitle = `${title} | Musique Facile`;
 
-  // Si le titre de base est déjà trop long, on le tronque
+  // Si le titre de base est déjà trop long, on utilise le titre seul sans la marque
   if (baseTitle.length > MAX_TITLE_LENGTH) {
-    return title.substring(0, MAX_TITLE_LENGTH - 3) + '...';
+    return title.length <= MAX_TITLE_LENGTH ? title : title.substring(0, MAX_TITLE_LENGTH);
   }
 
   return baseTitle;
@@ -108,8 +110,8 @@ const courseSchema = {
   "courseMode": Astro.props.courseMode || ["Online"],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "reviewCount": "2847",
+    "ratingValue": ratingValue || "4.7",
+    "reviewCount": reviewCount || "100",
     "bestRating": "5",
     "worstRating": "1"
   },
@@ -154,7 +156,7 @@ const courseSchema = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={pageDescription} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href={Astro.url.toString()} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -177,7 +179,7 @@ const courseSchema = {
     <JsonLD data={courseSchema} />
 
 
-    <ExternalResources />
+    <ExternalResources loadVideoScripts={true} />
     <title>{pageTitle}</title>
   </head>
   <body>
@@ -190,7 +192,7 @@ const courseSchema = {
       <main>
         <slot />
       </main>
-      <Footer />
+      <FooterModern />
     </div>
     <script is:inline define:vars={{ courseTitle: title, courseUrl: Astro.url.toString(), courseTheme: theme }}>
       (() => {
@@ -294,7 +296,7 @@ const courseSchema = {
 
   .course-stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
     background: rgba(255, 255, 255, 0.1);
@@ -366,7 +368,15 @@ const courseSchema = {
     .btn-primary {
         background: var(--theme-current);
         color: white;
-        border: none; /* Pour s'assurer qu'il n'y a pas de bordure sur le bouton principal */
+        border: none;
+    }
+
+    .price-tag {
+        display: block;
+        font-size: 0.85em;
+        font-weight: 400;
+        opacity: 0.9;
+        margin-top: 0.25rem;
     }
 
     .btn-primary:hover {

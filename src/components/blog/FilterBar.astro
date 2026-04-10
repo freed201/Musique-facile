@@ -1,4 +1,5 @@
 ---
+import Icon from '../Icon.astro';
 interface FilterCount {
   total: number;
   guitare: number;
@@ -24,7 +25,7 @@ const { counts } = Astro.props;
       aria-label={`Afficher tous les articles (${counts.total})`}
       aria-pressed="true"
     >
-      <span class="filter-icon" aria-hidden="true">🎵</span>
+      <span class="filter-icon" aria-hidden="true"><Icon name="note" size={16} /></span>
       <span class="filter-text">Tous</span>
       <span class="filter-count" aria-label={`${counts.total} articles`}>{counts.total}</span>
     </button>
@@ -36,7 +37,7 @@ const { counts } = Astro.props;
       aria-label={`Afficher les articles de guitare (${counts.guitare})`}
       aria-pressed="false"
     >
-      <span class="filter-icon" aria-hidden="true">🎸</span>
+      <span class="filter-icon" aria-hidden="true"><Icon name="guitar" size={16} /></span>
       <span class="filter-text">Guitare</span>
       <span class="filter-count" aria-label={`${counts.guitare} articles`}>{counts.guitare}</span>
     </button>
@@ -48,7 +49,7 @@ const { counts } = Astro.props;
       aria-label={`Afficher les articles de piano (${counts.piano})`}
       aria-pressed="false"
     >
-      <span class="filter-icon" aria-hidden="true">🎹</span>
+      <span class="filter-icon" aria-hidden="true"><Icon name="piano" size={16} /></span>
       <span class="filter-text">Piano</span>
       <span class="filter-count" aria-label={`${counts.piano} articles`}>{counts.piano}</span>
     </button>
@@ -60,7 +61,7 @@ const { counts } = Astro.props;
       aria-label={`Afficher les articles d'ukulélé (${counts.ukulele})`}
       aria-pressed="false"
     >
-      <span class="filter-icon" aria-hidden="true">🏝️</span>
+      <span class="filter-icon" aria-hidden="true"><Icon name="ukulele" size={16} /></span>
       <span class="filter-text">Ukulélé</span>
       <span class="filter-count" aria-label={`${counts.ukulele} articles`}>{counts.ukulele}</span>
     </button>
@@ -72,7 +73,7 @@ const { counts } = Astro.props;
       aria-label={`Afficher les articles de solfège (${counts.solfege})`}
       aria-pressed="false"
     >
-      <span class="filter-icon" aria-hidden="true">🎼</span>
+      <span class="filter-icon" aria-hidden="true"><Icon name="solfege" size={16} /></span>
       <span class="filter-text">Solfège</span>
       <span class="filter-count" aria-label={`${counts.solfege} articles`}>{counts.solfege}</span>
     </button>
@@ -174,7 +175,7 @@ const { counts } = Astro.props;
     border-color: var(--theme-current);
     background: linear-gradient(135deg, var(--theme-current), var(--theme-current-light));
     color: white;
-    box-shadow: 0 4px 15px rgba(0, 194, 142, 0.3);
+    box-shadow: 0 4px 15px rgba(108, 63, 160, 0.3);
   }
 
   .filter-btn.active .filter-count {
@@ -184,23 +185,23 @@ const { counts } = Astro.props;
 
   /* Couleurs par thème */
   .theme-guitar.active {
-    --theme-current: #88be00;
-    --theme-current-light: #a3d826;
+    --theme-current: #4CAF50;
+    --theme-current-light: #66bb6a;
   }
 
   .theme-piano.active {
-    --theme-current: #1ca5af;
-    --theme-current-light: #45bbc4;
+    --theme-current: #2196F3;
+    --theme-current-light: #42a5f5;
   }
 
   .theme-ukulele.active {
-    --theme-current: #efb504;
-    --theme-current-light: #ffc726;
+    --theme-current: #FF9800;
+    --theme-current-light: #ffa726;
   }
 
   .theme-solfege.active {
-    --theme-current: #be0a00;
-    --theme-current-light: #e61200;
+    --theme-current: #E53935;
+    --theme-current-light: #ef5350;
   }
 
   /* Responsive */

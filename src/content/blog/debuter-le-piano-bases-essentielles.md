@@ -1,4 +1,5 @@
 ---
+siloSlug: "guide-complet-apprentissage-piano"
 title: "Débuter le Piano : Les Bases Essentielles"
 description: "Apprends les bases essentielles du piano : placement des mains, lecture des notes, accords simples et premiers exercices pour progresser rapidement."
 schemaType: Article

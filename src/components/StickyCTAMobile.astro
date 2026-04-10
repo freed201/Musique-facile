@@ -3,16 +3,29 @@
  * Sticky CTA Mobile - Apparaît après scroll
  * Optimise la conversion sur mobile
  */
+interface Props {
+  ctaLink?: string;
+  ctaText?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  ctaLink = "/cours",
+  ctaText = "Essai Gratuit 7 Jours",
+  title = "Prêt à commencer ?",
+  subtitle = "Satisfait ou remboursé 15 jours",
+} = Astro.props;
 ---
 
 <div class="sticky-cta-mobile" id="sticky-cta">
   <div class="sticky-cta-content">
     <div class="sticky-cta-text">
-      <span class="sticky-cta-title">Prêt à commencer ?</span>
-      <span class="sticky-cta-subtitle">Aucune carte bancaire</span>
+      <span class="sticky-cta-title">{title}</span>
+      <span class="sticky-cta-subtitle">{subtitle}</span>
     </div>
-    <a href="/cours" class="sticky-cta-button">
-      Essai Gratuit 7 Jours
+    <a href={ctaLink} class="sticky-cta-button">
+      {ctaText}
       <span class="sticky-cta-arrow">→</span>
     </a>
   </div>
@@ -78,7 +91,7 @@
     font-size: 0.95rem;
     white-space: nowrap;
     transition: all var(--transition-base);
-    box-shadow: 0 4px 12px rgba(0, 194, 142, 0.3);
+    box-shadow: 0 4px 12px rgba(108, 63, 160, 0.3);
   }
 
   .sticky-cta-button:hover {
@@ -123,37 +136,27 @@
 </style>
 
 <script>
-  // Afficher le sticky CTA après scroll de 50vh
-  document.addEventListener('DOMContentLoaded', () => {
+  // Afficher le sticky CTA après scroll de 400px (valeur fixe, evite forced layout)
+  (() => {
     const stickyCTA = document.getElementById('sticky-cta');
     if (!stickyCTA) return;
 
-    let lastScrollTop = 0;
-    const scrollThreshold = window.innerHeight * 0.5; // 50vh
-
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      // Afficher si scroll > 50vh ET scroll vers le bas
-      if (scrollTop > scrollThreshold) {
-        stickyCTA.classList.add('visible');
-      } else {
-        stickyCTA.classList.remove('visible');
-      }
-
-      lastScrollTop = scrollTop;
-    };
-
-    // Throttle scroll events
+    const scrollThreshold = 400;
+    let isVisible = false;
     let ticking = false;
+
     window.addEventListener('scroll', () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          handleScroll();
+          const shouldShow = window.scrollY > scrollThreshold;
+          if (shouldShow !== isVisible) {
+            stickyCTA.classList.toggle('visible', shouldShow);
+            isVisible = shouldShow;
+          }
           ticking = false;
         });
         ticking = true;
       }
-    });
-  });
+    }, { passive: true });
+  })();
 </script>

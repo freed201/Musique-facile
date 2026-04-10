@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "L'Opportuniste (Dutronc) - Tutoriel Guitare"
 prod: Y
 description: "Maîtrisez L'Opportuniste de Jacques Dutronc à la guitare : 5 accords, satire politique de 1968, rythmique yé-yé rock. Tutoriel vidéo pour intermédiaires."

@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 interface Props {
   variant?: 'full' | 'compact';
 }
@@ -10,42 +11,42 @@ const { variant = 'full' } = Astro.props;
   <section class="quiz-cta-section">
     <div class="container">
       <div class="quiz-cta-content">
-        <div class="quiz-cta-icon">🎯</div>
+        <div class="quiz-cta-icon"><Icon name="target" size={40} /></div>
         <h2 class="quiz-cta-title">Vous hésitez sur l'instrument à choisir ?</h2>
         <p class="quiz-cta-description">Répondez à 3 questions simples et découvrez l'instrument idéal pour vous en moins d'1 minute !</p>
 
         <div class="quiz-cta-features">
           <div class="feature">
-            <span class="feature-icon">⚡</span>
+            <span class="feature-icon"><Icon name="lightning" size={18} /></span>
             <span class="feature-text">Quiz rapide (60 secondes)</span>
           </div>
           <div class="feature">
-            <span class="feature-icon">🎯</span>
+            <span class="feature-icon"><Icon name="target" size={18} /></span>
             <span class="feature-text">Recommandation personnalisée</span>
           </div>
           <div class="feature">
-            <span class="feature-icon">🎁</span>
+            <span class="feature-icon"><Icon name="gift" size={18} /></span>
             <span class="feature-text">Cours adapté à votre profil</span>
           </div>
         </div>
 
-        <a href="/quel-instrument-choisir" class="quiz-cta-button">
-          <span class="button-text">🎵 Faire le quiz gratuit</span>
+        <a href="/quel-instrument-choisir/" class="quiz-cta-button">
+          <span class="button-text"><Icon name="note" size={18} /> Faire le quiz gratuit</span>
           <span class="button-arrow">→</span>
         </a>
 
-        <p class="quiz-cta-social-proof">✨ Déjà +15 000 personnes ont trouvé leur instrument grâce au quiz</p>
+        <p class="quiz-cta-social-proof"><Icon name="sparkles" size={16} /> Déjà +15 000 personnes ont trouvé leur instrument grâce au quiz</p>
       </div>
     </div>
   </section>
 ) : (
   <div class="quiz-cta-compact">
-    <div class="compact-icon">🎯</div>
+    <div class="compact-icon"><Icon name="target" size={24} /></div>
     <div class="compact-text">
       <h3>Quel instrument choisir ?</h3>
       <p>Faites notre quiz en 1 minute</p>
     </div>
-    <a href="/quel-instrument-choisir" class="compact-button">
+    <a href="/quel-instrument-choisir/" class="compact-button">
       Commencer →
     </a>
   </div>

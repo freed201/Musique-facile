@@ -5,84 +5,84 @@
 
 :root {
   /* ========================================
-     🌿 BRAND (Vert turquoise — Page d'accueil)
-     Base: #00c28e (conforme WCAG AA sur blanc)
+     💜 BRAND (Violet profond — Page d'accueil)
+     Base: #6C3FA0 (WCAG AA gros texte sur blanc: 4.56:1)
      ======================================== */
-  --brand-50: #e6f9f4;
-  --brand-100: #b3f0e0;
-  --brand-200: #80e6cd;
-  --brand-300: #4dddba;
-  --brand-400: #1ad3a6;
-  --brand-500: #00c28e;
-  --brand-600: #00a077;
-  --brand-700: #007d5c;
-  --brand-800: #005a41;
-  --brand-900: #003726;
-  --brand-950: #001d13;
+  --brand-50: #f5f0fa;
+  --brand-100: #e8ddf4;
+  --brand-200: #d4bfea;
+  --brand-300: #b994db;
+  --brand-400: #9c6ac8;
+  --brand-500: #6C3FA0;
+  --brand-600: #5a3488;
+  --brand-700: #482970;
+  --brand-800: #361f58;
+  --brand-900: #241440;
+  --brand-950: #120a20;
 
   /* ========================================
-     🎸 GUITARE (Vert lime différencié)
-     Base: #689f00 (ajusté pour WCAG AAA - 4.5:1)
+     🎸 GUITARE (Vert Material)
+     Base: #4CAF50 (WCAG AA gros texte: 3.0:1 — utiliser 600+ pour petit texte)
      ======================================== */
-  --guitar-50: #f4fce6;
-  --guitar-100: #e3f7b8;
-  --guitar-200: #d2f28a;
-  --guitar-300: #c1ed5c;
-  --guitar-400: #a6d92e;
-  --guitar-500: #689f00;  /* Contrast ratio 4.55:1 sur blanc */
-  --guitar-600: #568500;
-  --guitar-700: #446b00;
-  --guitar-800: #325000;
-  --guitar-900: #244000;
-  --guitar-950: #1a2b00;
+  --guitar-50: #e8f5e9;
+  --guitar-100: #c8e6c9;
+  --guitar-200: #a5d6a7;
+  --guitar-300: #81c784;
+  --guitar-400: #66bb6a;
+  --guitar-500: #4CAF50;
+  --guitar-600: #43a047;
+  --guitar-700: #388e3c;
+  --guitar-800: #2e7d32;
+  --guitar-900: #1b5e20;
+  --guitar-950: #0d3011;
 
   /* ========================================
-     🎹 PIANO (Bleu cyan)
-     Base: #1ca5af (conforme WCAG)
+     🎹 PIANO (Bleu Material)
+     Base: #2196F3 (WCAG AA gros texte: 3.26:1 — utiliser 700+ pour petit texte)
      ======================================== */
-  --piano-50: #e8f8fa;
-  --piano-100: #b8ecf2;
-  --piano-200: #88e0ea;
-  --piano-300: #58d4e2;
-  --piano-400: #28c8da;
-  --piano-500: #1ca5af;
-  --piano-600: #178b94;
-  --piano-700: #137179;
-  --piano-800: #0e575e;
-  --piano-900: #0a3d43;
-  --piano-950: #051f21;
+  --piano-50: #e3f2fd;
+  --piano-100: #bbdefb;
+  --piano-200: #90caf9;
+  --piano-300: #64b5f6;
+  --piano-400: #42a5f5;
+  --piano-500: #2196F3;
+  --piano-600: #1e88e5;
+  --piano-700: #1976d2;
+  --piano-800: #1565c0;
+  --piano-900: #0d47a1;
+  --piano-950: #072651;
 
   /* ========================================
-     🏝️ UKULÉLÉ (Jaune-orange chaleureux)
-     Base: #b58600 (ajusté pour WCAG AAA - 4.5:1)
+     🏝️ UKULELE (Ambre Material)
+     Base: #FF9800 (WCAG AA gros texte: 2.15:1 — utiliser 800+ pour petit texte)
      ======================================== */
-  --ukulele-50: #fef8e6;
-  --ukulele-100: #fceab3;
-  --ukulele-200: #fadd80;
-  --ukulele-300: #f8cf4d;
-  --ukulele-400: #f6c21a;
-  --ukulele-500: #b58600;  /* Contrast ratio 4.76:1 sur blanc */
-  --ukulele-600: #946e00;
-  --ukulele-700: #735600;
-  --ukulele-800: #523e00;
-  --ukulele-900: #3d2f00;
-  --ukulele-950: #291f00;
+  --ukulele-50: #fff3e0;
+  --ukulele-100: #ffe0b2;
+  --ukulele-200: #ffcc80;
+  --ukulele-300: #ffb74d;
+  --ukulele-400: #ffa726;
+  --ukulele-500: #FF9800;
+  --ukulele-600: #fb8c00;
+  --ukulele-700: #f57c00;
+  --ukulele-800: #ef6c00;
+  --ukulele-900: #e65100;
+  --ukulele-950: #7a2b00;
 
   /* ========================================
-     🎼 SOLFÈGE (Rouge pédagogique)
-     Base: #be0a00
+     🎼 SOLFEGE (Rouge Material)
+     Base: #E53935 (WCAG AA gros texte: 3.86:1 — utiliser 700+ pour petit texte)
      ======================================== */
-  --solfege-50: #fce8e6;
-  --solfege-100: #f7b8b3;
-  --solfege-200: #f28880;
-  --solfege-300: #ed584d;
-  --solfege-400: #e8281a;
-  --solfege-500: #be0a00;
-  --solfege-600: #a00900;
-  --solfege-700: #820700;
-  --solfege-800: #640600;
-  --solfege-900: #460400;
-  --solfege-950: #230200;
+  --solfege-50: #ffebee;
+  --solfege-100: #ffcdd2;
+  --solfege-200: #ef9a9a;
+  --solfege-300: #e57373;
+  --solfege-400: #ef5350;
+  --solfege-500: #E53935;
+  --solfege-600: #e53935;
+  --solfege-700: #c62828;
+  --solfege-800: #b71c1c;
+  --solfege-900: #8e0000;
+  --solfege-950: #4a0000;
 
   /* ========================================
      🩶 GRAYS NEUTRES (échelle complète)
@@ -130,6 +130,7 @@
   --surface-light: #f8f9fa;
   --surface-gray: #f3f4f6;
   --surface-dark: #1a1a1a;
+  --bg-alt: #F7F5FB;
 
   /* ========================================
      📐 TYPOGRAPHIE
@@ -224,10 +225,11 @@
   --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15);
 
   /* Shadows colorées (instruments) */
-  --shadow-brand: 0 8px 20px rgba(0, 194, 142, 0.25);
-  --shadow-guitar: 0 8px 20px rgba(122, 184, 0, 0.25);
-  --shadow-piano: 0 8px 20px rgba(28, 165, 175, 0.25);
-  --shadow-ukulele: 0 8px 20px rgba(214, 158, 0, 0.25);
+  --shadow-brand: 0 8px 20px rgba(108, 63, 160, 0.25);
+  --shadow-guitar: 0 8px 20px rgba(76, 175, 80, 0.25);
+  --shadow-piano: 0 8px 20px rgba(33, 150, 243, 0.25);
+  --shadow-ukulele: 0 8px 20px rgba(255, 152, 0, 0.25);
+  --shadow-solfege: 0 8px 20px rgba(229, 57, 53, 0.25);
 
   /* ========================================
      ⚡ TRANSITIONS

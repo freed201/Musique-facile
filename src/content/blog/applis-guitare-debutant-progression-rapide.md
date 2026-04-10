@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Les meilleures applis pour t’accompagner à la guitare"
 description: "Tour d’horizon d’applications utiles pour débuter la guitare : accordeur, accords, rythme et pratique guidée, sans se perdre ni se décourager."
 meta: "Explore les meilleures applications de guitare pour débutants, pour accorder, apprendre les accords, et jouer en rythme. Simplifiez votre apprentissage et progressez rapidement avec ces outils numériques."

@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Icon from './Icon.astro';
 
 // Récupérer tous les articles
 const allPosts = await getCollection('blog');
@@ -43,7 +44,7 @@ const displayPosts = [latestPost, ...randomPosts];
             </div>
             {index === 0 && (
               <div class="latest-tag">
-                <span class="latest-icon">📝</span>
+                <span class="latest-icon"><Icon name="pencil" size={14} /></span>
                 Dernier article
               </div>
             )}

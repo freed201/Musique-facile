@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import FooterModern from '../../components/FooterModern.astro';
+import Icon from '../../components/Icon.astro';
 import { getCollection } from 'astro:content';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 
@@ -197,22 +198,22 @@ const onlineStats = [
   {
     number: "24/7",
     label: "Accès aux cours",
-    icon: "⏱️"
+    iconName: "lightning"
   },
   {
     number: "15-20",
     label: "Minutes par jour suffisent",
-    icon: "⏰"
+    iconName: "target"
   },
   {
     number: "80k+",
     label: "Élèves satisfaits",
-    icon: "👨‍🎓"
+    iconName: "user-graduate"
   },
   {
     number: "4.7/5",
     label: "Avis moyen sur nos cours",
-    icon: "⭐"
+    iconName: "star"
   }
 ];
 
@@ -221,32 +222,32 @@ const advantages = [
   {
     title: "À votre rythme",
     description: "Progressez selon votre emploi du temps, sans pression ni contrainte horaire. Revoyez chaque leçon aussi souvent que nécessaire.",
-    icon: "⏱️"
+    iconName: "lightning"
   },
   {
     title: "Méthode progressive",
     description: "Nos cours sont structurés par étapes claires, partant de zéro pour une évolution constante et motivante.",
-    icon: "📈"
+    iconName: "rocket"
   },
   {
     title: "Contenu multimedia",
     description: "Vidéos HD multi-angles, exercices interactifs et ressources téléchargeables pour une expérience d'apprentissage complète.",
-    icon: "🎬"
+    iconName: "note"
   },
   {
     title: "Suivi personnalisé",
     description: "Des exercices adaptés à votre niveau et un support par email pour répondre à toutes vos questions.",
-    icon: "📝"
+    iconName: "pencil"
   },
   {
     title: "Résultats visibles",
     description: "Jouez vos premiers morceaux rapidement et constatez des progrès tangibles dès les premières semaines.",
-    icon: "🎯"
+    iconName: "target"
   },
   {
     title: "Économique",
     description: "Un investissement unique pour un accès illimité à l'ensemble du contenu, bien plus économique que des cours particuliers.",
-    icon: "💰"
+    iconName: "coin"
   }
 ];
 ---
@@ -296,19 +297,19 @@ const advantages = [
         <p class="subtitle">Explore tous nos cours en ligne pour apprendre la musique facilement. Guitare, piano, ukulélé, solfège : des formations claires, progressives et accessibles, pensées pour t'aider à progresser.</p>
         <div class="instrument-buttons">
           <a href="/cours/cours-de-guitare" class="instrument-button theme-guitar">
-            <span class="button-icon">🎸</span>
+            <span class="button-icon"><Icon name="guitar" size={20} /></span>
             <span>Guitare</span>
           </a>
           <a href="/cours/cours-de-piano" class="instrument-button theme-piano">
-            <span class="button-icon">🎹</span>
+            <span class="button-icon"><Icon name="piano" size={20} /></span>
             <span>Piano</span>
           </a>
           <a href="/cours/cours-de-ukulele" class="instrument-button theme-ukulele">
-            <span class="button-icon">🏖️</span>
+            <span class="button-icon"><Icon name="ukulele" size={20} /></span>
             <span>Ukulélé</span>
           </a>
           <a href="/cours/cours-de-solfege" class="instrument-button theme-solfege">
-            <span class="button-icon">🎼</span>
+            <span class="button-icon"><Icon name="solfege" size={20} /></span>
             <span>Solfège</span>
           </a>
         </div>
@@ -409,7 +410,7 @@ const advantages = [
         <div class="stats-banner">
           {onlineStats.map(stat => (
             <div class="stat-item">
-              <div class="stat-icon">{stat.icon}</div>
+              <div class="stat-icon"><Icon name={stat.iconName} size={24} /></div>
               <div class="stat-number">{stat.number}</div>
               <div class="stat-label">{stat.label}</div>
             </div>
@@ -419,7 +420,7 @@ const advantages = [
         <div class="advantages-grid">
           {advantages.map(advantage => (
             <div class="advantage-card">
-              <div class="advantage-icon">{advantage.icon}</div>
+              <div class="advantage-icon"><Icon name={advantage.iconName} size={24} /></div>
               <div class="advantage-content">
                 <h3>{advantage.title}</h3>
                 <p>{advantage.description}</p>
@@ -572,24 +573,24 @@ const advantages = [
           
           <div class="cta-instruments">
             <a href="/cours/cours-de-guitare" class="cta-instrument theme-guitar">
-              <span class="instrument-icon">🎸</span>
+              <span class="instrument-icon"><Icon name="guitar" size={24} /></span>
               <span class="instrument-name">Guitare</span>
-              <span class="arrow">→</span>
+              <span class="arrow">-></span>
             </a>
             <a href="/cours/cours-de-piano" class="cta-instrument theme-piano">
-              <span class="instrument-icon">🎹</span>
+              <span class="instrument-icon"><Icon name="piano" size={24} /></span>
               <span class="instrument-name">Piano</span>
-              <span class="arrow">→</span>
+              <span class="arrow">-></span>
             </a>
             <a href="/cours/cours-de-ukulele" class="cta-instrument theme-ukulele">
-              <span class="instrument-icon">🏖️</span>
+              <span class="instrument-icon"><Icon name="ukulele" size={24} /></span>
               <span class="instrument-name">Ukulélé</span>
-              <span class="arrow">→</span>
+              <span class="arrow">-></span>
             </a>
             <a href="/cours/cours-de-solfege" class="cta-instrument theme-solfege">
-              <span class="instrument-icon">🎼</span>
+              <span class="instrument-icon"><Icon name="solfege" size={24} /></span>
               <span class="instrument-name">Solfège</span>
-              <span class="arrow">→</span>
+              <span class="arrow">-></span>
             </a>
           </div>
         </div>
@@ -597,7 +598,7 @@ const advantages = [
     </section>
   </main>
 
-  <Footer />
+  <FooterModern />
 </Layout>
 
 <style>

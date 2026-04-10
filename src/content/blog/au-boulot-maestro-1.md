@@ -1,5 +1,6 @@
 ---
-title: "Au Boulot Maestro : Le Pouvoir de la Musique"
+siloSlug: "pourquoi-tu-stagnes-en-musique"
+title: "Le Pouvoir de la Musique sur le Cerveau"
 prod: Y
 description: "Explorez comment la musique peut impacter votre cerveau et booster votre bien-être grâce à la neuroplasticité."
 ogImage: "/images/blog/au-boulot-maestro-1.webp"
@@ -8,14 +9,10 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-02-03"
 dateModified: "2026-02-04"
-introduction: "Bienvenue dans l'univers d''Au Boulot Maestro', le podcast qui vous accompagne dans l'apprentissage musical.Dans ce premier épisode, découvrez comment la musique peut transformer votre vie, renforcer votre cerveau et vous offrir un bien-être durable.Je suis fier de vous présenter ce tout premier épisode, le début d'une aventure où l'on va explorer ensemble les secrets de l'apprentissage musical.La consultation du podcast dans le bloc ci-dessous. Il y a l'intégralité de l'épisode. Bonne écoute et bienvenue dans 'Au Boulot Maestro' !."
-
-podcast:
-    title: "Au Boulot Maestro : Découvrez le Pouvoir Transformateur de la Musique"
-    url: https://player.ausha.co/?showId=E5Z3vHA76APj&color=%23751CBF&podcastId=AGrpKSLY6mpQ&v=3&playerId=ausha-zPSc
+introduction: "Découvrez comment la musique peut transformer votre vie, renforcer votre cerveau et vous offrir un bien-être durable. On explore ensemble les secrets de la neuroplasticité musicale et pourquoi jouer d'un instrument est l'un des meilleurs exercices pour votre cerveau."
 
 conclusion: |
-    Merci d'avoir suivi cet épisode d'Au Boulot Maestro ! J'espère qu'il vous aura motivé à explorer votre potentiel musical. Restez à l'écoute pour d'autres épisodes passionnants et n'hésitez pas à partager vos expériences en commentaire ou sur les réseaux sociaux.
+    J'espère que cet article vous aura motivé à explorer votre potentiel musical. La musique est bien plus qu'un loisir : c'est un véritable entraînement pour le cerveau.
 
 
 ---

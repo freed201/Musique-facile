@@ -1,12 +1,14 @@
 ---
 affichage: "Y"
 classement: 1
-title: "Ukulélé pour Tous : Guide Complet du Débutant"
-description: "Apprenez l'ukulélé de zéro avec 41 leçons vidéo. Formation complète pour débutants : accords, rythmiques et premiers morceaux. Progressez rapidement !"
+title: "Cours Ukulélé Débutant — 41 Vidéos, 79€"
+description: "4 900 élèves, 4.7/5. 41 leçons vidéo en 2h30 pour jouer vos premiers morceaux. Accès à vie dès 79€, paiement unique. L'instrument idéal pour débuter !"
 ogImage: "/images/cours/apprendre-ukulele-debutant/hero.webp"
 theme: "ukulele"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.7"
+reviewCount: "360"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -25,8 +27,8 @@ audience:
   type: "Audience" 
   audienceType: ["Adult", "Student"]
 hasCourseInstance:
-  duration: "PT10H" # Format ISO 8601 pour la durée
-  courseWorkload: "PT10H"       # ou courseSchedule complet
+  duration: "PT2H30M" # Format ISO 8601 pour la durée (2h30)
+  courseWorkload: "PT2H30M"       # ou courseSchedule complet
   offers:
     type: "Offer"
     priceCurrency: "EUR"
@@ -37,11 +39,11 @@ hasCourseInstance:
 
 hero:
   badge: "Pour débutants"
-  title: "Maîtrisez l'ukulélé de zéro à héros"
-  subtitle: "Une formation complète pour apprendre à jouer de l'ukulélé, de l'accordage initial aux rythmiques complexes."
+  title: "Jouez vos premiers morceaux de ukulélé en 3 semaines"
+  subtitle: "41 leçons vidéo pour passer de zéro à vos premières chansons. La méthode fun qui a conquis 4 900 débutants."
   cta:
-    text: "Accéder pour €79 "
-    price: "ou 2 paiements mensuels de €40"
+    text: "Je commence le ukulélé - 79€"
+    price: "ou 2x 40€ sans frais"
   video:
     id: "1056758347"
   stats:
@@ -64,6 +66,11 @@ teachers:
       description: "L'ukulélé, instrument ultime pour jouer : simple, joyeux et toujours beau."
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
 timeline:
   - number: 1
@@ -184,19 +191,39 @@ cta:
     - icon: "💰"
       text: "Garantie satisfait ou remboursé pendant 15 jours"
 
+transformation:
+  title: "Ce que la formation va changer pour vous"
+  items:
+    - before: "Vous venez d'acheter un ukulélé et ne savez pas par où commencer"
+      after: "Vous jouez vos premières chansons et accompagnez vos morceaux préférés"
+    - before: "Vos accords sonnent étouffés et vos doigts n'obéissent pas"
+      after: "Vos accords sont clairs et vos enchaînements sont fluides et naturels"
+    - before: "Vous ne comprenez pas les tablatures et les diagrammes d'accords"
+      after: "Vous lisez et jouez n'importe quelle tablature de ukulélé en autonomie"
+
+pricing:
+  title: "Investissez dans votre passion"
+  features:
+    - "41 leçons vidéo HD progressives"
+    - "Accès à vie, sans limite de temps"
+    - "Support personnalisé par email"
+    - "Mises à jour gratuites incluses"
+    - "Certificat de complétion"
+  guarantee: "Garantie satisfait ou remboursé 15 jours"
+
 faq:
   title: "Questions fréquentes"
   subtitle: "Nous répondons à vos doutes"
   questions:
     - question: "Cette formation est-elle vraiment adaptée aux débutants ?"
-      answer: "Oui, elle est conçue pour les débutants complets et vous guide étape par étape."
+      answer: "Oui, cette formation est conçue pour les débutants complets qui n'ont jamais touché un ukulélé. Plus de 4 900 élèves ont appris avec cette méthode en partant de zéro. Les 41 leçons vidéo vous guident pas à pas, de l'accordage jusqu'à vos premiers morceaux. L'ukulélé est l'instrument le plus accessible : la plupart de nos élèves jouent leur première chanson en moins de 2 semaines."
     - question: "Dois-je avoir un ukulélé pour suivre cette formation ?"
-      answer: "Oui, un ukulélé est nécessaire pour pratiquer les leçons. Nous vous conseillons d'en acquérir un si vous n'en avez pas encore."
+      answer: "Oui, un ukulélé est indispensable pour pratiquer. La bonne nouvelle, c'est qu'un ukulélé soprano de qualité correcte coûte entre 40€ et 80€. Dans les premières leçons, Fred vous explique comment choisir et accorder votre ukulélé. Pas besoin d'investir dans un modèle haut de gamme pour débuter et profiter pleinement de la formation."
     - question: "Combien de temps dois-je y consacrer ?"
-      answer: "Seulement 15 minutes par jour suffisent pour progresser efficacement."
+      answer: "Seulement 10 à 15 minutes par jour suffisent pour progresser rapidement. L'ukulélé a l'avantage d'être un instrument très intuitif : les progrès sont visibles dès les premières sessions. Nos élèves les plus réguliers jouent leurs premières chansons complètes en 2 à 3 semaines. Chaque leçon est courte et ludique, parfaite pour une pause musicale quotidienne."
     - question: "Et si je n'arrive pas à suivre les cours ?"
-      answer: "Pas de panique ! Un support personnalisé est à votre disposition pour répondre à vos questions et vous aider."
+      answer: "Pas de panique ! Un support personnalisé par email est à votre disposition pour répondre à toutes vos questions. Fred vous accompagne personnellement si vous bloquez sur un passage. De plus, l'accès à vie vous permet de revoir chaque leçon autant de fois que nécessaire, sans pression ni date limite."
     - question: "Puis-je me faire rembourser si je ne suis pas satisfait ?"
-      answer: "Absolument. Vous bénéficiez d'une garantie satisfait ou remboursé pendant 15 jours."
+      answer: "Absolument. Vous bénéficiez d'une garantie satisfait ou remboursé pendant 15 jours, sans condition. C'est notre engagement qualité. Un simple email suffit pour être remboursé intégralement. Avec un taux de satisfaction de plus de 97%, nous sommes confiants que cette formation vous plaira."
   backgroundPattern: "ukulele-pattern.svg"
 ---

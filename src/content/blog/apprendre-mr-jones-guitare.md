@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Mr. Jones (Counting Crows) - Tutoriel Guitare"
 prod: Y
 description: "Mr. Jones des Counting Crows à la guitare : 5 accords faciles, rythmique rock alternatif, hit 1993. Tutoriel débutants/intermédiaires."

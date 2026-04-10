@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import FooterModern from '../../components/FooterModern.astro';
+import Icon from '../../components/Icon.astro';
 import { getCollection } from 'astro:content';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 
@@ -287,7 +288,7 @@ const faqSchema = {
                   <div class="course-meta">
                     {course.data.bestSeller && (
                       <span class="best-seller-tag">
-                        <span class="best-seller-icon">🏆</span>
+                        <span class="best-seller-icon"><Icon name="trophy" size={16} /></span>
                         Meilleure vente
                       </span>
                     )}
@@ -325,19 +326,19 @@ const faqSchema = {
           </div>
           
           <div class="benefit-card">
-            <div class="benefit-icon">⏱️</div>
+            <div class="benefit-icon"><Icon name="lightning" size={24} /></div>
             <h3>À ton rythme</h3>
             <p>Progresse quand tu le souhaites, revois les leçons autant que nécessaire, sans stress ni pression.</p>
           </div>
           
           <div class="benefit-card">
-            <div class="benefit-icon">🎬</div>
+            <div class="benefit-icon"><Icon name="note" size={24} /></div>
             <h3>Cours visuels</h3>
             <p>Des vidéos claires qui montrent précisément le placement des doigts et les techniques de jeu.</p>
           </div>
           
           <div class="benefit-card">
-            <div class="benefit-icon">🎵</div>
+            <div class="benefit-icon"><Icon name="note" size={24} /></div>
             <h3>Résultats rapides</h3>
             <p>Joue tes premières mélodies en quelques jours seulement, même sans connaissance musicale préalable.</p>
           </div>
@@ -492,7 +493,7 @@ const faqSchema = {
     </section>
   </main>
 
-  <Footer />
+  <FooterModern />
 </Layout>
 
 <style>

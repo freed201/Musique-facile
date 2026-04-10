@@ -1,4 +1,5 @@
 ---
+siloSlug: "guide-complet-apprentissage-piano"
 title: "Piano Débutant : Les Meilleures Méthodes"
 description: "Découvre les meilleures méthodes pour apprendre le piano débutant. Exercices, vidéos, partitions et astuces pour progresser rapidement et facilement !."
 ogImage: "/images/blog/pourquoi-apprendre-le-piano.webp"

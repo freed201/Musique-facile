@@ -1,4 +1,5 @@
 ---
+siloSlug: "guide-complet-apprentissage-piano"
 title: "Meilleures Ressources pour Apprendre le Piano"
 description: "Les meilleures ressources pour apprendre le piano : applications, cours en ligne, partitions gratuites et astuces pour progresser."
 ogImage: "/images/blog/pourquoi-apprendre-le-piano.webp"

@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Ironic (Alanis Morissette) - Tutoriel Guitare"
 description: "Version simple de Ironic avec quatre accords ouverts et une rythmique pop facile. Structure claire, conseils et plan d’entraînement progressif."
 author: "Musique Facile"

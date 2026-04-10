@@ -1,4 +1,5 @@
 ---
+siloSlug: "pourquoi-tu-stagnes-en-musique"
 title: "K-pop Demon Hunters : Jouer les Hits à l'Ukulélé"
 prod: Y
 description: "Jouez Briller, Golden et Soda Pop de K-pop Demon Hunters à l'ukulélé ou guitare. Tutoriels complets pour ces tubes Netflix."

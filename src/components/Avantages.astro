@@ -1,8 +1,9 @@
 ---
+import Icon from './Icon.astro';
 const avantages = [
   {
     id: "main",
-    icon: "⚡",
+    iconName: "lightning",
     titre: "Jouez Votre Première Chanson en 7 Jours",
     description: "Notre méthode exclusive garantit des résultats rapides. 92% de nos élèves jouent leur première chanson en moins de 5 jours. Si vous n'y arrivez pas en 7 jours, nous vous remboursons intégralement.",
     stat: "7 JOURS",
@@ -13,7 +14,7 @@ const avantages = [
   },
   {
     id: "teacher",
-    icon: "🎓",
+    iconName: "graduation",
     titre: "Méthode Professionnelle",
     description: "Développée par Fred Fieffé, professeur certifié avec 15 ans d'expérience.",
     stat: "80 000+",
@@ -23,7 +24,7 @@ const avantages = [
   },
   {
     id: "time",
-    icon: "🎯",
+    iconName: "target",
     titre: "15 Min/Jour Suffisent",
     description: "Apprentissage adapté aux adultes. Progressez à votre rythme, sans stress.",
     stat: "15 min",
@@ -33,7 +34,7 @@ const avantages = [
   },
   {
     id: "support",
-    icon: "💪",
+    iconName: "muscle",
     titre: "Support Réactif",
     description: "Réponses sous 24h pour toutes vos questions sur les cours et votre progression.",
     stat: "24h",
@@ -47,7 +48,7 @@ const avantages = [
 <section id="avantages" class="avantages section-padding">
   <div class="container">
     <div class="section-header">
-      <span class="badge">✨ Ce qui nous rend uniques</span>
+      <span class="badge"><Icon name="sparkles" size={16} /> Ce qui nous rend uniques</span>
       <h2 class="section-title">Pourquoi Plus de 80 000 Musiciens Nous Font Confiance ?</h2>
       <p class="section-subtitle">La seule plateforme qui combine méthode professionnelle, résultats rapides et support réactif</p>
     </div>
@@ -64,7 +65,7 @@ const avantages = [
             <div class="large-card-content">
               <div class="large-card-header">
                 <div class="icon-wrapper-large">
-                  <span class="avantage-icon">{avantage.icon}</span>
+                  <span class="avantage-icon"><Icon name={avantage.iconName} size={40} /></span>
                 </div>
                 <div class="large-stat">
                   <div class="stat-number-large">{avantage.stat}</div>
@@ -74,7 +75,7 @@ const avantages = [
               <h3 class="avantage-titre-large">{avantage.titre}</h3>
               <p class="avantage-description-large">{avantage.description}</p>
               <div class="highlight-badge">
-                <span class="highlight-icon">🎉</span>
+                <span class="highlight-icon"><Icon name="sparkles" size={20} /></span>
                 <span>{avantage.highlight}</span>
               </div>
             </div>
@@ -87,7 +88,7 @@ const avantages = [
                 <div class="stat-label">{avantage.statLabel}</div>
               </div>
               <div class="icon-wrapper">
-                <span class="avantage-icon">{avantage.icon}</span>
+                <span class="avantage-icon"><Icon name={avantage.iconName} size={40} /></span>
               </div>
               <h3 class="avantage-titre">{avantage.titre}</h3>
               <p class="avantage-description">{avantage.description}</p>

@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import FooterModern from '../../components/FooterModern.astro';
+import Icon from '../../components/Icon.astro';
 import { getCollection } from 'astro:content';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 
@@ -287,7 +288,7 @@ const faqSchema = {
                   <div class="course-meta">
                     {course.data.bestSeller && (
                       <span class="best-seller-tag">
-                        <span class="best-seller-icon">🏆</span>
+                        <span class="best-seller-icon"><Icon name="trophy" size={16} /></span>
                         Meilleure vente
                       </span>
                     )}
@@ -325,13 +326,13 @@ const faqSchema = {
           </div>
           
           <div class="benefit-card">
-            <div class="benefit-icon">⏱️</div>
+            <div class="benefit-icon"><Icon name="lightning" size={24} /></div>
             <h3>À votre rythme</h3>
             <p>Apprenez sans pression, avec des leçons accessibles 24h/24 et visionnables autant de fois que nécessaire.</p>
           </div>
           
           <div class="benefit-card">
-            <div class="benefit-icon">🎯</div>
+            <div class="benefit-icon"><Icon name="target" size={24} /></div>
             <h3>Méthode progressive</h3>
             <p>Des explications simples et concrètes, adaptées aux débutants comme aux musiciens autodidactes.</p>
           </div>
@@ -492,7 +493,7 @@ const faqSchema = {
     </section>
   </main>
 
-  <Footer />
+  <FooterModern />
 </Layout>
 
 <style>

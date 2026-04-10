@@ -1,5 +1,6 @@
 ---
 import OptimizedImage from './OptimizedImage.astro';
+import Icon from './Icon.astro';
 ---
 
 <section class="hero-new">
@@ -25,22 +26,22 @@ import OptimizedImage from './OptimizedImage.astro';
         <!-- Trust badges -->
         <div class="hero-new__trust-row">
           <div class="hero-new__trust-badge">
-            <span aria-hidden="true" class="hero-new__trust-icon">⭐</span>
+            <span aria-hidden="true" class="hero-new__trust-icon"><Icon name="star" size={18} /></span>
             <span><strong>4.7/5</strong> (2 847 avis)</span>
           </div>
           <div class="hero-new__trust-badge">
-            <span aria-hidden="true" class="hero-new__trust-icon">🏆</span>
+            <span aria-hidden="true" class="hero-new__trust-icon"><Icon name="trophy" size={18} /></span>
             <span><strong>Meilleur formateur Skilleos</strong> 2023/2024</span>
           </div>
           <div class="hero-new__trust-badge">
-            <span aria-hidden="true" class="hero-new__trust-icon">🔒</span>
+            <span aria-hidden="true" class="hero-new__trust-icon"><Icon name="lock" size={18} /></span>
             <span><strong>Paiement sécurisé</strong></span>
           </div>
         </div>
 
         <!-- CTAs avec nouvelles classes -->
         <div class="hero-new__cta-group">
-          <a href="/cours" class="btn btn-primary btn-lg">
+          <a href="/cours/" class="btn btn-primary btn-lg">
             Découvrir
             <span aria-hidden="true">→</span>
           </a>

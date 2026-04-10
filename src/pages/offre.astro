@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import FooterModern from '../components/FooterModern.astro';
 import '../components/Tabs.ts';
 
 
@@ -36,7 +36,7 @@ const guitarPackSchema = {
     "@type": "Offer",
     "price": "99.00",
     "priceCurrency": "EUR",
-    "priceValidUntil": "2025-12-31",
+    "priceValidUntil": "2026-12-31",
     "availability": "https://schema.org/InStock",
     "url": "https://ecole.musique-facile.fr/pack-guitare-cadeau",
     "seller": {
@@ -44,6 +44,14 @@ const guitarPackSchema = {
       "name": "Musique Facile"
     },
     "areaServed": "FR",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "FR",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 14,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    },
     "shippingDetails": {
       "@type": "OfferShippingDetails",
       "shippingRate": {
@@ -90,7 +98,7 @@ const ukulelePackSchema = {
     "@type": "Offer",
     "price": "99.00",
     "priceCurrency": "EUR",
-    "priceValidUntil": "2025-12-31",
+    "priceValidUntil": "2026-12-31",
     "availability": "https://schema.org/InStock",
     "url": "https://ecole.musique-facile.fr/pack-ukulele",
     "seller": {
@@ -98,6 +106,14 @@ const ukulelePackSchema = {
       "name": "Musique Facile"
     },
     "areaServed": "FR",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "FR",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 14,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    },
     "shippingDetails": {
       "@type": "OfferShippingDetails",
       "shippingRate": {
@@ -144,14 +160,41 @@ const pianoBeginnerSchema = {
     "@type": "Offer",
     "price": "99.00",
     "priceCurrency": "EUR",
-    "priceValidUntil": "2025-12-31",
+    "priceValidUntil": "2026-12-31",
     "availability": "https://schema.org/InStock",
     "url": "https://ecole.musique-facile.fr/pack-piano-debutant-cadeau",
     "seller": {
       "@type": "Organization",
       "name": "Musique Facile"
     },
-    "areaServed": "FR"
+    "areaServed": "FR",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "FR",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 14,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "0",
+        "currency": "EUR"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "businessDays": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+        }
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "FR"
+      }
+    }
   },
   "category": "Online Course",
   "educationalUse": "Self-guided learning",
@@ -179,14 +222,41 @@ const pianoAdvancedSchema = {
     "@type": "Offer",
     "price": "99.00",
     "priceCurrency": "EUR",
-    "priceValidUntil": "2025-12-31",
+    "priceValidUntil": "2026-12-31",
     "availability": "https://schema.org/InStock",
     "url": "https://ecole.musique-facile.fr/pack-avance-piano-cadeau",
     "seller": {
       "@type": "Organization",
       "name": "Musique Facile"
     },
-    "areaServed": "FR"
+    "areaServed": "FR",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "FR",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 14,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "0",
+        "currency": "EUR"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "businessDays": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+        }
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "FR"
+      }
+    }
   },
   "category": "Online Course",
   "educationalUse": "Self-guided learning",
@@ -326,7 +396,7 @@ const testimonials = [
 
     <main>
       <!-- Hero Section -->
-      <section class="hero" id="hero" itemscope itemtype="https://schema.org/SpecialAnnouncement">
+      <section class="hero" id="hero">
         <div class="hero-background">
           <picture>
             <source srcset="/images/hero-instruments.webp" type="image/webp" />
@@ -844,51 +914,51 @@ const testimonials = [
       </section>
 
       <!-- FAQ -->
-      <section class="faq" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+      <section class="faq" id="faq">
         <div class="container">
           <h2>❓ Questions fréquentes</h2>
           <p class="section-subtitle">Toutes les réponses à vos questions</p>
-          
+
           <div class="faq-grid">
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h3 itemprop="name">Comment accéder aux cours après l'achat ?</h3>
-              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">Vous recevez vos accès par email dans les <strong>24h</strong>. Connectez-vous sur notre plateforme et commencez immédiatement vos formations.</p>
+            <div class="faq-item">
+              <h3>Comment accéder aux cours après l'achat ?</h3>
+              <div>
+                <p>Vous recevez vos accès par email dans les <strong>24h</strong>. Connectez-vous sur notre plateforme et commencez immédiatement vos formations.</p>
               </div>
             </div>
 
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h3 itemprop="name">Quand vais-je recevoir mon cadeau ?</h3>
-              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">Les cadeaux (sourdine ou sangle) sont <strong>expédiés sous 15 jours ouvrés</strong> en France métropolitaine par La Poste. Les formations sont disponibles immédiatement.</p>
+            <div class="faq-item">
+              <h3>Quand vais-je recevoir mon cadeau ?</h3>
+              <div>
+                <p>Les cadeaux (sourdine ou sangle) sont <strong>expédiés sous 15 jours ouvrés</strong> en France métropolitaine par La Poste. Les formations sont disponibles immédiatement.</p>
               </div>
             </div>
 
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h3 itemprop="name">Et si je débute complètement de zéro ?</h3>
-              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text"><strong>Parfait !</strong> Nos packs sont spécialement conçus pour les grands débutants. Vous apprenez étape par étape, sans prérequis.</p>
+            <div class="faq-item">
+              <h3>Et si je débute complètement de zéro ?</h3>
+              <div>
+                <p><strong>Parfait !</strong> Nos packs sont spécialement conçus pour les grands débutants. Vous apprenez étape par étape, sans prérequis.</p>
               </div>
             </div>
 
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h3 itemprop="name">Puis-je vraiment me faire rembourser ?</h3>
-              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">Oui, vous avez <strong>14 jours</strong> pour tester. Si vous n'êtes pas satisfait, nous vous remboursons intégralement, sans question.</p>
+            <div class="faq-item">
+              <h3>Puis-je vraiment me faire rembourser ?</h3>
+              <div>
+                <p>Oui, vous avez <strong>14 jours</strong> pour tester. Si vous n'êtes pas satisfait, nous vous remboursons intégralement, sans question.</p>
               </div>
             </div>
 
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h3 itemprop="name">Y a-t-il un support si j'ai des questions ?</h3>
-              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">Bien sûr ! Contactez-nous à <strong>contact@musique-facile.fr</strong>, nous répondons sous 24h pour vous aider.</p>
+            <div class="faq-item">
+              <h3>Y a-t-il un support si j'ai des questions ?</h3>
+              <div>
+                <p>Bien sûr ! Contactez-nous à <strong>contact@musique-facile.fr</strong>, nous répondons sous 24h pour vous aider.</p>
               </div>
             </div>
 
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h3 itemprop="name">Puis-je avoir une facture ?</h3>
-              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">Oui, une <strong>facture</strong> vous est automatiquement envoyée par email après votre achat.</p>
+            <div class="faq-item">
+              <h3>Puis-je avoir une facture ?</h3>
+              <div>
+                <p>Oui, une <strong>facture</strong> vous est automatiquement envoyée par email après votre achat.</p>
               </div>
             </div>
           </div>
@@ -957,14 +1027,14 @@ const testimonials = [
       })();
     </script>
 
-    <Footer />
+    <FooterModern />
   </body>
 </Layout>
 
 <style>
   /* Variables CSS */
   :root {
-    --brand: #00c28e;
+    --brand: #6C3FA0;
     --brand-contrast: #ffffff;
     --bg: #ffffff;
     --bg-light: #f8fafc;
@@ -1063,7 +1133,7 @@ const testimonials = [
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(0,194,142,0) 60%, rgba(0,194,142,0.08) 100%);
+    background: linear-gradient(135deg, rgba(108,63,160,0) 60%, rgba(108,63,160,0.08) 100%);
     z-index: 1;
   }
 
@@ -1140,7 +1210,7 @@ const testimonials = [
     font-size: 3rem;
     font-weight: 900;
     color: var(--brand);
-    text-shadow: 0 2px 4px rgba(0, 194, 142, 0.3);
+    text-shadow: 0 2px 4px rgba(108, 63, 160, 0.3);
   }
 
   .savings-badge {
@@ -1195,7 +1265,7 @@ const testimonials = [
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, var(--brand), #00a077);
+    background: linear-gradient(135deg, var(--brand), #5a3488);
     color: white;
     padding: 1.25rem 2.5rem;
     border-radius: var(--radius-md);
@@ -1404,7 +1474,7 @@ const testimonials = [
   }
 
   .pack-item.featured {
-    background: linear-gradient(135deg, var(--brand), #00a077);
+    background: linear-gradient(135deg, var(--brand), #5a3488);
     color: white;
     transform: scale(1.05);
   }
@@ -1686,7 +1756,7 @@ const testimonials = [
     font-size: 4rem;
     font-weight: 900;
     color: var(--brand);
-    text-shadow: 0 2px 4px rgba(0, 194, 142, 0.3);
+    text-shadow: 0 2px 4px rgba(108, 63, 160, 0.3);
   }
 
   .savings-highlight {
@@ -2010,7 +2080,7 @@ const testimonials = [
 
   /* Final CTA */
   .final-cta {
-    background: linear-gradient(135deg, var(--brand), #00a077);
+    background: linear-gradient(135deg, var(--brand), #5a3488);
     color: white;
     padding: 6rem 0;
     text-align: center;

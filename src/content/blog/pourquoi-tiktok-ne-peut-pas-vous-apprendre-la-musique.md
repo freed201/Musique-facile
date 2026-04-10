@@ -1,4 +1,5 @@
 ---
+siloSlug: "pourquoi-tu-stagnes-en-musique"
 title: "TikTok et Musique : Pourquoi Ça Ne Suffit Pas"
 description: "Pourquoi les méthodes ultra courtes ne suffisent pas : comprendre l'apprentissage musical adulte et construire des bases solides."
 meta: "Découvrez pourquoi les méthodes d'apprentissage TikTok sont peu adaptées aux adultes et comment utiliser les mémoires pour apprendre efficacement la musique."
@@ -8,7 +9,7 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/pourquoi-tiktok-ne-peut-pas-vous-apprendre-la-musique.webp"
 datePublished: "2026-04-27"
-dateModified: "2026-02-04"
+dateModified: "2026-04-27"
 introduction: "Sur TikTok, des vidéos vous promettent d'apprendre rapidement la musique en appuyant sur des touches numérotées ou en imitant des gestes simples. Si ça marche pour les enfants grâce à leur mémoire procédurale, ce n'est pas idéal pour les adultes qui préfèrent la mémoire déclarative. Mais alors, comment vraiment apprendre la musique en tant qu'adulte ?"
 conclusion: "En conclusion, les vidéos pédagogiques de TikTok séduisent par leur simplicité mais ne répondent pas aux besoins d'apprentissage des adultes. Pour ceux-ci, il est crucial de privilégier une approche qui joint compréhension conceptuelle et pratique. Adapter la méthode en fonction de l'âge et du type de mémoire dominant assure un apprentissage durable et enrichissant."
 

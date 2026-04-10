@@ -1,6 +1,6 @@
 ---
 title: "Comment Bien Choisir son Ukulélé en 2025 ?"
-prod: Y
+prod: "N"
 description: "Trouver le bon ukulélé peut être un vrai casse-tête. Taille, bois, sonorité… Dans cet article, je te guide pour choisir le modèle idéal !"
 ogImage: "/images/blog/choisir-ukulele-2025.webp"
 author: "Fred Fieffé"
@@ -8,14 +8,11 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-03-03"
 dateModified: "2026-02-04"
-introduction: "Le ukulélé est un instrument accessible et joyeux, mais choisir le bon modèle peut être compliqué. Soprano, concert, ténor, bariton ? Bois massif ou stratifié ? Dans cet article, je vais te simplifier tout ça et te donner les clés pour bien choisir ton ukulélé … et si tu préfères l’écouter, le podcast est dispo juste en dessous avec tous les conseils ! 🎧👇"
+introduction: "Le ukulélé est un instrument accessible et joyeux, mais choisir le bon modèle peut être compliqué. Soprano, concert, ténor, bariton ? Bois massif ou stratifié ? Dans cet article, je vais te simplifier tout ça et te donner les clés pour bien choisir ton ukulélé."
 conclusion: |
    En gros, l’essentiel, c’est de choisir un ukulélé qui vous plaît et avec lequel vous avez envie de jouer, tout simplement. Regardez la taille, le bois, l’accordage, mais au final, c’est le feeling qui compte. Et si vous hésitez, le mieux, c’est d’en essayer plusieurs pour voir celui qui vous va le mieux !
 meta: "Découvrez comment choisir le bon ukulélé selon sa taille, son bois et son accordage pour un apprentissage facile et agréable."
 keywords: "choisir ukulélé, taille ukulélé, soprano vs ténor, bois massif ou stratifié, accordage ukulélé, meilleur ukulélé débutant"
-podcast:
-    title: Optimisez Votre Mémoire Musicale
-    url: https://player.ausha.co/?showId=E5Z3vHA76APj&color=%23751CBF&podcastId=v37KXT8RG4dL&v=3&playerId=ausha-iJwN
 ---
 
 

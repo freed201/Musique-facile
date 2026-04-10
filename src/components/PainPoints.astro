@@ -1,0 +1,219 @@
+---
+/**
+ * PainPoints.astro
+ * Section empathique "Probleme" — identifie les frustrations du visiteur
+ * pour creer une connexion emotionnelle avant de presenter la solution.
+ */
+
+interface PainPoint {
+  icon: string;
+  text: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  painPoints?: PainPoint[];
+}
+
+const defaultPainPoints: PainPoint[] = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>`,
+    text: "Vous avez essaye seul, mais vous tournez en rond"
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 15s1.5-2 4-2 4 2 4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>`,
+    text: "Vous avez peur de ne pas etre assez doue"
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`,
+    text: "Vous pensez qu'il faut lire le solfege pour commencer"
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
+    text: "Vous avez abandonne apres quelques semaines"
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+    text: "Vous ne savez pas par ou commencer"
+  }
+];
+
+const {
+  title = "Vous vous reconnaissez ?",
+  subtitle = "Ces blocages sont normaux. 80 000 eleves sont passes par la avant de trouver la methode qui change tout.",
+  painPoints = defaultPainPoints
+} = Astro.props;
+---
+
+<section class="painpoints-section" aria-label="Frustrations courantes des debutants en musique" data-animate="reveal">
+  <div class="painpoints-container">
+    <div class="painpoints-header">
+      <h2 class="painpoints-title">{title}</h2>
+      <p class="painpoints-subtitle">{subtitle}</p>
+    </div>
+
+    <div class="painpoints-grid" data-stagger-group=".painpoint-card">
+      {painPoints.map((point, index) => (
+        <div class="painpoint-card" style={`--delay: ${index * 100}ms`}>
+          <div class="painpoint-icon" set:html={point.icon} />
+          <p class="painpoint-text">{point.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="painpoints-reassurance">
+      <strong>Bonne nouvelle :</strong> tout cela va changer aujourd'hui.
+    </p>
+  </div>
+</section>
+
+<style>
+  .painpoints-section {
+    padding: var(--space-20) var(--space-4);
+    background: var(--bg-alt);
+  }
+
+  .painpoints-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .painpoints-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .painpoints-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .painpoints-subtitle {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: var(--leading-relaxed);
+  }
+
+  .painpoints-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .painpoints-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-5);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .painpoints-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Center the last 2 cards when 5 items in 3-col grid */
+    .painpoints-grid .painpoint-card:nth-child(4) {
+      grid-column: 1 / 2;
+      justify-self: end;
+      max-width: calc(100% - var(--space-8));
+    }
+
+    .painpoints-grid .painpoint-card:nth-child(5) {
+      grid-column: 2 / 4;
+      justify-self: start;
+      max-width: calc(50% + var(--space-8));
+    }
+  }
+
+  .painpoint-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-6);
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-default);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .painpoint-card:hover {
+    border-color: var(--brand-300);
+    box-shadow: var(--shadow-md);
+  }
+
+  .painpoint-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--brand-50);
+    color: var(--brand-500);
+    border-radius: 50%;
+  }
+
+  .painpoint-text {
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+    line-height: var(--leading-snug);
+    margin: 0;
+  }
+
+  .painpoints-reassurance {
+    text-align: center;
+    margin-top: var(--space-10);
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+  }
+
+  .painpoints-reassurance strong {
+    color: var(--brand-600);
+  }
+
+  /* Dark mode — system */
+  @media (prefers-color-scheme: dark) {
+    .painpoints-section {
+      background: #0f172a;
+    }
+
+    .painpoint-card {
+      background: #1e293b;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .painpoint-icon {
+      background: rgba(108, 63, 160, 0.2);
+    }
+
+    .painpoint-text {
+      color: #f1f5f9;
+    }
+  }
+
+  /* Dark mode — manual toggle */
+  :global([data-theme="dark"]) .painpoints-section {
+    background: #0f172a;
+  }
+
+  :global([data-theme="dark"]) .painpoint-card {
+    background: #1e293b;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  :global([data-theme="dark"]) .painpoint-icon {
+    background: rgba(108, 63, 160, 0.2);
+  }
+
+  :global([data-theme="dark"]) .painpoint-text {
+    color: #f1f5f9;
+  }
+</style>

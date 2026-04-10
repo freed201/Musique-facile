@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Can't Help Falling in Love (Elvis) - Guitare"
 prod: Y
 description: "Can't Help Falling in Love d'Elvis Presley : 10 accords en Do majeur, ballade romantique 1961. Tutoriel guitare intermédiaires."

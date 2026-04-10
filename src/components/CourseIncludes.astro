@@ -1,0 +1,205 @@
+---
+interface CourseIncludesData {
+  videoCount?: string;
+  totalDuration?: string;
+  bonusPDF?: string;
+  playbacks?: string;
+  accessType?: string;
+  support?: string;
+  extras?: string[];
+}
+
+interface Props {
+  courseIncludes?: CourseIncludesData;
+  /** Nombre de chapitres depuis hero.stats */
+  chapters?: string;
+  /** Duree ISO parsee */
+  duration?: string;
+  /** Features du pricing (fallback) */
+  pricingFeatures?: string[];
+}
+
+const { courseIncludes, chapters, duration, pricingFeatures } = Astro.props;
+
+// Construction de la liste d'inclus a partir des donnees disponibles
+interface IncludeItem {
+  icon: string;
+  label: string;
+}
+
+const items: IncludeItem[] = [];
+
+// Donnees du courseIncludes (frontmatter optionnel)
+if (courseIncludes) {
+  if (courseIncludes.videoCount) {
+    items.push({ icon: 'video', label: `${courseIncludes.videoCount} lecons video HD` });
+  }
+  if (courseIncludes.totalDuration) {
+    items.push({ icon: 'clock', label: `${courseIncludes.totalDuration} de contenu` });
+  }
+  if (courseIncludes.bonusPDF) {
+    items.push({ icon: 'pdf', label: courseIncludes.bonusPDF });
+  }
+  if (courseIncludes.playbacks) {
+    items.push({ icon: 'music', label: courseIncludes.playbacks });
+  }
+  if (courseIncludes.accessType) {
+    items.push({ icon: 'infinity', label: courseIncludes.accessType });
+  }
+  if (courseIncludes.support) {
+    items.push({ icon: 'support', label: courseIncludes.support });
+  }
+  if (courseIncludes.extras) {
+    courseIncludes.extras.forEach(extra => {
+      items.push({ icon: 'star', label: extra });
+    });
+  }
+}
+
+// Fallback : construire a partir des donnees existantes du cours
+if (items.length === 0) {
+  if (chapters) {
+    items.push({ icon: 'video', label: `${chapters} lecons video HD` });
+  }
+  if (duration) {
+    items.push({ icon: 'clock', label: `${duration} de contenu` });
+  }
+  // Valeurs par defaut communes a tous les cours
+  items.push({ icon: 'infinity', label: 'Acces a vie, sans limite' });
+  items.push({ icon: 'support', label: 'Support personnalise par email' });
+  items.push({ icon: 'refresh', label: 'Mises a jour gratuites' });
+}
+
+// Fallback supplementaire depuis pricing.features
+if (items.length < 3 && pricingFeatures) {
+  pricingFeatures.forEach(feature => {
+    // Eviter les doublons
+    if (!items.some(item => item.label.toLowerCase().includes(feature.substring(0, 15).toLowerCase()))) {
+      items.push({ icon: 'star', label: feature });
+    }
+  });
+}
+
+// Map des icones SVG
+const iconSVGs: Record<string, string> = {
+  video: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>',
+  clock: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+  pdf: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+  music: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
+  infinity: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>',
+  support: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+  refresh: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>',
+  star: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+};
+---
+
+<section class="course-includes">
+  <div class="container">
+    <h2 class="course-includes-title">Ce que vous obtenez</h2>
+    <div class="course-includes-grid" data-stagger-group=".include-card">
+      {items.map((item) => (
+        <div class="include-card">
+          <div class="include-icon" set:html={iconSVGs[item.icon] || iconSVGs.star} />
+          <span class="include-label">{item.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .course-includes {
+    padding: 5rem 0;
+    background: white;
+  }
+
+  .course-includes-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--theme-current);
+    margin-bottom: 3rem;
+  }
+
+  .course-includes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .include-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg-light, #f8f9fc);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--border-radius, 12px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .include-card:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .include-card:focus-within {
+    outline: 3px solid var(--theme-current);
+    outline-offset: 2px;
+  }
+
+  .include-icon {
+    flex-shrink: 0;
+    color: var(--theme-current);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: color-mix(in srgb, var(--theme-current) 8%, transparent);
+    border-radius: 50%;
+  }
+
+  .include-label {
+    font-size: 1.05rem;
+    line-height: 1.4;
+    color: var(--color-dark, #1a1a2e);
+    font-weight: 500;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .course-includes {
+      background: var(--bg-dark, #12121f);
+    }
+
+    .include-card {
+      background: var(--bg-dark-alt, #1a1a2e);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .include-label {
+      color: var(--color-light, #e0e0e0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .course-includes {
+      padding: 3.5rem 0;
+    }
+
+    .course-includes-title {
+      font-size: 1.75rem;
+      padding: 0 1rem;
+    }
+
+    .course-includes-grid {
+      grid-template-columns: 1fr;
+      padding: 0 1rem;
+    }
+
+    .include-card {
+      padding: 1rem 1.25rem;
+    }
+  }
+</style>

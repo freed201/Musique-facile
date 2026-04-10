@@ -1,6 +1,6 @@
 ---
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import FooterModern from '../components/FooterModern.astro';
 import ExternalResources from '../components/ExternalResources.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AutoFAQ from '../components/AutoFAQ.astro';
@@ -132,6 +132,26 @@ if (theme && theme !== 'main') {
 const isoDatePublished = new Date(datePublished).toISOString();
 const isoDateModified = new Date(dateModified).toISOString();
 
+// Schema Person enrichi pour l'auteur Fred Fieffé
+const authorSchema = {
+  "@type": "Person",
+  "name": "Fred Fieffé",
+  "url": "https://musique-facile.fr/a-propos/",
+  "jobTitle": "Formateur musical",
+  "description": "Auteur publié chez Hal Leonard, plus de 80 000 élèves formés en ligne, lauréat du Prix Samuel Paty 2024 pour la pédagogie musicale.",
+  "sameAs": [
+    "https://www.youtube.com/@MusiqueFacile",
+    "https://www.tiktok.com/@musiquefacile",
+    "https://musique-facile.fr"
+  ],
+  "knowsAbout": ["guitare", "piano", "ukulélé", "solfège", "pédagogie musicale"],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Musique Facile",
+    "url": "https://musique-facile.fr"
+  }
+};
+
 // Construction du schema.org BlogPosting
 const schema = {
   "@context": "https://schema.org",
@@ -139,10 +159,7 @@ const schema = {
   "headline": pageTitle,
   "description": pageDescription,
   "image": absoluteOgImage,
-  "author": {
-    "@type": "Person",
-    "name": author
-  },
+  "author": authorSchema,
   "publisher": {
     "@type": "Organization",
     "name": "Musique Facile",
@@ -256,10 +273,7 @@ const howToSchema = songInfo ? {
       } : undefined
     }
   ],
-  "author": {
-    "@type": "Person",
-    "name": author
-  },
+  "author": authorSchema,
   "publisher": {
     "@type": "Organization",
     "name": "Musique Facile",
@@ -302,6 +316,13 @@ const howToSchema = songInfo ? {
     <meta property="article:modified_time" content={isoDateModified} />
     <meta property="article:author" content={author} />
 
+    <!-- GEO: Citation metadata pour moteurs IA -->
+    <meta name="citation_title" content={pageTitle} />
+    <meta name="citation_author" content="Fred Fieffé" />
+    <meta name="citation_date" content={isoDatePublished.split('T')[0]} />
+    <meta name="citation_publisher" content="Musique Facile" />
+    <meta name="citation_public_url" content={url} />
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={url} />
@@ -322,7 +343,7 @@ const howToSchema = songInfo ? {
       <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
     )}
 
-    <ExternalResources />
+    <ExternalResources loadVideoScripts={true} />
     <title>{pageTitle}</title>
   </head>
   <body>
@@ -339,7 +360,7 @@ const howToSchema = songInfo ? {
     {showAutoFaq && (
       <AutoFAQ title={title} theme={theme} songInfo={songInfo} showVisual={true} />
     )}
-    <Footer />
+    <FooterModern />
    </div>
   </body>
 </html>

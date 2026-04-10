@@ -1,6 +1,6 @@
 ---
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import FooterModern from '../components/FooterModern.astro';
 import ExternalResources from '../components/ExternalResources.astro';
 import '@fontsource/poppins';
 import '@fontsource/raleway';
@@ -75,7 +75,7 @@ const schema = {
     <!-- Schema.org -->
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     
-    <ExternalResources />
+    <ExternalResources loadVideoScripts={true} />
     <title>{title}</title>
   </head>
   <body>
@@ -88,7 +88,7 @@ const schema = {
       <main>
         <slot />
       </main>
-      <Footer />
+      <FooterModern />
     </div>
   </body>
 </html>

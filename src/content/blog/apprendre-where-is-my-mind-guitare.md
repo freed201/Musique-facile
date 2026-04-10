@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Where Is My Mind (Pixies) - Tutoriel Guitare"
 prod: Y
 description: "Maîtrisez Where Is My Mind des Pixies à la guitare : 6 accords avec barrés, rock alternatif de 1988, riff hypnotique. Tutoriel vidéo pour intermédiaires."

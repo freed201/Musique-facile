@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Back to Black (Amy Winehouse) - Guitare"
 description: "Apprends Back to Black avec des accords accessibles, une rythmique soul simple et un plan d’entraînement pour jouer couplet et refrain proprement."
 author: "Musique Facile"

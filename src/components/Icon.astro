@@ -1,0 +1,303 @@
+---
+/**
+ * Icon.astro
+ * Composant d'icones SVG inline pour remplacer les emojis.
+ * Utilise currentColor pour s'adapter au contexte.
+ * Usage : <Icon name="guitar" size={24} />
+ */
+
+interface Props {
+  name: string;
+  size?: number;
+  class?: string;
+}
+
+const { name, size = 24, class: className = '' } = Astro.props;
+---
+
+{name === 'guitar' && (
+  <svg class={`icon icon-guitar ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M19.5 2.5l2 2M19.5 2.5l-1.5 1.5M21.5 4.5L20 6"/>
+    <path d="M16.5 5.5l-3.3 3.3a5.5 5.5 0 1 0 2 2l3.3-3.3"/>
+    <circle cx="10" cy="15" r="1.5" fill="currentColor" stroke="none"/>
+    <path d="M10 11.5v2M10 16.5v2M7 15h2M11 15h2"/>
+  </svg>
+)}
+
+{name === 'piano' && (
+  <svg class={`icon icon-piano ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="2" y="4" width="20" height="16" rx="2"/>
+    <line x1="6" y1="4" x2="6" y2="14"/>
+    <line x1="10" y1="4" x2="10" y2="14"/>
+    <line x1="14" y1="4" x2="14" y2="14"/>
+    <line x1="18" y1="4" x2="18" y2="14"/>
+    <line x1="2" y1="14" x2="22" y2="14"/>
+    <rect x="4.5" y="4" width="2" height="7" rx="0.5" fill="currentColor"/>
+    <rect x="8.5" y="4" width="2" height="7" rx="0.5" fill="currentColor"/>
+    <rect x="13.5" y="4" width="2" height="7" rx="0.5" fill="currentColor"/>
+    <rect x="17.5" y="4" width="2" height="7" rx="0.5" fill="currentColor"/>
+  </svg>
+)}
+
+{name === 'ukulele' && (
+  <svg class={`icon icon-ukulele ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M20 2l2 2M20 2l-1 1M22 4l-1 1"/>
+    <path d="M17.5 4.5l-3 3a4.5 4.5 0 1 0 2 2l3-3"/>
+    <circle cx="10.5" cy="15.5" r="1" fill="currentColor" stroke="none"/>
+  </svg>
+)}
+
+{name === 'solfege' && (
+  <svg class={`icon icon-solfege ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 3v18"/>
+    <path d="M12 3c3 2 5 5 5 8s-3 5-5 5-5-2-5-5 2-6 5-8z"/>
+    <circle cx="9" cy="19" r="2" fill="currentColor"/>
+  </svg>
+)}
+
+{name === 'note' && (
+  <svg class={`icon icon-note ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18V5l12-2v13"/>
+    <circle cx="6" cy="18" r="3" fill="currentColor"/>
+    <circle cx="18" cy="16" r="3" fill="currentColor"/>
+  </svg>
+)}
+
+{name === 'notes-double' && (
+  <svg class={`icon icon-notes-double ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18V5l12-2v13"/>
+    <circle cx="6" cy="18" r="3" fill="currentColor"/>
+    <circle cx="18" cy="16" r="3" fill="currentColor"/>
+  </svg>
+)}
+
+{name === 'star' && (
+  <svg class={`icon icon-star ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+  </svg>
+)}
+
+{name === 'target' && (
+  <svg class={`icon icon-target ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="10"/>
+    <circle cx="12" cy="12" r="6"/>
+    <circle cx="12" cy="12" r="2" fill="currentColor"/>
+  </svg>
+)}
+
+{name === 'lightning' && (
+  <svg class={`icon icon-lightning ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+    <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+  </svg>
+)}
+
+{name === 'gift' && (
+  <svg class={`icon icon-gift ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="3" y="8" width="18" height="4" rx="1"/>
+    <rect x="5" y="12" width="14" height="9" rx="1"/>
+    <line x1="12" y1="8" x2="12" y2="21"/>
+    <path d="M12 8c-1-3-4-4-5-3s0 3 5 3"/>
+    <path d="M12 8c1-3 4-4 5-3s0 3-5 3"/>
+  </svg>
+)}
+
+{name === 'lock' && (
+  <svg class={`icon icon-lock ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="5" y="11" width="14" height="10" rx="2"/>
+    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+  </svg>
+)}
+
+{name === 'fire' && (
+  <svg class={`icon icon-fire ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+    <path d="M12 23c-4.97 0-9-3.58-9-8 0-3.19 2.13-6.17 3.47-7.73.34-.39.93-.15.93.37v1.36c0 .66.61 1.14 1.22.9C10.56 9.15 13 7.1 13 3.5c0-.51.46-.88.93-.7C17.37 4.36 21 8.28 21 15c0 4.42-4.03 8-9 8z"/>
+  </svg>
+)}
+
+{name === 'trophy' && (
+  <svg class={`icon icon-trophy ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M6 9H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/>
+    <path d="M18 9h3a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-3"/>
+    <path d="M6 4h12v5c0 3.31-2.69 6-6 6s-6-2.69-6-6V4z"/>
+    <path d="M12 15v3"/>
+    <path d="M8 21h8"/>
+    <path d="M10 18h4"/>
+  </svg>
+)}
+
+{name === 'graduation' && (
+  <svg class={`icon icon-graduation ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M22 10l-10-5L2 10l10 5 10-5z"/>
+    <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/>
+    <line x1="22" y1="10" x2="22" y2="16"/>
+  </svg>
+)}
+
+{name === 'book' && (
+  <svg class={`icon icon-book ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+  </svg>
+)}
+
+{name === 'books' && (
+  <svg class={`icon icon-books ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+    <line x1="8" y1="6" x2="16" y2="6"/>
+    <line x1="8" y1="10" x2="14" y2="10"/>
+  </svg>
+)}
+
+{name === 'sparkles' && (
+  <svg class={`icon icon-sparkles ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+    <path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/>
+    <path d="M18 14l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z"/>
+    <path d="M5 16l.67 2 2 .67-2 .66L5 21.33l-.67-2-2-.66 2-.67L5 16z"/>
+  </svg>
+)}
+
+{name === 'email' && (
+  <svg class={`icon icon-email ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="2" y="4" width="20" height="16" rx="2"/>
+    <path d="M22 7l-10 6L2 7"/>
+  </svg>
+)}
+
+{name === 'lightbulb' && (
+  <svg class={`icon icon-lightbulb ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 21h6"/>
+    <path d="M10 17h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+  </svg>
+)}
+
+{name === 'muscle' && (
+  <svg class={`icon icon-muscle ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 12c0-3 1-7 4-9 1 3 3 4 5 4s4-1 5-4c3 2 4 6 4 9 0 4-3 8-9 9-6-1-9-5-9-9z"/>
+  </svg>
+)}
+
+{name === 'rocket' && (
+  <svg class={`icon icon-rocket ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+    <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+  </svg>
+)}
+
+{name === 'check' && (
+  <svg class={`icon icon-check ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polyline points="20 6 9 17 4 12"/>
+  </svg>
+)}
+
+{name === 'check-circle' && (
+  <svg class={`icon icon-check-circle ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="10"/>
+    <polyline points="16 9 10.5 14.5 8 12"/>
+  </svg>
+)}
+
+{name === 'question' && (
+  <svg class={`icon icon-question ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+    <circle cx="12" cy="17" r="0.5" fill="currentColor"/>
+  </svg>
+)}
+
+{name === 'home' && (
+  <svg class={`icon icon-home ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+    <polyline points="9 22 9 12 15 12 15 22"/>
+  </svg>
+)}
+
+{name === 'pencil' && (
+  <svg class={`icon icon-pencil ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+  </svg>
+)}
+
+{name === 'wave' && (
+  <svg class={`icon icon-wave ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M7 11c-1.5-1.5-3-1-3 1v5a3 3 0 0 0 3 3h7a3 3 0 0 0 3-3v-2"/>
+    <path d="M14 7c0-1.1.9-2 2-2s2 .9 2 2v4c0 1.1-.9 2-2 2"/>
+    <path d="M10 9c0-1.1.9-2 2-2s2 .9 2 2v3"/>
+    <path d="M10 9V6c0-1.1.9-2 2-2s2 .9 2 2"/>
+    <path d="M18 7c0-1.1.9-2 2-2s2 .9 2 2v2c0 5-4 9-9 9"/>
+  </svg>
+)}
+
+{name === 'credit-card' && (
+  <svg class={`icon icon-credit-card ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="1" y="4" width="22" height="16" rx="2"/>
+    <line x1="1" y1="10" x2="23" y2="10"/>
+  </svg>
+)}
+
+{name === 'undo' && (
+  <svg class={`icon icon-undo ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polyline points="1 4 1 10 7 10"/>
+    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+  </svg>
+)}
+
+{name === 'download' && (
+  <svg class={`icon icon-download ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+)}
+
+{name === 'mic' && (
+  <svg class={`icon icon-mic ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+    <line x1="12" y1="19" x2="12" y2="23"/>
+    <line x1="8" y1="23" x2="16" y2="23"/>
+  </svg>
+)}
+
+{name === 'coin' && (
+  <svg class={`icon icon-coin ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M14.5 9a2.5 2.5 0 0 0-5 0c0 2.5 5 2.5 5 5a2.5 2.5 0 0 1-5 0"/>
+    <line x1="12" y1="5" x2="12" y2="7"/>
+    <line x1="12" y1="17" x2="12" y2="19"/>
+  </svg>
+)}
+
+{name === 'user-graduate' && (
+  <svg class={`icon icon-user-graduate ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M22 10l-10-5L2 10l10 5 10-5z"/>
+    <path d="M6 12v3c0 1.66 2.69 3 6 3s6-1.34 6-3v-3"/>
+    <circle cx="12" cy="22" r="0" fill="none"/>
+  </svg>
+)}
+
+{name === 'beach' && (
+  <svg class={`icon icon-beach ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M17.5 2.5A10.5 10.5 0 0 0 5 8.5"/>
+    <path d="M2 20c4-3 10-3 14 0"/>
+    <line x1="18" y1="3" x2="12" y2="20"/>
+  </svg>
+)}
+
+{name === 'smartphone' && (
+  <svg class={`icon icon-smartphone ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="5" y="2" width="14" height="20" rx="2"/>
+    <line x1="12" y1="18" x2="12" y2="18"/>
+  </svg>
+)}
+
+<style>
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+</style>

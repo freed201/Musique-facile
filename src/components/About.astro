@@ -1,5 +1,6 @@
 ---
 // Section À propos visible pour SEO + LLM
+import Icon from './Icon.astro';
 ---
 
 <section class="about" id="a-propos">
@@ -62,8 +63,8 @@
         </div>
 
         <div class="about-cta">
-          <a href="/a-propos" class="btn btn-primary">En savoir plus sur Fred Fieffé</a>
-          <a href="/cours" class="btn btn-secondary">Découvrir nos cours</a>
+          <a href="/a-propos/" class="btn btn-primary">En savoir plus sur Fred Fieffé</a>
+          <a href="/cours/" class="btn btn-secondary">Découvrir nos cours</a>
         </div>
       </div>
 
@@ -79,7 +80,7 @@
             <dd>80 000+</dd>
 
             <dt>Note moyenne</dt>
-            <dd>4.7/5 ⭐</dd>
+            <dd>4.7/5 <Icon name="star" size={14} /></dd>
 
             <dt>Avis vérifiés</dt>
             <dd>2 847</dd>
@@ -95,10 +96,10 @@
         <div class="info-card">
           <h4>Instruments enseignés</h4>
           <ul class="instruments-list">
-            <li>🎸 <a href="/cours/cours-de-guitare">Guitare</a></li>
-            <li>🎹 <a href="/cours/cours-de-piano">Piano</a></li>
-            <li>🏖️ <a href="/cours/cours-de-ukulele">Ukulélé</a></li>
-            <li>🎼 <a href="/cours/cours-de-solfege">Solfège</a></li>
+            <li><Icon name="guitar" size={16} /> <a href="/cours/cours-de-guitare">Guitare</a></li>
+            <li><Icon name="piano" size={16} /> <a href="/cours/cours-de-piano">Piano</a></li>
+            <li><Icon name="ukulele" size={16} /> <a href="/cours/cours-de-ukulele">Ukulélé</a></li>
+            <li><Icon name="solfege" size={16} /> <a href="/cours/cours-de-solfege">Solfège</a></li>
           </ul>
         </div>
 

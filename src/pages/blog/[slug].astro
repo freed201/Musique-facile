@@ -5,6 +5,8 @@ import FAQSchema from '../../components/FAQSchema.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
 import BreadcrumbsSchema from '../../components/BreadcrumbsSchema.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
+import PillarLink from '../../components/blog/PillarLink.astro';
+import ArticleCTA from '../../components/blog/ArticleCTA.astro';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
@@ -58,7 +60,6 @@ const {
   introduction,
   songInfo,
   videos,
-  podcast,
   conclusion,
   relatedLinks,
   faqs
@@ -109,6 +110,20 @@ if (entry.data.instrument && entry.data.instrument !== 'général') {
     breadcrumbItems.push(instrumentData);
   }
 }
+
+// Ajouter le niveau article pilier si l'article est dans un silo
+if (entry.data.siloSlug && !entry.data.pillar) {
+  const allBlogPosts = await getCollection('blog');
+  const pillarArticle = allBlogPosts.find(
+    post => post.slug === entry.data.siloSlug && post.data.pillar === true
+  );
+  if (pillarArticle) {
+    breadcrumbItems.push({
+      name: pillarArticle.data.title,
+      url: `/blog/${pillarArticle.slug}`
+    });
+  }
+}
 ---
 
 <ArticleLayout
@@ -130,6 +145,14 @@ if (entry.data.instrument && entry.data.instrument !== 'général') {
       items={breadcrumbItems}
       currentPage={title}
     />
+
+    <!-- Lien retour vers l'article pilier (silo SEO) -->
+    {entry.data.siloSlug && !entry.data.pillar && (
+      <PillarLink
+        pillarSlug={entry.data.siloSlug}
+        instrument={entry.data.instrument}
+      />
+    )}
 
     <section class="article-hero">
       <div class="article-hero-bg" style={`background-image: url(${ogImage})`}></div>
@@ -268,14 +291,6 @@ if (entry.data.instrument && entry.data.instrument !== 'général') {
   </section>
       )}
 
-      <!-- Podcast (si présent) -->
-      {podcast && (
-        <section class="podcast-section">
-          <div class="podcast-player">
-          <iframe name="Ausha Podcast Player" frameborder="0" loading="lazy" id="ausha-kz2n" height="500" style="border: none; width:100%; height:500px" src={podcast.url}"></iframe><script src="https://player.ausha.co/ausha-player.js"></script>
-</div>
-        </section>
-      )}
 
       <!-- Contenu principal -->
       <div class="article-body">
@@ -368,6 +383,9 @@ if (entry.data.instrument && entry.data.instrument !== 'général') {
       </div> <!-- Fin .article-main -->
     </div> <!-- Fin .article-content -->
 
+    <!-- CTA Formation — séparé du contenu éditorial (GEO) -->
+    <ArticleCTA instrument={entry.data.instrument} />
+
     <!-- FAQ Section (si présente) - En pleine largeur -->
     {faqs && faqs.length > 0 && (
       <FAQSchema faqs={faqs} showVisual={true} />
@@ -379,6 +397,7 @@ if (entry.data.instrument && entry.data.instrument !== 'général') {
       currentTags={entry.data.tags || []}
       currentInstrument={entry.data.instrument}
       currentLevel={entry.data.level}
+      currentSiloSlug={entry.data.siloSlug}
       maxArticles={3}
     />
   </article>

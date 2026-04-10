@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Les Copains d'Abord (Brassens) - Tutoriel Guitare"
 prod: Y
 description: "Les Copains d'Abord de Brassens à la guitare : 13 accords, hymne à l'amitié 1964. Tutoriel vidéo complet pour intermédiaires."

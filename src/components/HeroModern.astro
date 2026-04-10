@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 /**
  * HeroModern.astro
  * Hero section modernisée - Design épuré avec 1 CTA principal
@@ -25,8 +26,8 @@ const {
 ---
 
 <section class="hero-modern">
-  <div class="hero-background">
-    <img src="/images/hero.jpg" alt="" class="hero-bg-image" aria-hidden="true" />
+  <div class="hero-background" data-parallax-speed="0.05">
+    <img src="/images/hero.webp" alt="" class="hero-bg-image" aria-hidden="true" fetchpriority="high" width="1920" height="1080" />
     <div class="hero-gradient"></div>
     <div class="hero-pattern"></div>
   </div>
@@ -53,12 +54,12 @@ const {
             <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <button class="btn-secondary" data-video={videoUrl}>
-          <svg class="btn-play" width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M8 5v10l7-5-7-5z" fill="currentColor"/>
+        <a href="/blog/" class="btn-secondary">
+          <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <span>Voir la démo</span>
-        </button>
+          <span>Découvrir le blog</span>
+        </a>
       </div>
 
       <!-- Micro-rassurances -->
@@ -84,38 +85,64 @@ const {
       </div>
     </div>
 
-    <!-- Image et Stats -->
+    <!-- Visual : Video facade ou Image -->
     <div class="hero-visual">
-      <img
-        src={heroImage}
-        alt="Fred Fieffé enseigne la guitare, le piano et l'ukulélé en ligne"
-        class="hero-image"
-        width="600"
-        height="450"
-        loading="eager"
-      />
+      {videoUrl && videoUrl !== '#' ? (
+        <div class="hero-video-facade" id="hero-video-facade">
+          <img
+            src={heroImage}
+            alt="Fred Fieffé présente Musique Facile — cliquez pour lancer la vidéo"
+            class="hero-image hero-video-thumbnail"
+            width="600"
+            height="450"
+            loading="eager"
+          />
+          <button class="video-play-btn" aria-label="Lancer la vidéo de présentation" type="button">
+            <svg class="play-icon" width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="36" cy="36" r="35" fill="rgba(0,0,0,0.55)" stroke="white" stroke-width="2"/>
+              <polygon points="28,20 28,52 54,36" fill="white"/>
+            </svg>
+          </button>
+          <div class="hero-video-iframe-container" id="hero-video-container" data-video-url={videoUrl} style="display:none;">
+            <!-- L'iframe sera injectée au clic par le script ci-dessous -->
+          </div>
+        </div>
+      ) : (
+        <img
+          src={heroImage}
+          alt="Fred Fieffé enseigne la guitare, le piano et l'ukulélé en ligne"
+          class="hero-image"
+          width="600"
+          height="450"
+          loading="eager"
+        />
+      )}
       <div class="hero-stats">
         <div class="stat-card">
-          <span class="stat-number">80K+</span>
-          <span class="stat-label">Élèves formés</span>
+          <span class="stat-number" data-counter="80" data-counter-suffix="K+" data-duration="2000">0</span>
+          <span class="stat-label">Eleves formes</span>
         </div>
         <div class="stat-card">
-          <span class="stat-number">1400+</span>
-          <span class="stat-label">Vidéos HD</span>
+          <span class="stat-number" data-counter="1400" data-counter-suffix="+" data-duration="2500">0</span>
+          <span class="stat-label">Videos HD</span>
         </div>
         <div class="stat-card">
-          <span class="stat-number">95%</span>
+          <span class="stat-number" data-counter="95" data-counter-suffix="%" data-duration="1800">0</span>
           <span class="stat-label">Satisfaction</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Instruments flottants (décoration) -->
+  <!-- Instruments flottants (décoration) avec parallax -->
   <div class="hero-instruments" aria-hidden="true">
-    <span class="instrument instrument-guitar">🎸</span>
-    <span class="instrument instrument-piano">🎹</span>
-    <span class="instrument instrument-ukulele">🪕</span>
+    <span class="instrument instrument-guitar" data-parallax-speed="0.15"><Icon name="guitar" size={40} /></span>
+    <span class="instrument instrument-piano" data-parallax-speed="0.25"><Icon name="piano" size={40} /></span>
+    <span class="instrument instrument-ukulele" data-parallax-speed="0.1"><Icon name="ukulele" size={40} /></span>
+    <span class="instrument instrument-note1" data-parallax-speed="0.3">&#9835;</span>
+    <span class="instrument instrument-note2" data-parallax-speed="0.2">&#9834;</span>
+    <span class="instrument instrument-circle1" data-parallax-speed="0.08"></span>
+    <span class="instrument instrument-circle2" data-parallax-speed="0.18"></span>
   </div>
 </section>
 
@@ -199,8 +226,8 @@ const {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    background: rgba(0, 194, 142, 0.15);
-    border: 1px solid rgba(0, 194, 142, 0.3);
+    background: rgba(108, 63, 160, 0.15);
+    border: 1px solid rgba(108, 63, 160, 0.3);
     padding: var(--space-2) var(--space-4);
     border-radius: var(--radius-full);
     margin-bottom: var(--space-6);
@@ -281,13 +308,13 @@ const {
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 194, 142, 0.4);
+    box-shadow: 0 4px 20px rgba(108, 63, 160, 0.4);
   }
 
   .btn-primary:hover {
     background: var(--brand-600);
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 194, 142, 0.5);
+    box-shadow: 0 8px 30px rgba(108, 63, 160, 0.5);
   }
 
   .btn-arrow {
@@ -321,7 +348,7 @@ const {
     border-color: rgba(255, 255, 255, 0.4);
   }
 
-  .btn-play {
+  .btn-icon {
     width: 20px;
     height: 20px;
   }
@@ -372,7 +399,7 @@ const {
   }
 
   @media (max-width: 1023px) {
-    .hero-image {
+    .hero-image:not(.hero-video-thumbnail) {
       display: none;
     }
   }
@@ -422,6 +449,9 @@ const {
     color: var(--brand-400);
     line-height: 1;
     margin-bottom: var(--space-1);
+    font-variant-numeric: tabular-nums;
+    min-width: 5ch;
+    text-align: center;
   }
 
   .stat-label {
@@ -429,46 +459,109 @@ const {
     color: rgba(255, 255, 255, 0.6);
   }
 
-  /* Instruments décoratifs */
+  /* Instruments decoratifs avec parallax + float */
   .hero-instruments {
     position: absolute;
     inset: 0;
     pointer-events: none;
     overflow: hidden;
+    z-index: 1;
   }
 
   .instrument {
     position: absolute;
     font-size: 4rem;
     opacity: 0.1;
-    animation: float 6s ease-in-out infinite;
+    --parallax-y: 0px;
   }
 
+  /* Float animations — chaque element a un timing different */
   .instrument-guitar {
     top: 15%;
     right: 5%;
-    animation-delay: 0s;
+    animation: float-a 5s ease-in-out infinite;
   }
 
   .instrument-piano {
     bottom: 20%;
     right: 15%;
-    animation-delay: 2s;
+    animation: float-b 6s ease-in-out infinite;
   }
 
   .instrument-ukulele {
     top: 60%;
     left: 5%;
-    animation-delay: 4s;
+    animation: float-c 4.5s ease-in-out infinite;
   }
 
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0) rotate(0deg);
-    }
-    50% {
-      transform: translateY(-20px) rotate(5deg);
-    }
+  /* Nouveaux elements decoratifs : notes de musique */
+  .instrument-note1 {
+    top: 25%;
+    left: 12%;
+    font-size: 2.5rem;
+    opacity: 0.08;
+    animation: float-d 7s ease-in-out infinite;
+  }
+
+  .instrument-note2 {
+    bottom: 30%;
+    left: 35%;
+    font-size: 2rem;
+    opacity: 0.06;
+    animation: float-a 5.5s ease-in-out infinite reverse;
+  }
+
+  /* Cercles decoratifs */
+  .instrument-circle1 {
+    top: 10%;
+    left: 30%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid rgba(168, 139, 250, 0.15);
+    opacity: 0.15;
+    font-size: 0;
+    animation: float-b 8s ease-in-out infinite, spin-slow 39s linear infinite;
+  }
+
+  .instrument-circle2 {
+    bottom: 15%;
+    right: 8%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(168, 139, 250, 0.1) 0%, transparent 70%);
+    opacity: 0.2;
+    font-size: 0;
+    animation: float-c 6s ease-in-out infinite;
+  }
+
+  /* Keyframes avec amplitudes et rotations differentes
+     --parallax-y est controle par ParallaxManager au scroll */
+  @keyframes float-a {
+    0%, 100% { transform: translateY(var(--parallax-y, 0px)) rotate(0deg); }
+    50% { transform: translateY(calc(-12px + var(--parallax-y, 0px))) rotate(3deg); }
+  }
+
+  @keyframes float-b {
+    0%, 100% { transform: translateY(var(--parallax-y, 0px)) rotate(0deg); }
+    50% { transform: translateY(calc(-15px + var(--parallax-y, 0px))) rotate(-4deg); }
+  }
+
+  @keyframes float-c {
+    0%, 100% { transform: translateY(var(--parallax-y, 0px)) rotate(0deg); }
+    50% { transform: translateY(calc(-10px + var(--parallax-y, 0px))) rotate(5deg); }
+  }
+
+  @keyframes float-d {
+    0%, 100% { transform: translateY(var(--parallax-y, 0px)) rotate(-2deg); }
+    33% { transform: translateY(calc(-8px + var(--parallax-y, 0px))) rotate(3deg); }
+    66% { transform: translateY(calc(-14px + var(--parallax-y, 0px))) rotate(-1deg); }
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
   /* Responsive mobile */
@@ -505,6 +598,100 @@ const {
     }
   }
 
+  /* Video Facade */
+  .hero-video-facade {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  .hero-video-thumbnail {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: top center;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .hero-video-facade:hover .hero-video-thumbnail {
+    transform: scale(1.03);
+    filter: brightness(0.85);
+  }
+
+  .video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    padding: 0;
+  }
+
+  .video-play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .play-icon circle {
+    transition: fill 0.3s ease;
+  }
+
+  .video-play-btn:hover .play-icon circle {
+    fill: rgba(0, 0, 0, 0.7);
+  }
+
+  .hero-video-iframe-container {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+  }
+
+  .hero-video-iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: var(--radius-2xl);
+  }
+
+  /* Etat actif : video lancee */
+  .hero-video-facade.video-active .hero-video-thumbnail,
+  .hero-video-facade.video-active .video-play-btn {
+    display: none;
+  }
+
+  .hero-video-facade.video-active .hero-video-iframe-container {
+    display: block !important;
+    position: relative;
+    padding-bottom: 56.25%; /* ratio 16:9 */
+    height: 0;
+  }
+
+  .hero-video-facade.video-active .hero-video-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 1023px) {
+    .hero-video-facade {
+      max-width: 100%;
+    }
+
+    .hero-video-facade .hero-video-thumbnail {
+      display: block;
+    }
+  }
+
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .instrument {
@@ -516,18 +703,51 @@ const {
     .stat-card:hover {
       transform: none;
     }
+
+    .hero-video-facade:hover .hero-video-thumbnail {
+      transform: none;
+    }
+
+    .video-play-btn:hover {
+      transform: translate(-50%, -50%);
+    }
   }
 </style>
 
 <script>
-  // Video modal handler (à connecter avec un player)
-  document.querySelectorAll('.btn-secondary[data-video]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const videoUrl = btn.getAttribute('data-video');
-      if (videoUrl && videoUrl !== '#') {
-        // Ouvrir modal vidéo ou naviguer
-        console.log('Open video:', videoUrl);
+  // Facade video : charge l'iframe YouTube uniquement au clic
+  document.addEventListener('DOMContentLoaded', () => {
+    const facade = document.getElementById('hero-video-facade');
+    const container = document.getElementById('hero-video-container');
+
+    if (!facade || !container) return;
+
+    const videoUrl = container.dataset.videoUrl;
+    if (!videoUrl) return;
+
+    // Extraire l'ID YouTube de l'URL
+    const getYouTubeId = (url) => {
+      const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?\s]+)/);
+      return match ? match[1] : null;
+    };
+
+    const playBtn = facade.querySelector('.video-play-btn');
+    const handleClick = () => {
+      const videoId = getYouTubeId(videoUrl);
+      if (videoId) {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        iframe.title = 'Vidéo de présentation Musique Facile';
+        container.appendChild(iframe);
+        facade.classList.add('video-active');
       }
-    });
+    };
+
+    playBtn?.addEventListener('click', handleClick);
+    // Permettre aussi le clic sur la thumbnail
+    facade.querySelector('.hero-video-thumbnail')?.addEventListener('click', handleClick);
   });
 </script>
+

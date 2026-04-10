@@ -1,13 +1,15 @@
 ---
 affichage: "Y"
 classement: 1
-title: "Pack Débutant Piano : Tout pour Bien Commencer"
-description: "Formation piano complète pour débutants : bases du clavier, accords, rythmes. 148 leçons pour apprendre de A à Z. Commencez maintenant !"
+title: "Pack Piano Débutant — 148 Leçons, Accès à Vie"
+description: "21 000+ élèves, 4.7/5. 148 leçons complètes pour apprendre le piano de zéro. Fred Fieffé, auteur Hal Leonard. 299€ paiement unique, accès à vie !"
 bestSeller: true 
 ogImage: "/images/cours/piano-facile-apprendre-debutant/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.7"
+reviewCount: "1500"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -37,11 +39,11 @@ hasCourseInstance:
 
 hero:
   badge: "Pour débutants"
-  title: "Apprenez le piano de A à Z"
-  subtitle: "Une formation complète pour maîtriser le piano, des bases aux techniques avancées, avec un parcours structuré et progressif."
+  title: "Jouez vos morceaux préférés au piano en partant de zéro"
+  subtitle: "148 leçons progressives pour passer de grand débutant à pianiste autonome. La méthode qui a fait ses preuves auprès de 21 000 élèves."
   cta:
-    text: "Accéder pour €299 "
-    price: " ou 3 paiements mensuels de €100"
+    text: "Je commence le piano - 299€"
+    price: "ou 3x 100€ sans frais"
   video:
     id: "1066493251"
   stats:
@@ -58,12 +60,17 @@ hero:
 
 teachers:
   mainTeachers:
-    - firstName: "FRed"
+    - firstName: "Fred"
       lastName: "Fieffé"
       subtitle: "Ton professeur"
-      description: "13 année d'expérience dans l'enseignement de la musique en ligne."
+      description: "13 ans d'expérience dans l'enseignement de la musique en ligne."
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
 
 
@@ -178,7 +185,7 @@ preuveSociale:
       author: "Élodie P."
       avatar: "https://test.musique-facile.fr/images/avatar/avatar-elodie.png"
   stats:
-    students: "1000+"
+    students: "21000+"
     successRate: "95%"
     timeframe: "4 semaines"
   partners:
@@ -220,19 +227,39 @@ cta:
     - icon: "💰"
       text: "Garantie satisfait ou remboursé pendant 15 jours"
 
+transformation:
+  title: "Ce que la formation va changer pour vous"
+  items:
+    - before: "Vous regardez un clavier sans savoir quelles touches presser"
+      after: "Vous jouez vos morceaux préférés à deux mains avec assurance"
+    - before: "Vous bloquez sur le solfège et les partitions vous semblent incompréhensibles"
+      after: "Vous lisez et jouez des partitions simples en toute autonomie"
+    - before: "Vous n'osez pas jouer devant vos proches par peur de faire des fausses notes"
+      after: "Vous interprétez des morceaux complets avec émotion et confiance"
+
+pricing:
+  title: "Investissez dans votre passion"
+  features:
+    - "148 leçons vidéo HD progressives"
+    - "Accès à vie, sans limite de temps"
+    - "Support personnalisé par email"
+    - "Mises à jour gratuites incluses"
+    - "Certificat de complétion"
+  guarantee: "Garantie satisfait ou remboursé 15 jours"
+
 faq:
   title: "Questions fréquentes"
   subtitle: "Nous répondons à vos interrogations"
   questions:
     - question: "Cette formation est-elle adaptée aux débutants ?"
-      answer: "Oui, cette formation a été conçue spécialement pour les débutants qui souhaitent apprendre le piano de manière progressive et efficace."
+      answer: "Oui, cette formation a été conçue de A à Z pour les grands débutants. Plus de 21 000 élèves ont appris le piano avec cette méthode, dont beaucoup n'avaient jamais touché un clavier. Les 148 leçons progressent très graduellement : on commence par repérer les notes sur le clavier pour arriver à jouer des morceaux complets à deux mains. Aucune connaissance en solfège n'est requise."
     - question: "Ai-je besoin de matériel spécifique pour commencer ?"
-      answer: "Un piano ou un clavier numérique suffit pour suivre la formation."
+      answer: "Un piano acoustique ou un clavier numérique d'au moins 61 touches suffit amplement. Un clavier d'entrée de gamme à partir de 150€ fait très bien l'affaire pour débuter. Fred vous guide dans les premiers cours sur la posture et le placement des mains. Si vous n'avez pas encore d'instrument, des recommandations sont incluses dans la formation."
     - question: "Combien de temps dois-je y consacrer par jour ?"
-      answer: "20 minutes par jour suffisent pour progresser rapidement."
+      answer: "20 minutes par jour suffisent pour progresser de façon régulière et mesurable. C'est la constance qui fait la différence, pas la durée des sessions. Nos élèves les plus assidus jouent leurs premiers morceaux à deux mains en 4 à 6 semaines. Chaque leçon est structurée pour être courte et efficace, idéale même avec un emploi du temps chargé."
     - question: "Puis-je demander un remboursement si je ne suis pas satisfait ?"
-      answer: "Oui, vous bénéficiez d'une garantie satisfait ou remboursé pendant 15 jours."
+      answer: "Absolument. Vous disposez d'une garantie satisfait ou remboursé pendant 15 jours, sans aucune condition. Un simple email suffit. C'est notre façon de vous prouver notre confiance dans la qualité de cette formation. Le taux de satisfaction dépasse les 97% parmi nos élèves."
     - question: "Et si je rencontre des difficultés pendant la formation ?"
-      answer: "Un support personnalisé est disponible pour répondre à vos questions."
+      answer: "Un support personnalisé par email est à votre disposition tout au long de votre apprentissage. Fred et son équipe répondent à vos questions techniques et vous aident à surmonter les passages difficiles. De plus, chaque leçon est accessible à vie : vous pouvez revoir un cours autant de fois que nécessaire, à votre propre rythme."
   backgroundPattern: "piano-pattern.svg"
 ---

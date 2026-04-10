@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "So Lonely (The Police) - Tutoriel Guitare"
 prod: Y
 description: "So Lonely de The Police à la guitare : 4 accords avec capo case 5, fusion rock-reggae 1978. Tutoriel vidéo intermédiaires."

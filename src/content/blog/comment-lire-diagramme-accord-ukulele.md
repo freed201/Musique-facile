@@ -1,4 +1,5 @@
 ---
+siloSlug: "debuter-ukulele-methode-simple-apprendre"
 title: "Comment Lire un Diagramme d’Accord Ukulélé en 2 Minutes"
 description: "Comprends vite un diagramme d’accord ukulélé : cases, cordes et doigtés expliqués simplement pour jouer tes premiers accords sans hésiter dès aujourd’hui."
 meta: "Découvrez comment lire facilement un diagramme d'accord ukulélé en juste 2 minutes. Guide rapide pour débutants passionnés par cet instrument charmant."

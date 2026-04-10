@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Respire (Mickey 3D) - Tutoriel Guitare"
 prod: Y
 description: "Respire de Mickey 3D à la guitare : 6 accords simples, hymne écologique 2003. Tutoriel vidéo facile débutants."

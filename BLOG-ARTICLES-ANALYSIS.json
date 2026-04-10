@@ -1,0 +1,248 @@
+{
+  "date": "2026-02-05T09:53:57.568Z",
+  "summary": {
+    "total": 93,
+    "visible": 59,
+    "hiddenProdN": 5,
+    "hiddenPrev": 8,
+    "hiddenFuture": 15,
+    "hiddenBoth": 6,
+    "errors": 0
+  },
+  "visibleArticles": [
+    "3-exercices-simples-progresser-piano-adulte-cours-de-piano.md",
+    "5-accords-indispensables-jouer-100-chansons-ukulele.md",
+    "Nous-on-sait-guitare-tuto.md",
+    "applis-guitare-debutant-progression-rapide.md",
+    "apprendre-back-to-black-guitare.md",
+    "apprendre-chasing-cars-guitare.md",
+    "apprendre-coldplay-piano-guitare-ukulele.md",
+    "apprendre-hey-jude-guitare.md",
+    "apprendre-ironic-guitare.md",
+    "apprendre-kpop-demon-hunters-ukulele-guitare-piano.md",
+    "apprendre-lucky-man-guitare.md",
+    "apprendre-machistador-guitare.md",
+    "apprendre-mr-jones-guitare.md",
+    "apprendre-one-guitare.md",
+    "apprendre-partons-vite-guitare.md",
+    "apprendre-perfect-guitare.md",
+    "apprendre-redemption-song-guitare.md",
+    "apprendre-respire-guitare.md",
+    "apprendre-riche-guitare.md",
+    "apprendre-smells-like-teen-spirit-guitare.md",
+    "apprendre-so-lonely-guitare.md",
+    "apprendre-stand-by-me-guitare.md",
+    "apprendre-sweet-dreams-guitare.md",
+    "apprendre-un-autre-monde-guitare.md",
+    "apprendre-une-belle-histoire-guitare.md",
+    "apprendre-viva-la-vida-guitare.md",
+    "apprendre-whats-up-guitare.md",
+    "apprendre-where-is-my-mind-guitare.md",
+    "apprendre-wild-world-guitare.md",
+    "apprendre-wonderwall-guitare.md",
+    "au-boulot-maestro-1.md",
+    "au-boulot-maestro-2.md",
+    "au-boulot-maestro-3.md",
+    "booster-progression-musicale.md",
+    "choisir-ukulele-2025.md",
+    "effet-antidepresseur-du-ukulele.md",
+    "erreurs-debutants-guitare.md",
+    "jouer-clandestino-guitare-tutoriel.md",
+    "jouer-fields-of-gold-sting.md",
+    "jouer-hallelujah-jeff-buckley-guitare.md",
+    "jouer-hey-ya-outkast-guitare.md",
+    "jouer-la-seine-vanessa-m.md",
+    "jouer-lopportuniste-dutronc-guitare.md",
+    "nirvana-where-did-you-sleep-guitare.md",
+    "origine-noms-notes-musique-histoire-solfege.md",
+    "passer-ukulele-debutant-initie.md",
+    "pourquoi-apprendre-le-piano.md",
+    "pourquoi-tu-stagnes-en-musique.md",
+    "seance-pratique-efficace-30-minutes.md",
+    "tuto-cant-help-falling-in-love-presley-guitare.md",
+    "tutoriel-across-the-universe-pour-debutants.md",
+    "tutoriel-dont-stop-me-now-queen.md",
+    "tutoriel-everybody-hurts-facile.md",
+    "tutoriel-foule-sentimentale-chanson.md",
+    "tutoriel-guitare-house-of-the-rising-sun.md",
+    "tutoriel-jveux-du-soleil-chanson-francaise.md",
+    "tutoriel-les-copains-dabord-guitare.md",
+    "tutoriel-more-than-words-guitare.md",
+    "tutoriels-guitare-jean-jacques-goldman.md"
+  ],
+  "hiddenArticles": {
+    "prodN": [
+      {
+        "file": "accords-guitare-debutant-guide-ultime.md",
+        "title": "Accords Guitare Débutant - Guide Ultime"
+      },
+      {
+        "file": "conseils-pour-debuter-la-guitare.md",
+        "title": "Guitare : 10 Conseils Essentiels pour Bien Débuter"
+      },
+      {
+        "file": "enseigner-musique-efficacement.md",
+        "title": "Musiciens Talentueux mais Mauvais Profs : Pourquoi ?"
+      },
+      {
+        "file": "exemple-mise-en-forme.md",
+        "title": "Guide complet de mise en forme des articles"
+      },
+      {
+        "file": "solfege-noms-des-notes.md",
+        "title": "Do, Ré, Mi : L'Histoire des Noms des Notes"
+      }
+    ],
+    "prev": [
+      {
+        "file": "conclusion-apprentissage-piano.md",
+        "title": "Piano : Derniers Conseils pour Réussir",
+        "prev": "faq-piano-debutant"
+      },
+      {
+        "file": "debuter-le-piano-bases-essentielles.md",
+        "title": "Débuter le Piano : Les Bases Essentielles",
+        "prev": "pourquoi-apprendre-le-piano"
+      },
+      {
+        "file": "erreurs-frequentes-piano-debutant.md",
+        "title": "Erreurs de Débutant au Piano : Comment les Corriger",
+        "prev": "techniques-essentielles-piano"
+      },
+      {
+        "file": "faq-piano-debutant.md",
+        "title": "FAQ Piano Débutant : Réponses à vos Questions",
+        "prev": "ressources-apprendre-le-piano"
+      },
+      {
+        "file": "methodes-apprentissage-piano-debutant.md",
+        "title": "Piano Débutant : Les Meilleures Méthodes",
+        "prev": "debuter-le-piano-bases-essentielles"
+      },
+      {
+        "file": "plan-travail-progresser-piano.md",
+        "title": "Plan de Travail pour Progresser au Piano",
+        "prev": "erreurs-frequentes-piano-debutant"
+      },
+      {
+        "file": "ressources-apprendre-le-piano.md",
+        "title": "Meilleures Ressources pour Apprendre le Piano",
+        "prev": "plan-travail-progresser-piano"
+      },
+      {
+        "file": "techniques-essentielles-piano.md",
+        "title": "Techniques Essentielles pour Bien Jouer du Piano",
+        "prev": "methodes-apprentissage-piano-debutant"
+      }
+    ],
+    "both": [
+      {
+        "file": "astuces-progresser-guitare-debutant.md",
+        "title": "7 Astuces pour Progresser Rapidement à la Guitare",
+        "prev": "morceaux-faciles-guitare-debutant"
+      },
+      {
+        "file": "erreurs-debutant-guitare-solutions.md",
+        "title": "6 Erreurs Guitare Débutant et Comment les Éviter",
+        "prev": "exercices-accords-guitare-debutant"
+      },
+      {
+        "file": "exercices-accords-guitare-debutant.md",
+        "title": "5 Exercices pour Maîtriser les Accords de Guitare",
+        "prev": "techniques-jouer-accords-guitare"
+      },
+      {
+        "file": "faq-apprendre-guitare-debutant.md",
+        "title": "FAQ Guitare Débutant : Réponses à vos Questions",
+        "prev": "astuces-progresser-guitare-debutant"
+      },
+      {
+        "file": "morceaux-faciles-guitare-debutant.md",
+        "title": "3 Morceaux Faciles à la Guitare avec 3 Accords",
+        "prev": "erreurs-debutant-guitare-solutions"
+      },
+      {
+        "file": "techniques-jouer-accords-guitare.md",
+        "title": "Techniques pour Jouer les Accords de Guitare",
+        "prev": "accords-guitare-debutant-guide-ultime"
+      }
+    ],
+    "future": [
+      {
+        "file": "apprendre-jouer-chanson-trois-accords-guitare-debutants.md",
+        "title": "Apprendre à Jouer Votre Première Chanson à 3 Accords",
+        "date": "2026-02-09"
+      },
+      {
+        "file": "apprendre-la-guitare-facilement-guide-complet-pour-debutants.md",
+        "title": "Apprendre la Guitare Facilement - Guide Débutant",
+        "date": "2026-02-16"
+      },
+      {
+        "file": "comment-jouer-imagine-john-lennon-piano.md",
+        "title": "Comment Jouer Imagine de John Lennon au Piano",
+        "date": "2026-02-23"
+      },
+      {
+        "file": "comment-lire-diagramme-accord-ukulele.md",
+        "title": "Comment Lire un Diagramme d’Accord Ukulélé en 2 Minutes",
+        "date": "2026-03-02"
+      },
+      {
+        "file": "debuter-ukulele-methode-simple-apprendre.md",
+        "title": "Débuter au Ukulélé : Méthode Simple et Amusante",
+        "date": "2026-03-09"
+      },
+      {
+        "file": "enfants-apprennent-musique-plus-vite.md",
+        "title": "Musique : Pourquoi les Enfants Apprennent Plus Vite ?",
+        "date": "2026-03-16"
+      },
+      {
+        "file": "entrainement-guitare-10-minutes-debutants.md",
+        "title": "Guitare : Progressez en 10 Minutes par Jour",
+        "date": "2026-03-23"
+      },
+      {
+        "file": "faut-il-savoir-lire-une-partition-pour-jouer-du-piano.md",
+        "title": "Lire une partition piano : est-ce vraiment obligatoire ?",
+        "date": "2026-03-30"
+      },
+      {
+        "file": "guide-complet-apprentissage-piano.md",
+        "title": "Le Guide Complet pour Apprendre le Piano à Tout Âge",
+        "date": "2026-04-06"
+      },
+      {
+        "file": "les-meilleures-videos-youtube-apprendre-ukulele.md",
+        "title": "Les Meilleures Vidéos YouTube pour Apprendre le Ukulélé",
+        "date": "2026-04-07"
+      },
+      {
+        "file": "origine-histoire-anecdotes-ukulele.md",
+        "title": "L'Origine et l'Histoire Fascinante de l'Ukulélé",
+        "date": "2026-04-13"
+      },
+      {
+        "file": "pourquoi-le-ukulele-est-ideal-pour-apprendre-la-musique.md",
+        "title": "Apprendre la Musique avec le Ukulélé : Guide",
+        "date": "2026-04-20"
+      },
+      {
+        "file": "pourquoi-tiktok-ne-peut-pas-vous-apprendre-la-musique.md",
+        "title": "TikTok et Musique : Pourquoi Ça Ne Suffit Pas",
+        "date": "2026-04-27"
+      },
+      {
+        "file": "rythmiques-ukulele-debutant-3-patterns-faciles.md",
+        "title": "Rythmiques Ukulélé : 3 Patterns Incontournables",
+        "date": "2026-05-04"
+      },
+      {
+        "file": "top-5-accords-guitare-debutants-enchainement-facile.md",
+        "title": "Top 5 Accords Guitare Débutants - Enchaînement Facile",
+        "date": "2026-04-07"
+      }
+    ]
+  }
+}

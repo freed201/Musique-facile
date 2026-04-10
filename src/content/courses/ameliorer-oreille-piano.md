@@ -7,6 +7,8 @@ ogImage: "/images/cours/ameliorer-oreille-piano/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.4"
+reviewCount: "85"
 category: "Cours de musique"      # pour Offer
 
 
@@ -38,11 +40,11 @@ hasCourseInstance:
 
 hero:
   badge: "Écoute musicale"
-  title: "Piano Écoute Active : Maîtriser l'Art de l'Oreille Musicale"
-  subtitle: "Transformez votre jeu en aiguisant votre oreille musicale."
+  title: "Développez une oreille musicale qui change tout au piano"
+  subtitle: "42 leçons pour reconnaître, ressentir et jouer avec une précision nouvelle. La méthode qui a transformé 1 150 pianistes."
   cta:
-    text: "Accéder pour €69 "
-    price: " ou 2 paiements mensuels de €35"
+    text: "Je développe mon oreille - 69€"
+    price: "ou 2x 35€ sans frais"
   video:
     id: "1062020026"
   stats:
@@ -65,6 +67,11 @@ teachers:
       description: "Multi-instrumentiste, j'écoute chaque note pour former mes nombreux élèves passionnés."
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
 
 

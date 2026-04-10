@@ -7,6 +7,8 @@ ogImage: "/images/cours/apprendre-la-rythmique-ukulele-facilement/hero.webp"
 theme: "ukulele"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.6"
+reviewCount: "55"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -38,11 +40,11 @@ hasCourseInstance:
 
 hero:
   badge: "Rythmiques Ukulélé"
-  title: "Les Secrets du Rythme à l'Ukulélé: Techniques et Variations Inédites"
-  subtitle: "Réinventez votre rythme, révélez votre art : transformez chaque accord en magie musicale !"
+  title: "Maîtrisez les rythmiques qui donnent vie à votre ukulélé"
+  subtitle: "43 chapitres pour passer de rythmiques basiques à des variations captivantes. 750 élèves ont déjà transformé leur jeu."
   cta:
-    text: "Accéder pour €79 "
-    price: "ou 2 paiements mensuels de €40"
+    text: "Je maîtrise le rythme - 79€"
+    price: "ou 2x 40€ sans frais"
   video:
     id: "1056758412"
   stats:
@@ -65,6 +67,11 @@ teachers:
       description: "Avec mon approche, nombreux élèves ont progressé et pris plaisir à jouer de l'ukulélé."
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
 
 

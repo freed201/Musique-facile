@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "House of The Rising Sun - Tutoriel Guitare"
 prod: Y
 description: "House of The Rising Sun (The Animals) : 5 accords, arpège iconique, ballade folk-rock 1964. Tutoriel vidéo facile."

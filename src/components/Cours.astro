@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 const cours = [
   {
     titre: "Cours de Guitare",
@@ -7,7 +8,7 @@ const cours = [
     alt: "Apprendre la guitare en ligne avec Fred Fieffé - Formation complète avec 400+ vidéos pour maîtriser les accords, les rythmiques et les techniques avancées. Méthode progressive pour débutants et intermédiaires.",
     couleur: "var(--guitar-500)",
     couleurLight: "var(--guitar-300)",
-    icon: "🎸",
+    iconName: "guitar",
     features: ["Accords de base", "Techniques avancées", "Notes et gammes"],
     url: "/cours/cours-de-guitare",
     theme: "guitar"
@@ -19,7 +20,7 @@ const cours = [
     alt: "Cours de piano en ligne par Fred Fieffé - Apprenez à lire les partitions, maîtriser les accords et jouer vos morceaux préférés. Plus de 300 leçons vidéo pour tous niveaux, du débutant à l'intermédiaire.",
     couleur: "var(--piano-500)",
     couleurLight: "var(--piano-300)",
-    icon: "🎹",
+    iconName: "piano",
     features: ["Lecture de partitions", "Technique des doigts", "Harmonie"],
     url: "/cours/cours-de-piano",
     theme: "piano"
@@ -31,7 +32,7 @@ const cours = [
     alt: "Formation ukulélé en ligne avec Fred Fieffé - Méthode simple et ludique pour apprendre les accords, les rythmiques et jouer vos premières chansons en quelques jours. Plus de 200 leçons pour débutants.",
     couleur: "var(--ukulele-500)",
     couleurLight: "var(--ukulele-300)",
-    icon: "🏖️",
+    iconName: "ukulele",
     features: ["Accords simples", "Rythmiques", "Shuffle"],
     url: "/cours/cours-de-ukulele",
     theme: "ukulele"
@@ -43,7 +44,7 @@ const cours = [
     alt: "Cours de solfège en ligne par Fred Fieffé - Apprenez à lire les notes, comprendre les rythmes et maîtriser le cycle des quintes avec une approche progressive et pratique. Plus de 150 leçons vidéo.",
     couleur: "var(--solfege-500)",
     couleurLight: "var(--solfege-300)",
-    icon: "🎼",
+    iconName: "solfege",
     features: ["Lecture de notes", "Rythme", "Cycle des Quintes "],
     url: "/cours/cours-de-solfege",
     theme: "solfege"
@@ -64,7 +65,7 @@ const cours = [
           <div class="cours-image-wrapper">
             <img src={cours.image} alt={cours.alt} loading="lazy" />
             <div class="cours-overlay">
-              <span class="cours-icon">{cours.icon}</span>
+              <span class="cours-icon"><Icon name={cours.iconName} size={32} /></span>
             </div>
           </div>
           
@@ -156,7 +157,7 @@ const cours = [
 
   .card-solfege:hover {
     border-color: var(--solfege-300);
-    box-shadow: 0 20px 40px rgba(190, 10, 0, 0.25);
+    box-shadow: 0 20px 40px rgba(229, 57, 53, 0.25);
   }
 
   .cours-image-wrapper {

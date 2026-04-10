@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import FooterModern from '../../components/FooterModern.astro';
+import Icon from '../../components/Icon.astro';
 import { getCollection } from 'astro:content';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 
@@ -295,7 +296,7 @@ const faqSchema = {
                   <div class="course-meta">
                     {course.data.bestSeller && (
                       <span class="best-seller-tag">
-                        <span class="best-seller-icon">🏆</span>
+                        <span class="best-seller-icon"><Icon name="trophy" size={16} /></span>
                         Meilleure vente
                       </span>
                     )}
@@ -327,19 +328,19 @@ const faqSchema = {
         
         <div class="benefits-grid">
           <div class="benefit-card">
-            <div class="benefit-icon">⏱️</div>
+            <div class="benefit-icon"><Icon name="lightning" size={24} /></div>
             <h3>Flexibilité d'apprentissage</h3>
             <p>Apprenez à votre rythme, quand vous le souhaitez, sans contraintes d'horaires ni de déplacements.</p>
           </div>
           
           <div class="benefit-card">
-            <div class="benefit-icon">🎯</div>
+            <div class="benefit-icon"><Icon name="target" size={24} /></div>
             <h3>Progression personnalisée</h3>
             <p>Suivez un parcours adapté à votre niveau, des bases aux techniques avancées, avec des objectifs clairs.</p>
           </div>
           
           <div class="benefit-card">
-            <div class="benefit-icon">🎬</div>
+            <div class="benefit-icon"><Icon name="note" size={24} /></div>
             <h3>Vidéos multi-angles</h3>
             <p>Visualisez clairement le jeu des deux mains grâce à nos vidéos filmées sous différentes perspectives.</p>
           </div>
@@ -534,7 +535,7 @@ const faqSchema = {
     </section>
   </main>
 
-  <Footer />
+  <FooterModern />
 </Layout>
 
 <style>

@@ -4,6 +4,7 @@
  * Aide à recommander l'instrument et le parcours idéal
  * Impact estimé: +30% qualification leads
  */
+import Icon from './Icon.astro';
 ---
 
 <section class="personalization-quiz">
@@ -27,22 +28,22 @@
         <h3 class="question-title">Quel style musical vous attire le plus ?</h3>
         <div class="options-grid">
           <button class="option-card" data-value="rock" data-instruments='["guitare", "piano"]'>
-            <span class="option-icon">🎸</span>
+            <span class="option-icon"><Icon name="guitar" size={24} /></span>
             <span class="option-label">Rock & Pop</span>
             <span class="option-description">Énergique et moderne</span>
           </button>
           <button class="option-card" data-value="classique" data-instruments='["piano"]'>
-            <span class="option-icon">🎼</span>
+            <span class="option-icon"><Icon name="solfege" size={24} /></span>
             <span class="option-label">Classique</span>
             <span class="option-description">Élégant et intemporel</span>
           </button>
           <button class="option-card" data-value="jazz" data-instruments='["piano", "guitare"]'>
-            <span class="option-icon">🎺</span>
+            <span class="option-icon"><Icon name="note" size={24} /></span>
             <span class="option-label">Jazz & Blues</span>
             <span class="option-description">Sophistiqué et improvisé</span>
           </button>
           <button class="option-card" data-value="folk" data-instruments='["guitare", "ukulele"]'>
-            <span class="option-icon">🏖️</span>
+            <span class="option-icon"><Icon name="ukulele" size={24} /></span>
             <span class="option-label">Folk & Acoustique</span>
             <span class="option-description">Chaleureux et authentique</span>
           </button>
@@ -54,17 +55,17 @@
         <h3 class="question-title">Combien de temps pouvez-vous pratiquer par semaine ?</h3>
         <div class="options-grid">
           <button class="option-card" data-value="15min" data-level="debutant">
-            <span class="option-icon">⏱️</span>
+            <span class="option-icon"><Icon name="lightning" size={24} /></span>
             <span class="option-label">15 min/jour</span>
             <span class="option-description">Apprentissage rapide</span>
           </button>
           <button class="option-card" data-value="30min" data-level="regulier">
-            <span class="option-icon">⏰</span>
+            <span class="option-icon"><Icon name="target" size={24} /></span>
             <span class="option-label">30 min/jour</span>
             <span class="option-description">Progression optimale</span>
           </button>
           <button class="option-card" data-value="1h" data-level="intense">
-            <span class="option-icon">🔥</span>
+            <span class="option-icon"><Icon name="fire" size={24} /></span>
             <span class="option-label">1h+ par jour</span>
             <span class="option-description">Progression accélérée</span>
           </button>
@@ -76,22 +77,22 @@
         <h3 class="question-title">Quel est votre objectif principal ?</h3>
         <div class="options-grid">
           <button class="option-card" data-value="plaisir" data-goal="plaisir">
-            <span class="option-icon">😊</span>
+            <span class="option-icon"><Icon name="note" size={24} /></span>
             <span class="option-label">Plaisir personnel</span>
             <span class="option-description">Jouer pour se détendre</span>
           </button>
           <button class="option-card" data-value="accompagnement" data-goal="accompagnement">
-            <span class="option-icon">🎤</span>
+            <span class="option-icon"><Icon name="mic" size={24} /></span>
             <span class="option-label">Accompagnement vocal</span>
             <span class="option-description">Chanter en jouant</span>
           </button>
           <button class="option-card" data-value="groupe" data-goal="groupe">
-            <span class="option-icon">👥</span>
+            <span class="option-icon"><Icon name="wave" size={24} /></span>
             <span class="option-label">Jouer en groupe</span>
             <span class="option-description">Rejoindre un groupe</span>
           </button>
           <button class="option-card" data-value="pro" data-goal="professionnel">
-            <span class="option-icon">🎓</span>
+            <span class="option-icon"><Icon name="graduation" size={24} /></span>
             <span class="option-label">Devenir pro</span>
             <span class="option-description">Carrière musicale</span>
           </button>
@@ -101,13 +102,13 @@
       <!-- Résultats -->
       <div class="quiz-results" id="quiz-results">
         <div class="results-animation">
-          <span class="results-icon">🎉</span>
+          <span class="results-icon"><Icon name="sparkles" size={40} /></span>
         </div>
         <h3 class="results-title">Votre parcours personnalisé est prêt !</h3>
         <p class="results-subtitle">Basé sur vos réponses, nous vous recommandons :</p>
 
         <div class="recommended-instrument">
-          <div class="instrument-icon" id="recommended-icon">🎸</div>
+          <div class="instrument-icon" id="recommended-icon"><Icon name="guitar" size={48} /></div>
           <h4 class="instrument-name" id="recommended-name">La Guitare</h4>
           <p class="instrument-reason" id="recommended-reason">
             Parfait pour le rock et l'accompagnement vocal. Avec 15 minutes par jour, vous jouerez votre premier morceau en moins d'une semaine !
@@ -252,13 +253,13 @@
   .option-card:hover {
     border-color: var(--theme-current);
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 194, 142, 0.2);
+    box-shadow: 0 10px 25px rgba(108, 63, 160, 0.2);
   }
 
   .option-card.selected {
     border-color: var(--theme-current);
-    background: linear-gradient(135deg, rgba(0, 194, 142, 0.1) 0%, rgba(0, 194, 142, 0.05) 100%);
-    box-shadow: 0 10px 25px rgba(0, 194, 142, 0.3);
+    background: linear-gradient(135deg, rgba(108, 63, 160, 0.1) 0%, rgba(108, 63, 160, 0.05) 100%);
+    box-shadow: 0 10px 25px rgba(108, 63, 160, 0.3);
   }
 
   .option-icon {
@@ -317,7 +318,7 @@
   }
 
   .recommended-instrument {
-    background: linear-gradient(135deg, rgba(0, 194, 142, 0.1) 0%, rgba(0, 194, 142, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(108, 63, 160, 0.1) 0%, rgba(108, 63, 160, 0.05) 100%);
     border: 2px solid var(--theme-current);
     border-radius: var(--border-radius-lg);
     padding: 3rem 2rem;
@@ -361,14 +362,14 @@
     text-decoration: none;
     font-weight: 700;
     font-size: 1.2rem;
-    box-shadow: 0 8px 20px rgba(0, 194, 142, 0.4);
+    box-shadow: 0 8px 20px rgba(108, 63, 160, 0.4);
     transition: all 0.3s ease;
   }
 
   .quiz-cta-button:hover {
     background: var(--theme-current-dark);
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 194, 142, 0.5);
+    box-shadow: 0 15px 30px rgba(108, 63, 160, 0.5);
   }
 
   .cta-arrow {

@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import FooterModern from '../components/FooterModern.astro';
 import { getCollection } from 'astro:content';
 
 // Récupérer tous les articles de blog
@@ -127,13 +127,13 @@ const siteStructure = [
           <h2>Pages Légales</h2>
           <ul class="sitemap-list">
             <li>
-              <a href="/mentions-legales-cgv">
+              <a href="/mentions-legales-cgv/">
                 Mentions Légales & CGV
                 <span class="priority">Priorité : 0.5</span>
               </a>
             </li>
             <li>
-              <a href="/politique-confidentialite">
+              <a href="/politique-confidentialite/">
                 Politique de Confidentialité
                 <span class="priority">Priorité : 0.5</span>
               </a>
@@ -144,7 +144,7 @@ const siteStructure = [
     </section>
   </main>
 
-  <Footer />
+  <FooterModern />
 </Layout>
 
 <style>

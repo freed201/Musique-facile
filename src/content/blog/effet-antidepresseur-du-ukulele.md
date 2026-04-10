@@ -1,4 +1,5 @@
 ---
+siloSlug: "debuter-ukulele-methode-simple-apprendre"
 title: "Ukulélé et Santé Mentale : Les Bienfaits Prouvés"
 prod: Y
 description: "Le ukulélé améliore l'humeur et réduit le stress : preuves scientifiques (UCLA). Dopamine +31%, cortisol -22% en 8 semaines de pratique."

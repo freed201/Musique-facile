@@ -7,6 +7,8 @@ ogImage: "/images/cours/cours-exercices-techniques-piano/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.7"
+reviewCount: "80"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -19,7 +21,7 @@ provider:
     - "https://www.tiktok.com/@musique_facile"
     - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
 
-educationalLevel: ["Beginner","Intermediate","Advanced"] # ou ["Intermediate"], ["Advanced"]courseMode: "Online"
+educationalLevel: ["Beginner","Intermediate","Advanced"]
 courseMode: "Online"
 audience:
   type: "Audience" 
@@ -38,11 +40,11 @@ hasCourseInstance:
 
 hero:
   badge: "Tous niveaux"
-  title: "Maîtrise Digitale au Piano : 5 Exercices Clés"
-  subtitle: "Renforcez le contrôle et l'agilité de vos doigts avec notre méthode progressive."
+  title: "Des doigts agiles et précis au piano en 5 exercices"
+  subtitle: "59 vidéos pour développer force, contrôle et fluidité. 1 100 pianistes ont déjà gagné en technique."
   cta:
-    text: "Accéder pour €69 "
-    price: "ou 2 paiements mensuels de €35"
+    text: "Je gagne en technique - 69€"
+    price: "ou 2x 35€ sans frais"
   video:
     id: "1057421752"
   stats:
@@ -65,6 +67,11 @@ teachers:
       description: "15 ans d'expérience dans l'enseignement du piano en ligne"
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
   guests:
     - name: "Yannis Bouvet"
       subtitle: "Pyannist"

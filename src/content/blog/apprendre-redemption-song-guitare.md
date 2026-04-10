@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Redemption Song (Bob Marley) - Guitare"
 description: "Version simple avec accords ouverts et rythmique douce. Apprends Redemption Song pas à pas avec structure, conseils et plan de pratique régulier."
 author: "Musique Facile"

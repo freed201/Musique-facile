@@ -3,6 +3,7 @@
  * Widget Interactif - Jouez votre premier accord
  * Démo interactive pour engager les visiteurs
  */
+import Icon from './Icon.astro';
 ---
 
 <section class="interactive-widget section-padding">
@@ -16,13 +17,13 @@
     <div class="widget-content">
       <div class="instrument-tabs">
         <button class="tab-button active" data-instrument="guitar">
-          🎸 Guitare
+          <Icon name="guitar" size={18} /> Guitare
         </button>
         <button class="tab-button" data-instrument="piano">
-          🎹 Piano
+          <Icon name="piano" size={18} /> Piano
         </button>
         <button class="tab-button" data-instrument="ukulele">
-          🏖️ Ukulélé
+          <Icon name="ukulele" size={18} /> Ukulélé
         </button>
       </div>
 
@@ -149,10 +150,10 @@
 
       <div class="widget-success" id="success-message" style="display: none;">
         <div class="success-content">
-          <span class="success-icon">🎉</span>
+          <span class="success-icon"><Icon name="sparkles" size={32} /></span>
           <h3>Bravo ! Vous venez de jouer votre premier accord !</h3>
           <p>Prêt à apprendre 100+ accords et jouer vos morceaux préférés ?</p>
-          <a href="/cours" class="success-cta">Commencer Gratuitement →</a>
+          <a href="/cours/" class="success-cta">Commencer Gratuitement →</a>
         </div>
       </div>
     </div>
@@ -439,7 +440,7 @@
 
   .play-chord-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 194, 142, 0.3);
+    box-shadow: 0 10px 25px rgba(108, 63, 160, 0.3);
   }
 
   .play-icon {

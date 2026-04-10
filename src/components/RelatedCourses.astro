@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Icon from './Icon.astro';
 
 /**
  * Composant Cours Connexes
@@ -36,15 +37,15 @@ const relatedCourses = [
   ...otherCourses.sort((a, b) => (a.data.classement || 99) - (b.data.classement || 99))
 ].slice(0, maxCourses);
 
-// Fonction pour obtenir l'icône du thème
-function getThemeIcon(theme: string): string {
+// Fonction pour obtenir le nom d'icone SVG du theme
+function getThemeIconName(theme: string): string {
   const icons: Record<string, string> = {
-    guitar: '🎸',
-    piano: '🎹',
-    ukulele: '🏖️',
-    solfege: '🎼'
+    guitar: 'guitar',
+    piano: 'piano',
+    ukulele: 'ukulele',
+    solfege: 'solfege'
   };
-  return icons[theme] || '🎵';
+  return icons[theme] || 'note';
 }
 
 // Fonction pour obtenir le label du thème
@@ -68,7 +69,7 @@ function getThemeLabel(theme: string): string {
           <a href={`/cours/${course.slug}`} class="related-card">
             <div class="card-image" style={`background-image: url(/images/cours/${course.slug}/hero.webp)`}>
               <div class="card-badge">
-                {getThemeIcon(course.data.theme)} {getThemeLabel(course.data.theme)}
+                <Icon name={getThemeIconName(course.data.theme)} size={16} /> {getThemeLabel(course.data.theme)}
               </div>
               {course.data.bestSeller && (
                 <div class="bestseller-badge">Best-seller</div>
@@ -93,7 +94,7 @@ function getThemeLabel(theme: string): string {
         ))}
       </div>
       <div class="see-all-wrapper">
-        <a href="/cours" class="btn-see-all">Voir tous nos cours →</a>
+        <a href="/cours/" class="btn-see-all">Voir tous nos cours →</a>
       </div>
     </div>
   </section>

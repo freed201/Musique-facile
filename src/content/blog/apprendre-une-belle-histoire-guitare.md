@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Une Belle Histoire (Fugain) - Tutoriel Guitare"
 prod: Y
 description: "Une Belle Histoire de Michel Fugain à la guitare : 8 accords variés, chanson française des années 70. Tutoriel vidéo."

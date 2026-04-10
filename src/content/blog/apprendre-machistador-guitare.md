@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Machistador (-M-) - Tutoriel Guitare Funk"
 prod: Y
 description: "Machistador de -M- à la guitare : groove funky, rythmique énergique, 4 accords en barré. Tutoriel guitaristes intermédiaires."

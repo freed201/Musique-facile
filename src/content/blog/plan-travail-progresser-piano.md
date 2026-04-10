@@ -1,4 +1,5 @@
 ---
+siloSlug: "guide-complet-apprentissage-piano"
 title: "Plan de Travail pour Progresser au Piano"
 description: "Un plan de travail efficace pour progresser au piano. Exercices, organisation des séances et conseils pour apprendre plus vite."
 ogImage: "/images/blog/pourquoi-apprendre-le-piano.webp"

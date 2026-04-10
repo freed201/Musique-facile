@@ -3,6 +3,7 @@
  * FooterModern.astro
  * Footer simplifié et moderne
  */
+import Icon from './Icon.astro';
 
 interface SocialLink {
   name: string;
@@ -18,7 +19,7 @@ const { showNewsletter = false } = Astro.props;
 
 const socialLinks: SocialLink[] = [
   { name: 'YouTube', url: 'https://www.youtube.com/@Musique-Facile', icon: 'youtube' },
-  { name: 'Instagram', url: 'https://www.instagram.com/musique_facile/', icon: 'instagram' },
+  { name: 'Instagram', url: 'https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr', icon: 'instagram' },
   { name: 'TikTok', url: 'https://www.tiktok.com/@musique_facile', icon: 'tiktok' },
   { name: 'Facebook', url: 'https://facebook.com/MusiqueFacileFacebook', icon: 'facebook' },
 ];
@@ -33,7 +34,7 @@ const currentYear = new Date().getFullYear();
       <!-- Brand -->
       <div class="footer-brand">
         <a href="/" class="footer-logo">
-          <span class="logo-icon">🎵</span>
+          <span class="logo-icon"><Icon name="note" size={20} /></span>
           <span class="logo-text">Musique Facile</span>
         </a>
         <p class="footer-tagline">
@@ -74,42 +75,41 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <!-- Quick Links -->
-      <div class="footer-links">
+      <nav class="footer-links" aria-label="Navigation du pied de page">
         <div class="footer-col">
           <h3 class="footer-heading">Cours</h3>
           <ul>
-            <li><a href="/cours/cours-de-guitare">Guitare</a></li>
-            <li><a href="/cours/cours-de-piano">Piano</a></li>
-            <li><a href="/cours/cours-de-ukulele">Ukulélé</a></li>
-            <li><a href="/cours/cours-de-solfege">Solfège</a></li>
+            <li><a href="/cours/cours-de-guitare/">Guitare</a></li>
+            <li><a href="/cours/cours-de-piano/">Piano</a></li>
+            <li><a href="/cours/cours-de-ukulele/">Ukulélé</a></li>
+            <li><a href="/cours/cours-de-solfege/">Solfège</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h3 class="footer-heading">Ressources</h3>
           <ul>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/ressources-gratuites/guitare">Guides gratuits</a></li>
-            <li><a href="https://podcast.ausha.co/au-boulot-maestro-le-podcast-qui-t-apprend-a-apprendre-la-musique" target="_blank" rel="noopener">Podcast</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/ressources-gratuites/guitare/">Guides gratuits</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h3 class="footer-heading">Support</h3>
           <ul>
-            <li><a href="/a-propos">À propos</a></li>
-            <li><a href="/faq">FAQ</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/a-propos/">À propos</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/contact/">Contact</a></li>
             <li><a href="https://ecole.musique-facile.fr/login" target="_blank" rel="noopener">Connexion élèves</a></li>
           </ul>
         </div>
-      </div>
+      </nav>
     </div>
 
     <!-- Bottom Section -->
     <div class="footer-bottom">
       <div class="footer-legal">
-        <a href="/mentions-legales-cgv">Mentions légales & CGV</a>
+        <a href="/mentions-legales-cgv/">Mentions légales & CGV</a>
         <span class="separator">·</span>
-        <a href="/politique-confidentialite">Confidentialité</a>
+        <a href="/politique-confidentialite/">Confidentialité</a>
       </div>
       <p class="footer-copyright">
         © {currentYear} Musique Facile — MusiqFreed EURL

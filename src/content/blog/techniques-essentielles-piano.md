@@ -1,4 +1,5 @@
 ---
+siloSlug: "guide-complet-apprentissage-piano"
 title: "Techniques Essentielles pour Bien Jouer du Piano"
 description: "Les techniques essentielles du piano : position des mains, fluidité, indépendance des doigts et coordination mains gauche/droite."
 ogImage: "/images/blog/pourquoi-apprendre-le-piano.webp"

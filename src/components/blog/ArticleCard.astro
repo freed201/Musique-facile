@@ -1,4 +1,5 @@
 ---
+import Icon from '../Icon.astro';
 interface Props {
   slug: string;
   title: string;
@@ -27,11 +28,11 @@ const detectedInstrument = instrument || detectInstrument(title, description);
 
 // Mapping des instruments
 const instrumentConfig = {
-  guitare: { icon: '🎸', label: 'Guitare', color: '#88be00' },
-  piano: { icon: '🎹', label: 'Piano', color: '#1ca5af' },
-  ukulele: { icon: '🏝️', label: 'Ukulélé', color: '#efb504' },
-  solfege: { icon: '🎼', label: 'Solfège', color: '#be0a00' },
-  general: { icon: '🎵', label: 'Général', color: '#00c28e' }
+  guitare: { iconName: 'guitar', label: 'Guitare', color: '#4CAF50' },
+  piano: { iconName: 'piano', label: 'Piano', color: '#2196F3' },
+  ukulele: { iconName: 'ukulele', label: 'Ukulélé', color: '#FF9800' },
+  solfege: { iconName: 'solfege', label: 'Solfège', color: '#E53935' },
+  general: { iconName: 'note', label: 'Général', color: '#6C3FA0' }
 };
 
 const config = instrumentConfig[detectedInstrument] || instrumentConfig.general;
@@ -42,7 +43,7 @@ const config = instrumentConfig[detectedInstrument] || instrumentConfig.general;
     <div class="card-image" style={`background-image: url(${image})`}>
       <div class="card-badges">
         <span class="badge badge-instrument" style={`background-color: ${config.color}`}>
-          {config.icon} {config.label}
+          <Icon name={config.iconName} size={14} /> {config.label}
         </span>
       </div>
       <div class="card-overlay">

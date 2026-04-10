@@ -1,4 +1,5 @@
 ---
+siloSlug: "guide-complet-apprentissage-piano"
 title: "Comment Jouer Imagine de John Lennon au Piano"
 description: "Apprends à jouer Imagine au piano avec une version simple, des repères clairs et des conseils pour mettre l’émotion en place, même débutant."
 meta: "Apprenez à jouer Imagine de John Lennon au piano avec des méthodes fidèles et simplifiées, adaptées aux débutants. Découvrez l'histoire du morceau, les techniques de Lennon, et progressez efficacement avec nos ressources gratuites."

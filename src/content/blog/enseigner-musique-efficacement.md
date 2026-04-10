@@ -1,19 +1,31 @@
 ---
+siloSlug: "pourquoi-tu-stagnes-en-musique"
 title: "Musiciens Talentueux mais Mauvais Profs : Pourquoi ?"
-description: "Un bon musicien n’est pas forcément un bon enseignant. Découvrez pourquoi et comment éviter cet écueil si vous voulez apprendre ou enseigner efficacement."
+description: "Un bon musicien n’est pas forcément un bon enseignant. La malédiction du savoir expliquée, et comment choisir un prof qui sait vraiment transmettre."
 ogImage: "/images/blog/enseigner-musique-efficacement.webp"
 author: "Fred Fieffé"
 datePublished: "2025-03-24"
-dateModified: "2026-02-04"
-introduction: "T’as déjà pris un cours avec un musicien ultra-talentueux… et t’es ressorti encore plus perdu qu’avant ? Pas de panique, tu n’es pas seul ! Certains génies de la musique ont du mal à enseigner, et cela porte un nom : **la malédiction du savoir**. Explications et solutions pour progresser efficacement."
-
-prod: N
-meta: "Un bon musicien n’est pas toujours un bon prof ! Découvre pourquoi certains virtuoses peinent à enseigner et comment mieux apprendre."
-keywords: "musicien professeur, pourquoi bons musiciens mauvais profs, pédagogie musicale, apprendre la musique efficacement, enseigner la musique"
-
-podcast:
-  title: "Pourquoi les meilleurs musiciens font parfois de mauvais profs ? - Au Boulot Maestro #7"
-  url: "https://player.ausha.co/?showId=E5Z3vHA76APj&color=%23751CBF&podcastId=bz53EnFra6Wd&v=3&playerId=ausha-Gjt8"
+dateModified: "2026-03-19"
+introduction: "T’as déjà pris un cours avec un musicien ultra-talentueux et t’es ressorti encore plus perdu qu’avant ? Ce phénomène porte un nom : la malédiction du savoir. Quand tout est devenu automatique, expliquer les bases devient difficile. Voici pourquoi un bon musicien n’est pas forcément un bon prof, et comment trouver un enseignement adapté."
+prod: Y
+instrument: "général"
+level: "débutant"
+category: "général"
+schemaType: "BlogPosting"
+tags:
+  - pédagogie musicale
+  - apprendre la musique
+  - professeur musique
+  - malédiction du savoir
+  - enseigner musique
+  - progression musicale
+faqs:
+  - question: "Pourquoi certains musiciens talentueux sont-ils de mauvais profs ?"
+    answer: "C’est la ‘malédiction du savoir’ : quand un expert maîtrise tellement son sujet que tout est devenu automatique, il n’arrive plus à décomposer les étapes pour un débutant. Il oublie ce que c’est de ne pas savoir."
+  - question: "Comment reconnaître un bon prof de musique ?"
+    answer: "Un bon prof sait simplifier les notions complexes, découper l’apprentissage en étapes progressives, adapter son discours au niveau de l’élève, et proposer plusieurs façons d’expliquer la même chose."
+  - question: "Peut-on apprendre efficacement sans professeur ?"
+    answer: "Oui, avec un cours bien structuré et progressif. L’essentiel est d’avoir un parcours qui décompose chaque compétence en étapes claires, ce que font les bonnes méthodes en ligne."
 ---
 
 # 🎶 Pourquoi les musiciens talentueux font parfois de mauvais profs ? 🎶  
@@ -119,7 +131,7 @@ Tu vas voir, **c’est pas si simple**… et ça te fera réaliser à quel point
 
 Si t’as envie d’apprendre la musique avec **des explications claires, progressives et adaptées à ton niveau**, j’ai ce qu’il te faut !  
 
-Sur [musique-facile.fr](#), tu trouveras **des formations pédagogiques efficaces**, sans blabla inutile. Juste **des outils concrets pour progresser sans frustration**.  
+Sur [musique-facile.fr](/cours/), tu trouveras **des formations pédagogiques efficaces**, sans blabla inutile. Juste **des outils concrets pour progresser sans frustration**.  
 
 ---
 
@@ -129,6 +141,5 @@ Sur [musique-facile.fr](#), tu trouveras **des formations pédagogiques efficace
 
 Donc, si un jour ton prof te balance une explication bancale… souviens-toi que **la pédagogie, ça s’apprend**.  
 
-📝 **Et toi, t’as déjà eu un prof ultra-talentueux… mais incompréhensible ?**  
-Raconte-moi ton expérience en commentaire !  
+📝 **Et toi, t’as déjà eu un prof ultra-talentueux… mais incompréhensible ?**
 ---

@@ -7,6 +7,8 @@ ogImage: "/images/cours/apprendre-guitare-shuffle/hero.webp"
 theme: "guitar"
 datePublished: "2025-02-21"
 dateModified: "2025-02-21"
+ratingValue: "4.8"
+reviewCount: "8"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -39,10 +41,10 @@ hasCourseInstance:
 
 hero:
   badge: "Nouveau Cours"
-  title: "L'Essentiel du Shuffle : Maîtrisez le Groove à la Guitare"
-  subtitle: "Apprenez à jouer des rythmes shuffle et intégrez-les à votre style de jeu."
+  title: "Ajoutez le groove du shuffle à votre jeu de guitare"
+  subtitle: "15 leçons pour maîtriser le shuffle et le blues groove. Résultats audibles dès la première semaine."
   cta:
-    text: "Accéder pour €29 "
+    text: "Je commence le shuffle - 29€"
     price: ""
   video:
     id: "1057421764"
@@ -66,6 +68,11 @@ teachers:
       description: "Découvrez les secrets du groove et du shuffle à la guitare avec des exercices adaptés."
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
 timeline:
   - number: 1
@@ -171,14 +178,14 @@ benefices:
     - icon: "⏰"
       title: "Flexible et accessible"
       description: "Apprenez à votre rythme avec des leçons disponibles à tout moment."
-  backgroundImage: "https://ecole.musique-facile.fr/images/ukulele-shuffle-benefices-bg.jpg"
+  backgroundImage: "https://ecole.musique-facile.fr/images/guitare-shuffle-benefices-bg.jpg"
 
 cta:
   title: "Apprenez l'art du shuffle dès aujourd'hui"
-  subtitle: "Rejoignez la formation 'Cours Ukulélé Shuffle Blues' et transformez votre jeu dès maintenant."
+  subtitle: "Rejoignez la formation 'Shuffle Guitare' et transformez votre jeu dès maintenant."
   buttonText: "Je m'inscris maintenant !"
   buttonLink: "https://ecole.musique-facile.fr/swing-groove-l-essentiel-du-shuffle-a-la-guitare/buy"
-  backgroundImage: "https://ecole.musique-facile.fr/images/ukulele-shuffle-cta-bg.jpg"
+  backgroundImage: "https://ecole.musique-facile.fr/images/guitare-shuffle-cta-bg.jpg"
   features:
     - icon: "⭐"
       text: "Accès complet au cours dès l'inscription"

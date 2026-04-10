@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Jean-Jacques Goldman à la Guitare - Tutoriels"
 prod: Y
 description: "Jean-Jacques Goldman à la guitare : tutoriels pour On ira, À nos actes manqués. Vidéos complètes pour tous niveaux."

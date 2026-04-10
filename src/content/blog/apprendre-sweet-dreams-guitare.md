@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Sweet Dreams (Eurythmics) - Tutoriel Guitare"
 prod: Y
 description: "Sweet Dreams d'Eurythmics à la guitare : 5 accords, rythmique synth-pop, hit années 80. Tutoriel vidéo intermédiaires."

@@ -7,6 +7,8 @@ ogImage: "/images/cours/comprendre-cycle-des-quintes/hero.webp"
 theme: "solfege"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.8"
+reviewCount: "120"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -37,11 +39,11 @@ hasCourseInstance:
 
 hero:
   badge: "Formation musicale"
-  title: "Maîtriser le Cycle des Quintes"
-  subtitle: "L'outil magique pour les musiciens"
+  title: "Comprenez enfin le cycle des quintes et débloquez votre musique"
+  subtitle: "71 vidéos pour maîtriser l'outil qui relie gammes, accords et tonalités. 1 600 musiciens l'utilisent déjà."
   cta:
-    text: "Accéder pour €79 "
-    price: " ou 2 paiements mensuels de €40"
+    text: "Je maîtrise le cycle des quintes - 79€"
+    price: "ou 2x 40€ sans frais"
   video:
     id: "1062020152"
   stats:
@@ -64,6 +66,11 @@ teachers:
       description: "L'outil indispensable pour comprendre la musique"
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
 timeline:
   - number: 1

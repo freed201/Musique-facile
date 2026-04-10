@@ -1,5 +1,6 @@
 ---
 import OptimizedImage from './OptimizedImage.astro';
+import Icon from './Icon.astro';
 
 const testimonials = [
   {
@@ -84,7 +85,7 @@ const reviewSchemas = testimonials.map(testimonial => ({
               <p class="testimonial-role">{testimonial.role}</p>
               <div class="testimonial-rating">
                 {Array.from({ length: testimonial.rating }).map(() => (
-                  <span class="star">⭐</span>
+                  <span class="star"><Icon name="star" size={16} /></span>
                 ))}
               </div>
             </div>

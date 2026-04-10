@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Don't Stop Me Now (Queen) - Tutoriel Guitare"
 prod: Y
 description: "Don't Stop Me Now de Queen à la guitare : 10 accords avancés, hymne de Freddie Mercury 1979, 150 BPM. Tutoriel confirmés."

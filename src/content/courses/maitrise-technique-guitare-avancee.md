@@ -1,12 +1,14 @@
 ---
 affichage: "Y"
 classement: 2
-title: "Guitare Odyssée : 52 Semaines de Perfectionnement"
-description: "52 semaines de progression guitare : technique, compréhension musicale et expression. Une leçon par semaine pour progresser régulièrement."
+title: "Guitare Avancé — 52 Semaines, Accès à Vie"
+description: "5 200 élèves, 4.5/5. 52 semaines de perfectionnement guitare par Fred Fieffé. Technique, improvisation, expression. Accès à vie, 149€ paiement unique."
 ogImage: "/images/cours/maitrise-technique-guitare-avancee/hero.webp"
 theme: "guitar"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.5"
+reviewCount: "380"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -37,11 +39,11 @@ hasCourseInstance:
 
 hero:
   badge: "Perfectionnement Guitare"
-  title: "Guitare Odyssée : 52 Semaines de Perfectionnement"
-  subtitle: "Transformez votre jeu de guitare en une année avec des leçons hebdomadaires structurées."
+  title: "Progressez chaque semaine à la guitare pendant un an"
+  subtitle: "52 semaines de leçons structurées pour transformer votre jeu. 5 200 guitaristes ont relevé le défi."
   cta:
-    text: "Accéder pour €149 "
-    price: "ou 4 paiements mensuels de €39"
+    text: "Je relève le défi - 149€"
+    price: "ou 4x 39€ sans frais"
   video:
     id: "1056758646"
   stats:
@@ -61,13 +63,18 @@ teachers:
     - firstName: "Fred"
       lastName: "Fieffé"
       subtitle: "Professeur de guitare"
-      description: "Il a toujours une idée, une astuce & un exercice à partager pour bien apprendre et progresser"
+      description: "Il a toujours une idée, une astuce et un exercice à partager pour bien apprendre et progresser."
       photo: "fred.jpg"
       website: "https://jeanmartin-guitare.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
     - firstName: "Benjamin"
       lastName: "Sertelon"
       subtitle: "Coach technique et rythmique"
-      description: "Guitariste professionnelle et prof passionné, avec toujours le petit mot pour rire."
+      description: "Guitariste professionnel et prof passionné, avec toujours le petit mot pour rire."
       photo: "ben.jpg"
   guests:
     - name: "Eric Legaud"

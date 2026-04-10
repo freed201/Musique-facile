@@ -42,7 +42,7 @@ const defaultTestimonials: Testimonial[] = [
     id: '3',
     name: 'Sophie Laurent',
     role: 'Élève en ukulélé',
-    image: '/images/marie.webp',
+    image: '/images/sophie.webp',
     quote: "Le ukulélé semblait si simple et pourtant j'avais du mal à progresser seule. Fred explique tout de manière claire et accessible !",
     rating: 5,
     instrument: 'ukulele'
@@ -55,7 +55,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="testimonials-section">
+<section class="testimonials-section" data-animate="reveal">
   <div class="testimonials-container">
     <!-- Header -->
     <div class="testimonials-header">
@@ -142,17 +142,17 @@ const {
     </div>
 
     <!-- Stats -->
-    <div class="testimonials-stats">
+    <div class="testimonials-stats" data-stagger-group=".stat">
       <div class="stat">
-        <span class="stat-value">80 000+</span>
+        <span class="stat-value" data-counter="80000" data-counter-suffix="+" data-duration="2000">0</span>
         <span class="stat-label">Élèves formés</span>
       </div>
       <div class="stat">
-        <span class="stat-value">95%</span>
+        <span class="stat-value" data-counter="95" data-counter-suffix="%" data-duration="1800">0</span>
         <span class="stat-label">Satisfaction</span>
       </div>
       <div class="stat">
-        <span class="stat-value">1 400+</span>
+        <span class="stat-value" data-counter="1400" data-counter-suffix="+" data-duration="2000">0</span>
         <span class="stat-label">Vidéos</span>
       </div>
     </div>
@@ -162,7 +162,7 @@ const {
 <style>
   .testimonials-section {
     padding: var(--space-20) var(--space-4);
-    background: var(--bg-card);
+    background: var(--bg-alt);
   }
 
   .testimonials-container {

@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Across the Universe (Beatles) - Tutoriel Guitare"
 prod: Y
 description: "Across the Universe des Beatles : 8 accords avec capo case 2, ballade psychédélique 1969. Tutoriel guitare intermédiaires."

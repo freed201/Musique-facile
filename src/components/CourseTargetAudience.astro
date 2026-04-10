@@ -1,0 +1,129 @@
+---
+interface Props {
+  items?: string[];
+  theme?: string;
+}
+
+const { items, theme = 'guitar' } = Astro.props;
+
+// Valeurs par défaut si aucun targetAudience n'est fourni dans le frontmatter
+const defaultItems = [
+  "Vous n'avez jamais joue de musique et vous voulez debuter sereinement",
+  "Vous avez essaye seul mais vous tournez en rond sans methode",
+  "Vous cherchez un cours structure, progressif et accessible",
+  "Vous voulez des resultats concrets rapidement, meme avec 15 min/jour",
+  "Vous revez de jouer vos morceaux preferes avec confiance",
+];
+
+const displayItems = items && items.length > 0 ? items : defaultItems;
+---
+
+<section class="target-audience">
+  <div class="container">
+    <h2 class="target-audience-title">Ce cours est fait pour vous si...</h2>
+    <ul class="target-audience-list">
+      {displayItems.map((item) => (
+        <li class="target-audience-item">
+          <span class="target-audience-check" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="12" fill="currentColor" opacity="0.15"/>
+              <path d="M7 12.5L10.5 16L17 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="target-audience-text">{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .target-audience {
+    padding: 5rem 0;
+    background: var(--bg-light, #f8f9fc);
+  }
+
+  .target-audience-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--theme-current);
+    margin-bottom: 3rem;
+    line-height: 1.3;
+  }
+
+  .target-audience-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .target-audience-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--border-radius, 12px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .target-audience-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .target-audience-check {
+    flex-shrink: 0;
+    color: var(--theme-current);
+    margin-top: 0.1rem;
+  }
+
+  .target-audience-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--color-dark, #1a1a2e);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .target-audience {
+      background: var(--bg-dark-alt, #1a1a2e);
+    }
+
+    .target-audience-item {
+      background: var(--bg-dark, #12121f);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .target-audience-text {
+      color: var(--color-light, #e0e0e0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .target-audience {
+      padding: 3.5rem 0;
+    }
+
+    .target-audience-title {
+      font-size: 1.75rem;
+      padding: 0 1rem;
+    }
+
+    .target-audience-list {
+      padding: 0 1rem;
+    }
+
+    .target-audience-item {
+      padding: 1rem 1.25rem;
+    }
+
+    .target-audience-text {
+      font-size: 1rem;
+    }
+  }
+</style>

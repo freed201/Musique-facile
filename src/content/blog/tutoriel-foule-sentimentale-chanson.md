@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Foule Sentimentale (Souchon) - Tutoriel Guitare"
 prod: Y
 description: "Foule Sentimentale d'Alain Souchon à la guitare : 5 accords simples, critique sociale poétique 1993. Tutoriel vidéo facile."

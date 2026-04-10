@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Partons Vite (Kaolin) - Tutoriel Guitare"
 prod: Y
 description: "Partons Vite de Kaolin à la guitare : 7 accords avec capo case 3, rythmique rock français. Tutoriel débutants/intermédiaires."

@@ -1,12 +1,13 @@
 ---
 // Composant de bannière d'urgence pour augmenter les conversions
 // Système de rotation automatique : 10 jours ON / 10 jours OFF
+import Icon from './Icon.astro';
 ---
 
 <div class="urgency-banner" style="display: none;">
   <div class="container">
     <div class="urgency-content">
-      <span class="urgency-icon">⏰</span>
+      <span class="urgency-icon"><Icon name="lightning" size={18} /></span>
       <span class="urgency-text">
         <strong>Offre Spéciale -30%</strong>
         <span class="urgency-validity"></span> •

@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 const courses = [
   {
     title: "Guitare Kids",
@@ -9,7 +10,7 @@ const courses = [
       "Progression par jeux et challenges",
       "Récompenses et badges à gagner"
     ],
-    icon: "🎸",
+    iconName: "guitar",
     color: "var(--guitar-500)",
     url: "https://kids.musique-facile.fr/cours-guitare-debutant-enfant"
   },
@@ -22,7 +23,7 @@ const courses = [
       "Histoires musicales captivantes",
       "Suivi des progrès personnalisé"
     ],
-    icon: "🎹",
+    iconName: "piano",
     color: "var(--piano-500)",
     url: "https://kids.musique-facile.fr/cours-piano-debutant-enfant"
   },
@@ -35,7 +36,7 @@ const courses = [
       "Apprentissage par le jeu",
       "Premières mélodies rapidement"
     ],
-    icon: "🏖️",
+    iconName: "ukulele",
     color: "var(--ukulele-500)",
     url: "https://kids.musique-facile.fr/cours-ukulele-debutant-enfant"
   }
@@ -53,7 +54,7 @@ const courses = [
       {courses.map(course => (
         <a href={course.url} class="course-card" target="_blank" rel="noopener noreferrer"  style={`--card-color: ${course.color}`}>
           <div class="card-header">
-            <span class="course-icon">{course.icon}</span>
+            <span class="course-icon"><Icon name={course.iconName} size={28} /></span>
             <h3>{course.title}</h3>
           </div>
           <p class="course-description">{course.description}</p>

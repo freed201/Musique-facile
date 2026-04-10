@@ -1,0 +1,166 @@
+---
+/**
+ * ArticleCTA.astro — Encadré CTA distinct du contenu pédagogique.
+ * Visuellement séparé et labellisé pour que les IA distinguent
+ * contenu éditorial et promotionnel (GEO).
+ */
+interface Props {
+  instrument?: string;
+  ctaUrl?: string;
+  ctaText?: string;
+}
+
+const { instrument = 'general', ctaUrl, ctaText } = Astro.props;
+
+// Mapping instrument → URL cours par défaut
+const courseUrlMap: Record<string, string> = {
+  guitare: '/cours/apprendre-guitare-debutant/',
+  piano: '/cours/piano-facile-apprendre-debutant/',
+  ukulele: '/cours/apprendre-ukulele-debutant/',
+  solfege: '/cours/cours-de-solfege/',
+  general: '/cours/',
+  'général': '/cours/',
+};
+
+// Mapping instrument → pitch court
+const pitchMap: Record<string, string> = {
+  guitare: 'Envie de progresser rapidement a la guitare ? Decouvre notre formation complete, pas a pas.',
+  piano: 'Pret(e) a jouer tes premiers morceaux au piano ? Notre methode t\'accompagne de zero.',
+  ukulele: 'Le ukulele te tente ? Apprends a jouer facilement avec notre formation structuree.',
+  solfege: 'Maitriser le solfege sans stress ? Notre cours rend la theorie musicale accessible.',
+  general: 'Envie d\'apprendre la musique ? Decouvre nos formations adaptees a ton niveau.',
+  'général': 'Envie d\'apprendre la musique ? Decouvre nos formations adaptees a ton niveau.',
+};
+
+// Mapping instrument → texte bouton par défaut
+const defaultCtaTextMap: Record<string, string> = {
+  guitare: 'Je decouvre le cours de guitare',
+  piano: 'Je decouvre le cours de piano',
+  ukulele: 'Je decouvre le cours de ukulele',
+  solfege: 'Je decouvre le cours de solfege',
+  general: 'Voir toutes les formations',
+  'général': 'Voir toutes les formations',
+};
+
+// Mapping instrument → theme CSS
+const themeMap: Record<string, string> = {
+  guitare: 'guitar',
+  piano: 'piano',
+  ukulele: 'ukulele',
+  solfege: 'solfege',
+  general: 'main',
+  'général': 'main',
+};
+
+const resolvedUrl = ctaUrl || courseUrlMap[instrument] || '/cours/';
+const resolvedText = ctaText || defaultCtaTextMap[instrument] || 'Voir toutes les formations';
+const resolvedPitch = pitchMap[instrument] || pitchMap['general'];
+const resolvedTheme = themeMap[instrument] || 'main';
+---
+
+<aside class={`article-cta theme-cta-${resolvedTheme}`} role="complementary" aria-label="Notre formation" data-nosnippet>
+  <span class="article-cta__label">Notre formation</span>
+  <p class="article-cta__pitch">{resolvedPitch}</p>
+  <a href={resolvedUrl} class="article-cta__button">
+    {resolvedText}
+    <span class="article-cta__arrow" aria-hidden="true">&rarr;</span>
+  </a>
+</aside>
+
+<style>
+  .article-cta {
+    position: relative;
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem 2.5rem;
+    border-radius: var(--border-radius, 12px);
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, rgba(245, 245, 245, 0.8) 0%, rgba(255, 255, 255, 0.95) 100%);
+    text-align: center;
+  }
+
+  /* Themes */
+  .theme-cta-guitar {
+    border-color: rgba(231, 76, 60, 0.25);
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.06) 0%, rgba(255, 255, 255, 0.95) 100%);
+  }
+  .theme-cta-piano {
+    border-color: rgba(52, 152, 219, 0.25);
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.06) 0%, rgba(255, 255, 255, 0.95) 100%);
+  }
+  .theme-cta-ukulele {
+    border-color: rgba(46, 204, 113, 0.25);
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.06) 0%, rgba(255, 255, 255, 0.95) 100%);
+  }
+  .theme-cta-solfege {
+    border-color: rgba(155, 89, 182, 0.25);
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.06) 0%, rgba(255, 255, 255, 0.95) 100%);
+  }
+  .theme-cta-main {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .article-cta__label {
+    position: absolute;
+    top: -0.65rem;
+    left: 1.5rem;
+    background: white;
+    padding: 0 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  .article-cta__pitch {
+    margin: 0 0 1.25rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-dark, #1a1a2e);
+  }
+
+  .article-cta__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    background: var(--theme-current, #e74c3c);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .article-cta__button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .article-cta__arrow {
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+  }
+
+  .article-cta__button:hover .article-cta__arrow {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 768px) {
+    .article-cta {
+      margin: 2rem 1rem;
+      padding: 1.5rem 1.25rem;
+    }
+
+    .article-cta__pitch {
+      font-size: 0.95rem;
+    }
+
+    .article-cta__button {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>

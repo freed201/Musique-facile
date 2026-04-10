@@ -7,6 +7,8 @@ ogImage: "/images/cours/apprendre-piano-facile-guitaristes/hero.webp"
 theme: "guitar"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.0"
+reviewCount: "60"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -37,11 +39,11 @@ hasCourseInstance:
 
 hero:
   badge: "Pour guitaristes"
-  title: "Le Piano au Service des Guitaristes"
-  subtitle: "Une approche unique pour enrichir votre jeu de guitare grâce au piano."
+  title: "Guitaristes : le piano va transformer votre jeu"
+  subtitle: "55 chapitres pour comprendre la musique autrement et progresser plus vite à la guitare. 830 guitaristes l'ont déjà fait."
   cta:
-    text: "Accéder pour €99 "
-    price: " ou 3 paiements mensuels de €33"
+    text: "Je découvre le piano - 99€"
+    price: "ou 3x 33€ sans frais"
   video:
     id: "1058584536"
   stats:
@@ -65,6 +67,11 @@ teachers:
       description: "Méthode unique : le piano éclaire et accélère la guitare pour aller plus loin."
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
 
 

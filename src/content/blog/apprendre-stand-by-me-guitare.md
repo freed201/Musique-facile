@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Stand by Me (Ben E. King) - Tutoriel Guitare"
 description: "Apprends Stand by Me avec quatre accords ouverts et une rythmique régulière. Tutoriel débutant pour jouer couplets, refrains et garder le groove."
 author: "Musique Facile"

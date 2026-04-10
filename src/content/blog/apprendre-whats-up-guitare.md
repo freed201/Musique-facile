@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "What's Up (4 Non Blondes) - Tutoriel Guitare"
 description: "Apprends What's Up avec des accords ouverts et un strumming facile. Version débutant pour jouer couplet, refrain et garder une bonne énergie."
 author: "Musique Facile"

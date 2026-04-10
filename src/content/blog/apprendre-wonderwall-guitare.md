@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Wonderwall (Oasis) - Tutoriel Guitare"
 description: "Version fidèle avec capo case 2, accords ouverts et rythmique syncopée. Un tutoriel clair pour jouer Wonderwall du début à la fin, sans stress."
 author: "Musique Facile"

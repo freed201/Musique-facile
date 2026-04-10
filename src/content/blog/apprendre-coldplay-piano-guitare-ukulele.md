@@ -1,4 +1,5 @@
 ---
+siloSlug: "pourquoi-tu-stagnes-en-musique"
 title: "Coldplay : Un Voyage Musical à Travers les Étoiles"
 prod: Y
 description: "Plongez dans l'univers de Coldplay avec nos tutoriels musicaux et apprenez à jouer leurs plus grands succès."

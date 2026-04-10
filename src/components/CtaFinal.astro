@@ -1,15 +1,16 @@
 ---
+import Icon from './Icon.astro';
 const features = [
   {
-    icon: "🎵",
+    iconName: "note",
     text: "Des cours adaptés à tous les niveaux"
   },
   {
-    icon: "⭐",
+    iconName: "star",
     text: "Des formateurs passionnés et experts"
   },
   {
-    icon: "💫",
+    iconName: "sparkles",
     text: "Une progression garantie"
   }
 ];
@@ -24,14 +25,14 @@ const features = [
       <div class="features">
         {features.map(feature => (
           <div class="feature">
-            <span class="feature-icon">{feature.icon}</span>
+            <span class="feature-icon"><Icon name={feature.iconName} size={20} /></span>
             <span class="feature-text">{feature.text}</span>
           </div>
         ))}
       </div>
 
       <div class="cta-buttons">
-        <a href="/inscription" class="btn-primary">
+        <a href="/inscription/" class="btn-primary">
           Créer un compte gratuit
           <span class="shine"></span>
         </a>

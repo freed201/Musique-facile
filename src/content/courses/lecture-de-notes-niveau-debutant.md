@@ -1,12 +1,14 @@
 ---
 affichage: "Y"
 classement: 1
-title: "Lecture de Notes Simplifiée : Fondamentaux"
-description: "Apprenez à lire les partitions facilement avec notre formation solfège. Fondamentaux de la lecture de notes pour débutants."
+title: "Lire les Notes de Musique — 4 100 Élèves"
+description: "4 100 élèves, accès à vie dès 79€. Apprenez à lire les partitions de zéro avec Fred Fieffé. Méthode progressive, paiement unique. Sans prérequis !"
 ogImage: "/images/cours/lecture-de-notes-niveau-debutant/hero.webp"
 theme: "solfege"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.6"
+reviewCount: "300"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -37,11 +39,11 @@ hasCourseInstance:
 
 hero:
   badge: "Solfège"
-  title: "Lecture de Notes Simplifiée"
-  subtitle: "Transformez votre manière de lire la musique, simplement et efficacement."
+  title: "Lisez vos premières partitions en quelques semaines"
+  subtitle: "35 leçons vidéo pour passer de zéro à la lecture fluide de partitions. La méthode qui a aidé 4 100 élèves à déchiffrer la musique."
   cta:
-    text: "Accéder pour €79 "
-    price: "ou 2 paiements mensuels de €40"
+    text: "Je commence le solfège - 79€"
+    price: "ou 2x 40€ sans frais"
   video:
     id: "1058583601"
   stats:
@@ -60,10 +62,15 @@ teachers:
   mainTeachers:
     - firstName: "Fred"
       lastName: "Fieffé"
-      subtitle: "Professeur principal de guitare"
-      description: "Lire les notes devient simple avec la méthode adéquate."
+      subtitle: "Ton professeur de Solfège"
+      description: "Musicien professionnel avec 35 ans de pratique et 13 ans d'enseignement en ligne."
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
 
 timeline:
@@ -187,19 +194,39 @@ cta:
     - icon: "💰"
       text: "Garantie satisfait ou remboursé pendant 15 jours"
 
+transformation:
+  title: "Ce que la formation va changer pour vous"
+  items:
+    - before: "Les partitions vous semblent être un langage incompréhensible"
+      after: "Vous déchiffrez les notes sur la portée avec fluidité et confiance"
+    - before: "Vous confondez les clés de Sol et de Fa et les lignes supplémentaires"
+      after: "Vous identifiez instantanément chaque note dans les deux clés"
+    - before: "Vous dépendez des tutos vidéo car vous ne savez pas lire la musique"
+      after: "Vous êtes autonome pour apprendre n'importe quel morceau à partir d'une partition"
+
+pricing:
+  title: "Investissez dans votre passion"
+  features:
+    - "35 leçons vidéo HD progressives"
+    - "Accès à vie, sans limite de temps"
+    - "Support personnalisé par email"
+    - "Mises à jour gratuites incluses"
+    - "Certificat de complétion"
+  guarantee: "Garantie satisfait ou remboursé 15 jours"
+
 faq:
   title: "Questions fréquentes"
   subtitle: "Nous répondons à vos interrogations"
   questions:
     - question: "Cette formation est-elle adaptée aux débutants ?"
-      answer: "Oui, cette formation est conçue spécialement pour les personnes qui n'ont aucune expérience en solfège ou en lecture de notes."
+      answer: "Oui, cette formation est spécialement conçue pour les personnes qui n'ont aucune expérience en solfège. Plus de 4 100 élèves ont appris à lire les partitions avec cette méthode en partant de zéro. Les 35 leçons vidéo décomposent chaque concept en étapes simples et progressives. Aucun prérequis musical n'est nécessaire : on commence par les bases absolues."
     - question: "Combien de temps dois-je y consacrer chaque jour ?"
-      answer: "Seulement 15 à 20 minutes par jour suffisent pour progresser rapidement."
+      answer: "15 à 20 minutes par jour suffisent pour progresser de façon significative. La lecture de notes est une compétence qui se développe avec la régularité. Nos élèves les plus assidus lisent leurs premières partitions simples en 3 à 4 semaines. Les exercices sont conçus pour être courts et ciblés, faciles à intégrer dans votre quotidien."
     - question: "Que faire si je ne comprends pas une leçon ?"
-      answer: "Notre support personnalisé est à votre disposition pour répondre à toutes vos questions."
+      answer: "Notre support personnalisé par email est à votre disposition pour répondre à toutes vos questions. Fred prend le temps d'expliquer les concepts différemment si nécessaire. De plus, chaque leçon est accessible à vie : vous pouvez la revoir autant de fois que nécessaire, sans pression. Des exercices pratiques accompagnent chaque cours pour consolider vos acquis."
     - question: "Puis-je demander un remboursement si je ne suis pas satisfait ?"
-      answer: "Absolument. Vous bénéficiez d'une garantie satisfait ou remboursé pendant 15 jours."
-    - question: "Ai-je besoin d’un instrument pour suivre cette formation ?"
-      answer: "Non, cette formation est axée sur la lecture de notes. Un instrument peut être utile mais n’est pas obligatoire."
+      answer: "Absolument. Vous bénéficiez d'une garantie satisfait ou remboursé pendant 15 jours, sans aucune condition. Un simple email suffit pour obtenir un remboursement complet. Nous sommes convaincus de la qualité de cette formation : plus de 97% de nos élèves la recommandent."
+    - question: "Ai-je besoin d'un instrument pour suivre cette formation ?"
+      answer: "Non, cette formation est entièrement axée sur la lecture de notes et le solfège. Un instrument peut enrichir votre pratique, mais il n'est pas obligatoire. Vous apprendrez à lire les clés de Sol et de Fa, à identifier les notes sur la portée et à déchiffrer des partitions. Ces compétences sont universelles et s'appliquent à tous les instruments."
   backgroundPattern: "lecture-de-notes-pattern.svg"
 ---

@@ -65,7 +65,7 @@
 .btn-primary:hover:not(:disabled):not([aria-disabled="true"]) {
   background: linear-gradient(135deg, var(--brand-600), var(--brand-700));
   transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0, 194, 142, 0.35);
+  box-shadow: 0 12px 24px rgba(108, 63, 160, 0.35);
 }
 
 .btn-secondary {
@@ -452,4 +452,35 @@
 
 .skip-to-content:focus {
   top: 0;
+}
+
+/* ========================================
+   T5.3 — MICRO-INTERACTIONS HOVER / FOCUS
+   ======================================== */
+
+/* Focus-visible global (accessibilite clavier) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--brand-500);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+
+/* Reduced motion : desactiver les transforms au hover */
+@media (prefers-reduced-motion: reduce) {
+  .card:hover,
+  .cours-card:hover,
+  .include-card:hover,
+  .pricing-card:hover,
+  .btn:hover,
+  .btn-primary:hover,
+  .cta-primary:hover,
+  .cta-secondary:hover,
+  .method-btn:hover,
+  .pricing-cta:hover {
+    transform: none !important;
+  }
 }

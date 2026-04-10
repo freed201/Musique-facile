@@ -1,5 +1,6 @@
 ---
 import { PARTNERS } from '../config/partners';
+import Icon from './Icon.astro';
 
 const stats = [
   {
@@ -38,7 +39,7 @@ const stats = [
         </p>
         
         <div class="insight-box">
-          <span class="insight-icon">💡</span>
+          <span class="insight-icon"><Icon name="lightbulb" size={20} /></span>
           <div class="insight-content">
             <p>Ce n'est pas juste un chiffre, c'est une réalité : des milliers d'élèves ont progressé à leur rythme, sur notre site et via nos partenaires.</p>
           </div>
@@ -270,7 +271,7 @@ const stats = [
 
   .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 24px rgba(0, 194, 142, 0.35);
+    box-shadow: 0 12px 24px rgba(108, 63, 160, 0.35);
   }
 
   .arrow {

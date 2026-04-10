@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Fields of Gold (Sting) - Tutoriel Guitare"
 prod: Y
 description: "Fields of Gold de Sting à la guitare : 6 accords avec capo case 2, ballade folk-pop 1993, arpèges. Tutoriel intermédiaires."

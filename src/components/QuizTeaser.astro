@@ -1,0 +1,289 @@
+---
+/**
+ * QuizTeaser.astro
+ * Mini-section teaser pour le quiz d'orientation sur la homepage.
+ * Objectif : inciter les visiteurs indecis a faire le quiz.
+ * Insertion : apres InstructorHighlight, avant TemoignagesModern.
+ */
+---
+
+<section class="quiz-teaser" data-animate="reveal">
+  <div class="quiz-teaser__container">
+    <div class="quiz-teaser__content">
+      <span class="quiz-teaser__badge">Quiz gratuit</span>
+      <h2 class="quiz-teaser__title">Quel instrument est fait pour vous ?</h2>
+      <p class="quiz-teaser__subtitle">
+        Faites le quiz en 30 secondes et découvrez votre instrument idéal parmi guitare, piano, ukulélé et solfège.
+      </p>
+      <a href="/quel-instrument-choisir/" class="quiz-teaser__cta">
+        Je fais le quiz
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14m0 0l-6-6m6 6l-6 6"/>
+        </svg>
+      </a>
+      <p class="quiz-teaser__proof">+15 000 personnes ont trouvé leur instrument</p>
+    </div>
+
+    <div class="quiz-teaser__instruments" aria-hidden="true">
+      <a href="/quel-instrument-choisir/" class="quiz-teaser__icon quiz-teaser__icon--guitar">
+        <span class="quiz-teaser__emoji">🎸</span>
+        <span>Guitare</span>
+      </a>
+      <a href="/quel-instrument-choisir/" class="quiz-teaser__icon quiz-teaser__icon--piano">
+        <span class="quiz-teaser__emoji">🎹</span>
+        <span>Piano</span>
+      </a>
+      <a href="/quel-instrument-choisir/" class="quiz-teaser__icon quiz-teaser__icon--ukulele">
+        <span class="quiz-teaser__emoji">🪕</span>
+        <span>Ukulélé</span>
+      </a>
+      <a href="/quel-instrument-choisir/" class="quiz-teaser__icon quiz-teaser__icon--solfege">
+        <span class="quiz-teaser__emoji">🎵</span>
+        <span>Solfège</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .quiz-teaser {
+    padding: var(--space-16, 4rem) var(--space-4, 1rem);
+    background: linear-gradient(135deg, var(--brand-50, #f5f0fa) 0%, #f0ebf8 50%, var(--brand-100, #e8ddf4) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quiz-teaser__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .quiz-teaser__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .quiz-teaser__badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.35rem 0.85rem;
+    background: var(--brand-500, #6C3FA0);
+    color: white;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .quiz-teaser__title {
+    font-family: var(--font-heading, sans-serif);
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    font-weight: 800;
+    color: var(--gray-900, #111827);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .quiz-teaser__subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--gray-600, #4b5563);
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0;
+  }
+
+  .quiz-teaser__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+    padding: 0.875rem 1.75rem;
+    background: var(--brand-500, #6C3FA0);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border-radius: var(--radius-lg, 10px);
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(108, 63, 160, 0.3);
+    margin-top: 0.5rem;
+  }
+
+  .quiz-teaser__cta:hover {
+    background: var(--brand-600, #5a3488);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(108, 63, 160, 0.4);
+  }
+
+  .quiz-teaser__cta:focus-visible {
+    outline: 3px solid var(--brand-300, #b994db);
+    outline-offset: 3px;
+  }
+
+  .quiz-teaser__cta svg {
+    transition: transform 0.25s ease;
+  }
+
+  .quiz-teaser__cta:hover svg {
+    transform: translateX(4px);
+  }
+
+  .quiz-teaser__proof {
+    font-size: 0.85rem;
+    color: var(--gray-500, #6b7280);
+    margin: 0;
+  }
+
+  /* Instrument icons grid */
+  .quiz-teaser__instruments {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .quiz-teaser__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.25rem 1rem;
+    background: white;
+    border-radius: 16px;
+    border: 2px solid var(--gray-200, #e5e7eb);
+    transition: all 0.3s ease;
+    min-width: 110px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .quiz-teaser__emoji {
+    font-size: 2.5rem;
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    transition: transform 0.3s ease;
+  }
+
+  .quiz-teaser__icon:hover .quiz-teaser__emoji {
+    transform: scale(1.15) rotate(-5deg);
+  }
+
+  .quiz-teaser__icon span:last-child {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gray-700, #374151);
+  }
+
+  .quiz-teaser__icon--guitar {
+    border-color: var(--guitar-200, #a5d6a7);
+  }
+
+  .quiz-teaser__icon--piano {
+    border-color: var(--piano-200, #90caf9);
+  }
+
+  .quiz-teaser__icon--ukulele {
+    border-color: var(--ukulele-200, #ffcc80);
+  }
+
+  .quiz-teaser__icon--solfege {
+    border-color: var(--solfege-200, #ef9a9a);
+  }
+
+  .quiz-teaser__icon--guitar:hover {
+    border-color: var(--guitar-500, #4CAF50);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+    transform: translateY(-3px);
+  }
+
+  .quiz-teaser__icon--piano:hover {
+    border-color: var(--piano-500, #2196F3);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+    transform: translateY(-3px);
+  }
+
+  .quiz-teaser__icon--ukulele:hover {
+    border-color: var(--ukulele-500, #FF9800);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+    transform: translateY(-3px);
+  }
+
+  .quiz-teaser__icon--solfege:hover {
+    border-color: var(--solfege-500, #E53935);
+    box-shadow: 0 4px 12px rgba(229, 57, 53, 0.15);
+    transform: translateY(-3px);
+  }
+
+  /* Fade-in animation au scroll (via data-animate="reveal" du design system) */
+  .quiz-teaser[data-animate="reveal"] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .quiz-teaser[data-animate="reveal"].revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .quiz-teaser {
+      padding: var(--space-12, 3rem) var(--space-4, 1rem);
+    }
+
+    .quiz-teaser__container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .quiz-teaser__content {
+      align-items: center;
+    }
+
+    .quiz-teaser__subtitle {
+      max-width: 100%;
+    }
+
+    .quiz-teaser__instruments {
+      justify-content: center;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    .quiz-teaser__icon {
+      min-width: auto;
+      padding: 1rem 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  // Simple IntersectionObserver for fade-in
+  document.addEventListener('DOMContentLoaded', () => {
+    const el = document.querySelector('.quiz-teaser[data-animate="reveal"]');
+    if (!el) return;
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      observer.observe(el);
+    } else {
+      // Fallback : show immediately
+      el.classList.add('revealed');
+    }
+  });
+</script>

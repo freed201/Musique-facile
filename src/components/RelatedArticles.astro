@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Icon from './Icon.astro';
 
 /**
  * Composant Articles Connexes Intelligents v2.0
@@ -14,6 +15,7 @@ interface Props {
   currentTags?: string[];
   currentInstrument?: string;
   currentLevel?: string;
+  currentSiloSlug?: string;
   maxArticles?: number;
 }
 
@@ -22,6 +24,7 @@ const {
   currentTags = [],
   currentInstrument = '',
   currentLevel = 'tous-niveaux',
+  currentSiloSlug = '',
   maxArticles = 3
 } = Astro.props;
 
@@ -39,6 +42,22 @@ const publishedPosts = allPosts.filter(post =>
 // Fonction de calcul de score de similarité
 function calculateSimilarity(post: any): number {
   let score = 0;
+
+  // 0. Bonus silo SEO (priorité haute)
+  if (currentSiloSlug) {
+    // +30 si le candidat est le pilier de notre silo
+    if (post.data.pillar === true && post.slug === currentSiloSlug) {
+      score += 30;
+    }
+    // +20 si le candidat est dans le même silo (même siloSlug)
+    if (post.data.siloSlug && post.data.siloSlug === currentSiloSlug) {
+      score += 20;
+    }
+  }
+  // +40 si l'article courant et le candidat partagent le même siloSlug
+  if (currentSiloSlug && post.data.siloSlug && post.data.siloSlug === currentSiloSlug) {
+    score += 20; // +20 supplémentaire (total +40 avec le +20 ci-dessus)
+  }
 
   // 1. Tags communs (50 points max)
   if (currentTags.length > 0 && post.data.tags && post.data.tags.length > 0) {
@@ -118,11 +137,11 @@ const relatedArticles = scoredPosts.length >= maxArticles
               <div class="card-content">
                 <div class="card-meta">
                   <span class="card-instrument" data-instrument={instrument}>
-                    {instrument === 'guitare' && '🎸'}
-                    {instrument === 'piano' && '🎹'}
-                    {instrument === 'ukulele' && '🏖️'}
-                    {instrument === 'solfege' && '🎼'}
-                    {instrument === 'général' && '🎵'}
+                    {instrument === 'guitare' && <Icon name="guitar" size={14} />}
+                    {instrument === 'piano' && <Icon name="piano" size={14} />}
+                    {instrument === 'ukulele' && <Icon name="ukulele" size={14} />}
+                    {instrument === 'solfege' && <Icon name="solfege" size={14} />}
+                    {instrument === 'général' && <Icon name="note" size={14} />}
                     {instrument.charAt(0).toUpperCase() + instrument.slice(1)}
                   </span>
                   {post.data.level && post.data.level !== 'tous-niveaux' && (

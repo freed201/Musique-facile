@@ -1,4 +1,5 @@
 ---
+siloSlug: "guide-complet-apprentissage-piano"
 title: "3 Exercices Simples pour Progresser au Piano Adulte"
 description: "Trois exercices simples pour progresser au piano adulte sans y passer des heures : main gauche, coordination et rythme, avec une méthode claire."
 meta: "Découvrez comment progresser au piano adulte avec trois exercices simples. Optimisez vos cours de piano et améliorez vos compétences rapidement."

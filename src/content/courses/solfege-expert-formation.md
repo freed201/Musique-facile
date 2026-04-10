@@ -1,12 +1,14 @@
 ---
 affichage: "Y"
 classement: 2
-title: "Solfège Expert : Altérations et Intervalles"
-description: "Solfège avancé : maîtrisez altérations, intervalles et accords. Formation complète de la théorie à l'interprétation musicale."
+title: "Formation Solfège Expert — Théorie Avancée"
+description: "Maîtrisez altérations, intervalles, accords et théorie musicale avancée. Formation complète par Fred Fieffé. Accès à vie, paiement unique. Progressez vraiment !"
 ogImage: "/images/cours/solfege-expert-formation/hero.webp"
 theme: "solfege"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.8"
+reviewCount: "45"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -19,7 +21,7 @@ provider:
     - "https://www.tiktok.com/@musique_facile"
     - "https://www.instagram.com/guitare_et_ukulele_facile/?hl=fr"
 
-educationalLevel: ["Beginner","Intermediate","Advanced"] # ou ["Interme
+educationalLevel: ["Beginner","Intermediate","Advanced"]
 courseMode: "Online"
 audience:
   type: "Audience" 
@@ -37,11 +39,11 @@ hasCourseInstance:
 
 hero:
   badge: "Solfège Avancé"
-  title: "Solfège Expert : Altérations, Intervalles et Plus"
-  subtitle: "Approfondissez votre compréhension musicale et élevez votre pratique à un niveau supérieur."
+  title: "Maîtrisez altérations, intervalles et accords sans prise de tête"
+  subtitle: "40 leçons pour passer du solfège basique à une compréhension musicale solide. 600 musiciens ont franchi le cap."
   cta:
-    text: "Accéder pour €79 "
-    price: "ou 2 paiements mensuels de €40"
+    text: "Je passe au niveau supérieur - 79€"
+    price: "ou 2x 40€ sans frais"
   video:
     id: "1058582500"
   stats:
@@ -60,10 +62,15 @@ teachers:
   mainTeachers:
     - firstName: "Fred"
       lastName: "Fieffé"
-      subtitle: "Professeur principal de guitare"
-      description: "Le solfège,c'est cool."
+      subtitle: "Ton professeur de Solfège"
+      description: "Le solfège, c'est passionnant et accessible à tous."
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
 
 
@@ -146,7 +153,7 @@ preuveSociale:
   stats:
     students: "600+"
     successRate: "95%"
-    timeframe: "des èlèves sont beaucoup plus à l'aise en lecture de notes"
+    timeframe: "des élèves sont beaucoup plus à l'aise en lecture de notes"
   partners:
     - name: "Skilleos"
       logo: "logo-Skilleos.png"

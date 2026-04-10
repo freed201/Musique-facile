@@ -1,4 +1,5 @@
 ---
+siloSlug: "guide-complet-apprentissage-piano"
 title: "Lire une partition piano : est-ce vraiment obligatoire ?"
 description: "Faut-il lire la musique pour jouer du piano ? On fait le point sur l’utile et l’essentiel pour progresser sans se bloquer, pas à pas, et garder le plaisir."
 meta: "Apprendre le piano sans partition : méthodes modernes vs solfège classique. Apps, tutos vidéo, oreille musicale - tout ce qu'il faut savoir pour choisir."

@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Top 5 Accords Guitare Débutants - Enchaînement Facile"
 prod: Y
 description: "Apprenez à jouer de la guitare rapidement avec les accords Em, C, G, D, Am"
@@ -8,8 +9,8 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/top-5-accords-guitare-debutants-enchainement-facile.webp"
-datePublished: "2026-04-07"
-dateModified: "2026-02-04"
+datePublished: "2026-03-31"
+dateModified: "2026-03-31"
 introduction: "Vous avez toujours rêvé de jouer de la guitare sans vous arracher les cheveux ? Commençons par les bases avec les 5 accords indispensables pour débutants : Em, C, G, D, et Am. Ce guide vous aidera à les maîtriser rapidement et facilement, tout en découvrant des astuces pour les enchaîner sans effort."
 conclusion: "En maîtrisant ces cinq accords de guitare, vous avez maintenant les outils nécessaires pour jouer de nombreux morceaux et profiter pleinement de votre apprentissage. La clé du succès réside dans la pratique régulière et l'attention aux détails. Avec patience et persévérance, vous verrez rapidement des améliorations dans votre jeu. Continuez à explorer et à vous amuser avec votre guitare !"
 videos:

@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Viva La Vida (Coldplay) - Tutoriel Guitare"
 description: "Apprends Viva La Vida avec une boucle d’accords simple et un rythme régulier. Version débutant avec structure, conseils et plan d’entraînement."
 author: "Musique Facile"

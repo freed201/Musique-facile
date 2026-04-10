@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 interface Props {
   ressourceTitle: string;
   instrument: 'guitare' | 'piano' | 'ukulele';
@@ -58,12 +59,12 @@ const themeClass = getThemeClass(instrument);
     </button>
 
     <div class="form-footer">
-      <p>🔒 Tes données sont en sécurité. Nous ne spammons jamais.</p>
+      <p><Icon name="lock" size={14} /> Tes données sont en sécurité. Nous ne spammons jamais.</p>
     </div>
   </form>
   
   <div id="success-message" class="success-message" style="display: none;">
-    <div class="success-icon">✅</div>
+    <div class="success-icon"><Icon name="check-circle" size={32} /></div>
     <h3>Merci !</h3>
     <p>Ta ressource a été envoyée à ton adresse email.</p>
     <p>(Pense à vérifier tes spams, au cas où)</p>

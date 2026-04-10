@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Hey Jude (The Beatles) - Tutoriel Guitare"
 description: "Apprends Hey Jude avec des accords ouverts et une rythmique régulière. Guide simple pour couplets, refrains, final et plan d’entraînement clair."
 author: "Musique Facile"

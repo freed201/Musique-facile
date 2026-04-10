@@ -1,0 +1,167 @@
+---
+/**
+ * MarqueeBar.astro
+ * Banniere de texte defilant (style marquee) — inspire d'Interactive Layer
+ * Affiche les instruments en boucle infinie avec animation CSS pure
+ * Desactive automatiquement avec prefers-reduced-motion
+ */
+
+interface Props {
+  /** Vitesse de defilement en secondes (defaut: 35s) */
+  speed?: number;
+  /** Variante de style : 'subtle' (transparent) ou 'accent' (fond colore) */
+  variant?: 'subtle' | 'accent';
+}
+
+const { speed = 35, variant = 'accent' } = Astro.props;
+
+// Le texte est repete 2x pour creer la boucle infinie
+const items = [
+  { emoji: '\uD83C\uDFB8', label: 'Guitare' },
+  { emoji: '\uD83C\uDFB9', label: 'Piano' },
+  { emoji: '\uD83E\uDE95', label: 'Ukulele' },
+  { emoji: '\uD83C\uDFB5', label: 'Solfege' },
+  { emoji: '\uD83C\uDFBC', label: 'Methode Progressive' },
+  { emoji: '\uD83C\uDF1F', label: '80 000 eleves' },
+];
+---
+
+<div class={`marquee-banner marquee-${variant}`} aria-hidden="true">
+  <div class="marquee-track" style={`animation-duration: ${speed}s;`}>
+    {/* Premier jeu */}
+    {items.map((item) => (
+      <span class="marquee-item">
+        <span class="marquee-emoji">{item.emoji}</span>
+        <span class="marquee-label">{item.label}</span>
+        <span class="marquee-dot">&bull;</span>
+      </span>
+    ))}
+    {/* Deuxieme jeu (clone pour boucle infinie) */}
+    {items.map((item) => (
+      <span class="marquee-item">
+        <span class="marquee-emoji">{item.emoji}</span>
+        <span class="marquee-label">{item.label}</span>
+        <span class="marquee-dot">&bull;</span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee-banner {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    padding: var(--space-4) 0;
+    user-select: none;
+  }
+
+  /* Variante accent : fond violet */
+  .marquee-accent {
+    background: linear-gradient(135deg, var(--brand-600, #6c3fa0) 0%, var(--brand-700, #5b2d91) 100%);
+  }
+
+  /* Variante subtle : transparent avec bordures */
+  .marquee-subtle {
+    background: transparent;
+    border-top: 1px solid rgba(108, 63, 160, 0.15);
+    border-bottom: 1px solid rgba(108, 63, 160, 0.15);
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    align-items: center;
+    /* animation definie dans animations.js inject styles — en fallback ici aussi */
+    animation: marquee-scroll-local 35s linear infinite;
+  }
+
+  @keyframes marquee-scroll-local {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0 var(--space-6);
+  }
+
+  .marquee-emoji {
+    font-size: 1.5rem;
+  }
+
+  .marquee-label {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .marquee-accent .marquee-label {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .marquee-subtle .marquee-label {
+    color: var(--brand-500, #6c3fa0);
+    opacity: 0.5;
+  }
+
+  .marquee-dot {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1rem;
+    margin-left: var(--space-4);
+  }
+
+  .marquee-subtle .marquee-dot {
+    color: var(--brand-400, #a78bfa);
+    opacity: 0.3;
+  }
+
+  /* Pause au hover pour lisibilite */
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* Masques de fondu sur les bords */
+  .marquee-banner::before,
+  .marquee-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .marquee-banner::before {
+    left: 0;
+  }
+
+  .marquee-banner::after {
+    right: 0;
+  }
+
+  .marquee-accent::before {
+    background: linear-gradient(to right, var(--brand-600, #6c3fa0), transparent);
+  }
+  .marquee-accent::after {
+    background: linear-gradient(to left, var(--brand-700, #5b2d91), transparent);
+  }
+
+  .marquee-subtle::before {
+    background: linear-gradient(to right, var(--surface-50, #fff), transparent);
+  }
+  .marquee-subtle::after {
+    background: linear-gradient(to left, var(--surface-50, #fff), transparent);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none !important;
+    }
+  }
+</style>

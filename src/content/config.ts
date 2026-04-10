@@ -73,7 +73,8 @@ const coursesCollection = defineCollection({
         subtitle: z.string(),
         description: z.string().max(100),
         photo: z.string(),
-        website: z.string().optional()
+        website: z.string().optional(),
+        credentials: z.array(z.string()).optional()
       })).min(1).max(2),
       guests: z.array(z.object({
         name: z.string(),
@@ -140,6 +141,34 @@ const coursesCollection = defineCollection({
         text: z.string()
       }))
     }),
+
+    ratingValue: z.string().optional(),
+    reviewCount: z.string().optional(),
+
+    transformation: z.object({
+      title: z.string(),
+      items: z.array(z.object({ before: z.string(), after: z.string() }))
+    }).optional(),
+
+    pricing: z.object({
+      title: z.string().optional(),
+      features: z.array(z.string()).optional(),
+      guarantee: z.string().optional(),
+    }).optional(),
+
+    // Section "Pour qui" (Phase 4)
+    targetAudience: z.array(z.string()).optional(),
+
+    // Section "Ce que vous obtenez" (Phase 4)
+    courseIncludes: z.object({
+      videoCount: z.string().optional(),
+      totalDuration: z.string().optional(),
+      bonusPDF: z.string().optional(),
+      playbacks: z.string().optional(),
+      accessType: z.string().optional(),
+      support: z.string().optional(),
+      extras: z.array(z.string()).optional(),
+    }).optional(),
 
     faq: z.object({
       title: z.string(),
@@ -211,6 +240,10 @@ const blogCollection = defineCollection({
     category: z.enum(['débutant', 'intermédiaire', 'avancé', 'théorie', 'pratique', 'tutoriel', 'général']).optional(),
     level: z.enum(['débutant', 'intermédiaire', 'avancé', 'tous-niveaux']).default('tous-niveaux'),
     instrument: z.enum(['guitare', 'piano', 'ukulele', 'solfege', 'général']).optional(),
+
+    // Champs silo/pillar pour architecture SEO
+    pillar: z.boolean().default(false),
+    siloSlug: z.string().optional(),
 
     schemaType: z.string().optional(),
     prod: z.enum(['Y', 'N']).optional(),

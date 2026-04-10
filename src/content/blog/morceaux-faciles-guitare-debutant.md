@@ -1,63 +1,43 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "3 Morceaux Faciles à la Guitare avec 3 Accords"
-description: "Apprenez vos premières chansons à la guitare 🎸 ! 3 morceaux faciles avec des accords simples pour débutants. Jouez rapidement avec nos conseils !"
+description: "Apprenez vos premières chansons à la guitare avec des accords simples. Knockin' on Heaven's Door, Imagine, Perfect : jouez rapidement avec nos conseils."
 ogImage: "/images/blog/accords-guitare-debutant-guide-ultime.webp"
-prod: N
+prod: Y
 multi: "Y"
 prev: "erreurs-debutant-guitare-solutions"
 next: "astuces-progresser-guitare-debutant"
 number: "5/7"
 author: "Fred Fieffé"
-publisher: "Musique Facile"
-publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-04-04"
-dateModified: "2026-02-04"
-meta: "📢 Vos accords sonnent mal ? Transitions lentes ? Découvrez les erreurs fréquentes des débutants et comment les corriger pour jouer proprement !"
-keywords: "Apprenez vos premières chansons à la guitare 🎸 ! 3 morceaux faciles avec des accords simples pour débutants. Jouez rapidement avec nos conseils !"
+dateModified: "2026-03-19"
+introduction: "Tu connais tes premiers accords et tu veux enfin jouer de vrais morceaux ? Voici 3 chansons mythiques jouables avec 2 à 4 accords ouverts. Pour chaque morceau, tu trouveras les accords, la progression et des conseils pour réussir ta première interprétation."
+instrument: "guitare"
+level: "débutant"
+category: "tutoriel"
+schemaType: "BlogPosting"
+tags:
+  - guitare debutant
+  - morceaux faciles guitare
+  - chansons 3 accords
+  - apprendre guitare chanson
+  - knockin on heavens door guitare
+  - perfect guitare
+faqs:
+  - question: "Combien de temps faut-il pour jouer ces morceaux ?"
+    answer: "Avec 15-20 minutes de pratique par jour, tu peux jouer une version simple de ces morceaux en 1 à 2 semaines. L'important est de maîtriser les transitions entre accords avant d'accélérer."
+  - question: "Faut-il un médiator ou peut-on jouer avec les doigts ?"
+    answer: "Les deux fonctionnent. Pour ces morceaux en strumming, un médiator donne un son plus net. Pour Imagine, jouer aux doigts donne un son plus doux et proche de l'original."
+  - question: "Je n'arrive pas à enchaîner G et D rapidement, que faire ?"
+    answer: "Travaille la transition isolément : joue G pendant 4 temps, puis D pendant 4 temps, lentement. Accélère seulement quand le passage est fluide. L'exercice du 1-Minute Switch est idéal pour ça."
+---
+Tu connais tes premiers accords et tu veux enfin jouer de vrais morceaux ? Voici 3 chansons mythiques jouables avec 2 à 4 accords ouverts. Pour chaque morceau : les accords, la progression et des conseils concrets pour réussir.
+
+> Ce guide fait partie de la série [Apprendre la guitare pour débutants](/blog/accords-guitare-debutant-guide-ultime/) (partie 5/7).
 
 ---
-<div style="display:grid; grid-template-columns:1fr; gap:10px; max-width:500px; margin:auto;">
-    <h3 style="text-align:center; color:#333; font-family:sans-serif;">📖 Sommaire</h3>
-    <a href="accords-guitare-debutant-guide-ultime" 
-       style="text-decoration:none; color:#333;">
-        <div style="background:#f0f0f0; padding:10px; border-radius:8px; box-shadow:0px 2px 5px rgba(0,0,0,0.2); text-align:center; font-weight:bold;">
-            1 🎸 Accords Essentiels pour Débutants
-        </div>
-    </a>
-    <a href="techniques-jouer-accords-guitare" 
-       style="text-decoration:none; color:#333;">
-        <div style="background:#e0e0e0; padding:10px; border-radius:8px; box-shadow:0px 2px 5px rgba(0,0,0,0.2); text-align:center; font-weight:bold;">
-            2 🎶 Techniques pour Jouer les Accords
-        </div>
-    </a>
-    <a href="exercices-accords-guitare-debutant" 
-       style="text-decoration:none; color:#333;">
-        <div style="background:#d0d0d0; padding:10px; border-radius:8px; box-shadow:0px 2px 5px rgba(0,0,0,0.2); text-align:center; font-weight:bold;">
-            3 🏋️‍♂️ Exercices Pratiques
-        </div>
-    </a>
-    <a href="erreurs-debutant-guitare-solutions" 
-       style="text-decoration:none; color:#333;">
-        <div style="background:#c0c0c0; padding:10px; border-radius:8px; box-shadow:0px 2px 5px rgba(0,0,0,0.2); text-align:center; font-weight:bold;">
-            4 ⚠️ Erreurs Courantes
-        </div>
-    </a>
-    <a href="astuces-progresser-guitare-debutant" 
-       style="text-decoration:none; color:#333;">
-        <div style="background:#a0a0a0; padding:10px; border-radius:8px; box-shadow:0px 2px 5px rgba(0,0,0,0.2); text-align:center; font-weight:bold;">
-            6 🚀 Astuces pour Progresser
-        </div>
-    </a>
-    <a href="faq-apprendre-guitare-debutant" 
-       style="text-decoration:none; color:#333;">
-        <div style="background:#909090; padding:10px; border-radius:8px; box-shadow:0px 2px 5px rgba(0,0,0,0.2); text-align:center; font-weight:bold;">
-            7 ❓ FAQ Débutant
-        </div>
-    </a>
-</div>
 
-
-# 🎵 Jouer Vos Premiers Morceaux  
+## Jouer tes premiers morceaux  
 
 Maintenant que vous maîtrisez les accords de base, il est temps de **jouer des chansons simples** pour mettre en pratique ce que vous avez appris ! 🎸  
 
@@ -140,4 +120,10 @@ Voici **3 morceaux faciles** utilisant les accords appris, idéaux pour débuter
 ✅ **"Perfect"** : permet d’améliorer la fluidité entre **G - Em - C - D**.  
 ✅ **Jouez en rythme et entraînez-vous régulièrement pour progresser rapidement.**  
 
-🎸 **📌 Prochaine étape : Les astuces pour progresser rapidement !** 🚀  
+---
+
+## Aller plus loin
+
+Tu veux apprendre plus de morceaux et structurer ta progression ? Le [cours de guitare débutant](/cours/apprendre-guitare-debutant/) de Musique Facile te guide pas à pas, de tes premiers accords jusqu'à l'autonomie complète.
+
+**Prochaine étape :** [Les astuces pour progresser rapidement](/blog/astuces-progresser-guitare-debutant/)

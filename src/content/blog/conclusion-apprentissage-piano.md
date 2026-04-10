@@ -1,4 +1,5 @@
 ---
+siloSlug: "guide-complet-apprentissage-piano"
 title: "Piano : Derniers Conseils pour Réussir"
 description: "Réussir ton apprentissage du piano : derniers conseils pour rester motivé, progresser efficacement et prendre du plaisir à jouer."
 ogImage: "/images/blog/pourquoi-apprendre-le-piano.webp"

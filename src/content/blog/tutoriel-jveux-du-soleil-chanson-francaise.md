@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "J'veux du Soleil - Tutoriel Guitare Facile"
 prod: Y
 description: "J'veux du Soleil (Au P'tit Bonheur) à la guitare : 3 accords simples, hymne pop des années 90. Tutoriel vidéo débutants."

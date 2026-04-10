@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Chasing Cars (Snow Patrol) - Tutoriel Guitare"
 description: "Quatre accords faciles et une rythmique douce pour jouer Chasing Cars. Version débutant avec structure claire, conseils et plan de pratique."
 author: "Musique Facile"

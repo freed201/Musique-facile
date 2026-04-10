@@ -51,7 +51,7 @@ export const GET: APIRoute = async () => {
 
   <!-- À propos -->
   <url>
-    <loc>${baseUrl}/a-propos</loc>
+    <loc>${baseUrl}/a-propos/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>${formatDate(new Date())}</lastmod>
@@ -59,32 +59,32 @@ export const GET: APIRoute = async () => {
 
   <!-- Pages de cours principales -->
   <url>
-    <loc>${baseUrl}/cours</loc>
+    <loc>${baseUrl}/cours/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <lastmod>${formatDate(new Date())}</lastmod>
   </url>
 
   <url>
-    <loc>${baseUrl}/cours/cours-de-guitare</loc>
+    <loc>${baseUrl}/cours/cours-de-guitare/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>${baseUrl}/cours/cours-de-piano</loc>
+    <loc>${baseUrl}/cours/cours-de-piano/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>${baseUrl}/cours/cours-de-ukulele</loc>
+    <loc>${baseUrl}/cours/cours-de-ukulele/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>${baseUrl}/cours/cours-de-solfege</loc>
+    <loc>${baseUrl}/cours/cours-de-solfege/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -92,7 +92,7 @@ export const GET: APIRoute = async () => {
   <!-- Articles de blog -->
   ${blogPosts.map(post => `
   <url>
-    <loc>${baseUrl}/blog/${post.slug}</loc>
+    <loc>${baseUrl}/blog/${post.slug}/</loc>
     <lastmod>${formatDate(post.data.dateModified || post.data.datePublished)}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -100,7 +100,7 @@ export const GET: APIRoute = async () => {
 
   <!-- Blog listing -->
   <url>
-    <loc>${baseUrl}/blog</loc>
+    <loc>${baseUrl}/blog/</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <lastmod>${formatDate(new Date())}</lastmod>
@@ -109,7 +109,7 @@ export const GET: APIRoute = async () => {
   <!-- Cours détaillés -->
   ${courses.map(course => `
   <url>
-    <loc>${baseUrl}/cours/${course.slug}</loc>
+    <loc>${baseUrl}/cours/${course.slug}/</loc>
     <lastmod>${formatDate(course.data.dateModified || course.data.datePublished)}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -118,7 +118,7 @@ export const GET: APIRoute = async () => {
   <!-- Programmes -->
   ${programmes.map(programme => `
   <url>
-    <loc>${baseUrl}/cours/programme/${programme.slug}</loc>
+    <loc>${baseUrl}/cours/programme/${programme.slug}/</loc>
     <lastmod>${formatDate(programme.data.dateModified || programme.data.datePublished)}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -126,80 +126,107 @@ export const GET: APIRoute = async () => {
 
   <!-- Ressources gratuites -->
   <url>
-    <loc>${baseUrl}/ressources-gratuites</loc>
+    <loc>${baseUrl}/ressources-gratuites/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>${baseUrl}/ressources-gratuites/guitare</loc>
+    <loc>${baseUrl}/ressources-gratuites/guitare/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>${baseUrl}/ressources-gratuites/piano</loc>
+    <loc>${baseUrl}/ressources-gratuites/piano/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>${baseUrl}/ressources-gratuites/ukulele</loc>
+    <loc>${baseUrl}/ressources-gratuites/ukulele/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   ${ressources.map(ressource => `
   <url>
-    <loc>${baseUrl}/ressources/${ressource.slug}</loc>
+    <loc>${baseUrl}/ressources/${ressource.slug}/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`).join('')}
 
   <!-- Livres -->
   <url>
-    <loc>${baseUrl}/livres</loc>
+    <loc>${baseUrl}/livres/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   ${livres.map(livre => `
   <url>
-    <loc>${baseUrl}/livres/${livre.slug}</loc>
+    <loc>${baseUrl}/livres/${livre.slug}/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`).join('')}
 
   <!-- Pages légales et contact -->
   <url>
-    <loc>${baseUrl}/contact</loc>
+    <loc>${baseUrl}/contact/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>${baseUrl}/mentions-legales-cgv</loc>
+    <loc>${baseUrl}/mentions-legales-cgv/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>${baseUrl}/politique-confidentialite</loc>
+    <loc>${baseUrl}/politique-confidentialite/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <!-- Pages marketing -->
   <url>
-    <loc>${baseUrl}/5-accords-magiques</loc>
+    <loc>${baseUrl}/offre/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>${baseUrl}/5-accords-magiques/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>${baseUrl}/quel-instrument-choisir</loc>
+    <loc>${baseUrl}/quel-instrument-choisir/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>${baseUrl}/faq/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Plan du site -->
+  <url>
+    <loc>${baseUrl}/plan-du-site/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Stage -->
+  <url>
+    <loc>${baseUrl}/stage2026/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>`;

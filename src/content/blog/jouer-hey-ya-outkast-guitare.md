@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Hey Ya! (Outkast) - Tutoriel Guitare"
 description: "Hey Ya! avec quatre accords faciles et une rythmique pop entraînante. Tutoriel débutants avec structure et plan de pratique."
 author: "Musique Facile"

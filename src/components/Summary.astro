@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 interface Props {
   links: {
     url: string;
@@ -13,7 +14,7 @@ const { links } = Astro.props;
 ---
 
 <div class="summary">
-  <h3 class="summary-title">📖 Sommaire</h3>
+  <h3 class="summary-title"><Icon name="book" size={20} /> Sommaire</h3>
   <div class="summary-grid">
     {links.map(link => (
       <a href={link.url} class="summary-link" style={`--link-color: ${link.color}; --text-color: ${link.textColor || '#333'};`}>

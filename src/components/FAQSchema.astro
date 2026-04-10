@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 interface FAQ {
   question: string;
   answer: string;
@@ -33,13 +34,13 @@ const faqSchema = {
 {showVisual && faqs.length > 0 && (
   <section class="faq-section">
     <div class="container">
-      <h2 class="faq-title">❓ Questions Fréquentes</h2>
+      <h2 class="faq-title"><Icon name="question" size={24} /> Questions Fréquentes</h2>
 
       <div class="faq-list">
         {faqs.map((faq, index) => (
           <details class="faq-item" open={index === 0}>
             <summary class="faq-question">
-              <span class="question-icon">❓</span>
+              <span class="question-icon"><Icon name="question" size={18} /></span>
               <span class="question-text">{faq.question}</span>
               <span class="toggle-icon">▼</span>
             </summary>

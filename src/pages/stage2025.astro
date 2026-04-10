@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import FooterModern from '../components/FooterModern.astro';
 
 // Construction de l'URL canonique
 const canonicalURL = new URL('/stage2025', Astro.site || 'https://musique-facile.fr').toString();
@@ -19,12 +19,16 @@ const schema = {
   "description": "Un stage d'initiation ou de perfectionnement à l'ukulélé dans un cadre estival et motivant ! Deux formateurs passionnés, des groupes à taille humaine, et une progression garantie, même si tu débutes complètement !",
   "startDate": "2025-07-07T09:00:00+02:00",
   "endDate": "2025-07-11T16:00:00+02:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "MJC Picaud",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "1 Av. Jean de Lattre de Tassigny",
       "addressLocality": "Cannes",
+      "postalCode": "06400",
       "addressRegion": "PACA",
       "addressCountry": "FR"
     }
@@ -36,6 +40,7 @@ const schema = {
       "name": "Tarif adulte plein",
       "price": "150",
       "priceCurrency": "EUR",
+      "url": canonicalURL,
       "availability": "https://schema.org/InStock",
       "validFrom": "2025-01-01"
     },
@@ -44,6 +49,7 @@ const schema = {
       "name": "Tarif adulte adhérent MJC",
       "price": "130",
       "priceCurrency": "EUR",
+      "url": canonicalURL,
       "availability": "https://schema.org/InStock",
       "validFrom": "2025-01-01"
     },
@@ -52,6 +58,7 @@ const schema = {
       "name": "Tarif enfant plein",
       "price": "110",
       "priceCurrency": "EUR",
+      "url": canonicalURL,
       "availability": "https://schema.org/InStock",
       "validFrom": "2025-01-01"
     },
@@ -60,6 +67,7 @@ const schema = {
       "name": "Tarif enfant adhérent MJC",
       "price": "100",
       "priceCurrency": "EUR",
+      "url": canonicalURL,
       "availability": "https://schema.org/InStock",
       "validFrom": "2025-01-01"
     }
@@ -441,7 +449,7 @@ const faqSchema = {
     </section>
   </main>
   
-  <Footer />
+  <FooterModern />
 </Layout>
 
 <style>

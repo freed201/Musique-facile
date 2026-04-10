@@ -5,6 +5,8 @@ ogImage: "/images/cours/cours-solfege-rythmes/hero.webp"
 theme: "solfege"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.6"
+reviewCount: "75"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -35,11 +37,11 @@ hasCourseInstance:
 
 hero:
   badge: "Pour musiciens intermédiaires et avancés"
-  title: "Maîtrisez les rythmes complexes avec aisance"
-  subtitle: "Une formation complète pour interpréter et exécuter des rythmes variés, améliorant ainsi votre compétence et votre expression musicale."
+  title: "Domptez les rythmes complexes et jouez avec assurance"
+  subtitle: "56 vidéos pour maîtriser syncopes, contretemps et polyrythmie. 1 000 musiciens ont déjà débloqué leur rythme."
   cta:
-    text: "Accéder pour €79 "
-    price: "ou 2 paiements mensuels de €40"
+    text: "Je maîtrise le rythme - 79€"
+    price: "ou 2x 40€ sans frais"
   video:
     id: "1058583048"
   stats:
@@ -62,6 +64,11 @@ teachers:
       description: "Le solfège est cool, le rythme essentiel : je vous aide à progresser."
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
 
 timeline:
@@ -142,9 +149,9 @@ preuveSociale:
       author: "Sophie L."
       avatar: "https://test.musique-facile.fr/images/avatar-sophie.jpg"
   stats:
-    students: "600+"
+    students: "1000+"
     successRate: "89%"
-    timeframe: "des élèves constatent une nette amélioration de leur maîtrise en moins de 15 jours."
+    timeframe: "constatent une nette amélioration en moins de 15 jours"
   partners:
     - name: "Skilleos"
       logo: "logo-Skilleos.png"

@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Smells Like Teen Spirit (Nirvana) - Guitare"
 description: "Power chords, rythme énergique et structure simple pour jouer Smells Like Teen Spirit. Version claire avec conseils pour un son rock propre."
 author: "Musique Facile"

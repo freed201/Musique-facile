@@ -48,7 +48,7 @@ const faqs = [
 
     <div class="faq-grid">
       {faqs.map((faq, index) => (
-        <article class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <article class={`faq-item faq-slide faq-slide--${index % 2 === 0 ? 'left' : 'right'}`} itemscope itemtype="https://schema.org/Question">
           <h3 class="faq-question" itemprop="name">{faq.question}</h3>
           <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <div itemprop="text">
@@ -62,7 +62,7 @@ const faqs = [
 
     <div class="faq-cta">
       <p>Vous avez d'autres questions ?</p>
-      <a href="/contact" class="btn btn-secondary">Contactez-nous</a>
+      <a href="/contact/" class="btn btn-secondary">Contactez-nous</a>
     </div>
   </div>
 </section>
@@ -205,4 +205,66 @@ const faqs = [
       font-size: var(--text-sm);
     }
   }
+
+  /* Slide-in animations */
+  .faq-slide {
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .faq-slide--left {
+    transform: translateX(-40px);
+  }
+
+  .faq-slide--right {
+    transform: translateX(40px);
+  }
+
+  .faq-slide.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-slide {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .faq-slide--left {
+      transform: translateX(-20px);
+    }
+    .faq-slide--right {
+      transform: translateX(20px);
+    }
+  }
 </style>
+
+<script>
+  (function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const items = document.querySelectorAll('.faq-slide');
+    if (!items.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const siblings = Array.from(entry.target.parentElement.querySelectorAll('.faq-slide'));
+        const idx = siblings.indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('is-visible');
+        }, idx * 120);
+        observer.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    items.forEach(item => observer.observe(item));
+  })();
+</script>

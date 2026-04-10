@@ -1,5 +1,6 @@
 ---
 // Composant CTA pour promouvoir le lead magnet
+import Icon from './Icon.astro';
 interface Props {
   variant?: 'full' | 'compact' | 'inline';
 }
@@ -12,7 +13,7 @@ const { variant = 'full' } = Astro.props;
     <div class="container">
       <div class="lm-cta-content">
         <div class="lm-cta-left">
-          <span class="lm-cta-badge">🎁 GUIDE GRATUIT</span>
+          <span class="lm-cta-badge"><Icon name="gift" size={16} /> GUIDE GRATUIT</span>
           <h2 class="lm-cta-title">
             Téléchargez les <span class="highlight">5 Accords Magiques</span>
             pour Jouer 100+ Chansons
@@ -30,11 +31,11 @@ const { variant = 'full' } = Astro.props;
         </div>
         <div class="lm-cta-right">
           <a href="/5-accords-magiques" class="lm-cta-btn large">
-            <span class="btn-text">📥 Je Télécharge le Guide Gratuit</span>
+            <span class="btn-text"><Icon name="download" size={18} /> Je Télécharge le Guide Gratuit</span>
             <span class="btn-subtext">+ de 80 000 téléchargements</span>
           </a>
           <p class="lm-cta-trust">
-            🔒 100% Gratuit • Sans engagement • Email protégé
+            <Icon name="lock" size={14} /> 100% Gratuit • Sans engagement • Email protégé
           </p>
         </div>
       </div>
@@ -45,7 +46,7 @@ const { variant = 'full' } = Astro.props;
 {variant === 'compact' && (
   <div class="lead-magnet-cta compact">
     <div class="compact-content">
-      <div class="compact-icon">🎁</div>
+      <div class="compact-icon"><Icon name="gift" size={24} /></div>
       <div class="compact-text">
         <h3>Guide Gratuit : Les 5 Accords Magiques</h3>
         <p>Jouez 100+ chansons dès aujourd'hui</p>
@@ -60,7 +61,7 @@ const { variant = 'full' } = Astro.props;
 {variant === 'inline' && (
   <div class="lead-magnet-cta inline">
     <p class="inline-text">
-      💡 <strong>Astuce :</strong> Téléchargez notre guide gratuit
+      <Icon name="lightbulb" size={16} /> <strong>Astuce :</strong> Téléchargez notre guide gratuit
       <a href="/5-accords-magiques" class="inline-link">"Les 5 Accords Magiques"</a>
       pour accélérer votre apprentissage
     </p>
@@ -98,7 +99,7 @@ const { variant = 'full' } = Astro.props;
 
   .lm-cta-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #88be00, #a3d826);
+    background: linear-gradient(135deg, #4CAF50, #66bb6a);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 50px;
@@ -115,7 +116,7 @@ const { variant = 'full' } = Astro.props;
   }
 
   .lm-cta-title .highlight {
-    color: #88be00;
+    color: #4CAF50;
     position: relative;
   }
 
@@ -151,7 +152,7 @@ const { variant = 'full' } = Astro.props;
   }
 
   .lm-cta-btn.large {
-    background: linear-gradient(135deg, #88be00, #a3d826);
+    background: linear-gradient(135deg, #4CAF50, #66bb6a);
     color: white;
     padding: 1.5rem 2.5rem;
     border-radius: 12px;
@@ -186,7 +187,7 @@ const { variant = 'full' } = Astro.props;
 
   /* Version Compact */
   .lead-magnet-cta.compact {
-    background: linear-gradient(135deg, #88be00, #a3d826);
+    background: linear-gradient(135deg, #4CAF50, #66bb6a);
     padding: 1.5rem;
     border-radius: 12px;
     margin: 2rem 0;
@@ -227,7 +228,7 @@ const { variant = 'full' } = Astro.props;
 
   .lm-cta-btn.compact-btn {
     background: white;
-    color: #88be00;
+    color: #4CAF50;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     font-weight: 600;
@@ -241,7 +242,7 @@ const { variant = 'full' } = Astro.props;
   /* Version Inline */
   .lead-magnet-cta.inline {
     background: #fff3cd;
-    border-left: 4px solid #88be00;
+    border-left: 4px solid #4CAF50;
     padding: 1rem 1.5rem;
     border-radius: 8px;
     margin: 2rem 0;
@@ -249,18 +250,18 @@ const { variant = 'full' } = Astro.props;
 
   .inline-text {
     margin: 0;
-    color: #856404;
+    color: #7a5c00;
     font-size: 1.05rem;
   }
 
   .inline-link {
-    color: #88be00;
+    color: #4CAF50;
     font-weight: 600;
     text-decoration: underline;
   }
 
   .inline-link:hover {
-    color: #729f00;
+    color: #388e3c;
   }
 
   /* Responsive */

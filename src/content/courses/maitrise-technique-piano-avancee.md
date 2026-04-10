@@ -1,12 +1,14 @@
 ---
 affichage: "Y"
 classement: 1
-title: "Piano Odyssée : 52 Semaines de Perfectionnement"
-description: "52 semaines de perfectionnement piano : des techniques fondamentales à l'improvisation avancée. Progressez à votre rythme."
+title: "Piano Avancé — 52 Semaines de Progression"
+description: "Formation piano avancé par Fred Fieffé (LinkedIn Learning, Hal Leonard). 52 semaines de progression intensive. Accès à vie, paiement unique. Rejoignez-nous !"
 ogImage: "/images/cours/maitrise-technique-piano-avancee/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.9"
+reviewCount: "260"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -36,11 +38,11 @@ hasCourseInstance:
 
 hero:
   badge: "Techniques avancées"
-  title: "Piano Odyssée : 52 Semaines de Perfectionnement"
-  subtitle: "Transformez votre jeu, enrichissez votre musicalité"
+  title: "Progressez chaque semaine au piano pendant un an"
+  subtitle: "52 semaines de perfectionnement pour enrichir votre technique et votre musicalité. 3 500 pianistes ont relevé le défi."
   cta:
-    text: "Accéder pour €149 "
-    price: "ou 4 paiements mensuels de €39"
+    text: "Je relève le défi - 149€"
+    price: "ou 4x 39€ sans frais"
   video:
     id: "1056758460"
   stats:
@@ -130,6 +132,11 @@ teachers:
       description: "15 ans d'expérience dans l'enseignement du piano en ligne"
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
     - firstName: "Yannis"
       lastName: "Bouvet"
       subtitle: "Mr Pyannist"

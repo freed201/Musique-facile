@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Apprendre à Jouer Votre Première Chanson à 3 Accords"
 description: "Un guide pas à pas pour jouer une première chanson à la guitare avec trois accords, sans théorie compliquée, et gagner vite en assurance en débutant."
 meta: "Apprenez à jouer votre première chanson à la guitare avec seulement trois accords. Idéal pour les débutants souhaitant progresser rapidement et sans efforts."

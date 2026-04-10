@@ -1,4 +1,5 @@
 ---
+siloSlug: "debuter-ukulele-methode-simple-apprendre"
 title: "Ukulélé : Passer de Débutant à Initié"
 description: "Tu connais les bases du ukulélé mais tu te sens bloqué ? Découvre pourquoi ce cap est normal et comment progresser sereinement vers le niveau initié."
 author: "Musique Facile"

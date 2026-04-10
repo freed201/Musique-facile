@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import FooterModern from '../../components/FooterModern.astro';
+import Icon from '../../components/Icon.astro';
 import { getCollection } from 'astro:content';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 
@@ -250,7 +251,7 @@ const faqSchema = {
                   <div class="course-meta">
                     {course.data.bestSeller && (
                       <span class="best-seller-tag">
-                        <span class="best-seller-icon">🏆</span>
+                        <span class="best-seller-icon"><Icon name="trophy" size={16} /></span>
                         Meilleure vente
                       </span>
                     )}
@@ -278,19 +279,19 @@ const faqSchema = {
         
         <div class="benefits-grid">
           <div class="benefit-card">
-            <div class="benefit-icon">⏱️</div>
+            <div class="benefit-icon"><Icon name="lightning" size={24} /></div>
             <h3>Flexibilité totale</h3>
             <p>Apprenez quand vous le souhaitez, à votre rythme, sans contrainte de déplacement. Nos cours sont accessibles 24h/24, 7j/7.</p>
           </div>
           
           <div class="benefit-card">
-            <div class="benefit-icon">🎯</div>
+            <div class="benefit-icon"><Icon name="target" size={24} /></div>
             <h3>Progression adaptée</h3>
             <p>Des parcours conçus pour tous les niveaux, du débutant total au guitariste confirmé, avec des objectifs clairs à chaque étape.</p>
           </div>
           
           <div class="benefit-card">
-            <div class="benefit-icon">🎬</div>
+            <div class="benefit-icon"><Icon name="note" size={24} /></div>
             <h3>Vidéos explicatives</h3>
             <p>Nos leçons filmées sous plusieurs angles vous permettent de visualiser clairement chaque technique et position des mains.</p>
           </div>
@@ -451,7 +452,7 @@ const faqSchema = {
     </section>
   </main>
 
-  <Footer />
+  <FooterModern />
 </Layout>
 
 <style>

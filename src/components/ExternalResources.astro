@@ -2,28 +2,36 @@
 /**
  * Ressources Externes Optimisées
  * - Les fonts sont maintenant chargées localement via @fontsource (pas de blocage externe)
- * - Scripts vidéo chargés avec defer pour ne pas bloquer le rendu
+ * - Scripts vidéo chargés uniquement sur les pages qui en ont besoin
  * - Preconnect aux domaines externes pour réduire la latence
  */
 
-const externalScripts = [
+interface Props {
+  loadVideoScripts?: boolean;
+}
+
+const { loadVideoScripts = false } = Astro.props;
+
+const videoScripts = [
   {
     url: "https://player.vimeo.com/api/player.js",
-    type: 'script',
     defer: true
   },
   {
     url: "https://www.youtube.com/iframe_api",
-    type: 'script',
     defer: true
   }
 ];
 
-// Preconnect aux domaines externes pour améliorer les temps de chargement
+// Preconnect au GTM (toujours nécessaire)
 const preconnectDomains = [
-  'https://www.youtube.com',
-  'https://player.vimeo.com',
   'https://www.googletagmanager.com'
+];
+
+// Preconnect vidéo seulement si nécessaire
+const videoPreconnectDomains = [
+  'https://www.youtube.com',
+  'https://player.vimeo.com'
 ];
 ---
 
@@ -35,8 +43,15 @@ const preconnectDomains = [
   </>
 ))}
 
-<!-- Scripts externes avec defer (ne bloquent pas le rendu) -->
-{externalScripts.map(resource => (
+{loadVideoScripts && videoPreconnectDomains.map(domain => (
+  <>
+    <link rel="preconnect" href={domain} />
+    <link rel="dns-prefetch" href={domain} />
+  </>
+))}
+
+<!-- Scripts vidéo chargés seulement sur les pages avec vidéos -->
+{loadVideoScripts && videoScripts.map(resource => (
   <script
     src={resource.url}
     defer={resource.defer}

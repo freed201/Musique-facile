@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SITEMAP MULTILINGUE - musique-facile.fr
+  SEO International - 5 langues : fr (default), en, de, es, it
+  Date : 2026-02-17
+  25 URLs prioritaires avec annotations hreflang xhtml:link
+  Generateur : manuel / a integrer dans Astro + @astrojs/sitemap
+-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+
+  <!-- ============================================================
+    1. PAGE D ACCUEIL - Priorite 1.0
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/de/</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/es/</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/it/</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/"/>
+  </url>
+
+
+  <!-- ============================================================
+    2. PAGE LISTE DES COURS - Priorite 0.9
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/cours</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/courses</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/de/kurse</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/es/cursos</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/it/corsi</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi"/>
+  </url>
+
+
+  <!-- ============================================================
+    3. COURS DE GUITARE (page categorie) - Priorite 0.9
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/cours/cours-de-guitare</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/cours-de-guitare"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/cours-de-guitare"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/guitar-lessons"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/gitarrenunterricht"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/clases-de-guitarra"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/lezioni-di-chitarra"/>
+  </url>
+
+
+  <!-- ============================================================
+    4. COURS DE PIANO (page categorie) - Priorite 0.9
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/cours/cours-de-piano</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/cours-de-piano"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/cours-de-piano"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/piano-lessons"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/klavierunterricht"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/clases-de-piano"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/lezioni-di-pianoforte"/>
+  </url>
+
+
+  <!-- ============================================================
+    5. COURS D UKULELE (page categorie) - Priorite 0.9
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/cours/cours-de-ukulele</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/cours-de-ukulele"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/cours-de-ukulele"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/ukulele-lessons"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/ukulele-unterricht"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/clases-de-ukulele"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/lezioni-di-ukulele"/>
+  </url>
+
+
+  <!-- ============================================================
+    6. COURS DE SOLFEGE (page categorie) - Priorite 0.9
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/cours/cours-de-solfege</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/cours-de-solfege"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/cours-de-solfege"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/music-theory-lessons"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/musiktheorie-unterricht"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/clases-de-teoria-musical"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/lezioni-di-teoria-musicale"/>
+  </url>
+
+
+  <!-- ============================================================
+    7. COURS GUITARE DEBUTANT - Priorite 0.9
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/cours/apprendre-guitare-debutant</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/apprendre-guitare-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/apprendre-guitare-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-guitar-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/gitarre-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-guitarra-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-chitarra-principiante"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/courses/learn-guitar-beginner</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/apprendre-guitare-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/apprendre-guitare-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-guitar-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/gitarre-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-guitarra-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-chitarra-principiante"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/de/kurse/gitarre-lernen-anfaenger</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/apprendre-guitare-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/apprendre-guitare-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-guitar-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/gitarre-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-guitarra-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-chitarra-principiante"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/es/cursos/aprender-guitarra-principiante</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/apprendre-guitare-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/apprendre-guitare-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-guitar-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/gitarre-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-guitarra-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-chitarra-principiante"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/it/corsi/imparare-chitarra-principiante</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/apprendre-guitare-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/apprendre-guitare-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-guitar-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/gitarre-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-guitarra-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-chitarra-principiante"/>
+  </url>
+
+
+  <!-- ============================================================
+    8. COURS PIANO DEBUTANT - Priorite 0.9
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/cours/piano-facile-apprendre-debutant</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/piano-facile-apprendre-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/piano-facile-apprendre-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-piano-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/klavier-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-piano-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-pianoforte-principiante"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/courses/learn-piano-beginner</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/piano-facile-apprendre-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/piano-facile-apprendre-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-piano-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/klavier-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-piano-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-pianoforte-principiante"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/de/kurse/klavier-lernen-anfaenger</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/piano-facile-apprendre-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/piano-facile-apprendre-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-piano-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/klavier-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-piano-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-pianoforte-principiante"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/es/cursos/aprender-piano-principiante</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/piano-facile-apprendre-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/piano-facile-apprendre-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-piano-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/klavier-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-piano-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-pianoforte-principiante"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/it/corsi/imparare-pianoforte-principiante</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/piano-facile-apprendre-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/piano-facile-apprendre-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-piano-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/klavier-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-piano-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-pianoforte-principiante"/>
+  </url>
+
+
+  <!-- ============================================================
+    9. COURS UKULELE DEBUTANT - Priorite 0.9
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/cours/apprendre-ukulele-debutant</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/apprendre-ukulele-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/apprendre-ukulele-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-ukulele-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/ukulele-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-ukulele-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-ukulele-principiante"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/courses/learn-ukulele-beginner</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/apprendre-ukulele-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/apprendre-ukulele-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-ukulele-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/ukulele-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-ukulele-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-ukulele-principiante"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/de/kurse/ukulele-lernen-anfaenger</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/apprendre-ukulele-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/apprendre-ukulele-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-ukulele-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/ukulele-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-ukulele-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-ukulele-principiante"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/es/cursos/aprender-ukulele-principiante</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/apprendre-ukulele-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/apprendre-ukulele-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-ukulele-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/ukulele-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-ukulele-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-ukulele-principiante"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/it/corsi/imparare-ukulele-principiante</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/cours/apprendre-ukulele-debutant"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/cours/apprendre-ukulele-debutant"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/courses/learn-ukulele-beginner"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kurse/ukulele-lernen-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/cursos/aprender-ukulele-principiante"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/corsi/imparare-ukulele-principiante"/>
+  </url>
+
+
+  <!-- ============================================================
+    10. BLOG - INDEX - Priorite 0.8
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/blog</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/blog</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/de/blog</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/es/blog</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/it/blog</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog"/>
+  </url>
+
+
+  <!-- ============================================================
+    11. ARTICLE BLOG : GUITARE DEBUTANT GUIDE COMPLET - Priorite 0.7
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog/learn-guitar-easily-complete-guide-for-beginners"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog/gitarre-lernen-vollstaendiger-leitfaden-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog/aprender-guitarra-facilmente-guia-completa-principiantes"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog/imparare-chitarra-facilmente-guida-completa-principianti"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/blog/learn-guitar-easily-complete-guide-for-beginners</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog/learn-guitar-easily-complete-guide-for-beginners"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog/gitarre-lernen-vollstaendiger-leitfaden-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog/aprender-guitarra-facilmente-guia-completa-principiantes"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog/imparare-chitarra-facilmente-guida-completa-principianti"/>
+  </url>
+
+
+  <!-- ============================================================
+    12. ARTICLE BLOG : GUIDE COMPLET PIANO - Priorite 0.7
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/blog/guide-complet-apprentissage-piano</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog/guide-complet-apprentissage-piano"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog/guide-complet-apprentissage-piano"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog/complete-guide-learning-piano"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog/vollstaendiger-leitfaden-klavier-lernen"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog/guia-completa-aprender-piano"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog/guida-completa-imparare-pianoforte"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/blog/complete-guide-learning-piano</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog/guide-complet-apprentissage-piano"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog/guide-complet-apprentissage-piano"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog/complete-guide-learning-piano"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog/vollstaendiger-leitfaden-klavier-lernen"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog/guia-completa-aprender-piano"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog/guida-completa-imparare-pianoforte"/>
+  </url>
+
+
+  <!-- ============================================================
+    13. ARTICLE BLOG : DEBUTER UKULELE - Priorite 0.7
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/blog/debuter-ukulele-methode-simple-apprendre</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog/debuter-ukulele-methode-simple-apprendre"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog/debuter-ukulele-methode-simple-apprendre"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog/ukulele-beginner-simple-method-to-learn"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog/ukulele-anfaenger-einfache-methode-lernen"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog/empezar-ukulele-metodo-simple-aprender"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog/iniziare-ukulele-metodo-semplice-imparare"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/blog/ukulele-beginner-simple-method-to-learn</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog/debuter-ukulele-methode-simple-apprendre"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog/debuter-ukulele-methode-simple-apprendre"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog/ukulele-beginner-simple-method-to-learn"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog/ukulele-anfaenger-einfache-methode-lernen"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog/empezar-ukulele-metodo-simple-aprender"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog/iniziare-ukulele-metodo-semplice-imparare"/>
+  </url>
+
+
+  <!-- ============================================================
+    14. ARTICLE BLOG : POURQUOI TU STAGNES EN MUSIQUE - Priorite 0.7
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/blog/pourquoi-tu-stagnes-en-musique</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog/pourquoi-tu-stagnes-en-musique"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog/pourquoi-tu-stagnes-en-musique"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog/why-you-are-stuck-in-music"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog/warum-du-in-der-musik-nicht-weiterkommst"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog/por-que-te-estancas-en-la-musica"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog/perche-sei-bloccato-nella-musica"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/blog/why-you-are-stuck-in-music</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog/pourquoi-tu-stagnes-en-musique"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog/pourquoi-tu-stagnes-en-musique"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog/why-you-are-stuck-in-music"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog/warum-du-in-der-musik-nicht-weiterkommst"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog/por-que-te-estancas-en-la-musica"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog/perche-sei-bloccato-nella-musica"/>
+  </url>
+
+
+  <!-- ============================================================
+    15. ARTICLE BLOG : SEANCE PRATIQUE EFFICACE 30 MINUTES - Priorite 0.7
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/blog/seance-pratique-efficace-30-minutes</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog/seance-pratique-efficace-30-minutes"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog/seance-pratique-efficace-30-minutes"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog/effective-practice-session-30-minutes"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog/effektive-uebungseinheit-30-minuten"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog/sesion-practica-eficaz-30-minutos"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog/sessione-pratica-efficace-30-minuti"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/blog/effective-practice-session-30-minutes</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/blog/seance-pratique-efficace-30-minutes"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/blog/seance-pratique-efficace-30-minutes"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/blog/effective-practice-session-30-minutes"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/blog/effektive-uebungseinheit-30-minuten"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/blog/sesion-practica-eficaz-30-minutos"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/blog/sessione-pratica-efficace-30-minuti"/>
+  </url>
+
+
+  <!-- ============================================================
+    16. PAGE A PROPOS - Priorite 0.6
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/a-propos</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/about"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/sobre-nosotros"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/chi-siamo"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/about</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/about"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/sobre-nosotros"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/chi-siamo"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/de/ueber-uns</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/about"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/sobre-nosotros"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/chi-siamo"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/es/sobre-nosotros</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/about"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/sobre-nosotros"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/chi-siamo"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/it/chi-siamo</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/about"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/sobre-nosotros"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/chi-siamo"/>
+  </url>
+
+
+  <!-- ============================================================
+    17. PAGE FAQ - Priorite 0.6
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/faq</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/faq"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/faq"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/faq"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/faq"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/faq"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/faq</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/faq"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/faq"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/faq"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/faq"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/faq"/>
+  </url>
+
+
+  <!-- ============================================================
+    18. PAGE LIVRES - Priorite 0.7
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/livres</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/livres"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/livres"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/books"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/buecher"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/libros"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/libri"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/books</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/livres"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/livres"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/books"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/buecher"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/libros"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/libri"/>
+  </url>
+
+
+  <!-- ============================================================
+    19. PAGE CONTACT - Priorite 0.5
+    ============================================================ -->
+  <url>
+    <loc>https://musique-facile.fr/contact</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/contatti"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/en/contact</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/contatti"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/de/kontakt</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/contatti"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/es/contacto</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/contatti"/>
+  </url>
+
+  <url>
+    <loc>https://musique-facile.fr/it/contatti</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musique-facile.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://musique-facile.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://musique-facile.fr/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://musique-facile.fr/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://musique-facile.fr/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://musique-facile.fr/it/contatti"/>
+  </url>
+
+
+</urlset>

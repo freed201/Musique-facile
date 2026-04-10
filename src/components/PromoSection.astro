@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 const endDate = new Date('2025-02-25T23:59:59');
 
 const formattedDate = endDate.toLocaleDateString('fr-FR', {
@@ -12,7 +13,7 @@ const formattedDate = endDate.toLocaleDateString('fr-FR', {
   <div class="container">
     <div class="promo-content">
       <div class="promo-left">
-        <span class="promo-badge">Offre de lancement 🎉</span>
+        <span class="promo-badge">Offre de lancement <Icon name="sparkles" size={16} /></span>
         <h2 class="promo-title">-50% sur toutes les formations</h2>
         <p class="promo-subtitle">Avec le code : <span class="promo-code">OUVERTURE</span></p>
       </div>

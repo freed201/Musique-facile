@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Where Did You Sleep Last Night (Nirvana) - Guitare"
 prod: Y
 description: "Where Did You Sleep Last Night de Nirvana : 6 accords, reprise folk-grunge MTV Unplugged 1993. Tutoriel guitare intermédiaire."

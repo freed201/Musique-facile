@@ -3,6 +3,12 @@ import { getCollection } from 'astro:content';
 import CourseLayout from '../../layouts/CourseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import RelatedCourses from '../../components/RelatedCourses.astro';
+import StickyCTAMobile from '../../components/StickyCTAMobile.astro';
+import UrgencyBanner from '../../components/UrgencyBanner.astro';
+import FOMONotifications from '../../components/FOMONotifications.astro';
+import CourseTargetAudience from '../../components/CourseTargetAudience.astro';
+import CourseIncludes from '../../components/CourseIncludes.astro';
+import CoursePricing from '../../components/CoursePricing.astro';
 
 export async function getStaticPaths() {
   const courses = await getCollection('courses');
@@ -29,7 +35,13 @@ const {
   preuveSociale,
   benefices,
   cta,
-  faq
+  faq,
+  ratingValue,
+  reviewCount,
+  transformation,
+  pricing,
+  targetAudience,
+  courseIncludes
 } = course.data;
 
 // Schema.org Review pour les témoignages du cours
@@ -109,6 +121,20 @@ const offerSchema = {
   }
 };
 
+// Fonction utilitaire pour convertir une durée ISO 8601 en format lisible
+function parseDuration(iso: string): string {
+  const match = iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?/);
+  if (!match) return '';
+  const hours = match[1] ? parseInt(match[1]) : 0;
+  const minutes = match[2] ? parseInt(match[2]) : 0;
+  if (hours && minutes) return `${hours}h${minutes.toString().padStart(2, '0')}`;
+  if (hours) return `${hours}h`;
+  if (minutes) return `${minutes}min`;
+  return '';
+}
+
+const courseDuration = course.data.hasCourseInstance?.duration ? parseDuration(course.data.hasCourseInstance.duration) : '';
+
 // Fonction utilitaire pour construire les chemins d'images
 function getCoursePaths(slug: string) {
   return {
@@ -120,6 +146,17 @@ function getCoursePaths(slug: string) {
 
 // Obtention des chemins d'images pour ce cours
 const imagePaths = getCoursePaths(slug);
+
+// Splitter les temoignages : premier temoignage apres le curriculum, reste apres pricing
+const allTestimonials = preuveSociale.testimonials;
+const firstTestimonial = allTestimonials.length > 0 ? allTestimonials[0] : null;
+const remainingTestimonials = allTestimonials.length > 1 ? allTestimonials.slice(1) : [];
+
+// Extraire le nombre de chapitres depuis hero.stats pour CourseIncludes
+const chaptersFromStats = hero.stats.find(s => s.label.includes('chapitre'))?.value;
+
+// Construire les features pour CoursePricing
+const pricingFeatures = pricing?.features || cta.features.map(f => f.text);
 ---
 
 <!-- Schema.org Review pour les témoignages -->
@@ -148,14 +185,18 @@ const imagePaths = getCoursePaths(slug);
   educationalLevel={course.data.educationalLevel}
   courseMode={course.data.courseMode}
   hasCourseInstance={course.data.hasCourseInstance}
+  ratingValue={ratingValue}
+  reviewCount={reviewCount}
 >
-  <BreadcrumbNav 
+  <BreadcrumbNav
     items={[
       { name: "Accueil", url: "/" },
       { name: "Cours", url: "/cours" },
       { name: title, url: Astro.url.pathname }
     ]}
   />
+
+  <UrgencyBanner />
 
 <section class="hero">
 <div class="hero-background" style={`background-image: url('${imagePaths.hero}')`}>
@@ -174,9 +215,13 @@ const imagePaths = getCoursePaths(slug);
           </p>
           <div class="cta-group">
             <a href={cta.buttonLink} class="btn btn-primary btn-lg pulsing">
-              {hero.cta.text} 
+              {hero.cta.text}
               <span class="price-tag">{hero.cta.price}</span>
             </a>
+            <div class="hero-guarantee">
+              <span class="guarantee-icon">🛡️</span>
+              <span class="guarantee-text">Satisfait ou remboursé 15 jours</span>
+            </div>
           </div>
         </div>
         <div class="hero-video">
@@ -202,16 +247,29 @@ const imagePaths = getCoursePaths(slug);
                 </div>
               </div>
             ))}
+            {courseDuration && (
+              <div class="stat-item">
+                <span class="stat-icon">🕐</span>
+                <div class="stat-content">
+                  <span class="stat-value">{courseDuration}</span>
+                  <span class="stat-label">de contenu</span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- SECTION 2 : Pour qui (decision-first) -->
+  <CourseTargetAudience items={targetAudience} theme={theme} />
+
+  <!-- SECTION 3 : Frustrations (pain points) -->
   <section class="frustrations">
     <div class="container">
       <h2 class="frustrations-title">{frustrations.title}</h2>
-      
+
       <div class="frustrations-grid">
         {frustrations.items.map(item => (
           <div class="frustration-card">
@@ -227,12 +285,13 @@ const imagePaths = getCoursePaths(slug);
     </div>
   </section>
 
+  <!-- SECTION 4 : Valeur Unique -->
   <section class="valeur-unique">
     <div class="container">
       <div class="valeur-unique-content">
         <h2>{valeurUnique.title}</h2>
         <p class="description">{valeurUnique.description}</p>
-        
+
         <div class="avantages-grid">
           {valeurUnique.avantages.map(avantage => (
             <div class="avantage-card">
@@ -254,7 +313,7 @@ const imagePaths = getCoursePaths(slug);
         const timelineImagePath = `/images/cours/${Astro.params.slug}/timeline-${item.number}.webp`;
         
         return (
-          <div class="timeline-item">
+          <div class="timeline-item" data-timeline-index={item.number}>
             <div class="timeline-number">{item.number}</div>
             <div class="timeline-content">
               <div class="timeline-header">
@@ -291,6 +350,18 @@ const imagePaths = getCoursePaths(slug);
   </div>
 </section>
 
+<section class="mid-cta">
+  <div class="container">
+    <div class="mid-cta-content">
+      <p class="mid-cta-text">Prêt à vous lancer ? Rejoignez les {preuveSociale.stats.students} élèves qui ont franchi le pas.</p>
+      <a href={cta.buttonLink} class="btn btn-primary btn-lg pulsing">
+        {cta.buttonText}
+      </a>
+      <span class="mid-cta-guarantee">🛡️ Satisfait ou remboursé 15 jours</span>
+    </div>
+  </div>
+</section>
+
 <!-- Modals pour les images -->
 {timeline.map((item) => {
   const timelineImagePath = `/images/cours/${Astro.params.slug}/timeline-${item.number}.webp`;
@@ -309,13 +380,57 @@ const imagePaths = getCoursePaths(slug);
   );
 })}
 
+<!-- SECTION 6 : Temoignage #1 (preuve sociale precoce) -->
+{firstTestimonial && (
+  <section class="testimonial-highlight">
+    <div class="container">
+      <div class="testimonial-highlight-card">
+        <div class="quote-icon">&#10077;</div>
+        <p class="testimonial-highlight-text">{firstTestimonial.text}</p>
+        <div class="testimonial-highlight-author">
+          <img
+            src={`/images/cours/${Astro.params.slug}/testimonial-1.webp`}
+            alt={`Photo de ${firstTestimonial.author}`}
+            loading="lazy"
+            width="56"
+            height="56"
+          />
+          <span>{firstTestimonial.author}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- SECTION 7 : Ce que vous obtenez -->
+<CourseIncludes
+  courseIncludes={courseIncludes}
+  chapters={chaptersFromStats}
+  duration={courseDuration}
+  pricingFeatures={pricingFeatures}
+/>
+
+<!-- SECTION 8 : Prix + Garantie (composant dedie) -->
+<CoursePricing
+  title={pricing?.title || "Investissez dans votre passion"}
+  price={course.data.hasCourseInstance?.offers?.price || "79"}
+  currency={course.data.hasCourseInstance?.offers?.priceCurrency || "EUR"}
+  installment={hero.cta.price}
+  features={pricingFeatures}
+  guarantee={pricing?.guarantee || "Garantie satisfait ou rembourse 15 jours"}
+  ctaText={cta.buttonText}
+  ctaLink={cta.buttonLink}
+  accessLabel="Paiement unique - Acces a vie"
+/>
+
+<!-- SECTION 9 : Professeur -->
 <section class="teachers-section">
   <div class="container">
     <div class="section-title-wrapper">
       <h2 class="teachers-title">
-        {teachers.mainTeachers.length === 1 && (!teachers.guests || teachers.guests.length === 0) ? 
-          "Votre professeur" : 
-          "L'équipe pédagogique"
+        {teachers.mainTeachers.length === 1 && (!teachers.guests || teachers.guests.length === 0) ?
+          "Votre professeur" :
+          "L'equipe pedagogique"
         }
       </h2>
     </div>
@@ -325,8 +440,8 @@ const imagePaths = getCoursePaths(slug);
         <div class="teacher-card">
           <div class="teacher-header">
             <div class="teacher-photo">
-              <img 
-                src={`/images/prof/${teacher.photo}`} 
+              <img
+                src={`/images/prof/${teacher.photo}`}
                 alt={`${teacher.firstName} ${teacher.lastName}`}
                 loading="lazy"
               />
@@ -337,9 +452,16 @@ const imagePaths = getCoursePaths(slug);
             </div>
           </div>
           <p class="teacher-description">{teacher.description}</p>
+          {teacher.credentials && teacher.credentials.length > 0 && (
+            <div class="teacher-credentials">
+              {teacher.credentials.map(credential => (
+                <span class="credential-badge">{credential}</span>
+              ))}
+            </div>
+          )}
           {teacher.website && (
             <a href={teacher.website} class="teacher-website" target="_blank" rel="noopener noreferrer">
-              Voir le site web →
+              Voir le site web &rarr;
             </a>
           )}
         </div>
@@ -348,13 +470,13 @@ const imagePaths = getCoursePaths(slug);
 
     {teachers.guests && teachers.guests.length > 0 && (
       <div class="guest-teachers">
-        <h3 class="guests-title">Professeurs invités</h3>
+        <h3 class="guests-title">Professeurs invites</h3>
         <div class="guests-grid">
           {teachers.guests.map(guest => (
             <div class="guest-card">
               <div class="guest-photo">
-                <img 
-                  src={`/images/prof/${guest.photo}`} 
+                <img
+                  src={`/images/prof/${guest.photo}`}
                   alt={guest.name}
                   loading="lazy"
                 />
@@ -363,7 +485,7 @@ const imagePaths = getCoursePaths(slug);
               <p class="guest-role">{guest.subtitle}</p>
               {guest.website && (
                 <a href={guest.website} class="guest-link" target="_blank" rel="noopener noreferrer">
-                  En savoir plus →
+                  En savoir plus &rarr;
                 </a>
               )}
             </div>
@@ -374,19 +496,48 @@ const imagePaths = getCoursePaths(slug);
   </div>
 </section>
 
+<!-- SECTION 10 : Transformation Avant/Apres -->
+{transformation && (
+<section class="transformation-section">
+  <div class="container">
+    <h2 class="transformation-title">{transformation.title}</h2>
+    <div class="transformation-grid">
+      {transformation.items.map(item => (
+        <div class="transformation-card">
+          <div class="transformation-before">
+            <span class="transformation-label transformation-label-before">Avant</span>
+            <p>{item.before}</p>
+          </div>
+          <div class="transformation-arrow">
+            <span class="arrow-desktop">&rarr;</span>
+            <span class="arrow-mobile">&darr;</span>
+          </div>
+          <div class="transformation-after">
+            <span class="transformation-label transformation-label-after">Apres</span>
+            <p>{item.after}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+)}
+
+<!-- SECTION 11 : Temoignages restants + stats + partenaires -->
+{remainingTestimonials.length > 0 && (
 <section class="preuve-sociale">
   <div class="container">
-    <div class="testimonials-wrapper" role="region" aria-label="Témoignages">
-      {preuveSociale.testimonials.map((testimonial, index) => {
-        const testimonialImagePath = `/images/cours/${Astro.params.slug}/testimonial-${index + 1}.webp`;
-        
+    <div class="testimonials-wrapper" role="region" aria-label="Temoignages">
+      {remainingTestimonials.map((testimonial, index) => {
+        const testimonialImagePath = `/images/cours/${Astro.params.slug}/testimonial-${index + 2}.webp`;
+
         return (
           <div class="testimonial">
-            <div class="quote-icon">❝</div>
+            <div class="quote-icon">&#10077;</div>
             <p class="testimonial-text">{testimonial.text}</p>
             <div class="testimonial-author">
-              <img 
-                src={testimonialImagePath} 
+              <img
+                src={testimonialImagePath}
                 alt={`Photo de ${testimonial.author}`}
                 loading="lazy"
                 width="50"
@@ -402,7 +553,7 @@ const imagePaths = getCoursePaths(slug);
     <div class="stats-banner">
       <div class="stat">
         <span class="stat-number">{preuveSociale.stats.students}</span>
-        <span class="stat-label">élèves satisfaits</span>
+        <span class="stat-label">eleves satisfaits</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
@@ -411,37 +562,36 @@ const imagePaths = getCoursePaths(slug);
       </div>
     </div>
 
-<div class="partners">
-  <h3>Ils nous font confiance</h3>
-  <div class="partners-grid">
-    {preuveSociale.partners.map(partner => (
-      <div class="partner">
-        <a 
-          href={partner.buttonLink} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="partner-link"
-        >
-          <img 
-            src={`/images/logo/${partner.logo}`} 
-            alt={`Logo de ${partner.name}`}
-            loading="lazy"
-          />
-        </a>
+    <div class="partners">
+      <h3>Ils nous font confiance</h3>
+      <div class="partners-grid">
+        {preuveSociale.partners.map(partner => (
+          <div class="partner">
+            <a
+              href={partner.buttonLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="partner-link"
+            >
+              <img
+                src={`/images/logo/${partner.logo}`}
+                alt={`Logo de ${partner.name}`}
+                loading="lazy"
+              />
+            </a>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-</div>
-
-
     </div>
   </div>
 </section>
+)}
 
+<!-- SECTION 12 : Benefices -->
   <section class="benefices">
     <div class="container">
       <h2 class="benefices-title">{benefices.title}</h2>
-      
+
       <div class="benefices-grid">
         {benefices.items.map((benefice, index) => (
           <div class="benefice-card" style={`--delay: ${index * 0.2}s`}>
@@ -456,7 +606,7 @@ const imagePaths = getCoursePaths(slug);
       </div>
     </div>
   </section>
-  
+
   <section class="cta-final">
     <div class="cta-background"></div>
     <div class="container">
@@ -481,12 +631,6 @@ const imagePaths = getCoursePaths(slug);
     </div>
   </section>
 
-  <RelatedCourses
-    currentSlug={slug}
-    currentTheme={theme}
-    maxCourses={3}
-  />
-
   <section class="faq-section">
     <div class="faq-background"></div>
     <div class="container">
@@ -497,7 +641,7 @@ const imagePaths = getCoursePaths(slug);
 
       <div class="faq-grid">
         {faq.questions.map((item, index) => (
-          <div class="faq-item" style={`--delay: ${index * 0.2}s`}>
+          <div class={`faq-item cours-faq-slide cours-faq-slide--${index % 2 === 0 ? 'right' : 'left'}`} style={`--delay: ${index * 0.2}s`}>
             <div class="faq-question-wrapper">
               <h3>{item.question}</h3>
               <div class="faq-icon">
@@ -513,6 +657,21 @@ const imagePaths = getCoursePaths(slug);
       </div>
     </div>
   </section>
+
+  <RelatedCourses
+    currentSlug={slug}
+    currentTheme={theme}
+    maxCourses={3}
+  />
+
+  <StickyCTAMobile
+    ctaLink={cta.buttonLink}
+    ctaText={cta.buttonText}
+    title="Prêt à vous lancer ?"
+    subtitle="Satisfait ou remboursé 15 jours"
+  />
+
+  <FOMONotifications />
 </CourseLayout>
 
 <style>
@@ -606,7 +765,26 @@ const imagePaths = getCoursePaths(slug);
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.95rem;
     line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .teacher-credentials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     margin-bottom: 1.5rem;
+  }
+
+  .credential-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
   }
 
   .teacher-website {
@@ -794,6 +972,295 @@ const imagePaths = getCoursePaths(slug);
     }
   }
 
+/* Garantie Hero */
+.hero-guarantee {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  justify-content: center;
+}
+
+.guarantee-icon {
+  font-size: 1.1rem;
+}
+
+.guarantee-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+/* CTA Mid-page */
+.mid-cta {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, var(--theme-current), color-mix(in srgb, var(--theme-current) 80%, black));
+  text-align: center;
+}
+
+.mid-cta-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mid-cta-text {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.mid-cta-guarantee {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .mid-cta-text {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+}
+
+/* Section Transformation Avant/Après */
+.transformation-section {
+  padding: 6rem 0;
+  background: var(--bg-light);
+}
+
+.transformation-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--theme-current);
+  margin-bottom: 3rem;
+}
+
+.transformation-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.transformation-card {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.transformation-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.transformation-before,
+.transformation-after {
+  padding: 1rem;
+}
+
+.transformation-label {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.transformation-label-before {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.transformation-label-after {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.transformation-before p,
+.transformation-after p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-dark);
+}
+
+.transformation-arrow {
+  font-size: 2rem;
+  color: var(--theme-current);
+  font-weight: bold;
+}
+
+.arrow-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .transformation-title {
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+
+  .transformation-card {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .arrow-desktop {
+    display: none;
+  }
+
+  .arrow-mobile {
+    display: block;
+  }
+
+  .transformation-grid {
+    padding: 0 1rem;
+  }
+}
+
+/* Section Pricing */
+.pricing-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fc 0%, #eef2ff 100%);
+}
+
+.pricing-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+
+.pricing-header {
+  background: var(--theme-current);
+  color: white;
+  padding: 2.5rem 2rem;
+}
+
+.pricing-header h2 {
+  font-size: 1.8rem;
+  margin: 0 0 1rem;
+  color: white;
+}
+
+.pricing-price {
+  font-size: 3.5rem;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.pricing-currency {
+  font-size: 1.5rem;
+  font-weight: 400;
+  vertical-align: super;
+}
+
+.pricing-lifetime {
+  font-size: 1rem;
+  opacity: 0.9;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-installment {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.pricing-body {
+  padding: 2.5rem 2rem;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  text-align: left;
+}
+
+.pricing-features li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: var(--color-dark);
+}
+
+.pricing-features li:last-child {
+  border-bottom: none;
+}
+
+.pricing-check {
+  color: var(--theme-current);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.pricing-cta {
+  display: block;
+  background: var(--theme-current);
+  color: white;
+  text-decoration: none;
+  padding: 1.2rem 2rem;
+  border-radius: var(--border-radius);
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.pricing-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-guarantee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .pricing-card {
+    margin: 0 1rem;
+  }
+
+  .pricing-price {
+    font-size: 2.8rem;
+  }
+
+  .pricing-header h2 {
+    font-size: 1.5rem;
+  }
+}
+
 .partner-link {
   display: block;
   transition: transform 0.3s ease;
@@ -818,4 +1285,256 @@ const imagePaths = getCoursePaths(slug);
   opacity: 1;
 }
 
+/* Section Temoignage Highlight (temoignage #1 isole) */
+.testimonial-highlight {
+  padding: 4rem 0;
+  background: color-mix(in srgb, var(--theme-current) 5%, white);
+}
+
+.testimonial-highlight-card {
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  position: relative;
+  border-left: 4px solid var(--theme-current);
+}
+
+.testimonial-highlight-card .quote-icon {
+  font-size: 3rem;
+  color: var(--theme-current);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-highlight-text {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--color-dark, #1a1a2e);
+  font-style: italic;
+  margin: 0 0 1.5rem;
+}
+
+.testimonial-highlight-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.testimonial-highlight-author img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--theme-current);
+}
+
+.testimonial-highlight-author span {
+  font-weight: 600;
+  color: var(--color-dark, #1a1a2e);
+  font-size: 1.05rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .testimonial-highlight {
+    background: var(--bg-dark-alt, #1a1a2e);
+  }
+
+  .testimonial-highlight-card {
+    background: var(--bg-dark, #12121f);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .testimonial-highlight-text {
+    color: var(--color-light, #e0e0e0);
+  }
+
+  .testimonial-highlight-author span {
+    color: var(--color-light, #e0e0e0);
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonial-highlight {
+    padding: 3rem 0;
+  }
+
+  .testimonial-highlight-card {
+    margin: 0 1rem;
+    padding: 1.75rem;
+  }
+
+  .testimonial-highlight-text {
+    font-size: 1.05rem;
+  }
+}
+
+/* Timeline parallax horizontal */
+.timeline-item {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-item.tl-hidden {
+  opacity: 0;
+}
+
+.timeline-item.tl-hidden[data-timeline-index="1"],
+.timeline-item.tl-hidden[data-timeline-index="3"] {
+  transform: translateX(-40px);
+}
+
+.timeline-item.tl-hidden[data-timeline-index="2"],
+.timeline-item.tl-hidden[data-timeline-index="4"] {
+  transform: translateX(40px);
+}
+
+.timeline-item.tl-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-item.tl-hidden {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-item.tl-hidden[data-timeline-index="1"],
+  .timeline-item.tl-hidden[data-timeline-index="3"] {
+    transform: translateX(-20px);
+  }
+  .timeline-item.tl-hidden[data-timeline-index="2"],
+  .timeline-item.tl-hidden[data-timeline-index="4"] {
+    transform: translateX(20px);
+  }
+}
+
 </style>
+
+<script>
+  // Parallax gauche-droite sur les étapes du programme
+  (function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const items = document.querySelectorAll('.timeline-item[data-timeline-index]');
+    if (!items.length) return;
+
+    // Cacher initialement
+    items.forEach(item => item.classList.add('tl-hidden'));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = parseInt(entry.target.dataset.timelineIndex) || 1;
+          // Délai stagger basé sur l'index
+          setTimeout(() => {
+            entry.target.classList.remove('tl-hidden');
+            entry.target.classList.add('tl-visible');
+          }, (idx - 1) * 150);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    items.forEach(item => observer.observe(item));
+  })();
+
+  // Animation droite-gauche sur la FAQ cours
+  (function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const items = document.querySelectorAll('.cours-faq-slide');
+    if (!items.length) return;
+
+    items.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      if (item.classList.contains('cours-faq-slide--left')) {
+        item.style.transform = 'translateX(-40px)';
+      } else {
+        item.style.transform = 'translateX(40px)';
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const siblings = Array.from(entry.target.parentElement.querySelectorAll('.cours-faq-slide'));
+        const idx = siblings.indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateX(0)';
+        }, idx * 120);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    items.forEach(item => observer.observe(item));
+  })();
+
+  // Animation slide-in sur toutes les cards des pages cours
+  (function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const cardSelectors = [
+      '.frustration-card',
+      '.avantage-card',
+      '.include-card',
+      '.transformation-card',
+      '.teacher-card',
+      '.guest-card',
+      '.testimonial-card',
+      '.related-card',
+      '.faq-item'
+    ];
+
+    const allCards = document.querySelectorAll(cardSelectors.join(','));
+    if (!allCards.length) return;
+
+    // Préparer : cacher + position initiale
+    allCards.forEach((card, i) => {
+      card.style.opacity = '0';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      card.style.transitionDelay = '0ms';
+      // Alterner gauche/droite
+      if (i % 2 === 0) {
+        card.style.transform = 'translateX(-30px)';
+      } else {
+        card.style.transform = 'translateX(30px)';
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const card = entry.target;
+        // Trouver les siblings dans le même parent pour le stagger
+        const parent = card.parentElement;
+        const siblings = parent ? Array.from(parent.querySelectorAll(cardSelectors.join(','))) : [card];
+        const indexInParent = siblings.indexOf(card);
+        const delay = Math.max(0, indexInParent) * 100;
+
+        card.style.transitionDelay = `${delay}ms`;
+        card.style.opacity = '1';
+        card.style.transform = 'translateX(0)';
+        observer.unobserve(card);
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    allCards.forEach(card => observer.observe(card));
+  })();
+</script>

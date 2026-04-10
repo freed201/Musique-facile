@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Nous On Sait (Pierre Garnier) - Tutoriel Guitare"
 prod: Y
 description: "Nous On Sait de Pierre Garnier à la guitare : 8 accords simples, pop française, hit Star Academy 2023. Tutoriel débutants."

@@ -1,4 +1,5 @@
 ---
+siloSlug: "guide-complet-apprentissage-piano"
 title: "FAQ Piano Débutant : Réponses à vos Questions"
 description: "Tu débutes le piano et tu as plein de questions ? Les réponses aux questions les plus fréquentes sur l'apprentissage du piano."
 ogImage: "/images/blog/pourquoi-apprendre-le-piano.webp"

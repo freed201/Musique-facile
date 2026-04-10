@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Guitare : 10 Erreurs de Débutant à Éviter Absolument"
 prod: Y
 description: "Les 10 pièges qui bloquent 87% des guitaristes débutants. Solutions testées sur 80 000 élèves pour progresser 3x plus vite."

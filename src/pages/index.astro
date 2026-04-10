@@ -17,25 +17,33 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 
-// Nouveaux composants modernisés
+// Composants modernises
 import HeroModern from '../components/HeroModern.astro';
+import PainPoints from '../components/PainPoints.astro';
 import CoursGrid from '../components/CoursGrid.astro';
+import MethodRoadmap from '../components/MethodRoadmap.astro';
+import InstructorHighlight from '../components/InstructorHighlight.astro';
+import QuizTeaser from '../components/QuizTeaser.astro';
 import TemoignagesModern from '../components/TemoignagesModern.astro';
 import LeadCaptureForm from '../components/LeadCaptureForm.astro';
 import FooterModern from '../components/FooterModern.astro';
 
-// Composants conservés
+// Composants conserves
 import PricingPreview from '../components/PricingPreview.astro';
 import StickyCTAMobile from '../components/StickyCTAMobile.astro';
+
+// Composants animations / parallax
+import MarqueeBar from '../components/MarqueeBar.astro';
+import ParallaxDecor from '../components/ParallaxDecor.astro';
 
 // Construction de l'URL canonique
 const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr').toString();
 
 // Métadonnées SEO (conservées de l'original)
-const title = "Cours de Guitare, Piano, Ukulélé en Ligne — Méthode Fred Fieffé | Musique Facile";
-const description = "Formations en ligne pour apprendre la guitare, le piano, l'ukulélé et le solfège. Méthode progressive créée par Fred Fieffé, professeur certifié avec 15 ans d'expérience. Plus de 80 000 élèves formés, 4.7/5 de note moyenne sur 2 847 avis.";
+const title = "Cours Guitare, Piano, Ukulélé en Ligne | Musique Facile";
+const description = "Guitare, piano, ukulélé avec Fred Fieffé. Accès à vie, paiement unique, sans abonnement. 80 000+ élèves formés, 4.7/5. Commencez dès aujourd'hui !";
 const keywords = "cours guitare en ligne, apprendre piano, formation ukulélé débutant, solfège facile, cours musique en ligne, Fred Fieffé";
-const ogImage = "https://musique-facile.fr/logo.webp";
+const ogImage = "https://musique-facile.fr/images/og-home.webp";
 
 // Schémas JSON-LD (conservés de l'original)
 const organizationSchema = {
@@ -162,82 +170,69 @@ const faqSchema = {
   <!-- Header -->
   <Header />
 
-  <!-- 1. Hero Modernisé -->
+  <!-- 1. Hero Modernise -->
   <HeroModern
-    title="Apprenez la musique en 15 min par jour"
-    subtitle="Rejoignez 80 000 musiciens qui ont transformé leur passion en réalité avec notre méthode progressive."
-    ctaText="Découvrir les cours"
+    title="Jouez vos morceaux preferes dans 30 jours"
+    subtitle="80 000 adultes ont appris la musique avec notre methode progressive — 15 min par jour suffisent, meme en partant de zero."
+    ctaText="Je commence maintenant"
     ctaUrl="/cours"
   />
 
-  <!-- 2. Avantages (section légère) -->
-  <section class="features-section">
-    <div class="features-container">
-      <div class="feature">
-        <div class="feature-icon-wrapper">
-          <span class="feature-icon">⚡</span>
-        </div>
-        <div class="feature-content">
-          <h3>Jouez en 7 jours</h3>
-          <p>92% de nos élèves jouent leur première chanson en moins de 5 jours</p>
-        </div>
-      </div>
-      <div class="feature">
-        <div class="feature-icon-wrapper">
-          <span class="feature-icon">🎯</span>
-        </div>
-        <div class="feature-content">
-          <h3>15 min suffisent</h3>
-          <p>Méthode conçue pour les adultes actifs, progressez à votre rythme</p>
-        </div>
-      </div>
-      <div class="feature">
-        <div class="feature-icon-wrapper">
-          <span class="feature-icon">💬</span>
-        </div>
-        <div class="feature-content">
-          <h3>Support réactif</h3>
-          <p>Réponse garantie sous 24h pour toutes vos questions</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Decor parallax entre Hero et PainPoints -->
+  <ParallaxDecor variant="left" />
 
-  <!-- 3. Grille de Cours -->
+  <!-- 2. Pain Points — Section "Probleme" -->
+  <PainPoints />
+
+  <!-- Marquee defilant entre PainPoints et CoursGrid -->
+  <MarqueeBar variant="accent" speed={35} />
+
+  <!-- Decor parallax -->
+  <ParallaxDecor variant="right" />
+
+  <!-- 3. Grille de Cours (cartes avec promesse + CTA colore) -->
   <CoursGrid
-    title="Choisissez votre instrument"
-    subtitle="Des cours structurés pour progresser du débutant à l'intermédiaire."
+    title="Trouvez VOTRE instrument et jouez des ce soir"
+    subtitle="Chaque parcours vous emmene du zero absolu a l'autonomie — a votre rythme."
   />
 
-  <!-- 4. Lead Capture (désactivé temporairement)
-  <LeadCaptureForm
-    title="Votre guide gratuit"
-    subtitle="Les 5 accords magiques pour jouer 100 chansons à la guitare"
-    buttonText="Recevoir mon guide"
-    theme="dark"
-    leadMagnet="5-accords-guitare"
-  />
-  -->
+  <!-- Decor parallax entre Cours et Roadmap -->
+  <ParallaxDecor variant="scattered" />
 
-  <!-- 5. Témoignages -->
-  <TemoignagesModern title="Ce que nos élèves en disent" />
+  <!-- 4. Methode — Roadmap 4 etapes -->
+  <MethodRoadmap />
 
-  <!-- 6. Pricing -->
+  <!-- 5. Fred — Instructeur -->
+  <InstructorHighlight />
+
+  <!-- 5b. Quiz Teaser — Orientation instrument -->
+  <QuizTeaser />
+
+  <!-- 6. Temoignages -->
+  <TemoignagesModern title="Ce que nos eleves en disent" />
+
+  <!-- Decor parallax avant Pricing -->
+  <ParallaxDecor variant="left" />
+
+  <!-- 7. Pricing -->
   <PricingPreview />
 
-  <!-- 7. CTA Final -->
-  <section class="final-cta">
+  <!-- Marquee subtil avant CTA Final -->
+  <MarqueeBar variant="subtle" speed={40} />
+
+  <!-- 8. CTA Final -->
+  <section class="final-cta" data-animate="reveal">
     <div class="cta-container">
-      <h2>Prêt à commencer votre aventure musicale ?</h2>
-      <p>Rejoignez 80 000 musiciens qui ont fait le premier pas</p>
+      <h2>Votre premiere chanson vous attend</h2>
+      <p>80 000 musiciens ont commence exactement comme vous — faites le premier pas</p>
       <div class="cta-buttons">
-        <a href="/cours" class="cta-primary">
-          Voir tous les cours
+        <a href="/cours/" class="cta-primary">
+          Je choisis mon instrument
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href="/a-propos" class="cta-secondary">En savoir plus sur Fred</a>
+        <a href="/a-propos/" class="cta-secondary">En savoir plus sur Fred</a>
       </div>
     </div>
   </section>
@@ -250,71 +245,6 @@ const faqSchema = {
 </Layout>
 
 <style>
-  /* Features Section */
-  .features-section {
-    padding: var(--space-16) var(--space-4);
-    background: var(--bg-card);
-  }
-
-  .features-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-
-  @media (min-width: 768px) {
-    .features-container {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-10);
-    }
-  }
-
-  .feature {
-    display: flex;
-    gap: var(--space-4);
-    align-items: flex-start;
-  }
-
-  @media (min-width: 768px) {
-    .feature {
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-    }
-  }
-
-  .feature-icon-wrapper {
-    width: 56px;
-    height: 56px;
-    background: var(--brand-50);
-    border-radius: var(--radius-xl);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .feature-icon {
-    font-size: 1.75rem;
-  }
-
-  .feature-content h3 {
-    font-family: var(--font-heading);
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
-    color: var(--text-primary);
-    margin-bottom: var(--space-1);
-  }
-
-  .feature-content p {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-    line-height: var(--leading-relaxed);
-    margin: 0;
-  }
-
   /* Final CTA */
   .final-cta {
     padding: var(--space-20) var(--space-4);
@@ -365,7 +295,12 @@ const faqSchema = {
 
   .cta-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .cta-primary:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
   }
 
   .cta-secondary {
@@ -385,6 +320,11 @@ const faqSchema = {
   .cta-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .cta-secondary:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
   }
 
   @media (max-width: 480px) {

@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Everybody Hurts (R.E.M.) - Tutoriel Guitare"
 prod: Y
 description: "Everybody Hurts de R.E.M. à la guitare : 9 accords simples, ballade rock 1992, hymne d'espoir. Tutoriel vidéo débutants."

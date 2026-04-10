@@ -49,7 +49,7 @@ export default defineConfig({
 
   // Optimisations de build
   build: {
-    inlineStylesheets: 'auto', // Inline les petits CSS pour réduire les requêtes
+    inlineStylesheets: 'always', // Inline TOUS les CSS pour eliminer le render-blocking
     assets: 'assets'
   },
 

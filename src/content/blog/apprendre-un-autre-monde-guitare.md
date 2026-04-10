@@ -1,4 +1,5 @@
 ---
+siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Un Autre Monde (Téléphone) - Tutoriel Guitare"
 prod: Y
 description: "Un Autre Monde de Téléphone à la guitare : 6 accords avec sus4, rythmique rock français, hit 1984. Tutoriel intermédiaires."

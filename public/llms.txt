@@ -1,0 +1,51 @@
+# Musique Facile
+
+> Musique Facile est une ecole de musique en ligne fondee par Fred Fieffe. Elle propose des formations video completes pour apprendre la guitare, le piano, l'ukulele et le solfege. Plus de 80 000 eleves formes depuis 2015.
+
+## Site
+- URL: https://musique-facile.fr
+- Langue: Francais
+- Fondateur: Fred Fieffe
+- Fondation: 2015
+
+## Cours disponibles
+
+### Guitare
+- Apprendre la Guitare Debutant: https://musique-facile.fr/cours/apprendre-guitare-debutant/
+- Maitrise Technique Guitare Avancee: https://musique-facile.fr/cours/maitrise-technique-guitare-avancee/
+- Apprendre le Shuffle Guitare: https://musique-facile.fr/cours/apprendre-guitare-shuffle/
+
+### Piano
+- Piano Facile Debutant: https://musique-facile.fr/cours/piano-facile-apprendre-debutant/
+- Apprendre les Accords Piano: https://musique-facile.fr/cours/apprendre-les-accords-piano/
+- Maitrise Technique Piano Avancee: https://musique-facile.fr/cours/maitrise-technique-piano-avancee/
+- Ameliorer son Oreille au Piano: https://musique-facile.fr/cours/ameliorer-oreille-piano/
+- Piano Force et Agilite: https://musique-facile.fr/cours/piano-force-agilite/
+- Apprendre le Shuffle Piano: https://musique-facile.fr/cours/apprendre-piano-shuffle/
+- Exercices Techniques Piano: https://musique-facile.fr/cours/cours-exercices-techniques-piano/
+- Piano Facile pour Guitaristes: https://musique-facile.fr/cours/apprendre-piano-facile-guitaristes/
+
+### Ukulele
+- Apprendre le Ukulele Debutant: https://musique-facile.fr/cours/apprendre-ukulele-debutant/
+- Apprendre la Rythmique Ukulele: https://musique-facile.fr/cours/apprendre-la-rythmique-ukulele-facilement/
+- Apprendre le Shuffle Ukulele: https://musique-facile.fr/cours/apprendre-ukulele-shuffle/
+
+### Solfege
+- Lecture de Notes Debutant: https://musique-facile.fr/cours/lecture-de-notes-niveau-debutant/
+- Solfege Rythmes: https://musique-facile.fr/cours/cours-solfege-rythmes/
+- Comprendre le Cycle des Quintes: https://musique-facile.fr/cours/comprendre-cycle-des-quintes/
+- Solfege Expert: https://musique-facile.fr/cours/solfege-expert-formation/
+
+## Pages principales
+- Accueil: https://musique-facile.fr/
+- Tous les cours: https://musique-facile.fr/cours/
+- Blog: https://musique-facile.fr/blog/
+- A propos: https://musique-facile.fr/a-propos/
+- Contact: https://musique-facile.fr/contact/
+
+## Informations
+- Acces a vie, paiement unique, sans abonnement
+- Garantie satisfait ou rembourse 14 jours
+- 1400+ videos HD
+- Note moyenne: 4.7/5
+- Support par email sous 24h

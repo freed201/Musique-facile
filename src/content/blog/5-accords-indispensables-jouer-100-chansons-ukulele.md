@@ -1,4 +1,5 @@
 ---
+siloSlug: "debuter-ukulele-methode-simple-apprendre"
 title: "5 Accords Indispensables pour Jouer 100 Chansons au Ukulélé"
 description: "Cinq accords essentiels pour jouer des dizaines de chansons au ukulélé, avec des conseils d'enchaînement simples pour débuter."
 meta: "Apprenez à jouer 100 chansons au ukulélé avec seulement 5 accords essentiels. Cet article guide les débutants avec des conseils pratiques et des idées de morceaux."

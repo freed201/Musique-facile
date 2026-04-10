@@ -7,6 +7,8 @@ ogImage: "/images/cours/apprendre-piano-shuffle/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+ratingValue: "4.5"
+reviewCount: "15"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -37,10 +39,10 @@ hasCourseInstance:
 
 hero:
   badge: "Nouveau Cours"
-  title: "Le Secret du Shuffle : Transformez Votre Jeu au Piano"
-  subtitle: "Maîtrisez l'art du shuffle au piano et révélez le musicien qui sommeille en vous."
+  title: "Ajoutez le groove du shuffle à votre jeu de piano"
+  subtitle: "19 leçons pour maîtriser le shuffle et donner du caractère à votre musique. Résultats dès la première semaine."
   cta:
-    text: "Accéder pour €29"
+    text: "Je commence le shuffle - 29€"
     price: ""
   video:
     id: "1057421752"
@@ -61,9 +63,14 @@ teachers:
     - firstName: "Fred"
       lastName: "Fieffé"
       subtitle: "Ton prof de Piano"
-      description: "Le shuffle, y'a que ca de vrai pour faire bouger la tête."
+      description: "Le shuffle, il n'y a que ça de vrai pour faire bouger la tête."
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
+      credentials:
+        - "35 ans de pratique"
+        - "20 ans d'enseignement"
+        - "Formateur LinkedIn Learning"
+        - "Auteur Hal Leonard"
 
 
 timeline:

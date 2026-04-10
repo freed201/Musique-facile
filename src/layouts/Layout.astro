@@ -69,8 +69,10 @@ const schema = {
     <link rel="preload" href="/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/poppins-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- DNS Prefetch pour les domaines externes -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <!-- Preload hero background LCP (element LCP sur mobile) -->
+    <link rel="preload" href="/images/hero.webp" as="image" type="image/webp" fetchpriority="high" />
+
+    <!-- DNS Prefetch pour Google Analytics (GTM est gere dans ExternalResources) -->
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     
     <!-- Open Graph / Facebook -->
@@ -99,7 +101,9 @@ const schema = {
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NP758HSC"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <slot />
+    <main>
+      <slot />
+    </main>
 
     <!-- Advanced Animations Script -->
     <script type="module" src={animationsScript}></script>
