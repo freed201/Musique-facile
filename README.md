@@ -76,7 +76,13 @@ Champs optionnels recommandes : `meta`, `keywords`, `category`, `siloSlug`, `pil
 
 ## Deploiement
 
-Migration vers Vercel en cours. Voir la documentation de migration pour les details.
+Migration vers Vercel en cours. Configuration dans `vercel.json`. Checklist de deploiement dans `docs/vercel-checklist.md`.
+
+## Dette technique connue
+
+- **astro-compress** : compression post-build (HTML, CSS, JS, images) redondante avec le gzip/brotli automatique de Vercel. A envisager de retirer une fois le site stable sur Vercel, pour reduire le temps de build (~15s de compression en moins)
+- **PUBLIC_SITE_URL** : documentee dans .env.example mais non utilisee dans le code. Le domaine est en dur dans le sitemap et les layouts. A cabler quand on refactorisera le sitemap
+- **Redirections WordPress** : anciennes URLs non redirigees, a ajouter dans vercel.json apres audit GSC
 
 ## Variables d'environnement
 
