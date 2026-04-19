@@ -25,6 +25,7 @@ pnpm-debug.log*
 
 # n8n files (contiennent des secrets)
 root/
+.n8n/
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal
