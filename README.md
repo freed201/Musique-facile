@@ -1,54 +1,86 @@
-# Astro Starter Kit: Basics
+# musique-facile.fr
 
-```sh
-npm create astro@latest -- --template basics
+Site pedagogique de cours de musique en ligne (guitare, piano, ukulele, solfege). Blog d'articles, fiches de cours, programmes detailles, ressources gratuites et livres.
+
+## Stack
+
+- **Framework** : Astro 4.15 (SSG, output statique)
+- **TypeScript** : partiel (schemas Zod pour les content collections, interfaces manuelles dans les composants)
+- **CSS** : CSS pur (global.css + styles inline par composant). Pas de Tailwind
+- **Fonts** : @fontsource/poppins, @fontsource/raleway (locales)
+- **Images** : sharp via astro-compress, images dans public/images/
+- **Markdown** : pipeline remark natif Astro + 3 plugins custom (custom-blocks, lazy-images, optimize-images)
+
+## Prerequis
+
+- Node.js 22.x
+- npm
+
+## Commandes
+
+```bash
+npm install          # Installer les dependances
+npm run dev          # Serveur de dev local (localhost:4321)
+npm run build        # Build de production (sortie dans dist/)
+npm run preview      # Preview du build local
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Structure du repo
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```
+src/
+  content/
+    blog/           # 98 articles markdown
+    courses/        # 18 fiches cours (frontmatter YAML riche)
+    programmes/     # 18 programmes detailles
+    ressources/     # 7 ressources gratuites
+    livres/         # 5 fiches livres
+    config.ts       # Schemas Zod pour toutes les collections
+  components/       # Composants Astro (~40+)
+  layouts/          # 4 layouts (Layout, ArticleLayout, CourseLayout, ProgrammeLayout)
+  pages/            # Routing file-based Astro
+    blog/[slug].astro     # Template articles
+    cours/[slug].astro    # Template cours
+  styles/           # CSS globaux
+  remark-*.mjs      # Plugins remark custom
+public/
+  images/           # Images statiques (blog, cours, icons, etc.)
+  robots.txt        # Directives crawl (inclut bots IA)
+  fonts/            # Fonts woff2
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Format des articles
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Les articles sont des fichiers `.md` dans `src/content/blog/`. Le schema complet est dans `src/content/config.ts` (collection `blog`).
 
-Any static assets, like images, can be placed in the `public/` directory.
+Front-matter minimal pour un nouvel article :
 
-## 🧞 Commands
+```yaml
+---
+title: "Titre de l'article"
+description: "Description courte pour le SEO"
+author: "Fred Fieffe"
+ogImage: "/images/blog/nom-image.webp"
+datePublished: "2026-05-01"
+dateModified: "2026-05-01"
+prod: "Y"
+instrument: "guitare"
+level: "debutant"
+tags: ["tag1", "tag2"]
+---
+```
 
-All commands are run from the root of the project, from a terminal:
+Le slug est derive du nom de fichier (ex: `mon-article.md` produit `/blog/mon-article/`).
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Champs optionnels recommandes : `meta`, `keywords`, `category`, `siloSlug`, `pillar`, `introduction`, `conclusion`, `faqs`, `videos`. Voir `config.ts` pour la liste exhaustive.
 
-## 👀 Want to learn more?
+## Deploiement
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Migration vers Vercel en cours. Voir la documentation de migration pour les details.
+
+## Variables d'environnement
+
+Copier `.env.example` en `.env`. Variables principales :
+
+- `PUBLIC_GTM_ID` : ID Google Tag Manager (defaut: GTM-NP758HSC)
+- `PUBLIC_SITE_URL` : URL du site (defaut: https://musique-facile.fr)
