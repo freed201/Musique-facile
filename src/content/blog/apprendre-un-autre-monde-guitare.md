@@ -41,6 +41,7 @@ relatedLinks:
   - title: "Machistador - -M-"
     url: "/blog/apprendre-machistador-guitare"
     description: "Le groove funky de Matthieu Chedid."
+instrument: "guitare"
 ---
 ## Présentation de l'artiste : Téléphone
 

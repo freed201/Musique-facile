@@ -42,6 +42,7 @@ relatedLinks:
   - title: "Stand by Me - Ben E. King"
     url: "/blog/apprendre-stand-by-me-guitare"
     description: "Un classique des années 60 avec progression simple."
+instrument: "guitare"
 ---
 # Wild World par Cat Stevens : Un Voyage Émotionnel dans la Bouleversante Année 1970
 

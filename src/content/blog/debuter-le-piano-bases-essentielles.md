@@ -19,6 +19,7 @@ dateModified: "2026-02-04"
 
 meta: "Apprends les bases essentielles du piano : placement des mains, lecture des notes, accords simples et premiers exercices pour progresser rapidement."
 keywords: "débuter le piano,apprendre le piano facilement,bases du piano,notes de piano,exercices piano débutant"
+instrument: "piano"
 
 ---
 <!-- HTML -->

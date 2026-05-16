@@ -41,6 +41,7 @@ relatedLinks:
   - title: "Un Autre Monde - Téléphone"
     url: "/blog/apprendre-un-autre-monde-guitare"
     description: "Le rock français des années 80."
+instrument: "guitare"
 ---
 # Jacques Dutronc : Un artiste aux multiples facettes
 

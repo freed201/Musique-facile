@@ -41,6 +41,7 @@ relatedLinks:
   - title: "Les Copains d'Abord - Georges Brassens"
     url: "/blog/tutoriel-les-copains-dabord-guitare"
     description: "Un classique intemporel de la chanson française."
+instrument: "guitare"
 ---
 
 Alain Souchon, de son vrai nom Alain Kienast, est né le 27 mai 1944 à Casablanca, au Maroc. C'est un artiste polyvalent, auteur-compositeur-interprète qui a marqué la scène musicale française par son style unique mêlant poésie, ironie, et tendresse. Son parcours musical a été jalonné de collaborations notables, notamment avec Laurent Voulzy, avec qui il a souvent partagé la scène et co-écrit de nombreux morceaux.

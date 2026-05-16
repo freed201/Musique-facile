@@ -42,6 +42,7 @@ relatedLinks:
   - title: "J'veux du Soleil - Au P'tit Bonheur"
     url: "/blog/tutoriel-jveux-du-soleil-chanson-francaise"
     description: "Un autre hit feel-good de la chanson française."
+instrument: "guitare"
 ---
 
 ## Qui est Claudio Capéo?

@@ -1,0 +1,500 @@
+---
+/**
+ * Landing pages dédiées par lead magnet (3 instances) :
+ *  - /guides/guitare-5-accords-magiques
+ *  - /guides/piano-lire-les-notes
+ *  - /guides/ukulele-4-accords
+ *
+ * Chaque landing : hero + promesse + ce que tu vas apprendre + InlineOptIn (mode lead magnet) + témoignages.
+ * Au submit du formulaire, l'utilisateur est redirigé vers /merci-lead-magnet?lm=<slug> qui sert le PDF.
+ */
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import FooterModern from '../../components/FooterModern.astro';
+import InlineOptIn from '../../components/blog/InlineOptIn.astro';
+
+interface LeadMagnetMeta {
+  title: string;
+  hero: string;
+  subtitle: string;
+  promise: string;
+  bullets: string[];
+  pdfUrl: string;
+  instrument: 'guitare' | 'piano' | 'ukulele';
+  courseUrl: string;
+  emoji: string;
+  testimonials: { quote: string; author: string }[];
+}
+
+const catalog: Record<string, LeadMagnetMeta> = {
+  'guitare-5-accords-magiques': {
+    title: 'Les 5 Accords Magiques',
+    hero: 'Joue 100 chansons à la guitare en moins d\'une semaine',
+    subtitle: 'Avec 5 accords ouverts et la rythmique universelle.',
+    promise: 'Pas de solfège. Pas de théorie. Tu joues, c\'est tout. Le guide PDF de Fred Fieffé, prof à 80 000 élèves.',
+    bullets: [
+      'Les 5 accords ouverts (Em, G, D, C, Am) — diagrammes pas à pas',
+      'La rythmique universelle qui fonctionne sur 90% des chansons',
+      'Le cycle des 100 chansons — 4 progressions, 100 morceaux',
+      'Les 3 enchaînements à travailler en priorité',
+      'Carte de poche imprimable à coller sur ton manche',
+    ],
+    pdfUrl: '/lead-magnets/guitare-5-accords-magiques.pdf',
+    instrument: 'guitare',
+    courseUrl: '/cours/cours-de-guitare',
+    emoji: '🎸',
+    testimonials: [
+      { quote: 'En une semaine j\'ai joué 5 chansons que j\'aime. Le déclic enfin.', author: 'Sylvain, 38 ans' },
+      { quote: 'Le PDF est super propre, on imprime et on s\'y met. Zéro blabla.', author: 'Karim, 52 ans' },
+    ],
+  },
+  'piano-lire-les-notes': {
+    title: 'Lire les notes au piano — 5 astuces',
+    hero: 'Lis les notes au piano sans bloquer, en 21 jours',
+    subtitle: '5 astuces de prof pour déchiffrer enfin une partition sans t\'arrêter.',
+    promise: 'Pas de méthode rébarbative. Pas de FACE. Tu lis, c\'est tout. Le guide PDF de Fred Fieffé, prof à 80 000 élèves.',
+    bullets: [
+      'La gamme dans les 2 sens, depuis n\'importe quelle note',
+      'Les 4 notes repères qui te servent de GPS sur la portée',
+      'La super portée de 11 lignes (et la ligne rouge du Do central)',
+      'La lecture par tierces — comme les pros',
+      'Les altérations à la clé — ne plus jamais te tromper',
+      '10 mauvaises habitudes qui bloquent la lecture',
+    ],
+    pdfUrl: '/lead-magnets/piano-lire-les-notes.pdf',
+    instrument: 'piano',
+    courseUrl: '/cours/cours-de-piano',
+    emoji: '🎹',
+    testimonials: [
+      { quote: 'Pourquoi on m\'a pas appris comme ça à l\'époque ? Là je joue et je m\'amuse, c\'est génial.', author: 'Marc, 47 ans · ex-conservatoire' },
+      { quote: 'La super portée a tout débloqué pour moi. Le truc le plus simple, j\'aurais jamais cru.', author: 'Hélène, 60 ans' },
+    ],
+  },
+  'ukulele-4-accords': {
+    title: 'Les 4 Accords du Ukulélé',
+    hero: 'Joue à l\'ukulélé avec 4 accords magiques',
+    subtitle: 'Diagrammes, rythmique pop, chansons à jouer dès ce soir.',
+    promise: 'Le ukulélé sans solfège, sans théorie. Tu joues, c\'est tout. Le guide PDF de Fred Fieffé.',
+    bullets: [
+      'Les 4 accords magiques (C, G, Am, F) — diagrammes clairs',
+      'La rythmique pop universelle (down-down-up-up-down-up)',
+      'Le cycle des 50 chansons — 4 accords, des dizaines de morceaux',
+      'Les 3 enchaînements à travailler en priorité',
+      'Carte de poche imprimable à glisser dans ton étui',
+    ],
+    pdfUrl: '/lead-magnets/ukulele-4-accords.pdf',
+    instrument: 'ukulele',
+    courseUrl: '/cours/cours-de-ukulele',
+    emoji: '🌺',
+    testimonials: [
+      { quote: 'En 3 jours j\'ai joué « Stand By Me ». Mon fils m\'a dit « papa, c\'est trop ».', author: 'Pierre, 44 ans' },
+      { quote: 'Le PDF est ludique, coloré. On a envie d\'imprimer et de commencer.', author: 'Léa, 28 ans' },
+    ],
+  },
+};
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+const lm = slug && catalog[slug];
+
+if (!lm) {
+  return Astro.redirect('/404');
+}
+
+const title = `${lm.title} — Guide gratuit | Musique Facile`;
+const description = lm.promise;
+---
+
+<Layout title={title} description={description} robots="noindex, follow">
+  <Header />
+
+  <main class={`landing-lm landing-lm--${lm.instrument}`}>
+    <!-- Hero -->
+    <section class="lm-hero">
+      <div class="container">
+        <div class="lm-hero__grid">
+          <div class="lm-hero__text">
+            <span class="lm-hero__tag">Guide gratuit · {lm.instrument.charAt(0).toUpperCase() + lm.instrument.slice(1)}</span>
+            <h1 class="lm-hero__title">{lm.hero}</h1>
+            <p class="lm-hero__subtitle">{lm.subtitle}</p>
+            <p class="lm-hero__promise">{lm.promise}</p>
+
+            <div class="lm-hero__markers">
+              <span>12 ans d'enseignement</span>
+              <span class="lm-hero__dot"></span>
+              <span>Hal Leonard</span>
+              <span class="lm-hero__dot"></span>
+              <span>Prix Samuel Paty 2024</span>
+              <span class="lm-hero__dot"></span>
+              <span>80 000+ élèves</span>
+            </div>
+          </div>
+          <div class="lm-hero__visual">
+            <div class="lm-hero__cover" aria-hidden="true">
+              <div class="lm-cover-emoji">{lm.emoji}</div>
+              <div class="lm-cover-title">{lm.title}</div>
+              <div class="lm-cover-sub">Guide gratuit · Fred Fieffé</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ce que tu vas apprendre -->
+    <section class="lm-bullets">
+      <div class="container">
+        <h2 class="lm-bullets__title">Dans ce guide, tu vas apprendre&nbsp;:</h2>
+        <ul class="lm-bullets__list">
+          {lm.bullets.map((bullet) => (
+            <li>
+              <span class="lm-bullet-check" aria-hidden="true">✓</span>
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Formulaire de capture (InlineOptIn en mode lead magnet) -->
+    <section class="lm-form">
+      <div class="container container--narrow">
+        <InlineOptIn
+          instrument={lm.instrument}
+          source={`landing:${slug}`}
+          leadMagnet={slug}
+        />
+      </div>
+    </section>
+
+    <!-- Témoignages -->
+    {lm.testimonials.length > 0 && (
+      <section class="lm-testimonials">
+        <div class="container">
+          <h2 class="lm-testimonials__title">Ce qu'ils en disent</h2>
+          <div class="lm-testimonials__grid">
+            {lm.testimonials.map((t) => (
+              <blockquote class="lm-testimonial">
+                <p>« {t.quote} »</p>
+                <cite>— {t.author}</cite>
+              </blockquote>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- CTA secondaire vers cours -->
+    <section class="lm-upsell">
+      <div class="container">
+        <p class="lm-upsell__lead">Tu veux aller plus loin que le guide&nbsp;?</p>
+        <a href={lm.courseUrl} class="lm-upsell__link">
+          Découvrir le cours complet {lm.emoji}
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <FooterModern />
+</Layout>
+
+<style>
+  :global(body) {
+    background: #f8f9fc;
+  }
+
+  .landing-lm {
+    font-family: 'Poppins', system-ui, sans-serif;
+    color: #1a1a2e;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .container--narrow {
+    max-width: 640px;
+  }
+
+  /* === HERO === */
+  .lm-hero {
+    padding: 5rem 0 4rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+  }
+
+  .landing-lm--guitare .lm-hero {
+    background: linear-gradient(135deg, #fff 0%, #f0fff4 100%);
+  }
+  .landing-lm--piano .lm-hero {
+    background: linear-gradient(135deg, #fff 0%, #f0f7ff 100%);
+  }
+  .landing-lm--ukulele .lm-hero {
+    background: linear-gradient(135deg, #fff 0%, #fff7eb 100%);
+  }
+
+  .lm-hero__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .lm-hero__tag {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    background: rgba(0,0,0,0.06);
+    color: rgba(0,0,0,0.7);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+  }
+  .landing-lm--guitare .lm-hero__tag { background: rgba(46,125,50,0.12); color: #1B5E20; }
+  .landing-lm--piano .lm-hero__tag { background: rgba(21,101,192,0.12); color: #0D47A1; }
+  .landing-lm--ukulele .lm-hero__tag { background: rgba(234,88,12,0.12); color: #9A3412; }
+
+  .lm-hero__title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+  }
+
+  .lm-hero__subtitle {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: rgba(0,0,0,0.7);
+    line-height: 1.4;
+    margin: 0 0 1.5rem;
+  }
+
+  .lm-hero__promise {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: rgba(0,0,0,0.78);
+    margin: 0 0 2rem;
+  }
+
+  .lm-hero__markers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    font-size: 0.85rem;
+    color: rgba(0,0,0,0.6);
+    font-weight: 500;
+  }
+
+  .lm-hero__dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.4;
+  }
+
+  .lm-hero__cover {
+    aspect-ratio: 3 / 4;
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d4d 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease;
+  }
+  .lm-hero__cover:hover {
+    transform: rotate(-1deg) scale(1.02);
+  }
+
+  .landing-lm--guitare .lm-hero__cover {
+    background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+  }
+  .landing-lm--piano .lm-hero__cover {
+    background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
+  }
+  .landing-lm--ukulele .lm-hero__cover {
+    background: linear-gradient(135deg, #9A3412 0%, #EA580C 100%);
+  }
+
+  .lm-cover-emoji {
+    font-size: 4rem;
+    line-height: 1;
+  }
+
+  .lm-cover-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+
+  .lm-cover-sub {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    font-weight: 500;
+  }
+
+  /* === BULLETS === */
+  .lm-bullets {
+    padding: 4rem 0 3rem;
+    background: #fff;
+  }
+
+  .lm-bullets__title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.75rem;
+    margin: 0 0 2rem;
+    text-align: center;
+  }
+
+  .lm-bullets__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 720px;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .lm-bullets__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: #f8f9fc;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .lm-bullet-check {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #4CAF50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-top: 0.05rem;
+  }
+  .landing-lm--guitare .lm-bullet-check { background: #2E7D32; }
+  .landing-lm--piano .lm-bullet-check { background: #1565C0; }
+  .landing-lm--ukulele .lm-bullet-check { background: #EA580C; }
+
+  /* === FORM === */
+  .lm-form {
+    padding: 1rem 0 4rem;
+    background: #fff;
+  }
+
+  /* === TESTIMONIALS === */
+  .lm-testimonials {
+    padding: 4rem 0;
+    background: #f8f9fc;
+  }
+
+  .lm-testimonials__title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.75rem;
+    text-align: center;
+    margin: 0 0 2.5rem;
+  }
+
+  .lm-testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .lm-testimonial {
+    background: white;
+    padding: 1.75rem;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    margin: 0;
+  }
+
+  .lm-testimonial p {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.45;
+    color: #1a1a2e;
+    margin: 0 0 0.75rem;
+  }
+
+  .lm-testimonial cite {
+    font-size: 0.85rem;
+    color: rgba(0,0,0,0.55);
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  /* === UPSELL === */
+  .lm-upsell {
+    padding: 3rem 0 4rem;
+    background: #fff;
+    text-align: center;
+  }
+
+  .lm-upsell__lead {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: rgba(0,0,0,0.7);
+    margin: 0 0 1.25rem;
+  }
+
+  .lm-upsell__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.75rem;
+    background: #1a1a2e;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .lm-upsell__link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  }
+  .landing-lm--guitare .lm-upsell__link { background: #2E7D32; }
+  .landing-lm--piano .lm-upsell__link { background: #1565C0; }
+  .landing-lm--ukulele .lm-upsell__link { background: #EA580C; }
+
+  @media (max-width: 768px) {
+    .lm-hero {
+      padding: 3rem 0 2.5rem;
+    }
+    .lm-hero__grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .lm-hero__cover {
+      max-width: 280px;
+      margin: 0 auto;
+      transform: rotate(-2deg);
+    }
+  }
+</style>

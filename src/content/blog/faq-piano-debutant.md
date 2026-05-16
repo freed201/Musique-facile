@@ -17,6 +17,7 @@ datePublished: "2025-03-14"
 dateModified: "2026-02-04"
 meta: "Tu débutes le piano et tu as plein de questions ? Découvre les réponses aux questions les plus fréquentes sur l’apprentissage du piano et progresse sereinement !"
 keywords: "FAQ piano débutant,questions apprendre le piano,conseils piano débutant,quel piano choisir,apprendre le piano sans solfège"
+instrument: "piano"
 
 ---
 <!-- HTML -->

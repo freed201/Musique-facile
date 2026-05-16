@@ -18,6 +18,7 @@ dateModified: "2026-02-04"
 
 meta: "Découvre les meilleures ressources pour apprendre le piano : applications, cours en ligne, partitions gratuites, vidéos et astuces pour progresser efficacement."
 keywords: "ressources apprendre le piano,cours de piano en ligne,applications piano,partitions gratuites,apprendre le piano gratuitement"
+instrument: "piano"
 
 ---
 <!-- HTML -->

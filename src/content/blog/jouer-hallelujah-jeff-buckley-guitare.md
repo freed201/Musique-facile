@@ -41,6 +41,7 @@ relatedLinks:
   - title: "Fields of Gold - Sting"
     url: "/blog/jouer-fields-of-gold-sting"
     description: "La ballade poétique de Sting à la guitare."
+instrument: "guitare"
 ---
 "Hallelujah" est une chanson initialement écrite par Leonard Cohen, un auteur-compositeur-interprète canadien connu pour ses textes poétiques et spirituels. Sortie en 1984 sur l'album "Various Positions", la chanson a mis du temps à percer, mais elle n'a jamais cessé d'évoluer, s'imprégnant de nouvelles significations au fil des reprises. Jeff Buckley en a livré une version en 1994 dans son seul album studio complet, "Grace". 
 

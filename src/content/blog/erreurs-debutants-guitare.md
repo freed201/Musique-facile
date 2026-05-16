@@ -48,6 +48,7 @@ videos:
     url: "https://youtu.be/uBqlSQVpMNM"
   - title: "Green Day - American Idiot Guitar Play Along #playalong"
     url: "https://youtu.be/7YsjrQnOvdU"
+instrument: "guitare"
 ---
 
 ## **Apprendre la Guitare : Évitez Ces 10 Erreurs Fatales de Débutants**

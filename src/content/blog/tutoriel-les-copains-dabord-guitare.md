@@ -48,6 +48,7 @@ relatedLinks:
   - title: "La Seine - Vanessa Paradis & -M-"
     url: "/blog/jouer-la-seine-vanessa-m"
     description: "Une ballade française romantique et poétique."
+instrument: "guitare"
 
 ---
 

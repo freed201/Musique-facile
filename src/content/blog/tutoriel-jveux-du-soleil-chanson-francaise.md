@@ -41,6 +41,7 @@ relatedLinks:
   - title: "L'Opportuniste - Jacques Dutronc"
     url: "/blog/jouer-lopportuniste-dutronc-guitare"
     description: "Une chanson française satirique et accessible."
+instrument: "guitare"
 ---
 
 ## Le Contexte Ironique et Joyeux de "J'veux du Soleil"

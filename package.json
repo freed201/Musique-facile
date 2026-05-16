@@ -4,20 +4,24 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=20.0.0"
   },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/patch-vercel-runtime.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "generate-sitemap": "tsc -p tsconfig.sitemap.json && node dist/scripts/generate-sitemap.js",
     "optimize-images": "node scripts/convert-to-webp.js",
+    "lead-magnet:pdf": "node scripts/lead-magnet-to-pdf.mjs",
+    "lead-magnet:build": "node scripts/lead-magnet-to-pdf.mjs content/lead-magnets/guitare-5-accords-magiques.md",
+    "lead-magnet:build-all": "node scripts/lead-magnet-to-pdf.mjs content/lead-magnets/guitare-5-accords-magiques.md && node scripts/lead-magnet-to-pdf.mjs content/lead-magnets/piano-5-melodies-5-doigts.md && node scripts/lead-magnet-to-pdf.mjs content/lead-magnets/ukulele-4-accords-bonheur.md",
     "build:prod": "astro build && npm run analyze:bundle",
     "analyze:bundle": "du -sh dist && echo '\n📦 Bundle size:' && find dist -name '*.js' -type f -exec du -h {} + | sort -rh | head -10"
   },
   "dependencies": {
+    "@astrojs/vercel": "^7.8.2",
     "@fontsource/poppins": "^5.0.17",
     "@fontsource/raleway": "^5.0.17",
     "astro": "^4.15.3",
@@ -30,6 +34,8 @@
   "devDependencies": {
     "@types/node": "^20.11.0",
     "astro-compress": "^2.3.9",
+    "marked": "^18.0.3",
+    "puppeteer": "^24.43.0",
     "sharp": "^0.34.4",
     "terser": "^5.44.0",
     "typescript": "^5.0.0",

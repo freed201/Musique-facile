@@ -1,10 +1,12 @@
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel/serverless';
 import { remarkCustomBlocks } from './src/remark-custom-blocks.mjs';
 import remarkOptimizeImages from './src/remark-optimize-images.mjs';
 import remarkLazyImages from './src/remark-lazy-images.mjs';
 import compress from 'astro-compress';
 
 export default defineConfig({
+  adapter: vercel(),
   integrations: [
     compress({
       CSS: true,
@@ -32,7 +34,7 @@ export default defineConfig({
     })
   ],
   site: 'https://musique-facile.fr',
-  output: 'static',
+  output: 'hybrid',
 
   // Optimisations d'images natives Astro
   image: {

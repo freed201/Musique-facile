@@ -22,6 +22,7 @@ videos:
     url: "https://youtu.be/aUUhKVojziU"
   - title: "Tutoriel Exclusif : Jouez &#39;Shallow&#39; à la Guitare Comme un Pro 🎸"
     url: "https://youtu.be/bbW2GBKQ7Yg"
+instrument: "guitare"
 ---
 **Présentation des 5 accords essentiels**
 Pour apprendre la guitare, quoi de mieux que de commencer par **cinq accords essentiels** qui vous ouvriront la porte d'une multitude de morceaux ? Que vous soyez débutant ou que vous cherchiez à solidifier vos bases, ces accords sont incontournables. On parle ici des accords E mineur (Em), Do (C), Sol (G), Ré (D), et La mineur (Am).

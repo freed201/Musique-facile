@@ -48,6 +48,7 @@ relatedLinks:
   - title: "Where Did You Sleep Last Night - Nirvana"
     url: "/blog/nirvana-where-did-you-sleep-guitare"
     description: "Une ballade rock alternative puissante."
+instrument: "guitare"
 ---
 
 ## Les Pixies : Un Phare du Rock Alternatif

@@ -48,6 +48,7 @@ relatedLinks:
   - title: "Where Did You Sleep Last Night - Nirvana"
     url: "/blog/nirvana-where-did-you-sleep-guitare"
     description: "Une reprise folk-rock puissante de Nirvana."
+instrument: "guitare"
 ---
 
 ### The Animals : La voix d'une génération

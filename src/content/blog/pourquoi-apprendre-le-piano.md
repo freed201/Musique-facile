@@ -30,6 +30,7 @@ faqs:
 
 meta: "Guide complet pour apprendre le piano : 9 chapitres détaillés pour débutants. Méthodes éprouvées, conseils d'expert, formation gratuite. Commencez le piano aujourd'hui !"
 keywords: "apprendre le piano, apprendre le piano débutant, cours de piano gratuit, débuter le piano adulte, comment apprendre le piano, piano débutant, méthode piano facile, cours piano en ligne, apprendre piano seul, formation piano gratuite, apprendre piano sans solfège"
+instrument: "piano"
 
 ---
 <!-- HTML -->

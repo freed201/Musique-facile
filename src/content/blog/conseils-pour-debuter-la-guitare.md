@@ -15,6 +15,7 @@ conclusion: |
 
 meta: "Découvrez 10 conseils incontournables pour apprendre la guitare efficacement. Progressez rapidement grâce à une méthode éprouvée et une formation adaptée aux débutants."
 keywords: "apprendre la guitare, débuter la guitare, conseils guitare débutant, formation guitare en ligne, astuces guitare pour débutants"
+instrument: "guitare"
 
 ---
 ## 1️⃣ Acceptez de faire des erreurs (c'est normal !)

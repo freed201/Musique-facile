@@ -42,6 +42,7 @@ relatedLinks:
   - title: "Wild World - Cat Stevens"
     url: "/blog/apprendre-wild-world-guitare"
     description: "Une ballade folk touchante des années 70."
+instrument: "guitare"
 ---
 # "Everybody Hurts" de R.E.M. : Plongée dans un classique intemporel
 

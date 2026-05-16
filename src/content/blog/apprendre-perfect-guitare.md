@@ -46,6 +46,7 @@ relatedLinks:
   - title: "Chasing Cars - Snow Patrol"
     url: "/blog/apprendre-chasing-cars-guitare"
     description: "Une ballade rock émotionnelle et accessible."
+instrument: "guitare"
 ---
 
 ## L'Histoire et le Contexte du Morceau

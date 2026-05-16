@@ -40,6 +40,7 @@ relatedLinks:
   - title: "Viva La Vida - Coldplay"
     url: "/blog/apprendre-viva-la-vida-guitare"
     description: "Un classique pop-rock dynamique et accessible."
+instrument: "guitare"
 
 ---
 ## Un Peu d'Histoire

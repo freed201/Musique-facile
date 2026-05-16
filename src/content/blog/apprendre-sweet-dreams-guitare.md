@@ -41,6 +41,7 @@ relatedLinks:
   - title: "Smells Like Teen Spirit - Nirvana"
     url: "/blog/apprendre-smells-like-teen-spirit-guitare"
     description: "Le classique grunge des années 90."
+instrument: "guitare"
 ---
 ## Eurythmics : La Naissance d'un Duo Iconique
 

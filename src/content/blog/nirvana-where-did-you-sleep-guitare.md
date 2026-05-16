@@ -46,6 +46,7 @@ relatedLinks:
   - title: "Where Is My Mind - Pixies"
     url: "/blog/apprendre-where-is-my-mind-guitare"
     description: "Un classique du rock alternatif des années 80."
+instrument: "guitare"
 ---
 
 ### L'Histoire Derrière "Where Did You Sleep Last Night"

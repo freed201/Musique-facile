@@ -18,6 +18,7 @@ dateModified: "2026-02-04"
 
 meta: "Découvre les meilleures méthodes pour apprendre le piano débutant. Exercices, vidéos, partitions et astuces pour progresser rapidement et facilement !"
 keywords: "apprendre le piano débutant,méthode d’apprentissage piano,cours de piano en ligne,exercices piano débutant,progresser au piano"
+instrument: "piano"
 
 ---
 <!-- HTML -->
