@@ -1,0 +1,272 @@
+---
+/**
+ * ProductCards.astro — Galerie comparative visuelle des produits d'un guide d'achat.
+ * Carte 30/70 (image / texte) avec alternance gauche-droite, responsive.
+ * Données issues du frontmatter `products`. Complète (sans dupliquer) la prose
+ * détaillée du corps d'article et le Schema.org ItemList/Product.
+ */
+interface Product {
+  name: string;
+  brand: string;
+  description: string;
+  price: string;
+  url: string;
+  ratingValue: string;
+  reviewBody: string;
+  image?: string;
+}
+
+interface Props {
+  products: Product[];
+  title?: string;
+}
+
+const { products, title = "Les guitares recommandées en un coup d'œil" } = Astro.props;
+
+const withImg = products.filter((p) => p.image);
+
+const pct = (v: string) =>
+  Math.max(0, Math.min(100, ((Number(v) || 0) / 20) * 100));
+---
+
+{withImg.length > 0 && (
+  <section class="product-cards" aria-label={title}>
+    <h2>{title}</h2>
+    <div class="pc-list">
+      {withImg.map((p) => (
+        <article class="pc-card">
+          <div class="pc-media">
+            <img
+              src={p.image}
+              alt={`${p.name} — guitare folk ${p.brand} recommandée par Fred Fieffé`}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="pc-body">
+            <p class="pc-brand">{p.brand}</p>
+            <h3 class="pc-name">{p.name}</h3>
+            <p class="pc-price">≈ {p.price} €</p>
+            <p class="pc-desc">{p.description}</p>
+            <blockquote class="pc-review">
+              <span class="pc-rating" aria-label={`Note de Fred : ${p.ratingValue} sur 20`}>
+                <span class="pc-rating-label">Note de Fred</span>
+                <span class="pc-rating-bar" aria-hidden="true">
+                  <span class="pc-rating-fill" style={`width:${pct(p.ratingValue)}%`}></span>
+                </span>
+                <span class="pc-rating-val">{p.ratingValue}<span class="pc-rating-max">/20</span></span>
+              </span>
+              <span class="pc-review-text">« {p.reviewBody} » — <strong>Fred</strong></span>
+            </blockquote>
+            <a
+              class="pc-cta"
+              href={p.url}
+              target="_blank"
+              rel="sponsored nofollow noopener"
+            >
+              Voir le prix actuel →
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .product-cards {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+  }
+
+  .product-cards > h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: var(--color-dark, #1a1a1a);
+  }
+
+  .pc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .pc-card {
+    display: flex;
+    gap: 1.75rem;
+    align-items: center;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Alternance : image à droite une carte sur deux */
+  .pc-card:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .pc-media {
+    flex: 0 0 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    background: var(--bg-light, #f6f6f6);
+    border-radius: 12px;
+    padding: 0.75rem;
+    min-height: 220px;
+  }
+
+  .pc-media img {
+    max-width: 100%;
+    max-height: 280px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .pc-body {
+    flex: 1 1 70%;
+    min-width: 0;
+  }
+
+  .pc-brand {
+    margin: 0 0 0.15rem;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gray-600, #777);
+    font-weight: 600;
+  }
+
+  .pc-name {
+    margin: 0 0 0.4rem;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    color: var(--color-dark, #1a1a1a);
+  }
+
+  .pc-price {
+    display: inline-block;
+    margin: 0 0 0.8rem;
+    padding: 0.2rem 0.7rem;
+    background: var(--theme-current, #c0392b);
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .pc-desc {
+    margin: 0 0 1rem;
+    line-height: 1.6;
+    color: var(--color-dark, #333);
+  }
+
+  .pc-review {
+    margin: 0 0 1.1rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--bg-light, #f6f6f6);
+    border-left: 4px solid var(--theme-current, #c0392b);
+    border-radius: 8px;
+  }
+
+  .pc-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .pc-rating-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--gray-600, #777);
+    flex-shrink: 0;
+  }
+
+  .pc-rating-bar {
+    position: relative;
+    flex: 1;
+    height: 7px;
+    min-width: 60px;
+    max-width: 140px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .pc-rating-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    background: var(--theme-current, #c0392b);
+    border-radius: 999px;
+  }
+
+  .pc-rating-val {
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--color-dark, #1a1a1a);
+    flex-shrink: 0;
+  }
+
+  .pc-rating-max {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--gray-600, #777);
+  }
+
+  .pc-review-text {
+    display: block;
+    font-size: 0.97rem;
+    line-height: 1.55;
+    color: var(--gray-700, #444);
+    font-style: italic;
+  }
+
+  .pc-cta {
+    display: inline-block;
+    padding: 0.65rem 1.3rem;
+    background: var(--theme-current, #c0392b);
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+
+  .pc-cta:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+
+  @media (max-width: 720px) {
+    .pc-card,
+    .pc-card:nth-child(even) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1.1rem;
+    }
+
+    .pc-media {
+      flex-basis: auto;
+      min-height: 0;
+      padding: 1rem;
+    }
+
+    .pc-media img {
+      max-height: 240px;
+    }
+
+    .pc-name {
+      font-size: 1.3rem;
+    }
+  }
+</style>

@@ -1,0 +1,124 @@
+---
+/**
+ * AuthorBio.astro — Encadré auteur visible en fin d'article (signal E-E-A-T DOM).
+ * Complète le Schema.org Person du BlogPosting par une bio visible et un lien
+ * vers la page auteur dédiée. Réutilisable sur tous les articles du blog.
+ */
+interface Props {
+  author?: string;
+}
+
+const { author = 'Fred Fieffé' } = Astro.props;
+
+// Le blog est intégralement signé Fred Fieffé : on n'affiche l'encadré enrichi
+// que pour lui (garde-fou si un autre auteur apparaît un jour).
+const isFred = author === 'Fred Fieffé';
+---
+
+{isFred && (
+  <aside class="author-bio-box" aria-label="À propos de l'auteur">
+    <img
+      src="/images/prof/fred.webp"
+      alt="Portrait de Fred Fieffé, musicien professionnel et fondateur de Musique Facile"
+      width="96"
+      height="96"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="abb-text">
+      <p class="abb-kicker">À propos de l'auteur</p>
+      <p class="abb-name">
+        <a href="/auteur/fred-fieffe/">Fred Fieffé</a>
+        <span class="abb-role">— Musicien professionnel et formateur</span>
+      </p>
+      <p class="abb-desc">
+        15 ans de pratique professionnelle, auteur publié chez Hal Leonard,
+        lauréat du Prix Samuel Paty 2024. Fondateur de Musique Facile, il a
+        formé plus de 80 000 élèves en guitare, piano, ukulélé et solfège.
+      </p>
+      <a class="abb-link" href="/auteur/fred-fieffe/">
+        Voir tous ses guides et sa bio →
+      </a>
+    </div>
+  </aside>
+)}
+
+<style>
+  .author-bio-box {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 1.75rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: var(--bg-light, #f6f6f6);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 4px solid var(--theme-current, #c0392b);
+    border-radius: 12px;
+  }
+
+  .author-bio-box img {
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .abb-text {
+    min-width: 0;
+  }
+
+  .abb-kicker {
+    margin: 0 0 0.25rem;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gray-600, #777);
+  }
+
+  .abb-name {
+    margin: 0 0 0.6rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-dark, #222);
+  }
+
+  .abb-name a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .abb-name a:hover {
+    text-decoration: underline;
+  }
+
+  .abb-role {
+    font-weight: 500;
+    color: var(--gray-700, #555);
+  }
+
+  .abb-desc {
+    margin: 0 0 0.75rem;
+    line-height: 1.65;
+    color: var(--color-dark, #333);
+  }
+
+  .abb-link {
+    font-weight: 600;
+    color: var(--theme-current, #c0392b);
+    text-decoration: none;
+  }
+
+  .abb-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .author-bio-box {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: 2.5rem 1rem;
+    }
+  }
+</style>

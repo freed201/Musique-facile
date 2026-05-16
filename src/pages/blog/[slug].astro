@@ -4,9 +4,14 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import FAQSchema from '../../components/FAQSchema.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
 import BreadcrumbsSchema from '../../components/BreadcrumbsSchema.astro';
+import ProductListSchema from '../../components/ProductListSchema.astro';
+import AuthorBio from '../../components/AuthorBio.astro';
+import ProductCards from '../../components/ProductCards.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import PillarLink from '../../components/blog/PillarLink.astro';
 import ArticleCTA from '../../components/blog/ArticleCTA.astro';
+import BuyingGuideCard from '../../components/blog/BuyingGuideCard.astro';
+import InlineOptIn from '../../components/blog/InlineOptIn.astro';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
@@ -90,6 +95,39 @@ const schema = {
   },
 }
 
+// Mapping instrument → slug du guide d'achat correspondant (pour exclusion auto)
+const buyingGuideSlugs: Record<string, string> = {
+  guitare: 'quelle-guitare-folk-acheter-guide-comparatif-debutant',
+  piano: 'quel-piano-numerique-acheter-guide-comparatif-debutant',
+  ukulele: 'quel-ukulele-acheter-guide-comparatif-debutant',
+};
+
+// On affiche la carte « guide d'achat » seulement si :
+// - L'article cible un instrument supporté
+// - L'article n'est pas lui-même le guide d'achat (évite la boucle)
+// - L'article n'a pas opt-out via frontmatter (hideBuyingGuide: true)
+const showBuyingGuide = (
+  entry.data.instrument &&
+  ['guitare', 'piano', 'ukulele'].includes(entry.data.instrument) &&
+  entry.slug !== buyingGuideSlugs[entry.data.instrument] &&
+  entry.data.hideBuyingGuide !== true
+);
+
+// On affiche l'opt-in inline si l'article a au moins 3 H2 (sinon trop court)
+// et que l'opt-out manuel n'est pas activé.
+const h2Count = headings.filter(h => h.depth === 2).length;
+const showInlineOptIn = h2Count >= 3 && entry.data.hideInlineOptIn !== true;
+
+// Mapping instrument → ID du lead magnet PDF correspondant (cf catalogue dans merci-lead-magnet.astro)
+// Override possible via frontmatter `leadMagnet` de l'article
+const leadMagnetByInstrument: Record<string, string> = {
+  guitare: 'guitare-5-accords-magiques',
+  piano: 'piano-lire-les-notes',
+  ukulele: 'ukulele-4-accords',
+};
+const leadMagnetId = entry.data.leadMagnet
+  || (entry.data.instrument ? leadMagnetByInstrument[entry.data.instrument] : undefined);
+
 // Construction des breadcrumbs dynamiques
 const breadcrumbItems = [
   { name: "Accueil", url: "/" },
@@ -145,6 +183,16 @@ if (entry.data.siloSlug && !entry.data.pillar) {
       items={breadcrumbItems}
       currentPage={title}
     />
+
+    <!-- Schema.org ItemList/Product (guides d'achat avec produits comparés) -->
+    {entry.data.products && entry.data.products.length > 0 && (
+      <ProductListSchema
+        products={entry.data.products}
+        author={author}
+        datePublished={datePublished}
+        pageUrl={canonicalURL.toString()}
+      />
+    )}
 
     <!-- Lien retour vers l'article pilier (silo SEO) -->
     {entry.data.siloSlug && !entry.data.pillar && (
@@ -294,8 +342,54 @@ if (entry.data.siloSlug && !entry.data.pillar) {
 
       <!-- Contenu principal -->
       <div class="article-body">
+        {showBuyingGuide && (
+          <BuyingGuideCard instrument={entry.data.instrument as 'guitare' | 'piano' | 'ukulele'} />
+        )}
         <Content />
+        {entry.data.products && entry.data.products.length > 0 && (
+          <ProductCards products={entry.data.products} />
+        )}
+        {showInlineOptIn && (
+          <InlineOptIn
+            instrument={entry.data.instrument as any}
+            source={`blog:${entry.slug}`}
+            leadMagnet={leadMagnetId}
+          />
+        )}
       </div>
+
+      {(showBuyingGuide || showInlineOptIn) && (
+        <script>
+          // Réorganise les blocs CTA dans l'article :
+          //  - BuyingGuideCard juste après le 1er H2 (sweet spot CRO ~30%)
+          //  - InlineOptIn après le H2 à ~65% du contenu (2e sweet spot CRO)
+          // Fallback gracieux si pas assez de H2 : laisse la position rendue par Astro.
+          (function relocateCTAs() {
+            const run = () => {
+              const body = document.querySelector('.article-body');
+              if (!body) return;
+              const h2s = Array.from(body.querySelectorAll(':scope > h2'));
+
+              const card = body.querySelector(':scope > [data-buying-guide-card]');
+              if (card && h2s.length >= 1) {
+                h2s[0].insertAdjacentElement('afterend', card);
+              }
+
+              const optin = body.querySelector(':scope > [data-inline-optin]');
+              if (optin && h2s.length >= 3) {
+                const targetIdx = Math.floor(h2s.length * 0.65);
+                const target = h2s[Math.min(targetIdx, h2s.length - 2)];
+                if (target) target.insertAdjacentElement('afterend', optin);
+              }
+            };
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', run);
+            } else {
+              run();
+            }
+          })();
+        </script>
+      )}
 
       <!-- Conclusion (seulement si présente et non vide) -->
       {conclusion && conclusion.trim() !== '' && (
@@ -306,6 +400,9 @@ if (entry.data.siloSlug && !entry.data.pillar) {
           </div>
         </section>
       )}
+
+      <!-- Encadré auteur visible (E-E-A-T DOM, complète le Schema Person) -->
+      <AuthorBio author={author} />
 
       <!-- Navigation entre les pages -->
       {entry.data.multi === 'Y' && (
