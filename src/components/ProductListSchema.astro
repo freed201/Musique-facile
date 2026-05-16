@@ -1,0 +1,93 @@
+---
+/**
+ * ProductListSchema.astro — Schema.org ItemList + Product pour les guides d'achat.
+ *
+ * Émet un JSON-LD ItemList dont chaque élément est un Product (marque, offre,
+ * prix EUR) accompagné d'une Review éditoriale signée par l'auteur du guide.
+ * On utilise une Review individuelle (avis éditorial first-party) et NON un
+ * aggregateRating issu de notes tierces — conforme aux règles Google sur les
+ * extraits d'avis. Aucun rendu visuel : composant purement structurel (GEO/SEO).
+ */
+interface Product {
+  name: string;
+  brand: string;
+  description: string;
+  price: string;
+  url: string;
+  ratingValue: string;
+  reviewBody: string;
+  image?: string;
+}
+
+interface Props {
+  products: Product[];
+  author: string;
+  datePublished: string;
+  pageUrl: string;
+}
+
+const { products, author, datePublished, pageUrl } = Astro.props;
+
+const reviewDate = new Date(datePublished).toISOString().split('T')[0];
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Guitares folk recommandées pour débuter",
+  "itemListOrder": "https://schema.org/ItemListUnordered",
+  "numberOfItems": products.length,
+  "itemListElement": products.map((product, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Product",
+      "name": product.name,
+      "description": product.description,
+      ...(product.image
+        ? { "image": product.image.startsWith("http")
+              ? product.image
+              : `https://musique-facile.fr${product.image}` }
+        : {}),
+      "brand": {
+        "@type": "Brand",
+        "name": product.brand
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": product.price,
+        "url": product.url,
+        "availability": "https://schema.org/InStock"
+      },
+      "review": {
+        "@type": "Review",
+        "reviewBody": product.reviewBody,
+        "datePublished": reviewDate,
+        "author": {
+          "@type": "Person",
+          "name": author,
+          "url": "https://musique-facile.fr/auteur/fred-fieffe/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Musique Facile",
+          "url": "https://musique-facile.fr"
+        },
+        "itemReviewed": {
+          "@type": "Product",
+          "name": product.name
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": product.ratingValue,
+          "bestRating": "20",
+          "worstRating": "1"
+        }
+      },
+      "url": pageUrl
+    }
+  }))
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />

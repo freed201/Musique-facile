@@ -2,7 +2,6 @@
 import Header from '../components/Header.astro';
 import FooterModern from '../components/FooterModern.astro';
 import ExternalResources from '../components/ExternalResources.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AutoFAQ from '../components/AutoFAQ.astro';
 import '@fontsource/poppins';
 import '@fontsource/raleway';
@@ -105,29 +104,9 @@ const enrichDescription = () => {
 const pageTitle = enrichTitle();
 const pageDescription = enrichDescription();
 
-// Construction des breadcrumbs
-const breadcrumbItems = [];
-
-// Ajouter catégorie blog si on a un thème
-if (theme && theme !== 'main') {
-  const themeMap = {
-    'guitar': { name: 'Guitare', url: 'https://musique-facile.fr/blog/guitare' },
-    'piano': { name: 'Piano', url: 'https://musique-facile.fr/blog/piano' },
-    'ukulele': { name: 'Ukulélé', url: 'https://musique-facile.fr/blog/ukulele' },
-    'solfege': { name: 'Solfège', url: 'https://musique-facile.fr/blog/solfege' }
-  };
-
-  breadcrumbItems.push(
-    { name: 'Blog', url: 'https://musique-facile.fr/blog' },
-    themeMap[theme],
-    { name: title, url: url }
-  );
-} else {
-  breadcrumbItems.push(
-    { name: 'Blog', url: 'https://musique-facile.fr/blog' },
-    { name: title, url: url }
-  );
-}
+// Note : le fil d'Ariane (visuel + Schema BreadcrumbList) est rendu par
+// BreadcrumbsSchema dans blog/[slug].astro avec une hiérarchie plus riche.
+// On ne le duplique donc plus ici (évite un double BreadcrumbList JSON-LD).
 
 // Formatage des dates pour schema.org
 const isoDatePublished = new Date(datePublished).toISOString();
@@ -137,8 +116,8 @@ const isoDateModified = new Date(dateModified).toISOString();
 const authorSchema = {
   "@type": "Person",
   "name": "Fred Fieffé",
-  "url": "https://musique-facile.fr/a-propos/",
-  "jobTitle": "Formateur musical",
+  "url": "https://musique-facile.fr/auteur/fred-fieffe/",
+  "jobTitle": "Musicien professionnel et formateur",
   "description": "Auteur publié chez Hal Leonard, plus de 80 000 élèves formés en ligne, lauréat du Prix Samuel Paty 2024 pour la pédagogie musicale.",
   "sameAs": [
     "https://www.youtube.com/@MusiqueFacile",
@@ -354,7 +333,6 @@ const howToSchema = songInfo ? {
     <!-- End Google Tag Manager (noscript) -->
    <div class={`theme-${theme}`}>
     <Header />
-    <Breadcrumbs items={breadcrumbItems} />
     <main>
       <slot />
     </main>

@@ -245,6 +245,16 @@ const blogCollection = defineCollection({
     pillar: z.boolean().default(false),
     siloSlug: z.string().optional(),
 
+    // Opt-out manuel : empêche l'affichage de la carte guide d'achat sur cet article
+    hideBuyingGuide: z.boolean().optional(),
+
+    // Opt-out manuel : empêche l'affichage du formulaire opt-in inline
+    hideInlineOptIn: z.boolean().optional(),
+
+    // Override : force un lead magnet spécifique sur cet article (sinon = défaut selon instrument)
+    // Valeurs : 'guitare-5-accords-magiques' | 'piano-lire-les-notes' | 'ukulele-4-accords'
+    leadMagnet: z.string().optional(),
+
     schemaType: z.string().optional(),
     prod: z.enum(['Y', 'N']).optional(),
     multi: z.enum(['Y', 'N']).optional(),
@@ -275,6 +285,18 @@ const blogCollection = defineCollection({
     faqs: z.array(z.object({
       question: z.string(),
       answer: z.string()
+    })).optional(),
+
+    // Produits comparés (guides d'achat) → Schema.org ItemList/Product + Review éditoriale
+    products: z.array(z.object({
+      name: z.string(),
+      brand: z.string(),
+      description: z.string(),
+      price: z.string(),
+      url: z.string(),
+      ratingValue: z.string(),
+      reviewBody: z.string(),
+      image: z.string().optional()
     })).optional()
   })
 });

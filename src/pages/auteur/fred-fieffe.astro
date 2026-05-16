@@ -1,0 +1,271 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const title = "Fred Fieffé — Auteur, musicien professionnel et formateur | Musique Facile";
+const description = "Fred Fieffé : 15 ans de pratique professionnelle, auteur publié chez Hal Leonard, lauréat du Prix Samuel Paty 2024, fondateur de Musique Facile et formateur de plus de 80 000 élèves. Découvrez sa bio et ses guides.";
+const canonicalUrl = "https://musique-facile.fr/auteur/fred-fieffe/";
+const photo = "https://musique-facile.fr/images/prof/fred.webp";
+
+// Articles signés Fred Fieffé (publiés, date passée), triés du plus récent au plus ancien
+const now = new Date();
+const blog = await getCollection('blog');
+const articles = blog
+  .filter((p) =>
+    p.data.author === 'Fred Fieffé' &&
+    p.data.prod === 'Y' &&
+    new Date(p.data.datePublished) <= now
+  )
+  .sort((a, b) =>
+    new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime()
+  )
+  .slice(0, 12);
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "dateModified": new Date().toISOString(),
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Fred Fieffé",
+    "url": canonicalUrl,
+    "image": photo,
+    "jobTitle": "Musicien professionnel et formateur",
+    "description": "Musicien professionnel avec 15 ans de pratique, auteur publié chez Hal Leonard, lauréat du Prix Samuel Paty 2024 pour la pédagogie musicale. Fondateur de Musique Facile, il a formé plus de 80 000 élèves en guitare, piano, ukulélé et solfège depuis 2015.",
+    "knowsAbout": ["guitare", "piano", "ukulélé", "solfège", "guitare folk acoustique", "pédagogie musicale"],
+    "sameAs": [
+      "https://www.youtube.com/@MusiqueFacile",
+      "https://www.tiktok.com/@musiquefacile",
+      "https://musique-facile.fr"
+    ],
+    "award": ["Prix Samuel Paty 2024 (pédagogie musicale)", "Meilleur formateur Skilleos 2023/2024"],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Musique Facile",
+      "url": "https://musique-facile.fr"
+    }
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://musique-facile.fr" },
+    { "@type": "ListItem", "position": 2, "name": "Auteur", "item": "https://musique-facile.fr/auteur/" },
+    { "@type": "ListItem", "position": 3, "name": "Fred Fieffé", "item": canonicalUrl }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={photo}>
+  <Fragment slot="head">
+    <meta name="author" content="Fred Fieffé - Musique Facile" />
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <article class="author-page">
+    <nav class="author-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a> <span aria-hidden="true">›</span>
+      <a href="/blog/">Blog</a> <span aria-hidden="true">›</span>
+      <span aria-current="page">Fred Fieffé</span>
+    </nav>
+
+    <header class="author-hero">
+      <img
+        src={photo}
+        alt="Portrait de Fred Fieffé, musicien professionnel et fondateur de Musique Facile"
+        width="160"
+        height="160"
+        loading="eager"
+        decoding="async"
+      />
+      <div>
+        <h1>Fred Fieffé</h1>
+        <p class="author-role">Musicien professionnel · Auteur · Fondateur de Musique Facile</p>
+        <ul class="author-credentials">
+          <li>15 ans de pratique professionnelle</li>
+          <li>Auteur publié chez Hal Leonard</li>
+          <li>Lauréat du Prix Samuel Paty 2024 (pédagogie musicale)</li>
+          <li>Plus de 80 000 élèves formés depuis 2015</li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="author-bio">
+      <h2>Qui suis-je ?</h2>
+      <p>
+        Je joue, j'enseigne et je teste des instruments depuis plus de 15 ans. J'ai commencé
+        la guitare à l'adolescence, je suis passé par la scène, l'enregistrement et la lutherie
+        du quotidien (réglages, comparatifs, choix de matériel), avant de me consacrer à la
+        transmission. J'ai publié des méthodes chez <strong>Hal Leonard</strong>, le plus grand
+        éditeur de partitions au monde.
+      </p>
+      <p>
+        En 2015, j'ai fondé <strong>Musique Facile</strong> pour rendre l'apprentissage de la
+        musique réellement accessible : une méthode progressive, concrète, sans solfège
+        rébarbatif. Plus de <strong>80 000 élèves</strong> ont suivi mes formations en guitare,
+        piano, ukulélé et solfège. En 2024, j'ai reçu le <strong>Prix Samuel Paty</strong> pour
+        mon travail de pédagogie musicale.
+      </p>
+      <p>
+        Côté matériel, je joue notamment sur une <strong>Larrivee L-05E</strong> (ma guitare des
+        30 ans) et des acoustiques <strong>PRS</strong> (P20E et A40E) que vous retrouvez dans mes
+        play along. Mes guides d'achat sont honnêtes : je dis ce que j'aime, ce que je n'aime
+        pas, et pourquoi — sans complaisance commerciale.
+      </p>
+      <p>
+        <a class="author-cta" href="/cours/cours-de-guitare">Découvrir mes cours de guitare →</a>
+      </p>
+    </section>
+
+    {articles.length > 0 && (
+      <section class="author-articles">
+        <h2>Les guides et articles de Fred</h2>
+        <ul class="author-articles-list">
+          {articles.map((a) => (
+            <li>
+              <a href={`/blog/${a.slug}`}>
+                <span class="aa-title">{a.data.title}</span>
+                <time datetime={a.data.datePublished}>
+                  {new Date(a.data.datePublished).toLocaleDateString('fr-FR', {
+                    year: 'numeric', month: 'long', day: 'numeric'
+                  })}
+                </time>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </article>
+</Layout>
+
+<style>
+  .author-page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+  }
+
+  .author-breadcrumb {
+    font-size: 0.9rem;
+    color: var(--gray-600, #555);
+    margin-bottom: 2rem;
+  }
+
+  .author-breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .author-breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .author-hero {
+    display: flex;
+    gap: 1.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .author-hero img {
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .author-hero h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2.4rem;
+  }
+
+  .author-role {
+    margin: 0 0 0.75rem;
+    font-weight: 600;
+    color: var(--theme-current, #c0392b);
+  }
+
+  .author-credentials {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--gray-700, #444);
+    line-height: 1.7;
+  }
+
+  .author-bio h2,
+  .author-articles h2 {
+    font-size: 1.6rem;
+    margin: 2.5rem 0 1rem;
+  }
+
+  .author-bio p {
+    line-height: 1.8;
+    margin: 0 0 1.1rem;
+    color: var(--color-dark, #222);
+  }
+
+  .author-cta {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: 700;
+    color: var(--theme-current, #c0392b);
+    text-decoration: none;
+  }
+
+  .author-cta:hover {
+    text-decoration: underline;
+  }
+
+  .author-articles-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .author-articles-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.9rem 1.1rem;
+    background: var(--bg-light, #f6f6f6);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-dark, #222);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .author-articles-list a:hover {
+    background: #ececec;
+    transform: translateX(3px);
+  }
+
+  .aa-title {
+    font-weight: 600;
+  }
+
+  .author-articles-list time {
+    font-size: 0.85rem;
+    color: var(--gray-600, #666);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 600px) {
+    .author-hero {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .author-credentials {
+      text-align: left;
+    }
+  }
+</style>
