@@ -22,7 +22,7 @@
  * Si une liste instrument-spécifique n'est pas définie, on retombe sur GENERAL.
  */
 import type { APIRoute } from 'astro';
-import { sendLeadMagnetEmail } from '../../lib/lead-magnet-emails';
+import { sendLeadMagnetEmail } from './_lead-magnet-emails';
 
 export const prerender = false;
 
@@ -47,11 +47,11 @@ const isValidEmail = (email: string): boolean =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254;
 
 const pickListIds = (instrument?: string): number[] => {
-  const general = parseInt(import.meta.env.BREVO_LIST_GENERAL ?? '', 10);
+  const general = parseInt(process.env.BREVO_LIST_GENERAL ?? '', 10);
   const map: Record<string, string | undefined> = {
-    guitare: import.meta.env.BREVO_LIST_GUITARE,
-    piano: import.meta.env.BREVO_LIST_PIANO,
-    ukulele: import.meta.env.BREVO_LIST_UKULELE,
+    guitare: process.env.BREVO_LIST_GUITARE,
+    piano: process.env.BREVO_LIST_PIANO,
+    ukulele: process.env.BREVO_LIST_UKULELE,
   };
   const ids = new Set<number>();
   if (!Number.isNaN(general)) ids.add(general);
@@ -79,7 +79,7 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: 'Consentement requis' }, 400);
   }
 
-  const apiKey = import.meta.env.BREVO_API_KEY;
+  const apiKey = process.env.BREVO_API_KEY;
   if (!apiKey) {
     return json({ error: 'Service email non configuré' }, 500);
   }
@@ -132,9 +132,9 @@ export const POST: APIRoute = async ({ request }) => {
 
     // J0 — Email transactionnel de livraison du PDF (uniquement si leadMagnet fourni)
     if (leadMagnet) {
-      const senderEmail = import.meta.env.BREVO_SENDER_EMAIL || 'contact@musique-facile.fr';
-      const senderName = import.meta.env.BREVO_SENDER_NAME || 'Fred Fieffé · Musique Facile';
-      const baseUrl = import.meta.env.PUBLIC_SITE_URL || 'https://musique-facile.fr';
+      const senderEmail = process.env.BREVO_SENDER_EMAIL || 'contact@musique-facile.fr';
+      const senderName = process.env.BREVO_SENDER_NAME || 'Fred Fieffé · Musique Facile';
+      const baseUrl = process.env.PUBLIC_SITE_URL || 'https://musique-facile.fr';
       const emailRes = await sendLeadMagnetEmail({
         email,
         leadMagnet,

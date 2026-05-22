@@ -95,11 +95,11 @@ const catalog: Record<string, LeadMagnetMeta> = {
 
 export const prerender = false;
 
-const { slug } = Astro.params;
-const lm = slug && catalog[slug];
+const slug = Astro.params.slug;
+const lm = slug && typeof slug === 'string' ? catalog[slug] : undefined;
 
 if (!lm) {
-  return Astro.redirect('/404');
+  return new Response('Lead magnet introuvable', { status: 404 });
 }
 
 const title = `${lm.title} — Guide gratuit | Musique Facile`;
