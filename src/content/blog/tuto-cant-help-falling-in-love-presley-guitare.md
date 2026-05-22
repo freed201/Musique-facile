@@ -40,6 +40,7 @@ conclusion: |
   </div>  
   Si tu ne l’as jamais appris, c’est le moment idéal pour ajouter ce classique à ton répertoire et partager un peu de rêve à chaque accord.
 
+instrument: "guitare"
 ---
 
 ## **Elvis Presley : L’icône intemporelle du rock’n’roll**

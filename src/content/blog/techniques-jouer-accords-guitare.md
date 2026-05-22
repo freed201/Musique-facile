@@ -14,6 +14,7 @@ datePublished: "2025-04-04"
 dateModified: "2026-02-04"
 meta: "📢 Découvrez les meilleures techniques pour enchaîner les accords sans effort 🎶. Astuces et exercices pratiques pour fluidifier votre jeu et progresser rapidement !"
 keywords: "techniques accords guitare, exercices accords guitare, changer d’accords rapidement, fluidité accords guitare, enchaînements accords guitare, apprendre à jouer les accords"
+instrument: "guitare"
 
 ---
 <div style="display:grid; grid-template-columns:1fr; gap:10px; max-width:500px; margin:auto;">

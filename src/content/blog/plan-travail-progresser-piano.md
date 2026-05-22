@@ -18,6 +18,7 @@ dateModified: "2026-02-04"
 
 meta: "Découvre un plan de travail efficace pour progresser rapidement au piano. Exercices, organisation des séances et conseils pour apprendre plus vite et mieux."
 keywords: "progresser rapidement au piano,plan de travail piano,routine piano débutant,exercices piano efficace,organisation pratique piano"
+instrument: "piano"
 
 ---
 <!-- HTML -->

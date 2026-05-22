@@ -13,6 +13,7 @@ conclusion: |
    En gros, l’essentiel, c’est de choisir un ukulélé qui vous plaît et avec lequel vous avez envie de jouer, tout simplement. Regardez la taille, le bois, l’accordage, mais au final, c’est le feeling qui compte. Et si vous hésitez, le mieux, c’est d’en essayer plusieurs pour voir celui qui vous va le mieux !
 meta: "Découvrez comment choisir le bon ukulélé selon sa taille, son bois et son accordage pour un apprentissage facile et agréable."
 keywords: "choisir ukulélé, taille ukulélé, soprano vs ténor, bois massif ou stratifié, accordage ukulélé, meilleur ukulélé débutant"
+instrument: "ukulele"
 ---
 
 

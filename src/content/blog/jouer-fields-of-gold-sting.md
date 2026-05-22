@@ -41,6 +41,7 @@ relatedLinks:
   - title: "Wild World - Cat Stevens"
     url: "/blog/apprendre-wild-world-guitare"
     description: "Un classique folk des années 70."
+instrument: "guitare"
 ---
 ### Fields of Gold : Un Voyage Musical avec Sting 
 

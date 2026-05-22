@@ -43,7 +43,8 @@ relatedLinks:
   - title: "Fields of Gold - Sting"
     url: "/blog/jouer-fields-of-gold-sting"
     description: "Une ballade folk-pop délicate et poétique."
-    
+instrument: "guitare"
+
 ---
 
 ## À la Découverte du Groupe Extreme

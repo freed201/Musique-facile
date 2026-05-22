@@ -47,6 +47,7 @@ relatedLinks:
   - title: "Un Autre Monde - Téléphone"
     url: "/blog/apprendre-un-autre-monde-guitare"
     description: "Le rock français engagé des années 80."
+instrument: "guitare"
 ---
 
 ## Mickey 3D : Entre Engagement et Créativité

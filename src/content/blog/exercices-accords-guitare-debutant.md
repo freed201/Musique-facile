@@ -14,6 +14,7 @@ datePublished: "2025-04-04"
 dateModified: "2026-02-04"
 meta: "📢 Améliorez votre fluidité et enchaînez les accords plus vite 🎵. Découvrez des exercices simples et efficaces pour progresser rapidement !"
 keywords: "exercices accords guitare, progresser à la guitare, entraînement guitare débutant, changements d’accords rapide, apprendre accords guitare, exercices transition accords"
+instrument: "guitare"
 
 ---
 <div style="display:grid; grid-template-columns:1fr; gap:10px; max-width:500px; margin:auto;">

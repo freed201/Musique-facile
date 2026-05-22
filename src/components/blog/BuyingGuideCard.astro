@@ -1,0 +1,211 @@
+---
+/**
+ * BuyingGuideCard.astro — Pont contextuel vers le guide d'achat de l'instrument.
+ * S'affiche après le 1er H2 d'un article (injection JS côté client).
+ * Marqué data-nosnippet pour distinguer du contenu pédagogique (GEO).
+ */
+interface Props {
+  instrument: 'guitare' | 'piano' | 'ukulele';
+}
+
+const { instrument } = Astro.props;
+
+const guideMap: Record<Props['instrument'], {
+  url: string;
+  emoji: string;
+  label: string;
+  pitch: string;
+  cta: string;
+  theme: string;
+}> = {
+  guitare: {
+    url: '/blog/quelle-guitare-folk-acheter-guide-comparatif-debutant',
+    emoji: '🎸',
+    label: 'Tu n\'as pas encore ta guitare ?',
+    pitch: 'On a testé les meilleures guitares folk de 60 à 3 000 € : Yamaha, Fender, Harley Benton, Eastman... Le guide est honnête, sans chichis.',
+    cta: 'Voir le guide d\'achat guitare',
+    theme: 'guitar',
+  },
+  piano: {
+    url: '/blog/quel-piano-numerique-acheter-guide-comparatif-debutant',
+    emoji: '🎹',
+    label: 'Tu cherches encore ton piano ?',
+    pitch: 'On a comparé les meilleurs pianos numériques de 150 à 5 000 € : Casio, Roland, Yamaha, Kawai. 20 ans de tests réels, recos par budget.',
+    cta: 'Voir le guide d\'achat piano',
+    theme: 'piano',
+  },
+  ukulele: {
+    url: '/blog/quel-ukulele-acheter-guide-comparatif-debutant',
+    emoji: '🌺',
+    label: 'Pas encore d\'ukulélé ?',
+    pitch: 'On a passé au crible les meilleurs ukulélés de 15 à 500 € : Flight, Kala, Enya, Cascha. Soprano, concert, bois ou composite — on te guide.',
+    cta: 'Voir le guide d\'achat ukulélé',
+    theme: 'ukulele',
+  },
+};
+
+const data = guideMap[instrument];
+---
+
+<aside
+  class={`buying-guide-card theme-bgc-${data.theme}`}
+  data-buying-guide-card
+  role="complementary"
+  aria-label="Guide d'achat de l'instrument"
+  data-nosnippet
+>
+  <span class="bgc__tag">Conseil matériel</span>
+  <div class="bgc__inner">
+    <div class="bgc__icon" aria-hidden="true">{data.emoji}</div>
+    <div class="bgc__text">
+      <p class="bgc__label">{data.label}</p>
+      <p class="bgc__pitch">{data.pitch}</p>
+    </div>
+    <a href={data.url} class="bgc__btn">
+      {data.cta}
+      <span class="bgc__arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
+  <p class="bgc__legal">Certains liens du guide sont affiliés. Cela ne change rien à ton prix.</p>
+</aside>
+
+<style>
+  .buying-guide-card {
+    position: relative;
+    margin: 2.5rem 0;
+    padding: 1.5rem 1.75rem 1.25rem;
+    border-radius: var(--border-radius, 12px);
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, rgba(250, 250, 250, 0.95) 0%, #ffffff 100%);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+
+  .theme-bgc-guitar {
+    border-color: rgba(231, 76, 60, 0.3);
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.06) 0%, #ffffff 100%);
+  }
+  .theme-bgc-piano {
+    border-color: rgba(52, 152, 219, 0.3);
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.06) 0%, #ffffff 100%);
+  }
+  .theme-bgc-ukulele {
+    border-color: rgba(46, 204, 113, 0.3);
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.06) 0%, #ffffff 100%);
+  }
+
+  .bgc__tag {
+    position: absolute;
+    top: -0.65rem;
+    left: 1.25rem;
+    background: #fff;
+    padding: 0.15rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+  }
+
+  .bgc__inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .bgc__icon {
+    font-size: 2.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .bgc__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .bgc__label {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-dark, #1a1a2e);
+    line-height: 1.3;
+  }
+
+  .bgc__pitch {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .bgc__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #fff;
+  }
+
+  .theme-bgc-guitar .bgc__btn {
+    background: var(--theme-guitar, #e74c3c);
+  }
+  .theme-bgc-piano .bgc__btn {
+    background: var(--theme-piano, #3498db);
+  }
+  .theme-bgc-ukulele .bgc__btn {
+    background: var(--theme-ukulele, #2ecc71);
+  }
+
+  .bgc__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  }
+
+  .bgc__btn:hover .bgc__arrow {
+    transform: translateX(3px);
+  }
+
+  .bgc__arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+
+  .bgc__legal {
+    margin: 0.85rem 0 0;
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.45);
+    text-align: center;
+    font-style: italic;
+  }
+
+  @media (max-width: 720px) {
+    .buying-guide-card {
+      padding: 1.25rem 1rem 1rem;
+      margin: 2rem 0;
+    }
+
+    .bgc__inner {
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      text-align: center;
+    }
+
+    .bgc__icon {
+      margin: 0 auto;
+    }
+
+    .bgc__btn {
+      justify-self: center;
+      padding: 0.85rem 1.5rem;
+    }
+  }
+</style>

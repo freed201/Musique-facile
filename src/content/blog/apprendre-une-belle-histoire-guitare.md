@@ -48,6 +48,7 @@ relatedLinks:
   - title: "La Seine - Vanessa Paradis & -M-"
     url: "/blog/jouer-la-seine-vanessa-m"
     description: "Une ballade française poétique et romantique."
+instrument: "guitare"
 ---
 
 ## La Magie de Michel Fugain : Un Voyage Musical avec "Une Belle Histoire"

@@ -1,0 +1,2636 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Les 4 Accords du Bonheur — Ukulélé · Musique Facile</title>
+<meta name="description" content="Joue 30 chansons cultes à l'ukulélé en moins d'une semaine. Le guide gratuit de Fred Fieffé.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900;9..144,400..900,0..100,0..1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-paper:#FFF8EF;           /* base pêche très clair (plus chaud que crème) */
+  --color-paper-warm:#FFEFD9;      /* pêche tendre pour cards/encadrés */
+  --color-paper-deep:#FED7AA;      /* pêche prononcé pour séparateurs */
+  --color-ink:#1F1813;
+  --color-ink-soft:#4A3F36;
+  --color-ink-muted:#8B7D6F;
+  --color-accent:#EA580C;          /* orange vif coucher de soleil */
+  --color-accent-deep:#C2410C;     /* orange brûlé profond */
+  --color-accent-soft:#FED7AA;     /* pêche tendre, fond astuce */
+  --color-saffron:#F59E0B;         /* jaune soleil chaud */
+  --color-saffron-soft:#FEF3C7;    /* citron tendre, fond histoire */
+  --color-sage:#16A34A;            /* vert tropical saturé */
+  --color-sage-soft:#BBF7D0;       /* vert menthe, fond test */
+  --color-indigo:#0891B2;          /* turquoise lagon */
+  --color-indigo-soft:#A5F3FC;     /* cyan clair, fond erreur */
+  --color-coral:#FB7185;           /* corail rose pour pop */
+  --color-coral-soft:#FECDD3;      /* corail tendre */
+
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'DM Sans','Inter',system-ui,sans-serif;
+  --font-handwritten:'Caveat',cursive;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+
+  --text-hero:64px;
+  --text-h1:40px;
+  --text-h2:28px;
+  --text-h3:20px;
+  --text-lead:18px;
+  --text-body:16px;
+  --text-small:14px;
+  --text-meta:12px;
+
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
+  --space-5:24px; --space-6:32px; --space-7:48px; --space-8:64px;
+  --space-9:96px; --space-10:128px;
+
+  --page-w:210mm;
+  --page-h:297mm;
+  --page-mx-out:20mm;
+  --page-mx-in:20mm;
+  --page-my-top:18mm;
+  --page-my-bot:25mm;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html{
+  -webkit-print-color-adjust:exact !important;
+  print-color-adjust:exact !important;
+  font-size:16px;
+}
+
+body{
+  font-family:var(--font-body);
+  color:var(--color-ink);
+  background:#E8E0D0;
+  line-height:1.65;
+  font-feature-settings:"liga","kern","ss01";
+  text-rendering:optimizeLegibility;
+}
+
+/* ============ PAGE LAYOUT ============ */
+.guide{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8mm;
+  padding:8mm 0;
+}
+
+.page{
+  width:var(--page-w);
+  min-height:var(--page-h);
+  background:var(--color-paper);
+  position:relative;
+  padding:var(--page-my-top) var(--page-mx-out) var(--page-my-bot);
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+/* Header + footer (pages 2 à 14) */
+.page-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:var(--font-body);
+  font-size:10px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--color-ink-muted);
+  padding-bottom:3mm;
+  border-bottom:0.5pt solid var(--color-accent);
+  margin-bottom:6mm;
+}
+
+.page-head .brand-mark{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-weight:600;
+  color:var(--color-ink);
+}
+
+.page-head .brand-dot{
+  width:8px;height:8px;border-radius:1px;background:var(--color-accent);
+}
+
+.page-foot{
+  margin-top:auto;
+  margin-left:calc(-1 * var(--page-mx-out));
+  margin-right:calc(-1 * var(--page-mx-out));
+  padding:8mm var(--page-mx-out) 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  font-family:var(--font-body);
+  font-size:10px;
+  color:var(--color-ink-muted);
+  background:var(--color-paper);
+}
+
+.page-foot .pagenum{
+  font-family:var(--font-mono);
+  font-size:11pt;
+  color:var(--color-ink-soft);
+  font-feature-settings:"tnum";
+}
+
+.page-foot .pagenum strong{
+  color:var(--color-accent);
+  font-weight:600;
+}
+
+/* ============ TYPO BASE ============ */
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  color:var(--color-ink);
+  font-feature-settings:"liga","kern","ss01";
+}
+
+p{
+  font-family:var(--font-body);
+  font-size:var(--text-body);
+  line-height:1.65;
+  color:var(--color-ink-soft);
+  margin-bottom:var(--space-4);
+}
+
+p:last-child{margin-bottom:0}
+
+strong{
+  font-weight:600;
+  color:var(--color-ink);
+}
+
+em{font-style:italic;color:var(--color-ink-soft)}
+
+a{
+  color:var(--color-accent);
+  text-decoration:none;
+  border-bottom:1.5px solid var(--color-accent);
+  padding-bottom:1px;
+}
+
+/* ============ ICONS ============ */
+.ico{
+  width:18px;height:18px;display:inline-block;vertical-align:-3px;
+  stroke:currentColor;fill:none;stroke-width:1.5;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+
+/* ============ COVER (p.1) ============ */
+.page-cover{
+  background:linear-gradient(135deg, var(--color-paper) 0%, #FFF5E8 100%);
+  display:flex;
+  flex-direction:column;
+  padding:30mm 25mm;
+}
+
+.cover-tag{
+  font-family:var(--font-body);
+  font-size:11px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  font-weight:600;
+  margin-bottom:42mm;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.cover-sun{
+  position:absolute;
+  top:35mm;
+  right:55mm;
+  width:42mm;
+  height:42mm;
+  z-index:1;
+  pointer-events:none;
+}
+
+.cover-tag::after{
+  content:"";
+  flex:1;
+  height:1pt;
+  background:var(--color-accent);
+  opacity:0.6;
+}
+
+.cover-title{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 144,"SOFT" 50;
+  font-weight:800;
+  font-size:78pt;
+  line-height:0.95;
+  color:var(--color-ink);
+  letter-spacing:-0.025em;
+  margin-bottom:8mm;
+  max-width:155mm;
+}
+
+.cover-title em{
+  font-style:italic;
+  font-weight:800;
+  background:linear-gradient(95deg, var(--color-accent) 0%, var(--color-saffron) 70%, var(--color-accent) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+}
+
+.cover-rule{
+  width:60mm;
+  height:2pt;
+  background:var(--color-accent);
+  margin-bottom:8mm;
+}
+
+.cover-subtitle{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36,"WONK" 1;
+  font-weight:400;
+  font-style:italic;
+  font-size:22pt;
+  line-height:1.3;
+  color:var(--color-ink-soft);
+  max-width:140mm;
+  margin-bottom:7mm;
+}
+
+.cover-subtitle em{
+  font-family:var(--font-handwritten);
+  font-style:normal;
+  font-weight:700;
+  font-size:30pt;
+  color:var(--color-coral);
+  display:inline-block;
+  transform:rotate(-3deg) translateY(2px);
+}
+
+.cover-tagline{
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:14pt;
+  color:var(--color-ink);
+  line-height:1.4;
+  max-width:120mm;
+}
+
+.cover-authority{
+  margin-top:auto;
+  display:flex;
+  flex-direction:column;
+  gap:6mm;
+}
+
+.cover-markers{
+  display:flex;
+  gap:4mm;
+  flex-wrap:wrap;
+  font-family:var(--font-body);
+  font-size:10pt;
+  color:var(--color-ink);
+  align-items:center;
+}
+
+.cover-markers span:not(.dot){
+  font-weight:500;
+}
+
+.cover-markers .dot{
+  width:4px;height:4px;border-radius:50%;background:var(--color-accent);
+}
+
+.cover-sign{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:13pt;
+  color:var(--color-ink);
+  font-weight:600;
+}
+
+.cover-sign small{
+  display:block;
+  font-family:var(--font-body);
+  font-style:normal;
+  font-weight:400;
+  font-size:10pt;
+  color:var(--color-ink-muted);
+  margin-top:1mm;
+  letter-spacing:0.05em;
+}
+
+/* Numéro signature 4 ukulélé : gros, visible, ancré en bas-droite */
+.giant-5{
+  position:absolute;
+  bottom:18mm;
+  right:8mm;
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1;
+  font-weight:800;
+  font-size:280pt;
+  line-height:0.8;
+  color:transparent;
+  -webkit-text-stroke:2.5px var(--color-accent);
+  letter-spacing:-0.05em;
+  pointer-events:none;
+  user-select:none;
+  opacity:0.55;
+}
+
+/* Mini guitare manche en SVG */
+.cover-fretboard{
+  position:absolute;
+  top:60mm;
+  right:14mm;
+  width:24mm;
+  height:160mm;
+  opacity:0.85;
+  z-index:1;
+}
+
+/* ============ PAGE 2 — PROMESSE ============ */
+.page-promesse h1{
+  font-variation-settings:"opsz" 72;
+  font-size:36pt;
+  font-weight:700;
+  line-height:1.1;
+  letter-spacing:-0.015em;
+  margin-bottom:5mm;
+  max-width:160mm;
+}
+
+.lead{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-style:italic;
+  font-size:15pt;
+  line-height:1.45;
+  color:var(--color-ink-soft);
+  max-width:155mm;
+  margin-bottom:8mm;
+  position:relative;
+  padding-left:4mm;
+  border-left:3px solid var(--color-saffron);
+}
+
+.body-text p{margin-bottom:var(--space-4)}
+
+/* Pull quote géant — version manuscrite fun */
+.pullquote-mega{
+  text-align:center;
+  margin:8mm 0;
+  font-family:var(--font-handwritten);
+  font-weight:700;
+  font-size:84pt;
+  line-height:1;
+  color:var(--color-accent);
+  letter-spacing:-0.01em;
+  transform:rotate(-2deg);
+}
+
+.pullquote-mega::before{content:"« "}
+.pullquote-mega::after{content:" »"}
+
+/* Encadrés */
+.callout{
+  background:var(--color-paper-warm);
+  border-left:3px solid var(--color-ink);
+  padding:5mm 6mm 5mm 7mm;
+  margin:4mm 0;
+  break-inside:avoid;
+  page-break-inside:avoid;
+  position:relative;
+}
+
+.callout-head{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-body);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  margin-bottom:3mm;
+  color:var(--color-ink);
+}
+
+.callout-head .ico{width:14px;height:14px;vertical-align:0}
+
+.callout-title{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 24;
+  font-size:14pt;
+  font-weight:600;
+  margin-bottom:2mm;
+  color:var(--color-ink);
+  line-height:1.25;
+}
+
+.callout p{
+  font-size:11.5pt;
+  line-height:1.55;
+  margin-bottom:1.5mm;
+  color:var(--color-ink-soft);
+}
+
+.callout p:last-child{margin-bottom:0}
+
+.callout--astuce{
+  background:var(--color-accent-soft);
+  border-left-color:var(--color-accent);
+}
+.callout--astuce .callout-head{color:var(--color-accent-deep)}
+
+.callout--histoire{
+  background:var(--color-saffron-soft);
+  border-left-color:var(--color-saffron);
+}
+.callout--histoire .callout-head{color:#7B5320}
+
+.callout--test{
+  background:var(--color-sage-soft);
+  border-left-color:var(--color-sage);
+}
+.callout--test .callout-head{color:#3F5232}
+
+.callout--erreur{
+  background:var(--color-indigo-soft);
+  border-left-color:var(--color-indigo);
+}
+.callout--erreur .callout-head{color:var(--color-indigo)}
+
+.callout--promesse{
+  background:var(--color-ink);
+  border-left-color:var(--color-accent);
+  color:var(--color-paper);
+}
+.callout--promesse .callout-head{color:var(--color-paper)}
+.callout--promesse .callout-title{color:var(--color-paper)}
+.callout--promesse p{color:var(--color-paper-warm)}
+.callout--promesse p strong{color:var(--color-paper)}
+.callout--promesse em{color:#F8C9B5}
+
+.callout-list{
+  list-style:none;
+  margin-top:2mm;
+}
+.callout-list li{
+  font-family:var(--font-body);
+  font-size:11.5pt;
+  line-height:1.55;
+  padding-left:6mm;
+  position:relative;
+  margin-bottom:1.2mm;
+  color:var(--color-ink-soft);
+}
+.callout-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:8px;
+  width:10px;
+  height:1.5px;
+  background:currentColor;
+}
+.callout--test .callout-list li::before{
+  content:"✓";
+  background:none;
+  color:var(--color-sage);
+  top:0;
+  font-weight:700;
+  font-size:13pt;
+  width:auto;
+}
+
+.pochette-strip{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:4mm;
+  margin-top:8mm;
+  padding-top:6mm;
+  border-top:1pt solid var(--color-paper-deep);
+}
+
+.pochette{
+  aspect-ratio:1.6/1;
+  background:var(--color-accent);
+  color:var(--color-paper);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:1.5mm 2mm;
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 18;
+  font-size:7pt;
+  font-weight:600;
+  line-height:1.15;
+  border-radius:3px;
+  position:relative;
+  overflow:hidden;
+}
+
+.pochette-strip .pochette:nth-child(1){background:var(--color-accent)}
+.pochette-strip .pochette:nth-child(2){background:var(--color-saffron)}
+.pochette-strip .pochette:nth-child(3){background:var(--color-coral)}
+.pochette-strip .pochette:nth-child(4){background:var(--color-sage)}
+.pochette-strip .pochette:nth-child(5){background:var(--color-indigo)}
+.pochette-strip .pochette:nth-child(6){background:var(--color-accent-deep)}
+
+.pochette::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(250,246,238,0.06) 0,
+      rgba(250,246,238,0.06) 2px,
+      transparent 2px,
+      transparent 4px);
+}
+
+.pochette-name{font-style:italic;font-weight:500;font-size:6.5pt;opacity:0.85;margin-top:1mm}
+
+/* ============ PAGES 3-7 : ACCORDS ============ */
+.page-chord{
+  display:flex;
+  flex-direction:column;
+}
+
+.chord-meta{
+  font-family:var(--font-body);
+  font-size:10px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  font-weight:600;
+  margin-bottom:2mm;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.chord-meta::after{
+  content:"";
+  flex:1;
+  height:0.5pt;
+  background:var(--color-paper-deep);
+  margin-left:6px;
+}
+
+.chord-title{
+  font-variation-settings:"opsz" 72;
+  font-size:42pt;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  line-height:1.05;
+  margin-bottom:3mm;
+}
+
+.chord-title small{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-size:18pt;
+  font-weight:400;
+  font-style:italic;
+  color:var(--color-ink-muted);
+  display:block;
+  letter-spacing:0;
+  margin-top:2mm;
+}
+
+.chord-lead{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:13pt;
+  color:var(--color-ink-soft);
+  margin-bottom:6mm;
+  max-width:140mm;
+}
+
+.chord-body{
+  display:grid;
+  grid-template-columns:80mm 1fr;
+  gap:8mm;
+  margin-bottom:6mm;
+}
+
+.chord-svg-wrap{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:6mm 4mm 5mm;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  break-inside:avoid;
+}
+
+.chord-svg{width:100%;height:auto;max-height:78mm}
+
+.chord-desc h3{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 24;
+  font-size:13pt;
+  font-weight:600;
+  color:var(--color-ink);
+  margin-bottom:2.5mm;
+}
+
+.chord-desc p{
+  font-size:11pt;
+  line-height:1.55;
+  margin-bottom:2mm;
+}
+
+.chord-desc ol{
+  counter-reset:step;
+  list-style:none;
+  padding-left:0;
+  margin:2mm 0;
+}
+
+.chord-desc ol li{
+  font-family:var(--font-body);
+  font-size:11pt;
+  line-height:1.55;
+  padding-left:10mm;
+  position:relative;
+  margin-bottom:1.8mm;
+  color:var(--color-ink-soft);
+  counter-increment:step;
+}
+
+.chord-desc ol li::before{
+  content:counter(step);
+  position:absolute;
+  left:0;
+  top:0;
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 24;
+  font-size:14pt;
+  font-weight:700;
+  color:var(--color-accent);
+  width:6mm;
+}
+
+/* Numéro outline géant en coin sup. droit */
+.chord-numeral{
+  position:absolute;
+  top:24mm;
+  right:-2mm;
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 144,"SOFT" 80;
+  font-weight:800;
+  font-size:200pt;
+  line-height:0.8;
+  color:transparent;
+  -webkit-text-stroke:1.5px var(--color-accent);
+  letter-spacing:-0.05em;
+  z-index:0;
+  pointer-events:none;
+  user-select:none;
+  opacity:0.55;
+}
+
+.chord-stack{
+  display:flex;
+  flex-direction:column;
+  gap:4mm;
+  position:relative;
+  z-index:1;
+}
+
+/* ============ PAGE 8 : CYCLE ============ */
+.page-cycle h1{
+  font-variation-settings:"opsz" 72;
+  font-size:34pt;
+  font-weight:700;
+  letter-spacing:-0.015em;
+  line-height:1.1;
+  margin-bottom:4mm;
+  max-width:155mm;
+}
+
+.cycle-canvas{
+  position:relative;
+  width:100%;
+  height:130mm;
+  margin:3mm 0;
+}
+
+.cycle-svg{width:100%;height:100%}
+
+.cycle-center{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  padding:2mm 3mm;
+  max-width:30mm;
+  z-index:2;
+  pointer-events:none;
+}
+
+.cycle-center-meta{
+  font-family:var(--font-body);
+  font-size:8px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  font-weight:600;
+  margin-bottom:1mm;
+}
+
+.cycle-center-title{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-style:italic;
+  font-size:9pt;
+  line-height:1.15;
+  color:var(--color-ink);
+}
+
+.cycle-center-title strong{
+  font-style:normal;
+  color:var(--color-accent);
+  font-weight:700;
+  display:block;
+  font-size:18pt;
+  margin-top:0.5mm;
+  line-height:1;
+}
+
+/* ============ PAGE 9 : 3 ENCHAÎNEMENTS ============ */
+.progressions-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:5mm;
+  margin:5mm 0 6mm;
+}
+
+.progression-card{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:5mm 6mm;
+  display:grid;
+  grid-template-columns:55mm 1fr;
+  gap:6mm;
+  align-items:center;
+  break-inside:avoid;
+}
+
+.progression-mini{
+  display:flex;
+  align-items:center;
+  gap:3mm;
+}
+
+.progression-chord-mini{
+  width:14mm;
+  height:18mm;
+  background:var(--color-paper);
+  border:0.5pt solid var(--color-paper-deep);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-size:16pt;
+  font-weight:700;
+  color:var(--color-accent);
+  position:relative;
+}
+
+.progression-arrow{
+  font-family:var(--font-mono);
+  font-size:14pt;
+  color:var(--color-accent);
+  font-weight:600;
+}
+
+.progression-card h3{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-size:16pt;
+  font-weight:700;
+  color:var(--color-ink);
+  margin-bottom:1.5mm;
+  letter-spacing:-0.01em;
+}
+
+.progression-card p{
+  font-size:10.5pt;
+  line-height:1.5;
+  margin-bottom:1.5mm;
+}
+
+.progression-card p strong{color:var(--color-accent)}
+
+/* ============ PAGE 10 : RYTHMIQUE ============ */
+.rythm-block{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:8mm 10mm;
+  margin:4mm 0 6mm;
+  font-family:var(--font-mono);
+  break-inside:avoid;
+}
+
+.rythm-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:13pt;
+  margin-bottom:3mm;
+}
+
+.rythm-row span{
+  font-family:var(--font-mono);
+  width:14mm;
+  text-align:center;
+}
+
+.rythm-counts{
+  color:var(--color-ink-muted);
+  font-size:11pt;
+}
+
+.rythm-arrows{
+  color:var(--color-accent);
+  font-size:24pt;
+  font-weight:600;
+  line-height:1;
+}
+
+.rythm-letters{
+  color:var(--color-ink);
+  font-weight:600;
+}
+
+.rythm-legend{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:2mm 8mm;
+  font-family:var(--font-body);
+  font-size:10.5pt;
+  margin-top:4mm;
+  padding-top:4mm;
+  border-top:0.5pt solid var(--color-paper-deep);
+}
+
+.rythm-legend strong{
+  font-family:var(--font-mono);
+  color:var(--color-accent);
+  margin-right:4px;
+}
+
+/* ============ PAGES 11-12 : 100 CHANSONS ============ */
+.songs-banner{
+  background:var(--color-ink);
+  color:var(--color-paper);
+  padding:5mm 6mm;
+  margin-bottom:6mm;
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-style:italic;
+  font-size:13pt;
+  line-height:1.4;
+  text-align:center;
+}
+
+.songs-banner strong{
+  color:var(--color-accent-soft);
+  font-style:normal;
+  font-weight:600;
+}
+
+.songs-progression{
+  margin-bottom:6mm;
+  break-inside:avoid;
+}
+
+.songs-progression-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:3mm;
+  padding-bottom:2mm;
+  border-bottom:1pt solid var(--color-accent);
+}
+
+.songs-progression-head h2{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-size:18pt;
+  font-weight:700;
+  color:var(--color-ink);
+  letter-spacing:-0.015em;
+}
+
+.songs-progression-head h2 .progression-formula{
+  font-family:var(--font-mono);
+  font-size:13pt;
+  font-weight:600;
+  color:var(--color-accent);
+  margin-left:6mm;
+  letter-spacing:0.05em;
+}
+
+.songs-progression-head .songs-sub{
+  font-family:var(--font-body);
+  font-size:9.5pt;
+  font-style:italic;
+  color:var(--color-ink-muted);
+}
+
+.songs-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3mm;
+}
+
+.song-card{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:3mm 3.5mm;
+  break-inside:avoid;
+}
+
+.song-title{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 18;
+  font-size:11pt;
+  font-weight:600;
+  font-style:italic;
+  color:var(--color-ink);
+  line-height:1.2;
+  margin-bottom:1mm;
+}
+
+.song-artist{
+  font-family:var(--font-body);
+  font-size:8.5pt;
+  color:var(--color-ink-muted);
+  margin-bottom:2mm;
+  line-height:1.3;
+}
+
+.song-badge{
+  font-family:var(--font-mono);
+  font-size:7.5pt;
+  letter-spacing:0.04em;
+  background:var(--color-accent);
+  color:var(--color-paper);
+  padding:1px 6px;
+  border-radius:999px;
+  display:inline-block;
+  font-weight:500;
+}
+
+/* ============ PAGE 13 : CTA ============ */
+.page-cta h1{
+  font-variation-settings:"opsz" 72;
+  font-size:38pt;
+  font-weight:700;
+  line-height:1.1;
+  letter-spacing:-0.015em;
+  margin-bottom:5mm;
+}
+
+.cta-intro{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-style:italic;
+  font-size:16pt;
+  color:var(--color-ink-soft);
+  margin-bottom:5mm;
+}
+
+.next-steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:4mm;
+  margin:5mm 0 6mm;
+}
+
+.next-step{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:5mm 5mm 6mm;
+  break-inside:avoid;
+}
+
+.next-step-num{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 72;
+  font-size:34pt;
+  font-weight:700;
+  color:transparent;
+  -webkit-text-stroke:1px var(--color-accent);
+  line-height:0.9;
+  margin-bottom:3mm;
+}
+
+.next-step h3{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 24;
+  font-size:14pt;
+  font-weight:700;
+  margin-bottom:2mm;
+  color:var(--color-ink);
+}
+
+.next-step p{
+  font-size:10.5pt;
+  line-height:1.5;
+  margin-bottom:0;
+}
+
+.cta-main{
+  background:var(--color-accent);
+  color:var(--color-paper);
+  padding:8mm 10mm 7mm;
+  margin-top:5mm;
+  break-inside:avoid;
+}
+
+.cta-main-tag{
+  font-family:var(--font-body);
+  font-size:10px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--color-paper-warm);
+  margin-bottom:3mm;
+  display:block;
+}
+
+.cta-main h2{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-size:22pt;
+  font-weight:700;
+  line-height:1.15;
+  color:var(--color-paper);
+  margin-bottom:3mm;
+  letter-spacing:-0.01em;
+}
+
+.cta-main p{
+  font-family:var(--font-body);
+  font-size:11pt;
+  line-height:1.5;
+  color:var(--color-paper-warm);
+  margin-bottom:3mm;
+}
+
+.cta-main p:last-of-type{margin-bottom:5mm}
+
+.cta-main p strong{color:var(--color-paper)}
+
+.cta-link{
+  display:inline-block;
+  background:var(--color-paper);
+  color:var(--color-accent-deep);
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:11pt;
+  padding:3mm 7mm;
+  border:none;
+  text-decoration:none;
+  letter-spacing:0.01em;
+}
+
+.cta-link::after{content:"  →"}
+
+.cta-signature{
+  margin-top:5mm;
+  font-family:var(--font-body);
+  font-size:10pt;
+  color:var(--color-ink-muted);
+  line-height:1.5;
+}
+
+.cta-signature strong{color:var(--color-ink)}
+
+/* ============ PAGE 14 : CARTE DE POCHE ============ */
+.page-pocket{
+  background:var(--color-paper);
+}
+
+.pocket-head{
+  text-align:center;
+  margin-bottom:5mm;
+  padding-bottom:4mm;
+  border-bottom:0.5pt solid var(--color-paper-deep);
+}
+
+.pocket-head h1{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 60;
+  font-size:28pt;
+  font-weight:700;
+  letter-spacing:-0.015em;
+  margin-bottom:2mm;
+}
+
+.pocket-head p{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:12pt;
+  color:var(--color-ink-soft);
+}
+
+.pocket-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3mm;
+  margin-bottom:5mm;
+}
+
+.pocket-cell{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:3mm 2mm 2mm;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  break-inside:avoid;
+}
+
+.pocket-cell svg{width:100%;height:55mm}
+
+.pocket-cell-cycle{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--color-ink);
+  border-color:var(--color-ink);
+}
+
+.pocket-cell-cycle svg{width:100%;height:auto;max-height:55mm}
+
+.pocket-bottom{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5mm;
+}
+
+.pocket-rythm,.pocket-progressions{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:4mm 5mm;
+  break-inside:avoid;
+}
+
+.pocket-rythm h3,.pocket-progressions h3{
+  font-family:var(--font-body);
+  font-size:10px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  font-weight:700;
+  margin-bottom:3mm;
+  padding-bottom:2mm;
+  border-bottom:0.5pt solid var(--color-paper-deep);
+}
+
+.pocket-rythm-line{
+  font-family:var(--font-mono);
+  font-size:11pt;
+  line-height:1.5;
+  color:var(--color-ink);
+}
+
+.pocket-rythm-line span{color:var(--color-accent);font-weight:600}
+
+.pocket-progressions ul{
+  list-style:none;
+}
+
+.pocket-progressions li{
+  font-family:var(--font-mono);
+  font-size:10pt;
+  color:var(--color-ink-soft);
+  margin-bottom:1.5mm;
+}
+
+.pocket-progressions li::before{
+  content:"→ ";
+  color:var(--color-accent);
+  font-weight:600;
+}
+
+/* ============ PAGE 15 : 4E COUV ============ */
+.page-back{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:30mm 25mm;
+  position:relative;
+}
+
+.page-back .giant-5{
+  bottom:auto;
+  top:18mm;
+  right:auto;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:240pt;
+  opacity:0.5;
+}
+
+.back-quote{
+  text-align:center;
+  margin:auto 0;
+  max-width:140mm;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.back-quote blockquote{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 60;
+  font-style:italic;
+  font-size:26pt;
+  line-height:1.3;
+  color:var(--color-ink);
+  letter-spacing:-0.015em;
+  position:relative;
+}
+
+.back-quote blockquote::before{
+  content:"\201C";
+  display:block;
+  font-size:72pt;
+  color:var(--color-accent);
+  line-height:0.5;
+  margin-bottom:5mm;
+  font-weight:800;
+}
+
+.back-quote cite{
+  display:block;
+  margin-top:5mm;
+  font-family:var(--font-body);
+  font-size:11pt;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  font-style:normal;
+  color:var(--color-ink-muted);
+  font-weight:500;
+}
+
+.back-quote cite::before{content:"— "}
+
+.back-signature{
+  border-top:1pt solid var(--color-accent);
+  padding-top:6mm;
+}
+
+.back-bio{
+  display:grid;
+  grid-template-columns:30mm 1fr;
+  gap:6mm;
+  align-items:start;
+  margin-bottom:6mm;
+}
+
+.back-avatar{
+  width:30mm;
+  height:30mm;
+  background:var(--color-accent);
+  color:var(--color-paper);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 60;
+  font-size:32pt;
+  font-weight:800;
+  font-style:italic;
+  letter-spacing:-0.04em;
+}
+
+.back-bio-text h3{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-size:18pt;
+  font-weight:700;
+  margin-bottom:1mm;
+}
+
+.back-bio-text p{
+  font-size:10.5pt;
+  line-height:1.55;
+  margin-bottom:2mm;
+}
+
+.back-bio-text .markers{
+  display:flex;
+  gap:4mm;
+  flex-wrap:wrap;
+  font-size:9.5pt;
+  color:var(--color-ink-muted);
+  font-weight:500;
+}
+
+.back-bio-text .markers strong{
+  color:var(--color-ink);
+  font-weight:600;
+}
+
+.back-links{
+  display:flex;
+  gap:6mm;
+  font-family:var(--font-body);
+  font-size:10pt;
+  font-weight:500;
+  flex-wrap:wrap;
+}
+
+.back-links a{
+  border:none;
+  padding:0;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+.back-copyright{
+  margin-top:6mm;
+  padding-top:5mm;
+  border-top:0.5pt solid var(--color-paper-deep);
+  font-family:var(--font-body);
+  font-size:9pt;
+  color:var(--color-ink-muted);
+  letter-spacing:0.05em;
+  text-align:center;
+}
+
+/* ============ WEB RESPONSIVE ============ */
+@media screen and (max-width:880px){
+  body{background:var(--color-paper)}
+  .guide{padding:0}
+  .page{
+    width:100%;
+    max-width:760px;
+    height:auto;
+    min-height:auto;
+    padding:24px;
+    box-shadow:none;
+  }
+  .cover-title{font-size:42pt}
+  .giant-5{font-size:200pt;bottom:-5mm;right:-2mm}
+  .chord-numeral{font-size:140pt;top:4mm;right:-2mm}
+  .chord-body{grid-template-columns:1fr}
+  .songs-grid,.next-steps,.pocket-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .progression-card{grid-template-columns:1fr;gap:8px}
+  .pochette-strip{grid-template-columns:repeat(3,1fr)}
+  .pocket-bottom{grid-template-columns:1fr}
+  .back-bio{grid-template-columns:1fr;text-align:center}
+  .back-avatar{margin:0 auto}
+}
+
+/* ============ PRINT ============ */
+@page{
+  size:A4;
+  margin:0;
+}
+
+@media print{
+  html{font-size:14px}
+  html, body{
+    background:none;
+    margin:0;
+    padding:0;
+  }
+  .guide{display:block;padding:0;gap:0;margin:0}
+
+  .page{
+    box-shadow:none;
+    margin:0;
+    width:210mm;
+    min-height:297mm;
+    display:flex;
+    flex-direction:column;
+    page-break-after:always;
+    break-after:page;
+    padding:13mm var(--page-mx-out) 12mm;
+  }
+  .page:last-of-type{page-break-after:auto;break-after:auto}
+
+  /* Compression typographique uniforme pour rentrer dans 297mm */
+  .page h1{font-size:30pt;margin-bottom:3mm}
+  .page-promesse h1, .page-cycle h1, .page-cta h1{font-size:30pt}
+  .lead{font-size:13pt;margin-bottom:5mm}
+  .body-text p, p{margin-bottom:3mm;line-height:1.5}
+  .pullquote-mega{font-size:48pt;margin:5mm 0}
+  .chord-title{font-size:34pt}
+  .chord-title small{font-size:14pt;margin-top:1mm}
+  .chord-lead{font-size:11pt;margin-bottom:4mm}
+
+  /* Callouts compactés */
+  .callout{padding:4mm 5mm;margin:3mm 0}
+  .callout-head{margin-bottom:2mm;font-size:9px}
+  .callout-title{font-size:12pt;margin-bottom:1.5mm}
+  .callout p{font-size:10.5pt;line-height:1.45;margin-bottom:1mm}
+  .callout-list li{font-size:10.5pt;line-height:1.45;margin-bottom:0.8mm}
+
+  /* Cards / encadrés serrés */
+  .chord-body{margin-bottom:4mm;gap:6mm}
+  .chord-svg-wrap{padding:5mm 3mm 4mm}
+  .chord-desc ol li{font-size:10pt;line-height:1.45;margin-bottom:1.2mm}
+  .chord-desc h3{font-size:11.5pt;margin-bottom:2mm}
+  .chord-desc p{font-size:10pt;line-height:1.45}
+
+  .progression-card{padding:3.5mm 5mm;gap:5mm}
+  .progression-card h3{font-size:13pt;margin-bottom:1mm}
+  .progression-card p{font-size:9pt;line-height:1.4;margin-bottom:1mm}
+
+  .next-step{padding:4mm 4mm 5mm}
+  .next-step-num{font-size:28pt;margin-bottom:2mm}
+  .next-step h3{font-size:12.5pt;margin-bottom:1.5mm}
+  .next-step p{font-size:9.5pt;line-height:1.4}
+
+  .cta-main{padding:6mm 8mm 6mm}
+  .cta-main h2{font-size:18pt;margin-bottom:2mm}
+  .cta-main p{font-size:10pt;line-height:1.4;margin-bottom:2mm}
+
+  .song-card{padding:2.5mm 3mm}
+  .song-title{font-size:10pt}
+  .song-artist{font-size:8pt;margin-bottom:1.5mm}
+  .song-badge{font-size:7pt}
+  .songs-grid{gap:2.5mm}
+  .songs-progression{margin-bottom:4mm}
+  .songs-progression-head{margin-bottom:2.5mm;padding-bottom:1.5mm}
+  .songs-progression-head h2{font-size:15pt}
+
+  .rythm-block{padding:5mm 7mm;margin:3mm 0 4mm}
+  .rythm-row{margin-bottom:2mm}
+  .rythm-row span{font-size:11pt}
+  .rythm-arrows{font-size:18pt}
+  .rythm-legend{margin-top:3mm;padding-top:3mm;font-size:9.5pt}
+
+  .pochette-strip{margin-top:6mm;padding-top:4mm;gap:3mm}
+  .pochette{font-size:6.5pt;padding:1.5mm}
+
+  .page-head{margin-bottom:5mm;padding-bottom:2mm}
+
+  /* Ne jamais couper ces blocs entre 2 feuilles */
+  .callout, .chord-svg-wrap, .progression-card, .next-step,
+  .song-card, .pocket-cell, .cta-main, .rythm-block,
+  .back-quote, .cycle-canvas, .pochette-strip, .pullquote-mega{
+    page-break-inside:avoid;
+    break-inside:avoid;
+  }
+  h1,h2,h3,h4{page-break-after:avoid;break-after:avoid}
+
+  .callout,
+  .chord-svg-wrap,
+  .chord-body,
+  .progression-card,
+  .next-step,
+  .song-card,
+  .pocket-cell,
+  .songs-progression,
+  .cta-main,
+  .rythm-block,
+  .back-quote,
+  .back-signature{
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+
+  h1,h2,h3,h4{
+    break-after:avoid;
+    page-break-after:avoid;
+  }
+
+  .giant-5,.chord-numeral{
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ SVG ICONS REUSABLES ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ico-key" viewBox="0 0 24 24">
+      <circle cx="8" cy="14" r="4"/>
+      <path d="M11 11l9-9"/>
+      <path d="M17 5l3 3"/>
+      <path d="M14 8l2 2"/>
+    </symbol>
+    <symbol id="ico-talk" viewBox="0 0 24 24">
+      <path d="M21 12a8 8 0 0 1-8 8H7l-4 3v-3a8 8 0 0 1 8-13 8 8 0 0 1 10 5z"/>
+    </symbol>
+    <symbol id="ico-check" viewBox="0 0 24 24">
+      <path d="M20 6L9 17l-5-5"/>
+    </symbol>
+    <symbol id="ico-alert" viewBox="0 0 24 24">
+      <path d="M12 2L1 21h22L12 2z"/>
+      <line x1="12" y1="9" x2="12" y2="14"/>
+      <line x1="12" y1="17.5" x2="12.01" y2="17.5"/>
+    </symbol>
+    <symbol id="ico-arrow" viewBox="0 0 24 24">
+      <line x1="5" y1="12" x2="19" y2="12"/>
+      <polyline points="13 6 19 12 13 18"/>
+    </symbol>
+    <symbol id="ico-target" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/>
+      <circle cx="12" cy="12" r="5"/>
+      <circle cx="12" cy="12" r="1" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<article class="guide" aria-label="Les 4 Accords du Bonheur">
+
+<!-- =============================================================
+     PAGE 1 — COUVERTURE
+     ============================================================= -->
+<section class="page page-cover" data-page="1">
+  <!-- Soleil décoratif (signature visuelle ukulélé fun) -->
+  <svg class="cover-sun" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="22" fill="var(--color-saffron)"/>
+    <g stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round">
+      <line x1="50" y1="10" x2="50" y2="20"/>
+      <line x1="50" y1="80" x2="50" y2="90"/>
+      <line x1="10" y1="50" x2="20" y2="50"/>
+      <line x1="80" y1="50" x2="90" y2="50"/>
+      <line x1="22" y1="22" x2="29" y2="29"/>
+      <line x1="71" y1="71" x2="78" y2="78"/>
+      <line x1="78" y1="22" x2="71" y2="29"/>
+      <line x1="29" y1="71" x2="22" y2="78"/>
+    </g>
+  </svg>
+
+  <div class="cover-tag">Guide gratuit · Ukulélé</div>
+
+  <h1 class="cover-title">Les <em>4 Accords</em><br>du Bonheur</h1>
+  <div class="cover-rule"></div>
+  <p class="cover-subtitle">Joue <em>30 chansons</em> cultes à l'ukulélé<br>en moins d'une semaine.</p>
+  <p class="cover-tagline">Pas de solfège. Pas de barré.<br>Quatre doigts, c'est tout.</p>
+
+  <div class="cover-authority">
+    <div class="cover-markers">
+      <span>12 ans d'enseignement</span>
+      <span class="dot" aria-hidden="true"></span>
+      <span>Auteur publié chez Hal Leonard</span>
+      <span class="dot" aria-hidden="true"></span>
+      <span>Prix Samuel Paty 2024</span>
+      <span class="dot" aria-hidden="true"></span>
+      <span>80 000+ élèves formés</span>
+    </div>
+    <div class="cover-sign">
+      Fred Fieffé · Musique Facile
+      <small>musique-facile.fr</small>
+    </div>
+  </div>
+
+  <svg class="cover-fretboard" viewBox="0 0 60 400" aria-hidden="true">
+    <!-- Manche ukulélé stylisé : 4 cordes -->
+    <rect x="22" y="0" width="16" height="400" fill="#EA580C" opacity="0.08"/>
+    <line x1="22" y1="0" x2="22" y2="400" stroke="#EA580C" stroke-width="1.5"/>
+    <line x1="38" y1="0" x2="38" y2="400" stroke="#EA580C" stroke-width="1.5"/>
+    <line x1="27.3" y1="0" x2="27.3" y2="400" stroke="#EA580C" stroke-width="0.6" opacity="0.6"/>
+    <line x1="32.7" y1="0" x2="32.7" y2="400" stroke="#EA580C" stroke-width="0.6" opacity="0.6"/>
+    <!-- Frettes horizontales (espacées comme un manche d'uke) -->
+    <g stroke="#EA580C" stroke-width="1" opacity="0.7">
+      <line x1="20" y1="80" x2="40" y2="80"/>
+      <line x1="20" y1="150" x2="40" y2="150"/>
+      <line x1="20" y1="215" x2="40" y2="215"/>
+      <line x1="20" y1="275" x2="40" y2="275"/>
+      <line x1="20" y1="330" x2="40" y2="330"/>
+    </g>
+    <!-- Repères de manche -->
+    <circle cx="30" cy="245" r="2.5" fill="#EA580C" opacity="0.4"/>
+    <circle cx="30" cy="305" r="2.5" fill="#EA580C" opacity="0.4"/>
+    <!-- Sillet épais -->
+    <rect x="20" y="0" width="20" height="3" fill="#EA580C"/>
+    <!-- Têtes de mécaniques stylisées au sommet -->
+    <circle cx="22" cy="-6" r="3" fill="#EA580C" opacity="0.3"/>
+    <circle cx="27" cy="-6" r="3" fill="#EA580C" opacity="0.3"/>
+    <circle cx="33" cy="-6" r="3" fill="#EA580C" opacity="0.3"/>
+    <circle cx="38" cy="-6" r="3" fill="#EA580C" opacity="0.3"/>
+  </svg>
+
+  <div class="giant-5" aria-hidden="true">4</div>
+</section>
+
+<!-- =============================================================
+     PAGE 2 — PROMESSE
+     ============================================================= -->
+<section class="page page-promesse" data-page="2">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Les 4 Accords du Bonheur</span>
+  </div>
+
+  <h1>Pourquoi 4 accords suffisent<br>(et personne ne te l'a vraiment dit)</h1>
+
+  <p class="lead">On t'a probablement vendu l'ukulélé comme un instrument mignon, simple, limité. Un truc de plage et de feux de camp.</p>
+
+  <div class="body-text">
+    <p>C'est vrai pour le côté plage. C'est faux pour la limite. J'enseigne la musique depuis plus de 12 ans, et voici ce que j'observe chez tous les adultes qui veulent s'y mettre&nbsp;:</p>
+
+    <p><strong>L'ukulélé est le seul instrument à cordes où tu joues vraiment dès la première semaine.</strong> Pas de barré qui fait mal. Pas de mois d'exercices techniques. Quatre cordes, quatre doigts, quatre accords — et tu débloques des dizaines de chansons que tout le monde reconnaît.</p>
+
+    <p>Ce guide te donne le raccourci.</p>
+  </div>
+
+  <aside class="callout callout--histoire">
+    <div class="callout-head"><svg class="ico"><use href="#ico-talk"/></svg> Histoire vraie</div>
+    <p><em>« J'ai acheté un ukulélé sur un coup de tête en vacances. Trois jours plus tard, je jouais Somewhere Over the Rainbow autour du feu de camp. Mes amis n'y croyaient pas. »</em></p>
+    <p style="margin-top:2mm;font-size:10pt;color:var(--color-ink-muted)">Témoignage d'une élève adulte, 38 ans, jamais touché un instrument auparavant.</p>
+  </aside>
+
+  <p class="pullquote-mega" aria-hidden="false">En 3 jours.</p>
+
+  <aside class="callout callout--promesse">
+    <div class="callout-head"><svg class="ico"><use href="#ico-target"/></svg> Ta promesse</div>
+    <p>Avec <strong>4 accords seulement</strong>, tu joues une progression qui revient dans <em>Somewhere Over the Rainbow, I'm Yours, Hallelujah, Stand by Me, No Woman No Cry, Riptide, Three Little Birds</em>, et plus de 30 autres chansons mondialement connues.</p>
+  </aside>
+
+  <div class="pochette-strip" aria-label="Aperçu chansons">
+    <div class="pochette"><div>Somewhere<div class="pochette-name">IZ</div></div></div>
+    <div class="pochette"><div>I'm Yours<div class="pochette-name">J. Mraz</div></div></div>
+    <div class="pochette"><div>Riptide<div class="pochette-name">V. Joy</div></div></div>
+    <div class="pochette"><div>Stand By Me<div class="pochette-name">Ben E. King</div></div></div>
+    <div class="pochette"><div>Three<div class="pochette-name">B. Marley</div></div></div>
+    <div class="pochette"><div>Hallelujah<div class="pochette-name">L. Cohen</div></div></div>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>02</strong> / 14</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 3 — C (ukulélé)
+     ============================================================= -->
+<section class="page page-chord" data-page="3">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Accord 1 / 4</span>
+  </div>
+
+  <div class="chord-numeral" aria-hidden="true">1</div>
+
+  <div class="chord-stack">
+    <div class="chord-meta">Accord 1 — Le plus facile au monde</div>
+    <h1 class="chord-title">C<small>Do majeur · un seul doigt. Tu vas rire.</small></h1>
+
+    <div class="chord-body">
+      <div class="chord-svg-wrap">
+        <!-- DIAGRAMME C UKULÉLÉ (4 cordes GCEA) -->
+        <svg class="chord-svg" viewBox="0 0 220 280" aria-label="Diagramme de l'accord C ukulélé">
+          <rect width="220" height="280" fill="none"/>
+          <!-- Cordes ouvertes : G, C, E (les 3 premières) -->
+          <g font-family="DM Sans,sans-serif" font-size="16" font-weight="500" text-anchor="middle">
+            <circle cx="30" cy="40" r="6" fill="none" stroke="#1F1813" stroke-width="1.5"/>
+            <circle cx="90" cy="40" r="6" fill="none" stroke="#1F1813" stroke-width="1.5"/>
+            <circle cx="150" cy="40" r="6" fill="none" stroke="#1F1813" stroke-width="1.5"/>
+          </g>
+          <!-- Sillet -->
+          <rect x="28" y="56" width="184" height="4" fill="#1F1813"/>
+          <!-- Frettes (4 cases) -->
+          <g stroke="#8B7D6F" stroke-width="0.8" opacity="0.5">
+            <line x1="28" y1="110" x2="212" y2="110"/>
+            <line x1="28" y1="160" x2="212" y2="160"/>
+            <line x1="28" y1="210" x2="212" y2="210"/>
+            <line x1="28" y1="260" x2="212" y2="260"/>
+          </g>
+          <!-- 4 cordes verticales -->
+          <g stroke="#4A3F36" stroke-linecap="round">
+            <line x1="30" y1="60" x2="30" y2="260" stroke-width="1.6"/>
+            <line x1="90" y1="60" x2="90" y2="260" stroke-width="1.4"/>
+            <line x1="150" y1="60" x2="150" y2="260" stroke-width="1.2"/>
+            <line x1="210" y1="60" x2="210" y2="260" stroke-width="1.0"/>
+          </g>
+          <!-- Doigt 3 (indigo) case 3 corde A -->
+          <g>
+            <circle cx="210" cy="185" r="14" fill="#0891B2"/>
+            <text x="210" y="191" font-family="Fraunces,serif" font-size="15" font-weight="600" fill="#FFF8EF" text-anchor="middle">3</text>
+          </g>
+          <!-- Noms cordes GCEA -->
+          <g font-family="DM Sans,sans-serif" font-size="11" font-weight="500" fill="#8B7D6F" text-anchor="middle">
+            <text x="30" y="277">G</text>
+            <text x="90" y="277">C</text>
+            <text x="150" y="277">E</text>
+            <text x="210" y="277">A</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="chord-desc">
+        <h3>Comment poser l'accord</h3>
+        <ol>
+          <li>Pose <strong>ton annulaire (doigt 3)</strong> sur la 1<sup>re</sup> corde (A), case 3. <em>C'est le seul doigt nécessaire.</em></li>
+          <li>Les trois autres cordes (G, C, E) restent ouvertes.</li>
+          <li>Gratte les 4 cordes d'un mouvement souple. C'est tout.</li>
+        </ol>
+      </div>
+    </div>
+
+    <aside class="callout callout--astuce">
+      <div class="callout-head"><svg class="ico"><use href="#ico-key"/></svg> Astuce technique</div>
+      <h4 class="callout-title">Pourquoi commencer par le C</h4>
+      <p>C'est <strong>l'accord le plus facile de tous les instruments à cordes</strong>. Un seul doigt, et tu joues déjà un accord majeur complet. Aucun autre instrument ne t'offre ça.</p>
+      <p>Profites-en pour bien installer ton <em>geste</em>&nbsp;: pose l'annulaire bien droit, juste avant la barrette en métal (pas dessus). Le son doit être clair, pas étouffé.</p>
+    </aside>
+
+    <aside class="callout callout--test">
+      <div class="callout-head"><svg class="ico"><use href="#ico-check"/></svg> Test de réussite</div>
+      <ul class="callout-list">
+        <li>Tu grattes les 4 cordes et <strong>chaque corde sonne</strong>. La A aiguë ne grésille pas.</li>
+        <li>Ton annulaire est <strong>détendu</strong>, ne tire pas la corde de côté.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>03</strong> / 14</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 4 — G (ukulélé)
+     ============================================================= -->
+<section class="page page-chord" data-page="4">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Accord 2 / 4</span>
+  </div>
+
+  <div class="chord-numeral" aria-hidden="true">2</div>
+
+  <div class="chord-stack">
+    <div class="chord-meta">Accord 2 — Le triangle joyeux</div>
+    <h1 class="chord-title">G<small>Sol majeur · trois doigts qui forment un triangle. Plein de soleil.</small></h1>
+
+    <div class="chord-body">
+      <div class="chord-svg-wrap">
+        <!-- DIAGRAMME G UKULÉLÉ : G ouverte, C case 2 doigt 1, E case 3 doigt 3, A case 2 doigt 2 -->
+        <svg class="chord-svg" viewBox="0 0 220 280" aria-label="Diagramme de l'accord G ukulélé">
+          <g font-family="DM Sans,sans-serif">
+            <circle cx="30" cy="40" r="6" fill="none" stroke="#1F1813" stroke-width="1.5"/>
+          </g>
+          <rect x="28" y="56" width="184" height="4" fill="#1F1813"/>
+          <g stroke="#8B7D6F" stroke-width="0.8" opacity="0.5">
+            <line x1="28" y1="110" x2="212" y2="110"/>
+            <line x1="28" y1="160" x2="212" y2="160"/>
+            <line x1="28" y1="210" x2="212" y2="210"/>
+            <line x1="28" y1="260" x2="212" y2="260"/>
+          </g>
+          <g stroke="#4A3F36" stroke-linecap="round">
+            <line x1="30" y1="60" x2="30" y2="260" stroke-width="1.6"/>
+            <line x1="90" y1="60" x2="90" y2="260" stroke-width="1.4"/>
+            <line x1="150" y1="60" x2="150" y2="260" stroke-width="1.2"/>
+            <line x1="210" y1="60" x2="210" y2="260" stroke-width="1.0"/>
+          </g>
+          <g>
+            <!-- Doigt 1 (safran) case 2 corde C -->
+            <circle cx="90" cy="135" r="14" fill="#F59E0B"/>
+            <text x="90" y="141" font-family="Fraunces,serif" font-size="15" font-weight="600" fill="#FFF8EF" text-anchor="middle">1</text>
+            <!-- Doigt 3 (indigo) case 3 corde E -->
+            <circle cx="150" cy="185" r="14" fill="#0891B2"/>
+            <text x="150" y="191" font-family="Fraunces,serif" font-size="15" font-weight="600" fill="#FFF8EF" text-anchor="middle">3</text>
+            <!-- Doigt 2 (sauge) case 2 corde A -->
+            <circle cx="210" cy="135" r="14" fill="#16A34A"/>
+            <text x="210" y="141" font-family="Fraunces,serif" font-size="15" font-weight="600" fill="#FFF8EF" text-anchor="middle">2</text>
+          </g>
+          <g font-family="DM Sans,sans-serif" font-size="11" font-weight="500" fill="#8B7D6F" text-anchor="middle">
+            <text x="30" y="277">G</text>
+            <text x="90" y="277">C</text>
+            <text x="150" y="277">E</text>
+            <text x="210" y="277">A</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="chord-desc">
+        <h3>Comment poser l'accord</h3>
+        <ol>
+          <li>Pose d'abord le <strong>doigt 1 (index)</strong> sur la corde C (3<sup>e</sup>), case 2.</li>
+          <li>Puis le doigt 2 (majeur) sur la corde A (1<sup>re</sup>), case 2.</li>
+          <li>Puis le doigt 3 (annulaire) sur la corde E (2<sup>e</sup>), case 3 — un peu plus bas que les deux autres.</li>
+          <li>La corde G (4<sup>e</sup>, la plus grave) reste ouverte.</li>
+        </ol>
+      </div>
+    </div>
+
+    <aside class="callout callout--astuce">
+      <div class="callout-head"><svg class="ico"><use href="#ico-key"/></svg> Astuce technique</div>
+      <h4 class="callout-title">Le triangle des trois doigts</h4>
+      <p>Visualise la <strong>forme triangulaire</strong> : index et majeur côte à côte sur la même ligne (case 2), annulaire pointé vers le bas (case 3). C'est un triangle qui pointe vers tes pieds.</p>
+      <p>Une fois cette forme mémorisée, tu peux la poser <em>en bloc</em>, sans réfléchir à chaque doigt. C'est le passage de « 3 doigts à placer » à « 1 forme à poser ».</p>
+    </aside>
+
+    <aside class="callout callout--test">
+      <div class="callout-head"><svg class="ico"><use href="#ico-check"/></svg> Test de réussite</div>
+      <ul class="callout-list">
+        <li>Les 4 cordes sonnent clair, surtout la C aiguë (pas étouffée par l'index).</li>
+        <li>L'enchaînement C → G se fait en moins de 2 secondes.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>04</strong> / 14</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 5 — Am (ukulélé)
+     ============================================================= -->
+<section class="page page-chord" data-page="5">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Accord 3 / 4</span>
+  </div>
+
+  <div class="chord-numeral" aria-hidden="true">3</div>
+
+  <div class="chord-stack">
+    <div class="chord-meta">Accord 3 — Le mineur lumineux</div>
+    <h1 class="chord-title">Am<small>La mineur · un seul doigt, une couleur mélancolique. Magnifique.</small></h1>
+
+    <div class="chord-body">
+      <div class="chord-svg-wrap">
+        <!-- DIAGRAMME Am UKULÉLÉ : G case 2 doigt 2, C/E/A ouvertes -->
+        <svg class="chord-svg" viewBox="0 0 220 280" aria-label="Diagramme de l'accord Am ukulélé">
+          <g font-family="DM Sans,sans-serif">
+            <circle cx="90" cy="40" r="6" fill="none" stroke="#1F1813" stroke-width="1.5"/>
+            <circle cx="150" cy="40" r="6" fill="none" stroke="#1F1813" stroke-width="1.5"/>
+            <circle cx="210" cy="40" r="6" fill="none" stroke="#1F1813" stroke-width="1.5"/>
+          </g>
+          <rect x="28" y="56" width="184" height="4" fill="#1F1813"/>
+          <g stroke="#8B7D6F" stroke-width="0.8" opacity="0.5">
+            <line x1="28" y1="110" x2="212" y2="110"/>
+            <line x1="28" y1="160" x2="212" y2="160"/>
+            <line x1="28" y1="210" x2="212" y2="210"/>
+            <line x1="28" y1="260" x2="212" y2="260"/>
+          </g>
+          <g stroke="#4A3F36" stroke-linecap="round">
+            <line x1="30" y1="60" x2="30" y2="260" stroke-width="1.6"/>
+            <line x1="90" y1="60" x2="90" y2="260" stroke-width="1.4"/>
+            <line x1="150" y1="60" x2="150" y2="260" stroke-width="1.2"/>
+            <line x1="210" y1="60" x2="210" y2="260" stroke-width="1.0"/>
+          </g>
+          <g>
+            <!-- Doigt 2 (sauge) case 2 corde G -->
+            <circle cx="30" cy="135" r="14" fill="#16A34A"/>
+            <text x="30" y="141" font-family="Fraunces,serif" font-size="15" font-weight="600" fill="#FFF8EF" text-anchor="middle">2</text>
+          </g>
+          <g font-family="DM Sans,sans-serif" font-size="11" font-weight="500" fill="#8B7D6F" text-anchor="middle">
+            <text x="30" y="277">G</text>
+            <text x="90" y="277">C</text>
+            <text x="150" y="277">E</text>
+            <text x="210" y="277">A</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="chord-desc">
+        <h3>Comment poser l'accord</h3>
+        <ol>
+          <li>Pose ton <strong>majeur (doigt 2)</strong> sur la corde G (4<sup>e</sup>, la plus grave), case 2.</li>
+          <li>Les trois autres cordes (C, E, A) restent ouvertes.</li>
+          <li>Gratte les 4 cordes d'un seul mouvement.</li>
+        </ol>
+      </div>
+    </div>
+
+    <aside class="callout callout--astuce">
+      <div class="callout-head"><svg class="ico"><use href="#ico-key"/></svg> Astuce technique</div>
+      <h4 class="callout-title">Le passage C → Am en un mouvement</h4>
+      <p>Tu maîtrises C (annulaire seul) et Am (majeur seul). <strong>L'enchaînement, c'est juste un doigt qui se relève pendant qu'un autre se pose</strong>. Pas plus.</p>
+      <p>Travaille ce passage en miroir&nbsp;: pose C, gratte, lève l'annulaire et pose le majeur d'un mouvement <em>simultané</em>, gratte. C → Am → C → Am. Dix fois lentement.</p>
+    </aside>
+
+    <aside class="callout callout--test">
+      <div class="callout-head"><svg class="ico"><use href="#ico-check"/></svg> Test de réussite</div>
+      <ul class="callout-list">
+        <li>Les 4 cordes sonnent, la G case 2 ne gratte pas.</li>
+        <li>Tu passes de C à Am en moins d'1 seconde, sans casser le rythme.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>05</strong> / 14</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 6 — C
+     ============================================================= -->
+<section class="page page-chord" data-page="6">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Accord 4 / 4</span>
+  </div>
+
+  <div class="chord-numeral" aria-hidden="true">4</div>
+
+  <div class="chord-stack">
+    <div class="chord-meta">Accord 4 — Le faux barré qui n'en est pas un</div>
+    <h1 class="chord-title">F<small>Fa majeur · à la guitare c'est un cauchemar. À l'ukulélé, c'est deux doigts.</small></h1>
+
+    <div class="chord-body">
+      <div class="chord-svg-wrap">
+        <!-- DIAGRAMME F UKULÉLÉ : G case 2 doigt 2, C ouverte, E case 1 doigt 1, A ouverte -->
+        <svg class="chord-svg" viewBox="0 0 220 280" aria-label="Diagramme de l'accord F ukulélé">
+          <g font-family="DM Sans,sans-serif">
+            <circle cx="90" cy="40" r="6" fill="none" stroke="#1F1813" stroke-width="1.5"/>
+            <circle cx="210" cy="40" r="6" fill="none" stroke="#1F1813" stroke-width="1.5"/>
+          </g>
+          <rect x="28" y="56" width="184" height="4" fill="#1F1813"/>
+          <g stroke="#8B7D6F" stroke-width="0.8" opacity="0.5">
+            <line x1="28" y1="110" x2="212" y2="110"/>
+            <line x1="28" y1="160" x2="212" y2="160"/>
+            <line x1="28" y1="210" x2="212" y2="210"/>
+            <line x1="28" y1="260" x2="212" y2="260"/>
+          </g>
+          <g stroke="#4A3F36" stroke-linecap="round">
+            <line x1="30" y1="60" x2="30" y2="260" stroke-width="1.6"/>
+            <line x1="90" y1="60" x2="90" y2="260" stroke-width="1.4"/>
+            <line x1="150" y1="60" x2="150" y2="260" stroke-width="1.2"/>
+            <line x1="210" y1="60" x2="210" y2="260" stroke-width="1.0"/>
+          </g>
+          <g>
+            <!-- Doigt 2 (sauge) case 2 corde G -->
+            <circle cx="30" cy="135" r="14" fill="#16A34A"/>
+            <text x="30" y="141" font-family="Fraunces,serif" font-size="15" font-weight="600" fill="#FFF8EF" text-anchor="middle">2</text>
+            <!-- Doigt 1 (safran) case 1 corde E -->
+            <circle cx="150" cy="85" r="14" fill="#F59E0B"/>
+            <text x="150" y="91" font-family="Fraunces,serif" font-size="15" font-weight="600" fill="#FFF8EF" text-anchor="middle">1</text>
+          </g>
+          <g font-family="DM Sans,sans-serif" font-size="11" font-weight="500" fill="#8B7D6F" text-anchor="middle">
+            <text x="30" y="277">G</text>
+            <text x="90" y="277">C</text>
+            <text x="150" y="277">E</text>
+            <text x="210" y="277">A</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="chord-desc">
+        <h3>Comment poser l'accord</h3>
+        <ol>
+          <li>Pose ton <strong>majeur (doigt 2)</strong> sur la corde G (4<sup>e</sup>), case 2.</li>
+          <li>Pose ton <strong>index (doigt 1)</strong> sur la corde E (2<sup>e</sup>), case 1 — juste avant la première barrette.</li>
+          <li>Les cordes C et A restent ouvertes.</li>
+          <li>Gratte les 4 cordes.</li>
+        </ol>
+
+        <h3 style="margin-top:4mm">Le scoop F vs barré</h3>
+        <p>À la guitare, le F est <em>l'accord qui décourage</em> : un barré difficile à 6 cordes. À l'ukulélé, c'est <strong>deux doigts décalés</strong>. Profite de cet écart.</p>
+      </div>
+    </div>
+
+    <aside class="callout callout--test">
+      <div class="callout-head"><svg class="ico"><use href="#ico-check"/></svg> Test de réussite</div>
+      <ul class="callout-list">
+        <li>Les 4 cordes sonnent. La corde C (ouverte) ne grésille pas, même si ton majeur est juste à côté.</li>
+        <li>Tu enchaînes C → F sans hésitation : seul l'index bouge.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>06</strong> / 14</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 7 — AM
+     ============================================================= -->
+<!-- =============================================================
+     PAGE 7 — CYCLE I-V-vi-IV
+     ============================================================= -->
+<section class="page page-cycle" data-page="7">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Le système secret</span>
+  </div>
+
+  <div class="chord-meta">Pourquoi tes 4 accords débloquent autant de chansons</div>
+  <h1>Le système secret derrière<br>30 chansons cultes</h1>
+
+  <p class="lead">Ces 4 accords reviennent dans 80% des hits pop des 50 dernières années. Et tu les as déjà tous appris.</p>
+
+  <p style="font-size:10.5pt;line-height:1.5;max-width:155mm;margin-bottom:3mm">Les compositeurs n'inventent pas une nouvelle structure à chaque fois&nbsp;: ils prennent la même boucle d'accords (C → G → Am → F), changent la mélodie au-dessus, obtiennent une nouvelle chanson. <em>I'm Yours, Stand by Me, No Woman No Cry, Hallelujah</em>… toutes construites sur ces 4 accords.</p>
+
+  <div class="cycle-canvas">
+    <svg class="cycle-svg" viewBox="0 0 600 400" aria-label="Cycle I-V-vi-IV avec chansons">
+      <!-- Pochettes vignettes (6 monochromes terracotta autour) -->
+      <g font-family="Fraunces,serif">
+        <!-- Top-left : Somewhere Over -->
+        <g transform="translate(50,40)">
+          <rect width="80" height="80" fill="#EA580C"/>
+          <pattern id="hatch1" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(135)"><line x1="0" y1="0" x2="0" y2="6" stroke="#FFF8EF" stroke-width="1" opacity="0.18"/></pattern>
+          <rect width="80" height="80" fill="url(#hatch1)"/>
+          <text x="6" y="58" font-size="9" font-weight="700" fill="#FFF8EF">Somewhere</text>
+          <text x="6" y="68" font-size="9" font-weight="700" fill="#FFF8EF">Over Rainbow</text>
+          <text x="6" y="76" font-size="6.5" fill="#FFF8EF" opacity="0.85" font-style="italic">IZ</text>
+        </g>
+        <line x1="135" y1="80" x2="225" y2="135" stroke="#8B7D6F" stroke-width="0.8" stroke-dasharray="2 3"/>
+
+        <!-- Top-right : I'm Yours -->
+        <g transform="translate(470,40)">
+          <rect width="80" height="80" fill="#EA580C"/>
+          <rect width="80" height="80" fill="url(#hatch1)"/>
+          <text x="6" y="62" font-size="11" font-weight="700" fill="#FFF8EF">I'm Yours</text>
+          <text x="6" y="76" font-size="6.5" fill="#FFF8EF" opacity="0.85" font-style="italic">J. Mraz</text>
+        </g>
+        <line x1="470" y1="80" x2="380" y2="135" stroke="#8B7D6F" stroke-width="0.8" stroke-dasharray="2 3"/>
+
+        <!-- Left : Stand By Me -->
+        <g transform="translate(20,170)">
+          <rect width="80" height="80" fill="#EA580C"/>
+          <rect width="80" height="80" fill="url(#hatch1)"/>
+          <text x="6" y="58" font-size="10" font-weight="700" fill="#FFF8EF">Stand By Me</text>
+          <text x="6" y="76" font-size="6.5" fill="#FFF8EF" opacity="0.85" font-style="italic">B. E. King</text>
+        </g>
+        <line x1="100" y1="210" x2="225" y2="200" stroke="#8B7D6F" stroke-width="0.8" stroke-dasharray="2 3"/>
+
+        <!-- Right : Riptide -->
+        <g transform="translate(500,170)">
+          <rect width="80" height="80" fill="#EA580C"/>
+          <rect width="80" height="80" fill="url(#hatch1)"/>
+          <text x="6" y="62" font-size="11" font-weight="700" fill="#FFF8EF">Riptide</text>
+          <text x="6" y="76" font-size="6.5" fill="#FFF8EF" opacity="0.85" font-style="italic">V. Joy</text>
+        </g>
+        <line x1="500" y1="210" x2="380" y2="200" stroke="#8B7D6F" stroke-width="0.8" stroke-dasharray="2 3"/>
+
+        <!-- Bottom-left : Three Little Birds -->
+        <g transform="translate(50,290)">
+          <rect width="80" height="80" fill="#EA580C"/>
+          <rect width="80" height="80" fill="url(#hatch1)"/>
+          <text x="6" y="56" font-size="9" font-weight="700" fill="#FFF8EF">Three Little</text>
+          <text x="6" y="66" font-size="9" font-weight="700" fill="#FFF8EF">Birds</text>
+          <text x="6" y="76" font-size="6.5" fill="#FFF8EF" opacity="0.85" font-style="italic">B. Marley</text>
+        </g>
+        <line x1="135" y1="320" x2="225" y2="265" stroke="#8B7D6F" stroke-width="0.8" stroke-dasharray="2 3"/>
+
+        <!-- Bottom-right : Hallelujah -->
+        <g transform="translate(470,290)">
+          <rect width="80" height="80" fill="#EA580C"/>
+          <rect width="80" height="80" fill="url(#hatch1)"/>
+          <text x="6" y="62" font-size="11" font-weight="700" fill="#FFF8EF">Hallelujah</text>
+          <text x="6" y="76" font-size="6.5" fill="#FFF8EF" opacity="0.85" font-style="italic">L. Cohen</text>
+        </g>
+        <line x1="470" y1="320" x2="380" y2="265" stroke="#8B7D6F" stroke-width="0.8" stroke-dasharray="2 3"/>
+      </g>
+
+      <!-- Cycle central : 4 cercles C → G → Am → F (espacés pour libérer le centre) -->
+      <g font-family="Fraunces,serif">
+        <!-- C (haut-gauche) -->
+        <circle cx="195" cy="130" r="38" fill="#FFF8EF" stroke="#EA580C" stroke-width="2"/>
+        <text x="195" y="142" font-size="32" font-weight="700" fill="#EA580C" text-anchor="middle">C</text>
+        <text x="195" y="88" font-size="9" font-weight="500" fill="#8B7D6F" letter-spacing="1.5" text-anchor="middle">DEGRÉ I</text>
+
+        <!-- G (haut-droite) -->
+        <circle cx="405" cy="130" r="38" fill="#FFF8EF" stroke="#EA580C" stroke-width="2"/>
+        <text x="405" y="142" font-size="32" font-weight="700" fill="#EA580C" text-anchor="middle">G</text>
+        <text x="405" y="88" font-size="9" font-weight="500" fill="#8B7D6F" letter-spacing="1.5" text-anchor="middle">DEGRÉ V</text>
+
+        <!-- Am (bas-droite) -->
+        <circle cx="405" cy="285" r="38" fill="#FFF8EF" stroke="#EA580C" stroke-width="2"/>
+        <text x="405" y="297" font-size="26" font-weight="700" fill="#EA580C" text-anchor="middle">Am</text>
+        <text x="405" y="340" font-size="9" font-weight="500" fill="#8B7D6F" letter-spacing="1.5" text-anchor="middle">DEGRÉ vi</text>
+
+        <!-- F (bas-gauche) -->
+        <circle cx="195" cy="285" r="38" fill="#FFF8EF" stroke="#EA580C" stroke-width="2"/>
+        <text x="195" y="297" font-size="32" font-weight="700" fill="#EA580C" text-anchor="middle">F</text>
+        <text x="195" y="340" font-size="9" font-weight="500" fill="#8B7D6F" letter-spacing="1.5" text-anchor="middle">DEGRÉ IV</text>
+
+        <!-- Flèches du cycle (terracotta) -->
+        <defs>
+          <marker id="arrow-terra" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L0,10 L10,5 z" fill="#EA580C"/>
+          </marker>
+        </defs>
+        <g stroke="#EA580C" stroke-width="2.5" fill="none" marker-end="url(#arrow-terra)">
+          <!-- C → G (arc au-dessus) -->
+          <path d="M 235 118 Q 300 90 365 118"/>
+          <!-- G → Am (arc à droite) -->
+          <path d="M 420 167 Q 460 207 420 248"/>
+          <!-- Am → F (arc en bas) -->
+          <path d="M 365 297 Q 300 325 235 297"/>
+          <!-- F → C (arc à gauche) -->
+          <path d="M 180 248 Q 140 207 180 167"/>
+        </g>
+      </g>
+    </svg>
+
+    <div class="cycle-center">
+      <div class="cycle-center-meta">Le moteur</div>
+      <div class="cycle-center-title">qui débloque <strong>30 chansons</strong></div>
+    </div>
+  </div>
+
+  <aside class="callout callout--astuce" style="margin-top:0">
+    <div class="callout-head"><svg class="ico"><use href="#ico-key"/></svg> Astuce technique</div>
+    <p>Tu n'as pas encore le F&nbsp;? <strong>Joue C-G-Am-C, ça marche dans 99% des cas.</strong> On verra le F plus tard. Pour l'instant, contente-toi de tourner sur 3 accords et tu débloques déjà 50 morceaux.</p>
+  </aside>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>07</strong> / 14</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 9 — 3 ENCHAÎNEMENTS
+     ============================================================= -->
+<section class="page" data-page="8">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Pratique</span>
+  </div>
+
+  <div class="chord-meta">Du geste au mouvement</div>
+  <h1 style="font-family:var(--font-display);font-variation-settings:'opsz' 72;font-size:36pt;font-weight:700;letter-spacing:-0.015em;line-height:1.1;margin-bottom:4mm">Tes 3 premiers enchaînements</h1>
+  <p class="lead">Avant les 30 chansons, ces 3 transitions méritent ta première semaine.</p>
+
+  <div class="progressions-grid">
+    <div class="progression-card">
+      <div class="progression-mini">
+        <div class="progression-chord-mini">C</div>
+        <svg class="ico" style="width:14px;height:14px;color:var(--color-accent)"><use href="#ico-arrow"/></svg>
+        <div class="progression-chord-mini">Am</div>
+      </div>
+      <div>
+        <h3>Enchaînement 1 · C → Am</h3>
+        <p><strong>Pourquoi en premier&nbsp;:</strong> chaque accord se fait avec un seul doigt. Tu lèves un doigt, tu en poses un autre. Le mouvement parfait pour démarrer.</p>
+        <p><strong>Méthode&nbsp;:</strong> pose C, gratte 4 fois lentement. Passe à Am, gratte 4 fois. Refais 10 fois. <em>Concentre-toi sur le silence entre les deux : c'est là que la transition se joue.</em></p>
+      </div>
+    </div>
+
+    <div class="progression-card">
+      <div class="progression-mini">
+        <div class="progression-chord-mini">F</div>
+        <svg class="ico" style="width:14px;height:14px;color:var(--color-accent)"><use href="#ico-arrow"/></svg>
+        <div class="progression-chord-mini">C</div>
+      </div>
+      <div>
+        <h3>Enchaînement 2 · F → C</h3>
+        <p><strong>Pourquoi&nbsp;:</strong> c'est le retour à la maison. Toutes les chansons folk passent par là. Une fois fluide, tu joues <em>Riptide</em> tout du long.</p>
+        <p><strong>Méthode&nbsp;:</strong> ton majeur (doigt 2) reste sur la corde G case 2 pendant le passage F → Am → C. Il ne se relève qu'au moment de C. Économie de mouvement.</p>
+      </div>
+    </div>
+
+    <div class="progression-card">
+      <div class="progression-mini">
+        <div class="progression-chord-mini">C</div>
+        <svg class="ico" style="width:14px;height:14px;color:var(--color-accent)"><use href="#ico-arrow"/></svg>
+        <div class="progression-chord-mini">G</div>
+        <svg class="ico" style="width:14px;height:14px;color:var(--color-accent)"><use href="#ico-arrow"/></svg>
+        <div class="progression-chord-mini">Am</div>
+        <svg class="ico" style="width:14px;height:14px;color:var(--color-accent)"><use href="#ico-arrow"/></svg>
+        <div class="progression-chord-mini">F</div>
+      </div>
+      <div>
+        <h3>Enchaînement 3 · La boucle C-G-Am-F</h3>
+        <p><strong>Pourquoi&nbsp;:</strong> c'est <em>la</em> boucle magique. Une fois fluide, tu joues <strong>Somewhere Over the Rainbow, Hallelujah, Let It Be</strong>, et 25 autres morceaux instantanément.</p>
+        <p><strong>Méthode&nbsp;:</strong> tourne sur les 4 accords sans t'arrêter, 4 mesures chacun. Augmente le tempo seulement quand les 4 transitions sont propres.</p>
+      </div>
+    </div>
+  </div>
+
+  <aside class="callout callout--astuce">
+    <div class="callout-head"><svg class="ico"><use href="#ico-key"/></svg> La règle d'or</div>
+    <h4 class="callout-title">10 minutes par jour battent 2 heures le dimanche</h4>
+    <p>Ton cerveau consolide ce que tu joues <strong>pendant la nuit qui suit</strong>. Vise <strong>peu mais bien</strong>&nbsp;: 10 minutes propres, et arrête avant de te crisper. <em>Les mauvaises répétitions, le sommeil les amplifie aussi.</em></p>
+  </aside>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>08</strong> / 14</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 10 — RYTHMIQUE
+     ============================================================= -->
+<section class="page" data-page="9">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Rythmique</span>
+  </div>
+
+  <div class="chord-meta">La dimension temporelle</div>
+  <h1 style="font-family:var(--font-display);font-variation-settings:'opsz' 72;font-size:36pt;font-weight:700;letter-spacing:-0.015em;line-height:1.1;margin-bottom:4mm">Le strum de l'île</h1>
+  <p class="lead">Le pattern qui sonne ukulélé partout dans le monde. Bas-bas-haut-haut-bas-haut.</p>
+
+  <div class="rythm-block">
+    <div class="rythm-row rythm-counts">
+      <span>1</span><span>et</span><span>2</span><span>et</span><span>3</span><span>et</span><span>4</span><span>et</span>
+    </div>
+    <div class="rythm-row rythm-arrows">
+      <span>↓</span><span></span><span>↓</span><span>↑</span><span></span><span>↑</span><span>↓</span><span>↑</span>
+    </div>
+    <div class="rythm-row rythm-letters">
+      <span>G</span><span>H</span><span>G</span><span>G</span><span>H</span><span>G</span><span>G</span><span>G</span>
+    </div>
+
+    <div class="rythm-legend">
+      <div><strong>↓</strong> pouce ou index vers le bas</div>
+      <div><strong>↑</strong> index vers le haut</div>
+      <div><strong>G</strong> gratte les cordes</div>
+      <div><strong>H</strong> « manqué » (passe au-dessus)</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-bottom:5mm">
+    <div>
+      <h2 style="font-family:var(--font-display);font-variation-settings:'opsz' 36;font-size:16pt;font-weight:700;margin-bottom:2mm;color:var(--color-ink)">Le principe qui change tout</h2>
+      <p style="font-size:11pt;line-height:1.55"><strong>Ta main droite ne s'arrête JAMAIS.</strong> Elle fait un mouvement pendulaire constant, comme un métronome. Même quand tu ne grattes pas, ta main continue de bouger. C'est ça qui maintient le rythme.</p>
+    </div>
+    <div>
+      <h2 style="font-family:var(--font-display);font-variation-settings:'opsz' 36;font-size:16pt;font-weight:700;margin-bottom:2mm;color:var(--color-ink)">Pourquoi c'est si important</h2>
+      <p style="font-size:11pt;line-height:1.55">La plupart des débutants arrêtent leur main droite entre deux coups. C'est <strong>l'erreur la plus fréquente que j'observe en cours</strong>. Résultat&nbsp;: le rythme se perd, on a un mal fou à placer les contre-temps.</p>
+    </div>
+  </div>
+
+  <aside class="callout callout--erreur">
+    <div class="callout-head"><svg class="ico"><use href="#ico-alert"/></svg> Erreur à éviter</div>
+    <h4 class="callout-title">La cause réelle de ton problème de rythme</h4>
+    <p>Si tu n'arrives pas à jouer en rythme, à 95% c'est parce que <strong>ta main droite s'arrête sur les silences</strong>. C'est elle qui doit incarner la pulsation, même quand elle ne touche pas les cordes.</p>
+    <p><em>Mets-toi devant un miroir. Joue. Regarde ta main droite. Si elle s'arrête, t'as ton coupable.</em></p>
+  </aside>
+
+  <aside class="callout callout--test" style="margin-top:3mm">
+    <div class="callout-head"><svg class="ico"><use href="#ico-check"/></svg> Test de réussite</div>
+    <ul class="callout-list">
+      <li>Branche un métronome à <strong>72 BPM</strong>. Mets l'accord C. Joue le pattern.</li>
+      <li>Tu peux faire la boucle C-G-Am-F sans casser le rythme. La main droite continue son pendule même pendant le changement d'accord.</li>
+    </ul>
+  </aside>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>09</strong> / 14</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 11 — RÉPERTOIRE 1/2
+     ============================================================= -->
+<section class="page" data-page="10">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Répertoire — 1/2</span>
+  </div>
+
+  <div class="chord-meta">Ta récompense</div>
+  <h1 style="font-family:var(--font-display);font-variation-settings:'opsz' 72;font-size:34pt;font-weight:700;letter-spacing:-0.015em;line-height:1.1;margin-bottom:5mm">30 chansons cultes à jouer maintenant</h1>
+
+  <div class="songs-banner">
+    <em>30 morceaux classés par progression. Choisis-en un,</em> <strong>ouvre YouTube, joue dessus.</strong>
+  </div>
+
+  <div class="songs-progression">
+    <div class="songs-progression-head">
+      <h2>Progression 1<span class="progression-formula">C — G — Am — F</span></h2>
+      <span class="songs-sub">Le « I-V-vi-IV », la formule magique de la pop</span>
+    </div>
+    <p style="font-size:10pt;color:var(--color-ink-muted);margin-bottom:3mm">Pas encore le F&nbsp;? Joue <strong>C-G-Am-C</strong>, ça marche dans 99% des cas.</p>
+    <div class="songs-grid">
+      <div class="song-card"><div class="song-title">Somewhere Over the Rainbow</div><div class="song-artist">IZ Kamakawiwo'ole</div><span class="song-badge">I-V-vi-IV</span></div>
+      <div class="song-card"><div class="song-title">I'm Yours</div><div class="song-artist">Jason Mraz</div><span class="song-badge">I-V-vi-IV</span></div>
+      <div class="song-card"><div class="song-title">Let It Be</div><div class="song-artist">The Beatles</div><span class="song-badge">I-V-vi-IV</span></div>
+      <div class="song-card"><div class="song-title">No Woman No Cry</div><div class="song-artist">Bob Marley</div><span class="song-badge">I-V-vi-IV</span></div>
+      <div class="song-card"><div class="song-title">Hey, Soul Sister</div><div class="song-artist">Train</div><span class="song-badge">I-V-vi-IV</span></div>
+      <div class="song-card"><div class="song-title">Don't Worry Be Happy</div><div class="song-artist">Bobby McFerrin</div><span class="song-badge">I-V-vi-IV</span></div>
+      <div class="song-card"><div class="song-title">Lava</div><div class="song-artist">Pixar / Disney</div><span class="song-badge">I-V-vi-IV</span></div>
+      <div class="song-card"><div class="song-title">Five Foot Two</div><div class="song-artist">Standard jazz</div><span class="song-badge">I-V-vi-IV</span></div>
+      <div class="song-card"><div class="song-title">Bring Me Sunshine</div><div class="song-artist">Morecambe & Wise</div><span class="song-badge">I-V-vi-IV</span></div>
+    </div>
+  </div>
+
+  <div class="songs-progression">
+    <div class="songs-progression-head">
+      <h2>Progression 2<span class="progression-formula">C — Am — F — G</span></h2>
+      <span class="songs-sub">La progression "doo-wop" des années 50-60</span>
+    </div>
+    <div class="songs-grid">
+      <div class="song-card"><div class="song-title">Stand By Me</div><div class="song-artist">Ben E. King</div><span class="song-badge">I-vi-IV-V</span></div>
+      <div class="song-card"><div class="song-title">The Lion Sleeps Tonight</div><div class="song-artist">The Tokens</div><span class="song-badge">I-vi-IV-V</span></div>
+      <div class="song-card"><div class="song-title">All I Have to Do Is Dream</div><div class="song-artist">Everly Brothers</div><span class="song-badge">I-vi-IV-V</span></div>
+      <div class="song-card"><div class="song-title">Earth Angel</div><div class="song-artist">The Penguins</div><span class="song-badge">I-vi-IV-V</span></div>
+      <div class="song-card"><div class="song-title">Blue Moon</div><div class="song-artist">Rodgers & Hart</div><span class="song-badge">I-vi-IV-V</span></div>
+      <div class="song-card"><div class="song-title">Heart and Soul</div><div class="song-artist">Hoagy Carmichael</div><span class="song-badge">I-vi-IV-V</span></div>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>10</strong> / 14</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 12 — RÉPERTOIRE 2/2
+     ============================================================= -->
+<section class="page" data-page="11">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Répertoire — 2/2</span>
+  </div>
+
+  <div class="chord-meta">Et encore plus de morceaux</div>
+
+  <div class="songs-progression">
+    <div class="songs-progression-head">
+      <h2>Progression 3<span class="progression-formula">Am — F — C — G</span></h2>
+      <span class="songs-sub">Le « vi-IV-I-V », pour ballades émouvantes</span>
+    </div>
+    <div class="songs-grid">
+      <div class="song-card"><div class="song-title">Hallelujah</div><div class="song-artist">Leonard Cohen</div><span class="song-badge">vi-IV-I-V</span></div>
+      <div class="song-card"><div class="song-title">Riptide</div><div class="song-artist">Vance Joy</div><span class="song-badge">vi-IV-I-V</span></div>
+      <div class="song-card"><div class="song-title">Mad World</div><div class="song-artist">Gary Jules</div><span class="song-badge">vi-IV-I-V</span></div>
+      <div class="song-card"><div class="song-title">Zombie</div><div class="song-artist">The Cranberries</div><span class="song-badge">vi-IV-I-V</span></div>
+      <div class="song-card"><div class="song-title">Counting Stars</div><div class="song-artist">OneRepublic</div><span class="song-badge">vi-IV-I-V</span></div>
+      <div class="song-card"><div class="song-title">Ho Hey</div><div class="song-artist">The Lumineers</div><span class="song-badge">vi-IV-I-V</span></div>
+      <div class="song-card"><div class="song-title">Thinking Out Loud</div><div class="song-artist">Ed Sheeran</div><span class="song-badge">vi-IV-I-V</span></div>
+      <div class="song-card"><div class="song-title">Skinny Love</div><div class="song-artist">Bon Iver</div><span class="song-badge">vi-IV-I-V</span></div>
+      <div class="song-card"><div class="song-title">Stay With Me</div><div class="song-artist">Sam Smith</div><span class="song-badge">vi-IV-I-V</span></div>
+    </div>
+  </div>
+
+  <div class="songs-progression">
+    <div class="songs-progression-head">
+      <h2>Progression 4<span class="progression-formula">C — F — G</span></h2>
+      <span class="songs-sub">3 accords seulement, le strip-down ukulélé</span>
+    </div>
+    <div class="songs-grid">
+      <div class="song-card"><div class="song-title">Three Little Birds</div><div class="song-artist">Bob Marley</div><span class="song-badge">I-IV-V</span></div>
+      <div class="song-card"><div class="song-title">You Are My Sunshine</div><div class="song-artist">Trad. américain</div><span class="song-badge">I-IV-V</span></div>
+      <div class="song-card"><div class="song-title">La Bamba</div><div class="song-artist">Ritchie Valens</div><span class="song-badge">I-IV-V</span></div>
+      <div class="song-card"><div class="song-title">Twist and Shout</div><div class="song-artist">The Beatles</div><span class="song-badge">I-IV-V</span></div>
+      <div class="song-card"><div class="song-title">Rivers of Babylon</div><div class="song-artist">Boney M</div><span class="song-badge">I-IV-V</span></div>
+      <div class="song-card"><div class="song-title">Wild Thing</div><div class="song-artist">The Troggs</div><span class="song-badge">I-IV-V</span></div>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>11</strong> / 14</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 13 — CTA
+     ============================================================= -->
+<section class="page page-cta" data-page="12">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Et maintenant</span>
+  </div>
+
+  <div class="chord-meta">Le pont vers la suite</div>
+  <h1>Tu as les 4 accords.<br>Et maintenant ?</h1>
+
+  <p class="cta-intro">Tu as fait le plus dur&nbsp;: commencer.</p>
+
+  <p style="font-size:11pt;line-height:1.55;max-width:155mm;margin-bottom:4mm">Tu peux rester là. Avec ces 4 accords et le strum de l'île, tu vas pouvoir jouer pendant des années. <em>Aucune pression. Vraiment.</em></p>
+
+  <h2 style="font-family:var(--font-display);font-variation-settings:'opsz' 60;font-size:18pt;font-weight:700;color:var(--color-ink);margin-bottom:3mm;letter-spacing:-0.01em">Si tu veux aller plus loin</h2>
+
+  <div class="next-steps">
+    <div class="next-step">
+      <div class="next-step-num">1</div>
+      <h3>Les accords septième</h3>
+      <p>G7, C7, A7 — trois nouvelles couleurs qui débloquent le blues et le jazz simple à l'ukulélé.</p>
+    </div>
+    <div class="next-step">
+      <div class="next-step-num">2</div>
+      <h3>Le picking à 3 doigts</h3>
+      <p>Pouce-index-majeur sur les cordes. Tu passes du strum au fingerstyle. C'est là que l'ukulélé devient vraiment magique.</p>
+    </div>
+    <div class="next-step">
+      <div class="next-step-num">3</div>
+      <h3>Les rythmes hawaiiens</h3>
+      <p>Triplet strum, slack key, slow & sweet. Une fois ces 3 patterns dans les doigts, ton ukulélé sonne « les îles ».</p>
+    </div>
+  </div>
+
+  <div class="cta-main">
+    <span class="cta-main-tag">Si tu veux qu'on continue ensemble</span>
+    <h2>Le cours <em style="font-style:italic;font-family:var(--font-display)">Ukulélé Facile</em></h2>
+    <p>Mon cours en ligne reprend exactement la méthode de ce guide, en vidéo, étape par étape. Pas de bla-bla, pas de solfège. <strong>15 jours satisfait ou remboursé.</strong></p>
+    <a class="cta-link" href="https://musique-facile.fr/cours/cours-de-ukulele">musique-facile.fr/cours/cours-de-ukulele</a>
+    <p style="margin-top:4mm;font-size:9.5pt;opacity:0.85"><strong>Fred Fieffé · Musique Facile</strong> · Auteur Hal Leonard · 80 000+ élèves · Prix Samuel Paty 2024. Une question&nbsp;? Réponds à mon email, je lis tout.</p>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>12</strong> / 14</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 14 — CARTE DE POCHE
+     ============================================================= -->
+<section class="page page-pocket" data-page="13">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Carte de poche</span>
+  </div>
+
+  <div class="pocket-head">
+    <h1>Ta carte de poche</h1>
+    <p>Imprime-la. Découpe. Colle-la sur ton mur ou glisse-la dans ton étui.</p>
+  </div>
+
+  <div class="pocket-grid">
+    <!-- C (uke) -->
+    <div class="pocket-cell">
+      <svg viewBox="0 0 220 280" aria-label="C mini ukulélé">
+        <g><circle cx="30" cy="42" r="5" fill="none" stroke="#1F1813" stroke-width="1.5"/><circle cx="90" cy="42" r="5" fill="none" stroke="#1F1813" stroke-width="1.5"/><circle cx="150" cy="42" r="5" fill="none" stroke="#1F1813" stroke-width="1.5"/></g>
+        <rect x="28" y="56" width="184" height="3" fill="#1F1813"/>
+        <g stroke="#8B7D6F" stroke-width="0.6" opacity="0.5"><line x1="28" y1="110" x2="212" y2="110"/><line x1="28" y1="160" x2="212" y2="160"/><line x1="28" y1="210" x2="212" y2="210"/><line x1="28" y1="260" x2="212" y2="260"/></g>
+        <g stroke="#4A3F36"><line x1="30" y1="60" x2="30" y2="260" stroke-width="1.4"/><line x1="90" y1="60" x2="90" y2="260" stroke-width="1.2"/><line x1="150" y1="60" x2="150" y2="260" stroke-width="1.1"/><line x1="210" y1="60" x2="210" y2="260" stroke-width="1.0"/></g>
+        <circle cx="210" cy="185" r="11" fill="#0891B2"/><text x="210" y="190" font-family="Fraunces,serif" font-size="12" font-weight="600" fill="#FFF8EF" text-anchor="middle">3</text>
+        <text x="120" y="280" font-family="Fraunces,serif" font-size="32" font-weight="700" fill="#EA580C" text-anchor="middle">C</text>
+      </svg>
+    </div>
+
+    <!-- G (uke) -->
+    <div class="pocket-cell">
+      <svg viewBox="0 0 220 280" aria-label="G mini ukulélé">
+        <g><circle cx="30" cy="42" r="5" fill="none" stroke="#1F1813" stroke-width="1.5"/></g>
+        <rect x="28" y="56" width="184" height="3" fill="#1F1813"/>
+        <g stroke="#8B7D6F" stroke-width="0.6" opacity="0.5"><line x1="28" y1="110" x2="212" y2="110"/><line x1="28" y1="160" x2="212" y2="160"/><line x1="28" y1="210" x2="212" y2="210"/><line x1="28" y1="260" x2="212" y2="260"/></g>
+        <g stroke="#4A3F36"><line x1="30" y1="60" x2="30" y2="260" stroke-width="1.4"/><line x1="90" y1="60" x2="90" y2="260" stroke-width="1.2"/><line x1="150" y1="60" x2="150" y2="260" stroke-width="1.1"/><line x1="210" y1="60" x2="210" y2="260" stroke-width="1.0"/></g>
+        <circle cx="90" cy="135" r="11" fill="#F59E0B"/><text x="90" y="140" font-family="Fraunces,serif" font-size="12" font-weight="600" fill="#FFF8EF" text-anchor="middle">1</text>
+        <circle cx="150" cy="185" r="11" fill="#0891B2"/><text x="150" y="190" font-family="Fraunces,serif" font-size="12" font-weight="600" fill="#FFF8EF" text-anchor="middle">3</text>
+        <circle cx="210" cy="135" r="11" fill="#16A34A"/><text x="210" y="140" font-family="Fraunces,serif" font-size="12" font-weight="600" fill="#FFF8EF" text-anchor="middle">2</text>
+        <text x="120" y="280" font-family="Fraunces,serif" font-size="32" font-weight="700" fill="#EA580C" text-anchor="middle">G</text>
+      </svg>
+    </div>
+
+    <!-- Am (uke) -->
+    <div class="pocket-cell">
+      <svg viewBox="0 0 220 280" aria-label="Am mini ukulélé">
+        <g><circle cx="90" cy="42" r="5" fill="none" stroke="#1F1813" stroke-width="1.5"/><circle cx="150" cy="42" r="5" fill="none" stroke="#1F1813" stroke-width="1.5"/><circle cx="210" cy="42" r="5" fill="none" stroke="#1F1813" stroke-width="1.5"/></g>
+        <rect x="28" y="56" width="184" height="3" fill="#1F1813"/>
+        <g stroke="#8B7D6F" stroke-width="0.6" opacity="0.5"><line x1="28" y1="110" x2="212" y2="110"/><line x1="28" y1="160" x2="212" y2="160"/><line x1="28" y1="210" x2="212" y2="210"/><line x1="28" y1="260" x2="212" y2="260"/></g>
+        <g stroke="#4A3F36"><line x1="30" y1="60" x2="30" y2="260" stroke-width="1.4"/><line x1="90" y1="60" x2="90" y2="260" stroke-width="1.2"/><line x1="150" y1="60" x2="150" y2="260" stroke-width="1.1"/><line x1="210" y1="60" x2="210" y2="260" stroke-width="1.0"/></g>
+        <circle cx="30" cy="135" r="11" fill="#16A34A"/><text x="30" y="140" font-family="Fraunces,serif" font-size="12" font-weight="600" fill="#FFF8EF" text-anchor="middle">2</text>
+        <text x="120" y="280" font-family="Fraunces,serif" font-size="32" font-weight="700" fill="#EA580C" text-anchor="middle">Am</text>
+      </svg>
+    </div>
+
+    <!-- F (uke) -->
+    <div class="pocket-cell">
+      <svg viewBox="0 0 220 280" aria-label="F mini ukulélé">
+        <g><circle cx="90" cy="42" r="5" fill="none" stroke="#1F1813" stroke-width="1.5"/><circle cx="210" cy="42" r="5" fill="none" stroke="#1F1813" stroke-width="1.5"/></g>
+        <rect x="28" y="56" width="184" height="3" fill="#1F1813"/>
+        <g stroke="#8B7D6F" stroke-width="0.6" opacity="0.5"><line x1="28" y1="110" x2="212" y2="110"/><line x1="28" y1="160" x2="212" y2="160"/><line x1="28" y1="210" x2="212" y2="210"/><line x1="28" y1="260" x2="212" y2="260"/></g>
+        <g stroke="#4A3F36"><line x1="30" y1="60" x2="30" y2="260" stroke-width="1.4"/><line x1="90" y1="60" x2="90" y2="260" stroke-width="1.2"/><line x1="150" y1="60" x2="150" y2="260" stroke-width="1.1"/><line x1="210" y1="60" x2="210" y2="260" stroke-width="1.0"/></g>
+        <circle cx="30" cy="135" r="11" fill="#16A34A"/><text x="30" y="140" font-family="Fraunces,serif" font-size="12" font-weight="600" fill="#FFF8EF" text-anchor="middle">2</text>
+        <circle cx="150" cy="85" r="11" fill="#F59E0B"/><text x="150" y="90" font-family="Fraunces,serif" font-size="12" font-weight="600" fill="#FFF8EF" text-anchor="middle">1</text>
+        <text x="120" y="280" font-family="Fraunces,serif" font-size="32" font-weight="700" fill="#EA580C" text-anchor="middle">F</text>
+      </svg>
+    </div>
+
+    <!-- Cordes GCEA mémo -->
+    <div class="pocket-cell" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8mm 4mm">
+      <p style="font-family:var(--font-body);font-size:9.5pt;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;color:var(--color-accent);margin-bottom:5mm">Tes 4 cordes</p>
+      <div style="font-family:var(--font-display);font-size:24pt;font-weight:700;letter-spacing:0.2em;color:var(--color-ink);line-height:1">G&middot;C&middot;E&middot;A</div>
+      <p style="font-family:var(--font-display);font-style:italic;font-size:10pt;color:var(--color-ink-soft);margin-top:5mm">de la plus grave<br>à la plus aiguë</p>
+    </div>
+
+    <!-- Cycle mini -->
+    <div class="pocket-cell pocket-cell-cycle">
+      <svg viewBox="0 0 220 280" aria-label="Cycle I-V-vi-IV">
+        <text x="110" y="38" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" fill="#FFF8EF" text-anchor="middle" letter-spacing="1.5">CYCLE 30 CHANSONS</text>
+        <g font-family="Fraunces,serif" fill="#FFF8EF">
+          <circle cx="65" cy="110" r="26" fill="#EA580C" stroke="#FFF8EF" stroke-width="1.5"/>
+          <text x="65" y="118" font-size="22" font-weight="700" text-anchor="middle">C</text>
+          <circle cx="155" cy="110" r="26" fill="#EA580C" stroke="#FFF8EF" stroke-width="1.5"/>
+          <text x="155" y="118" font-size="22" font-weight="700" text-anchor="middle">G</text>
+          <circle cx="155" cy="200" r="26" fill="#EA580C" stroke="#FFF8EF" stroke-width="1.5"/>
+          <text x="155" y="208" font-size="17" font-weight="700" text-anchor="middle">Am</text>
+          <circle cx="65" cy="200" r="26" fill="#EA580C" stroke="#FFF8EF" stroke-width="1.5"/>
+          <text x="65" y="208" font-size="22" font-weight="700" text-anchor="middle">F</text>
+        </g>
+        <defs><marker id="arrow-pocket" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L0,10 L10,5 z" fill="#FFF8EF"/></marker></defs>
+        <g stroke="#FFF8EF" stroke-width="1.5" fill="none" marker-end="url(#arrow-pocket)">
+          <path d="M 95 100 Q 110 88 125 100"/>
+          <path d="M 165 137 Q 175 155 165 173"/>
+          <path d="M 125 210 Q 110 222 95 210"/>
+          <path d="M 55 173 Q 45 155 55 137"/>
+        </g>
+        <text x="110" y="265" font-family="Fraunces,serif" font-style="italic" font-size="11" fill="#FFF8EF" text-anchor="middle">le moteur secret</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="pocket-bottom">
+    <div class="pocket-rythm">
+      <h3>Strum de l'île</h3>
+      <div class="pocket-rythm-line">1&nbsp;&nbsp;et&nbsp;&nbsp;2&nbsp;&nbsp;et&nbsp;&nbsp;3&nbsp;&nbsp;et&nbsp;&nbsp;4&nbsp;&nbsp;et</div>
+      <div class="pocket-rythm-line"><span>↓</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>↓</span>&nbsp;&nbsp;<span>↑</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>↑</span>&nbsp;&nbsp;<span>↓</span>&nbsp;&nbsp;<span>↑</span></div>
+      <div class="pocket-rythm-line">G&nbsp;&nbsp;&nbsp;&nbsp;H&nbsp;&nbsp;&nbsp;G&nbsp;&nbsp;&nbsp;G&nbsp;&nbsp;&nbsp;H&nbsp;&nbsp;&nbsp;G&nbsp;&nbsp;&nbsp;G&nbsp;&nbsp;&nbsp;G</div>
+      <p style="font-family:var(--font-body);font-size:9pt;margin-top:3mm;color:var(--color-ink-muted);line-height:1.45"><strong style="color:var(--color-ink)">La main droite ne s'arrête jamais.</strong> Pouce-index alternent. Même les silences sont en mouvement.</p>
+    </div>
+
+    <div class="pocket-progressions">
+      <h3>3 enchaînements à travailler</h3>
+      <ul>
+        <li>C &nbsp;→&nbsp; Am</li>
+        <li>F &nbsp;→&nbsp; C</li>
+        <li>C &nbsp;→&nbsp; G &nbsp;→&nbsp; Am &nbsp;→&nbsp; F</li>
+      </ul>
+      <p style="font-family:var(--font-body);font-size:9pt;margin-top:3mm;color:var(--color-ink-muted);line-height:1.45"><strong style="color:var(--color-ink)">10 minutes par jour</strong> &gt; 2 heures le dimanche. Le sommeil consolide.</p>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>13</strong> / 14</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 15 — 4E DE COUVERTURE
+     ============================================================= -->
+<section class="page page-back" data-page="14">
+  <div class="giant-5" aria-hidden="true">4</div>
+
+  <div></div>
+
+  <div class="back-quote">
+    <blockquote>
+      Je n'aurais jamais cru pouvoir jouer du Bob Marley sur un instrument de plage. C'est devenu mon rituel du soir.
+    </blockquote>
+    <cite>Léa, 34 ans · débutante ukulélé</cite>
+  </div>
+
+  <div class="back-signature">
+    <div class="back-bio">
+      <div class="back-avatar">F</div>
+      <div class="back-bio-text">
+        <h3>Fred Fieffé</h3>
+        <p>Formateur musical, créateur de Musique Facile. 12 ans d'enseignement présentiel et en ligne sur guitare, piano et ukulélé. Ma pédagogie&nbsp;: pas de théorie d'abord, du jeu d'abord. L'ukulélé, c'est l'instrument du sourire.</p>
+        <div class="markers">
+          <strong>Hal Leonard</strong> auteur publié
+          <strong>·</strong>
+          <strong>80 000+ élèves</strong> formés
+          <strong>·</strong>
+          <strong>Prix Samuel Paty 2024</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="back-links">
+      <a href="https://musique-facile.fr">musique-facile.fr</a>
+      <a href="https://www.youtube.com/@MusiqueFacile">YouTube</a>
+      <a href="https://www.tiktok.com/@musiquefacile">TikTok</a>
+      <a href="mailto:contact@musique-facile.fr">contact@musique-facile.fr</a>
+    </div>
+
+    <div class="back-copyright">
+      © 2026 Musique Facile · MusiqFreed EURL · musique-facile.fr · Reproduction interdite sans autorisation.
+    </div>
+  </div>
+</section>
+
+</article>
+
+</body>
+</html>

@@ -1,10 +1,12 @@
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel/serverless';
 import { remarkCustomBlocks } from './src/remark-custom-blocks.mjs';
 import remarkOptimizeImages from './src/remark-optimize-images.mjs';
 import remarkLazyImages from './src/remark-lazy-images.mjs';
 import compress from 'astro-compress';
 
 export default defineConfig({
+  adapter: vercel(),
   integrations: [
     compress({
       CSS: true,
@@ -32,7 +34,7 @@ export default defineConfig({
     })
   ],
   site: 'https://musique-facile.fr',
-  output: 'static',
+  output: 'hybrid',
 
   // Optimisations d'images natives Astro
   image: {
@@ -64,22 +66,12 @@ export default defineConfig({
           pure_funcs: ['console.log', 'console.debug']
         }
       },
-      rollupOptions: {
-        output: {
-          // Cache busting avec hashes
-          entryFileNames: 'assets/[name].[hash].js',
-          chunkFileNames: 'assets/[name].[hash].js',
-          assetFileNames: 'assets/[name].[hash][extname]',
-          // Code splitting optimisé
-          manualChunks: (id) => {
-            // Séparer les dépendances node_modules
-            if (id.includes('node_modules')) {
-              return 'vendor';
-            }
-          }
-        }
-      },
-      // Augmenter la limite de warning de taille
+      // Note : on laisse Astro+Vite gérer le chunking et le naming par défaut.
+      // Une config rollupOptions custom (entryFileNames + manualChunks « vendor »)
+      // cassait le bundle SSR Vercel : le chunk vendor n'était pas inclus dans
+      // .vercel/output/_functions, provoquant ERR_MODULE_NOT_FOUND au runtime
+      // sur toutes les pages SSR (/guides/[slug], /merci-lead-magnet, /api/*).
+      // Le cache-busting est déjà géré nativement par Vite via hashes.
       chunkSizeWarningLimit: 1000
     },
     // Optimisations CSS

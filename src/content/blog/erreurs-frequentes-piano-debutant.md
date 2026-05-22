@@ -18,6 +18,7 @@ dateModified: "2026-02-04"
 
 meta: "Découvre les erreurs les plus courantes des débutants au piano et comment les éviter. Améliore ton jeu et progresse plus rapidement avec ces conseils !"
 keywords: "erreurs piano débutant,progresser au piano,erreurs à éviter au piano,améliorer son jeu au piano,conseils piano débutant"
+instrument: "piano"
 
 ---
 <!-- HTML -->

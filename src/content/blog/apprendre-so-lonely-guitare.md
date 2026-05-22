@@ -46,6 +46,7 @@ relatedLinks:
   - title: "Stand by Me - Ben E. King"
     url: "/blog/apprendre-stand-by-me-guitare"
     description: "Une ballade soul avec une rythmique groove."
+instrument: "guitare"
 ---
 
 ## Le Contexte Historique et Artistique de "So Lonely"

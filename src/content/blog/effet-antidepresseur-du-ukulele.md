@@ -57,6 +57,7 @@ videos:
     url: "https://youtu.be/AC04EWCiRi4"
   - title: "Creep by Radiohead on Ukulele - Play This Masterpiece in 3 Easy Minutes!"
     url: "https://youtu.be/k84LDHEUEj8"
+instrument: "ukulele"
 ---
 
 ## 🎵 L'Acoustique Thérapeutique du Ukulélé

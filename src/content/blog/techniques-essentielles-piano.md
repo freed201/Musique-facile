@@ -18,6 +18,7 @@ dateModified: "2026-02-04"
 
 meta: "Découvre les meilleures méthodes pour apprendre le piano débutant. Exercices, vidéos, partitions et astuces pour progresser rapidement et facilement !"
 keywords: "techniques piano,bien jouer du piano,améliorer son jeu au piano,indépendance des mains,fluidité piano"
+instrument: "piano"
 
 ---
 <!-- HTML -->

@@ -14,6 +14,7 @@ datePublished: "2025-04-04"
 dateModified: "2026-02-04"
 meta: "📢 Vos accords sonnent mal ? Transitions lentes ? Découvrez les erreurs fréquentes des débutants et comment les corriger pour jouer proprement !"
 keywords: "erreurs débutant guitare, problèmes accords guitare, pourquoi mes accords sonnent mal, erreurs guitare débutant, éviter erreurs guitare, grésillement guitare, mauvaise position des doigts"
+instrument: "guitare"
 
 ---
 <div style="display:grid; grid-template-columns:1fr; gap:10px; max-width:500px; margin:auto;">

@@ -41,6 +41,7 @@ relatedLinks:
   - title: "Un Autre Monde - Téléphone"
     url: "/blog/apprendre-un-autre-monde-guitare"
     description: "Le rock français énergique des années 80."
+instrument: "guitare"
 ---
 Originaire de Montluçon, le groupe Kaolin s'est formé dans les années 2000. Composé par notamment Ludovic Rocca, Guillaume Cantillon, et Oliver Valty, le groupe s'est rapidement distingué par son approche unique de la musique rock française. Le parcours de Kaolin est marqué par une recherche constante de la mélodie parfaite, alliée à des textes qui résonnent profondément avec leur auditoire. Le groupe s'est souvent inspiré des réalités quotidiennes et des sentiments humains pour composer des morceaux émouvants et authentiques. Avec "Partons Vite", Kaolin a su capturer l'essence même de leur musique : émotive, réfléchie et engageante.
 

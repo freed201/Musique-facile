@@ -44,6 +44,7 @@ relatedLinks:
   - title: "Chasing Cars - Snow Patrol"
     url: "/blog/apprendre-chasing-cars-guitare"
     description: "Une ballade rock moderne et accessible."
+instrument: "guitare"
 ---
 
 ## Présentation du groupe U2

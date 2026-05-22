@@ -13,6 +13,7 @@ datePublished: "2025-04-07"
 dateModified: "2025-04-07"
 introduction: "Salut à toi ! Aujourd'hui, on plonge dans un sujet parfois sous-estimé : l'histoire derrière les noms des notes de musique. Pourquoi dit-on Do Ré Mi en France et ABC en Angleterre ? Pour le découvrir, on retourne au Moyen Âge avec Guido d'Arezzo et explorons comment ces nomenclatures musicales ont traversé le temps pour devenir des points de repère communs dans le monde musical moderne."
 conclusion: "Voilà, on a fait un sacré voyage dans l'histoire de la musique. De l'Antiquité grecque à nos jours, les noms des notes et les systèmes de notation musicale ont beaucoup évolué. Ce qui semble si simple, comme le Do Ré Mi, cache en fait des siècles de créativité, d'innovations pédagogiques et de débats culturels. Alors, prêt à explorer plus loin avec ton instrument en main ?"
+instrument: "solfege"
 ---
 **Les origines de la notation musicale**
 Alors, imaginez-vous en plein milieu de l'Antiquité grecque... Oui, vraiment! Vous vous trémoussez au son de la lyre et votre esprit s'illumine de musique. Mais là, question: comment diable faisaient-ils pour noter tout ça? Eh bien, c'est là qu'intervient un type de notation qui pourrait vous sembler un brin archaïque: les **systèmes de notation musicale** grecques. Ils utilisaient des symboles pour représenter les hauteurs et les durées des sons. C'était un peu comme un code secret de mélomanes!

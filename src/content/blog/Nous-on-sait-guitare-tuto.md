@@ -40,6 +40,7 @@ relatedLinks:
   - title: "Hey Jude - The Beatles"
     url: "/blog/apprendre-hey-jude-guitare"
     description: "Un classique pop intemporel et accessible."
+instrument: "guitare"
 ---
 
 ## Pierre Garnier et l'histoire de "Nous on sait"

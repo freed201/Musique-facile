@@ -38,6 +38,7 @@ relatedLinks:
   - title: "Un Autre Monde - Téléphone"
     url: "/blog/apprendre-un-autre-monde-guitare"
     description: "Un autre classique du rock français énergique."
+instrument: "guitare"
 ---
 
 ### L’aventure musicale de "Machistador"

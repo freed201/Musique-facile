@@ -21,6 +21,7 @@ videos:
     url: "https://youtu.be/3uTHfVIbTLI"
   - title: "Play Along : Joue On ira avec Goldman"
     url: "https://youtu.be/fTH2y1mhEoU"
+instrument: "guitare"
 
 ---
 

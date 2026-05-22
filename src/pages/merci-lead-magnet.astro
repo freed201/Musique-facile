@@ -1,10 +1,50 @@
 ---
+// Page rendue à la volée (SSR) pour pouvoir lire le paramètre ?lm= dans l'URL.
+// Sans prerender:false, Astro.url.searchParams renverrait toujours vide au build.
+export const prerender = false;
+
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import FooterModern from '../components/FooterModern.astro';
 
-const title = "Merci ! Consultez Votre Boîte Mail | Musique Facile";
-const description = "Votre guide gratuit arrive dans quelques instants. Découvrez nos formations complètes pour accélérer votre progression.";
+// Catalogue des lead magnets actuels.
+// Pour en ajouter un : nouvel ID + métadonnées ci-dessous.
+const leadMagnets: Record<string, {
+  title: string;
+  pdfUrl: string;
+  instrument: 'guitare' | 'piano' | 'ukulele';
+  courseUrl: string;
+  emoji: string;
+}> = {
+  'guitare-5-accords-magiques': {
+    title: 'Les 5 Accords Magiques',
+    pdfUrl: '/lead-magnets/guitare-5-accords-magiques.pdf',
+    instrument: 'guitare',
+    courseUrl: '/cours/cours-de-guitare',
+    emoji: '🎸',
+  },
+  'piano-lire-les-notes': {
+    title: 'Lire les notes au piano — 5 astuces',
+    pdfUrl: '/lead-magnets/piano-lire-les-notes.pdf',
+    instrument: 'piano',
+    courseUrl: '/cours/cours-de-piano',
+    emoji: '🎹',
+  },
+  'ukulele-4-accords': {
+    title: 'Les 4 Accords du Ukulélé',
+    pdfUrl: '/lead-magnets/ukulele-4-accords.pdf',
+    instrument: 'ukulele',
+    courseUrl: '/cours/cours-de-ukulele',
+    emoji: '🌺',
+  },
+};
+
+// Lecture du paramètre ?lm= côté serveur si SSR, sinon défaut.
+const lmParam = Astro.url.searchParams.get('lm') || 'guitare-5-accords-magiques';
+const lm = leadMagnets[lmParam] || leadMagnets['guitare-5-accords-magiques'];
+
+const title = `Merci ! Ton guide "${lm.title}" arrive | Musique Facile`;
+const description = `Ton guide ${lm.title} arrive dans quelques instants. Découvre aussi nos formations complètes.`;
 ---
 
 <Layout title={title} description={description} robots="noindex, nofollow">
@@ -20,32 +60,44 @@ const description = "Votre guide gratuit arrive dans quelques instants. Découvr
             </div>
           </div>
 
-          <h1 class="ty-title">🎉 Félicitations !</h1>
+          <h1 class="ty-title">🎉 C'est bon, ton guide arrive !</h1>
           <p class="ty-subtitle">
-            Votre guide <strong>"Les 5 Accords Magiques"</strong> arrive dans votre boîte mail
+            Ton guide <strong>{lm.emoji} {lm.title}</strong> arrive dans ta boîte mail
             dans les <strong>2 prochaines minutes</strong>.
           </p>
 
+          <div class="ty-download-now">
+            <p class="ty-download-intro">Tu peux aussi le télécharger tout de suite&nbsp;:</p>
+            <a
+              href={lm.pdfUrl}
+              class="ty-download-btn"
+              download
+              data-lead-magnet={lmParam}
+            >
+              ⬇️ Télécharger le PDF maintenant
+            </a>
+          </div>
+
           <div class="ty-instructions">
-            <h2>Prochaines étapes :</h2>
+            <h2>Et après&nbsp;?</h2>
             <ol>
               <li>
-                <strong>📧 Vérifiez votre boîte mail</strong><br />
-                <small>Regardez aussi dans vos spams/promotions si besoin</small>
+                <strong>📧 Vérifie ta boîte mail</strong><br />
+                <small>Regarde aussi dans tes spams/promotions au cas où</small>
               </li>
               <li>
-                <strong>📥 Téléchargez le PDF</strong><br />
-                <small>Cliquez sur le lien dans l'email pour obtenir votre guide</small>
+                <strong>📥 Garde le PDF sous la main</strong><br />
+                <small>Imprime-le si tu veux l'avoir à côté de toi quand tu joues</small>
               </li>
               <li>
-                <strong>🎸 Commencez à pratiquer</strong><br />
-                <small>Suivez les exercices et jouez votre première chanson dès ce soir !</small>
+                <strong>{lm.emoji} Commence ce soir</strong><br />
+                <small>15 minutes suffisent pour faire ta première progression</small>
               </li>
             </ol>
           </div>
 
           <div class="ty-timer">
-            ⏱️ Redirection automatique vers nos cours dans <strong id="countdown">10</strong> secondes...
+            ⏱️ Redirection automatique vers les cours dans <strong id="countdown">15</strong> secondes…
           </div>
         </div>
       </div>
@@ -54,30 +106,24 @@ const description = "Votre guide gratuit arrive dans quelques instants. Découvr
     <section class="ty-upsell">
       <div class="container">
         <div class="upsell-banner">
-          <h2>🚀 Envie d'Aller Plus Loin ?</h2>
-          <p>Ne restez pas bloqué aux 5 accords ! Profitez d'une <strong>offre exclusive</strong> réservée aux nouveaux membres.</p>
+          <h2>🚀 Envie d'aller plus loin&nbsp;?</h2>
+          <p>Tu as les bases. Le cours complet te prend par la main pour les 90 prochains jours.</p>
         </div>
 
         <div class="upsell-offer">
           <div class="upsell-card featured">
-            <div class="upsell-badge">⚡ OFFRE SPÉCIALE</div>
-            <h3>Cours de Guitare Complet</h3>
-            <div class="price-box">
-              <span class="old-price">€99</span>
-              <span class="new-price">€69</span>
-              <span class="discount">-30%</span>
-            </div>
+            <div class="upsell-badge">⚡ Recommandé</div>
+            <h3>{lm.emoji} Cours {lm.instrument === 'guitare' ? 'de Guitare' : lm.instrument === 'piano' ? 'de Piano' : 'd\'Ukulélé'} complet</h3>
             <ul class="upsell-benefits">
-              <li>✓ 82 chapitres progressifs en vidéo HD</li>
-              <li>✓ Des bases jusqu'aux techniques avancées</li>
-              <li>✓ Support personnalisé 7j/7</li>
-              <li>✓ Accès à vie + mises à jour gratuites</li>
-              <li>✓ Garantie satisfait ou remboursé 15 jours</li>
+              <li>✓ Vidéos pas à pas, du premier accord au premier morceau</li>
+              <li>✓ La méthode Fred Fieffé, 12+ ans d'enseignement</li>
+              <li>✓ Accès à vie + mises à jour</li>
+              <li>✓ Support direct par email</li>
+              <li>✓ <strong>Garantie satisfait ou remboursé 15 jours</strong></li>
             </ul>
-            <a href="/cours/apprendre-guitare-debutant" class="upsell-btn primary">
-              🎸 Oui, je veux progresser rapidement !
+            <a href={lm.courseUrl} class="upsell-btn primary">
+              {lm.emoji} Voir le cours complet
             </a>
-            <p class="upsell-timer">⏰ Offre valable uniquement aujourd'hui</p>
           </div>
 
           <div class="upsell-card">
@@ -100,8 +146,8 @@ const description = "Votre guide gratuit arrive dans quelques instants. Découvr
         </div>
 
         <div class="ty-alternative">
-          <p>Vous préférez continuer avec les 5 accords gratuits ?</p>
-          <a href="/blog/">Pas de problème, explorez notre blog</a>
+          <p>Tu préfères continuer en libre avec le guide gratuit&nbsp;?</p>
+          <a href="/blog/">Pas de souci, explore le blog</a>
         </div>
       </div>
     </section>
@@ -351,6 +397,36 @@ const description = "Votre guide gratuit arrive dans quelques instants. Découvr
       color: #4CAF50;
     }
 
+    .ty-download-now {
+      margin: 1.5rem auto 2rem;
+      max-width: 480px;
+      text-align: center;
+    }
+
+    .ty-download-intro {
+      margin: 0 0 0.75rem;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    .ty-download-btn {
+      display: inline-block;
+      padding: 1rem 1.75rem;
+      border-radius: 12px;
+      background: #4CAF50;
+      color: white;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .ty-download-btn:hover {
+      transform: translateY(-2px);
+      background: #43a047;
+      box-shadow: 0 8px 24px rgba(76, 175, 80, 0.35);
+    }
+
     @media (max-width: 1024px) {
       .upsell-offer {
         grid-template-columns: 1fr;
@@ -376,8 +452,9 @@ const description = "Votre guide gratuit arrive dans quelques instants. Découvr
     }
   </style>
 
-  <script>
-    let timeLeft = 10;
+  <script define:vars={{ courseUrl: lm.courseUrl, leadMagnetId: lmParam }}>
+    type W = Window & { dataLayer?: Array<Record<string, unknown>> };
+    let timeLeft = 15;
     const countdownElement = document.getElementById('countdown');
 
     const countdownInterval = setInterval(() => {
@@ -385,18 +462,27 @@ const description = "Votre guide gratuit arrive dans quelques instants. Découvr
       if (countdownElement) {
         countdownElement.textContent = timeLeft.toString();
       }
-
       if (timeLeft <= 0) {
         clearInterval(countdownInterval);
-        window.location.href = '/cours';
+        window.location.href = courseUrl;
       }
     }, 1000);
 
-    const buttons = document.querySelectorAll('.upsell-btn, .ty-alternative a');
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        clearInterval(countdownInterval);
-      });
+    document.querySelectorAll('.upsell-btn, .ty-alternative a, .ty-download-btn').forEach((el) => {
+      el.addEventListener('click', () => clearInterval(countdownInterval));
     });
+
+    const downloadBtn = document.querySelector('.ty-download-btn');
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', () => {
+        const w = window as W;
+        if (w.dataLayer) {
+          w.dataLayer.push({
+            event: 'lead_magnet_download',
+            leadMagnet: leadMagnetId,
+          });
+        }
+      });
+    }
   </script>
 </Layout>

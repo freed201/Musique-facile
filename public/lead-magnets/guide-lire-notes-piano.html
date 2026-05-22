@@ -1,0 +1,2657 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lire les notes au piano — Musique Facile</title>
+<meta name="description" content="5 astuces de prof pour déchiffrer enfin une partition de piano sans s'arrêter. Le guide gratuit de Fred Fieffé.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900;9..144,400..900,0..100,0..1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Bravura Text';
+  src: url('https://cdn.jsdelivr.net/npm/bravura@0.7.0/redist/woff2/BravuraText.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/npm/bravura@0.7.0/redist/otf/BravuraText.otf') format('opentype');
+  font-display: block;
+}
+.clef-svg-text {
+  font-family: 'Bravura Text', 'Bravura', 'Apple Symbols', 'Segoe UI Symbol', 'Noto Music', 'Symbola', serif;
+  fill: var(--color-accent-deep);
+  font-weight: normal;
+}
+:root{
+  --color-paper:#F7F9FC;             /* crème froide légèrement bleutée */
+  --color-paper-warm:#E8EEF7;        /* fond cards */
+  --color-paper-deep:#C9D5E8;        /* séparateurs */
+  --color-ink:#0D1B2A;               /* encre bleu nuit */
+  --color-ink-soft:#1F2D44;          /* sub-ink */
+  --color-ink-muted:#6B7B95;         /* gris-bleu meta */
+  --color-accent:#1565C0;            /* piano-800 — bleu profond signature */
+  --color-accent-deep:#0D47A1;       /* piano-900 — bleu nuit */
+  --color-accent-soft:#BBDEFB;       /* piano-100 — bleu clair (fond astuce) */
+  --color-saffron:#D97706;           /* doré (touche jaune piano + accent fun) */
+  --color-saffron-soft:#FEF3C7;
+  --color-sage:#16A34A;              /* vert lime (fond test) */
+  --color-sage-soft:#D1FAE5;
+  --color-indigo:#B91C1C;            /* rouge brique (fond erreur) */
+  --color-indigo-soft:#FEE2E2;
+  --color-coral:#E11D48;             /* rose-rouge pop (accent) */
+  --color-coral-soft:#FECDD3;
+
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'DM Sans','Inter',system-ui,sans-serif;
+  --font-handwritten:'Caveat',cursive;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+
+  --text-hero:64px;
+  --text-h1:40px;
+  --text-h2:28px;
+  --text-h3:20px;
+  --text-lead:18px;
+  --text-body:16px;
+  --text-small:14px;
+  --text-meta:12px;
+
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
+  --space-5:24px; --space-6:32px; --space-7:48px; --space-8:64px;
+  --space-9:96px; --space-10:128px;
+
+  --page-w:210mm;
+  --page-h:297mm;
+  --page-mx-out:20mm;
+  --page-mx-in:20mm;
+  --page-my-top:18mm;
+  --page-my-bot:25mm;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html{
+  -webkit-print-color-adjust:exact !important;
+  print-color-adjust:exact !important;
+  font-size:16px;
+}
+
+body{
+  font-family:var(--font-body);
+  color:var(--color-ink);
+  background:#D0DAE8;
+  line-height:1.65;
+  font-feature-settings:"liga","kern","ss01";
+  text-rendering:optimizeLegibility;
+}
+
+/* ============ PAGE LAYOUT ============ */
+.guide{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8mm;
+  padding:8mm 0;
+}
+
+.page{
+  width:var(--page-w);
+  min-height:var(--page-h);
+  background:var(--color-paper);
+  position:relative;
+  padding:var(--page-my-top) var(--page-mx-out) var(--page-my-bot);
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.page-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:var(--font-body);
+  font-size:10px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--color-ink-muted);
+  padding-bottom:3mm;
+  border-bottom:0.5pt solid var(--color-accent);
+  margin-bottom:6mm;
+}
+
+.page-head .brand-mark{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-weight:600;
+  color:var(--color-ink);
+}
+
+.page-head .brand-dot{
+  width:8px;height:8px;border-radius:1px;background:var(--color-accent);
+}
+
+.page-foot{
+  margin-top:auto;
+  margin-left:calc(-1 * var(--page-mx-out));
+  margin-right:calc(-1 * var(--page-mx-out));
+  padding:8mm var(--page-mx-out) 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  font-family:var(--font-body);
+  font-size:10px;
+  color:var(--color-ink-muted);
+  background:var(--color-paper);
+}
+
+.page-foot .pagenum{
+  font-family:var(--font-mono);
+  font-size:11pt;
+  color:var(--color-ink-soft);
+  font-feature-settings:"tnum";
+}
+
+.page-foot .pagenum strong{
+  color:var(--color-accent);
+  font-weight:600;
+}
+
+/* ============ TYPO BASE ============ */
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  color:var(--color-ink);
+  font-feature-settings:"liga","kern","ss01";
+}
+
+p{
+  font-family:var(--font-body);
+  font-size:var(--text-body);
+  line-height:1.65;
+  color:var(--color-ink-soft);
+  margin-bottom:var(--space-4);
+}
+
+p:last-child{margin-bottom:0}
+
+strong{
+  font-weight:600;
+  color:var(--color-ink);
+}
+
+em{font-style:italic;color:var(--color-ink-soft)}
+
+a{
+  color:var(--color-accent);
+  text-decoration:none;
+  border-bottom:1.5px solid var(--color-accent);
+  padding-bottom:1px;
+}
+
+/* ============ ICONS ============ */
+.ico{
+  width:18px;height:18px;display:inline-block;vertical-align:-3px;
+  stroke:currentColor;fill:none;stroke-width:1.5;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+
+/* ============ COVER (p.1) ============ */
+.page-cover{
+  background:linear-gradient(135deg, var(--color-paper) 0%, #E3F2FD 100%);
+  display:flex;
+  flex-direction:column;
+  padding:30mm 25mm;
+}
+
+.cover-tag{
+  font-family:var(--font-body);
+  font-size:11px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  font-weight:600;
+  margin-bottom:42mm;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.cover-pick{
+  position:absolute;
+  top:30mm;
+  right:54mm;
+  width:42mm;
+  height:60mm;
+  z-index:1;
+  pointer-events:none;
+  transform:rotate(-12deg);
+}
+
+.cover-tag::after{
+  content:"";
+  flex:1;
+  height:1pt;
+  background:var(--color-accent);
+  opacity:0.6;
+}
+
+.cover-title{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 144,"SOFT" 50;
+  font-weight:800;
+  font-size:78pt;
+  line-height:0.95;
+  color:var(--color-ink);
+  letter-spacing:-0.025em;
+  margin-bottom:8mm;
+  max-width:155mm;
+}
+
+.cover-title em{
+  font-style:italic;
+  color:var(--color-accent);
+  font-weight:800;
+}
+
+.cover-rule{
+  width:60mm;
+  height:2pt;
+  background:var(--color-accent);
+  margin-bottom:8mm;
+}
+
+.cover-subtitle{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36,"WONK" 1;
+  font-weight:400;
+  font-style:italic;
+  font-size:22pt;
+  line-height:1.3;
+  color:var(--color-ink-soft);
+  max-width:140mm;
+  margin-bottom:7mm;
+}
+
+.cover-subtitle em{
+  font-family:var(--font-handwritten);
+  font-style:normal;
+  font-weight:700;
+  font-size:30pt;
+  color:var(--color-saffron);
+  display:inline-block;
+  transform:rotate(-3deg) translateY(2px);
+}
+
+.cover-tagline{
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:14pt;
+  color:var(--color-ink);
+  line-height:1.4;
+  max-width:120mm;
+}
+
+.cover-authority{
+  margin-top:auto;
+  display:flex;
+  flex-direction:column;
+  gap:6mm;
+}
+
+.cover-markers{
+  display:flex;
+  gap:4mm;
+  flex-wrap:wrap;
+  font-family:var(--font-body);
+  font-size:10pt;
+  color:var(--color-ink);
+  align-items:center;
+}
+
+.cover-markers span:not(.dot){
+  font-weight:500;
+}
+
+.cover-markers .dot{
+  width:4px;height:4px;border-radius:50%;background:var(--color-accent);
+}
+
+.cover-sign{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:13pt;
+  color:var(--color-ink);
+  font-weight:600;
+}
+
+.cover-sign small{
+  display:block;
+  font-family:var(--font-body);
+  font-style:normal;
+  font-weight:400;
+  font-size:10pt;
+  color:var(--color-ink-muted);
+  margin-top:1mm;
+  letter-spacing:0.05em;
+}
+
+.giant-5{
+  position:absolute;
+  bottom:18mm;
+  right:8mm;
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1;
+  font-weight:800;
+  font-size:280pt;
+  line-height:0.8;
+  color:transparent;
+  -webkit-text-stroke:2.5px var(--color-accent-deep);
+  letter-spacing:-0.05em;
+  pointer-events:none;
+  user-select:none;
+  opacity:0.55;
+}
+
+/* Mini clavier vertical (signature piano) */
+.cover-fretboard{
+  position:absolute;
+  top:60mm;
+  right:14mm;
+  width:26mm;
+  height:160mm;
+  opacity:0.85;
+  z-index:1;
+}
+
+/* ============ PAGE 2 — PROMESSE ============ */
+.page-promesse h1{
+  font-variation-settings:"opsz" 72;
+  font-size:36pt;
+  font-weight:700;
+  line-height:1.1;
+  letter-spacing:-0.015em;
+  margin-bottom:5mm;
+  max-width:160mm;
+}
+
+.lead{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-style:italic;
+  font-size:15pt;
+  line-height:1.45;
+  color:var(--color-ink-soft);
+  max-width:155mm;
+  margin-bottom:8mm;
+  padding-left:4mm;
+  border-left:3px solid var(--color-saffron);
+}
+
+.body-text p{margin-bottom:var(--space-4)}
+
+.pullquote-mega{
+  text-align:center;
+  margin:6mm 0;
+  font-family:var(--font-handwritten);
+  font-weight:700;
+  font-size:76pt;
+  line-height:1;
+  color:var(--color-accent);
+  letter-spacing:-0.01em;
+  transform:rotate(-2deg);
+}
+
+.pullquote-mega::before{content:"« "}
+.pullquote-mega::after{content:" »"}
+
+/* Encadrés */
+.callout{
+  background:var(--color-paper-warm);
+  border-left:3px solid var(--color-ink);
+  padding:5mm 6mm 5mm 7mm;
+  margin:4mm 0;
+  break-inside:avoid;
+  page-break-inside:avoid;
+  position:relative;
+}
+
+.callout-head{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-body);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  margin-bottom:3mm;
+  color:var(--color-ink);
+}
+
+.callout-head .ico{width:14px;height:14px;vertical-align:0}
+
+.callout-title{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 24;
+  font-size:14pt;
+  font-weight:600;
+  margin-bottom:2mm;
+  color:var(--color-ink);
+  line-height:1.25;
+}
+
+.callout p{
+  font-size:11.5pt;
+  line-height:1.55;
+  margin-bottom:1.5mm;
+  color:var(--color-ink-soft);
+}
+
+.callout p:last-child{margin-bottom:0}
+
+.callout--astuce{
+  background:var(--color-accent-soft);
+  border-left-color:var(--color-accent);
+}
+.callout--astuce .callout-head{color:var(--color-accent-deep)}
+
+.callout--histoire{
+  background:var(--color-saffron-soft);
+  border-left-color:var(--color-saffron);
+}
+.callout--histoire .callout-head{color:#7B5320}
+
+.callout--test{
+  background:var(--color-sage-soft);
+  border-left-color:var(--color-sage);
+}
+.callout--test .callout-head{color:#15532A}
+
+.callout--erreur{
+  background:var(--color-indigo-soft);
+  border-left-color:var(--color-indigo);
+}
+.callout--erreur .callout-head{color:var(--color-indigo)}
+
+.callout--promesse{
+  background:var(--color-accent-deep);
+  border-left-color:var(--color-saffron);
+  color:var(--color-paper);
+}
+.callout--promesse .callout-head{color:var(--color-paper)}
+.callout--promesse .callout-title{color:var(--color-paper)}
+.callout--promesse p{color:var(--color-paper-warm)}
+.callout--promesse p strong{color:var(--color-paper)}
+.callout--promesse em{color:#FEDC94}
+
+.callout-list{
+  list-style:none;
+  margin-top:2mm;
+}
+.callout-list li{
+  font-family:var(--font-body);
+  font-size:11.5pt;
+  line-height:1.55;
+  padding-left:6mm;
+  position:relative;
+  margin-bottom:1.2mm;
+  color:var(--color-ink-soft);
+}
+.callout-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:8px;
+  width:10px;
+  height:1.5px;
+  background:currentColor;
+}
+.callout--test .callout-list li::before{
+  content:"✓";
+  background:none;
+  color:var(--color-sage);
+  top:0;
+  font-weight:700;
+  font-size:13pt;
+  width:auto;
+}
+
+.pochette-strip{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:4mm;
+  margin-top:8mm;
+  padding-top:6mm;
+  border-top:1pt solid var(--color-paper-deep);
+}
+
+.pochette{
+  aspect-ratio:1.6/1;
+  background:var(--color-accent);
+  color:var(--color-paper);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:1.5mm 2mm;
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 18;
+  font-size:11pt;
+  font-weight:700;
+  line-height:1.15;
+  border-radius:3px;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+
+.pochette-strip .pochette:nth-child(1){background:var(--color-accent)}
+.pochette-strip .pochette:nth-child(2){background:var(--color-saffron)}
+.pochette-strip .pochette:nth-child(3){background:var(--color-coral)}
+.pochette-strip .pochette:nth-child(4){background:var(--color-accent-deep)}
+.pochette-strip .pochette:nth-child(5){background:var(--color-sage)}
+.pochette-strip .pochette:nth-child(6){background:var(--color-indigo)}
+
+.pochette::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(247,249,252,0.08) 0,
+      rgba(247,249,252,0.08) 2px,
+      transparent 2px,
+      transparent 4px);
+}
+
+.pochette > *{position:relative;z-index:1}
+
+/* ============ PAGES ASTUCES ============ */
+.page-chord{
+  display:flex;
+  flex-direction:column;
+}
+
+.chord-meta{
+  font-family:var(--font-body);
+  font-size:10px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  font-weight:600;
+  margin-bottom:2mm;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.chord-meta::after{
+  content:"";
+  flex:1;
+  height:0.5pt;
+  background:var(--color-paper-deep);
+  margin-left:6px;
+}
+
+.chord-title{
+  font-variation-settings:"opsz" 72;
+  font-size:42pt;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  line-height:1.05;
+  margin-bottom:3mm;
+}
+
+.chord-title small{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-size:18pt;
+  font-weight:400;
+  font-style:italic;
+  color:var(--color-ink-muted);
+  display:block;
+  letter-spacing:0;
+  margin-top:2mm;
+}
+
+.chord-lead{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:13pt;
+  color:var(--color-ink-soft);
+  margin-bottom:6mm;
+  max-width:140mm;
+}
+
+.chord-numeral{
+  position:absolute;
+  top:24mm;
+  right:-2mm;
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 144,"SOFT" 80;
+  font-weight:800;
+  font-size:200pt;
+  line-height:0.8;
+  color:transparent;
+  -webkit-text-stroke:1.5px var(--color-accent);
+  letter-spacing:-0.05em;
+  z-index:0;
+  pointer-events:none;
+  user-select:none;
+  opacity:0.55;
+}
+
+.chord-stack{
+  display:flex;
+  flex-direction:column;
+  gap:4mm;
+  position:relative;
+  z-index:1;
+}
+
+/* ============ DUAL GAMME (page 3) ============ */
+.gamme-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6mm;
+  margin:4mm 0 5mm;
+}
+
+.gamme-block{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:5mm 4mm;
+  break-inside:avoid;
+}
+
+.gamme-block-head{
+  font-family:var(--font-body);
+  font-size:10px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:var(--color-accent);
+  margin-bottom:3mm;
+  padding-bottom:2mm;
+  border-bottom:0.5pt solid var(--color-paper-deep);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.gamme-block-head .arrow{
+  font-family:var(--font-mono);
+  font-size:14pt;
+  color:var(--color-accent);
+}
+
+.gamme-notes{
+  display:flex;
+  flex-wrap:wrap;
+  gap:2mm;
+  justify-content:center;
+}
+
+.note-pochette{
+  width:14mm;
+  height:14mm;
+  background:var(--color-accent);
+  color:var(--color-paper);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-size:14pt;
+  font-weight:700;
+  border-radius:3px;
+  position:relative;
+}
+
+.note-pochette.saffron{background:var(--color-saffron)}
+.note-pochette.coral{background:var(--color-coral)}
+.note-pochette.sage{background:var(--color-sage)}
+.note-pochette.deep{background:var(--color-accent-deep)}
+.note-pochette.indigo{background:var(--color-indigo)}
+
+/* Tableau gamme depuis n'importe quelle note (page 4) */
+.gamme-table{
+  display:grid;
+  grid-template-columns:14mm 1fr;
+  gap:3mm 5mm;
+  align-items:center;
+  margin:3mm 0 4mm;
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:4mm 5mm;
+  break-inside:avoid;
+}
+
+.gamme-table-label{
+  font-family:var(--font-display);
+  font-size:13pt;
+  font-weight:700;
+  color:var(--color-accent-deep);
+  text-align:center;
+}
+
+.gamme-table-notes{
+  display:flex;
+  gap:1.5mm;
+  flex-wrap:wrap;
+}
+
+.note-mini{
+  width:10mm;
+  height:10mm;
+  background:var(--color-saffron);
+  color:var(--color-paper);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-display);
+  font-size:9.5pt;
+  font-weight:700;
+  border-radius:2px;
+}
+
+.note-mini.coral{background:var(--color-coral)}
+.note-mini.sage{background:var(--color-sage)}
+.note-mini.accent{background:var(--color-accent)}
+
+/* ============ PORTÉES SVG ============ */
+.portee-wrap{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:5mm 4mm;
+  margin:3mm 0 4mm;
+  break-inside:avoid;
+}
+
+.portee-wrap svg{width:100%;height:auto;display:block}
+
+.portee-caption{
+  font-family:var(--font-body);
+  font-size:9.5pt;
+  font-style:italic;
+  color:var(--color-ink-muted);
+  text-align:center;
+  margin-top:2mm;
+}
+
+/* 4 mini cards reperes (page 5) */
+.reperes-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:3mm;
+  margin:3mm 0 4mm;
+}
+
+.repere-card{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:3mm 2mm;
+  text-align:center;
+  break-inside:avoid;
+}
+
+.repere-card svg{width:100%;height:32mm}
+
+.repere-card-name{
+  font-family:var(--font-display);
+  font-size:11.5pt;
+  font-weight:700;
+  color:var(--color-accent-deep);
+  margin-top:1mm;
+}
+
+.repere-card-pos{
+  font-family:var(--font-body);
+  font-size:8.5pt;
+  color:var(--color-ink-muted);
+  font-style:italic;
+}
+
+/* Voisinage mini-portées (page 6) */
+.voisinage-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3mm;
+  margin:3mm 0 4mm;
+}
+
+.voisinage-card{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:3mm 2mm;
+  text-align:center;
+  break-inside:avoid;
+}
+
+.voisinage-card svg{width:100%;height:28mm}
+
+.voisinage-card-label{
+  font-family:var(--font-display);
+  font-size:11pt;
+  font-weight:700;
+  color:var(--color-accent-deep);
+  margin-top:1mm;
+}
+
+.voisinage-card-label em{
+  font-family:var(--font-handwritten);
+  font-style:normal;
+  font-size:14pt;
+  color:var(--color-saffron);
+}
+
+/* Tierces gamme strip (page 9) */
+.tierces-strip{
+  display:flex;
+  gap:2mm;
+  margin:4mm 0;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.tierce-pochette{
+  width:16mm;
+  height:16mm;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-display);
+  font-size:13pt;
+  font-weight:700;
+  color:var(--color-paper);
+  border-radius:3px;
+}
+
+.tierce-pochette.sage{background:var(--color-sage)}
+.tierce-pochette.saffron{background:var(--color-saffron)}
+
+/* 3 mini exemples tierces (page 10) */
+.tierces-examples{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3mm;
+  margin:3mm 0 4mm;
+}
+
+.tierces-example{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:3mm 2mm;
+  text-align:center;
+  break-inside:avoid;
+}
+
+.tierces-example svg{width:100%;height:32mm}
+
+.tierces-example-label{
+  font-family:var(--font-display);
+  font-size:10.5pt;
+  font-weight:700;
+  color:var(--color-accent-deep);
+  margin-top:1mm;
+}
+
+.tierces-example-desc{
+  font-family:var(--font-body);
+  font-size:8.5pt;
+  color:var(--color-ink-muted);
+  font-style:italic;
+  margin-top:0.5mm;
+  line-height:1.3;
+}
+
+/* Tableau armures (page 11) */
+.armures-table{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:2.5mm;
+  margin:4mm 0 5mm;
+}
+
+.armure-card{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:3mm 2mm;
+  text-align:center;
+  break-inside:avoid;
+}
+
+.armure-tonalite{
+  font-family:var(--font-display);
+  font-size:14pt;
+  font-weight:700;
+  color:var(--color-accent-deep);
+  margin-bottom:1mm;
+}
+
+.armure-alterations{
+  font-family:var(--font-mono);
+  font-size:10pt;
+  color:var(--color-saffron);
+  font-weight:600;
+  letter-spacing:0.04em;
+}
+
+.armure-alterations.none{
+  color:var(--color-ink-muted);
+  font-style:italic;
+}
+
+/* ============ PAGE 12 BONUS PRO (next-steps reused) ============ */
+.next-steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:4mm;
+  margin:5mm 0 6mm;
+}
+
+.next-step{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:5mm 5mm 6mm;
+  break-inside:avoid;
+}
+
+.next-step-num{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 72;
+  font-size:34pt;
+  font-weight:700;
+  color:transparent;
+  -webkit-text-stroke:1px var(--color-accent);
+  line-height:0.9;
+  margin-bottom:3mm;
+}
+
+.next-step h3{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 24;
+  font-size:14pt;
+  font-weight:700;
+  margin-bottom:2mm;
+  color:var(--color-ink);
+}
+
+.next-step p{
+  font-size:10.5pt;
+  line-height:1.5;
+  margin-bottom:0;
+}
+
+/* ============ PAGE 13 — 10 ERREURS ============ */
+.erreurs-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3mm 5mm;
+  margin:3mm 0 5mm;
+}
+
+.erreur-item{
+  display:grid;
+  grid-template-columns:8mm 1fr;
+  gap:2mm;
+  align-items:start;
+  padding:2mm 2mm 2mm 0;
+  border-bottom:0.5pt solid var(--color-paper-deep);
+  break-inside:avoid;
+}
+
+.erreur-item:last-child,.erreur-item:nth-last-child(2){border-bottom:none}
+
+.erreur-num{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-size:18pt;
+  font-weight:700;
+  color:var(--color-accent);
+  line-height:1;
+  text-align:right;
+  padding-right:1mm;
+}
+
+.erreur-text{
+  font-family:var(--font-body);
+  font-size:10pt;
+  line-height:1.4;
+  color:var(--color-ink-soft);
+}
+
+.erreur-text strong{
+  color:var(--color-ink);
+  font-weight:600;
+}
+
+.erreur-text em{
+  display:block;
+  font-size:9pt;
+  color:var(--color-ink-muted);
+  font-style:italic;
+  margin-top:0.5mm;
+}
+
+/* ============ PAGE 14 CTA ============ */
+.page-cta h1{
+  font-variation-settings:"opsz" 72;
+  font-size:38pt;
+  font-weight:700;
+  line-height:1.1;
+  letter-spacing:-0.015em;
+  margin-bottom:5mm;
+}
+
+.cta-intro{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-style:italic;
+  font-size:16pt;
+  color:var(--color-ink-soft);
+  margin-bottom:5mm;
+}
+
+.cta-main{
+  background:var(--color-accent);
+  color:var(--color-paper);
+  padding:8mm 10mm 7mm;
+  margin-top:5mm;
+  break-inside:avoid;
+}
+
+.cta-main-tag{
+  font-family:var(--font-body);
+  font-size:10px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--color-paper-warm);
+  margin-bottom:3mm;
+  display:block;
+}
+
+.cta-main h2{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 36;
+  font-size:22pt;
+  font-weight:700;
+  line-height:1.15;
+  color:var(--color-paper);
+  margin-bottom:3mm;
+  letter-spacing:-0.01em;
+}
+
+.cta-main p{
+  font-family:var(--font-body);
+  font-size:11pt;
+  line-height:1.5;
+  color:var(--color-paper-warm);
+  margin-bottom:3mm;
+}
+
+.cta-main p:last-of-type{margin-bottom:5mm}
+
+.cta-main p strong{color:var(--color-paper)}
+
+.cta-link{
+  display:inline-block;
+  background:var(--color-paper);
+  color:var(--color-accent-deep);
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:11pt;
+  padding:3mm 7mm;
+  border:none;
+  text-decoration:none;
+  letter-spacing:0.01em;
+}
+
+.cta-link::after{content:"  →"}
+
+.cta-signature{
+  margin-top:5mm;
+  font-family:var(--font-body);
+  font-size:10pt;
+  color:var(--color-ink-muted);
+  line-height:1.5;
+}
+
+.cta-signature strong{color:var(--color-ink)}
+
+/* ============ PAGE 15 CARTE DE POCHE ============ */
+.page-pocket{
+  background:var(--color-paper);
+}
+
+.pocket-head{
+  text-align:center;
+  margin-bottom:5mm;
+  padding-bottom:4mm;
+  border-bottom:0.5pt solid var(--color-paper-deep);
+}
+
+.pocket-head h1{
+  font-family:var(--font-display);
+  font-variation-settings:"opsz" 60;
+  font-size:28pt;
+  font-weight:700;
+  letter-spacing:-0.015em;
+  margin-bottom:2mm;
+}
+
+.pocket-head p{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:12pt;
+  color:var(--color-ink-soft);
+}
+
+.pocket-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3mm;
+  margin-bottom:5mm;
+}
+
+.pocket-cell{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:3mm 2mm 2mm;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  break-inside:avoid;
+}
+
+.pocket-cell svg{width:100%;height:50mm}
+
+.pocket-cell-title{
+  font-family:var(--font-body);
+  font-size:9pt;
+  font-weight:700;
+  color:var(--color-accent);
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  margin-top:1mm;
+}
+
+.pocket-bottom{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5mm;
+  margin-bottom:5mm;
+}
+
+.pocket-rythm,.pocket-progressions{
+  background:var(--color-paper-warm);
+  border:0.5pt solid var(--color-paper-deep);
+  padding:4mm 5mm;
+  break-inside:avoid;
+}
+
+.pocket-rythm h3,.pocket-progressions h3{
+  font-family:var(--font-body);
+  font-size:10px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  font-weight:700;
+  margin-bottom:3mm;
+  padding-bottom:2mm;
+  border-bottom:0.5pt solid var(--color-paper-deep);
+}
+
+.pocket-rythm-line{
+  font-family:var(--font-display);
+  font-size:13pt;
+  line-height:1.45;
+  color:var(--color-ink);
+  text-align:center;
+  font-weight:600;
+  letter-spacing:0.04em;
+}
+
+.pocket-rythm-line span{color:var(--color-accent);font-weight:700}
+
+.pocket-progressions ul{
+  list-style:none;
+}
+
+.pocket-progressions li{
+  font-family:var(--font-mono);
+  font-size:9.5pt;
+  color:var(--color-ink-soft);
+  margin-bottom:1.2mm;
+}
+
+.pocket-progressions li::before{
+  content:"→ ";
+  color:var(--color-accent);
+  font-weight:600;
+}
+
+.pocket-progressions li strong{
+  font-family:var(--font-display);
+  color:var(--color-accent-deep);
+  font-weight:700;
+  font-size:10.5pt;
+}
+
+.pocket-bio{
+  margin-top:auto;
+  padding-top:4mm;
+  border-top:0.5pt solid var(--color-paper-deep);
+  display:grid;
+  grid-template-columns:18mm 1fr;
+  gap:4mm;
+  align-items:center;
+}
+
+.pocket-bio-avatar{
+  width:18mm;
+  height:18mm;
+  background:var(--color-accent);
+  color:var(--color-paper);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-display);
+  font-size:20pt;
+  font-weight:800;
+  font-style:italic;
+  letter-spacing:-0.04em;
+}
+
+.pocket-bio-text h3{
+  font-family:var(--font-display);
+  font-size:13pt;
+  font-weight:700;
+  margin-bottom:1mm;
+}
+
+.pocket-bio-text p{
+  font-size:9pt;
+  line-height:1.45;
+  color:var(--color-ink-muted);
+  margin-bottom:1mm;
+}
+
+.pocket-bio-text .markers{
+  font-size:8.5pt;
+  color:var(--color-ink);
+  font-weight:500;
+}
+
+/* ============ WEB RESPONSIVE ============ */
+@media screen and (max-width:880px){
+  body{background:var(--color-paper)}
+  .guide{padding:0}
+  .page{
+    width:100%;
+    max-width:760px;
+    height:auto;
+    min-height:auto;
+    padding:24px;
+    box-shadow:none;
+  }
+  .cover-title{font-size:42pt}
+  .giant-5{font-size:200pt;bottom:-5mm;right:-2mm}
+  .chord-numeral{font-size:140pt;top:4mm;right:-2mm}
+  .gamme-grid,.next-steps,.pocket-grid,.reperes-grid,.voisinage-grid,.tierces-examples,.armures-table,.erreurs-grid{grid-template-columns:1fr;gap:8px}
+  .pocket-bottom{grid-template-columns:1fr}
+}
+
+/* ============ PRINT ============ */
+@page{
+  size:A4;
+  margin:0;
+}
+
+@media print{
+  html{font-size:14px}
+  html, body{
+    background:none;
+    margin:0;
+    padding:0;
+  }
+  .guide{display:block;padding:0;gap:0;margin:0}
+
+  .page{
+    box-shadow:none;
+    margin:0;
+    width:210mm;
+    min-height:297mm;
+    display:flex;
+    flex-direction:column;
+    page-break-after:always;
+    break-after:page;
+    padding:13mm var(--page-mx-out) 12mm;
+  }
+  .page:last-of-type{page-break-after:auto;break-after:auto}
+
+  .page h1{font-size:30pt;margin-bottom:3mm}
+  .page-promesse h1, .page-cta h1{font-size:30pt}
+  .lead{font-size:13pt;margin-bottom:5mm}
+  .body-text p, p{margin-bottom:3mm;line-height:1.5}
+  .pullquote-mega{font-size:48pt;margin:5mm 0}
+  .chord-title{font-size:32pt}
+  .chord-title small{font-size:13pt;margin-top:1mm}
+  .chord-lead{font-size:11pt;margin-bottom:4mm}
+
+  .callout{padding:4mm 5mm;margin:3mm 0}
+  .callout-head{margin-bottom:2mm;font-size:9px}
+  .callout-title{font-size:12pt;margin-bottom:1.5mm}
+  .callout p{font-size:10.5pt;line-height:1.45;margin-bottom:1mm}
+  .callout-list li{font-size:10.5pt;line-height:1.45;margin-bottom:0.8mm}
+
+  .next-step{padding:4mm 4mm 5mm}
+  .next-step-num{font-size:28pt;margin-bottom:2mm}
+  .next-step h3{font-size:12.5pt;margin-bottom:1.5mm}
+  .next-step p{font-size:9.5pt;line-height:1.4}
+
+  .cta-main{padding:6mm 8mm 6mm}
+  .cta-main h2{font-size:18pt;margin-bottom:2mm}
+  .cta-main p{font-size:10pt;line-height:1.4;margin-bottom:2mm}
+
+  .pochette-strip{margin-top:4mm;padding-top:3mm;gap:3mm}
+  .pochette{font-size:9pt;padding:1.5mm}
+
+  .page-head{margin-bottom:5mm;padding-bottom:2mm}
+
+  .gamme-grid{gap:5mm;margin:3mm 0 4mm}
+  .gamme-block{padding:4mm 3mm}
+  .gamme-block-head{margin-bottom:2mm;padding-bottom:1.5mm;font-size:9px}
+  .note-pochette{width:11mm;height:11mm;font-size:11pt}
+  .gamme-notes{gap:1.5mm}
+
+  .gamme-table{padding:3mm 4mm;margin:2mm 0 3mm;gap:2mm 4mm}
+  .gamme-table-label{font-size:11.5pt}
+  .note-mini{width:8mm;height:8mm;font-size:8.5pt}
+
+  .portee-wrap{padding:3mm 3mm;margin:2mm 0 3mm}
+  .portee-caption{font-size:8.5pt;margin-top:1mm}
+
+  .reperes-grid{gap:2mm;margin:2mm 0 3mm}
+  .repere-card{padding:2mm 1.5mm}
+  .repere-card svg{height:25mm}
+  .repere-card-name{font-size:10.5pt}
+  .repere-card-pos{font-size:7.5pt}
+
+  .voisinage-grid{gap:2mm;margin:2mm 0 3mm}
+  .voisinage-card{padding:2mm 1.5mm}
+  .voisinage-card svg{height:22mm}
+  .voisinage-card-label{font-size:10pt}
+  .voisinage-card-label em{font-size:12pt}
+
+  .tierces-strip{gap:1.5mm;margin:3mm 0}
+  .tierce-pochette{width:13mm;height:13mm;font-size:11pt}
+
+  .tierces-examples{gap:2mm;margin:2mm 0 3mm}
+  .tierces-example{padding:2mm 1.5mm}
+  .tierces-example svg{height:26mm}
+  .tierces-example-label{font-size:9.5pt}
+  .tierces-example-desc{font-size:7.5pt}
+
+  .armures-table{gap:2mm;margin:3mm 0 4mm}
+  .armure-card{padding:2.5mm 1.5mm}
+  .armure-tonalite{font-size:12pt}
+  .armure-alterations{font-size:9pt}
+
+  .erreurs-grid{gap:2mm 4mm;margin:2mm 0 4mm}
+  .erreur-item{padding:1.5mm 1mm 1.5mm 0;gap:1.5mm}
+  .erreur-num{font-size:15pt}
+  .erreur-text{font-size:9pt;line-height:1.35}
+  .erreur-text em{font-size:8pt}
+
+  .pocket-cell svg{height:42mm}
+  .pocket-cell-title{font-size:8pt;margin-top:0.5mm}
+  .pocket-rythm,.pocket-progressions{padding:3mm 4mm}
+  .pocket-rythm-line{font-size:11pt}
+  .pocket-progressions li{font-size:9pt;margin-bottom:0.8mm}
+  .pocket-progressions li strong{font-size:9.5pt}
+  .pocket-bio-avatar{width:15mm;height:15mm;font-size:16pt}
+  .pocket-bio-text h3{font-size:11pt}
+  .pocket-bio-text p{font-size:8pt;line-height:1.35}
+  .pocket-bio-text .markers{font-size:7.5pt}
+
+  .callout, .next-step, .pocket-cell, .cta-main,
+  .gamme-block, .gamme-table, .portee-wrap,
+  .repere-card, .voisinage-card, .tierces-example,
+  .armure-card, .erreur-item, .pullquote-mega{
+    page-break-inside:avoid;
+    break-inside:avoid;
+  }
+  h1,h2,h3,h4{page-break-after:avoid;break-after:avoid}
+
+  .giant-5,.chord-numeral{
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ SVG ICONS REUSABLES ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ico-key" viewBox="0 0 24 24">
+      <circle cx="8" cy="14" r="4"/>
+      <path d="M11 11l9-9"/>
+      <path d="M17 5l3 3"/>
+      <path d="M14 8l2 2"/>
+    </symbol>
+    <symbol id="ico-talk" viewBox="0 0 24 24">
+      <path d="M21 12a8 8 0 0 1-8 8H7l-4 3v-3a8 8 0 0 1 8-13 8 8 0 0 1 10 5z"/>
+    </symbol>
+    <symbol id="ico-check" viewBox="0 0 24 24">
+      <path d="M20 6L9 17l-5-5"/>
+    </symbol>
+    <symbol id="ico-alert" viewBox="0 0 24 24">
+      <path d="M12 2L1 21h22L12 2z"/>
+      <line x1="12" y1="9" x2="12" y2="14"/>
+      <line x1="12" y1="17.5" x2="12.01" y2="17.5"/>
+    </symbol>
+    <symbol id="ico-arrow" viewBox="0 0 24 24">
+      <line x1="5" y1="12" x2="19" y2="12"/>
+      <polyline points="13 6 19 12 13 18"/>
+    </symbol>
+    <symbol id="ico-target" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/>
+      <circle cx="12" cy="12" r="5"/>
+      <circle cx="12" cy="12" r="1" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<article class="guide" aria-label="Lire les notes au piano">
+
+<!-- =============================================================
+     PAGE 1 — COUVERTURE
+     ============================================================= -->
+<section class="page page-cover" data-page="1">
+  <!-- Clé de sol Unicode (signature visuelle piano) -->
+  <svg class="cover-pick" viewBox="0 0 100 140" aria-hidden="true">
+    <text class="clef-svg-text" x="50" y="120" font-size="150" text-anchor="middle">&#x1D11E;</text>
+  </svg>
+
+  <div class="cover-tag">Guide gratuit · Piano</div>
+
+  <h1 class="cover-title">Lire <em>les notes</em><br>au piano</h1>
+  <div class="cover-rule"></div>
+  <p class="cover-subtitle"><em>5 astuces</em> de prof<br>pour déchiffrer enfin<br>sans s'arrêter.</p>
+  <p class="cover-tagline">Pas de méthode rébarbative. Pas de FACE.<br>Tu lis, c'est tout.</p>
+
+  <div class="cover-authority">
+    <div class="cover-markers">
+      <span>12 ans d'enseignement</span>
+      <span class="dot" aria-hidden="true"></span>
+      <span>Auteur publié chez Hal Leonard</span>
+      <span class="dot" aria-hidden="true"></span>
+      <span>Prix Samuel Paty 2024</span>
+      <span class="dot" aria-hidden="true"></span>
+      <span>80 000+ élèves formés</span>
+    </div>
+    <div class="cover-sign">
+      Fred Fieffé · Musique Facile
+      <small>musique-facile.fr</small>
+    </div>
+  </div>
+
+  <!-- Mini clavier vertical (5 octaves stylisées) -->
+  <svg class="cover-fretboard" viewBox="0 0 60 360" aria-hidden="true">
+    <!-- Touches blanches : 5 octaves de 7 touches = 35 -->
+    <g fill="var(--color-paper)" stroke="var(--color-ink)" stroke-width="0.8">
+      <!-- chaque touche blanche : largeur 60, hauteur 10 -->
+      <!-- 36 lignes pour faire 36 touches -->
+      <g>
+        <rect x="0" y="0" width="60" height="10"/>
+        <rect x="0" y="10" width="60" height="10"/>
+        <rect x="0" y="20" width="60" height="10"/>
+        <rect x="0" y="30" width="60" height="10"/>
+        <rect x="0" y="40" width="60" height="10"/>
+        <rect x="0" y="50" width="60" height="10"/>
+        <rect x="0" y="60" width="60" height="10"/>
+        <rect x="0" y="70" width="60" height="10"/>
+        <rect x="0" y="80" width="60" height="10"/>
+        <rect x="0" y="90" width="60" height="10"/>
+        <rect x="0" y="100" width="60" height="10"/>
+        <rect x="0" y="110" width="60" height="10"/>
+        <rect x="0" y="120" width="60" height="10"/>
+        <rect x="0" y="130" width="60" height="10"/>
+        <rect x="0" y="140" width="60" height="10"/>
+        <rect x="0" y="150" width="60" height="10"/>
+        <rect x="0" y="160" width="60" height="10"/>
+        <rect x="0" y="170" width="60" height="10"/>
+        <rect x="0" y="180" width="60" height="10"/>
+        <rect x="0" y="190" width="60" height="10"/>
+        <rect x="0" y="200" width="60" height="10"/>
+        <rect x="0" y="210" width="60" height="10"/>
+        <rect x="0" y="220" width="60" height="10"/>
+        <rect x="0" y="230" width="60" height="10"/>
+        <rect x="0" y="240" width="60" height="10"/>
+        <rect x="0" y="250" width="60" height="10"/>
+        <rect x="0" y="260" width="60" height="10"/>
+        <rect x="0" y="270" width="60" height="10"/>
+        <rect x="0" y="280" width="60" height="10"/>
+        <rect x="0" y="290" width="60" height="10"/>
+        <rect x="0" y="300" width="60" height="10"/>
+        <rect x="0" y="310" width="60" height="10"/>
+        <rect x="0" y="320" width="60" height="10"/>
+        <rect x="0" y="330" width="60" height="10"/>
+        <rect x="0" y="340" width="60" height="10"/>
+        <rect x="0" y="350" width="60" height="10"/>
+      </g>
+    </g>
+    <!-- Touches noires : groupes de 2 puis 3 (Do# Ré# / Fa# Sol# La#) -->
+    <!-- 1 octave = 7 blanches = 70 unités → mais nous avons 10 unités par touche blanche, donc 1 octave = 70 unités -->
+    <!-- Schéma noir : entre 1-2, 2-3, [gap], 4-5, 5-6, 6-7 → x px du haut de chaque touche -->
+    <g fill="var(--color-ink)" stroke="var(--color-ink)" stroke-width="0.4">
+      <!-- Pour chaque octave de 70px on place 5 noires aux y +7,+17,(skip 30),+37,+47,+57 -->
+      <!-- Octave 1 (y 0-70) -->
+      <rect x="0" y="6" width="36" height="8"/>
+      <rect x="0" y="16" width="36" height="8"/>
+      <rect x="0" y="36" width="36" height="8"/>
+      <rect x="0" y="46" width="36" height="8"/>
+      <rect x="0" y="56" width="36" height="8"/>
+      <!-- Octave 2 (y 70-140) -->
+      <rect x="0" y="76" width="36" height="8"/>
+      <rect x="0" y="86" width="36" height="8"/>
+      <rect x="0" y="106" width="36" height="8"/>
+      <rect x="0" y="116" width="36" height="8"/>
+      <rect x="0" y="126" width="36" height="8"/>
+      <!-- Octave 3 (y 140-210) -->
+      <rect x="0" y="146" width="36" height="8"/>
+      <rect x="0" y="156" width="36" height="8"/>
+      <rect x="0" y="176" width="36" height="8"/>
+      <rect x="0" y="186" width="36" height="8"/>
+      <rect x="0" y="196" width="36" height="8"/>
+      <!-- Octave 4 (y 210-280) -->
+      <rect x="0" y="216" width="36" height="8"/>
+      <rect x="0" y="226" width="36" height="8"/>
+      <rect x="0" y="246" width="36" height="8"/>
+      <rect x="0" y="256" width="36" height="8"/>
+      <rect x="0" y="266" width="36" height="8"/>
+      <!-- Octave 5 (y 280-350) -->
+      <rect x="0" y="286" width="36" height="8"/>
+      <rect x="0" y="296" width="36" height="8"/>
+      <rect x="0" y="316" width="36" height="8"/>
+      <rect x="0" y="326" width="36" height="8"/>
+      <rect x="0" y="336" width="36" height="8"/>
+    </g>
+  </svg>
+
+  <div class="giant-5" aria-hidden="true">5</div>
+</section>
+
+<!-- =============================================================
+     PAGE 2 — PROMESSE
+     ============================================================= -->
+<section class="page page-promesse" data-page="2">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Lire les notes au piano</span>
+  </div>
+
+  <h1>La lecture, c'est une habitude.<br>Pas un don.</h1>
+
+  <p class="lead">En 21 jours, tu peux déchiffrer une chanson facile sans t'arrêter.</p>
+
+  <div class="body-text">
+    <p>Tu vois une partition, tu paniques. Tu écris le nom des notes en dessous. Tu déchiffres lettre par lettre, comme un enfant qui apprend à lire. <strong>Tu n'apprends jamais à lire.</strong></p>
+
+    <p>La lecture musicale, c'est exactement comme la lecture d'un texte&nbsp;: on commence par déchiffrer, puis on lit par paquets, puis on lit <em>fluide</em>. Le truc, c'est de <strong>passer à l'étape 2 dès la 2<sup>e</sup> semaine</strong>.</p>
+  </div>
+
+  <p class="pullquote-mega" aria-hidden="false">En 21 jours.</p>
+
+  <div class="pochette-strip" aria-label="6 mots-clés du guide">
+    <div class="pochette">Gamme</div>
+    <div class="pochette">Repères</div>
+    <div class="pochette">Portée</div>
+    <div class="pochette">Tierces</div>
+    <div class="pochette">Armure</div>
+    <div class="pochette">Lecture</div>
+  </div>
+
+  <aside class="callout callout--astuce">
+    <div class="callout-head"><svg class="ico"><use href="#ico-key"/></svg> À retenir</div>
+    <p>Avant de tourner la page&nbsp;: tu n'as <strong>pas besoin</strong> d'apprendre des dizaines de notes. Tu as besoin de <strong>2 ou 3 notes repères par clé</strong>, et de leurs voisines. C'est tout le secret de ce guide.</p>
+  </aside>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>02</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 3 — ASTUCE 1 : LA GAMME DANS LES 2 SENS
+     ============================================================= -->
+<section class="page page-chord" data-page="3">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Astuce 1 / 5</span>
+  </div>
+
+  <div class="chord-numeral" aria-hidden="true">1</div>
+
+  <div class="chord-stack">
+    <div class="chord-meta">Astuce 01 · La gamme</div>
+    <h1 class="chord-title">Do Ré Mi.<br>Et l'inverse.<small>Dans n'importe quel sens, depuis n'importe quelle note.</small></h1>
+
+    <p class="chord-lead">Tant que tu hésites sur l'ordre des notes, tu ne peux pas lire. C'est le préalable absolu.</p>
+
+    <div class="gamme-grid">
+      <div class="gamme-block">
+        <div class="gamme-block-head"><span>Montant</span><span class="arrow">↗</span></div>
+        <div class="gamme-notes">
+          <div class="note-pochette">Do</div>
+          <div class="note-pochette">Ré</div>
+          <div class="note-pochette">Mi</div>
+          <div class="note-pochette">Fa</div>
+          <div class="note-pochette">Sol</div>
+          <div class="note-pochette">La</div>
+          <div class="note-pochette">Si</div>
+          <div class="note-pochette deep">Do</div>
+        </div>
+      </div>
+      <div class="gamme-block">
+        <div class="gamme-block-head"><span>Descendant</span><span class="arrow">↘</span></div>
+        <div class="gamme-notes">
+          <div class="note-pochette coral">Do</div>
+          <div class="note-pochette coral">Si</div>
+          <div class="note-pochette coral">La</div>
+          <div class="note-pochette coral">Sol</div>
+          <div class="note-pochette coral">Fa</div>
+          <div class="note-pochette coral">Mi</div>
+          <div class="note-pochette coral">Ré</div>
+          <div class="note-pochette indigo">Do</div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="callout callout--astuce">
+      <div class="callout-head"><svg class="ico"><use href="#ico-key"/></svg> L'exercice qui ancre</div>
+      <p>Récite à voix haute, dans la voiture, sous la douche. <strong>30 secondes, 3 fois par jour.</strong> Le cerveau a besoin d'audio + verbal pour ancrer.</p>
+      <p>Au bout d'une semaine, tu dois pouvoir réciter les 7 notes en montant <em>et</em> en descendant sans hésiter, comme l'alphabet.</p>
+    </aside>
+
+    <aside class="callout callout--histoire">
+      <div class="callout-head"><svg class="ico"><use href="#ico-talk"/></svg> Ce que je dis à mes élèves</div>
+      <p><em>« Si tu hésites une demi-seconde sur l'ordre des notes, ta lecture sera toujours saccadée. Récite-les comme tu récites les jours de la semaine. »</em></p>
+    </aside>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>03</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 4 — ASTUCE 1 SUITE : DEPUIS N'IMPORTE QUELLE NOTE
+     ============================================================= -->
+<section class="page" data-page="4">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Astuce 1 — suite</span>
+  </div>
+
+  <div class="chord-meta">La gamme depuis n'importe quelle note</div>
+  <h1 style="font-family:var(--font-display);font-variation-settings:'opsz' 72;font-size:32pt;font-weight:700;letter-spacing:-0.015em;line-height:1.1;margin-bottom:3mm">Maintenant, depuis n'importe quelle note.</h1>
+  <p class="lead">L'exercice qui change tout&nbsp;: tu te donnes une note au hasard, tu récites la gamme dans les 2 sens jusqu'à retomber sur elle.</p>
+
+  <div class="gamme-table">
+    <div class="gamme-table-label">Ré ↗</div>
+    <div class="gamme-table-notes">
+      <div class="note-mini">Ré</div><div class="note-mini">Mi</div><div class="note-mini">Fa</div><div class="note-mini">Sol</div><div class="note-mini">La</div><div class="note-mini">Si</div><div class="note-mini">Do</div><div class="note-mini">Ré</div>
+    </div>
+    <div class="gamme-table-label">Ré ↘</div>
+    <div class="gamme-table-notes">
+      <div class="note-mini coral">Ré</div><div class="note-mini coral">Do</div><div class="note-mini coral">Si</div><div class="note-mini coral">La</div><div class="note-mini coral">Sol</div><div class="note-mini coral">Fa</div><div class="note-mini coral">Mi</div><div class="note-mini coral">Ré</div>
+    </div>
+  </div>
+
+  <div class="gamme-table">
+    <div class="gamme-table-label">Mi ↗</div>
+    <div class="gamme-table-notes">
+      <div class="note-mini">Mi</div><div class="note-mini">Fa</div><div class="note-mini">Sol</div><div class="note-mini">La</div><div class="note-mini">Si</div><div class="note-mini">Do</div><div class="note-mini">Ré</div><div class="note-mini">Mi</div>
+    </div>
+    <div class="gamme-table-label">Fa ↗</div>
+    <div class="gamme-table-notes">
+      <div class="note-mini">Fa</div><div class="note-mini">Sol</div><div class="note-mini">La</div><div class="note-mini">Si</div><div class="note-mini">Do</div><div class="note-mini">Ré</div><div class="note-mini">Mi</div><div class="note-mini">Fa</div>
+    </div>
+  </div>
+
+  <div class="gamme-table">
+    <div class="gamme-table-label">Sol ↗</div>
+    <div class="gamme-table-notes">
+      <div class="note-mini">Sol</div><div class="note-mini">La</div><div class="note-mini">Si</div><div class="note-mini">Do</div><div class="note-mini">Ré</div><div class="note-mini">Mi</div><div class="note-mini">Fa</div><div class="note-mini">Sol</div>
+    </div>
+    <div class="gamme-table-label">La ↗</div>
+    <div class="gamme-table-notes">
+      <div class="note-mini">La</div><div class="note-mini">Si</div><div class="note-mini">Do</div><div class="note-mini">Ré</div><div class="note-mini">Mi</div><div class="note-mini">Fa</div><div class="note-mini">Sol</div><div class="note-mini">La</div>
+    </div>
+  </div>
+
+  <aside class="callout callout--test">
+    <div class="callout-head"><svg class="ico"><use href="#ico-check"/></svg> Test flash</div>
+    <p>Donne-toi <strong>10 secondes</strong> pour réciter de SOL à SOL en montant. Puis 10 secondes en descendant. Si tu hésites, recommence. Quand tu le fais sans hésiter pour les 7 notes, tu es prêt pour l'astuce 2.</p>
+  </aside>
+
+  <aside class="callout callout--erreur">
+    <div class="callout-head"><svg class="ico"><use href="#ico-alert"/></svg> Ne saute pas cette étape</div>
+    <p>C'est la <strong>fondation</strong>. Sans elle, les notes repères ne servent à rien — tu ne sauras pas dire ce qui est <em>à côté</em>.</p>
+  </aside>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>04</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 5 — ASTUCE 2 : NOTES REPÈRES CLÉ DE SOL
+     ============================================================= -->
+<section class="page page-chord" data-page="5">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Astuce 2 / 5</span>
+  </div>
+
+  <div class="chord-numeral" aria-hidden="true">2</div>
+
+  <div class="chord-stack">
+    <div class="chord-meta">Astuce 02 · Notes repères</div>
+    <h1 class="chord-title">Ton GPS<br>sur la portée.<small>4 notes à connaître par cœur. Le reste suit.</small></h1>
+
+    <p class="chord-lead">Tu n'as pas besoin d'apprendre les 17 lignes et interlignes. Tu as besoin de 4 notes repères + la logique de voisinage.</p>
+
+    <div class="portee-wrap">
+      <!-- PORTÉE CLÉ DE SOL : viewBox 400 x 110 -->
+      <svg viewBox="0 0 400 110" aria-label="Portée clé de sol avec 2 Do et 2 Sol mis en évidence">
+        <!-- 5 lignes de la portée : y = 30, 42, 54, 66, 78 (interval 12) -->
+        <g stroke="#0D1B2A" stroke-width="0.8" fill="none">
+          <line x1="20" y1="30" x2="380" y2="30"/>
+          <line x1="20" y1="42" x2="380" y2="42"/>
+          <line x1="20" y1="54" x2="380" y2="54"/>
+          <line x1="20" y1="66" x2="380" y2="66"/>
+          <line x1="20" y1="78" x2="380" y2="78"/>
+        </g>
+        <!-- Clé de sol Unicode (𝄞) à gauche, spirale centrée sur Sol G4 (y=66) -->
+        <text class="clef-svg-text" x="28" y="88" font-size="96" text-anchor="start" dominant-baseline="alphabetic">&#x1D11E;</text>
+
+        <!-- Do central : 1ère ligne suppl. SOUS la portée, y=90 -->
+        <g>
+          <line x1="98" y1="90" x2="118" y2="90" stroke="#0D1B2A" stroke-width="0.8"/>
+          <ellipse cx="108" cy="90" rx="6.5" ry="5" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="1"/>
+          <text x="108" y="104" font-family="Fraunces,serif" font-size="9" font-weight="700" fill="var(--color-saffron)" text-anchor="middle">Do</text>
+        </g>
+
+        <!-- Sol grave (2e ligne en partant du bas = y=66) -->
+        <g>
+          <ellipse cx="158" cy="66" rx="6.5" ry="5" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="1"/>
+          <text x="158" y="90" font-family="Fraunces,serif" font-size="9" font-weight="700" fill="var(--color-accent)" text-anchor="middle">Sol</text>
+        </g>
+
+        <!-- Do haut (3e interligne = y=48) -->
+        <g>
+          <ellipse cx="218" cy="48" rx="6.5" ry="5" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="1"/>
+          <text x="218" y="22" font-family="Fraunces,serif" font-size="9" font-weight="700" fill="var(--color-saffron)" text-anchor="middle">Do</text>
+        </g>
+
+        <!-- Sol aigu : interligne AU-DESSUS de L5, y=24, PAS de ledger -->
+        <g>
+          <ellipse cx="278" cy="24" rx="6.5" ry="5" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="1"/>
+          <text x="295" y="26" font-family="Fraunces,serif" font-size="9" font-weight="700" fill="var(--color-accent)" text-anchor="start">Sol</text>
+        </g>
+      </svg>
+      <div class="portee-caption">2 Do (or) et 2 Sol (bleu) — tes 4 repères en clé de sol</div>
+    </div>
+
+    <div class="reperes-grid">
+      <div class="repere-card">
+        <svg viewBox="0 0 100 80" aria-label="Do central">
+          <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+            <line x1="22" y1="20" x2="94" y2="20"/><line x1="22" y1="30" x2="94" y2="30"/><line x1="22" y1="40" x2="94" y2="40"/><line x1="22" y1="50" x2="94" y2="50"/><line x1="22" y1="60" x2="94" y2="60"/>
+          </g>
+          <text class="clef-svg-text" x="6" y="58" font-size="48" text-anchor="start">&#x1D11E;</text>
+          <line x1="50" y1="70" x2="66" y2="70" stroke="#0D1B2A" stroke-width="0.7"/>
+          <ellipse cx="58" cy="70" rx="6" ry="4.5" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        </svg>
+        <div class="repere-card-name">Do central</div>
+        <div class="repere-card-pos">1<sup>re</sup> ligne suppl. sous portée</div>
+      </div>
+      <div class="repere-card">
+        <svg viewBox="0 0 100 80" aria-label="Do haut">
+          <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+            <line x1="22" y1="20" x2="94" y2="20"/><line x1="22" y1="30" x2="94" y2="30"/><line x1="22" y1="40" x2="94" y2="40"/><line x1="22" y1="50" x2="94" y2="50"/><line x1="22" y1="60" x2="94" y2="60"/>
+          </g>
+          <text class="clef-svg-text" x="6" y="58" font-size="48" text-anchor="start">&#x1D11E;</text>
+          <ellipse cx="58" cy="35" rx="6" ry="4.5" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        </svg>
+        <div class="repere-card-name">Do haut</div>
+        <div class="repere-card-pos">3<sup>e</sup> interligne</div>
+      </div>
+      <div class="repere-card">
+        <svg viewBox="0 0 100 80" aria-label="Sol grave">
+          <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+            <line x1="22" y1="20" x2="94" y2="20"/><line x1="22" y1="30" x2="94" y2="30"/><line x1="22" y1="40" x2="94" y2="40"/><line x1="22" y1="50" x2="94" y2="50"/><line x1="22" y1="60" x2="94" y2="60"/>
+          </g>
+          <text class="clef-svg-text" x="6" y="58" font-size="48" text-anchor="start">&#x1D11E;</text>
+          <ellipse cx="58" cy="50" rx="6" ry="4.5" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        </svg>
+        <div class="repere-card-name">Sol grave</div>
+        <div class="repere-card-pos">Sur la ligne où démarre la clé de sol</div>
+      </div>
+      <div class="repere-card">
+        <svg viewBox="0 0 100 80" aria-label="Sol aigu">
+          <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+            <line x1="22" y1="20" x2="94" y2="20"/><line x1="22" y1="30" x2="94" y2="30"/><line x1="22" y1="40" x2="94" y2="40"/><line x1="22" y1="50" x2="94" y2="50"/><line x1="22" y1="60" x2="94" y2="60"/>
+          </g>
+          <text class="clef-svg-text" x="6" y="58" font-size="48" text-anchor="start">&#x1D11E;</text>
+          <ellipse cx="58" cy="15" rx="6" ry="4.5" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        </svg>
+        <div class="repere-card-name">Sol aigu</div>
+        <div class="repere-card-pos">Posé sur la portée (au-dessus de la 5<sup>e</sup> ligne)</div>
+      </div>
+    </div>
+
+    <aside class="callout callout--astuce">
+      <div class="callout-head"><svg class="ico"><use href="#ico-key"/></svg> Apprends-les par cœur</div>
+      <p>Ces 4 positions, c'est ton <strong>alphabet de la clé de sol</strong>. Apprends-les <strong>vraiment par cœur</strong>. Pas la peine d'aller plus loin tant que ces 4 ne sont pas automatiques.</p>
+    </aside>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>05</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 6 — ASTUCE 2 SUITE : CLÉ DE FA + VOISINAGE
+     ============================================================= -->
+<section class="page" data-page="6">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Astuce 2 — suite</span>
+  </div>
+
+  <div class="chord-meta">Et en clé de fa</div>
+  <h1 style="font-family:var(--font-display);font-variation-settings:'opsz' 72;font-size:30pt;font-weight:700;letter-spacing:-0.015em;line-height:1.1;margin-bottom:3mm">En clé de fa&nbsp;: Do et Fa.</h1>
+  <p class="lead">Même logique. 4 repères&nbsp;: 2 Do et 2 Fa.</p>
+
+  <div class="portee-wrap">
+    <svg viewBox="0 0 400 110" aria-label="Portée clé de fa avec Do central et 2 Fa">
+      <g stroke="#0D1B2A" stroke-width="0.8" fill="none">
+        <line x1="20" y1="30" x2="380" y2="30"/>
+        <line x1="20" y1="42" x2="380" y2="42"/>
+        <line x1="20" y1="54" x2="380" y2="54"/>
+        <line x1="20" y1="66" x2="380" y2="66"/>
+        <line x1="20" y1="78" x2="380" y2="78"/>
+      </g>
+      <!-- Clé de fa Unicode (𝄢) : centre/2 points autour de la 4e ligne F3 (y=42) -->
+      <text class="clef-svg-text" x="28" y="58" font-size="64" text-anchor="start">&#x1D122;</text>
+
+      <!-- Do central (C4) : 1ère ligne supplémentaire au-DESSUS de la portée fa, y=18 -->
+      <g>
+        <line x1="98" y1="18" x2="118" y2="18" stroke="#0D1B2A" stroke-width="0.8"/>
+        <ellipse cx="108" cy="18" rx="6.5" ry="5" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="1"/>
+        <text x="108" y="8" font-family="Fraunces,serif" font-size="9" font-weight="700" fill="var(--color-saffron)" text-anchor="middle">Do central</text>
+      </g>
+
+      <!-- Do3 (C3) : 2e interligne (entre L2 Si et L3 Ré), y=60 -->
+      <g>
+        <ellipse cx="170" cy="60" rx="6.5" ry="5" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="1"/>
+        <text x="170" y="100" font-family="Fraunces,serif" font-size="9" font-weight="700" fill="var(--color-saffron)" text-anchor="middle">Do</text>
+      </g>
+
+      <!-- Fa (F3) : 4e ligne, y=42 (le Fa de la clé) -->
+      <g>
+        <ellipse cx="230" cy="42" rx="6.5" ry="5" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="1"/>
+        <text x="230" y="22" font-family="Fraunces,serif" font-size="9" font-weight="700" fill="var(--color-accent)" text-anchor="middle">Fa</text>
+      </g>
+
+      <!-- Fa grave (F2) : interligne SOUS L1, y=84, PAS de ledger -->
+      <g>
+        <ellipse cx="300" cy="84" rx="6.5" ry="5" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="1"/>
+        <text x="300" y="100" font-family="Fraunces,serif" font-size="9" font-weight="700" fill="var(--color-accent)" text-anchor="middle">Fa grave</text>
+      </g>
+    </svg>
+    <div class="portee-caption">2 Do (or) et 2 Fa (bleu) — tes 4 repères en clé de fa. Le Do central rejoint le Do central de la clé de sol.</div>
+  </div>
+
+  <aside class="callout callout--astuce">
+    <div class="callout-head"><svg class="ico"><use href="#ico-key"/></svg> La règle de voisinage</div>
+    <p>Toutes les autres notes sont <strong>à côté d'une note repère</strong>. Le <strong>Sol est juste au-dessus du Fa</strong>. Le <strong>Ré juste au-dessus du Do</strong>. Le <strong>Si juste en dessous du Do</strong>.</p>
+    <p>Tu ne nommes plus 7 notes&nbsp;: tu nommes <strong>1 note repère + sa voisine</strong>.</p>
+  </aside>
+
+  <div class="voisinage-grid">
+    <!-- Card 1 : Fa (note repère, L4) → Sol (interligne 4-5 au-dessus) -->
+    <div class="voisinage-card">
+      <svg viewBox="0 0 100 80" aria-label="Fa vers Sol en clé de fa">
+        <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+          <line x1="22" y1="30" x2="94" y2="30"/><line x1="22" y1="40" x2="94" y2="40"/><line x1="22" y1="50" x2="94" y2="50"/><line x1="22" y1="60" x2="94" y2="60"/><line x1="22" y1="70" x2="94" y2="70"/>
+        </g>
+        <text class="clef-svg-text" x="6" y="54" font-size="44" text-anchor="start">&#x1D122;</text>
+        <ellipse cx="42" cy="40" rx="5" ry="4" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <ellipse cx="78" cy="35" rx="5" ry="4" fill="var(--color-coral)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <path d="M 50 38 L 70 35" stroke="var(--color-sage)" stroke-width="1.4" fill="none" marker-end="url(#arr-up-fa)"/>
+        <defs><marker id="arr-up-fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L0,10 L10,5 z" fill="var(--color-sage)"/></marker></defs>
+      </svg>
+      <div class="voisinage-card-label">Fa <em>↗</em> Sol</div>
+    </div>
+    <!-- Card 2 : Do central (ledger au-dessus L5) → Ré (interligne au-dessus du ledger) -->
+    <div class="voisinage-card">
+      <svg viewBox="0 0 100 80" aria-label="Do central vers Ré en clé de fa">
+        <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+          <line x1="22" y1="30" x2="94" y2="30"/><line x1="22" y1="40" x2="94" y2="40"/><line x1="22" y1="50" x2="94" y2="50"/><line x1="22" y1="60" x2="94" y2="60"/><line x1="22" y1="70" x2="94" y2="70"/>
+        </g>
+        <text class="clef-svg-text" x="6" y="54" font-size="44" text-anchor="start">&#x1D122;</text>
+        <line x1="36" y1="20" x2="48" y2="20" stroke="#0D1B2A" stroke-width="0.7"/>
+        <ellipse cx="42" cy="20" rx="5" ry="4" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <ellipse cx="78" cy="15" rx="5" ry="4" fill="var(--color-coral)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <path d="M 50 18 L 70 15" stroke="var(--color-sage)" stroke-width="1.4" fill="none" marker-end="url(#arr-up-do)"/>
+        <defs><marker id="arr-up-do" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L0,10 L10,5 z" fill="var(--color-sage)"/></marker></defs>
+      </svg>
+      <div class="voisinage-card-label">Do <em>↗</em> Ré</div>
+    </div>
+    <!-- Card 3 : Do central → Si (interligne juste en dessous du Do central) -->
+    <div class="voisinage-card">
+      <svg viewBox="0 0 100 80" aria-label="Do central vers Si en clé de fa">
+        <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+          <line x1="22" y1="30" x2="94" y2="30"/><line x1="22" y1="40" x2="94" y2="40"/><line x1="22" y1="50" x2="94" y2="50"/><line x1="22" y1="60" x2="94" y2="60"/><line x1="22" y1="70" x2="94" y2="70"/>
+        </g>
+        <text class="clef-svg-text" x="6" y="54" font-size="44" text-anchor="start">&#x1D122;</text>
+        <line x1="36" y1="20" x2="48" y2="20" stroke="#0D1B2A" stroke-width="0.7"/>
+        <ellipse cx="42" cy="20" rx="5" ry="4" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <ellipse cx="78" cy="25" rx="5" ry="4" fill="var(--color-coral)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <path d="M 50 22 L 70 25" stroke="var(--color-indigo)" stroke-width="1.4" fill="none" marker-end="url(#arr-dn-do)"/>
+        <defs><marker id="arr-dn-do" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L0,10 L10,5 z" fill="var(--color-indigo)"/></marker></defs>
+      </svg>
+      <div class="voisinage-card-label">Do <em>↘</em> Si</div>
+    </div>
+  </div>
+
+  <aside class="callout callout--test">
+    <div class="callout-head"><svg class="ico"><use href="#ico-check"/></svg> Test voisinage</div>
+    <p>Trouve un <strong>Fa</strong> en 2 secondes. Tu n'as <strong>PAS le droit</strong> de réciter Do-Ré-Mi-Fa&nbsp;: tu dois penser <em>« Sol… donc Fa juste en dessous »</em>.</p>
+    <p>Et dans l'autre sens&nbsp;: tu vois une note, tu repères le <strong>Fa juste en dessous</strong> → c'est donc un Sol. On cherche <strong>toujours la note repère la plus proche</strong>.</p>
+  </aside>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>06</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 7 — ASTUCE 3 : SUPER PORTÉE 11 LIGNES
+     ============================================================= -->
+<section class="page page-chord" data-page="7">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Astuce 3 / 5</span>
+  </div>
+
+  <div class="chord-numeral" aria-hidden="true">3</div>
+
+  <div class="chord-stack">
+    <div class="chord-meta">Astuce 03 · Super portée</div>
+    <h1 class="chord-title">La portée<br>de 11 lignes.<small>Une seule portée géante. La ligne rouge centrale = le Do du milieu.</small></h1>
+
+    <p class="chord-lead">Cesse de voir deux portées séparées. Vois UNE grande portée de 11 lignes&nbsp;: la portée de sol (5 lignes), la portée de fa (5 lignes), et <strong>entre les deux, la ligne invisible du Do du milieu</strong>.</p>
+
+    <div class="portee-wrap">
+      <!-- SUPER PORTÉE : viewBox 400 x 160 -->
+      <svg viewBox="0 0 400 160" aria-label="Super portée 11 lignes avec ligne Do centrale rouge">
+        <!-- 5 lignes portée sol : y 18, 28, 38, 48, 58 -->
+        <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+          <line x1="20" y1="18" x2="380" y2="18"/>
+          <line x1="20" y1="28" x2="380" y2="28"/>
+          <line x1="20" y1="38" x2="380" y2="38"/>
+          <line x1="20" y1="48" x2="380" y2="48"/>
+          <line x1="20" y1="58" x2="380" y2="58"/>
+        </g>
+        <!-- Ligne Do rouge centrale : y=80 (entre les 2 portées) -->
+        <line x1="20" y1="80" x2="380" y2="80" stroke="#E11D48" stroke-width="1.8" stroke-dasharray="4 3"/>
+        <ellipse cx="200" cy="80" rx="8" ry="6" fill="var(--color-saffron)" stroke="var(--color-coral)" stroke-width="1.5"/>
+        <text x="220" y="84" font-family="Fraunces,serif" font-size="11" font-weight="700" fill="var(--color-coral)">Do central</text>
+
+        <!-- 5 lignes portée fa : y 102, 112, 122, 132, 142 -->
+        <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+          <line x1="20" y1="102" x2="380" y2="102"/>
+          <line x1="20" y1="112" x2="380" y2="112"/>
+          <line x1="20" y1="122" x2="380" y2="122"/>
+          <line x1="20" y1="132" x2="380" y2="132"/>
+          <line x1="20" y1="142" x2="380" y2="142"/>
+        </g>
+
+        <!-- Clé de sol Unicode (spirale centrée sur Sol G4 = y=48 dans portée sol) -->
+        <text class="clef-svg-text" x="28" y="72" font-size="84" text-anchor="start">&#x1D11E;</text>
+        <!-- Clé de fa Unicode (centre autour de Fa F3 = y=122 dans portée fa) -->
+        <text class="clef-svg-text" x="28" y="144" font-size="64" text-anchor="start">&#x1D122;</text>
+
+        <!-- Accolade "11 lignes" à droite -->
+        <g stroke="var(--color-accent-deep)" stroke-width="1.2" fill="none">
+          <path d="M 384 18 Q 390 18, 390 24 L 390 76 Q 390 80, 394 80 Q 390 80, 390 84 L 390 136 Q 390 142, 384 142"/>
+        </g>
+        <text x="396" y="84" font-family="Fraunces,serif" font-size="9" font-weight="700" fill="var(--color-accent-deep)">11 lignes</text>
+      </svg>
+      <div class="portee-caption">La ligne rouge n'est pas imprimée. Elle est dans ta tête. Elle change tout.</div>
+    </div>
+
+    <aside class="callout callout--astuce">
+      <div class="callout-head"><svg class="ico"><use href="#ico-key"/></svg> Ce qu'elle débloque</div>
+      <p>Cette ligne rouge <strong>n'existe pas sur la partition</strong>, mais elle est là dans ta tête. Quand tu vois une note ledger (ligne supplémentaire), tu sais instantanément où elle est par rapport au Do central.</p>
+    </aside>
+
+    <aside class="callout callout--histoire">
+      <div class="callout-head"><svg class="ico"><use href="#ico-talk"/></svg> En cours</div>
+      <p><em>« Je trace la ligne rouge au stylo, une fois, sur la première partition de mon élève. Au bout de 3 morceaux, il n'en a plus besoin&nbsp;: il la voit. »</em></p>
+    </aside>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>07</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 8 — ASTUCE 3 SUITE : LEDGER LINES
+     ============================================================= -->
+<section class="page" data-page="8">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Astuce 3 — suite</span>
+  </div>
+
+  <div class="chord-meta">À quoi ça sert ? Aux lignes supplémentaires</div>
+  <h1 style="font-family:var(--font-display);font-variation-settings:'opsz' 72;font-size:30pt;font-weight:700;letter-spacing:-0.015em;line-height:1.1;margin-bottom:3mm">Les notes hors portée, enfin lisibles.</h1>
+  <p class="lead">Le pire cauchemar du débutant&nbsp;: les notes en dehors des 5 lignes. La super portée les rend évidentes.</p>
+
+  <div class="tierces-examples">
+    <div class="tierces-example">
+      <svg viewBox="0 0 120 90" aria-label="Note grave en clé de sol">
+        <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+          <line x1="22" y1="14" x2="114" y2="14"/><line x1="22" y1="24" x2="114" y2="24"/><line x1="22" y1="34" x2="114" y2="34"/><line x1="22" y1="44" x2="114" y2="44"/><line x1="22" y1="54" x2="114" y2="54"/>
+        </g>
+        <text class="clef-svg-text" x="4" y="56" font-size="52" text-anchor="start">&#x1D11E;</text>
+        <!-- Do central rouge (sous ligne supp 1 = y=64) -->
+        <line x1="50" y1="64" x2="70" y2="64" stroke="#E11D48" stroke-width="1.4"/>
+        <!-- Fa F3 : 2e ligne supp sous portée y=84 + ledger -->
+        <line x1="50" y1="84" x2="70" y2="84" stroke="#0D1B2A" stroke-width="0.7"/>
+        <line x1="50" y1="74" x2="70" y2="74" stroke="#0D1B2A" stroke-width="0.7"/>
+        <ellipse cx="60" cy="84" rx="5" ry="4" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <text x="76" y="86" font-family="Fraunces,serif" font-size="8" font-weight="700" fill="var(--color-accent)" text-anchor="start">Fa</text>
+      </svg>
+      <div class="tierces-example-label">Note grave clé de sol</div>
+      <div class="tierces-example-desc">Au-delà du Do rouge (3 lignes supp.)</div>
+    </div>
+    <div class="tierces-example">
+      <svg viewBox="0 0 120 90" aria-label="Note aiguë en clé de fa">
+        <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+          <line x1="22" y1="34" x2="114" y2="34"/><line x1="22" y1="44" x2="114" y2="44"/><line x1="22" y1="54" x2="114" y2="54"/><line x1="22" y1="64" x2="114" y2="64"/><line x1="22" y1="74" x2="114" y2="74"/>
+        </g>
+        <text class="clef-svg-text" x="4" y="66" font-size="44" text-anchor="start">&#x1D122;</text>
+        <!-- Do central rouge CONTINU au-dessus de la portée (y=24, ligne supp 1) -->
+        <line x1="50" y1="24" x2="70" y2="24" stroke="#E11D48" stroke-width="1.4"/>
+        <!-- Mi E4 : 2e ligne supp au-dessus de la portée fa, y=14 + ledger noir -->
+        <line x1="50" y1="14" x2="70" y2="14" stroke="#0D1B2A" stroke-width="0.7"/>
+        <ellipse cx="60" cy="14" rx="5" ry="4" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <text x="76" y="16" font-family="Fraunces,serif" font-size="8" font-weight="700" fill="var(--color-accent)" text-anchor="start">Mi</text>
+      </svg>
+      <div class="tierces-example-label">Note aiguë clé de fa</div>
+      <div class="tierces-example-desc">Au-dessus du Do rouge (2 lignes supp.)</div>
+    </div>
+    <div class="tierces-example">
+      <svg viewBox="0 0 120 90" aria-label="Do central dans les 2 clés">
+        <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+          <line x1="22" y1="10" x2="114" y2="10"/><line x1="22" y1="18" x2="114" y2="18"/><line x1="22" y1="26" x2="114" y2="26"/><line x1="22" y1="34" x2="114" y2="34"/><line x1="22" y1="42" x2="114" y2="42"/>
+          <line x1="22" y1="58" x2="114" y2="58"/><line x1="22" y1="66" x2="114" y2="66"/><line x1="22" y1="74" x2="114" y2="74"/><line x1="22" y1="82" x2="114" y2="82"/><line x1="22" y1="90" x2="114" y2="90"/>
+        </g>
+        <text class="clef-svg-text" x="2" y="42" font-size="42" text-anchor="start">&#x1D11E;</text>
+        <text class="clef-svg-text" x="2" y="86" font-size="34" text-anchor="start">&#x1D122;</text>
+        <line x1="22" y1="50" x2="114" y2="50" stroke="#E11D48" stroke-width="1.4"/>
+        <ellipse cx="50" cy="50" rx="5" ry="4" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <ellipse cx="90" cy="50" rx="5" ry="4" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+      </svg>
+      <div class="tierces-example-label">Do central partagé</div>
+      <div class="tierces-example-desc">Même note, 2 notations</div>
+    </div>
+  </div>
+
+  <aside class="callout callout--test">
+    <div class="callout-head"><svg class="ico"><use href="#ico-check"/></svg> Test notes hors portée</div>
+    <p>Trouve une note hors portée sur n'importe quelle partition. Demande-toi&nbsp;: <em>est-ce que c'est en-dessous du Do rouge ou au-dessus&nbsp;?</em> Réponse en <strong>moins de 2 secondes</strong>.</p>
+  </aside>
+
+  <aside class="callout callout--erreur">
+    <div class="callout-head"><svg class="ico"><use href="#ico-alert"/></svg> Erreur classique</div>
+    <p>Compter ligne par ligne depuis le bas/haut de la portée. C'est <strong>lent</strong>. La super portée court-circuite ça&nbsp;: tu sais où tu es, instantanément.</p>
+  </aside>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>08</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 9 — ASTUCE 4 : LECTURE PAR TIERCES
+     ============================================================= -->
+<section class="page page-chord" data-page="9">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Astuce 4 / 5</span>
+  </div>
+
+  <div class="chord-numeral" aria-hidden="true">4</div>
+
+  <div class="chord-stack">
+    <div class="chord-meta">Astuce 04 · Lecture par tierces</div>
+    <h1 class="chord-title">Tierce en haut.<br>Tierce en bas.<small>Ligne → ligne = tierce. Interligne → interligne = tierce.</small></h1>
+
+    <p class="chord-lead">Les pros ne lisent pas note par note. Ils lisent par <strong>intervalles</strong>. Et le plus fréquent en musique&nbsp;: la tierce.</p>
+
+    <div class="tierces-strip">
+      <div class="tierce-pochette sage">Do</div>
+      <div class="tierce-pochette sage">Mi</div>
+      <div class="tierce-pochette sage">Sol</div>
+      <div class="tierce-pochette sage">Si</div>
+      <div class="tierce-pochette saffron">Ré</div>
+      <div class="tierce-pochette saffron">Fa</div>
+      <div class="tierce-pochette saffron">La</div>
+      <div class="tierce-pochette saffron">Do</div>
+    </div>
+
+    <p style="font-size:11pt;text-align:center;color:var(--color-ink-soft);margin:0 0 4mm;font-style:italic">C'est la <strong style="color:var(--color-accent-deep)">gamme par tierces</strong>. Récite-la dans les 2 sens, comme l'astuce 1.</p>
+
+    <div class="portee-wrap">
+      <svg viewBox="0 0 400 110" aria-label="Empilement de tierces sur portée clé de sol">
+        <g stroke="#0D1B2A" stroke-width="0.8" fill="none">
+          <line x1="20" y1="30" x2="380" y2="30"/>
+          <line x1="20" y1="42" x2="380" y2="42"/>
+          <line x1="20" y1="54" x2="380" y2="54"/>
+          <line x1="20" y1="66" x2="380" y2="66"/>
+          <line x1="20" y1="78" x2="380" y2="78"/>
+        </g>
+        <!-- Clé de sol Unicode -->
+        <text class="clef-svg-text" x="28" y="88" font-size="96" text-anchor="start">&#x1D11E;</text>
+
+        <!-- Empilement de tierces : Do (y=90, ligne supp), Mi (y=78, L1), Sol (y=66, L2), Si (y=54, L3) -->
+        <g>
+          <line x1="170" y1="90" x2="190" y2="90" stroke="#0D1B2A" stroke-width="0.8"/>
+          <ellipse cx="180" cy="90" rx="6" ry="4.5" fill="var(--color-sage)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+          <ellipse cx="180" cy="78" rx="6" ry="4.5" fill="var(--color-sage)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+          <ellipse cx="180" cy="66" rx="6" ry="4.5" fill="var(--color-sage)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+          <ellipse cx="180" cy="54" rx="6" ry="4.5" fill="var(--color-sage)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        </g>
+        <!-- Flèches latérales montrant les sauts -->
+        <g stroke="var(--color-accent)" stroke-width="1.2" fill="none">
+          <path d="M 196 90 L 220 78" marker-end="url(#arrow-tierce)"/>
+          <path d="M 226 78 L 250 66" marker-end="url(#arrow-tierce)"/>
+          <path d="M 256 66 L 280 54" marker-end="url(#arrow-tierce)"/>
+        </g>
+        <defs><marker id="arrow-tierce" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L0,10 L10,5 z" fill="var(--color-accent)"/></marker></defs>
+        <!-- Labels notes -->
+        <text x="220" y="96" font-family="Fraunces,serif" font-size="9" font-weight="700" fill="var(--color-accent)">+3<tspan>ce</tspan></text>
+        <text x="252" y="84" font-family="Fraunces,serif" font-size="9" font-weight="700" fill="var(--color-accent)">+3<tspan>ce</tspan></text>
+        <text x="284" y="72" font-family="Fraunces,serif" font-size="9" font-weight="700" fill="var(--color-accent)">+3<tspan>ce</tspan></text>
+        <!-- Notes nommées sous l'empilement -->
+        <text x="160" y="92" font-family="DM Sans,sans-serif" font-size="8" font-weight="600" fill="var(--color-accent-deep)" text-anchor="end">Do</text>
+        <text x="160" y="80" font-family="DM Sans,sans-serif" font-size="8" font-weight="600" fill="var(--color-accent-deep)" text-anchor="end">Mi</text>
+        <text x="160" y="68" font-family="DM Sans,sans-serif" font-size="8" font-weight="600" fill="var(--color-accent-deep)" text-anchor="end">Sol</text>
+        <text x="160" y="56" font-family="DM Sans,sans-serif" font-size="8" font-weight="600" fill="var(--color-accent-deep)" text-anchor="end">Si</text>
+      </svg>
+      <div class="portee-caption">4 notes empilées en tierces&nbsp;: Do → Mi → Sol → Si</div>
+    </div>
+
+    <aside class="callout callout--astuce">
+      <div class="callout-head"><svg class="ico"><use href="#ico-key"/></svg> Règle visuelle absolue</div>
+      <p>Sur une portée, <strong>ligne → ligne suivante</strong> = tierce. <strong>Interligne → interligne suivant</strong> = tierce. Tu ne nommes plus les notes&nbsp;: tu <em>comptes les sauts</em>.</p>
+    </aside>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>09</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 10 — ASTUCE 4 SUITE : 3 EXEMPLES
+     ============================================================= -->
+<section class="page" data-page="10">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Astuce 4 — suite</span>
+  </div>
+
+  <div class="chord-meta">Pourquoi c'est révolutionnaire</div>
+  <h1 style="font-family:var(--font-display);font-variation-settings:'opsz' 72;font-size:30pt;font-weight:700;letter-spacing:-0.015em;line-height:1.1;margin-bottom:3mm">Une note, et le reste est automatique.</h1>
+
+  <p style="font-size:11.5pt;line-height:1.55;max-width:165mm;margin-bottom:3mm">Les accords sont presque toujours empilés en tierces. <strong>Un accord = 3 tierces empilées.</strong> Quand tu vois 3 notes empilées sur la portée, tu n'as qu'à nommer la première&nbsp;: les 2 autres sont automatiques (+tierce, +tierce).</p>
+
+  <p style="font-size:11.5pt;line-height:1.55;max-width:165mm;margin-bottom:5mm">Les arpèges, les gammes, les lignes mélodiques&nbsp;: <strong>tout devient lisible plus vite.</strong></p>
+
+  <div class="tierces-examples">
+    <div class="tierces-example">
+      <svg viewBox="0 0 120 90" aria-label="Accord plaqué">
+        <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+          <line x1="6" y1="18" x2="114" y2="18"/><line x1="6" y1="32" x2="114" y2="32"/><line x1="6" y1="46" x2="114" y2="46"/><line x1="6" y1="60" x2="114" y2="60"/><line x1="6" y1="74" x2="114" y2="74"/>
+        </g>
+        <g>
+          <ellipse cx="60" cy="74" rx="6" ry="4.5" fill="var(--color-sage)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+          <ellipse cx="60" cy="60" rx="6" ry="4.5" fill="var(--color-sage)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+          <ellipse cx="60" cy="46" rx="6" ry="4.5" fill="var(--color-sage)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        </g>
+      </svg>
+      <div class="tierces-example-label">Accord plaqué</div>
+      <div class="tierces-example-desc">Nomme Do, le reste vient seul</div>
+    </div>
+    <div class="tierces-example">
+      <svg viewBox="0 0 120 90" aria-label="Arpège brisé">
+        <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+          <line x1="6" y1="18" x2="114" y2="18"/><line x1="6" y1="32" x2="114" y2="32"/><line x1="6" y1="46" x2="114" y2="46"/><line x1="6" y1="60" x2="114" y2="60"/><line x1="6" y1="74" x2="114" y2="74"/>
+        </g>
+        <g>
+          <ellipse cx="30" cy="74" rx="5" ry="4" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+          <ellipse cx="60" cy="60" rx="5" ry="4" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+          <ellipse cx="90" cy="46" rx="5" ry="4" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        </g>
+      </svg>
+      <div class="tierces-example-label">Arpège brisé</div>
+      <div class="tierces-example-desc">Même logique, en succession</div>
+    </div>
+    <div class="tierces-example">
+      <svg viewBox="0 0 120 90" aria-label="Mélodie par tierces">
+        <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+          <line x1="6" y1="18" x2="114" y2="18"/><line x1="6" y1="32" x2="114" y2="32"/><line x1="6" y1="46" x2="114" y2="46"/><line x1="6" y1="60" x2="114" y2="60"/><line x1="6" y1="74" x2="114" y2="74"/>
+        </g>
+        <g>
+          <ellipse cx="20" cy="74" rx="5" ry="4" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+          <ellipse cx="44" cy="60" rx="5" ry="4" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+          <ellipse cx="68" cy="46" rx="5" ry="4" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+          <ellipse cx="92" cy="60" rx="5" ry="4" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        </g>
+      </svg>
+      <div class="tierces-example-label">Mélodie par tierces</div>
+      <div class="tierces-example-desc">Do-Mi-Sol-Mi, lecture rapide</div>
+    </div>
+  </div>
+
+  <aside class="callout callout--test">
+    <div class="callout-head"><svg class="ico"><use href="#ico-check"/></svg> Test partition</div>
+    <p>Ouvre une partition au hasard. Repère un accord plaqué de 3 notes. <strong>Nomme seulement la note du bas.</strong> Vérifie&nbsp;: les 2 au-dessus sont bien à un saut de tierce&nbsp;? Oui&nbsp;? Tu sais lire cet accord.</p>
+  </aside>
+
+  <aside class="callout callout--histoire">
+    <div class="callout-head"><svg class="ico"><use href="#ico-talk"/></svg> Le déclic</div>
+    <p><em>« Le jour où j'ai compris ça, j'ai arrêté de nommer chaque note. Je voyais l'accord. Et je le jouais. »</em> — phrase qu'on me répète à chaque stage adulte.</p>
+  </aside>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>10</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 11 — ASTUCE 5 : ALTÉRATIONS
+     ============================================================= -->
+<section class="page page-chord" data-page="11">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Astuce 5 / 5</span>
+  </div>
+
+  <div class="chord-numeral" aria-hidden="true">5</div>
+
+  <div class="chord-stack">
+    <div class="chord-meta">Astuce 05 · Altérations</div>
+    <h1 class="chord-title">Sib reste Sib<br>jusqu'à la fin.<small>L'armure n'est pas une décoration. C'est une consigne permanente.</small></h1>
+
+    <p class="chord-lead">Tu vois un bémol au début de la portée à côté du Si&nbsp;? Alors <strong>TOUS les Si de la partition sont des Sib</strong>. Tu dois dire « Sib » à voix haute, pas « Si ».</p>
+
+    <div class="armures-table">
+      <div class="armure-card">
+        <div class="armure-tonalite">Do</div>
+        <div class="armure-alterations none">aucune</div>
+      </div>
+      <div class="armure-card">
+        <div class="armure-tonalite">Sol</div>
+        <div class="armure-alterations">Fa#</div>
+      </div>
+      <div class="armure-card">
+        <div class="armure-tonalite">Ré</div>
+        <div class="armure-alterations">Fa# · Do#</div>
+      </div>
+      <div class="armure-card">
+        <div class="armure-tonalite">Fa</div>
+        <div class="armure-alterations">Sib</div>
+      </div>
+      <div class="armure-card">
+        <div class="armure-tonalite">Sib</div>
+        <div class="armure-alterations">Sib · Mib</div>
+      </div>
+    </div>
+
+    <aside class="callout callout--astuce">
+      <div class="callout-head"><svg class="ico"><use href="#ico-key"/></svg> Le rituel anti-oubli</div>
+      <p><strong>À chaque saut de ligne, re-regarde l'armure 1 seconde.</strong> Le cerveau a tendance à « oublier » après quelques mesures. Cette mini-vérif te sauve.</p>
+    </aside>
+
+    <aside class="callout callout--erreur">
+      <div class="callout-head"><svg class="ico"><use href="#ico-alert"/></svg> Erreur fatale</div>
+      <p>Voir l'armure une fois, puis l'oublier. Tu joues tes Si naturels au lieu de Sib. Tu sonnes faux. Tu blâmes ta lecture. Mais tu n'as juste <strong>pas obéi à l'armure</strong>.</p>
+    </aside>
+
+    <aside class="callout callout--test">
+      <div class="callout-head"><svg class="ico"><use href="#ico-check"/></svg> Test armure</div>
+      <p>Avant de jouer la première note d'un morceau, dis à voix haute&nbsp;: <em>« tonalité de Fa, je dois jouer tous les Si en Sib. »</em> Tu te programmes. Tu réussis.</p>
+    </aside>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>11</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 12 — 3 ASTUCES BONUS DE PRO
+     ============================================================= -->
+<section class="page" data-page="12">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Bonus pro</span>
+  </div>
+
+  <div class="chord-meta">Bonus · 3 astuces de pro</div>
+  <h1 style="font-family:var(--font-display);font-variation-settings:'opsz' 72;font-size:32pt;font-weight:700;letter-spacing:-0.015em;line-height:1.1;margin-bottom:3mm">Le saut vers la fluidité.</h1>
+  <p class="lead">Une fois les 5 astuces digérées, voici ce que font les pros. Ne saute pas dessus avant d'avoir bossé les 5 premières.</p>
+
+  <div class="next-steps">
+    <div class="next-step">
+      <div class="next-step-num">A</div>
+      <h3>Lis par paquets</h3>
+      <p>Un accord = 1 paquet. Une gamme = 1 paquet. Un arpège = 1 paquet. Tu ne lis plus 30 notes&nbsp;: tu lis <strong>6 paquets</strong>. C'est la lecture rapide.</p>
+    </div>
+    <div class="next-step">
+      <div class="next-step-num">B</div>
+      <h3>L'œil 1 temps en avance</h3>
+      <p>Pendant que tes doigts jouent la note 1, tes yeux sont déjà sur la note 2. Et tu ne regardes <strong>JAMAIS le clavier</strong> — tu sens les groupes de 2 et 3 touches noires comme un GPS tactile.</p>
+    </div>
+    <div class="next-step">
+      <div class="next-step-num">C</div>
+      <h3>5 min de déchiffrage facile par jour</h3>
+      <p>Chaque jour, 5 min sur un morceau <strong>2 niveaux en-dessous</strong> du tien. Une fois, sans s'arrêter, sans corriger. C'est l'entraînement de lecture pur.</p>
+    </div>
+  </div>
+
+  <aside class="callout callout--astuce">
+    <div class="callout-head"><svg class="ico"><use href="#ico-key"/></svg> La règle d'or</div>
+    <p>Ces 3 astuces ne marchent que si <strong>les 5 fondamentales sont automatiques</strong>. Sinon, tu construis sur du sable. Reviens aux astuces 1 à 5 autant de fois que nécessaire.</p>
+  </aside>
+
+  <aside class="callout callout--histoire">
+    <div class="callout-head"><svg class="ico"><use href="#ico-talk"/></svg> Sur la durée</div>
+    <p><em>« Au bout de 6 mois, je ne pensais plus aux notes. Je voyais une forme, je jouais. La lecture est devenue invisible. »</em> — Sylvie, élève adulte de Musique Facile.</p>
+  </aside>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>12</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 13 — 10 ERREURS À ÉVITER
+     ============================================================= -->
+<section class="page" data-page="13">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>À éviter</span>
+  </div>
+
+  <div class="chord-meta">À éviter · 10 erreurs</div>
+  <h1 style="font-family:var(--font-display);font-variation-settings:'opsz' 72;font-size:30pt;font-weight:700;letter-spacing:-0.015em;line-height:1.1;margin-bottom:3mm">Les 10 mauvaises habitudes.</h1>
+  <p class="lead">Ce que les profs de piano corrigent toute leur vie chez leurs élèves. Si tu en reconnais une, change MAINTENANT.</p>
+
+  <div class="erreurs-grid">
+    <div class="erreur-item">
+      <div class="erreur-num">01</div>
+      <div class="erreur-text"><strong>Écrire le nom des notes sous la portée.</strong><em>Tu lis les lettres, pas la portée.</em></div>
+    </div>
+    <div class="erreur-item">
+      <div class="erreur-num">02</div>
+      <div class="erreur-text"><strong>« Clé de fa = clé de sol décalée ».</strong><em>Ce raccourci t'empêche d'apprendre la clé de fa pour elle-même.</em></div>
+    </div>
+    <div class="erreur-item">
+      <div class="erreur-num">03</div>
+      <div class="erreur-text"><strong>Regarder le clavier au lieu de la partition.</strong><em>Tu perds le fil, tu ne lis plus en avance.</em></div>
+    </div>
+    <div class="erreur-item">
+      <div class="erreur-num">04</div>
+      <div class="erreur-text"><strong>S'arrêter à chaque fausse note.</strong><em>Le tempo prime sur la note. On continue, toujours.</em></div>
+    </div>
+    <div class="erreur-item">
+      <div class="erreur-num">05</div>
+      <div class="erreur-text"><strong>Lire note par note.</strong><em>La lecture rapide se fait par paquets, comme un texte.</em></div>
+    </div>
+    <div class="erreur-item">
+      <div class="erreur-num">06</div>
+      <div class="erreur-text"><strong>Ignorer le rythme.</strong><em>Une partition « juste » sans rythme est inaudible.</em></div>
+    </div>
+    <div class="erreur-item">
+      <div class="erreur-num">07</div>
+      <div class="erreur-text"><strong>Oublier l'armure à la 2<sup>e</sup> ligne.</strong><em>À chaque saut de ligne, re-regarde 1 seconde.</em></div>
+    </div>
+    <div class="erreur-item">
+      <div class="erreur-num">08</div>
+      <div class="erreur-text"><strong>Choisir un morceau trop dur.</strong><em>Pour s'entraîner à lire&nbsp;: 2 niveaux en-dessous.</em></div>
+    </div>
+    <div class="erreur-item">
+      <div class="erreur-num">09</div>
+      <div class="erreur-text"><strong>Mettre les 2 mains direct.</strong><em>Main droite seule → main gauche seule → puis ensemble lent.</em></div>
+    </div>
+    <div class="erreur-item">
+      <div class="erreur-num">10</div>
+      <div class="erreur-text"><strong>Jouer au tempo final.</strong><em>Tempo de déchiffrage = 50% du tempo final. Métronome obligatoire.</em></div>
+    </div>
+  </div>
+
+  <aside class="callout callout--promesse">
+    <div class="callout-head"><svg class="ico"><use href="#ico-target"/></svg> Ton chantier du mois</div>
+    <p>Si tu corriges <strong>3 de ces erreurs</strong> dans le mois qui vient, tu débloques ta lecture. Choisis-en 3. Écris-les sur un post-it sur ton clavier. <em>Pas 10. Trois.</em></p>
+  </aside>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>13</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 14 — CTA COURS PIANO
+     ============================================================= -->
+<section class="page page-cta" data-page="14">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Et maintenant</span>
+  </div>
+
+  <div class="chord-meta">Le pont vers la suite</div>
+  <h1>Tu sais lire les notes.<br>Et maintenant&nbsp;?</h1>
+
+  <p class="cta-intro">Tu as fait le plus dur&nbsp;: passer du déchiffrage au début de la lecture.</p>
+
+  <p style="font-size:11pt;line-height:1.55;max-width:155mm;margin-bottom:4mm">Tu peux rester là. Avec ces 5 astuces et un peu d'entraînement quotidien, tu vas progresser. <em>Aucune pression. Vraiment.</em></p>
+
+  <h2 style="font-family:var(--font-display);font-variation-settings:'opsz' 60;font-size:18pt;font-weight:700;color:var(--color-ink);margin-bottom:3mm;letter-spacing:-0.01em">Si tu veux aller plus loin</h2>
+
+  <div class="next-steps">
+    <div class="next-step">
+      <div class="next-step-num">1</div>
+      <h3>Le rythme</h3>
+      <p>L'autre moitié de la lecture. Croches, doubles-croches, syncopes — la lecture rythmique a sa propre logique.</p>
+    </div>
+    <div class="next-step">
+      <div class="next-step-num">2</div>
+      <h3>L'accompagnement</h3>
+      <p>Une fois la lecture acquise, tu peux jouer en accords (lecture chiffres) et accompagner toutes les chansons que tu aimes.</p>
+    </div>
+    <div class="next-step">
+      <div class="next-step-num">3</div>
+      <h3>L'improvisation</h3>
+      <p>Quand la lecture devient fluide, le cerveau a la bande passante pour improviser. C'est l'étape qui rend le piano addictif.</p>
+    </div>
+  </div>
+
+  <div class="cta-main">
+    <span class="cta-main-tag">Si tu veux qu'on continue ensemble</span>
+    <h2>Le cours <em style="font-style:italic;font-family:var(--font-display)">Piano Facile</em></h2>
+    <p>Mon cours en ligne reprend exactement cette méthode de lecture, en vidéo, étape par étape, sur 40+ modules. Pas de bla-bla, pas de solfège abstrait. <strong>15 jours satisfait ou remboursé.</strong></p>
+    <a class="cta-link" href="https://musique-facile.fr/cours/cours-de-piano">musique-facile.fr/cours/cours-de-piano</a>
+    <p style="margin-top:4mm;font-size:9.5pt;opacity:0.85"><strong>Fred Fieffé · Musique Facile</strong> · Auteur Hal Leonard · 80 000+ élèves · Prix Samuel Paty 2024. Une question&nbsp;? Réponds à mon email, je lis tout.</p>
+  </div>
+
+  <div class="page-foot">
+    <span>© Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>14</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+<!-- =============================================================
+     PAGE 15 — CARTE DE POCHE + MINI-BIO
+     ============================================================= -->
+<section class="page page-pocket" data-page="15">
+  <div class="page-head">
+    <span class="brand-mark"><span class="brand-dot"></span> Musique Facile</span>
+    <span>Carte de poche</span>
+  </div>
+
+  <div class="pocket-head">
+    <h1>Ta carte de poche</h1>
+    <p>Imprime-la. Colle-la sur ton piano ou dans ton cahier.</p>
+  </div>
+
+  <div class="pocket-grid">
+    <!-- Cell 1 : Clé de sol avec 2 Do + 2 Sol -->
+    <div class="pocket-cell">
+      <svg viewBox="0 0 200 110" aria-label="Repères clé de sol">
+        <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+          <line x1="30" y1="30" x2="190" y2="30"/><line x1="30" y1="42" x2="190" y2="42"/><line x1="30" y1="54" x2="190" y2="54"/><line x1="30" y1="66" x2="190" y2="66"/><line x1="30" y1="78" x2="190" y2="78"/>
+        </g>
+        <text class="clef-svg-text" x="8" y="88" font-size="96" text-anchor="start">&#x1D11E;</text>
+        <!-- Do central : ligne supp sous portée y=90 -->
+        <line x1="55" y1="90" x2="75" y2="90" stroke="#0D1B2A" stroke-width="0.7"/>
+        <ellipse cx="65" cy="90" rx="5" ry="4" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <!-- Sol grave : ligne 2 y=66 -->
+        <ellipse cx="95" cy="66" rx="5" ry="4" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <!-- Do haut : interligne 3-4 y=48 -->
+        <ellipse cx="125" cy="48" rx="5" ry="4" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <!-- Sol aigu : interligne au-dessus L5 y=24, PAS de ledger -->
+        <ellipse cx="165" cy="24" rx="5" ry="4" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+      </svg>
+      <div class="pocket-cell-title">Clé de sol · 4 repères</div>
+    </div>
+
+    <!-- Cell 2 : Clé de fa -->
+    <div class="pocket-cell">
+      <svg viewBox="0 0 200 110" aria-label="Repères clé de fa">
+        <g stroke="#0D1B2A" stroke-width="0.7" fill="none">
+          <line x1="30" y1="30" x2="190" y2="30"/><line x1="30" y1="42" x2="190" y2="42"/><line x1="30" y1="54" x2="190" y2="54"/><line x1="30" y1="66" x2="190" y2="66"/><line x1="30" y1="78" x2="190" y2="78"/>
+        </g>
+        <text class="clef-svg-text" x="8" y="64" font-size="66" text-anchor="start">&#x1D122;</text>
+        <!-- Do central (au-dessus de la portée fa, ligne supp y=18) -->
+        <line x1="55" y1="18" x2="75" y2="18" stroke="#0D1B2A" stroke-width="0.7"/>
+        <ellipse cx="65" cy="18" rx="5" ry="4" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <!-- Do3 : 2e interligne (entre L2 Si et L3 Ré) y=60 -->
+        <ellipse cx="95" cy="60" rx="5" ry="4" fill="var(--color-saffron)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <!-- Fa : 4e ligne y=42 -->
+        <ellipse cx="130" cy="42" rx="5" ry="4" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+        <!-- Fa grave : interligne sous L1 y=84, PAS de ledger -->
+        <ellipse cx="165" cy="84" rx="5" ry="4" fill="var(--color-accent)" stroke="var(--color-accent-deep)" stroke-width="0.8"/>
+      </svg>
+      <div class="pocket-cell-title">Clé de fa · 4 repères</div>
+    </div>
+
+    <!-- Cell 3 : Super portée 11 lignes -->
+    <div class="pocket-cell">
+      <svg viewBox="0 0 200 110" aria-label="Super portée 11 lignes">
+        <g stroke="#0D1B2A" stroke-width="0.6" fill="none">
+          <line x1="30" y1="16" x2="190" y2="16"/><line x1="30" y1="24" x2="190" y2="24"/><line x1="30" y1="32" x2="190" y2="32"/><line x1="30" y1="40" x2="190" y2="40"/><line x1="30" y1="48" x2="190" y2="48"/>
+        </g>
+        <text class="clef-svg-text" x="6" y="60" font-size="60" text-anchor="start">&#x1D11E;</text>
+        <line x1="30" y1="58" x2="190" y2="58" stroke="#E11D48" stroke-width="1.4"/>
+        <ellipse cx="100" cy="58" rx="6" ry="4.5" fill="var(--color-saffron)" stroke="var(--color-coral)" stroke-width="1"/>
+        <g stroke="#0D1B2A" stroke-width="0.6" fill="none">
+          <line x1="30" y1="68" x2="190" y2="68"/><line x1="30" y1="76" x2="190" y2="76"/><line x1="30" y1="84" x2="190" y2="84"/><line x1="30" y1="92" x2="190" y2="92"/><line x1="30" y1="100" x2="190" y2="100"/>
+        </g>
+        <text class="clef-svg-text" x="6" y="104" font-size="48" text-anchor="start">&#x1D122;</text>
+        <text x="100" y="12" font-family="Fraunces,serif" font-size="8" font-weight="700" fill="var(--color-coral)" text-anchor="middle">Do central</text>
+      </svg>
+      <div class="pocket-cell-title">Super portée · 11 lignes</div>
+    </div>
+  </div>
+
+  <div class="pocket-bottom">
+    <div class="pocket-rythm">
+      <h3>Gamme par tierces</h3>
+      <div class="pocket-rythm-line"><span>Do</span> · Mi · <span>Sol</span> · Si</div>
+      <div class="pocket-rythm-line"><span>Ré</span> · Fa · <span>La</span> · Do</div>
+      <p style="font-family:var(--font-body);font-size:9pt;margin-top:3mm;color:var(--color-ink-muted);line-height:1.45"><strong style="color:var(--color-ink)">Récite dans les 2 sens.</strong> 30 secondes, 3 fois par jour. C'est ce qui rend les accords lisibles d'un coup d'œil.</p>
+    </div>
+
+    <div class="pocket-progressions">
+      <h3>Armures fréquentes</h3>
+      <ul>
+        <li><strong>Do</strong>&nbsp; aucune altération</li>
+        <li><strong>Sol</strong>&nbsp; Fa#</li>
+        <li><strong>Ré</strong>&nbsp; Fa#, Do#</li>
+        <li><strong>Fa</strong>&nbsp; Sib</li>
+        <li><strong>Sib</strong>&nbsp; Sib, Mib</li>
+      </ul>
+      <p style="font-family:var(--font-body);font-size:9pt;margin-top:3mm;color:var(--color-ink-muted);line-height:1.45"><strong style="color:var(--color-ink)">À chaque saut de ligne</strong>, re-regarde l'armure 1 seconde. C'est ce qui te sauve d'une fausse note bête.</p>
+    </div>
+  </div>
+
+  <div class="pocket-bio">
+    <div class="pocket-bio-avatar">F</div>
+    <div class="pocket-bio-text">
+      <h3>Fred Fieffé</h3>
+      <p>Formateur musical, créateur de Musique Facile. 12 ans d'enseignement, des dizaines de milliers d'élèves. Pas de théorie d'abord, du jeu d'abord.</p>
+      <div class="markers"><strong>Hal Leonard</strong> · <strong>80 000+ élèves</strong> · <strong>Prix Samuel Paty 2024</strong> · musique-facile.fr</div>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span>© 2026 Musique Facile · musique-facile.fr</span>
+    <span class="pagenum"><strong>15</strong> / 15</span>
+    <span>Fred Fieffé</span>
+  </div>
+</section>
+
+</article>
+
+</body>
+</html>

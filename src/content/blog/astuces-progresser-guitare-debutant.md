@@ -14,6 +14,7 @@ datePublished: "2025-04-04"
 dateModified: "2026-02-04"
 meta: "Accélérez votre progression à la guitare 🎶 ! Découvrez 7 conseils pour améliorer votre jeu, gagner en rapidité et jouer avec plus d’aisance"
 keywords: "progresser guitare débutant, améliorer ses accords guitare, jouer plus vite guitare, comment mieux jouer guitare, techniques progression guitare, exercices progression guitare"
+instrument: "guitare"
 
 ---
 <div style="display:grid; grid-template-columns:1fr; gap:10px; max-width:500px; margin:auto;">

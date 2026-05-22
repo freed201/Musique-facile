@@ -43,6 +43,7 @@ relatedLinks:
   - title: "Wonderwall - Oasis"
     url: "/blog/apprendre-wonderwall-guitare"
     description: "Le hit Britpop incontournable à la guitare."
+instrument: "guitare"
 ---
 subtilités, et plongeons dans ce qui fait de "Mr Jones" une chanson si spéciale.
 

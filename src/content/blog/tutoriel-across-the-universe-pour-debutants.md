@@ -40,6 +40,7 @@ relatedLinks:
   - title: "Where Did You Sleep Last Night - Nirvana"
     url: "/blog/nirvana-where-did-you-sleep-guitare"
     description: "Une autre ballade folk-rock puissante."
+instrument: "guitare"
 
 ---
 ### L’artiste : Les Beatles et John Lennon

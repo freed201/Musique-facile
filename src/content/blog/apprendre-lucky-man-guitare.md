@@ -43,6 +43,7 @@ relatedLinks:
   - title: "Chasing Cars - Cours de Guitare"
     url: "/blog/apprendre-chasing-cars-guitare"
     description: "Apprenez cette ballade rock avec des accords suspendus."
+instrument: "guitare"
 ---
 ## Présentation de l’artiste et du morceau
 

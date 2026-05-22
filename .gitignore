@@ -33,3 +33,4 @@ root/
 # Workflow files (peuvent contenir des clés API)
 workflows.json
 full-n8n-backup.tar.gz
+.vercel

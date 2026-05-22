@@ -106,7 +106,7 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID || 'GTM-NP758HSC';
                   <p>Recevez-le par email en moins de 2 minutes</p>
                 </div>
 
-                <form class="lm-form" id="leadMagnetForm">
+                <form class="lm-form" id="leadMagnetForm" novalidate>
                   <div class="form-group">
                     <label for="firstName">Prénom</label>
                     <input
@@ -114,6 +114,7 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID || 'GTM-NP758HSC';
                       id="firstName"
                       name="firstName"
                       placeholder="Ex: Marie"
+                      autocomplete="given-name"
                       required
                     />
                   </div>
@@ -125,14 +126,24 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID || 'GTM-NP758HSC';
                       id="email"
                       name="email"
                       placeholder="votre@email.com"
+                      autocomplete="email"
                       required
                     />
                   </div>
 
-                  <button type="submit" class="lm-submit-btn">
-                    <span>📥 Recevoir le Guide Gratuit</span>
-                    <small>100% Gratuit • Sans engagement</small>
+                  <div class="lm-consent">
+                    <input type="checkbox" id="lmConsent" name="consent" required />
+                    <label for="lmConsent">
+                      J'accepte de recevoir mon guide PDF + les emails hebdo de Musique Facile. Désinscription en 1 clic.
+                    </label>
+                  </div>
+
+                  <button type="submit" class="lm-submit-btn" id="lmSubmitBtn">
+                    <span class="lm-btn-text">📥 Recevoir le Guide Gratuit</span>
+                    <small class="lm-btn-sub">100% Gratuit • Sans engagement</small>
                   </button>
+
+                  <p class="lm-form-error" id="lmFormError" hidden></p>
 
                   <p class="lm-privacy">
                     🔒 Vos données sont protégées. Pas de spam, désinscription en 1 clic.
@@ -645,39 +656,133 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID || 'GTM-NP758HSC';
 </style>
 
 <script>
-  // Gestion du formulaire
-  const form = document.getElementById('leadMagnetForm');
+  type W = Window & { dataLayer?: Array<Record<string, unknown>> };
+  const LEAD_MAGNET_ID = 'guitare-5-accords-magiques';
+
+  const form = document.getElementById('leadMagnetForm') as HTMLFormElement | null;
+  const submitBtn = document.getElementById('lmSubmitBtn') as HTMLButtonElement | null;
+  const errorEl = document.getElementById('lmFormError') as HTMLParagraphElement | null;
+
+  const setError = (msg: string | null) => {
+    if (!errorEl) return;
+    if (msg) {
+      errorEl.textContent = msg;
+      errorEl.hidden = false;
+    } else {
+      errorEl.hidden = true;
+    }
+  };
+
+  const setLoading = (loading: boolean) => {
+    if (!submitBtn) return;
+    submitBtn.disabled = loading;
+    submitBtn.classList.toggle('is-loading', loading);
+    const label = submitBtn.querySelector('.lm-btn-text');
+    if (label) label.textContent = loading ? '⏳ Envoi en cours…' : '📥 Recevoir le Guide Gratuit';
+  };
 
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      setError(null);
 
       const formData = new FormData(form);
-      const data = {
-        firstName: formData.get('firstName'),
-        email: formData.get('email'),
-        leadMagnet: '5-accords-magiques'
-      };
+      const firstName = String(formData.get('firstName') || '').trim();
+      const email = String(formData.get('email') || '').trim();
+      const consent = formData.get('consent') === 'on';
 
-      // Ici, vous intégrerez votre service d'email (ActiveCampaign, Mailchimp, etc.)
-      console.log('Lead capturé:', data);
+      if (!firstName) {
+        setError('Merci de renseigner ton prénom.');
+        return;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setError('Email invalide. Vérifie le format.');
+        return;
+      }
+      if (!consent) {
+        setError('Merci de cocher la case de consentement pour recevoir ton guide.');
+        return;
+      }
 
-      // Redirection vers page de remerciement (à créer)
-      window.location.href = '/merci-lead-magnet';
+      setLoading(true);
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            firstName,
+            consent: true,
+            instrument: 'guitare',
+            source: 'lead-magnet:5-accords-magiques',
+            leadMagnet: LEAD_MAGNET_ID,
+          }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.ok) {
+          setError(data.error || 'Erreur lors de l\'envoi. Réessaie dans un instant.');
+          setLoading(false);
+          return;
+        }
 
-      // Ou afficher un message de succès
-      // alert('✅ Vérifiez votre boîte mail ! Le guide arrive dans 2 minutes.');
+        const w = window as W;
+        if (w.dataLayer) {
+          w.dataLayer.push({
+            event: 'lead_magnet_capture',
+            leadMagnet: LEAD_MAGNET_ID,
+            instrument: 'guitare',
+          });
+        }
+
+        window.location.href = `/merci-lead-magnet?lm=${encodeURIComponent(LEAD_MAGNET_ID)}`;
+      } catch {
+        setError('Connexion impossible. Vérifie ta connexion internet et réessaie.');
+        setLoading(false);
+      }
     });
   }
 
-  // Smooth scroll pour le CTA final
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (!href || href === '#') return;
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
+      const target = document.querySelector(href);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     });
   });
 </script>
+
+<style>
+  .lm-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin: 0.75rem 0 1rem;
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.65);
+    line-height: 1.4;
+  }
+
+  .lm-consent input {
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  .lm-submit-btn.is-loading {
+    opacity: 0.75;
+    cursor: progress;
+  }
+
+  .lm-form-error {
+    margin: 0.5rem 0 0;
+    padding: 0.6rem 0.85rem;
+    background: rgba(231, 76, 60, 0.08);
+    border-left: 3px solid #e74c3c;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #c0392b;
+  }
+</style>

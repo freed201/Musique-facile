@@ -41,6 +41,7 @@ relatedLinks:
   - title: "Hallelujah - Jeff Buckley"
     url: "/blog/jouer-hallelujah-jeff-buckley-guitare"
     description: "Une autre ballade romantique et touchante."
+instrument: "guitare"
 ---
 ### Plongée dans l'Univers de "La Seine"
 
