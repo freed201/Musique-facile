@@ -1,0 +1,435 @@
+---
+/**
+ * StageInscriptionForm.astro
+ * Formulaire d'inscription au stage d'ukulélé (Juillet 2026).
+ * Submit via POST /api/stage-inscription → Brevo (contact + emails transactionnels).
+ */
+---
+
+<form class="stage-form" id="stage-inscription-form" novalidate>
+  <div class="form-grid">
+    <div class="field">
+      <label for="firstName">Prénom <span class="req">*</span></label>
+      <input type="text" id="firstName" name="firstName" required autocomplete="given-name" minlength="2" />
+    </div>
+    <div class="field">
+      <label for="lastName">Nom <span class="req">*</span></label>
+      <input type="text" id="lastName" name="lastName" required autocomplete="family-name" minlength="2" />
+    </div>
+    <div class="field">
+      <label for="email">Email <span class="req">*</span></label>
+      <input type="email" id="email" name="email" required autocomplete="email" />
+    </div>
+    <div class="field">
+      <label for="phone">Téléphone <span class="req">*</span></label>
+      <input type="tel" id="phone" name="phone" required autocomplete="tel" minlength="6" />
+    </div>
+  </div>
+
+  <fieldset class="field-group">
+    <legend>Quel stage choisis-tu ? <span class="req">*</span></legend>
+    <div class="radio-row">
+      <label class="radio-card">
+        <input type="radio" name="niveau" value="debutant" required />
+        <span class="radio-content">
+          <strong>Débutant</strong>
+          <em>13h30 – 16h · je pars de zéro</em>
+        </span>
+      </label>
+      <label class="radio-card">
+        <input type="radio" name="niveau" value="initie" required />
+        <span class="radio-content">
+          <strong>Initié</strong>
+          <em>9h30 – 12h · je joue déjà un peu</em>
+        </span>
+      </label>
+    </div>
+  </fieldset>
+
+  <fieldset class="field-group">
+    <legend>Quel format ? <span class="req">*</span></legend>
+    <div class="radio-row">
+      <label class="radio-card">
+        <input type="radio" name="format" value="3jours" required />
+        <span class="radio-content">
+          <strong>3 jours</strong>
+          <em>Lun → Mer · 100€</em>
+        </span>
+      </label>
+      <label class="radio-card">
+        <input type="radio" name="format" value="5jours" required />
+        <span class="radio-content">
+          <strong>5 jours</strong>
+          <em>Lun → Ven · 150€</em>
+        </span>
+      </label>
+    </div>
+    <p class="field-hint">💡 Tu hésites ? Tu peux démarrer en 3 jours et prolonger sur place selon les places disponibles.</p>
+  </fieldset>
+
+  <fieldset class="field-group field-group-checks">
+    <legend>Options</legend>
+    <label class="checkbox-row">
+      <input type="checkbox" name="ukulelePret" value="oui" />
+      <span>J'ai besoin d'un prêt d'ukulélé (gratuit, sur demande)</span>
+    </label>
+    <label class="checkbox-row">
+      <input type="checkbox" name="chantInteresse" value="oui" />
+      <span>Je suis intéressé(e) par l'atelier chant du jeudi avec Lydie (inclus)</span>
+    </label>
+  </fieldset>
+
+  <div class="field">
+    <label for="message">Un message, une question ? <span class="optional">(facultatif)</span></label>
+    <textarea id="message" name="message" rows="3" maxlength="1000" placeholder="Allergies, besoins particuliers, niveau précis, question logistique…"></textarea>
+  </div>
+
+  <label class="consent-row">
+    <input type="checkbox" name="consent" required />
+    <span>
+      J'accepte d'être recontacté(e) par email/téléphone pour finaliser mon inscription au stage.
+      <em>Tes données restent confidentielles, aucun spam, désinscription en 1 clic.</em>
+    </span>
+  </label>
+
+  <button type="submit" class="submit-btn">
+    <span class="btn-default">Envoyer ma demande d'inscription</span>
+    <span class="btn-loading" aria-hidden="true">Envoi en cours…</span>
+  </button>
+
+  <div class="form-feedback form-success" aria-live="polite">
+    <strong>✅ Demande bien reçue !</strong>
+    <span>Tu vas recevoir un email de confirmation dans quelques instants. Fred te recontacte sous 24-48h pour finaliser.</span>
+  </div>
+  <div class="form-feedback form-error" aria-live="polite">
+    <strong>⚠️ Oups, une erreur est survenue.</strong>
+    <span>Réessaie dans un instant, ou écris-nous directement à <a href="mailto:contact@musique-facile.fr">contact@musique-facile.fr</a></span>
+  </div>
+</form>
+
+<style>
+  .stage-form {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 24px rgba(234, 88, 12, 0.12);
+    border: 1px solid rgba(234, 88, 12, 0.15);
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .field label,
+  .field-group legend,
+  .consent-row > span {
+    font-weight: 600;
+    color: var(--color-dark, #1a1a2e);
+    font-size: 0.95rem;
+  }
+
+  .req {
+    color: var(--theme-ukulele, #EA580C);
+    margin-left: 0.15rem;
+  }
+
+  .optional {
+    color: var(--gray-600, #6b7280);
+    font-weight: 400;
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  .field input,
+  .field textarea {
+    padding: 0.75rem 0.95rem;
+    border: 2px solid var(--gray-200, #e5e7eb);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: white;
+  }
+
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--theme-ukulele, #EA580C);
+    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.12);
+  }
+
+  .field input:invalid:not(:placeholder-shown) {
+    border-color: #fca5a5;
+  }
+
+  .field-group {
+    border: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+  }
+
+  .field-group legend {
+    margin-bottom: 0.75rem;
+    padding: 0;
+  }
+
+  .radio-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .radio-card {
+    position: relative;
+    cursor: pointer;
+    border: 2px solid var(--gray-200, #e5e7eb);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    background: white;
+    transition: all 0.2s;
+  }
+
+  .radio-card:hover {
+    border-color: rgba(234, 88, 12, 0.4);
+    background: #fff9f4;
+  }
+
+  .radio-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .radio-card:has(input[type="radio"]:checked) {
+    border-color: var(--theme-ukulele, #EA580C);
+    background: linear-gradient(135deg, #fff5ed 0%, #ffe6d6 100%);
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.15);
+  }
+
+  .radio-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .radio-content strong {
+    font-size: 1.05rem;
+    color: var(--theme-ukulele, #EA580C);
+  }
+
+  .radio-content em {
+    font-style: normal;
+    font-size: 0.88rem;
+    color: var(--gray-700, #374151);
+  }
+
+  .field-hint {
+    margin: 0.75rem 0 0;
+    font-size: 0.9rem;
+    color: var(--gray-600, #6b7280);
+    font-style: italic;
+  }
+
+  .field-group-checks {
+    background: #fafafa;
+    padding: 1.1rem 1.2rem;
+    border-radius: 10px;
+  }
+
+  .checkbox-row,
+  .consent-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    cursor: pointer;
+    margin-bottom: 0.65rem;
+    font-size: 0.95rem;
+    color: var(--gray-700, #374151);
+    line-height: 1.5;
+  }
+
+  .checkbox-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .consent-row {
+    margin: 1.5rem 0;
+  }
+
+  .consent-row em {
+    display: block;
+    font-style: normal;
+    font-size: 0.82rem;
+    color: var(--gray-600, #6b7280);
+    margin-top: 0.2rem;
+    font-weight: 400;
+  }
+
+  .checkbox-row input[type="checkbox"],
+  .consent-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--theme-ukulele, #EA580C);
+    margin-top: 0.18rem;
+    flex-shrink: 0;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--theme-ukulele, #EA580C) 0%, #f97316 100%);
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3);
+  }
+
+  .submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(234, 88, 12, 0.4);
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.65;
+    cursor: wait;
+  }
+
+  .btn-loading {
+    display: none;
+  }
+
+  .submit-btn.loading .btn-default {
+    display: none;
+  }
+
+  .submit-btn.loading .btn-loading {
+    display: inline;
+  }
+
+  .form-feedback {
+    display: none;
+    margin-top: 1.25rem;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .form-feedback strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+  }
+
+  .form-success {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 1px solid #6ee7b7;
+    color: #065f46;
+  }
+
+  .form-error {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border: 1px solid #fca5a5;
+    color: #991b1b;
+  }
+
+  .form-error a {
+    color: #991b1b;
+    text-decoration: underline;
+  }
+
+  .stage-form.success .form-grid,
+  .stage-form.success .field-group,
+  .stage-form.success .field,
+  .stage-form.success .consent-row,
+  .stage-form.success .submit-btn {
+    display: none;
+  }
+
+  .stage-form.success .form-success {
+    display: block;
+  }
+
+  .stage-form.error .form-error {
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .stage-form {
+      padding: 1.5rem 1.25rem;
+    }
+    .form-grid,
+    .radio-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('stage-inscription-form') as HTMLFormElement | null;
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.submit-btn') as HTMLButtonElement;
+      form.classList.remove('error', 'success');
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      const fd = new FormData(form);
+      const payload = {
+        firstName: String(fd.get('firstName') || '').trim(),
+        lastName: String(fd.get('lastName') || '').trim(),
+        email: String(fd.get('email') || '').trim(),
+        phone: String(fd.get('phone') || '').trim(),
+        niveau: fd.get('niveau'),
+        format: fd.get('format'),
+        ukulelePret: fd.get('ukulelePret') === 'oui',
+        chantInteresse: fd.get('chantInteresse') === 'oui',
+        message: String(fd.get('message') || '').trim(),
+        consent: fd.get('consent') === 'on',
+      };
+
+      try {
+        const res = await fetch('/api/stage-inscription', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && (data as { ok?: boolean }).ok) {
+          form.classList.add('success');
+          if (typeof window !== 'undefined' && (window as any).gtag) {
+            (window as any).gtag('event', 'stage_inscription', {
+              event_category: 'conversion',
+              event_label: `stage-juillet-2026-${payload.niveau}-${payload.format}`,
+            });
+          }
+        } else {
+          throw new Error((data as { error?: string }).error || 'Erreur inconnue');
+        }
+      } catch (err) {
+        console.error('[stage-inscription] submit error:', err);
+        form.classList.add('error');
+      } finally {
+        btn.classList.remove('loading');
+        btn.disabled = false;
+      }
+    });
+  }
+</script>

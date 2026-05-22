@@ -3,19 +3,20 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import FooterModern from '../components/FooterModern.astro';
 import OptimizedImage from '../components/OptimizedImage.astro';
+import StageInscriptionForm from '../components/StageInscriptionForm.astro';
 
-const title = "Stage Ukulélé Grasse Février 2026 - Dernières Places Débutant | Musique Facile";
-const description = "Stage d'ukulélé à Grasse du 23 au 27 février 2026 à la Happiness School. Stage Initié COMPLET. Dernières places disponibles pour le stage Débutant. Deux formats : 3 jours (100€) ou 5 jours (150€). Réservez vite !";
+const title = "Stage Ukulélé Été 2026 à Grasse — 6 au 10 juillet | Musique Facile";
+const description = "Stage d'ukulélé à Grasse du 6 au 10 juillet 2026 à la Happiness School. Du débutant complet au joueur confirmé, ado, adulte ou retraité — 5 jours pour jouer tes premières chansons. Animé par Fred, Christophe et Lydie. Formules 3 ou 5 jours, dès 100€. 12 places par stage.";
 const canonicalUrl = new URL('/stage2026/', Astro.site || 'https://musique-facile.fr').toString();
-const ogImage = "https://musique-facile.fr/images/stage-ukulele-2026-groupe-toussaint.webp";
+const ogImage = "https://musique-facile.fr/images/stage-ukulele-juillet-2026-groupe.webp";
 
 const eventSchema = {
   "@context": "https://schema.org",
   "@type": "Event",
-  "name": "Stage d'ukulélé à Grasse — Février 2026",
-  "description": "Stage d'ukulélé à Grasse avec deux formats au choix (3 jours ou 5 jours) et deux niveaux (débutant ou initié). Une semaine de progression et de plaisir musical.",
-  "startDate": "2026-02-23T09:30:00+01:00",
-  "endDate": "2026-02-27T16:00:00+01:00",
+  "name": "Stage d'ukulélé à Grasse — Été 2026",
+  "description": "Stage d'ukulélé à Grasse pendant les vacances scolaires d'été. Deux niveaux (Débutant ou Initié), deux formats au choix (3 jours ou 5 jours), atelier chant avec Lydie à mi-parcours. Animé par Fred Fieffé et Christophe Damay. Ouvert dès 12 ans, ados, adultes, retraités.",
+  "startDate": "2026-07-06T09:30:00+02:00",
+  "endDate": "2026-07-10T16:00:00+02:00",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "eventStatus": "https://schema.org/EventScheduled",
   "location": {
@@ -31,112 +32,51 @@ const eventSchema = {
   },
   "image": ogImage,
   "offers": [
-    {
-      "@type": "Offer",
-      "name": "Format 3 jours - Débutant",
-      "price": "100",
-      "priceCurrency": "EUR",
-      "url": canonicalUrl,
-      "availability": "https://schema.org/LimitedAvailability"
-    },
-    {
-      "@type": "Offer",
-      "name": "Format 5 jours - Débutant",
-      "price": "150",
-      "priceCurrency": "EUR",
-      "url": canonicalUrl,
-      "availability": "https://schema.org/LimitedAvailability"
-    },
-    {
-      "@type": "Offer",
-      "name": "Format Initié",
-      "price": "100",
-      "priceCurrency": "EUR",
-      "url": canonicalUrl,
-      "availability": "https://schema.org/SoldOut"
-    }
+    { "@type": "Offer", "name": "Stage 3 jours (Lundi au Mercredi)", "price": "100", "priceCurrency": "EUR", "url": canonicalUrl, "availability": "https://schema.org/LimitedAvailability", "validFrom": "2026-05-01T00:00:00+02:00" },
+    { "@type": "Offer", "name": "Stage 5 jours (Lundi au Vendredi)", "price": "150", "priceCurrency": "EUR", "url": canonicalUrl, "availability": "https://schema.org/LimitedAvailability", "validFrom": "2026-05-01T00:00:00+02:00" }
   ],
   "performer": [
-    {
-      "@type": "Person",
-      "name": "Fred Fieffé"
-    },
-    {
-      "@type": "Person",
-      "name": "Christophe Damay"
-    }
+    { "@type": "Person", "name": "Fred Fieffé" },
+    { "@type": "Person", "name": "Christophe Damay" },
+    { "@type": "Person", "name": "Lydie" }
   ],
-  "organizer": {
-    "@type": "Organization",
-    "name": "Musique Facile",
-    "url": "https://musique-facile.fr"
-  }
+  "organizer": { "@type": "Organization", "name": "Musique Facile", "url": "https://musique-facile.fr" }
 };
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Puis-je faire les deux stages ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Non. Pour un bon apprentissage, on ne fait qu'un seul des deux stages."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "C'est quoi le niveau Initié ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tu as déjà fait le stage débutant ou tu joues un peu. Pas besoin d'être un pro."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Je suis débutant complet, c'est ok ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, c'est parfait. Le stage Débutant est conçu pour partir de zéro."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment réserver ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Il suffit de nous écrire via la section Contact, on te répond rapidement."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Que dois-je apporter ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ukulélé si tu en as, carnet, bouteille d'eau. On peut prêter un ukulélé sur demande."
-      }
-    }
+    { "@type": "Question", "name": "Combien de participants par stage ?", "acceptedAnswer": { "@type": "Answer", "text": "Le groupe est volontairement réduit : environ 12 personnes maximum par stage, pour garantir un suivi personnalisé et une vraie qualité d'écoute." } },
+    { "@type": "Question", "name": "Je suis débutant complet, c'est ok ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, c'est parfait. Le stage Débutant (13h30 – 16h) est conçu pour partir de zéro : tu n'as besoin d'aucune base musicale. Si tu n'as jamais touché un instrument de ta vie, c'est exactement pour toi." } },
+    { "@type": "Question", "name": "À partir de quel âge peut-on s'inscrire ?", "acceptedAnswer": { "@type": "Answer", "text": "Le stage est ouvert dès 12 ans. On a l'habitude d'accueillir des enfants, des ados, des adultes et des retraités — c'est un public mixte qui fait la richesse de l'expérience. Les ados sont encadrés dans un groupe à taille humaine de 12 personnes maximum." } },
+    { "@type": "Question", "name": "Je suis senior, je ne vais pas être largué ?", "acceptedAnswer": { "@type": "Answer", "text": "Pas du tout. Beaucoup de nos stagiaires reprennent la musique après 60 ans. Le rythme s'adapte au groupe, pas l'inverse. L'ukulélé est l'instrument le plus accessible qui soit." } },
+    { "@type": "Question", "name": "Je n'ai aucune oreille, c'est éliminatoire ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. L'oreille musicale, ça se travaille — et tu vas voir, c'est plus rapide que tu ne le crois. On part toujours du concret : un accord, un rythme, une chanson. La théorie vient après si elle vient." } },
+    { "@type": "Question", "name": "C'est quoi exactement le niveau Initié ?", "acceptedAnswer": { "@type": "Answer", "text": "Tu as déjà fait le stage débutant ou tu joues un peu. Pas besoin d'être un pro. Chaque jour, on te propose plusieurs ateliers thématiques (rythmique, arpèges, fingerpicking, chant accompagné, blues…) et tu choisis ceux qui t'intéressent." } },
+    { "@type": "Question", "name": "Comment se passe l'atelier chant du jeudi ?", "acceptedAnswer": { "@type": "Answer", "text": "Animé par Lydie, prof de chant, cet atelier est compris dans le prix du stage et ouvert aux deux niveaux. L'objectif : apprendre à mieux placer sa voix tout en jouant de l'ukulélé. Conçu pour les novices en chant — aucune expérience requise." } },
+    { "@type": "Question", "name": "Puis-je commencer en 3 jours et prolonger sur 5 jours ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, c'est possible si des places restent disponibles à mi-stage. Tu démarres en 3 jours et tu décides sur place de continuer jeudi et vendredi en réglant le complément." } },
+    { "@type": "Question", "name": "Et après le stage, je continue comment ?", "acceptedAnswer": { "@type": "Answer", "text": "On te donne une feuille de route claire (chansons à travailler, astuces, ressources). Et tu peux poursuivre avec le cours d'ukulélé en ligne de Musique Facile si tu veux garder cette dynamique." } },
+    { "@type": "Question", "name": "Comment je paie ?", "acceptedAnswer": { "@type": "Answer", "text": "Une fois ton inscription validée par notre retour, on t'envoie les modalités de paiement (chèque ou virement). Le règlement complet est demandé pour confirmer ta place." } }
   ]
 };
 ---
 
-<Layout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={ogImage} robots="noindex, nofollow">
+<Layout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={ogImage}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
   <Header />
 
-  <!-- Bannière d'urgence -->
-  <div class="urgency-banner">
+  <!-- Bannière d'ouverture des inscriptions -->
+  <div class="open-banner">
     <div class="container">
-      <div class="urgency-content">
-        <span class="urgency-icon">⚠️</span>
-        <div class="urgency-text">
-          <strong>Stage Initié COMPLET</strong> — Il ne reste que quelques places pour le stage Débutant !
+      <div class="open-content">
+        <span class="open-icon">🌺</span>
+        <div class="open-text">
+          <strong>Inscriptions ouvertes pour juillet 2026</strong> · 12 places par stage · Le précédent stage a fait salle comble
         </div>
-        <a href="#contact" class="urgency-cta">Je réserve vite</a>
+        <a href="#inscription" class="open-cta">Je réserve</a>
       </div>
     </div>
   </div>
@@ -148,17 +88,50 @@ const faqSchema = {
       </div>
       <div class="container">
         <div class="hero-content">
-          <p class="hero-eyebrow">Stages d'ukulélé à Grasse — Février 2026</p>
-          <h1>Ado / Adulte — Débutant ou Initié</h1>
-          <p class="hero-subtitle">Happiness School — 95 Av. de la Libération, 06130 Grasse</p>
+          <p class="hero-eyebrow">🌺 Stage d'ukulélé d'été · 6 au 10 juillet 2026 · Grasse</p>
+          <h1>L'été où tu te mets à l'ukulélé.</h1>
+          <p class="hero-subtitle">
+            5 jours du <strong>6 au 10 juillet 2026</strong> à la Happiness School de Grasse.<br>
+            <span class="hero-tagline">Tu repars en jouant tes premières chansons — et tu n'oublieras pas la semaine de sitôt.</span>
+          </p>
           <div class="hero-highlights">
-            <span class="highlight-pill">Du 23 au 27 février 2026</span>
-            <span class="highlight-pill">3 jours : 100€ | 5 jours : 150€</span>
-            <span class="highlight-pill highlight-urgent">⚠️ Stage Débutant : Dernières places</span>
+            <span class="highlight-pill">📅 Lun → Ven · 2h30/jour</span>
+            <span class="highlight-pill">🎯 Débutant ou Initié</span>
+            <span class="highlight-pill">🎤 Atelier chant inclus</span>
+            <span class="highlight-pill">👥 12 places max</span>
+            <span class="highlight-pill">💶 Dès 100€</span>
           </div>
+          <p class="hero-audience">Ados (dès 12 ans), adultes, retraités, en famille — <strong>tous les âges sont les bienvenus</strong>.</p>
           <div class="hero-cta">
-            <a href="#contact" class="btn btn-primary btn-lg">Je réserve ma place (Débutant)</a>
-            <a href="#stages" class="btn btn-secondary btn-lg">Voir les stages</a>
+            <a href="#inscription" class="btn btn-primary btn-lg">Je réserve ma place</a>
+            <a href="#journee-type" class="btn btn-secondary btn-lg">Comment ça se passe ?</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bandeau preuve sociale -->
+    <section class="proof-strip">
+      <div class="container">
+        <div class="proof-items">
+          <div class="proof-item">
+            <strong>80 000+</strong>
+            <span>élèves accompagnés</span>
+          </div>
+          <div class="proof-divider"></div>
+          <div class="proof-item">
+            <strong>13 ans</strong>
+            <span>d'enseignement musical</span>
+          </div>
+          <div class="proof-divider"></div>
+          <div class="proof-item">
+            <strong>3<sup>e</sup></strong>
+            <span>édition du stage à Grasse</span>
+          </div>
+          <div class="proof-divider"></div>
+          <div class="proof-item">
+            <strong>4,9 / 5</strong>
+            <span>satisfaction stagiaires</span>
           </div>
         </div>
       </div>
@@ -167,35 +140,42 @@ const faqSchema = {
     <section class="stages section" id="stages">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Les stages proposés</h2>
-          <p class="section-subtitle">Seul le stage Débutant (après-midi) est encore disponible. Dépêche-toi !</p>
+          <p class="section-eyebrow">🎯 Deux stages, un même esprit</p>
+          <h2 class="section-title">Choisis ton créneau, on s'occupe du reste</h2>
+          <p class="section-subtitle">Chaque stage dure 2h30 par jour, du lundi au vendredi. Tu suis un seul stage sur la semaine — soit l'Initié le matin, soit le Débutant l'après-midi.</p>
         </div>
         <div class="stage-grid">
-          <div class="card card-ukulele stage-card stage-card-sold-out">
-            <div class="stage-badge badge-sold-out">COMPLET</div>
-            <div class="stage-card-header">
-              <h3>Initié</h3>
-              <span class="stage-time">9h30 – 12h</span>
-            </div>
-            <p>
-              Tu as déjà fait le stage débutant ou tu joues un peu. Pas besoin d'être un pro : on consolide
-              les bases et on avance ensemble.
-            </p>
-            <p class="sold-out-message">😔 Toutes les places sont réservées pour cette session.</p>
-          </div>
-          <div class="card card-ukulele stage-card stage-card-available">
-            <div class="stage-badge badge-available">DERNIÈRES PLACES</div>
+          <div class="card card-ukulele stage-card">
             <div class="stage-card-header">
               <h3>Débutant</h3>
               <span class="stage-time">13h30 – 16h</span>
             </div>
-            <p>On part de zéro : tu apprends les premières positions, le rythme, et tu joues tes premiers morceaux.</p>
-            <div class="hurry-message">
-              <strong>⏱️ Dépêche-toi !</strong> Plus que quelques places disponibles.
+            <p class="stage-tagline">Tu n'as jamais touché un ukulélé ? Parfait.</p>
+            <p>On part vraiment de zéro. Les premiers accords, le rythme de base, et très vite la magie : <strong>tes premières chansons jouées en entier</strong>. Tu arrives intimidé(e) le lundi, tu repars fier(e) le vendredi.</p>
+            <ul class="stage-bullets">
+              <li>4 à 5 accords essentiels et leurs enchaînements</li>
+              <li>La rythmique main droite qui marche pour 80% des chansons</li>
+              <li>2 à 3 morceaux complets joués en fin de stage</li>
+              <li>Le plaisir de jouer en groupe dès le mardi</li>
+            </ul>
+          </div>
+          <div class="card card-ukulele stage-card stage-card-featured">
+            <div class="stage-badge">Au choix chaque jour</div>
+            <div class="stage-card-header">
+              <h3>Initié</h3>
+              <span class="stage-time">9h30 – 12h</span>
             </div>
+            <p class="stage-tagline">Tu joues déjà un peu et tu veux passer un cap ?</p>
+            <p>Chaque jour, plusieurs ateliers thématiques te sont proposés (rythmique, fingerpicking, chant, blues…) et tu choisis selon ton humeur. Une partie commune en groupe + un atelier au choix : <strong>la formule sur-mesure</strong>.</p>
+            <ul class="stage-bullets">
+              <li>Une partie commune chaque matin (répertoire, échauffement)</li>
+              <li>Un atelier au choix selon tes envies du jour</li>
+              <li>Approfondissement personnalisé avec Fred ou Christophe</li>
+              <li>Jeu en groupe et confrontation des styles</li>
+            </ul>
           </div>
         </div>
-        
+
         <div class="formats-section">
           <h3 class="formats-title">Deux formats au choix</h3>
           <div class="formats-grid">
@@ -203,44 +183,302 @@ const faqSchema = {
               <h4>3 jours</h4>
               <p class="format-dates">Lundi → Mercredi</p>
               <p class="format-price">100€</p>
-              <p>Parfait pour une initiation intensive ou un rappel des bases.</p>
+              <p>Une initiation intensive ou un rappel des bases. Tu repars avec un premier morceau et l'envie de continuer.</p>
             </div>
-            <div class="format-card">
+            <div class="format-card format-card-highlight">
+              <div class="format-badge">Le plus complet</div>
               <h4>5 jours</h4>
               <p class="format-dates">Lundi → Vendredi</p>
               <p class="format-price">150€</p>
-              <p>Idéal pour une immersion complète et une progression plus approfondie.</p>
+              <p>Une immersion complète avec <strong>l'atelier chant de Lydie</strong> à mi-parcours et une vraie progression jusqu'au vendredi.</p>
+            </div>
+          </div>
+          <p class="formats-note">💡 <strong>Tu hésites ?</strong> Démarre en 3 jours et prolonge sur place jusqu'au vendredi si des places sont encore disponibles.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pour qui c'est fait -->
+    <section class="for-who section section-light" id="pour-qui">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">👥 Pour qui c'est fait</p>
+          <h2 class="section-title">Tu te reconnais ? Alors c'est pour toi.</h2>
+          <p class="section-subtitle">On accueille ado, adulte, retraité, en famille — la mixité d'âges fait la magie du stage.</p>
+        </div>
+        <div class="profiles-grid">
+          <div class="profile-card">
+            <div class="profile-icon">🎓</div>
+            <h3>Tu es ado (12-17 ans)</h3>
+            <p>Tu veux apprendre un vrai instrument cet été, sans cours barbants. L'ukulélé est l'instrument le plus rapide à prendre en main — et l'ambiance est <em>franchement cool</em>.</p>
+            <p class="profile-note"><strong>Pour les parents :</strong> groupe de 12 max, encadrement bienveillant, on connaît le métier.</p>
+          </div>
+          <div class="profile-card">
+            <div class="profile-icon">💼</div>
+            <h3>Tu es adulte et tu débutes</h3>
+            <p>Tu rêves de jouer d'un instrument depuis longtemps mais tu n'as jamais osé. C'est exactement ici que ça commence. Pas de pression, pas de jugement — juste du plaisir et de la progression.</p>
+            <p class="profile-note"><strong>Notre promesse :</strong> tu joues une chanson en entier d'ici la fin de la semaine.</p>
+          </div>
+          <div class="profile-card">
+            <div class="profile-icon">🌿</div>
+            <h3>Tu es retraité(e), tu reprends</h3>
+            <p>L'ukulélé n'a pas d'âge. Beaucoup de nos stagiaires ont entre 55 et 75 ans — c'est même le profil dominant. Le rythme s'adapte à toi, et tu repars avec du concret.</p>
+            <p class="profile-note"><strong>Bonus :</strong> tu rencontres des gens qui partagent la même envie.</p>
+          </div>
+          <div class="profile-card">
+            <div class="profile-icon">👨‍👩‍👧</div>
+            <h3>Vous voulez venir en famille</h3>
+            <p>Un parent + un ado, deux parents qui partagent la même envie, un grand-parent qui veut transmettre… Vous pouvez vous inscrire ensemble, sur le même stage ou des stages différents.</p>
+            <p class="profile-note"><strong>Tarif famille :</strong> écris-nous, on s'arrange.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Une journée-type -->
+    <section class="day-type section" id="journee-type">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">⏰ Une journée-type</p>
+          <h2 class="section-title">Une seule routine, déclinée pour chaque groupe</h2>
+          <p class="section-subtitle">
+            Les Initiés vivent leur journée le matin (9h30 – 12h), les Débutants l'après-midi (13h30 – 16h).
+            <strong>Même structure pour les deux</strong> : un temps commun, puis un split en deux salles où
+            Fred et Christophe accompagnent chacun la moitié du groupe en parallèle.
+          </p>
+        </div>
+
+        <div class="timeline-wrapper">
+          <div class="timeline-creneaux">
+            <div class="creneau-pill creneau-morning">🌅 Matin · Stage Initié · 9h30 – 12h</div>
+            <div class="creneau-pill creneau-afternoon">🌇 Après-midi · Stage Débutant · 13h30 – 16h</div>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-time">
+                <span>9h15</span>
+                <span class="time-alt">13h15</span>
+              </div>
+              <div class="timeline-content">
+                <h3>Accueil café <span class="timeline-tag-neutral">Tous</span></h3>
+                <p>Tu arrives, tu poses ton ukulélé, tu dis bonjour. On démarre dans la bonne humeur — café, jus, on se chauffe.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-time">
+                <span>9h30</span>
+                <span class="time-alt">13h30</span>
+              </div>
+              <div class="timeline-content">
+                <h3>Échauffement &amp; temps commun <span class="timeline-tag-neutral">Groupe entier</span></h3>
+                <p>15 à 20 minutes pour réveiller les doigts, accorder les ukulélés, et lancer la journée ensemble — un morceau collectif, une rythmique partagée.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-time">
+                <span>9h50</span>
+                <span class="time-alt">13h50</span>
+              </div>
+              <div class="timeline-content">
+                <h3>Premier bloc — Travail collectif <span class="timeline-tag-neutral">Groupe entier</span></h3>
+                <p>Fred et Christophe travaillent ensemble avec tout le groupe. On pose les bases du jour, on découvre le thème, on joue tous au même rythme.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item timeline-item-split">
+              <div class="timeline-time">
+                <span>10h40</span>
+                <span class="time-alt">14h40</span>
+              </div>
+              <div class="timeline-content">
+                <h3>🔀 Split en deux salles <span class="timeline-tag-split">Le cœur de la journée</span></h3>
+                <p>
+                  Le groupe se sépare en deux. <strong>Fred prend la première salle</strong>, <strong>Christophe prend la seconde</strong>.
+                  Chacun aborde le sujet avec son angle, son style, sa pédagogie. Tu as littéralement <strong>deux profs pour le prix d'un</strong>,
+                  et un format intimiste à 5-6 personnes par salle.
+                </p>
+                <div class="split-rooms">
+                  <div class="split-room">
+                    <strong>🎸 Salle 1 · avec Fred</strong>
+                    <span>Approche structurée, focus sur la main droite, le placement et le groove.</span>
+                  </div>
+                  <div class="split-room">
+                    <strong>🎼 Salle 2 · avec Christophe</strong>
+                    <span>Approche complémentaire — souvent sur l'harmonie, l'accompagnement et le ressenti.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-time">
+                <span>11h40</span>
+                <span class="time-alt">15h40</span>
+              </div>
+              <div class="timeline-content">
+                <h3>Retour ensemble <span class="timeline-tag-neutral">Groupe entier</span></h3>
+                <p>On se retrouve tous, on partage ce qu'on a travaillé, on joue ensemble. C'est souvent le moment le plus magique de la matinée (ou de l'après-midi).</p>
+              </div>
+            </div>
+
+            <div class="timeline-item timeline-item-special">
+              <div class="timeline-time">
+                <span>12h00</span>
+                <span class="time-alt">16h00</span>
+              </div>
+              <div class="timeline-content">
+                <h3>☕ 5 à 10 minutes pour traîner <span class="timeline-tag-warm">Le moment qu'on adore</span></h3>
+                <p>
+                  Officiellement, c'est terminé. Officieusement, il y a toujours <strong>du monde qui reste 5 ou 10 minutes</strong> pour
+                  discuter, demander un truc, échanger avec Fred ou Christophe. C'est souvent là que naissent les plus belles complicités du stage.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item timeline-item-special">
+              <div class="timeline-time"><span class="time-icon">🍽️</span></div>
+              <div class="timeline-content">
+                <h3>Le déjeuner avec Fred &amp; Christophe</h3>
+                <p>
+                  Entre les deux créneaux, on prend une pause déjeuner. <strong>Les stagiaires du matin qui veulent prolonger sont les bienvenus à notre table</strong> —
+                  restos sympas autour de la Happiness School, on partage ce moment volontiers. Aucune obligation, juste l'envie.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item timeline-item-special">
+              <div class="timeline-time"><span class="time-icon">🎤</span></div>
+              <div class="timeline-content">
+                <h3>Jeudi · Atelier chant avec Lydie <span class="timeline-tag-pink">Inclus</span></h3>
+                <p>À mi-parcours du stage, Lydie vient animer son atelier chant pour <strong>poser sa voix tout en jouant</strong>. Compris dans le prix, ouvert aux deux groupes.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="programme section section-light" id="programme">
+    <!-- Ce que tu repars avec -->
+    <section class="results section section-light" id="resultats">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Ce qu'on apprend</h2>
-          <p class="section-subtitle">Un stage concret, progressif et joyeux.</p>
+          <p class="section-eyebrow">🎁 Ce que tu repars avec</p>
+          <h2 class="section-title">À la fin du vendredi, tu sais faire ça</h2>
+          <p class="section-subtitle">Pas de promesse en l'air. Voici les résultats concrets que nos stagiaires ramènent à la maison.</p>
         </div>
-        <ul class="checklist">
-          <li>Les accords essentiels et leurs enchaînements</li>
-          <li>Le rythme de la main droite, simple et efficace</li>
-          <li>Jouer une chanson complète en fin de stage</li>
-          <li>Travailler l'écoute et le sens du tempo</li>
-          <li>Jouer ensemble et se repérer dans un groupe</li>
-          <li>Petites astuces pour progresser vite chez soi</li>
-          <li>Découvrir plusieurs sonorités d'ukulélés</li>
-        </ul>
-        <div class="programme-advanced">
-          <p class="programme-intro">Si tu as déjà quelques bases, on va plus loin : technique, arpèges et mise en pratique.</p>
-          <ul class="checklist">
-            <li>Techniques spécifiques au ukulélé (attaque, son, placement, etc.)</li>
-            <li>Travail des arpèges (pour accompagner et embellir)</li>
-            <li>Méthode de travail : comment pratiquer pour progresser mieux et plus vite</li>
-            <li>Mise en pratique sur des morceaux variés (selon le groupe)</li>
-            <li>Rythmique + accords : enrichir ses accompagnements</li>
-            <li>Programme adaptatif : on ajuste selon le niveau et les demandes des musiciens présents</li>
-          </ul>
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-num">01</div>
+            <h3>Tu joues 2 à 3 chansons en entier</h3>
+            <p>Sans tricher, du début à la fin. Tu peux les rejouer chez toi, à tes proches, sur la plage. Une vraie autonomie.</p>
+          </div>
+          <div class="result-card">
+            <div class="result-num">02</div>
+            <h3>Tu maîtrises 4 à 5 accords ouverts</h3>
+            <p>Les accords qui débloquent la majorité du répertoire pop, folk et chanson française. Tu en feras des dizaines d'autres ensuite.</p>
+          </div>
+          <div class="result-card">
+            <div class="result-num">03</div>
+            <h3>Tu as une rythmique solide</h3>
+            <p>Un pattern main droite qui marche sur 80% des chansons. Plus de "j'arrive pas à enchaîner" — tu sens le tempo.</p>
+          </div>
+          <div class="result-card">
+            <div class="result-num">04</div>
+            <h3>Tu sais comment continuer seul(e)</h3>
+            <p>On te donne une feuille de route claire : quelles chansons travailler, comment progresser, où trouver les ressources. Tu n'es jamais lâché(e) après le stage.</p>
+          </div>
+          <div class="result-card">
+            <div class="result-num">05</div>
+            <h3>Tu as gagné en confiance</h3>
+            <p>Tu sais que tu <strong>peux</strong> apprendre un instrument. C'est souvent le déclic le plus précieux de la semaine.</p>
+          </div>
+          <div class="result-card">
+            <div class="result-num">06</div>
+            <h3>Tu repars avec des amis</h3>
+            <p>Le groupe à taille humaine (12 max) crée une vraie complicité. Beaucoup de stagiaires restent en contact bien après.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chant-workshop section" id="atelier-chant">
+      <div class="container">
+        <div class="chant-grid">
+          <div class="chant-content">
+            <p class="section-eyebrow">🎤 La cerise sur le gâteau</p>
+            <h2 class="section-title">L'atelier chant du jeudi avec Lydie</h2>
+            <p class="chant-lead">
+              À mi-parcours du stage, on accueille <strong>Lydie</strong>, prof de chant, pour un atelier
+              <strong>inclus dans le prix</strong> et ouvert <strong>aux deux niveaux</strong>.
+            </p>
+            <p>
+              L'objectif est simple : apprendre à <strong>mieux placer sa voix tout en jouant de l'ukulélé</strong>.
+              Travailler la respiration, la justesse, l'aisance. Et surtout : prendre plaisir à chanter.
+            </p>
+            <div class="chant-points">
+              <div class="chant-point">
+                <span class="point-icon">✨</span>
+                <div>
+                  <strong>Conçu pour les novices en chant</strong>
+                  <span>Aucune expérience requise — Lydie te guide pas à pas, avec bienveillance</span>
+                </div>
+              </div>
+              <div class="chant-point">
+                <span class="point-icon">🎁</span>
+                <div>
+                  <strong>Inclus dans le stage</strong>
+                  <span>Aucun supplément, ouvert à tous les stagiaires de la semaine</span>
+                </div>
+              </div>
+              <div class="chant-point">
+                <span class="point-icon">🤝</span>
+                <div>
+                  <strong>Un moment commun aux deux niveaux</strong>
+                  <span>Débutants et Initiés se rejoignent — un beau moment de partage à mi-stage</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chant-quote">
+            <blockquote>
+              « Le ukulélé invite à chanter, mais peu de gens osent vraiment. Mon rôle, c'est de te donner les clés
+              pour que ta voix devienne un instrument de plus, sans gêne et sans peur. »
+            </blockquote>
+            <p class="quote-author">— Lydie, prof de chant</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="team section section-light" id="equipe">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">🎶 L'équipe</p>
+          <h2 class="section-title">Trois profs, un même goût pour la transmission</h2>
+          <p class="section-subtitle">Une co-animation Fred + Christophe à 50/50, et Lydie en invitée pour l'atelier chant du jeudi.</p>
+        </div>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar"><span>F</span></div>
+            <h3>Fred</h3>
+            <p class="team-role">Co-animateur · Ukulélé</p>
+            <p>Fondateur de Musique Facile, 13 ans à enseigner la guitare et l'ukulélé en présentiel et en ligne. Auteur Hal Leonard, Prix Samuel Paty 2024, et surtout : <strong>quelqu'un qui aime profondément les gens qu'il a en face</strong>. Tu vas vite t'en rendre compte.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar"><span>C</span></div>
+            <h3>Christophe Damay</h3>
+            <p class="team-role">Co-animateur · Ukulélé</p>
+            <p>Le pédagogue calme et précis du duo. Son regard complémentaire sur la rythmique et le jeu en groupe fait <em>vraiment</em> la différence — beaucoup de stagiaires repartent en disant qu'ils ont eu deux profs pour le prix d'un.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar team-avatar-pink"><span>L</span></div>
+            <h3>Lydie</h3>
+            <p class="team-role">Atelier chant · Jeudi</p>
+            <p>Prof de chant invitée chaque jeudi, pour un atelier <strong>compris dans le stage</strong>. Une approche douce et accessible, conçue pour les débutants en chant. Ceux qui « ne chantent jamais » en repartent généralement avec le sourire — et la voix posée.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -248,181 +486,202 @@ const faqSchema = {
     <section class="testimonials section" id="temoignages">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Ils en parlent mieux que nous</h2>
-          <p class="section-subtitle">Retours simples, vrais, et motivants.</p>
+          <p class="section-eyebrow">💬 Ce qu'ils en disent</p>
+          <h2 class="section-title">Trois mots des stagiaires de l'an passé</h2>
         </div>
         <div class="testimonial-grid">
           <figure class="card testimonial-card">
-            <blockquote>
-              “La semaine d'après le stage, j'ai commencé à jouer en classe. Les enfants étaient ravis.”
-            </blockquote>
-            <figcaption>Mireille</figcaption>
+            <div class="stars">★★★★★</div>
+            <blockquote>« La semaine d'après le stage, j'ai commencé à jouer en classe. Les enfants étaient ravis. »</blockquote>
+            <figcaption>Mireille · institutrice</figcaption>
+          </figure>
+          <figure class="card testimonial-card testimonial-card-featured">
+            <div class="stars">★★★★★</div>
+            <blockquote>« C'est un vrai rêve. J'avais essayé la guitare mais j'avais abandonné. Christophe et Fred m'ont redonné le goût de jouer. Merci. »</blockquote>
+            <figcaption>Maude · 58 ans</figcaption>
           </figure>
           <figure class="card testimonial-card">
-            <blockquote>
-              “C'est un vrai rêve. J'avais essayé la guitare mais j'avais abandonné. Christophe et Fred m'ont
-              redonné le goût de jouer de l'ukulélé. Merci.”
-            </blockquote>
-            <figcaption>Maude</figcaption>
-          </figure>
-          <figure class="card testimonial-card">
-            <blockquote>
-              “Qui penserait qu'un instrument si simple puisse être au final si agréable et fun. J'adore.”
-            </blockquote>
-            <figcaption>Maxime</figcaption>
+            <div class="stars">★★★★★</div>
+            <blockquote>« Qui penserait qu'un instrument si simple puisse être au final si agréable et fun. J'adore. »</blockquote>
+            <figcaption>Maxime · 16 ans</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <section class="photo section" id="photo">
+    <section class="photos section section-light" id="photos">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Une semaine qui fait du bien (photo du dernier stage)</h2>
+          <p class="section-eyebrow">📸 L'ambiance</p>
+          <h2 class="section-title">Les photos parlent mieux que nous</h2>
+          <p class="section-subtitle">Voici à quoi ressemble un groupe de stage — chaleur, rires et ukulélés.</p>
         </div>
-        <figure class="photo-figure">
-          <OptimizedImage
-            src="/images/stage-ukulele-2026-groupe-toussaint.webp"
-            alt="Photo de groupe des participants au stage d'ukulélé à Grasse"
-            width={800}
-            height={450}
-            loading="lazy"
-            sizes="(max-width: 768px) 100vw, 720px"
-            class="photo-image"
-          />
-          <figcaption>Photo de groupe — stage de Toussaint.</figcaption>
-        </figure>
+        <div class="photo-gallery">
+          <figure class="photo-figure">
+            <OptimizedImage
+              src="/images/stage-ukulele-juillet-2026-groupe.webp"
+              alt="Photo de groupe des participants au stage d'ukulélé de Grasse — Musique Facile"
+              width={1280}
+              height={784}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 550px"
+              class="photo-image"
+            />
+            <figcaption>Le groupe complet du dernier stage à Grasse</figcaption>
+          </figure>
+          <figure class="photo-figure">
+            <OptimizedImage
+              src="/images/stage-ukulele-juillet-2026-fun.webp"
+              alt="Stagiaires brandissant fièrement leurs ukulélés à la fin du stage"
+              width={1280}
+              height={720}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 550px"
+              class="photo-image"
+            />
+            <figcaption>L'esprit du stage : bonne humeur garantie</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
-    <section class="infos section section-light" id="infos-pratiques">
+    <section class="infos section" id="infos-pratiques">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Infos pratiques</h2>
-          <p class="section-subtitle">Tout ce qu'il faut pour venir sereinement.</p>
+          <p class="section-eyebrow">📌 Infos pratiques</p>
+          <h2 class="section-title">Tout ce qu'il faut savoir pour venir sereinement</h2>
         </div>
         <div class="info-grid">
           <div class="info-card">
             <div class="info-icon">📍</div>
             <h3>Adresse</h3>
             <p>Happiness School</p>
-            <p>95 Av. de la Libération, 06130 Grasse</p>
+            <p>95 Av. de la Libération<br>06130 Grasse</p>
           </div>
           <div class="info-card">
-            <div class="info-icon">👶 👨‍🦰</div>
-            <h3>Public</h3>
-            <p>Ado et adulte</p>
+            <div class="info-icon">📅</div>
+            <h3>Dates</h3>
+            <p><strong>6 au 10 juillet 2026</strong></p>
+            <p>Du lundi au vendredi · Vacances scolaires d'été</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">👥</div>
+            <h3>Public &amp; âge</h3>
+            <p>À partir de <strong>12 ans</strong></p>
+            <p>Ados, adultes, retraités, en famille</p>
           </div>
           <div class="info-card">
             <div class="info-icon">🎸</div>
             <h3>Instruments</h3>
-            <p>Prêt possible sur demande (à préciser dans le formulaire)</p>
+            <p>Apporte le tien si possible</p>
+            <p>Prêt gratuit sur demande</p>
           </div>
           <div class="info-card">
             <div class="info-icon">🎒</div>
-            <h3>Matériel à prévoir</h3>
-            <p>Ukulélé si tu en as, carnet, bouteille d'eau</p>
-          </div>
-          <div class="info-card">
-            <div class="info-icon">🚗</div>
-            <h3>Parking & accès</h3>
-            <p>Parking à proximité</p>
+            <h3>À prévoir</h3>
+            <p>Carnet, bouteille d'eau, snack pour la pause</p>
           </div>
           <div class="info-card">
             <div class="info-icon">🍽️</div>
-            <h3>Restauration</h3>
-            <p>Non incluse – restaurants et snacks à proximité</p>
+            <h3>Déjeuner</h3>
+            <p>Non inclus</p>
+            <p>1h30 de pause · restos &amp; snacks à proximité</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="faq section" id="faq">
+    <section class="faq section section-light" id="faq">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Questions fréquentes</h2>
-          <p class="section-subtitle">Tu hésites ? On t'éclaire.</p>
+          <p class="section-eyebrow">❓ Questions fréquentes</p>
+          <h2 class="section-title">On répond à tes hésitations</h2>
         </div>
         <div class="faq-grid">
-          <div class="faq-item">
-            <div class="question-wrapper">
-              <h3>Puis-je faire les deux stages ?</h3>
-            </div>
-            <div class="answer">
-              <p>Non. Pour un bon apprentissage, on ne fait qu'un seul des deux stages.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="question-wrapper">
-              <h3>C'est quoi le niveau Initié ?</h3>
-            </div>
-            <div class="answer">
-              <p>Tu as déjà fait le stage débutant ou tu joues un peu. Pas besoin d'être un pro.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="question-wrapper">
-              <h3>Je suis débutant complet, c'est ok ?</h3>
-            </div>
-            <div class="answer">
-              <p>Oui, c'est parfait. Le stage Débutant est conçu pour partir de zéro.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="question-wrapper">
-              <h3>Comment réserver ?</h3>
-            </div>
-            <div class="answer">
-              <p>Il suffit de nous écrire via la section Contact, on te répond rapidement.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="question-wrapper">
-              <h3>Que dois-je apporter ?</h3>
-            </div>
-            <div class="answer">
-              <p>Ukulélé si tu en as, carnet, bouteille d'eau. On peut prêter un ukulélé sur demande.</p>
-            </div>
-          </div>
+          <details class="faq-item">
+            <summary><h3>Combien de participants par stage ?</h3></summary>
+            <p>Le groupe est volontairement réduit : <strong>environ 12 personnes maximum par stage</strong>, pour garantir un suivi personnalisé et une vraie qualité d'écoute.</p>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Je suis débutant complet, c'est ok ?</h3></summary>
+            <p>Oui, c'est parfait. Le stage Débutant (13h30 – 16h) est conçu pour partir de zéro : tu n'as besoin d'aucune base musicale. Si tu n'as jamais touché un instrument de ta vie, c'est exactement pour toi.</p>
+          </details>
+          <details class="faq-item">
+            <summary><h3>À partir de quel âge peut-on s'inscrire ?</h3></summary>
+            <p>Le stage est ouvert <strong>dès 12 ans</strong>. On a l'habitude d'accueillir des enfants, des ados, des adultes et des retraités — c'est un public mixte qui fait la richesse de l'expérience. Les ados sont encadrés dans un groupe à taille humaine.</p>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Je suis senior, je ne vais pas être largué(e) ?</h3></summary>
+            <p>Pas du tout. Beaucoup de nos stagiaires reprennent la musique après 60 ans. Le rythme s'adapte au groupe, pas l'inverse. L'ukulélé est l'instrument le plus accessible qui soit.</p>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Je n'ai aucune oreille, c'est éliminatoire ?</h3></summary>
+            <p>Non. L'oreille musicale, ça se travaille — et tu vas voir, c'est plus rapide que tu ne le crois. On part toujours du concret : un accord, un rythme, une chanson.</p>
+          </details>
+          <details class="faq-item">
+            <summary><h3>C'est quoi exactement le niveau Initié ?</h3></summary>
+            <p>Tu as déjà fait le stage débutant ou tu joues un peu. Pas besoin d'être un pro. Chaque jour, on te propose plusieurs ateliers thématiques (rythmique, arpèges, fingerpicking, chant accompagné, blues…) et tu choisis ceux qui t'intéressent.</p>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Comment se passe l'atelier chant du jeudi ?</h3></summary>
+            <p>Animé par Lydie, prof de chant, il est <strong>compris dans le prix du stage</strong> et ouvert aux deux niveaux. L'objectif : apprendre à mieux placer sa voix tout en jouant. Conçu pour les novices en chant.</p>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Puis-je commencer en 3 jours et prolonger sur 5 jours ?</h3></summary>
+            <p>Oui, c'est possible si des places restent disponibles à mi-stage. Tu démarres en 3 jours et tu décides sur place de continuer jeudi et vendredi en réglant le complément.</p>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Et après le stage, je continue comment ?</h3></summary>
+            <p>On te donne une feuille de route claire (chansons à travailler, astuces, ressources). Et tu peux poursuivre avec le cours d'ukulélé en ligne de Musique Facile si tu veux garder cette dynamique.</p>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Comment je paie ?</h3></summary>
+            <p>Une fois ton inscription validée par notre retour, on t'envoie les modalités de paiement (chèque ou virement). Le règlement complet est demandé pour confirmer ta place.</p>
+          </details>
         </div>
       </div>
     </section>
 
-    <section class="contact" id="contact">
+    <!-- Dernier appel à l'envie avant le formulaire -->
+    <section class="last-call section">
       <div class="container">
-        <h2 class="section-title">Contact & Inscription</h2>
-        <div class="availability-notice">
-          <div class="notice-box notice-alert">
-            ⚠️ <strong>Stage Initié : COMPLET</strong> — Nous ne prenons plus de réservations pour ce niveau.
+        <div class="last-call-box">
+          <h2 class="last-call-title">Tu hésites encore ?</h2>
+          <p class="last-call-lead">
+            Imagine-toi le vendredi 10 juillet à 16h, ukulélé sur les genoux, en train de jouer une chanson en entier devant le groupe.
+            Tu as ri toute la semaine. Tu as appris pour de vrai. Tu repars léger.
+          </p>
+          <p class="last-call-lead"><strong>C'est ça, la semaine qui t'attend.</strong></p>
+          <div class="last-call-quick">
+            <div class="quick-item">
+              <strong>💶 100€ ou 150€</strong>
+              <span>Selon le format</span>
+            </div>
+            <div class="quick-item">
+              <strong>🎁 Atelier chant inclus</strong>
+              <span>Avec Lydie le jeudi</span>
+            </div>
+            <div class="quick-item">
+              <strong>🛡️ 12 places max</strong>
+              <span>On t'écoute vraiment</span>
+            </div>
           </div>
-          <div class="notice-box notice-warning">
-            ⏱️ <strong>Stage Débutant : DERNIÈRES PLACES</strong> — Réservez rapidement avant qu'il soit complet !
-          </div>
+          <a href="#inscription" class="btn btn-primary btn-lg">Réserver ma place maintenant</a>
         </div>
-        <div class="contact-content">
-          <div class="contact-card">
-            <div class="contact-icon">✉️</div>
-            <h3>Inscription au stage Débutant</h3>
-            <p>Envoyez-nous un email avec vos coordonnées et précisez si vous avez besoin d'un prêt d'ukulélé.</p>
-            <p class="format-reminder">N'oubliez pas de préciser le nombre de jours souhaité (3 ou 5 jours).</p>
-            <a href="mailto:contact@musique-facile.fr" class="email-button">
-              contact@musique-facile.fr
-            </a>
-            <p class="contact-details">
-              Merci de préciser dans votre email :
-            </p>
-            <ul class="contact-list">
-              <li>Votre nom et prénom</li>
-              <li>Votre numéro de téléphone</li>
-              <li>Le format choisi (3 jours ou 5 jours) pour le <strong>stage Débutant</strong></li>
-              <li>Si vous avez besoin d'un ukulélé (prêt gratuit)</li>
-              <li>Toute question spécifique que vous pourriez avoir</li>
-            </ul>
-            <p class="response-time">
-              Nous vous répondrons dans les plus brefs délais, généralement sous 24-48h.
-            </p>
-          </div>
+      </div>
+    </section>
+
+    <section class="inscription section section-light" id="inscription">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">📝 Inscription</p>
+          <h2 class="section-title">Réserve ta place en 2 minutes</h2>
+          <p class="section-subtitle">Tu remplis le formulaire, on revient vers toi sous 24-48h pour finaliser. Aucun paiement n'est demandé à cette étape.</p>
         </div>
+        <StageInscriptionForm />
+        <p class="alt-contact">
+          Tu préfères nous écrire directement ? <a href="mailto:contact@musique-facile.fr">contact@musique-facile.fr</a>
+        </p>
       </div>
     </section>
   </main>
@@ -432,27 +691,82 @@ const faqSchema = {
 
 <style>
   .section {
-    padding: 6rem 0;
+    padding: 5rem 0;
   }
 
   .section-light {
-    background: var(--bg-light);
+    background: var(--bg-light, #fafafa);
   }
 
+  .section-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.82rem;
+    color: var(--theme-ukulele, #EA580C);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ====== Banner ouverture ====== */
+  .open-banner {
+    background: linear-gradient(135deg, #EA580C 0%, #f97316 100%);
+    color: white;
+    padding: 0.9rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .open-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .open-icon {
+    font-size: 1.5rem;
+  }
+
+  .open-text {
+    font-size: 1.02rem;
+    line-height: 1.4;
+  }
+
+  .open-text strong {
+    font-weight: 700;
+  }
+
+  .open-cta {
+    background: white;
+    color: #c2410c;
+    padding: 0.55rem 1.3rem;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .open-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* ====== Hero ====== */
   .hero {
     position: relative;
     min-height: 85vh;
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding: 6rem 0;
+    padding: 5rem 0;
   }
 
   .hero-background {
     position: absolute;
     inset: 0;
     z-index: -1;
-    background-image: url('/images/stage2024ukulele.webp');
+    background-image: url('/images/stage-ukulele-juillet-2026-fun.webp');
     background-size: cover;
     background-position: center;
   }
@@ -460,11 +774,11 @@ const faqSchema = {
   .gradient-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(72, 41, 112, 0.82) 0%, rgba(108, 63, 160, 0.72) 100%);
+    background: linear-gradient(135deg, rgba(124, 45, 18, 0.88) 0%, rgba(234, 88, 12, 0.78) 100%);
   }
 
   .hero-content {
-    max-width: 760px;
+    max-width: 880px;
     margin: 0 auto;
     text-align: center;
     color: white;
@@ -472,41 +786,63 @@ const faqSchema = {
 
   .hero-eyebrow {
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
-    opacity: 0.9;
+    letter-spacing: 0.1em;
+    font-size: 0.88rem;
+    margin-bottom: 1.2rem;
+    opacity: 0.95;
+    font-weight: 600;
   }
 
   .hero h1 {
-    font-size: clamp(2.4rem, 4vw, 3.4rem);
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
     color: white;
+    letter-spacing: -0.02em;
   }
 
   .hero-subtitle {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    opacity: 0.95;
+    opacity: 0.97;
+    line-height: 1.55;
+  }
+
+  .hero-tagline {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 1.08rem;
+    font-style: italic;
+    opacity: 0.92;
   }
 
   .hero-highlights {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
+    gap: 0.55rem;
+    margin-bottom: 1.5rem;
   }
 
   .highlight-pill {
     display: inline-flex;
     align-items: center;
-    padding: 0.6rem 1.2rem;
+    padding: 0.55rem 1.15rem;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     font-weight: 600;
+    font-size: 0.92rem;
+    backdrop-filter: blur(4px);
+  }
+
+  .hero-audience {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    opacity: 0.93;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-cta {
@@ -516,22 +852,125 @@ const faqSchema = {
     justify-content: center;
   }
 
+  /* ====== Proof strip ====== */
+  .proof-strip {
+    background: linear-gradient(180deg, white 0%, #fff5ed 100%);
+    padding: 2.5rem 0;
+    border-bottom: 1px solid rgba(234, 88, 12, 0.1);
+  }
+
+  .proof-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .proof-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .proof-item strong {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--theme-ukulele, #EA580C);
+    line-height: 1;
+  }
+
+  .proof-item span {
+    font-size: 0.88rem;
+    color: var(--gray-700, #374151);
+  }
+
+  .proof-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(234, 88, 12, 0.25);
+  }
+
+  /* ====== Stages ====== */
   .stage-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
   }
 
+  .stage-card {
+    position: relative;
+    padding: 2rem;
+  }
+
+  .stage-card-featured {
+    border: 2px solid var(--theme-ukulele, #EA580C);
+    box-shadow: 0 8px 28px rgba(234, 88, 12, 0.18);
+  }
+
+  .stage-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: linear-gradient(135deg, #EA580C 0%, #f97316 100%);
+    color: white;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.3);
+  }
+
+  .stage-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .stage-card h3 {
+    font-size: 1.7rem;
+    color: var(--theme-ukulele, #EA580C);
+    margin: 0;
+  }
+
+  .stage-time {
+    font-weight: 600;
+    color: var(--gray-700, #374151);
+    font-size: 0.95rem;
+  }
+
+  .stage-tagline {
+    font-style: italic;
+    color: var(--gray-800, #1f2937);
+    margin-bottom: 0.8rem;
+    font-size: 1.08rem;
+    font-weight: 500;
+  }
+
+  .stage-bullets {
+    margin-top: 1rem;
+    padding-left: 1.2rem;
+  }
+
+  .stage-bullets li {
+    margin-bottom: 0.45rem;
+    color: var(--gray-700, #374151);
+  }
+
   .formats-section {
     margin-top: 3rem;
     padding: 2rem;
-    background: var(--bg-light);
-    border-radius: var(--border-radius);
+    background: var(--bg-light, #fafafa);
+    border-radius: var(--border-radius, 12px);
   }
 
   .formats-title {
     text-align: center;
-    color: var(--theme-ukulele);
+    color: var(--theme-ukulele, #EA580C);
     margin-bottom: 2rem;
     font-size: 1.4rem;
   }
@@ -543,134 +982,560 @@ const faqSchema = {
   }
 
   .format-card {
+    position: relative;
     background: white;
     padding: 1.5rem;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius, 12px);
     text-align: center;
-    box-shadow: var(--shadow-sm);
-    border: 2px solid var(--theme-ukulele);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.08));
+    border: 2px solid var(--theme-ukulele, #EA580C);
+  }
+
+  .format-card-highlight {
+    background: linear-gradient(135deg, #fff5ed 0%, #ffe6d6 100%);
+  }
+
+  .format-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--theme-ukulele, #EA580C);
+    color: white;
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.3);
   }
 
   .format-card h4 {
-    color: var(--theme-ukulele);
+    color: var(--theme-ukulele, #EA580C);
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
   }
 
   .format-dates {
     font-weight: 600;
-    color: var(--gray-700);
+    color: var(--gray-700, #374151);
     margin-bottom: 0.5rem;
   }
 
   .format-price {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    color: var(--theme-ukulele);
+    color: var(--theme-ukulele, #EA580C);
     margin-bottom: 1rem;
   }
 
-  .format-reminder {
-    font-weight: 600;
-    color: var(--theme-ukulele);
-    margin-bottom: 1rem;
+  .formats-note {
+    margin-top: 1.5rem;
     text-align: center;
+    color: var(--gray-700, #374151);
+    font-size: 0.98rem;
   }
 
-  .stage-card-header {
+  /* ====== Pour qui ====== */
+  .profiles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .profile-card {
+    background: white;
+    padding: 1.8rem 1.4rem;
+    border-radius: var(--border-radius, 12px);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.08));
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 4px solid var(--theme-ukulele, #EA580C);
+  }
+
+  .profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(234, 88, 12, 0.12);
+  }
+
+  .profile-icon {
+    font-size: 2.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .profile-card h3 {
+    color: var(--gray-800, #1f2937);
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .profile-card > p {
+    color: var(--gray-700, #374151);
+    line-height: 1.55;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .profile-note {
+    background: #fff5ed;
+    padding: 0.7rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: var(--gray-700, #374151);
+    border-left: 3px solid var(--theme-ukulele, #EA580C);
+    margin: 0;
+  }
+
+  .profile-note strong {
+    color: var(--theme-ukulele, #EA580C);
+  }
+
+  /* ====== Journée-type / Timeline ====== */
+  .timeline-wrapper {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .timeline-creneaux {
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
+    justify-content: center;
     gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .creneau-pill {
+    padding: 0.7rem 1.3rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .creneau-morning {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #92400e;
+    border: 1px solid #fbbf24;
+  }
+
+  .creneau-afternoon {
+    background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%);
+    color: #5b21b6;
+    border: 1px solid #a78bfa;
+  }
+
+  .timeline {
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 100px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #EA580C 0%, #fbbf24 100%);
+    opacity: 0.25;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 94px;
+    top: 16px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--theme-ukulele, #EA580C);
+    box-shadow: 0 0 0 4px white, 0 0 0 6px rgba(234, 88, 12, 0.25);
+  }
+
+  .timeline-time {
+    text-align: right;
+    font-weight: 700;
+    color: var(--theme-ukulele, #EA580C);
+    font-size: 1rem;
+    padding-top: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.15rem;
+    line-height: 1.2;
+  }
+
+  .timeline-time .time-alt {
+    color: #5b21b6;
+    font-size: 0.92rem;
+    opacity: 0.85;
+  }
+
+  .timeline-time .time-icon {
+    font-size: 1.6rem;
+  }
+
+  .timeline-content {
+    background: white;
+    padding: 1.2rem 1.4rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.08));
+    margin-left: 1.5rem;
+  }
+
+  .timeline-content h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+    color: var(--gray-800, #1f2937);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .timeline-content p {
+    margin: 0;
+    color: var(--gray-700, #374151);
+    line-height: 1.55;
+    font-size: 0.95rem;
+  }
+
+  .timeline-tag,
+  .timeline-tag-blue,
+  .timeline-tag-pink,
+  .timeline-tag-neutral,
+  .timeline-tag-split,
+  .timeline-tag-warm {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .timeline-tag {
+    background: #ffe6d6;
+    color: #c2410c;
+  }
+
+  .timeline-tag-blue {
+    background: #dbeafe;
+    color: #1e40af;
+  }
+
+  .timeline-tag-pink {
+    background: #fce7f3;
+    color: #be185d;
+  }
+
+  .timeline-tag-neutral {
+    background: #f3f4f6;
+    color: #4b5563;
+  }
+
+  .timeline-tag-split {
+    background: linear-gradient(135deg, #fef3c7 0%, #ddd6fe 100%);
+    color: #92400e;
+  }
+
+  .timeline-tag-warm {
+    background: #fff5ed;
+    color: #c2410c;
+  }
+
+  .timeline-item-special .timeline-content {
+    background: linear-gradient(135deg, #fff5ed 0%, #ffe6d6 100%);
+    border-left: 4px solid var(--theme-ukulele, #EA580C);
+  }
+
+  .timeline-item-split .timeline-content {
+    background: linear-gradient(135deg, #fff9eb 0%, #fef3c7 50%, #ede9fe 100%);
+    border-left: 4px solid #fbbf24;
+    border-right: 4px solid #a78bfa;
+    box-shadow: 0 6px 20px rgba(234, 88, 12, 0.12);
+  }
+
+  .split-rooms {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    margin-top: 1rem;
+  }
+
+  .split-room {
+    background: white;
+    padding: 0.9rem 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  }
+
+  .split-room strong {
+    color: var(--gray-800, #1f2937);
+    font-size: 0.95rem;
+  }
+
+  .split-room span {
+    font-size: 0.88rem;
+    color: var(--gray-700, #374151);
+    line-height: 1.5;
+  }
+
+  /* ====== Résultats ====== */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .result-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: var(--border-radius, 12px);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.08));
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .result-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(234, 88, 12, 0.15);
+  }
+
+  .result-num {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: rgba(234, 88, 12, 0.15);
+    line-height: 1;
+  }
+
+  .result-card h3 {
+    color: var(--theme-ukulele, #EA580C);
+    font-size: 1.1rem;
+    margin: 0 0 0.6rem;
+    padding-right: 3rem;
+  }
+
+  .result-card p {
+    color: var(--gray-700, #374151);
+    line-height: 1.55;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* ====== Atelier chant ====== */
+  .chant-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .chant-lead {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--gray-800, #1f2937);
     margin-bottom: 1rem;
   }
 
-  .stage-card h3 {
-    font-size: 1.6rem;
-    color: var(--theme-ukulele);
+  .chant-content > p:nth-of-type(2) {
+    color: var(--gray-700, #374151);
+    line-height: 1.65;
   }
 
-  .stage-time {
-    font-weight: 600;
-    color: var(--gray-700);
-  }
-
-  .checklist {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    max-width: 860px;
+  .chant-points {
+    margin-top: 1.8rem;
     display: grid;
     gap: 1rem;
   }
 
-  .checklist li {
-    background: white;
-    padding: 1.1rem 1.4rem 1.1rem 3rem;
-    border-radius: var(--radius-lg);
-    position: relative;
-    box-shadow: var(--shadow-sm);
+  .chant-point {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
   }
 
-  .checklist li::before {
-    content: '✓';
-    position: absolute;
-    left: 1.2rem;
-    top: 1rem;
-    color: var(--theme-ukulele);
+  .point-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .chant-point > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .chant-point strong {
+    color: var(--theme-ukulele, #EA580C);
+    font-size: 1.05rem;
+  }
+
+  .chant-point span {
+    color: var(--gray-700, #374151);
+    font-size: 0.95rem;
+  }
+
+  .chant-quote {
+    background: linear-gradient(135deg, #fff5ed 0%, #ffe6d6 100%);
+    padding: 2rem;
+    border-radius: var(--border-radius, 12px);
+    border-left: 4px solid var(--theme-ukulele, #EA580C);
+    box-shadow: 0 4px 18px rgba(234, 88, 12, 0.1);
+  }
+
+  .chant-quote blockquote {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    font-style: italic;
+    color: var(--gray-800, #1f2937);
+    margin: 0 0 1rem;
+  }
+
+  .quote-author {
+    font-weight: 700;
+    color: var(--theme-ukulele, #EA580C);
+    margin: 0;
+  }
+
+  /* ====== Équipe ====== */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.8rem;
+  }
+
+  .team-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: var(--border-radius, 12px);
+    text-align: center;
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.08));
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .team-avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #EA580C 0%, #f97316 100%);
+    color: white;
+    margin: 0 auto 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
     font-weight: 700;
   }
 
-  .programme-advanced {
-    margin-top: 2.5rem;
+  .team-avatar-pink {
+    background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
   }
 
-  .programme-intro {
-    font-size: 1.1rem;
-    color: var(--gray-700);
-    max-width: 760px;
-    margin: 0 auto 1.5rem;
-    text-align: center;
+  .team-card h3 {
+    color: var(--theme-ukulele, #EA580C);
+    margin-bottom: 0.3rem;
+    font-size: 1.3rem;
   }
 
+  .team-role {
+    color: var(--gray-600, #6b7280);
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .team-card p:last-child {
+    color: var(--gray-700, #374151);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+    text-align: left;
+  }
+
+  /* ====== Témoignages ====== */
   .testimonial-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
   }
 
+  .testimonial-card {
+    padding: 2rem 1.5rem;
+    position: relative;
+  }
+
+  .testimonial-card-featured {
+    border: 2px solid var(--theme-ukulele, #EA580C);
+    box-shadow: 0 8px 24px rgba(234, 88, 12, 0.15);
+  }
+
+  .stars {
+    color: #fbbf24;
+    letter-spacing: 0.15em;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
   .testimonial-card blockquote {
-    margin: 0 0 1.5rem;
-    font-size: 1.05rem;
+    margin: 0 0 1.2rem;
+    font-size: 1.02rem;
     line-height: 1.6;
+    color: var(--gray-800, #1f2937);
   }
 
   .testimonial-card figcaption {
     font-weight: 700;
-    color: var(--theme-ukulele);
+    color: var(--theme-ukulele, #EA580C);
   }
 
-  .photo {
-    background: white;
+  /* ====== Galerie photos ====== */
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   .photo-figure {
-    margin: 0 auto;
-    max-width: 860px;
+    margin: 0;
     text-align: center;
   }
 
   .photo-image {
-    border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-md);
+    border-radius: 14px;
+    box-shadow: var(--shadow-md, 0 4px 12px rgba(0,0,0,0.1));
+    width: 100%;
+    height: auto;
   }
 
   .photo-figure figcaption {
-    margin-top: 1rem;
-    color: var(--gray-600);
-    font-size: 1rem;
+    margin-top: 0.8rem;
+    color: var(--gray-600, #6b7280);
+    font-size: 0.92rem;
+    font-style: italic;
   }
 
+  /* ====== Infos ====== */
   .info-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -679,380 +1544,278 @@ const faqSchema = {
 
   .info-card {
     background: white;
-    padding: 2rem;
-    border-radius: var(--border-radius);
+    padding: 1.8rem 1.5rem;
+    border-radius: var(--border-radius, 12px);
     text-align: center;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.08));
   }
 
   .info-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.3rem;
+    margin-bottom: 0.8rem;
   }
 
   .info-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
-    color: var(--theme-ukulele);
+    color: var(--theme-ukulele, #EA580C);
   }
 
-  .faq {
-    background: var(--bg-light);
+  .info-card p {
+    margin: 0.2rem 0;
+    color: var(--gray-700, #374151);
+    font-size: 0.95rem;
   }
 
+  /* ====== FAQ avec accordion ====== */
   .faq-grid {
     max-width: 860px;
     margin: 0 auto;
     display: grid;
-    gap: 1.5rem;
+    gap: 0.8rem;
   }
 
   .faq-item {
     background: white;
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-sm);
+    border-radius: var(--border-radius, 12px);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.08));
+    overflow: hidden;
   }
 
-  .question-wrapper h3 {
-    margin: 0 0 0.6rem;
-    color: var(--theme-ukulele);
-  }
-
-  .answer p {
-    margin: 0;
-  }
-
-  .contact {
-    padding: 6rem 0;
-    background: white;
-  }
-
-  .availability-notice {
-    max-width: 800px;
-    margin: 0 auto 3rem;
-    display: grid;
-    gap: 1rem;
-  }
-
-  .notice-box {
+  .faq-item summary {
     padding: 1.2rem 1.5rem;
-    border-radius: var(--border-radius);
-    font-size: 1.05rem;
-    text-align: center;
-    font-weight: 500;
-  }
-
-  .notice-alert {
-    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-    border: 2px solid #9e9e9e;
-    color: #424242;
-  }
-
-  .notice-warning {
-    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
-    border: 2px solid #f44336;
-    color: #c62828;
-    animation: pulse 2s infinite;
-  }
-
-  .contact-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .contact-card {
-    background: var(--bg-light);
-    padding: 3rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
-    text-align: center;
-  }
-
-  .contact-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    color: var(--theme-ukulele);
-    display: inline-block;
-    animation: pulse 2s infinite;
-  }
-
-  .contact-card h3 {
-    font-size: 1.8rem;
-    color: var(--theme-ukulele);
-    margin-bottom: 1rem;
-  }
-
-  .contact-card p {
-    font-size: 1.1rem;
-    color: var(--color-dark);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-
-  .email-button {
-    display: inline-block;
-    background: var(--theme-ukulele);
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    transition: all 0.3s ease;
-  }
-
-  .email-button:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .contact-details {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-
-  .contact-list {
+    cursor: pointer;
     list-style: none;
-    padding: 0;
-    margin: 0 0 2rem;
-    text-align: left;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: background 0.2s;
   }
 
-  .contact-list li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    position: relative;
-    padding-left: 1.5rem;
+  .faq-item summary::-webkit-details-marker {
+    display: none;
   }
 
-  .contact-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--theme-ukulele);
+  .faq-item summary:hover {
+    background: #fff5ed;
   }
 
-  .response-time {
-    font-style: italic;
-    opacity: 0.8;
+  .faq-item summary::after {
+    content: '+';
+    color: var(--theme-ukulele, #EA580C);
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1;
+    transition: transform 0.2s;
+    flex-shrink: 0;
   }
 
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-item summary h3 {
+    margin: 0;
+    color: var(--gray-800, #1f2937);
+    font-size: 1.04rem;
+    flex: 1;
+  }
+
+  .faq-item[open] summary h3 {
+    color: var(--theme-ukulele, #EA580C);
+  }
+
+  .faq-item p {
+    padding: 0 1.5rem 1.3rem;
+    margin: 0;
+    color: var(--gray-700, #374151);
+    line-height: 1.6;
+  }
+
+  /* ====== Last call ====== */
+  .last-call {
+    padding: 4rem 0;
+  }
+
+  .last-call-box {
+    max-width: 760px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #fff5ed 0%, #ffe6d6 100%);
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px dashed rgba(234, 88, 12, 0.4);
+  }
+
+  .last-call-title {
+    color: var(--theme-ukulele, #EA580C);
+    font-size: 2rem;
+    margin: 0 0 1.2rem;
+  }
+
+  .last-call-lead {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--gray-800, #1f2937);
+    max-width: 600px;
+    margin: 0 auto 1rem;
+  }
+
+  .last-call-quick {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .quick-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    align-items: center;
+  }
+
+  .quick-item strong {
+    font-size: 1rem;
+    color: var(--theme-ukulele, #EA580C);
+  }
+
+  .quick-item span {
+    font-size: 0.85rem;
+    color: var(--gray-700, #374151);
+  }
+
+  /* ====== Inscription ====== */
+  .alt-contact {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--gray-600, #6b7280);
+    font-size: 0.95rem;
+  }
+
+  .alt-contact a {
+    color: var(--theme-ukulele, #EA580C);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  /* ====== Responsive ====== */
   @media (max-width: 1024px) {
-    .stage-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .testimonial-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .info-grid {
+    .profiles-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stage-grid,
+    .team-grid,
+    .testimonial-grid,
+    .info-grid,
+    .results-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .chant-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
 
     .formats-grid {
       grid-template-columns: 1fr;
     }
+
+    .proof-divider {
+      display: none;
+    }
+
+    .proof-items {
+      gap: 1.5rem 2.5rem;
+    }
   }
 
   @media (max-width: 768px) {
     .hero {
-      min-height: 70vh;
+      min-height: 75vh;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
     }
 
     .hero-cta {
       flex-direction: column;
     }
 
-    .info-grid {
+    .profiles-grid,
+    .stage-grid,
+    .team-grid,
+    .testimonial-grid,
+    .info-grid,
+    .results-grid,
+    .photo-gallery {
       grid-template-columns: 1fr;
     }
 
-    .contact-card {
+    .timeline::before {
+      left: 70px;
+    }
+
+    .timeline-item {
+      grid-template-columns: 60px 1fr;
+      gap: 1rem;
+    }
+
+    .timeline-item::after {
+      left: 64px;
+    }
+
+    .timeline-content {
+      margin-left: 0.8rem;
+    }
+
+    .timeline-time {
+      font-size: 0.92rem;
+    }
+
+    .timeline-time .time-alt {
+      font-size: 0.85rem;
+    }
+
+    .split-rooms {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-creneaux {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .creneau-pill {
+      text-align: center;
+    }
+
+    .open-content {
+      flex-direction: column;
+      gap: 0.8rem;
+      padding: 0.5rem 1rem;
+      text-align: center;
+    }
+
+    .open-cta {
+      width: 100%;
+      text-align: center;
+    }
+
+    .section {
+      padding: 3.5rem 0;
+    }
+
+    .last-call-box {
       padding: 2rem 1.5rem;
     }
 
-    .urgency-content {
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem;
+    .last-call-title {
+      font-size: 1.5rem;
     }
-
-    .urgency-cta {
-      width: 100%;
-    }
-  }
-
-  /* Bannière d'urgence */
-  .urgency-banner {
-    background: linear-gradient(135deg, #d32f2f 0%, #f44336 100%);
-    color: white;
-    padding: 1rem 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    animation: slideDown 0.5s ease-out;
-  }
-
-  @keyframes slideDown {
-    from {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  .urgency-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-
-  .urgency-icon {
-    font-size: 1.5rem;
-    animation: bounce 2s infinite;
-  }
-
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-5px);
-    }
-  }
-
-  .urgency-text {
-    font-size: 1.1rem;
-    line-height: 1.4;
-  }
-
-  .urgency-text strong {
-    font-weight: 700;
-    text-decoration: underline;
-  }
-
-  .urgency-cta {
-    background: white;
-    color: #d32f2f;
-    padding: 0.7rem 1.5rem;
-    border-radius: 999px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  .urgency-cta:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-
-  /* Highlight pill urgent */
-  .highlight-urgent {
-    background: rgba(255, 255, 255, 0.95) !important;
-    color: #d32f2f !important;
-    border-color: rgba(255, 255, 255, 1) !important;
-    font-weight: 700;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.03);
-    }
-  }
-
-  /* Badge stage */
-  .stage-card {
-    position: relative;
-  }
-
-  .stage-badge {
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    padding: 0.5rem 1rem;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  }
-
-  .badge-sold-out {
-    background: linear-gradient(135deg, #757575 0%, #9e9e9e 100%);
-    color: white;
-  }
-
-  .badge-available {
-    background: linear-gradient(135deg, #f44336 0%, #ff5722 100%);
-    color: white;
-    animation: pulse 2s infinite;
-  }
-
-  /* Card sold out */
-  .stage-card-sold-out {
-    opacity: 0.7;
-    position: relative;
-  }
-
-  .stage-card-sold-out::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 10px,
-      rgba(0, 0, 0, 0.03) 10px,
-      rgba(0, 0, 0, 0.03) 20px
-    );
-    border-radius: inherit;
-    pointer-events: none;
-  }
-
-  .sold-out-message {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    color: var(--gray-700);
-    text-align: center;
-  }
-
-  /* Card available */
-  .stage-card-available {
-    border: 3px solid #f44336;
-    box-shadow: 0 4px 20px rgba(244, 67, 54, 0.2);
-  }
-
-  .hurry-message {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-    border-radius: var(--border-radius);
-    border-left: 4px solid #ff9800;
-    color: #e65100;
-    font-size: 0.95rem;
-  }
-
-  .hurry-message strong {
-    display: block;
-    margin-bottom: 0.3rem;
-    font-size: 1.05rem;
   }
 </style>
