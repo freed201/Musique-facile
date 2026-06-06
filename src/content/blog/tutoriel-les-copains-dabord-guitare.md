@@ -50,6 +50,13 @@ relatedLinks:
     description: "Une ballade française romantique et poétique."
 instrument: "guitare"
 
+faqs:
+  - question: "Les Copains d'Abord de Brassens est-elle difficile à la guitare ?"
+    answer: "C'est un morceau plutôt exigeant (difficulté 4/5) avec sa grille riche d'une douzaine d'accords. Le tempo reste modéré, mais l'enchaînement demande de la mémoire et de l'aisance. Brassens était un guitariste à la rythmique très régulière : c'est un excellent modèle pour travailler la main droite."
+  - question: "Comment apprendre les nombreux accords des Copains d'Abord ?"
+    answer: "Découpe la chanson en petites sections et travaille chaque enchaînement d'accords séparément, lentement, avant de les assembler. La grille de Brassens (1964) est riche mais logique. Une fois mémorisée, la rythmique d'accompagnement régulière, typique du style Brassens, fait le reste."
+  - question: "De quoi parle Les Copains d'Abord ?"
+    answer: "Écrite par Georges Brassens en 1964 pour un film, c'est un hymne à l'amitié, devenu l'un de ses titres les plus célèbres. Sa convivialité en fait une chanson parfaite à jouer en groupe. Saisir cet esprit chaleureux aide à l'interpréter avec le bon entrain."
 ---
 
 #### Titre, artiste, et album

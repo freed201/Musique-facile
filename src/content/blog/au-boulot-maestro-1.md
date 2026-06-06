@@ -15,6 +15,13 @@ conclusion: |
     J'espère que cet article vous aura motivé à explorer votre potentiel musical. La musique est bien plus qu'un loisir : c'est un véritable entraînement pour le cerveau.
 
 
+faqs:
+  - question: "Quels sont les bienfaits de la musique sur le cerveau ?"
+    answer: "Apprendre la musique stimule la neuroplasticité, c'est-à-dire la capacité du cerveau à créer de nouvelles connexions. Jouer mobilise mémoire, coordination, écoute et émotion en même temps. C'est aussi une source de plaisir et de détente, car faire de la musique libère des neurotransmetteurs associés au bien-être comme la dopamine."
+  - question: "Est-ce trop tard pour apprendre la musique à l'âge adulte ?"
+    answer: "Non, il n'est jamais trop tard. Grâce à la neuroplasticité, le cerveau adulte reste capable d'apprendre et de créer de nouvelles connexions à tout âge. Les adultes ont même des atouts : capacité d'analyse, motivation et discipline. La seule vraie condition est la régularité de la pratique."
+  - question: "Quel instrument choisir pour bien débuter la musique ?"
+    answer: "Le meilleur instrument est celui qui te motive à jouer chaque jour. Pour un démarrage en douceur, l'ukulélé (très accessible), la guitare (polyvalente) et le piano (idéal pour comprendre la théorie) sont d'excellents choix. L'essentiel est de choisir un instrument dont le son te plaît : c'est ce qui entretient l'envie de pratiquer."
 ---
 
 ## La musique : un outil puissant pour le cerveau et l'âme

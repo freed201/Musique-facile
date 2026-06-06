@@ -49,6 +49,13 @@ relatedLinks:
     url: "/blog/jouer-la-seine-vanessa-m"
     description: "Une ballade française poétique et romantique."
 instrument: "guitare"
+faqs:
+  - question: "Quels accords pour jouer Une Belle Histoire de Michel Fugain ?"
+    answer: "Le morceau utilise 8 accords variés, pour une difficulté de 2/5. Ce classique de la chanson française des années 70 reste accessible : le tempo est modéré (85 BPM) et la rythmique régulière. Le petit défi est de mémoriser l'enchaînement, un peu plus riche que les morceaux à 4 accords."
+  - question: "Une Belle Histoire est-elle adaptée aux débutants ?"
+    answer: "Oui, avec une difficulté de 2/5, c'est un bon morceau pour débutant, à condition d'être à l'aise avec un enchaînement de 8 accords. Travaille la grille par petits bouts, puis assemble-les. Son côté joyeux et entraînant en fait une chanson très agréable à reprendre en groupe."
+  - question: "De quoi parle Une Belle Histoire de Fugain ?"
+    answer: "Sortie en 1972, elle raconte la rencontre estivale et éphémère de deux personnes sur une autoroute, un amour d'un jour. C'est l'un des grands standards conviviaux de la chanson française, parfait à jouer autour d'un feu de camp. Son refrain est connu de plusieurs générations."
 ---
 
 ## La Magie de Michel Fugain : Un Voyage Musical avec "Une Belle Histoire"

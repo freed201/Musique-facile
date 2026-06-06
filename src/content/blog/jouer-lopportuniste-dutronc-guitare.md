@@ -42,6 +42,13 @@ relatedLinks:
     url: "/blog/apprendre-un-autre-monde-guitare"
     description: "Le rock français des années 80."
 instrument: "guitare"
+faqs:
+  - question: "Quels accords pour jouer L'Opportuniste de Jacques Dutronc ?"
+    answer: "Le morceau utilise 5 accords pour une difficulté de 3/5, sur une rythmique yé-yé rock entraînante (94 BPM). Ce classique de 1968 est accessible : la grille se répète et le tempo est modéré. Le défi est surtout de garder une main droite régulière et pétillante, dans l'esprit des sixties."
+  - question: "De quoi parle la chanson L'Opportuniste ?"
+    answer: "Sortie en 1968, c'est une satire politique pleine d'ironie : le narrateur « retourne sa veste » au gré des circonstances. Ce regard moqueur sur l'opportunisme, signé Jacques Dutronc et Jacques Lanzmann, en fait un morceau culte. Saisir cet humour aide à l'interpréter avec le bon ton mi-figue mi-raisin."
+  - question: "L'Opportuniste convient-elle aux débutants ?"
+    answer: "Avec 5 accords et un tempo modéré, c'est un morceau abordable pour un débutant un peu à l'aise (difficulté 3/5). Travaille la rythmique yé-yé caractéristique sur un seul accord d'abord, puis ajoute les changements. C'est un excellent terrain pour travailler le groove pop des années 60."
 ---
 # Jacques Dutronc : Un artiste aux multiples facettes
 

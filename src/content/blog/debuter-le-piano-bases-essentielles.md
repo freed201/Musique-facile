@@ -15,12 +15,19 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-03-14"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 
 meta: "Apprends les bases essentielles du piano : placement des mains, lecture des notes, accords simples et premiers exercices pour progresser rapidement."
 keywords: "débuter le piano,apprendre le piano facilement,bases du piano,notes de piano,exercices piano débutant"
 instrument: "piano"
 
+faqs:
+  - question: "Par où commencer quand on débute le piano ?"
+    answer: "Par les fondations : découvrir le clavier et le repérage des notes, comprendre les bases de la lecture (clé de sol et clé de fa), apprendre quelques accords simples, travailler le rythme, puis jouer une première mélodie facile comme « Au clair de la lune » à la main droite. Le tout avec une pratique quotidienne, même courte."
+  - question: "Quels sont les premiers accords à apprendre au piano ?"
+    answer: "On commence souvent par quatre accords majeurs simples (par exemple Do, Sol, Fa et La mineur) qui permettent déjà d'accompagner de nombreuses chansons. Ce sont des accords de base, faciles à former, qui posent les fondations de l'harmonie. Une fois ces accords en place, tu peux jouer beaucoup de morceaux populaires."
+  - question: "Faut-il savoir lire les notes pour débuter le piano ?"
+    answer: "Ce n'est pas indispensable au tout début, mais c'est un vrai atout. Comprendre les deux clés (sol et fa) et le repérage des notes te rend autonome face à n'importe quelle partition. Beaucoup de débutants apprennent en parallèle quelques mélodies à l'oreille et les bases de la lecture, sans en faire une contrainte."
 ---
 <!-- HTML -->
  <div class="modern-menu">
@@ -107,8 +114,8 @@ instrument: "piano"
     }
   </style>
 
-## **Tu veux apprendre le piano mais tu ne sais pas par où commencer ?**  
-Pas de panique ! On va voir ensemble **les bases essentielles** pour que tu puisses jouer rapidement et avec plaisir.  
+## **Par où commencer le piano ? Les 6 bases, dans l'ordre**  
+En 13 ans de cours, j'ai vu une chose se répéter : ceux qui « ne savent pas par où commencer » abandonnent souvent, alors que tout tient en **six bases**, prises dans le bon ordre. Les voici, sans jargon, avec un exercice concret à chaque étape.  
 
 ---
 

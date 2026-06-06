@@ -27,6 +27,13 @@ conclusion: |
 meta: "Plongez dans l'univers de Coldplay avec nos tutoriels musicaux et apprenez à jouer leurs plus grands succès."
 keywords: "Coldplay, apprendre la musique, tutoriels guitare, ukulélé, piano, musique pop, groupe emblématique"
 
+faqs:
+  - question: "Quelle chanson de Coldplay apprendre en premier à la guitare ?"
+    answer: "« Yellow » est souvent le meilleur point de départ : sa progression d'accords est simple et répétitive, idéale pour les débutants. « The Scientist » est parfaite au piano, et « Fix You » sonne très bien à l'ukulélé. Commence par celle dont tu connais le mieux la mélodie : tu progresseras plus vite en chantant par-dessus."
+  - question: "Les morceaux de Coldplay sont-ils accessibles aux débutants ?"
+    answer: "Oui, en grande partie. Coldplay construit beaucoup de ses titres autour de quelques accords ouverts et d'arpèges mémorables, ce qui les rend abordables. La difficulté vient surtout de l'interprétation et de l'émotion à faire passer, plus que de la technique pure — c'est justement un bon terrain pour travailler ta sensibilité musicale."
+  - question: "Peut-on jouer Coldplay à la guitare, au piano et à l'ukulélé ?"
+    answer: "Oui. Les progressions d'accords de Coldplay fonctionnent sur les trois instruments. « The Scientist » est emblématique au piano, « Yellow » et « A Sky Full of Stars » à la guitare, et la plupart de leurs ballades se transposent très bien à l'ukulélé grâce à des accords simples et chaleureux."
 ---
 
 ## **Coldplay : L'Histoire d'un Groupe Légendaire**

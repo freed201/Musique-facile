@@ -42,6 +42,13 @@ relatedLinks:
     url: "/blog/apprendre-wild-world-guitare"
     description: "Un classique folk des années 70."
 instrument: "guitare"
+faqs:
+  - question: "Quels accords pour jouer Fields of Gold de Sting ?"
+    answer: "Le morceau utilise 6 accords avec un capo en case 2, pour une difficulté de 3/5. Cette ballade folk-pop de 1993 se joue idéalement en arpèges (fingerpicking) plutôt qu'en accords grattés, ce qui lui donne son côté délicat et lumineux."
+  - question: "Faut-il jouer Fields of Gold en arpèges ?"
+    answer: "Oui, l'arpège colle parfaitement à l'esprit doux du morceau de Sting. Pour débuter, tu peux plaquer les accords en grattant tout doucement, puis passer au fingerpicking quand tes changements sont fluides. Le capo en case 2 place les accords dans des formes confortables pour cet exercice."
+  - question: "Fields of Gold est-elle difficile à la guitare ?"
+    answer: "Difficulté 3/5 : les 6 accords sont accessibles, mais le fingerpicking et la régularité demandent un peu de pratique. C'est un excellent morceau pour travailler ton jeu aux doigts et la propreté de chaque note, dans un tempo posé (104 BPM)."
 ---
 ### Fields of Gold : Un Voyage Musical avec Sting 
 

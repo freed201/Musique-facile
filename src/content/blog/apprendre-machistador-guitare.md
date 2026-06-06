@@ -39,6 +39,13 @@ relatedLinks:
     url: "/blog/apprendre-un-autre-monde-guitare"
     description: "Un autre classique du rock français énergique."
 instrument: "guitare"
+faqs:
+  - question: "Machistador de -M- est-elle difficile à la guitare ?"
+    answer: "Oui, c'est un morceau exigeant (difficulté 5/5). Il ne demande que 4 accords, mais ce sont des accords en barré, et surtout il faut maîtriser un groove funky précis à 110 BPM. C'est davantage un défi de rythmique et de feeling que de nombre d'accords. Des versions simplifiées existent pour se familiariser avant de viser l'original."
+  - question: "Faut-il un capo pour jouer Machistador ?"
+    answer: "Non, pas de capo. En revanche, une bonne maîtrise des barrés est indispensable pour capturer l'énergie funk du morceau de Matthieu Chedid (album Je dis aime, 1999). Concentre-toi sur la main droite et le groove : c'est lui qui fait toute la vie de ce titre."
+  - question: "Pourquoi Machistador est-elle un bon morceau pour travailler le funk ?"
+    answer: "Parce que tout y repose sur la rythmique : des accords en barré joués de façon sèche et syncopée, avec beaucoup de groove. C'est un excellent terrain pour travailler la précision de la main droite et le placement rythmique, deux compétences clés du jeu funky qui te serviront sur de nombreux autres morceaux."
 ---
 
 ### L’aventure musicale de "Machistador"

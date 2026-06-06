@@ -41,6 +41,13 @@ conclusion: |
   Si tu ne l’as jamais appris, c’est le moment idéal pour ajouter ce classique à ton répertoire et partager un peu de rêve à chaque accord.
 
 instrument: "guitare"
+faqs:
+  - question: "Can't Help Falling in Love est-elle difficile à la guitare ?"
+    answer: "Difficulté 3/5 : le morceau d'Elvis Presley (1961) est en Do majeur et comporte une dizaine d'accords, mais le tempo est tranquille et la rythmique douce. Il se joue très bien en arpèges. C'est un grand classique des mariages, accessible à un débutant un peu à l'aise."
+  - question: "Faut-il jouer Can't Help Falling in Love en arpèges ?"
+    answer: "Oui, l'arpège (jeu aux doigts) met parfaitement en valeur cette ballade romantique. Pour débuter, tu peux plaquer les accords doucement, puis passer au fingerpicking. Le tempo calme te laisse le temps de soigner chaque note, ce qui est essentiel pour le côté tendre du morceau."
+  - question: "Quelle est l'origine de la mélodie de Can't Help Falling in Love ?"
+    answer: "Sa mélodie est inspirée de « Plaisir d'amour », une romance française du XVIIIe siècle composée par Jean-Paul-Égide Martini. Elvis l'a popularisée en 1961, et elle reste l'une des plus belles déclarations d'amour de l'histoire de la pop. Une jolie anecdote à glisser quand tu la joues."
 ---
 
 ## **Elvis Presley : L’icône intemporelle du rock’n’roll**

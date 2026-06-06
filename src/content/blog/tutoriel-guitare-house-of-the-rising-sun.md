@@ -49,6 +49,13 @@ relatedLinks:
     url: "/blog/nirvana-where-did-you-sleep-guitare"
     description: "Une reprise folk-rock puissante de Nirvana."
 instrument: "guitare"
+faqs:
+  - question: "Quels accords pour jouer House of the Rising Sun ?"
+    answer: "La version des Animals (1964) utilise 5 accords en La mineur (Am, C, D, F, E) joués en arpèges sur un rythme ternaire à 6/8. Difficulté 2/5 : la grille est simple et iconique. Le vrai apprentissage, c'est l'arpège régulier qui donne au morceau son côté hypnotique."
+  - question: "Comment jouer le célèbre arpège de House of the Rising Sun ?"
+    answer: "L'arpège égrène les cordes de chaque accord en mesure à 6/8 (compte « 1-2-3, 4-5-6 »). Commence très lentement en jouant les cordes une par une, accord après accord (Am – C – D – F…). C'est l'un des meilleurs morceaux pour apprendre le fingerpicking de base, car le motif se répète tout du long."
+  - question: "House of the Rising Sun est-elle adaptée aux débutants ?"
+    answer: "Oui, c'est un classique idéal pour débuter le jeu en arpèges (difficulté 2/5). Les accords sont accessibles et la même figure se répète sur toute la chanson. Travaille le motif lentement et régulièrement : la musicalité vient de la constance, pas de la vitesse."
 ---
 
 ### The Animals : La voix d'une génération

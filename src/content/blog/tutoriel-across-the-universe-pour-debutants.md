@@ -42,6 +42,13 @@ relatedLinks:
     description: "Une autre ballade folk-rock puissante."
 instrument: "guitare"
 
+faqs:
+  - question: "Quels accords pour jouer Across the Universe des Beatles ?"
+    answer: "Le morceau utilise 8 accords avec un capo en case 2, pour une difficulté de 4/5. Cette ballade psychédélique de 1969 (écrite par John Lennon) demande une certaine fluidité dans les enchaînements, mais le tempo lent (76 BPM) laisse le temps de bien placer chaque accord."
+  - question: "Faut-il un capo pour Across the Universe ?"
+    answer: "Oui, place le capo en case 2 pour retrouver la tonalité des Beatles et chanter confortablement. Le capo garde des formes d'accords accessibles. Le morceau se prête au jeu doux, en arpèges ou en strumming léger, à l'image de son atmosphère méditative."
+  - question: "Across the Universe convient-elle aux débutants ?"
+    answer: "C'est un morceau plutôt intermédiaire (4/5) à cause du nombre d'accords. Un débutant motivé peut s'y attaquer en travaillant la grille par petits segments, au ralenti. Son tempo lent et son ambiance planante en font un beau projet pour franchir un palier dans le répertoire des Beatles."
 ---
 ### L’artiste : Les Beatles et John Lennon
 

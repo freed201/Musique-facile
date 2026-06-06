@@ -41,6 +41,13 @@ relatedLinks:
     url: "/blog/apprendre-hey-jude-guitare"
     description: "Un classique pop intemporel et accessible."
 instrument: "guitare"
+faqs:
+  - question: "Nous On Sait de Pierre Garnier est-elle facile à la guitare ?"
+    answer: "Oui, c'est un morceau classé facile, idéal pour débuter. Il utilise 8 accords simples sur une pop française moderne. Comme la grille se répète, tu peux rapidement accompagner le chant. C'est l'un des tubes issus de la Star Academy 2023, parfait pour un répertoire actuel."
+  - question: "Combien de temps pour apprendre Nous On Sait ?"
+    answer: "Avec des accords simples et une structure répétitive, un débutant motivé peut jouer une version correcte en quelques jours à deux semaines, en pratiquant un peu chaque jour. Travaille d'abord les transitions d'accords lentement, puis ajoute le chant une fois qu'elles sont fluides."
+  - question: "Nous On Sait est-elle un bon premier morceau de pop française ?"
+    answer: "Oui. Sa popularité récente (Pierre Garnier, 2023) et ses accords accessibles en font un excellent choix pour les débutants qui veulent jouer une chanson actuelle qu'ils connaissent. Connaître la mélodie aide beaucoup à caler les changements d'accords au bon endroit."
 ---
 
 ## Pierre Garnier et l'histoire de "Nous on sait"

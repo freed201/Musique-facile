@@ -49,6 +49,13 @@ relatedLinks:
     url: "/blog/nirvana-where-did-you-sleep-guitare"
     description: "Une ballade rock alternative puissante."
 instrument: "guitare"
+faqs:
+  - question: "Where Is My Mind des Pixies est-elle difficile à la guitare ?"
+    answer: "Difficulté 3/5 : le morceau utilise 6 accords, dont quelques barrés, à un tempo modéré (85 BPM). La partie rythmique est accessible ; le vrai charme vient du riff aigu hypnotique en arpèges. Commence par la grille d'accords de l'accompagnement avant d'aborder le riff caractéristique."
+  - question: "Faut-il jouer le riff de Where Is My Mind ?"
+    answer: "Le riff aigu et répétitif est la signature du morceau (rendu culte par la scène finale de Fight Club), mais tu peux très bien jouer la chanson en accompagnement d'accords pour commencer. Ajoute le riff ensuite, une fois la grille maîtrisée. C'est un excellent exercice de précision sur les cordes aiguës."
+  - question: "Where Is My Mind convient-elle aux débutants ?"
+    answer: "C'est un morceau intermédiaire (3/5) à cause des barrés et du riff. Un débutant peut commencer par l'accompagnement en accords, puis progresser vers le riff. Ce classique du rock alternatif des Pixies (1988) est un bon objectif pour franchir un palier technique."
 ---
 
 ## Les Pixies : Un Phare du Rock Alternatif

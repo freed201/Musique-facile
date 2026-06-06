@@ -14,6 +14,13 @@ introduction: "On passe en revue les 10 erreurs courantes qui ralentissent ta pr
 conclusion: |
     Mets en pratique ces conseils et tu verras la différence rapidement dans ta progression musicale.
 
+faqs:
+  - question: "Quelles sont les erreurs qui freinent le plus la progression en musique ?"
+    answer: "Les plus fréquentes : se focaliser sur le matériel plutôt que sur la pratique, viser la perfection immédiate, négliger les bases techniques, adopter une mauvaise posture, manquer de régularité, jouer trop crispé, ignorer le rythme, jouer sur un instrument désaccordé, et aller trop vite en sautant des étapes."
+  - question: "Faut-il s'arrêter à chaque erreur quand on joue ?"
+    answer: "Non, c'est une erreur classique. S'arrêter systématiquement dès qu'on se trompe brise le rythme et installe la frustration. Mieux vaut continuer à jouer et corriger le passage après coup. L'apprentissage musical passe par les erreurs : il faut les accepter comme une étape normale, pas comme un échec."
+  - question: "La régularité est-elle plus importante que la durée des séances ?"
+    answer: "Oui. Jouer 15 minutes par jour est bien plus efficace que 3 heures une seule fois par semaine. La régularité ancre les gestes et entretient la mémoire musculaire. Une pratique courte mais quotidienne crée une progression durable, là où les séances longues et espacées laissent peu de traces."
 ---
 
 ## 10 erreurs qui freinent ta progression musicale

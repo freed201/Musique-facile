@@ -2,7 +2,9 @@
 siloSlug: "debuter-ukulele-methode-simple-apprendre"
 title: "Ukulélé : Passer de Débutant à Initié"
 description: "Tu connais les bases du ukulélé mais tu te sens bloqué ? Découvre pourquoi ce cap est normal et comment progresser sereinement vers le niveau initié."
-author: "Musique Facile"
+author: "Fred Fieffé"
+publisher: "Musique Facile"
+publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2026-01-19"
 dateModified: "2026-02-04"
 prod: Y

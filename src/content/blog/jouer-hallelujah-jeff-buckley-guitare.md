@@ -42,6 +42,13 @@ relatedLinks:
     url: "/blog/jouer-fields-of-gold-sting"
     description: "La ballade poétique de Sting à la guitare."
 instrument: "guitare"
+faqs:
+  - question: "Quels accords pour jouer Hallelujah de Jeff Buckley ?"
+    answer: "Le morceau utilise 6 accords avec un capo en case 1, pour une difficulté de 3/5. La version de Jeff Buckley (reprise de Leonard Cohen) se joue magnifiquement en arpèges sur un tempo lent (70 BPM). La suite d'accords suit d'ailleurs les paroles : « the fourth, the fifth, the minor fall »."
+  - question: "Faut-il un capo pour jouer Hallelujah ?"
+    answer: "Oui, place le capo en case 1 pour retrouver la tonalité de la version de Jeff Buckley et chanter confortablement. Le morceau se prête au fingerpicking doux ; le tempo lent te laisse tout le temps de soigner chaque arpège et chaque transition."
+  - question: "Hallelujah est-elle un bon morceau pour débuter le fingerpicking ?"
+    answer: "Oui. Avec son tempo lent et sa progression d'accords célèbre, c'est un excellent morceau pour travailler les arpèges aux doigts. Commence en plaquant les accords, puis passe progressivement au picking. La beauté du morceau vient de la douceur et de la régularité, pas de la vitesse."
 ---
 "Hallelujah" est une chanson initialement écrite par Leonard Cohen, un auteur-compositeur-interprète canadien connu pour ses textes poétiques et spirituels. Sortie en 1984 sur l'album "Various Positions", la chanson a mis du temps à percer, mais elle n'a jamais cessé d'évoluer, s'imprégnant de nouvelles significations au fil des reprises. Jeff Buckley en a livré une version en 1994 dans son seul album studio complet, "Grace". 
 

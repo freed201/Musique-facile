@@ -43,6 +43,13 @@ relatedLinks:
     url: "/blog/apprendre-wild-world-guitare"
     description: "Une ballade folk touchante des années 70."
 instrument: "guitare"
+faqs:
+  - question: "Everybody Hurts de R.E.M. est-elle facile à la guitare ?"
+    answer: "Oui, c'est l'un des morceaux les plus accessibles aux débutants (difficulté 2/5). Malgré une grille de 9 accords, l'essentiel repose sur une alternance très simple et répétitive, jouée en arpèges sur un tempo lent (65 BPM). Idéal pour travailler un jeu doux et régulier."
+  - question: "Faut-il jouer Everybody Hurts en arpèges ?"
+    answer: "Oui, le morceau de R.E.M. (1992) est construit sur des arpèges délicats qui en font tout le charme. Pour débuter, tu peux plaquer les accords très doucement, puis passer au picking. Le tempo lent te laisse largement le temps de soigner chaque note, dans l'esprit apaisant et plein d'espoir du titre."
+  - question: "Everybody Hurts est-elle un bon premier morceau émouvant ?"
+    answer: "Tout à fait. Son message d'espoir, son tempo lent et sa structure répétitive en font un excellent morceau pour un débutant qui veut jouer quelque chose de touchant. C'est aussi un très bon exercice de fingerpicking et de régularité, sans difficulté technique majeure."
 ---
 # "Everybody Hurts" de R.E.M. : Plongée dans un classique intemporel
 

@@ -14,6 +14,13 @@ dateModified: "2025-04-07"
 introduction: "Salut à toi ! Aujourd'hui, on plonge dans un sujet parfois sous-estimé : l'histoire derrière les noms des notes de musique. Pourquoi dit-on Do Ré Mi en France et ABC en Angleterre ? Pour le découvrir, on retourne au Moyen Âge avec Guido d'Arezzo et explorons comment ces nomenclatures musicales ont traversé le temps pour devenir des points de repère communs dans le monde musical moderne."
 conclusion: "Voilà, on a fait un sacré voyage dans l'histoire de la musique. De l'Antiquité grecque à nos jours, les noms des notes et les systèmes de notation musicale ont beaucoup évolué. Ce qui semble si simple, comme le Do Ré Mi, cache en fait des siècles de créativité, d'innovations pédagogiques et de débats culturels. Alors, prêt à explorer plus loin avec ton instrument en main ?"
 instrument: "solfege"
+faqs:
+  - question: "D'où viennent les noms des notes Do Ré Mi Fa Sol La Si ?"
+    answer: "Ils ont été inventés au XIe siècle par le moine Guido d'Arezzo, à partir d'un hymne religieux latin, « Ut queant laxis ». Chaque vers de ce chant commençait sur une note plus haute, et la première syllabe de chaque vers (Ut, Ré, Mi, Fa, Sol, La) est devenue le nom de la note correspondante."
+  - question: "Pourquoi dit-on Do et plus Ut ?"
+    answer: "À l'origine, la première note s'appelait « Ut », mais cette syllabe était difficile à chanter (elle se termine sur une consonne). Vers le XVIIe siècle, en Italie, on l'a remplacée par « Do », plus chantante et plus ouverte. Le « Si », lui, a été ajouté plus tard, à partir des initiales de « Sancte Iohannes », à la fin du même hymne."
+  - question: "Pourquoi les pays anglo-saxons utilisent-ils les lettres A B C D ?"
+    answer: "Parce qu'ils ont conservé un système plus ancien, alphabétique, hérité du philosophe Boèce au Moyen Âge, qui désignait les notes de A à G. Les pays latins, eux, ont adopté les syllabes de Guido d'Arezzo. L'Allemagne a même développé sa propre variante avec le « H » pour le Si naturel, suite à une confusion typographique."
 ---
 **Les origines de la notation musicale**
 Alors, imaginez-vous en plein milieu de l'Antiquité grecque... Oui, vraiment! Vous vous trémoussez au son de la lyre et votre esprit s'illumine de musique. Mais là, question: comment diable faisaient-ils pour noter tout ça? Eh bien, c'est là qu'intervient un type de notation qui pourrait vous sembler un brin archaïque: les **systèmes de notation musicale** grecques. Ils utilisaient des symboles pour représenter les hauteurs et les durées des sons. C'était un peu comme un code secret de mélomanes!

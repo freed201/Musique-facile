@@ -45,6 +45,13 @@ relatedLinks:
     url: "/blog/apprendre-chasing-cars-guitare"
     description: "Une ballade rock moderne et accessible."
 instrument: "guitare"
+faqs:
+  - question: "One de U2 est-elle facile à jouer à la guitare ?"
+    answer: "Oui, c'est l'un des titres les plus accessibles de U2 : 5 accords, pas de capo, tempo modéré (90 BPM) et difficulté 2/5. La magie du morceau vient du ressenti, pas de la complexité. Concentre-toi sur la régularité du rythme et la clarté de chaque accord plutôt que sur la vitesse."
+  - question: "Comment jouer One de U2 façon The Edge ?"
+    answer: "Une approche efficace : joue en picking (arpèges) sur les couplets pour la douceur, puis ouvre le jeu en strumming sur le refrain pour l'intensité. C'est ce contraste qui donne tout son relief à ce morceau de l'album Achtung Baby (1991). Tu peux aussi explorer le fingerstyle, comme The Edge le fait parfois en live."
+  - question: "Que raconte la chanson One de U2 ?"
+    answer: "Née en 1991 pendant une période de tensions au sein du groupe, « One » est devenue un hymne à l'unité, au pardon et à la réconciliation malgré les différences (« We're one, but we're not the same »). Elle est souvent jouée lors d'événements caritatifs. La jouer avec cette intention d'ouverture lui donne toute sa force."
 ---
 
 ## Présentation du groupe U2

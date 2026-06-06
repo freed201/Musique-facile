@@ -14,12 +14,19 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-03-14"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 
 meta: "Découvre les erreurs les plus courantes des débutants au piano et comment les éviter. Améliore ton jeu et progresse plus rapidement avec ces conseils !"
 keywords: "erreurs piano débutant,progresser au piano,erreurs à éviter au piano,améliorer son jeu au piano,conseils piano débutant"
 instrument: "piano"
 
+faqs:
+  - question: "Quelles sont les erreurs les plus fréquentes des débutants au piano ?"
+    answer: "Sept reviennent souvent : se lancer sur des morceaux trop difficiles, jouer sans rythme ni métronome, trop regarder ses mains au lieu de la partition, mal positionner mains et doigts, négliger l'indépendance des deux mains, ne pas pratiquer régulièrement, et se décourager trop vite. Les corriger tôt accélère beaucoup la progression."
+  - question: "Pourquoi ne faut-il pas trop regarder ses mains au piano ?"
+    answer: "Parce qu'à force de fixer ses doigts, on n'apprend pas à se repérer au toucher ni à suivre la partition. Or jouer en gardant les yeux sur la partition est essentiel pour fluidifier la lecture et libérer l'attention. Mieux vaut s'entraîner tôt à sentir le clavier sous les doigts plutôt qu'à le surveiller du regard."
+  - question: "Faut-il un métronome quand on débute le piano ?"
+    answer: "Oui, c'est l'un des outils les plus utiles. Jouer sans rythme stable est l'une des erreurs les plus fréquentes : on accélère sur les passages faciles et on ralentit sur les difficiles. Le métronome t'apprend à garder un tempo régulier, ce qui rend ton jeu bien plus musical. Commence lentement, puis accélère progressivement."
 ---
 <!-- HTML -->
  <div class="modern-menu">
@@ -108,10 +115,10 @@ instrument: "piano"
 
 # **Les Erreurs Fréquentes des Débutants au Piano (et Comment les Corriger) 🎹**  
 
-## **Tu débutes au piano et tu galères un peu ?**  
-C’est normal ! Tout le monde passe par là. Mais certaines erreurs **peuvent ralentir ta progression** (voire te décourager).  
+## **Les 7 erreurs que je corrige le plus souvent au piano**  
+Rassure-toi : tout le monde passe par là, moi le premier. Mais certaines erreurs reviennent tellement souvent qu'elles méritent qu'on les nomme.  
 
-Bonne nouvelle : **si tu les repères à temps, tu progresseras bien plus vite** ! Voici les **erreurs les plus courantes** et surtout **comment les éviter**.  
+La bonne nouvelle, c'est qu'une fois repérées, elles se corrigent vite — et tu gagnes des mois. Voici les 7 que je vois le plus en cours, et comment les éviter.  
 
 ---
 

@@ -42,6 +42,13 @@ relatedLinks:
     description: "Un classique pop-rock dynamique et accessible."
 instrument: "guitare"
 
+faqs:
+  - question: "Don't Stop Me Now de Queen est-elle difficile à la guitare ?"
+    answer: "Oui, c'est un morceau pour guitaristes confirmés (difficulté 5/5) : une dizaine d'accords et un tempo très rapide (150 BPM) qui enchaîne les changements à toute vitesse. Cet hymne de Freddie Mercury (1979) demande des transitions véloces et propres. À aborder une fois les bases bien solides."
+  - question: "Comment travailler Don't Stop Me Now malgré son tempo rapide ?"
+    answer: "La clé est de ralentir énormément au début : pose la grille au métronome à 50 % de la vitesse, en cherchant des changements nets, puis accélère par paliers. Le morceau de Queen est exigeant surtout par sa vélocité ; un travail lent et progressif est indispensable pour atteindre les 150 BPM."
+  - question: "Peut-on jouer une version simplifiée de Don't Stop Me Now ?"
+    answer: "Oui. Tu peux réduire le nombre d'accords et ralentir le tempo pour une version débutant, puis enrichir au fur et à mesure. L'essentiel est de garder l'énergie joyeuse et bondissante du morceau. Mais la version fidèle reste un beau défi réservé aux guitaristes avancés."
 ---
 ## Un Peu d'Histoire
 

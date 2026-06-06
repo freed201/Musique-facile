@@ -43,6 +43,13 @@ relatedLinks:
     url: "/blog/apprendre-stand-by-me-guitare"
     description: "Un classique des années 60 avec progression simple."
 instrument: "guitare"
+faqs:
+  - question: "Quels accords pour jouer Wild World de Cat Stevens ?"
+    answer: "Le morceau utilise 8 accords et repose sur une progression descendante (type Am – D – G – C – F…) très musicale, pour une difficulté de 4/5. Cette ballade folk de 1970 est un excellent exercice : sa suite d'accords, riche mais logique, apprend beaucoup sur l'enchaînement harmonique."
+  - question: "Wild World est-elle accessible aux débutants ?"
+    answer: "C'est un morceau plutôt intermédiaire (4/5), surtout à cause du nombre d'accords (8) et de quelques transitions exigeantes. Un débutant motivé peut s'y attaquer en travaillant la progression par petits segments. La récompense est grande : c'est l'un des plus beaux enchaînements d'accords de la folk."
+  - question: "Pourquoi Wild World est-elle un bon morceau pour progresser ?"
+    answer: "Parce que sa progression d'accords « en cascade » est à la fois riche et logique : en l'apprenant, tu intègres un enchaînement harmonique qu'on retrouve dans de nombreuses chansons. C'est un excellent pont entre le répertoire à 4 accords et des morceaux plus élaborés, tout en restant très mélodique."
 ---
 # Wild World par Cat Stevens : Un Voyage Émotionnel dans la Bouleversante Année 1970
 

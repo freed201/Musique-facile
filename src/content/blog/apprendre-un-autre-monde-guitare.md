@@ -42,6 +42,13 @@ relatedLinks:
     url: "/blog/apprendre-machistador-guitare"
     description: "Le groove funky de Matthieu Chedid."
 instrument: "guitare"
+faqs:
+  - question: "Un Autre Monde de Téléphone est-elle difficile à la guitare ?"
+    answer: "Difficulté 3/5 : le morceau utilise 6 accords, dont des accords sus4 qui apportent sa couleur caractéristique, à un tempo soutenu (142 BPM). Ce classique du rock français (1984) demande surtout de l'énergie et une main droite régulière. Un bon morceau pour passer du statut de débutant à intermédiaire."
+  - question: "Que sont les accords sus4 d'Un Autre Monde ?"
+    answer: "Les accords « sus4 » remplacent la tierce par une quarte, ce qui crée une petite tension qui se résout joliment sur l'accord majeur. Dans « Un Autre Monde », ils donnent ce relief si reconnaissable. Ils ne sont pas plus durs à plaquer qu'un accord ouvert : c'est surtout une nouvelle couleur à découvrir."
+  - question: "Un Autre Monde convient-elle aux débutants ?"
+    answer: "C'est plutôt un morceau intermédiaire à cause du tempo rapide (142 BPM) et des sus4. Un débutant peut s'y attaquer en travaillant la grille très lentement au métronome avant d'accélérer. C'est l'occasion idéale de découvrir les accords suspendus dans un contexte rock énergique signé Téléphone."
 ---
 ## Présentation de l'artiste : Téléphone
 

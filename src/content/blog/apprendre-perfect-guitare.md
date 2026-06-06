@@ -47,6 +47,13 @@ relatedLinks:
     url: "/blog/apprendre-chasing-cars-guitare"
     description: "Une ballade rock émotionnelle et accessible."
 instrument: "guitare"
+faqs:
+  - question: "Perfect d'Ed Sheeran est-elle facile à la guitare ?"
+    answer: "Oui, c'est l'un des morceaux les plus accessibles pour débuter : 8 accords seulement, une difficulté de 2/5 et pas de capo obligatoire. Sa rythmique lente et régulière (95 BPM) en fait une ballade idéale pour travailler les transitions d'accords et l'accompagnement du chant, même quand on débute."
+  - question: "Faut-il un capo pour jouer Perfect ?"
+    answer: "Non, le capo n'est pas obligatoire pour Perfect. Tu peux jouer le morceau avec des accords ouverts dans une tonalité confortable. Certains placent un capo pour se rapprocher de la version d'Ed Sheeran ou pour ajuster la hauteur à leur voix, mais ce n'est pas nécessaire pour débuter."
+  - question: "Quelle rythmique pour jouer Perfect d'Ed Sheeran ?"
+    answer: "Une rythmique douce et régulière, idéalement en valse lente (le morceau est à trois temps). Une astuce efficace : commence en sourdine (palm mute) pour poser le groove, puis relâche la main droite pour donner plus de profondeur et de volume au refrain. La régularité prime sur la complexité."
 ---
 
 ## L'Histoire et le Contexte du Morceau

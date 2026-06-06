@@ -1,7 +1,7 @@
 ---
 title: "Pourquoi tu n'arrives pas à tenir le rythme avec un métronome"
 description: "Le coupable de ton problème de rythme n'est ni le métronome ni tes oreilles. C'est ta main droite qui s'arrête sur les changements d'accord."
-author: "Musique Facile"
+author: "Fred Fieffé"
 ogImage: "/images/blog/pourquoi-tu-narrives-pas-tenir-rythme-metronome.webp"
 datePublished: "2026-04-27"
 dateModified: "2026-04-27"
@@ -17,6 +17,13 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 introduction: "Tu sors le métronome, tu poses ta guitare ou ton ukulélé, tu lances le tic-tac. Au bout de cinq minutes, tu le ranges parce que ça sonne pire qu'avant. Tu te dis que tu n'as pas le rythme dans la peau, que cet engin te casse ce que tu jouais sans lui. Reprenons calmement."
 conclusion: "Tu as deux semaines. Métronome à 60, dix minutes par jour, main droite qui ne s'arrête jamais, même sur les changements d'accord. Tu mesures toi-même le changement."
+faqs:
+  - question: "Pourquoi je n'arrive pas à tenir le rythme avec un métronome ?"
+    answer: "Le plus souvent, le coupable est ta main droite (ou la main qui gratte/joue) qui s'arrête au moment des changements d'accords ou des passages difficiles. Ce micro-arrêt casse la pulsation. La solution n'est pas de jouer plus vite, mais de garder le mouvement continu, quitte à simplifier ce que tu joues."
+  - question: "Comment apprendre à jouer en rythme avec un métronome ?"
+    answer: "Un protocole simple et efficace : 10 minutes par jour pendant deux semaines, à tempo lent, en te concentrant uniquement sur la continuité du mouvement de ta main, sans jamais t'arrêter, même si le contenu est imparfait. Le rythme d'abord, la perfection ensuite : c'est la régularité du geste qui crée la stabilité."
+  - question: "Faut-il jouer parfaitement ou en rythme d'abord ?"
+    answer: "En rythme d'abord. Beaucoup de débutants sacrifient la pulsation pour jouer « propre », ce qui produit un jeu haché. Il vaut mieux maintenir un tempo stable quitte à simplifier, puis ajouter la précision. Un métronome t'aide à garder cette pulsation : le naturel musical vient de la régularité, pas de la perfection immédiate."
 ---
 
 Ce n'est pas le métronome le problème. Et ce ne sont pas tes oreilles non plus.

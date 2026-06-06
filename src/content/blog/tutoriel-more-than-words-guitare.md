@@ -45,6 +45,13 @@ relatedLinks:
     description: "Une ballade folk-pop délicate et poétique."
 instrument: "guitare"
 
+faqs:
+  - question: "More Than Words d'Extreme est-elle difficile à la guitare ?"
+    answer: "Oui, c'est un morceau de niveau avancé (difficulté 5/5). Cette ballade acoustique de 1990 combine fingerstyle, percussions sur la caisse (slaps) et harmonies vocales à deux voix. Le défi n'est pas les accords eux-mêmes, mais la coordination entre le jeu aux doigts et les frappes rythmiques."
+  - question: "Pourquoi More Than Words est-elle considérée comme un défi technique ?"
+    answer: "Parce qu'elle demande de jouer la mélodie et l'accompagnement aux doigts tout en frappant la caisse de la guitare pour marquer le rythme, le tout en chantant. C'est un véritable exercice de coordination. Mieux vaut décomposer : d'abord le fingerstyle, puis les percussions, et enfin l'assemblage."
+  - question: "Peut-on apprendre More Than Words quand on débute ?"
+    answer: "C'est un objectif ambitieux pour un débutant. On peut commencer par jouer uniquement la suite d'accords en arpèges simples, sans les percussions, pour s'approprier la chanson. Les frappes rythmiques et la version complète viendront plus tard, une fois le fingerstyle de base bien en place."
 ---
 
 ## À la Découverte du Groupe Extreme
