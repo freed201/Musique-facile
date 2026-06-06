@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Avec 'Foule Sentimentale', Alain Souchon nous invite à réfléchir sur notre société moderne à travers une mélodie touchante et des paroles empreintes de poésie et d'ironie."
 
 songInfo:

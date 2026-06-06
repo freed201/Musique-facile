@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-10-12"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Si vos enfants écoutent 'Briller' et 'Soda Pop' en boucle, vous n'êtes pas seul ! Les chansons du film Netflix 'K-pop Demon Hunters' ont conquis des millions de fans à travers le monde. Découvrez l'histoire fascinante de ces tubes et apprenez à les jouer à l'ukulélé, la guitare ou au piano avec nos tutoriels complets."
 
 videos:

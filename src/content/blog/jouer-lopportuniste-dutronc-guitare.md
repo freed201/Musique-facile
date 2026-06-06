@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Avec 'L'Opportuniste', Jacques Dutronc propose une critique politique mordante sortie en 1968, sur une mélodie entraînante yé-yé rock. Découvrez l'histoire de ce classique satirique et apprenez à le jouer avec notre tutoriel accessible."
 
 songInfo:

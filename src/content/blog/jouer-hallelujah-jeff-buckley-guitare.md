@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Plongez dans l'univers musical et émotionnel de Jeff Buckley avec 'Hallelujah', sa reprise iconique de Leonard Cohen sortie en 1994 sur l'album 'Grace'. Découvrez comment jouer cette chanson intemporelle qui continue de résonner profondément chez les musiciens du monde entier."
 
 songInfo:

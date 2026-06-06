@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: |
   Avec "Respire", Mickey 3D délivre un message fort et universel, alliant l’urgence écologique à une mélodie accessible et accrocheuse.  
   Découvre l’histoire inspirante de cette chanson culte, analyse ses paroles et apprends à la jouer pas à pas, pour mêler plaisir musical et engagement citoyen à chaque accord.

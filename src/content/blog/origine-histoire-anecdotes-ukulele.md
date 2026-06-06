@@ -9,7 +9,7 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/origine-histoire-anecdotes-ukulele.webp"
 datePublished: "2026-04-13"
-dateModified: "2026-04-13"
+dateModified: "2026-06-06"
 introduction: "Saviez-vous que cet instrument attachant qu'est l'ukulélé, avec son charme unique, a une histoire aussi intrigante? Né de racines portugaises et adopté par l'âme hawaïenne, il a traversé de nombreuses transformations. Plongeons ensemble pour découvrir son origine hawaïenne, ses évolutions et même quelques anecdotes insolites qui enrichissent sa légende!"
 conclusion: "L'ukulélé, malgré sa taille modeste, porte une histoire riche et vibrante, qui va bien au-delà de son origine hawaïenne. De ses premières mélodies sur les plages de Hawaï à sa popularité mondiale, cet instrument continue d'enchanter grâce à sa diversité, sa simplicité et quelques anecdotes colorées. Il rappelle que la musique transcende les cultures et les générations."
 videos:

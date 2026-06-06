@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: |
   Avec "Une Belle Histoire", Michel Fugain a capturé l’esprit de liberté, de rencontre et de voyage qui traverse toute la chanson française des années 70.  
   Découvre l’histoire de ce morceau emblématique, apprends à le jouer à la guitare, et laisse-toi emporter par la poésie et la fraîcheur qui font de cette chanson un classique intergénérationnel.

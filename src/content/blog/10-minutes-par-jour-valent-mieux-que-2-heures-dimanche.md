@@ -4,7 +4,7 @@ description: "Le sommeil consolide ce que tu pratiques dans la journée. Pourquo
 author: "Fred Fieffé"
 ogImage: "/images/blog/10-minutes-par-jour-pratique-musique.webp"
 datePublished: "2026-04-20"
-dateModified: "2026-04-20"
+dateModified: "2026-06-06"
 introduction: "Dix minutes chaque jour battent deux heures le dimanche, pour une raison neuroscientifique précise. Voici laquelle, et comment l'appliquer sans te compliquer la vie."
 instrument: "général"
 level: "tous-niveaux"

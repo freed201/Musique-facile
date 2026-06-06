@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Avec 'J'veux du Soleil', Au P'tit Bonheur a marqué les années 90 avec une chanson joyeuse et intemporelle. Découvrez l'histoire et apprenez à jouer ce morceau lumineux."
 
 songInfo:

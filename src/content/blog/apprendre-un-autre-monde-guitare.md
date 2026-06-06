@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Avec 'Un Autre Monde', Téléphone offre une vision musicale d'évasion et de renouveau, tirée de l'album éponyme de 1984. Découvrez l'histoire de ce chef-d'œuvre du rock français et apprenez à jouer ses riffs caractéristiques avec accords sus4."
 
 songInfo:

@@ -9,7 +9,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Plongez dans 'Across The Universe', une œuvre inoubliable des Beatles qui allie la poésie introspective de John Lennon à une mélodie envoûtante, transportant l’auditeur dans un voyage sonore unique."
 
 songInfo:

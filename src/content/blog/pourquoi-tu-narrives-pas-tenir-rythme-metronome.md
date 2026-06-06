@@ -4,7 +4,7 @@ description: "Le coupable de ton problème de rythme n'est ni le métronome ni t
 author: "Fred Fieffé"
 ogImage: "/images/blog/pourquoi-tu-narrives-pas-tenir-rythme-metronome.webp"
 datePublished: "2026-04-27"
-dateModified: "2026-04-27"
+dateModified: "2026-06-06"
 prod: "Y"
 schemaType: "BlogPosting"
 instrument: "général"

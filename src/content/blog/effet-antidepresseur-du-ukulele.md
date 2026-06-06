@@ -10,7 +10,7 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/effet-antidepresseur-du-ukulele.webp"
 datePublished: "2025-07-27"
-dateModified: "2026-06-05"
+dateModified: "2026-06-06"
 introduction: "Le ukulélé peut-il vraiment faire du bien au moral ? Oui — mais pas pour les raisons fantaisistes qu'on lit parfois sur le web. Voici l'essentiel, basé sur de vraies études : **1) Faire de la musique réduit mesurablement le stress** (baisse du cortisol), selon plusieurs méta-analyses. **2) La musicothérapie diminue les symptômes dépressifs** et améliore le sommeil et la qualité de vie, même si les chercheurs eux-mêmes invitent à rester prudents sur l'ampleur de l'effet. **3) Le ukulélé n'a rien de « magique »** : son vrai atout, c'est d'être l'instrument le plus facile et le moins cher pour accéder à ces bienfaits, avec une première chanson jouable en une à deux semaines. Faisons honnêtement le tri entre ce que la science montre et ce qu'elle ne montre pas."
 
 faqs:

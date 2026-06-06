@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: |
   Avec "House of The Rising Sun", The Animals ont signé un classique qui traverse les âges et continue de fasciner les musiciens comme le grand public.  
   Cette chanson te transporte dans l’univers du rock et du folk, avec une histoire captivante à jouer à la guitare.  

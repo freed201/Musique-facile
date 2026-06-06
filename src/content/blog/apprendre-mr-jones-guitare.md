@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Avec 'Mr. Jones', Counting Crows nous offrent une chanson introspective et universelle sur le désir de reconnaissance, extraite de l'album 'August and Everything After' (1993). Découvrez l'histoire fascinante de ce hit des années 90 et apprenez à le jouer avec notre tutoriel détaillé."
 
 songInfo:

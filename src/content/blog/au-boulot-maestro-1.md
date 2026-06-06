@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-02-03"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Découvrez comment la musique peut transformer votre vie, renforcer votre cerveau et vous offrir un bien-être durable. On explore ensemble les secrets de la neuroplasticité musicale et pourquoi jouer d'un instrument est l'un des meilleurs exercices pour votre cerveau."
 
 conclusion: |

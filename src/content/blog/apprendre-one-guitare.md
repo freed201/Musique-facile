@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-10-26"
+dateModified: "2026-06-06"
 introduction: |
   Avec "One", U2 nous offre un message universel d’unité, d’espoir et de réconciliation, porté par une mélodie aussi simple qu’inoubliable.  
   Découvre l’histoire passionnante de ce titre, l’analyse de ses paroles puissantes, et comment tu peux le jouer facilement à la guitare pour ressentir toute l’intensité de ce chef-d’œuvre.

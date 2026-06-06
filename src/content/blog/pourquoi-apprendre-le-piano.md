@@ -12,7 +12,7 @@ theme: "piano"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-03-14"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Vous voulez apprendre le piano mais ne savez pas par où commencer ? Ce guide complet de 9 chapitres vous accompagne pas à pas dans votre apprentissage du piano, de la motivation initiale jusqu'à la maîtrise des techniques essentielles. Découvrez pourquoi le piano est l'instrument parfait pour débuter la musique, peu importe votre âge."
 faqs:
   - question: "Est-il trop tard pour apprendre le piano à l'âge adulte ?"

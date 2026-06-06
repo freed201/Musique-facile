@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Avec 'Machistador', Matthieu Chedid alias -M- nous offre une explosion de funk et d'énergie pure, tirée de l'album culte 'Je dis aime' (1999). Découvrez l'histoire de ce morceau emblématique du rock français et apprenez à le jouer avec notre tutoriel adapté aux guitaristes intermédiaires."
 
 songInfo:

@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Plongez dans l'univers électronique et révolutionnaire de 'Sweet Dreams (Are Made of This)', l'un des morceaux les plus emblématiques des années 80 créé par Eurythmics. Découvrez comment adapter ce classique synth-pop de 1983 à la guitare avec notre tutoriel détaillé."
 
 songInfo:

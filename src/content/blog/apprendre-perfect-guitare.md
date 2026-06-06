@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2025-10-26"
+dateModified: "2026-06-06"
 introduction: |
   Avec "Perfect", Ed Sheeran offre une mélodie qui capte l’essence de l’amour sincère et de l’émotion brute.  
   Plonge dans l’univers de ce morceau qui a touché des millions de cœurs, découvre ses secrets de composition, et apprends à le jouer simplement à la guitare, quel que soit ton niveau.

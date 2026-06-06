@@ -9,7 +9,7 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/5-accords-indispensables-jouer-100-chansons-ukulele.webp"
 datePublished: "2026-01-26"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 
 # Phase 3 - Maillage interne
 tags: ["accords", "débutant", "chansons", "rythme"]

@@ -9,7 +9,7 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/apprendre-jouer-chanson-trois-accords-guitare-debutants.webp"
 datePublished: "2026-02-09"
-dateModified: "2026-02-09"
+dateModified: "2026-06-06"
 introduction: "Vous voulez apprendre la guitare sans vous perdre dans la théorie? Notre guide vous montre comment avec seulement trois accords, vous pouvez jouer une chanson complète. Guitare en main, il est temps d'impressionner votre entourage en un rien de temps!"
 conclusion: "En utilisant seulement trois accords, vous pouvez commencer votre aventure musicale sans complexité. Cette approche simplifiée accroît votre confiance et prépare le terrain pour des techniques plus avancées. Avec de la pratique, vous jouerez bientôt vos morceaux préférés et envisagerez même de composer vos propres musiques!"
 videos:
