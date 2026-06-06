@@ -7,7 +7,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2026-02-05"
-dateModified: "2026-02-05"
+dateModified: "2026-06-06"
 prod: Y
 instrument: "général"
 level: "débutant"

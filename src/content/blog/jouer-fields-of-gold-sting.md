@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Laissez-vous emporter par 'Fields of Gold', la ballade intemporelle de Sting extraite de l'album 'Ten Summoner's Tales' (1993). Découvrez comment jouer cette chanson qui explore l'amour, la nostalgie et la beauté de la nature avec des arpèges poétiques."
 
 songInfo:

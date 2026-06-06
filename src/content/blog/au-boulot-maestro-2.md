@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-02-10"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "On passe en revue les 10 erreurs courantes qui ralentissent ta progression musicale et comment les éviter pour jouer avec plus de plaisir et d’aisance."
 
 conclusion: |

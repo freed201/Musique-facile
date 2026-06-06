@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Avec 'La Seine', Vanessa Paradis et -M- nous offrent une immersion poétique dans l'atmosphère unique de Paris. Découvrez cette chanson iconique et apprenez à la jouer."
 
 songInfo:

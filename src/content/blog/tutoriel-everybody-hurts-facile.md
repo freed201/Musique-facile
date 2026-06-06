@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Avec 'Everybody Hurts', R.E.M. a créé un hymne de réconfort et d'humanité qui transcende les générations. Plongez dans l'histoire, l'impact et les subtilités de ce morceau emblématique."
 
 songInfo:

@@ -6,7 +6,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-05"
+dateModified: "2026-06-06"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-chasing-cars-guitare.webp"

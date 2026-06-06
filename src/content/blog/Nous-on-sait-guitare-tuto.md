@@ -9,7 +9,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-05-21"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Vous avez toujours rêvé de jouer 'Nous on sait' de Pierre Garnier, l'un des titres phares de la Star Academy ? Ce guide détaillé vous accompagne pas à pas dans l'apprentissage de ce morceau emblématique."
 
 

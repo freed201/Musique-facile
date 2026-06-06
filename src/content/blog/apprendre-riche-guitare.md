@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Avec 'Riche', Claudio Capéo nous rappelle que la vraie richesse se mesure en amour et en souvenirs partagés, non en biens matériels. Découvrez l'histoire touchante de cette chanson tirée de son album éponyme (2016) et apprenez à la jouer à la guitare avec notre tutoriel détaillé."
 
 songInfo:

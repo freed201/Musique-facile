@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: |
   "More Than Words", c’est l’exemple parfait de la chanson qui traverse les générations.  
   Extreme y dévoile une ballade acoustique tout en sincérité, simple en apparence mais pleine d’émotion à chaque accord.  

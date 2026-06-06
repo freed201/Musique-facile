@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo-Musique-Facile.webp"
 datePublished: "2025-02-27"
-dateModified: "2025-02-27"
+dateModified: "2026-06-06"
 introduction: "Coldplay, l'un des groupes les plus emblématiques de notre époque, continue de captiver le monde avec ses mélodies envoûtantes et ses paroles profondes. Dans cet article, nous explorons l'univers musical de Coldplay, en mettant en lumière leurs morceaux incontournables et en vous guidant à travers des tutoriels pour jouer leurs chansons sur différents instruments. Préparez-vous à plonger dans un voyage musical fascinant."
 
 videos:

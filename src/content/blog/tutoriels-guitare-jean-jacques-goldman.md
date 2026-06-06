@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-03-07"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 meta: "Jean-Jacques Goldman, une légende de la musique française. Découvrez ses plus grands succès et apprenez à les jouer avec nos tutoriels."
 keywords: "Jean-Jacques Goldman, musique française, On ira, À nos actes manqués, tutoriels musique, analyse musicale, chanson française"
 introduction: Jean-Jacques Goldman, un nom qui résonne dans le cœur de nombreux amateurs de musique. Connu pour ses paroles poignantes et ses mélodies inoubliables, il a marqué l'histoire de la chanson française. À travers cet article, nous vous invitons à découvrir les secrets de son succès et à explorer ses plus grands titres grâce à nos tutoriels exclusifs.

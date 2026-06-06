@@ -5,7 +5,7 @@ description: "Découvrez comment booster votre progression musicale grâce à la
 ogImage: "/images/blog/booster-progression-musicale.webp"
 author: "Fred Fieffé"
 datePublished: "2025-03-17"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "T’en as marre de passer des heures à bosser un morceau… sans vraiment progresser ? Tu te demandes pourquoi, malgré tous tes efforts, ça coince encore ? Eh bien, peut-être que le souci, c’est pas ton talent… mais ta méthode ! Découvrez comment la pratique délibérée peut transformer votre apprentissage musical."
 
 prod: "Y"

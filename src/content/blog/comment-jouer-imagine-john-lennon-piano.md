@@ -9,7 +9,7 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/comment-jouer-imagine-john-lennon-piano.webp"
 datePublished: "2026-02-23"
-dateModified: "2026-02-23"
+dateModified: "2026-06-06"
 introduction: "Apprendre à jouer \"Imagine\" de John Lennon au piano n'est pas aussi simple qu'il y paraît. De nombreux tutoriels se trompent sur la technique originale utilisée par Lennon. Dans cet article, découvrez une méthode fidèle et simplifiée qui respecte l'esprit de la chanson et qui est accessible même aux pianistes débutants."
 conclusion: "Jouer \"Imagine\" de John Lennon sur piano n'est pas juste un exercice technique, c'est une immersion dans son univers musical. En adoptant cette approche simplifiée mais authentique, vous capturerez l'essence du morceau tout en renforçant vos compétences pianistiques. Lancez-vous dans cette aventure musicale avec nos ressources gratuites et faites résonner votre piano avec émotion."
 videos:

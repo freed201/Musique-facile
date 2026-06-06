@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: |
   Avec "Where Is My Mind", les Pixies nous plongent dans une introspection fascinante et musicale.  
   Découvre l’histoire de cette chanson culte, son impact unique sur le rock, et apprends à la jouer pas à pas, même si tu n’es pas un grand technicien de la guitare.

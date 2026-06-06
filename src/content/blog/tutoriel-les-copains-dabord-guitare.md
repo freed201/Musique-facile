@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: |
   "Les Copains d’Abord", c’est la bande-son de toutes les vraies amitiés.  
   Brassens y célèbre la simplicité, la sincérité et la chaleur des liens humains avec des mots touchants et une mélodie qui reste en tête.  

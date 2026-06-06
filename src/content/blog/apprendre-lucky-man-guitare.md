@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Avec 'Lucky Man', The Verve nous offre une chanson pleine d'émotion et de profondeur, tirée de l'album légendaire Urban Hymns (1997). Découvrez l'histoire de ce classique de la Britpop et apprenez à le jouer à la guitare avec nos tutoriels vidéo détaillés, accessibles aux débutants."
 
 songInfo:

@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: |
   Plonge dans l’univers du grunge avec Nirvana et leur version inoubliable de "Where Did You Sleep Last Night" lors du mythique MTV Unplugged de 1993.  
   Ce morceau intense t’offre à la fois une plongée dans l’histoire du folk américain et un défi musical riche pour progresser à la guitare.  

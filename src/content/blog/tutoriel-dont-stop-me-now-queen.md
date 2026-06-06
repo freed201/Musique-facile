@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: "Avec 'Don't Stop Me Now', Queen a livré une explosion d'énergie et de positivité. Découvrez cette chanson légendaire et l'héritage musical de Freddie Mercury."
 
 songInfo:

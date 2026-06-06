@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-02-21"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 introduction: |
   Avec "I Can't Help Falling in Love with You", Elvis Presley nous emmène dans l’une des balades les plus romantiques et universelles de la musique.  
   Ce morceau, simple et sincère, est devenu un passage obligé pour tout guitariste amateur ou passionné.  
