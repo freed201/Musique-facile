@@ -1,10 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "What's Up (4 Non Blondes) - Tutoriel Guitare"
-description: "Apprends What's Up avec des accords ouverts et un strumming facile. Version débutant pour jouer couplet, refrain et garder une bonne énergie."
-author: "Musique Facile"
+description: "What's Up des 4 Non Blondes à la guitare : seulement 3 accords (G-A-C), un tempo lent et un refrain à reprendre en chœur. Le morceau parfait pour une toute première chanson."
+author: "Fred Fieffé"
+publisher: "Musique Facile"
+publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-02-04"
+dateModified: "2026-06-05"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-whats-up-guitare.webp"
@@ -35,74 +37,53 @@ videos:
   - title: "Play Along What's Up"
     url: "https://youtu.be/VIKmAndFsm0"
 faqs:
-  - question: "Puis-je jouer la version simple même si je suis débutant ?"
-    answer: "Oui. Commence lentement avec des accords ouverts et une rythmique simple, puis ajoute des nuances quand tu es à l’aise."
-  - question: "Dois-je chanter pour travailler le rythme ?"
-    answer: "Ce n’est pas obligatoire, mais fredonner aide à caler les changements d’accords au bon endroit."
-  - question: "Combien de temps faut-il pour jouer la chanson proprement ?"
-    answer: "Avec 10 à 15 minutes de pratique régulière, tu peux obtenir une version propre en quelques jours ou semaines."
-  - question: "Un métronome est-il utile ?"
-    answer: "Oui. Il t’aide à garder un tempo stable et à rendre le jeu plus musical."
+  - question: "Combien d'accords faut-il pour jouer What's Up ?"
+    answer: "Seulement 3 : G, A et C, joués en boucle sur tout le morceau. C'est l'une des raisons pour lesquelles « What's Up » des 4 Non Blondes est si souvent recommandée comme toute première chanson : 3 accords ouverts, un tempo lent, et la même grille du début à la fin."
+  - question: "Pourquoi la chanson s'appelle What's Up alors que le refrain dit « What's going on » ?"
+    answer: "C'est l'une des anecdotes les plus connues du morceau ! Le refrain chante « and I say hey-ey-ey, what's going on », mais le titre officiel est « What's Up ». La légende veut que ce soit pour éviter la confusion avec le classique « What's Going On » de Marvin Gaye. De quoi briller en société quand tu la joues."
+  - question: "What's Up convient-elle à un débutant complet ?"
+    answer: "Oui, c'est un morceau de premier choix pour démarrer. Le tempo lent (64 BPM) laisse largement le temps de changer d'accord, et il n'y a que 3 formes à connaître. Le seul petit défi est le changement G-A : entraîne-le isolément, et le reste suit tout seul."
+  - question: "Quelle rythmique utiliser pour What's Up ?"
+    answer: "Une rythmique ample et régulière fonctionne très bien : bas, bas-haut, haut-bas-haut, jouée lentement. La chanson monte progressivement en intensité jusqu'au refrain : commence doux sur le couplet, puis gratte plus large et plus fort sur le « what's going on » pour créer l'effet libérateur du morceau."
 ---
-What's Up est un morceau idéal pour travailler les enchaînements d’accords et la régularité de la main droite. Le but ici est simple : jouer une version claire et stable, sans te perdre dans des détails compliqués. Tu peux faire simple, et ça sonnera déjà bien.
+Sortie en 1992 sur l'album *Bigger, Better, Faster, More!* et écrite par Linda Perry, « What's Up » des 4 Non Blondes est devenue un hymne intergénérationnel. Pour le guitariste qui débute, c'est presque le morceau idéal : **3 accords seulement**, un tempo lent, une seule grille — et un refrain que tout le monde reprend en chœur.
 
-## Accords
+## Les accords
 
-Voici une version simple avec des accords ouverts faciles à enchaîner :
+Trois accords, c'est tout :
 
 - G
 - A
 - C
 
+La même boucle tourne sur le couplet, le refrain et le pont. Le seul petit défi, c'est le changement **G → A** : entraîne-le isolément quelques minutes, et le reste suit tout seul.
 
-Travaille les changements très lentement au début. Si un accord te bloque, ralentis encore et garde le mouvement de la main droite, même si ça ne sonne pas parfaitement au début. L’important est la fluidité.
+Pour poser tes bases : [Apprendre la guitare facilement - Guide complet pour débutants motivés](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
 
-Si tu veux consolider tes bases, ce guide est très utile : [Apprendre la guitare facilement - Guide complet pour débutants motivés](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+## La rythmique
 
-## Rythmique / Strumming
+Une rythmique ample et régulière, jouée lentement :
 
-Reste sur un pattern simple et régulier. Le plus classique fonctionne très bien :
+- **Bas — bas-haut — haut-bas-haut**.
 
-- Bas, bas, haut, haut, bas, haut. Garde un mouvement ample et régulier.
+La chanson **monte progressivement en intensité** : commence doux sur le couplet, puis gratte plus large et plus fort sur le « *what's going on* ». C'est ce crescendo qui donne le côté libérateur du morceau.
 
-Si tu débutes, commence par des coups vers le bas sur chaque temps. Quand tu te sens à l’aise, ajoute les coups vers le haut. Ce qui compte, c’est la stabilité du rythme.
+## L'anecdote à connaître
 
-## Structure de la chanson
+Le titre, c'est le piège préféré des quiz musicaux : le refrain chante « *and I say hey-ey-ey, what's going on* », mais la chanson s'appelle officiellement **« What's Up »** — probablement pour éviter la confusion avec le classique « What's Going On » de Marvin Gaye. Parfait pour lancer la conversation quand tu la joues.
 
-Pour t’entraîner, garde une structure simple. Tu peux utiliser la même boucle d’accords sur plusieurs sections.
+## La structure
 
-- Couplet : G A C
-- Refrain : G A C
-- Pont : G A C
+- Couplet : G – A – C (doux)
+- Refrain : G – A – C (plus fort, plus ouvert)
+- Pont : G – A – C
 
-L’important est de rester régulier sur le tempo et de savoir où tu en es dans la chanson. Compter les boucles aide beaucoup.
+## Comment t'entraîner
 
-## Conseils
+Travaille d'abord le changement **G → A** seul, au métronome à 50 BPM, jusqu'à ce qu'il soit propre. Ajoute ensuite le C, puis monte à 64 BPM. Enfin, joue le morceau entier en cherchant le crescendo couplet → refrain. Comme il n'y a que 3 accords, tu peux te concentrer entièrement sur le chant et l'énergie.
 
-- Joue d’abord lentement. La vitesse vient ensuite.
-- Évite de bloquer ta main droite quand tu changes d’accord.
-- Enregistre-toi une fois pour vérifier la régularité du rythme.
-- Reste détendu, c’est le meilleur moyen d’avoir un jeu propre.
-
-## Plan d’entraînement
-
-Voici deux formats simples pour progresser sans te décourager.
-
-### 10 minutes
-
-1. 2 minutes d’échauffement sur les enchaînements.
-2. 4 minutes de rythmique sur un seul accord.
-3. 4 minutes de boucle complète avec changements.
-
-### 30 minutes
-
-1. 5 minutes d’accords lents et propres.
-2. 10 minutes de rythmique avec changements progressifs.
-3. 10 minutes sur la structure du morceau.
-4. 5 minutes pour jouer la chanson en entier, même imparfaitement.
-
-Pour structurer tes séances, ce guide peut t’aider : [Comment structurer une séance de pratique efficace (30 minutes)](/blog/seance-pratique-efficace-30-minutes/).
+Pour structurer ta pratique : [Comment structurer une séance de pratique de 30 minutes](/blog/seance-pratique-efficace-30-minutes/).
 
 ## Conclusion
 
-Tu peux jouer What's Up avec une version simple et efficace. Avance pas à pas, garde le rythme, et fais-toi confiance. Avec un peu de régularité, le morceau va vite prendre forme.
+What's Up, c'est souvent l'une des toutes premières chansons qu'on arrive à jouer en entier — et l'une des plus jouissives à reprendre à plusieurs. Trois accords, un crescendo, un refrain culte : lance-toi, chante fort, et profite.

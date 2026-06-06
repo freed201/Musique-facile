@@ -43,6 +43,13 @@ relatedLinks:
     url: "/blog/tutoriel-jveux-du-soleil-chanson-francaise"
     description: "Un autre hit feel-good de la chanson française."
 instrument: "guitare"
+faqs:
+  - question: "Quels accords pour jouer Riche de Claudio Capéo ?"
+    answer: "Le morceau utilise 7 accords avec un capo en case 2, pour une difficulté de 3/5. Avec son tempo enlevé (165 BPM) et sa rythmique folk-pop entraînante, « Riche » est un bon morceau pour un guitariste intermédiaire qui veut travailler son énergie et sa régularité."
+  - question: "Faut-il un capo pour jouer Riche ?"
+    answer: "Oui, place le capo en case 2 pour coller à la tonalité de Claudio Capéo et chanter confortablement. Le capo permet de garder des formes d'accords ouvertes malgré la tonalité originale. C'est pratique pour suivre l'enregistrement et accompagner le chant."
+  - question: "Riche est-elle accessible aux débutants ?"
+    answer: "C'est un morceau plutôt intermédiaire (3/5), surtout à cause de son tempo rapide (165 BPM) qui demande des changements d'accords véloces. Un débutant peut s'y attaquer en travaillant d'abord la grille très lentement au métronome, puis en accélérant progressivement jusqu'au groove folk-pop du morceau."
 ---
 
 ## Qui est Claudio Capéo?

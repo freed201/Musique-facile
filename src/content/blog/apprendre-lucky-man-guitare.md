@@ -44,6 +44,13 @@ relatedLinks:
     url: "/blog/apprendre-chasing-cars-guitare"
     description: "Apprenez cette ballade rock avec des accords suspendus."
 instrument: "guitare"
+faqs:
+  - question: "Lucky Man de The Verve est-elle facile à la guitare ?"
+    answer: "Oui, c'est un morceau accessible : 5 accords, pas de capo, et une difficulté de 2/5. Son atout pour progresser, ce sont les accords suspendus Dsus2 et Asus2, qui donnent cette couleur aérée et contemplative tout en étant faciles à plaquer. Un excellent choix pour un débutant qui veut élargir son répertoire Britpop."
+  - question: "Faut-il un capo pour jouer Lucky Man ?"
+    answer: "Non, aucun capo n'est nécessaire. Les 5 accords se jouent à vide, ce qui simplifie l'apprentissage. Le morceau, tiré de l'album Urban Hymns (1997) de The Verve, se prête bien au jeu en arpèges sur les couplets, avant d'ouvrir en strumming sur le refrain."
+  - question: "Que sont les accords suspendus de Lucky Man ?"
+    answer: "Le morceau utilise Dsus2 et Asus2, des accords « suspendus » où la tierce est remplacée par une seconde. Ils sonnent plus ouverts et flottants qu'un accord majeur classique, et collent parfaitement à l'ambiance introspective de la chanson de Richard Ashcroft. Bonne nouvelle : ils sont aussi faciles, voire plus, que les accords de base."
 ---
 ## Présentation de l’artiste et du morceau
 

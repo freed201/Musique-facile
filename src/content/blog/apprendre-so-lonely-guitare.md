@@ -47,6 +47,13 @@ relatedLinks:
     url: "/blog/apprendre-stand-by-me-guitare"
     description: "Une ballade soul avec une rythmique groove."
 instrument: "guitare"
+faqs:
+  - question: "Quels accords pour jouer So Lonely de The Police ?"
+    answer: "Seulement 4 accords, joués en boucle, avec un capo en case 5. Sortie en 1978, « So Lonely » mélange rock et reggae : la même grille tourne sur le couplet (skank reggae) et le refrain (rock). C'est ce qui en fait un bon morceau pour travailler le contraste entre deux feels rythmiques."
+  - question: "Pourquoi mettre un capo case 5 sur So Lonely ?"
+    answer: "Le capo en case 5 place les 4 accords ouverts dans la tonalité originale de The Police et facilite le jeu tout en haut du manche. Tu gardes des formes simples, ce qui te permet de te concentrer sur le vrai défi du morceau : alterner le rythme reggae retenu du couplet et le rythme rock plus appuyé du refrain."
+  - question: "So Lonely est-elle difficile à la guitare ?"
+    answer: "Difficulté 3/5 : les 4 accords sont simples, mais le morceau demande de gérer deux ambiances rythmiques (reggae sur les couplets, rock sur les refrains). C'est un excellent exercice de main droite. Travaille séparément les deux rythmiques avant de les enchaîner."
 ---
 
 ## Le Contexte Historique et Artistique de "So Lonely"

@@ -14,12 +14,19 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-03-14"
-dateModified: "2026-02-04"
+dateModified: "2026-06-06"
 
 meta: "Découvre un plan de travail efficace pour progresser rapidement au piano. Exercices, organisation des séances et conseils pour apprendre plus vite et mieux."
 keywords: "progresser rapidement au piano,plan de travail piano,routine piano débutant,exercices piano efficace,organisation pratique piano"
 instrument: "piano"
 
+faqs:
+  - question: "Comment organiser un plan de travail pour progresser au piano ?"
+    answer: "Structure chaque séance : un échauffement, puis du travail technique ciblé (gammes, accords), un morceau en cours, et un temps de plaisir pour finir. Répartis sur la semaine en alternant les objectifs (lecture, technique, interprétation). Un débutant peut viser 15 à 30 minutes par jour : la régularité prime sur la durée."
+  - question: "Combien de temps pratiquer le piano par jour pour progresser ?"
+    answer: "Pour un débutant, 15 à 30 minutes par jour suffisent à condition d'être régulier. Mieux vaut des séances courtes et fréquentes qu'une longue séance hebdomadaire. L'important est de pratiquer avec un objectif clair à chaque fois, plutôt que de jouer longtemps sans direction précise."
+  - question: "À quoi ressemble une séance de piano type ?"
+    answer: "Une séance efficace alterne quatre temps : échauffement des doigts, travail technique ciblé sur une difficulté précise, application dans un morceau réel, puis un moment de plaisir (rejouer un passage qu'on aime). Ce découpage maintient la motivation tout en garantissant un vrai travail de fond à chaque session."
 ---
 <!-- HTML -->
  <div class="modern-menu">
@@ -106,10 +113,10 @@ instrument: "piano"
     }
   </style>
 
-## **Tu veux t’améliorer au piano sans perdre de temps ?**  
-Avoir **une bonne organisation**, c’est la clé pour **progresser efficacement**. Mais comment s’entraîner sans se disperser ?  
+## **Un plan de travail au piano : la fin du « je joue au hasard »**  
+Le vrai problème de la plupart des débutants, ce n'est pas le manque de temps : c'est le manque de cap. On s'assoit, on joue un peu de tout, et on tourne en rond.  
 
-Voici **un plan de travail complet** avec **des séances types** pour structurer ton apprentissage et progresser au mieux.  
+Voici un plan concret — séances types et planning sur la semaine — pour que chaque minute au clavier serve vraiment à quelque chose.  
 
 ---
 

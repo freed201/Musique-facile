@@ -211,9 +211,9 @@ Lorsque vous jouez du piano, vous activez simultanément presque toutes les zone
 
 ### **Des Études Scientifiques qui Confirment les Bienfaits**
 
-Des chercheurs ont démontré que **les pianistes développent plus facilement leur capacité à résoudre des problèmes complexes et à organiser leurs pensées de manière structurée**.
+Plusieurs travaux en neurosciences suggèrent que **la pratique régulière du piano renforce les capacités d'organisation, de concentration et de coordination**.
 
-Certaines études ont même montré que jouer du piano régulièrement :
+Selon ces recherches, jouer du piano régulièrement pourrait :
 - ✅ Augmente la matière grise dans le cerveau
 - ✅ Améliore les connexions entre les deux hémisphères cérébraux
 - ✅ Retarde le déclin cognitif lié à l'âge
@@ -230,7 +230,7 @@ Besoin d’un moment de calme après une journée bien chargée ? Le piano est t
 **Jouer un morceau détend, vide la tête et booste la créativité.**  
 
 <div class="info">
-<b>Des chercheurs ont prouvé que la musique active des zones du cerveau liées aux émotions positives.</b>  
+<b>Les recherches en neurosciences montrent que la musique active des zones du cerveau liées aux émotions positives.</b>  
 <br>  
 <b>Et quand tu joues, ton corps libère de la dopamine et de la sérotonine</b>, les hormones du bonheur.  
 <br>  

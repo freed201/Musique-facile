@@ -4,7 +4,7 @@ title: "Apprendre à Jouer Votre Première Chanson à 3 Accords"
 description: "Un guide pas à pas pour jouer une première chanson à la guitare avec trois accords, sans théorie compliquée, et gagner vite en assurance en débutant."
 meta: "Apprenez à jouer votre première chanson à la guitare avec seulement trois accords. Idéal pour les débutants souhaitant progresser rapidement et sans efforts."
 keywords: "chanson 3 accords guitare, jouer guitare débutant, accords guitare faciles, apprendre guitare adulte"
-author: "Musique Facile"
+author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/apprendre-jouer-chanson-trois-accords-guitare-debutants.webp"
@@ -27,6 +27,13 @@ schemaType: "BlogPosting"
 instrument: "guitare"
 level: "débutant"
 category: "pratique"
+faqs:
+  - question: "Quels sont les 3 accords pour jouer sa première chanson ?"
+    answer: "Le trio le plus rentable pour débuter est G, C et D (sol, do, ré) : trois accords ouverts qui permettent de jouer des centaines de chansons. Une autre combinaison très utile est Em, C, G. Une fois ces trois accords et leurs transitions maîtrisés, un immense répertoire s'ouvre à toi."
+  - question: "Combien de temps pour jouer une chanson à 3 accords ?"
+    answer: "En pratiquant 10 à 15 minutes par jour, la plupart des débutants jouent une première chanson à 3 accords en une à deux semaines. La clé est de travailler les transitions entre accords lentement et régulièrement, sans chercher la vitesse : la fluidité vient avec la répétition."
+  - question: "Quelles chansons peut-on jouer avec seulement 3 accords ?"
+    answer: "Énormément ! Des classiques comme « Stand by Me », « What's Up », « J'veux du Soleil » ou « Knockin' on Heaven's Door » se jouent avec trois accords. C'est tout l'intérêt de débuter ainsi : peu d'efforts techniques, mais déjà un vrai répertoire pour s'accompagner en chantant."
 ---
 **Choisir les Bons Accords pour Commencer**
 Commencer à gratter la guitare, c'est un peu comme apprendre à faire du vélo. On commence doucement, et step by step, ça devient naturel. Pour les débutants, les accords **G**, **C**, **D**, ou **Em**, **C**, **D** sont d'une simplicité déconcertante. Pourquoi ? Parce qu'ils demandent peu de mouvements de doigts. Franchement, le top pour ne pas se décourager dès le début !

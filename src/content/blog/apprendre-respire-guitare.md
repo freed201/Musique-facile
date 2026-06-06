@@ -48,6 +48,13 @@ relatedLinks:
     url: "/blog/apprendre-un-autre-monde-guitare"
     description: "Le rock français engagé des années 80."
 instrument: "guitare"
+faqs:
+  - question: "Respire de Mickey 3D est-elle facile à la guitare ?"
+    answer: "Oui, c'est un morceau accessible aux débutants : 6 accords simples et une difficulté de 2/5, à un tempo modéré (97 BPM). Cet hymne écologique de 2003 repose sur une rythmique régulière, idéale pour s'entraîner aux changements d'accords tout en chantant son refrain devenu culte."
+  - question: "De quoi parle la chanson Respire de Mickey 3D ?"
+    answer: "Sortie en 2003, « Respire » est une chanson engagée et ironique sur l'écologie et la pollution, qui invite à respirer pendant qu'il en est encore temps. Son ton à la fois grinçant et entraînant en a fait un classique de la chanson française. Comprendre ce message aide à l'interpréter avec la bonne énergie."
+  - question: "Combien de temps pour apprendre Respire à la guitare ?"
+    answer: "Avec ses 6 accords accessibles et son rythme régulier, un débutant motivé peut jouer une version correcte en quelques jours à deux semaines, en pratiquant 10 à 15 minutes par jour. Commence par enchaîner les accords lentement, puis ajoute le chant une fois les transitions fluides."
 ---
 
 ## Mickey 3D : Entre Engagement et Créativité

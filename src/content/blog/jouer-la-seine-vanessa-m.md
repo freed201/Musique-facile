@@ -42,6 +42,13 @@ relatedLinks:
     url: "/blog/jouer-hallelujah-jeff-buckley-guitare"
     description: "Une autre ballade romantique et touchante."
 instrument: "guitare"
+faqs:
+  - question: "Quels accords pour jouer La Seine de Vanessa Paradis et -M- ?"
+    answer: "Le morceau utilise 8 accords avec un capo en case 5, pour une difficulté de 4/5. Tiré du film « Un monstre à Paris » (2011), ce duo poétique au tempo très lent (55 BPM) demande de la précision et de la délicatesse plus que de la vitesse."
+  - question: "La Seine est-elle difficile à la guitare ?"
+    answer: "C'est un morceau plutôt intermédiaire à avancé (4/5) : 8 accords, un capo en case 5 et une rythmique tout en finesse. Le tempo lent aide, mais la richesse de la grille demande du travail. Procède par petits segments et soigne chaque transition pour rendre le charme jazzy du morceau."
+  - question: "Faut-il un capo pour jouer La Seine ?"
+    answer: "Oui, place le capo en case 5 pour coller à la tonalité du duo Vanessa Paradis et -M-. Le capo permet de garder des formes d'accords jouables malgré une tonalité qui sonne haut. Avec un tempo de 55 BPM, tu as le temps de placer proprement chacun des 8 accords."
 ---
 ### Plongée dans l'Univers de "La Seine"
 

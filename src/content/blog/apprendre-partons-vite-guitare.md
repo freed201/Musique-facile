@@ -42,6 +42,13 @@ relatedLinks:
     url: "/blog/apprendre-un-autre-monde-guitare"
     description: "Le rock français énergique des années 80."
 instrument: "guitare"
+faqs:
+  - question: "Quels accords pour jouer Partons Vite de Kaolin ?"
+    answer: "Le morceau utilise 7 accords avec un capo en case 3, pour une difficulté de 2/5. Ce classique du rock français des années 2000 (album Mélanger les couleurs) reste accessible aux débutants motivés : le capo place les accords dans des formes confortables et facilite les transitions."
+  - question: "Faut-il un capo pour Partons Vite ?"
+    answer: "Oui, place le capo en case 3 pour retrouver la tonalité originale de Kaolin et chanter dans la bonne hauteur. Tu gardes des formes d'accords ouvertes, simplement transposées plus haut. C'est ce qui rend ce morceau poétique et mélodieux agréable à jouer même quand on débute."
+  - question: "Partons Vite est-elle adaptée aux débutants ?"
+    answer: "Oui, avec une difficulté de 2/5 et un tempo modéré (98 BPM), c'est un bon morceau pour progresser. L'enjeu principal est la fluidité des enchaînements entre les 7 accords. Travaille d'abord lentement chaque transition, puis monte progressivement au tempo réel."
 ---
 Originaire de Montluçon, le groupe Kaolin s'est formé dans les années 2000. Composé par notamment Ludovic Rocca, Guillaume Cantillon, et Oliver Valty, le groupe s'est rapidement distingué par son approche unique de la musique rock française. Le parcours de Kaolin est marqué par une recherche constante de la mélodie parfaite, alliée à des textes qui résonnent profondément avec leur auditoire. Le groupe s'est souvent inspiré des réalités quotidiennes et des sentiments humains pour composer des morceaux émouvants et authentiques. Avec "Partons Vite", Kaolin a su capturer l'essence même de leur musique : émotive, réfléchie et engageante.
 

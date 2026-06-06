@@ -106,7 +106,7 @@ Jouer du ukulélé a des effets prouvés sur la santé mentale :
 - **Renforce la confiance** : Satisfaction de jouer rapidement
 - **Crée du lien social** : Communauté accueillante
 
-Pour approfondir, lis [L'effet antidépresseur du ukulélé (étude scientifique)](/blog/effet-antidepresseur-du-ukulele).
+Pour approfondir, lis [Ukulélé et santé mentale : ce que dit vraiment la science](/blog/effet-antidepresseur-du-ukulele).
 
 ---
 

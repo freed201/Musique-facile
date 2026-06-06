@@ -4,7 +4,7 @@ title: "L'Origine et l'Histoire Fascinante de l'Ukulélé"
 description: "Découvre l’origine et l’histoire de l’ukulélé, ses racines portugaises, son adoption à Hawaï et quelques anecdotes marquantes sur son évolution."
 meta: "Découvrez l'origine étonnante de l'ukulélé, son histoire fascinante et des anecdotes insolites qui le font vibrer dans le monde entier. Un voyage musical entre les îles hawaïennes et l'âme du Portugal !"
 keywords: "origine hawaïenne, anecdote insolite, évolution de l'instrument"
-author: "Musique Facile"
+author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/origine-histoire-anecdotes-ukulele.webp"
@@ -27,6 +27,13 @@ schemaType: "BlogPosting"
 instrument: "ukulele"
 level: "intermédiaire"
 category: "pratique"
+faqs:
+  - question: "D'où vient l'ukulélé ?"
+    answer: "L'ukulélé est né à Hawaï dans les années 1880, dérivé d'instruments portugais (le machete et le braguinha) apportés par des immigrants de l'île de Madère. Les Hawaïens l'ont adopté et transformé, et il est rapidement devenu un symbole de la culture insulaire avant de conquérir le monde entier."
+  - question: "Que signifie le mot ukulélé ?"
+    answer: "« Ukulélé » est un mot hawaïen souvent traduit par « puce sauteuse », en référence au mouvement rapide des doigts du joueur sur les cordes. L'instrument doit son nom à son adoption enthousiaste à Hawaï à la fin du XIXe siècle, où il est vite devenu indissociable de la musique locale."
+  - question: "Comment l'ukulélé est-il devenu populaire dans le monde ?"
+    answer: "Après son essor à Hawaï, l'ukulélé s'est diffusé aux États-Unis au début du XXe siècle, notamment lors d'expositions universelles, puis dans la pop culture. Des artistes plus récents comme Israel Kamakawiwoʻole, Jason Mraz ou Vance Joy ont relancé son succès, en faisant l'instrument accessible et joyeux qu'on connaît aujourd'hui."
 ---
 # L'Histoire de l'Ukulélé
 

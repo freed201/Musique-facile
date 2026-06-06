@@ -14,6 +14,13 @@ keywords: "pratique délibérée musique, apprendre plus vite musique, méthode 
 
 conclusion: |
   Si tu mets en place la pratique délibérée, tes progrès seront plus rapides et plus visibles. Chaque session deviendra plus efficace, et surtout, tu prendras plus de plaisir à jouer. Alors, prends un moment pour tester cette méthode et partage ton expérience avec nous. Retrouve encore plus de conseils et de formations sur musique-facile.fr !
+faqs:
+  - question: "Qu'est-ce que la pratique délibérée en musique ?"
+    answer: "C'est une méthode de travail ciblée, théorisée par le psychologue Anders Ericsson. Au lieu de rejouer ce qu'on sait déjà, on identifie un point faible précis et on le travaille intensément, lentement, avec un objectif clair et un retour sur sa progression. C'est la qualité de l'attention, pas le temps passé, qui fait progresser."
+  - question: "Pourquoi je stagne malgré beaucoup d'heures de pratique ?"
+    answer: "Souvent parce qu'on « joue » au lieu de « pratiquer » : on répète ce qu'on maîtrise déjà, dans sa zone de confort. La progression vient quand on cible délibérément ce qui coince, qu'on ralentit pour le corriger, puis qu'on accélère. Beaucoup d'heures sans objectif précis donnent peu de résultats."
+  - question: "Comment structurer une séance de pratique délibérée ?"
+    answer: "Fixe un objectif unique et précis (par exemple une transition d'accords), isole le passage difficile, joue-le lentement en cherchant la propreté, répète avec des pauses, puis augmente le tempo progressivement. Termine par quelque chose de plaisant. Une séance courte mais bien ciblée vaut bien plus qu'une longue séance sans cap."
 ---
 
 # 🎯 La Pratique Délibérée – Mieux Apprendre

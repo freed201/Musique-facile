@@ -4,7 +4,7 @@ title: "Comment Jouer Imagine de John Lennon au Piano"
 description: "Apprends à jouer Imagine au piano avec une version simple, des repères clairs et des conseils pour mettre l’émotion en place, même débutant."
 meta: "Apprenez à jouer Imagine de John Lennon au piano avec des méthodes fidèles et simplifiées, adaptées aux débutants. Découvrez l'histoire du morceau, les techniques de Lennon, et progressez efficacement avec nos ressources gratuites."
 keywords: "piano débutant, apprendre Imagine, tuto Imagine piano, John Lennon piano, gimmick main gauche, piano facile, apprendre le piano, Imagine version simple, notes Imagine piano, cours de piano gratuit, piano pour débutants, apprendre un morceau, musique pacifiste, piano main gauche, Yoko Ono, Phil Spector, Beatles, piano émotion, jouer au feeling, progression piano, formation piano gratuite"
-author: "Musique Facile"
+author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/comment-jouer-imagine-john-lennon-piano.webp"
@@ -27,6 +27,13 @@ schemaType: "BlogPosting"
 instrument: "piano"
 level: "débutant"
 category: "pratique"
+faqs:
+  - question: "Imagine de John Lennon est-elle facile au piano ?"
+    answer: "Oui, c'est l'un des morceaux les plus accessibles pour débuter le piano. L'accompagnement repose sur un motif simple à la main droite (un balancement C – Cmaj7 – F) et des accords de base. Le tempo est lent, ce qui laisse le temps de bien coordonner les deux mains."
+  - question: "Quels accords pour jouer Imagine au piano ?"
+    answer: "Les couplets tournent autour de Do (C), Cmaj7 et Fa (F) ; le refrain ajoute notamment Fa, Sol (G), La mineur (Am) et un Mi (E7). Ce sont des accords fondamentaux que tout pianiste débutant gagne à connaître, car on les retrouve dans des dizaines de chansons."
+  - question: "Comment débuter Imagine au piano quand on est débutant ?"
+    answer: "Commence par la main droite seule, en jouant le motif C – Cmaj7 – F lentement, puis ajoute la main gauche qui pose simplement la fondamentale de chaque accord. Une fois les deux mains coordonnées au ralenti, monte progressivement le tempo. La beauté du morceau vient de la simplicité, pas de la vitesse."
 ---
 **L'Histoire Derrière Imagine**
 Imagine, c'est tout un univers à elle seule. Ah, John Lennon, quel artiste ! On va se concentrer sur ce fameux `gimmick` de la **main gauche**. Vous savez, c'est cette vibe qui vous accroche tout de suite, qui définit vraiment l'identité de ce morceau.

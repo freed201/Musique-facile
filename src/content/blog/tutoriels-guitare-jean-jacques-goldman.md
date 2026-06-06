@@ -23,6 +23,13 @@ videos:
     url: "https://youtu.be/fTH2y1mhEoU"
 instrument: "guitare"
 
+faqs:
+  - question: "Quelle chanson de Jean-Jacques Goldman apprendre à la guitare ?"
+    answer: "« On ira » et « À nos actes manqués » sont d'excellents points de départ : leurs accords sont accessibles et leurs mélodies très connues, ce qui facilite l'apprentissage. Commence par celle que tu connais le mieux : tu caleras plus facilement les changements d'accords en chantant par-dessus."
+  - question: "Les chansons de Goldman sont-elles accessibles aux débutants ?"
+    answer: "Oui, en grande partie. Goldman construit beaucoup de ses titres autour d'accords ouverts et de progressions efficaces, ce qui les rend abordables pour un débutant motivé. La difficulté tient surtout à la régularité de la rythmique et à l'interprétation, plutôt qu'à la complexité technique."
+  - question: "Pourquoi apprendre du Jean-Jacques Goldman à la guitare ?"
+    answer: "Parce que son répertoire est à la fois immensément populaire et bien construit pour la guitare d'accompagnement. Ces chansons sont parfaites à jouer en groupe ou en famille, et elles font travailler des enchaînements d'accords que l'on retrouve dans toute la chanson française."
 ---
 
 ## 🎤 Une Carrière Remarquable  

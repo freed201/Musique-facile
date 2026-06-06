@@ -15,6 +15,13 @@ siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 schemaType: "BlogPosting"
 prod: "Y"
 keywords: "10 minutes par jour musique, combien de temps pratiquer instrument, régularité pratique musicale, sommeil apprentissage musique, pratique quotidienne guitare piano"
+faqs:
+  - question: "Pourquoi 10 minutes par jour valent-elles mieux que 2 heures le dimanche ?"
+    answer: "Parce que la progression musicale repose sur la répétition espacée et le sommeil. Chaque nuit, ton cerveau consolide ce que tu as travaillé dans la journée : 7 sessions courtes déclenchent 7 consolidations, là où une seule grosse session n'en déclenche qu'une. La régularité crée des automatismes durables, alors que l'intensité ponctuelle s'oublie vite."
+  - question: "Le sommeil aide-t-il vraiment à progresser en musique ?"
+    answer: "Oui. Une étude célèbre de Walker et Stickgold (Harvard, 2002, revue Neuron) a montré que des participants entraînés sur une séquence au clavier progressaient après une nuit de sommeil, sans avoir rejoué. Des travaux plus récents ont revu l'ampleur de l'effet à environ 5-7 %, mais il est bien réel : dormir consolide la mémoire motrice."
+  - question: "Combien de jours par semaine faut-il pratiquer son instrument ?"
+    answer: "L'idéal est de pratiquer un peu chaque jour, même 10 minutes, plutôt que de tout concentrer en une fois. L'objectif n'est pas la performance d'une session, mais la création d'un réflexe : des gestes répétés quotidiennement finissent par devenir automatiques. La constance bat toujours l'intensité ponctuelle."
 ---
 
 # Pourquoi 10 minutes par jour valent mieux que 2 heures le dimanche

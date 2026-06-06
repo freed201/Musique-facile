@@ -4,7 +4,7 @@ title: "TikTok et Musique : Pourquoi Ça Ne Suffit Pas"
 description: "Pourquoi les méthodes ultra courtes ne suffisent pas : comprendre l'apprentissage musical adulte et construire des bases solides."
 meta: "Découvrez pourquoi les méthodes d'apprentissage TikTok sont peu adaptées aux adultes et comment utiliser les mémoires pour apprendre efficacement la musique."
 keywords: "mémoire procédurale, mémoire déclarative, pédagogie musicale, apprentissage adulte, TikTok, neurosciences, développement cognitif, gestes, compréhension, âge d’apprentissage, formation piano gratuite, pédagogie enfant, pédagogie adulte"
-author: "Musique Facile"
+author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/pourquoi-tiktok-ne-peut-pas-vous-apprendre-la-musique.webp"
@@ -19,6 +19,13 @@ schemaType: "BlogPosting"
 instrument: "général"
 level: "intermédiaire"
 category: "pratique"
+faqs:
+  - question: "Peut-on vraiment apprendre la musique avec TikTok ?"
+    answer: "TikTok peut donner des idées et de l'inspiration, mais ne suffit pas à apprendre réellement un instrument. Les vidéos courtes reposent sur l'imitation rapide, sans progression structurée ni correction des erreurs. On reproduit un geste isolé sans comprendre ni construire les bases nécessaires pour jouer durablement."
+  - question: "Pourquoi l'apprentissage par imitation a-t-il des limites ?"
+    answer: "Parce qu'imiter un geste vu en vidéo ne crée pas une compréhension solide. On mémorise un extrait isolé, mais sans la logique d'ensemble (rythme, structure, technique), on ne peut pas l'appliquer à d'autres morceaux ni corriger ses erreurs. Les adultes, en particulier, ont besoin de comprendre pour vraiment progresser."
+  - question: "Quelle méthode adopter plutôt que les vidéos courtes ?"
+    answer: "Une méthode progressive et structurée : des bases solides, des objectifs clairs, une pratique régulière et un retour sur ses erreurs. Les vidéos courtes peuvent compléter ce cadre pour la motivation, mais elles ne le remplacent pas. Apprendre en comprenant ce qu'on joue mène bien plus loin que la simple imitation."
 ---
 # Comprendre la Mémoire Procédurale et Déclarative chez les Enfants (et les Adultes)
 

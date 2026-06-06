@@ -42,6 +42,13 @@ relatedLinks:
     url: "/blog/apprendre-smells-like-teen-spirit-guitare"
     description: "Le classique grunge des années 90."
 instrument: "guitare"
+faqs:
+  - question: "Peut-on jouer Sweet Dreams des Eurythmics à la guitare ?"
+    answer: "Oui. À l'origine, « Sweet Dreams » (1983) est construite autour d'un riff de synthétiseur, mais elle se transpose très bien à la guitare avec 5 accords. La clé est de recréer la pulsation hypnotique du riff en gardant une rythmique régulière et obstinée, façon machine."
+  - question: "Sweet Dreams est-elle adaptée aux débutants ?"
+    answer: "C'est un morceau de niveau intermédiaire (3/5). Les 5 accords sont abordables, mais comme il n'y a pas de vraie partie de guitare à l'origine, tout repose sur ta capacité à recréer le groove du synthé avec un strumming régulier et marqué. Un bon exercice de constance rythmique."
+  - question: "Quelle est la particularité de Sweet Dreams à la guitare ?"
+    answer: "Sa particularité, c'est que le morceau repose sur un motif répétitif de synthé en tonalité mineure, pas sur des accords grattés. À la guitare, tu imites cette boucle obsédante : l'enjeu n'est pas la difficulté des accords, mais la régularité métronomique qui crée le côté hypnotique du tube des Eurythmics."
 ---
 ## Eurythmics : La Naissance d'un Duo Iconique
 

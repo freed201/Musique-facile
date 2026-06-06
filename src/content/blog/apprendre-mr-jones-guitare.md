@@ -44,6 +44,13 @@ relatedLinks:
     url: "/blog/apprendre-wonderwall-guitare"
     description: "Le hit Britpop incontournable à la guitare."
 instrument: "guitare"
+faqs:
+  - question: "Combien d'accords faut-il pour jouer Mr. Jones ?"
+    answer: "Seulement 5 accords, sans capo, pour une difficulté de 3/5. « Mr. Jones » des Counting Crows (album August and Everything After, 1993) est donc accessible aux débutants un peu avancés. Sa rythmique entraînante à 102 BPM en fait un morceau agréable à travailler pour fluidifier ses changements d'accords."
+  - question: "Mr. Jones convient-elle aux débutants ?"
+    answer: "Oui, c'est un bon morceau pour un débutant motivé : 5 accords seulement, pas de capo, et un rythme régulier. Le défi se situe surtout dans la régularité du strumming sur la durée. C'est un classique du rock alternatif des années 90, dans une veine plus mélodique que le grunge de l'époque."
+  - question: "De quoi parle la chanson Mr. Jones ?"
+    answer: "Écrite par Adam Duritz, elle est née d'une soirée entre amis à rêver de célébrité, en discutant avec un certain Mr. Jones. Elle parle du désir de reconnaissance et d'appartenance, des thèmes universels. Garder cette intention en tête aide à interpréter le morceau avec la bonne sincérité."
 ---
 subtilités, et plongeons dans ce qui fait de "Mr Jones" une chanson si spéciale.
 

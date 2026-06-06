@@ -42,6 +42,13 @@ relatedLinks:
     url: "/blog/jouer-lopportuniste-dutronc-guitare"
     description: "Une chanson française satirique et accessible."
 instrument: "guitare"
+faqs:
+  - question: "Combien d'accords pour jouer J'veux du Soleil ?"
+    answer: "Seulement 3 accords ! « J'veux du Soleil » d'Au P'tit Bonheur est l'un des morceaux les plus simples du répertoire, parfait pour une première chanson. La grille se répète et le refrain est fait pour être repris en chœur. Le petit défi est le tempo entraînant (108 BPM)."
+  - question: "J'veux du Soleil est-elle une bonne première chanson ?"
+    answer: "Oui, avec seulement 3 accords et une structure répétitive, c'est un excellent choix pour un grand débutant. Tu peux jouer le morceau entier dès que tu maîtrises les 3 accords et leurs transitions. Son énergie joyeuse en fait un incontournable des soirées et des feux de camp."
+  - question: "Quelle rythmique pour J'veux du Soleil ?"
+    answer: "Une rythmique simple et régulière (coups vers le bas, puis bas-haut) suffit largement. L'important est de garder un strumming dynamique et constant pour porter l'énergie festive du morceau. Commence par des coups vers le bas, puis ajoute les coups vers le haut quand tu es à l'aise."
 ---
 
 ## Le Contexte Ironique et Joyeux de "J'veux du Soleil"

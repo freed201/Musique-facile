@@ -47,6 +47,13 @@ relatedLinks:
     url: "/blog/apprendre-where-is-my-mind-guitare"
     description: "Un classique du rock alternatif des années 80."
 instrument: "guitare"
+faqs:
+  - question: "Where Did You Sleep Last Night est-elle difficile à la guitare ?"
+    answer: "C'est un morceau de niveau avancé : 6 accords et, surtout, une intensité dramatique à doser. La version culte de Nirvana (MTV Unplugged, 1993) est une reprise d'un vieux blues folk popularisé par Lead Belly. Le défi n'est pas que technique : c'est de gérer la montée d'émotion, du murmure au cri."
+  - question: "Qui a écrit Where Did You Sleep Last Night ?"
+    answer: "C'est un chant traditionnel américain (aussi connu sous le titre « In the Pines »), popularisé par Lead Belly dans les années 1940. Nirvana en a livré une version bouleversante lors de son concert MTV Unplugged in New York en 1993, devenue l'une des interprétations les plus célèbres du groupe."
+  - question: "Comment rendre l'intensité de la version de Nirvana ?"
+    answer: "Tout est dans la dynamique : commence les couplets de façon retenue et dépouillée, puis ouvre brutalement sur les passages les plus intenses, comme Kurt Cobain le fait. Travaille ce contraste entre douceur et explosion : c'est lui, plus que les accords, qui donne au morceau sa force tragique."
 ---
 
 ### L'Histoire Derrière "Where Did You Sleep Last Night"

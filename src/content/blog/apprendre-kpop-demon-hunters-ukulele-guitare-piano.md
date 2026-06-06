@@ -25,6 +25,13 @@ conclusion: |
 meta: "Tutoriels ukulélé, guitare et piano pour Briller, Golden et Soda Pop de K-pop Demon Hunters. Apprenez les tubes Netflix qui cartonnent sur Spotify avec plus de 30 millions de streams."
 keywords: "K-pop Demon Hunters, Briller, Golden, Soda Pop, tutoriel ukulélé, apprendre ukulélé, Netflix, HUNTR/X, Saja Boys, musique K-pop, tutoriel guitare, tutoriel piano"
 
+faqs:
+  - question: "Peut-on jouer les chansons de K-pop Demon Hunters à l'ukulélé ?"
+    answer: "Oui, et c'est même l'un de leurs grands atouts. Si le chant de « Briller/Golden » est extrêmement difficile, jouer les accords est tout à fait accessible. « Soda Pop » est particulièrement adaptée aux débutants à l'ukulélé : les accords sont simples et la progression se répète, ce qui facilite l'apprentissage."
+  - question: "Quelles chansons de K-pop Demon Hunters apprendre ?"
+    answer: "Les trois tubes du film Netflix sont « Briller » (« Golden » en version internationale) et « Soda Pop ». « Soda Pop », l'hymne des Saja Boys, est la plus facile pour débuter. « Briller/Golden » est magnifique mais son chant demande une technique vocale très avancée — à la guitare ou à l'ukulélé, en revanche, les accords restent abordables."
+  - question: "Les mêmes accords fonctionnent-ils à la guitare, au piano et à l'ukulélé ?"
+    answer: "Oui. Les progressions d'accords de ces morceaux sont les mêmes pour les trois instruments, ce qui est typique de la structure harmonique de la K-pop. À la guitare, un capo en case 2 ou 3 facilite les transitions ; à l'ukulélé, reste en accordage standard GCEA."
 ---
 
 ## **K-pop Demon Hunters : Quand Netflix Crée des Stars Virtuelles**
