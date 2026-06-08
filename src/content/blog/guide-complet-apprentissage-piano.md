@@ -534,11 +534,11 @@ Les cours en ligne sont devenus une option crédible pour 75% des débutants adu
 **Pour débutants complets :**
 
 **Piano Facile (notre méthode)**
-- 24€/mois
+- Paiement unique, accès à vie (pas d'abonnement)
 - Méthode 100% français pour adultes
 - Pas de solfège obligatoire au début
 - Accompagnement personnalisé par Fred
-- [Essai gratuit 7 jours](/cours/cours-de-piano)
+- [Garantie 15 jours satisfait ou remboursé](/cours/cours-de-piano)
 
 **Simply Piano (Joytunes)**
 - 15€/mois

@@ -24,39 +24,39 @@ const defaultSteps: Step[] = [
   {
     number: 1,
     title: "Choisissez votre instrument",
-    description: "Guitare, piano, ukulele ou solfege : chaque parcours est concu pour les debutants complets.",
+    description: "Guitare, piano, ukulélé ou solfège : chaque parcours est conçu pour les débutants complets.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`
   },
   {
     number: 2,
     title: "Suivez le parcours progressif",
-    description: "Des videos HD pas-a-pas, organisees du plus simple au plus avance. Vous jouez des la premiere lecon.",
+    description: "Des vidéos HD pas à pas, organisées du plus simple au plus avancé. Vous jouez dès la première leçon.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`
   },
   {
     number: 3,
-    title: "Pratiquez a votre rythme (15 min/jour)",
-    description: "Pas besoin de bloquer des heures. 15 minutes par jour suffisent pour progresser concretement.",
+    title: "Pratiquez à votre rythme (15 min/jour)",
+    description: "Pas besoin de bloquer des heures. 15 minutes par jour suffisent pour progresser concrètement.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>`
   },
   {
     number: 4,
-    title: "Jouez vos morceaux des la semaine 1",
-    description: "92% de nos eleves jouent leur premiere chanson en 5 jours. Vous serez le prochain.",
+    title: "Jouez vos morceaux dès la semaine 1",
+    description: "92% de nos élèves jouent leur première chanson en 5 jours. Vous serez le prochain.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`
   }
 ];
 
 const {
-  title = "La methode qui a forme 80 000 eleves",
-  subtitle = "Un parcours simple, structure et prouve — en 4 etapes.",
+  title = "La méthode qui a formé 80 000 élèves",
+  subtitle = "Un parcours simple, structuré et prouvé — en 4 étapes.",
   steps = defaultSteps,
   ctaText = "Je commence maintenant",
   ctaUrl = "/cours"
 } = Astro.props;
 ---
 
-<section class="method-section" aria-label="Notre methode en 4 etapes" data-animate="reveal">
+<section class="method-section" aria-label="Notre méthode en 4 étapes" data-animate="reveal">
   <div class="method-container">
     <div class="method-header">
       <h2 class="method-title">{title}</h2>

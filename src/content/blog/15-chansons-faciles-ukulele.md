@@ -31,7 +31,7 @@ category: "pratique"
 
 ## Comment j'ai sélectionné ces 15 chansons
 
-Après **20 ans d'enseignement** et **4 900+ élèves ukulélé formés**, j'ai identifié les critères d'une bonne chanson pour débutant :
+Après **15 ans d'enseignement** et **4 900+ élèves ukulélé formés**, j'ai identifié les critères d'une bonne chanson pour débutant :
 
 ✅ **Maximum 4 accords** (idéalement 2-3 pour commencer)
 ✅ **Tempo lent à modéré** (moins de 120 BPM)

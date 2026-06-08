@@ -67,8 +67,8 @@ teachers:
       photo: "fred.jpg"
       website: "https://jeanmartin-guitare.fr"
       credentials:
-        - "35 ans de pratique"
-        - "20 ans d'enseignement"
+        - "40 ans de pratique"
+        - "15 ans d'enseignement"
         - "Formateur LinkedIn Learning"
         - "Auteur Hal Leonard"
     - firstName: "Benjamin"
