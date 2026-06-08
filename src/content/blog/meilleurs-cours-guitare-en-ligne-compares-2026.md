@@ -247,7 +247,7 @@ JustinGuitar est probablement **la meilleure ressource gratuite** pour apprendre
 
 ## Mon verdict final
 
-Après 20 ans d'enseignement et 80 000+ élèves formés, voici ce que je pense honnêtement :
+Après 15 ans d'enseignement et 80 000+ élèves formés, voici ce que je pense honnêtement :
 
 **Le meilleur cours de guitare en ligne n'est pas le plus cher ni le plus populaire.** C'est celui qui convient à *ton* profil, ton budget, et ton objectif.
 

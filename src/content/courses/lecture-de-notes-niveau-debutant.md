@@ -63,12 +63,12 @@ teachers:
     - firstName: "Fred"
       lastName: "Fieffé"
       subtitle: "Ton professeur de Solfège"
-      description: "Musicien professionnel avec 35 ans de pratique et 13 ans d'enseignement en ligne."
+      description: "Musicien professionnel avec 40 ans de pratique et 13 ans d'enseignement en ligne."
       photo: "fred.jpg"
       website: "https://musique-facile.fr"
       credentials:
-        - "35 ans de pratique"
-        - "20 ans d'enseignement"
+        - "40 ans de pratique"
+        - "15 ans d'enseignement"
         - "Formateur LinkedIn Learning"
         - "Auteur Hal Leonard"
 
