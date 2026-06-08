@@ -57,6 +57,14 @@ export const GET: APIRoute = async () => {
     <lastmod>${formatDate(new Date())}</lastmod>
   </url>
 
+  <!-- Page auteur (E-E-A-T) -->
+  <url>
+    <loc>${baseUrl}/auteur/fred-fieffe/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>${formatDate(new Date())}</lastmod>
+  </url>
+
   <!-- Pages de cours principales -->
   <url>
     <loc>${baseUrl}/cours/</loc>
