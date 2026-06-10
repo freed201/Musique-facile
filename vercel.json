@@ -3,7 +3,16 @@
   "framework": "astro",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "redirects": [],
+  "redirects": [
+    { "source": "/Z1", "destination": "https://school.sebastienzunino.com/test/gmln5", "permanent": true },
+    { "source": "/PENTA", "destination": "https://school.sebastienzunino.com/la-gamme-pentatonique-pour-les-debutants/gmln5", "permanent": true },
+    { "source": "/songbook", "destination": "https://bit.ly/LivreTK", "permanent": true },
+    { "source": "/ete", "destination": "https://ecole.musique-facile.fr/checkout/cart", "permanent": true },
+    { "source": "/vote", "destination": "https://form.typeform.com/to/Xj4zuWiQ?typeform-source=www.foliweb-awards.fr", "permanent": true },
+    { "source": "/IMAGINE", "destination": "https://school.musique-facile.fr/formation-7-jours/", "permanent": true },
+    { "source": "/imagine", "destination": "https://school.musique-facile.fr/formation-7-jours/", "permanent": true },
+    { "source": "/test", "destination": "https://www.musique-facile.fr/abonnement-ecole-de-musique-facile-very-important-musicien/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

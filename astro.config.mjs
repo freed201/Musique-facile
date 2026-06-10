@@ -36,17 +36,12 @@ export default defineConfig({
   site: 'https://musique-facile.fr',
   output: 'hybrid',
 
-  // Redirections 301 (traduites en vraies redirections HTTP par l'adapter Vercel).
-  // Migrées depuis public/_redirects (format Netlify, ignoré par Vercel).
+  // Redirections 301 internes (traduites en vraies redirections HTTP par
+  // l'adapter Vercel). Migrées depuis public/_redirects (format Netlify,
+  // ignoré par Vercel). ATTENTION : les destinations EXTERNES (https://...)
+  // ne fonctionnent pas ici (Astro les traite en chemin relatif) — elles
+  // vivent dans vercel.json > redirects.
   redirects: {
-    // Raccourcis & campagnes
-    '/Z1': 'https://school.sebastienzunino.com/test/gmln5',
-    '/PENTA': 'https://school.sebastienzunino.com/la-gamme-pentatonique-pour-les-debutants/gmln5',
-    '/songbook': 'https://bit.ly/LivreTK',
-    '/ete': 'https://ecole.musique-facile.fr/checkout/cart',
-    '/vote': 'https://form.typeform.com/to/Xj4zuWiQ?typeform-source=www.foliweb-awards.fr',
-    '/IMAGINE': 'https://school.musique-facile.fr/formation-7-jours/',
-    '/imagine': 'https://school.musique-facile.fr/formation-7-jours/',
     '/stage2025': '/stage2026',
 
     // Anciennes pages
