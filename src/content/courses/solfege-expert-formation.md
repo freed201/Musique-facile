@@ -64,7 +64,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "Ton professeur de Solfège"
       description: "Le solfège, c'est passionnant et accessible à tous."
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
         - "40 ans de pratique"
@@ -156,13 +156,13 @@ preuveSociale:
     timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Skilleos"
-      logo: "logo-Skilleos.png"
+      logo: "logo-Skilleos.webp"
       buttonLink: "https://www.skilleos.com/"
     - name: "Hal Leonard"
-      logo: "logo-Hal-Leonard.png"
+      logo: "logo-Hal-Leonard.webp"
       buttonLink: "https://www.halleonard.com/"
     - name: "Arturia"
-      logo: "logo-Arturia.png"
+      logo: "logo-Arturia.webp"
       buttonLink: "https://www.arturia.com/fr"
 
 benefices:

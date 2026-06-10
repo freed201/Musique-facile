@@ -63,7 +63,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "Ton prof d'Ukulélé"
       description: "L'ukulélé, instrument ultime pour jouer : simple, joyeux et toujours beau."
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
         - "40 ans de pratique"
@@ -156,13 +156,13 @@ preuveSociale:
     timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Kala Ukuleles"
-      logo: "logo-Kala.png"
+      logo: "logo-Kala.webp"
       buttonLink: "https://kalabrand.com/"
     - name: "Skilleos"
-      logo: "logo-Skilleos.png"
+      logo: "logo-Skilleos.webp"
       buttonLink: "https://www.skilleos.com/"
     - name: "Anuenue"
-      logo: "logo-anueanue.png"
+      logo: "logo-anueanue.webp"
       buttonLink: "https://www.anuenueusa.com/"
 
 benefices:

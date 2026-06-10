@@ -1,0 +1,42 @@
+---
+/**
+ * ConsentManager.astro
+ * Bannière de consentement cookies (tarteaucitron.js, auto-hébergé dans
+ * /public/vendor/tarteaucitron) conforme CNIL : Google Tag Manager n'est
+ * chargé qu'après consentement explicite du visiteur.
+ *
+ * Remplace l'ancien snippet GTM inline des layouts — ne pas recharger GTM
+ * directement ailleurs.
+ */
+const gtmId = import.meta.env.PUBLIC_GTM_ID || 'GTM-NP758HSC';
+---
+
+<script is:inline src="/vendor/tarteaucitron/tarteaucitron.min.js"></script>
+<script is:inline define:vars={{ gtmId }}>
+  tarteaucitron.init({
+    "privacyUrl": "/politique-confidentialite/",
+    "bodyPosition": "bottom",
+    "hashtag": "#tarteaucitron",
+    "cookieName": "tarteaucitron",
+    "orientation": "bottom",
+    "groupServices": false,
+    "showAlertSmall": false,
+    "cookieslist": false,
+    "showIcon": true,
+    "iconPosition": "BottomLeft",
+    "adblocker": false,
+    "DenyAllCta": true,
+    "AcceptAllCta": true,
+    "highPrivacy": true,
+    "handleBrowserDNTRequest": false,
+    "removeCredit": true,
+    "moreInfoLink": true,
+    "useExternalCss": false,
+    "useExternalJs": false,
+    "mandatory": true,
+    "mandatoryCta": false
+  });
+
+  tarteaucitron.user.googletagmanagerId = gtmId;
+  (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
+</script>

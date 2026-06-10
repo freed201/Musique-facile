@@ -64,7 +64,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "Professeur de guitare"
       description: "Il a toujours une idée, une astuce et un exercice à partager pour bien apprendre et progresser."
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://jeanmartin-guitare.fr"
       credentials:
         - "40 ans de pratique"
@@ -75,19 +75,19 @@ teachers:
       lastName: "Sertelon"
       subtitle: "Coach technique et rythmique"
       description: "Guitariste professionnel et prof passionné, avec toujours le petit mot pour rire."
-      photo: "ben.jpg"
+      photo: "ben.webp"
   guests:
     - name: "Eric Legaud"
       subtitle: "Mr Galago Music"
-      photo: "eric.jpg"
+      photo: "eric.webp"
       website: "https://www.galagomusic.com/"
     - name: "Sébastien Zunino"
       subtitle: "un des meilleurs profs sur internet"
-      photo: "seb.jpeg"
+      photo: "seb.webp"
       website: "https://www.sebastienzunino.com/"
     - name: "Francois d'Optim Guitar"
       subtitle: "Réparation et préparation sur mesure"
-      photo: "francois.jpg"
+      photo: "francois.webp"
       website: "https://optim-guitare.fr/"
 
 timeline:
@@ -193,13 +193,13 @@ preuveSociale:
     timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "PRS Guitars"
-      logo: "logo-PRS.png"
+      logo: "logo-PRS.webp"
       buttonLink: "https://eu.prsguitars.com/"
     - name: "Skilleos"
-      logo: "logo-Skilleos.png"
+      logo: "logo-Skilleos.webp"
       buttonLink: "https://www.skilleos.com/"
     - name: "Eastman Guitars"
-      logo: "logo-Eastman.png"
+      logo: "logo-Eastman.webp"
       buttonLink: "https://www.eastmanguitars.com/"
 
 benefices:

@@ -1,8 +1,8 @@
 ---
 title: "40 Chansons Françaises et Hits Pop-Rock"
 description: "Un guide complet pour apprendre la guitare à travers 40 chansons incontournables. Des tablatures détaillées, des conseils techniques et des astuces pour progresser rapidement."
-ogImage: "/images/livres/CARMF2838.jpg"
-coverImage: "/images/livres/CARMF2838.jpg"
+ogImage: "/images/livres/CARMF2838.webp"
+coverImage: "/images/livres/CARMF2838.webp"
 price: "24,70 €"
 author: "Fred Fieffé"
 datePublished: "2024-01-15"

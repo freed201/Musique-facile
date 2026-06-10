@@ -66,7 +66,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "Ton prof de Guitare"
       description: "Découvrez les secrets du groove et du shuffle à la guitare avec des exercices adaptés."
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
         - "40 ans de pratique"
@@ -157,13 +157,13 @@ preuveSociale:
     timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "PRS Guitars"
-      logo: "logo-PRS.png"
+      logo: "logo-PRS.webp"
       buttonLink: "https://eu.prsguitars.com/"
     - name: "Skilleos"
-      logo: "logo-Skilleos.png"
+      logo: "logo-Skilleos.webp"
       buttonLink: "https://www.skilleos.com/"
     - name: "Eastman Guitars"
-      logo: "logo-Eastman.png"
+      logo: "logo-Eastman.webp"
       buttonLink: "https://www.eastmanguitars.com/"
 
 benefices:

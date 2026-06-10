@@ -65,7 +65,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "votre professeur"
       description: "Multi-instrumentiste, j'écoute chaque note pour former mes nombreux élèves passionnés."
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
         - "40 ans de pratique"
@@ -145,7 +145,7 @@ preuveSociale:
   testimonials:
     - text: "Grâce à cette formation, j'ai découvert comment écouter et reproduire des notes avec précision. Une transformation incroyable !"
       author: "Marie T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-marie.jpg"
+      avatar: "https://ecole.musique-facile.fr/images/avatar-marie.webp"
     - text: "J'avais toujours du mal à improviser. Les exercices sur les intervalles et les rythmes m'ont permis de jouer avec plus de liberté."
       author: "Paul M."
       avatar: "https://ecole.musique-facile.fr/images/avatar-paul.jpg"
@@ -158,13 +158,13 @@ preuveSociale:
     timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Roland"
-      logo: "logo-Roland.png"
+      logo: "logo-Roland.webp"
       buttonLink: "https://www.roland.com/fr/"
     - name: "Hal Leonard"
-      logo: "logo-Hal-Leonard.png"
+      logo: "logo-Hal-Leonard.webp"
       buttonLink: "https://www.halleonard.com/"
     - name: "LinkedIn Learning"
-      logo: "logo-LinkedIn.png"
+      logo: "logo-LinkedIn.webp"
       buttonLink: "https://www.linkedin.com/learning/?trk=nav_neptune_learning&"
 
 benefices:

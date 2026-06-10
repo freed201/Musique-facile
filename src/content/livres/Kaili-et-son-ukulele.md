@@ -1,8 +1,8 @@
 ---
 title: "Kaïli et son ukulélé"
 description: "Une histoire touchante d'une petite fille qui découvre la magie de la musique à travers son ukulélé, son nouvel ami."
-ogImage: "/images/livres/kailitheme.jpg"
-coverImage: "/images/livres/kailitheme.jpg"
+ogImage: "/images/livres/kailitheme.webp"
+coverImage: "/images/livres/kailitheme.webp"
 price: "18€"
 author: "Fred Fieffé"
 datePublished: "2025-02-15"

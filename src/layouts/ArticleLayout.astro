@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import ConsentManager from '../components/ConsentManager.astro';
 import FooterModern from '../components/FooterModern.astro';
 import ExternalResources from '../components/ExternalResources.astro';
 import AutoFAQ from '../components/AutoFAQ.astro';
@@ -29,9 +30,8 @@ interface Props {
 }
 
 const { title, description, ogImage, author, datePublished, dateModified, url, theme = 'main', videos, songInfo, showAutoFaq = true } = Astro.props;
-const gtmId = import.meta.env.PUBLIC_GTM_ID || 'GTM-NP758HSC';
 const siteUrl = 'https://musique-facile.fr';
-const ogImageValue = ogImage || '/images/og-default.jpg';
+const ogImageValue = ogImage || '/images/og-default.webp';
 const absoluteOgImage = ogImageValue.startsWith('http') ? ogImageValue : `${siteUrl}${ogImageValue}`;
 
 // Fonction d'enrichissement automatique du titre pour SEO/LLM
@@ -270,13 +270,8 @@ const howToSchema = songInfo ? {
 <!doctype html>
 <html lang="fr">
   <head>
-    <!-- Google Tag Manager -->
-    <script is:inline define:vars={{ gtmId }}>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer',gtmId);</script>
-    <!-- End Google Tag Manager -->
+    <!-- Consentement cookies + GTM (chargé après consentement) -->
+    <ConsentManager />
     
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -327,10 +322,6 @@ const howToSchema = songInfo ? {
     <title>{pageTitle}</title>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
    <div class={`theme-${theme}`}>
     <Header />
     <main>

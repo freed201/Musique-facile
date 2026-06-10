@@ -64,7 +64,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "Ton professeur de Guitare"
       description: "Guitariste depuis l'adolescence, transmettre la passion de la guitare est ma fierté."
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
         - "40 ans de pratique"
@@ -163,13 +163,13 @@ preuveSociale:
     timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "PRS Guitars"
-      logo: "logo-PRS.png"
+      logo: "logo-PRS.webp"
       buttonLink: "https://eu.prsguitars.com/"
     - name: "Skilleos"
-      logo: "logo-Skilleos.png"
+      logo: "logo-Skilleos.webp"
       buttonLink: "https://www.skilleos.com/"
     - name: "Eastman Guitars"
-      logo: "logo-Eastman.png"
+      logo: "logo-Eastman.webp"
       buttonLink: "https://www.eastmanguitars.com/"
 
 benefices:

@@ -1,8 +1,8 @@
 ---
 title: "Les Plus Belles Comptines avec mon Tongue Drum"
 description: "Un recueil de comptines populaires adaptées pour le tongue drum, idéal pour les enfants et les débutants souhaitant découvrir cet instrument de manière ludique."
-ogImage: "/images/livres/IziDrum-Musiqfreed-V4.jpg"
-coverImage: "/images/livres/IziDrum-Musiqfreed-V4.jpg"
+ogImage: "/images/livres/IziDrum-Musiqfreed-V4.webp"
+coverImage: "/images/livres/IziDrum-Musiqfreed-V4.webp"
 price: "20 €"
 author: "Fred Fieffé"
 datePublished: "2025-02-20"
