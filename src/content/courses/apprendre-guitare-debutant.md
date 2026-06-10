@@ -159,8 +159,8 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-julien.jpg"
   stats:
     students: "9210+"
-    successRate: "94%"
-    timeframe: "s'amusent en moins de 4 semaines"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "PRS Guitars"
       logo: "logo-PRS.png"

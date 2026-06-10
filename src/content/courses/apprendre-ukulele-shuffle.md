@@ -152,8 +152,8 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-pauline.jpg"
   stats:
     students: "100+"
-    successRate: "97%"
-    timeframe: "des élèves s'amusent en quelques semaines"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Kala Ukuleles"
       logo: "logo-Kala.png"

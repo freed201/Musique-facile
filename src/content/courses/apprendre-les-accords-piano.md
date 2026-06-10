@@ -152,8 +152,8 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-marie.jpg"
   stats:
     students: "3000+"
-    successRate: "96%"
-    timeframe: "des élèves accompagnent facilement des morceaux modernes."
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Roland"
       logo: "logo-Roland.png"

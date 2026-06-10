@@ -186,8 +186,8 @@ preuveSociale:
       avatar: "https://test.musique-facile.fr/images/avatar/avatar-elodie.png"
   stats:
     students: "21000+"
-    successRate: "95%"
-    timeframe: "4 semaines"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Roland"
       logo: "logo-Roland.png"

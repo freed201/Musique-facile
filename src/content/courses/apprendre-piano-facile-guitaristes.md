@@ -153,8 +153,8 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-alexandre.jpg"
   stats:
     students: "830+"
-    successRate: "92%"
-    timeframe: "des élèves jouent mieux de la guitare en 3 semaines"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "PRS Guitars"
       logo: "logo-PRS.png"

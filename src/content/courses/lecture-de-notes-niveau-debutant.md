@@ -152,8 +152,8 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-elodie.jpg"
   stats:
     students: "4100+"
-    successRate: "92%"
-    timeframe: "des élèves parviennent à comprendre une partition en quelques semaines."
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
 
   partners:
     - name: "Skilleos"

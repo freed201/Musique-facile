@@ -150,8 +150,8 @@ preuveSociale:
       avatar: "https://test.musique-facile.fr/images/avatar-sophie.jpg"
   stats:
     students: "1000+"
-    successRate: "89%"
-    timeframe: "constatent une nette amélioration en moins de 15 jours"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Skilleos"
       logo: "logo-Skilleos.png"

@@ -10,7 +10,7 @@ const canonicalURL = new URL('/offre', Astro.site || 'https://musique-facile.fr'
 
 // Métadonnées SEO optimisées
 const title = "Offre Spéciale Formation Musique : Pack Guitare, Piano, Ukulélé à 99€ | Musique Facile";
-const description = "Pack formation musicale complet à 99€ au lieu de 378€ (-74%). Accès à vie aux cours de guitare, piano ou ukulélé + cadeau physique offert. 80 000 élèves formés. Garantie 14 jours satisfait ou remboursé. Livraison France incluse.";
+const description = "Pack formation musicale complet à 99€ au lieu de 378€ (-74%). Accès à vie aux cours de guitare, piano ou ukulélé + cadeau physique offert. 80 000 élèves formés. Garantie 15 jours satisfait ou remboursé. Livraison France incluse.";
 const ogImage = "/images/offre-hero.webp";
 const keywords = "formation musique en ligne, pack guitare 99 euros, cours piano débutant, apprendre ukulélé, formation musicale complète, cours musique pas cher, pack formation musique, apprendre musique en ligne";
 
@@ -297,7 +297,7 @@ const faqSchema = {
       "name": "Puis-je vraiment me faire rembourser si je ne suis pas satisfait ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Oui, absolument. Vous avez 14 jours pour tester la formation. Si vous n'êtes pas satisfait pour quelque raison que ce soit, nous vous remboursons intégralement, sans poser de question."
+        "text": "Oui, absolument. Vous avez 15 jours pour tester la formation. Si vous n'êtes pas satisfait pour quelque raison que ce soit, nous vous remboursons intégralement, sans poser de question."
       }
     },
     {
@@ -348,43 +348,29 @@ const testimonials = [
 ];
 ---
 
-<Layout title={title}>
-  <head>
-    <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
-    <meta name="author" content="Fred Fieffé - Musique Facile" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
-    <link rel="canonical" href={canonicalURL} />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={`https://musique-facile.fr${ogImage}`} />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={`https://musique-facile.fr${ogImage}`} />
-    
+<Layout
+  title={title}
+  description={description}
+  keywords={keywords}
+  ogImage={ogImage}
+  canonicalUrl={canonicalURL}
+  robots="index, follow, max-snippet:-1, max-image-preview:large"
+>
+  <Fragment slot="head">
     <!-- Schema.org - Enrichis pour SEO -->
     <script type="application/ld+json" set:html={JSON.stringify(guitarPackSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(ukulelePackSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(pianoBeginnerSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(pianoAdvancedSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    
+
     <!-- Critical CSS inline -->
-    <style>
+    <style is:inline>
       .hero { min-height: 100vh; display: flex; align-items: center; }
       .cta-primary { background: var(--brand); color: white; padding: 1rem 2rem; border-radius: var(--radius-md); }
     </style>
-  </head>
-  
-  <body>
+  </Fragment>
+
     <header class="header-simple">
       <div class="container">
         <a href="/" class="logo">
@@ -449,7 +435,7 @@ const testimonials = [
             </a>
             
             <p class="guarantee-text">
-              ✅ Essai 14 jours – remboursé si vous n'êtes pas satisfait
+              ✅ Garantie 15 jours – remboursé si vous n'êtes pas satisfait
             </p>
           </div>
         </div>
@@ -845,7 +831,7 @@ const testimonials = [
               <div class="guarantee-icon">🛡️</div>
               <div class="guarantee-text">
                 <h4>Garantie satisfait ou remboursé</h4>
-                <p>Essayez pendant <strong>14 jours</strong>. Si vous n'êtes pas satisfait, nous vous remboursons intégralement.</p>
+                <p>Vous avez <strong>15 jours</strong>. Si vous n'êtes pas satisfait, nous vous remboursons intégralement.</p>
               </div>
             </div>
           </div>
@@ -944,7 +930,7 @@ const testimonials = [
             <div class="faq-item">
               <h3>Puis-je vraiment me faire rembourser ?</h3>
               <div>
-                <p>Oui, vous avez <strong>14 jours</strong> pour tester. Si vous n'êtes pas satisfait, nous vous remboursons intégralement, sans question.</p>
+                <p>Oui, vous avez <strong>15 jours</strong> pour tester. Si vous n'êtes pas satisfait, nous vous remboursons intégralement, sans question.</p>
               </div>
             </div>
 
@@ -988,7 +974,7 @@ const testimonials = [
             </div>
             
             <p class="final-guarantee">
-              ✅ <strong>Essai 14 jours</strong> – Remboursé si vous n'êtes pas satisfait
+              ✅ <strong>Garantie 15 jours</strong> – Remboursé si vous n'êtes pas satisfait
             </p>
           </div>
         </div>
@@ -1028,7 +1014,6 @@ const testimonials = [
     </script>
 
     <FooterModern />
-  </body>
 </Layout>
 
 <style>

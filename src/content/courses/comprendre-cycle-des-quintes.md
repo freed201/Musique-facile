@@ -151,8 +151,8 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-elodie.jpg"
   stats:
     students: "1600+"
-    successRate: "90%"
-    timeframe: "des élèves ont utilisé le cycle de quintes dans les semaines suivant la formation"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Skilleos"
       logo: "logo-Skilleos.png"

@@ -85,15 +85,12 @@ Les formations sont accessibles immédiatement après validation du paiement via
 
 ## Article 8 : Garantie et conditions de remboursement
 
-Pour les formations destinées aux adultes, le vendeur offre une garantie de satisfaction, dont la durée varie en fonction de la formation choisie :
-
-- **15 jours** pour certaines formations, ou  
-- **1 mois** pour d'autres, comme indiqué sur la page de description de chaque produit.
+Pour les formations destinées aux adultes, le vendeur offre une garantie de satisfaction de **15 jours** à compter de la date d'achat, applicable à l'ensemble des formations.
 
 **Procédure pour bénéficier de la garantie :**
 
 1. **Notification** : Le client souhaitant bénéficier de la garantie doit contacter le service client à l'adresse **contact@musique-facile.fr**, en précisant son numéro de commande et le motif de la demande.
-2. **Respect du délai** : La demande de remboursement intégral doit être effectuée dans le délai de garantie applicable (15 jours ou 1 mois à compter de la date d'achat).
+2. **Respect du délai** : La demande de remboursement intégral doit être effectuée dans le délai de garantie de 15 jours à compter de la date d'achat.
 3. **Exécution de la formation** : Cette garantie s'applique uniquement si la formation n’a pas été entièrement consommée ou si le client estime, de manière justifiée, que le contenu ne correspond pas à sa présentation.
 
 **Attention :**  

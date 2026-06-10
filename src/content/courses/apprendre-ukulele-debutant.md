@@ -150,8 +150,8 @@ preuveSociale:
       avatar: "https://test.musique-facile.fr/images/avatar/avatar_julie.png"
   stats:
     students: "4.900+"
-    successRate: "89%"
-    timeframe: "s'amusent en moins de 3 semaines"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Kala Ukuleles"
       logo: "logo-Kala.png"

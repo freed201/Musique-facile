@@ -157,8 +157,8 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-claire.jpg"
   stats:
     students: "1100+"
-    successRate: "90%"
-    timeframe: "des élèves constatent une nette amélioration de leur maîtrise en moins de 15 jours"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Roland"
       logo: "logo-Roland.png"

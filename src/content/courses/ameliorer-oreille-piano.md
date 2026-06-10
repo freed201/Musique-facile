@@ -154,8 +154,8 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-sophie.jpg"
   stats:
     students: "1150+"
-    successRate: "88%"
-    timeframe: "des élèves ressentent mieux la musique en 15 jours."
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Roland"
       logo: "logo-Roland.png"

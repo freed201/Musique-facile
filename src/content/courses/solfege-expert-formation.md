@@ -152,8 +152,8 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-laura.jpg"
   stats:
     students: "600+"
-    successRate: "95%"
-    timeframe: "des élèves sont beaucoup plus à l'aise en lecture de notes"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Skilleos"
       logo: "logo-Skilleos.png"
