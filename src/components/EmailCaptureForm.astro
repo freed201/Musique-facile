@@ -18,33 +18,33 @@ function getThemeClass(instrument: string) {
   }
 }
 
+// Guide PDF réellement disponible pour chaque instrument (clés de _lead-magnet-emails.ts)
+const leadMagnets: Record<string, { key: string; title: string }> = {
+  guitare: { key: 'guitare-5-accords-magiques', title: 'Les 5 Accords Magiques (guitare)' },
+  piano: { key: 'piano-lire-les-notes', title: 'Lire les Notes au Piano' },
+  ukulele: { key: 'ukulele-4-accords', title: 'Les 4 Accords du Bonheur (ukulélé)' },
+};
+const leadMagnet = leadMagnets[instrument] ?? leadMagnets.guitare;
+
 const themeClass = getThemeClass(instrument);
 ---
 
 <div class={`email-capture-form ${themeClass}`}>
   <div class="form-header">
-    <h3>Télécharge cette ressource gratuitement</h3>
-    <p>Remplis le formulaire ci-dessous pour recevoir <strong>"{ressourceTitle}"</strong> directement dans ta boîte mail.</p>
+    <h3>Reçois le guide gratuit par email</h3>
+    <p>Laisse ton email pour recevoir <strong>{leadMagnet.title}</strong> directement dans ta boîte mail.</p>
   </div>
 
-  <form id="email-form" action="/api/download" method="POST" class="form-content">
+  <form id="email-form" class="form-content" data-instrument={instrument} data-lead-magnet={leadMagnet.key} data-source={`ressource:${resourceId}`}>
     <div class="form-group">
       <label for="firstName">Prénom</label>
-      <input type="text" id="firstName" name="firstName" placeholder="Ton prénom" required>
-    </div>
-
-    <div class="form-group">
-      <label for="lastName">Nom</label>
-      <input type="text" id="lastName" name="lastName" placeholder="Ton nom" required>
+      <input type="text" id="firstName" name="firstName" placeholder="Ton prénom" autocomplete="given-name">
     </div>
 
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Ton adresse email" required>
+      <input type="email" id="email" name="email" placeholder="Ton adresse email" autocomplete="email" required>
     </div>
-
-    <input type="hidden" name="instrument" value={instrument}>
-    <input type="hidden" name="resourceId" value={resourceId}>
 
     <div class="form-checkbox">
       <input type="checkbox" id="consent" name="consent" required>
@@ -54,45 +54,83 @@ const themeClass = getThemeClass(instrument);
     </div>
 
     <button type="submit" class="submit-button">
-      <span class="button-text">Télécharger maintenant</span>
+      <span class="button-text">Recevoir le guide</span>
       <span class="button-icon">↓</span>
     </button>
+
+    <p id="form-error" class="form-error" role="alert" aria-live="polite" hidden></p>
 
     <div class="form-footer">
       <p><Icon name="lock" size={14} /> Tes données sont en sécurité. Nous ne spammons jamais.</p>
     </div>
   </form>
-  
-  <div id="success-message" class="success-message" style="display: none;">
+
+  <div id="success-message" class="success-message" style="display: none;" aria-live="polite">
     <div class="success-icon"><Icon name="check-circle" size={32} /></div>
     <h3>Merci !</h3>
-    <p>Ta ressource a été envoyée à ton adresse email.</p>
+    <p>Ton guide est en route vers ta boîte mail.</p>
     <p>(Pense à vérifier tes spams, au cas où)</p>
   </div>
 </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('email-form');
+    const form = document.getElementById('email-form') as HTMLFormElement | null;
     const successMessage = document.getElementById('success-message');
-    
+    const errorEl = document.getElementById('form-error');
+
     if (form && successMessage) {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        // Simuler l'envoi du formulaire (à remplacer par votre logique d'envoi réelle)
-        setTimeout(() => {
-          form.style.display = 'none';
-          successMessage.style.display = 'block';
-          
-          // Analytique
-          if (typeof window.gtag === 'function') {
-            window.gtag('event', 'form_submission', {
-              'event_category': 'ressource',
-              'event_label': document.title
-            });
+
+        const emailInput = form.querySelector<HTMLInputElement>('input[type="email"]');
+        const firstNameInput = form.querySelector<HTMLInputElement>('input[name="firstName"]');
+        const consentInput = form.querySelector<HTMLInputElement>('input[type="checkbox"]');
+        const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+        if (!emailInput || !consentInput || !submitBtn) return;
+
+        const showError = (message: string) => {
+          if (errorEl) {
+            errorEl.textContent = message;
+            errorEl.hidden = false;
           }
-        }, 1000);
+          submitBtn.disabled = false;
+        };
+
+        if (errorEl) errorEl.hidden = true;
+        submitBtn.disabled = true;
+
+        try {
+          const res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: emailInput.value.trim(),
+              firstName: firstNameInput?.value.trim() || undefined,
+              consent: consentInput.checked,
+              instrument: form.dataset.instrument || undefined,
+              leadMagnet: form.dataset.leadMagnet || undefined,
+              source: form.dataset.source || undefined,
+            }),
+          });
+          const data = await res.json().catch(() => ({}));
+
+          if (res.ok && data.ok) {
+            form.style.display = 'none';
+            (successMessage as HTMLElement).style.display = 'block';
+
+            if (typeof (window as any).gtag === 'function') {
+              (window as any).gtag('event', 'form_submission', {
+                'event_category': 'ressource',
+                'event_label': document.title
+              });
+            }
+          } else {
+            showError(data.error || 'Une erreur est survenue. Réessaie dans un instant.');
+          }
+        } catch {
+          showError('Connexion impossible. Vérifie ta connexion internet.');
+        }
       });
     }
   });
@@ -273,6 +311,14 @@ const themeClass = getThemeClass(instrument);
     font-size: 0.85rem;
     color: var(--color-dark);
     opacity: 0.7;
+  }
+
+  .form-error {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #c0392b;
+    text-align: center;
   }
 
   .success-message {
