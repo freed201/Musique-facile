@@ -130,7 +130,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "Ton professeur de Piano"
       description: "15 ans d'expérience dans l'enseignement du piano en ligne"
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
         - "40 ans de pratique"
@@ -141,12 +141,12 @@ teachers:
       lastName: "Bouvet"
       subtitle: "Mr Pyannist"
       description: "Passionné de piano et pédagogue d'exception."
-      photo: "yannis.jpg"
+      photo: "yannis.webp"
       website: "https://www.youtube.com/c/Pyannist"
   guests:
     - name: "Eric Legaud"
       subtitle: "Mr Galago Music"
-      photo: "eric.jpg"
+      photo: "eric.webp"
       website: "https://www.galagomusic.com/"
 
 frustrations:
@@ -177,7 +177,7 @@ preuveSociale:
   testimonials:
     - text: "Cette formation m'a permis de dépasser mes limites au piano. Les techniques avancées sont expliquées clairement et j'ai enfin pu jouer des morceaux complexes !"
       author: "Marie T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-marie.jpg"
+      avatar: "https://ecole.musique-facile.fr/images/avatar-marie.webp"
     - text: "Le programme est parfaitement structuré. J'ai appris à improviser et à explorer des styles variés avec beaucoup de plaisir."
       author: "Julien M."
       avatar: "https://ecole.musique-facile.fr/images/avatar-julien.jpg"
@@ -186,17 +186,17 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-sophie.jpg"
   stats:
     students: "3500+"
-    successRate: "93%"
-    timeframe: "des élèves ont découvert de nouvelles façons de jouer du piano."
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Roland"
-      logo: "logo-Roland.png"
+      logo: "logo-Roland.webp"
       buttonLink: "https://www.roland.com/fr/"
     - name: "Skilleos"
-      logo: "logo-Skilleos.png"
+      logo: "logo-Skilleos.webp"
       buttonLink: "https://www.skilleos.com/"
     - name: "Casio"
-      logo: "logo-casio.png"
+      logo: "logo-casio.webp"
       buttonLink: "https://www.casio.com/fr/electronic-musical-instruments/"
 
 

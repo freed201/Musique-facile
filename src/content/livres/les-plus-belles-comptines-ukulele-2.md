@@ -1,8 +1,8 @@
 ---
 title: "Les Plus Belles Comptines avec mon Ukulélé - Volume 2"
 description: "Une nouvelle sélection de 20 comptines incontournables à jouer au ukulélé. Idéal pour les parents, enseignants et débutants, avec des tablatures détaillées et des illustrations en couleurs."
-ogImage: "/images/livres/Comptine-ukulele-2.jpg"
-coverImage: "/images/livres/Comptine-ukulele-2.jpg"
+ogImage: "/images/livres/Comptine-ukulele-2.webp"
+coverImage: "/images/livres/Comptine-ukulele-2.webp"
 price: "18,00 €"
 author: "Non spécifié"
 datePublished: "2021"

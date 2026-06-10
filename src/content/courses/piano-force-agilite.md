@@ -32,7 +32,7 @@ hasCourseInstance:
   offers:
     type: "Offer"
     priceCurrency: "EUR"
-    price: "79.00"
+    price: "69.00"
     availability: "https://schema.org/InStock"
     category: "Paid"
 
@@ -41,8 +41,8 @@ hero:
   title: "Gagnez en force et en finesse au piano avec 5 exercices clés"
   subtitle: "Des exercices ciblés pour développer l'agilité et le contrôle de vos doigts. 1 000 pianistes ont déjà progressé."
   cta:
-    text: "Je gagne en expressivité - 79€"
-    price: "ou 2x 40€ sans frais"
+    text: "Je gagne en expressivité - 69€"
+    price: "ou 2x 35€ sans frais"
   video:
     id: "1057421752"
   stats:
@@ -63,7 +63,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "Ton professeur de Piano"
       description: "13 ans d'expérience dans l'enseignement de la musique en ligne."
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
         - "40 ans de pratique"
@@ -200,17 +200,17 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-julie.jpg"
   stats:
     students: "1000+"
-    successRate: "94%"
-    timeframe: "6 semaines"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Roland"
-      logo: "logo-Roland.png"
+      logo: "logo-Roland.webp"
       buttonLink: "https://www.roland.com/fr/"
     - name: "Skilleos"
-      logo: "logo-Skilleos.png"
+      logo: "logo-Skilleos.webp"
       buttonLink: "https://www.skilleos.com/"
     - name: "Casio"
-      logo: "logo-casio.png"
+      logo: "logo-casio.webp"
       buttonLink: "https://www.casio.com/fr/electronic-musical-instruments/"
 
 benefices:

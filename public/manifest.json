@@ -1,0 +1,22 @@
+{
+  "name": "Musique Facile",
+  "short_name": "Musique Facile",
+  "description": "École de musique en ligne : guitare, piano, ukulélé et solfège avec Fred Fieffé.",
+  "lang": "fr",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#6C3FA0",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

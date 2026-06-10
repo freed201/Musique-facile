@@ -360,7 +360,7 @@ prerequis:
   - "Connexion internet stable pour le contenu vidéo"
 
 garanties:
-  - "Satisfait ou remboursé sous 30 jours"
+  - "Satisfait ou remboursé sous 15 jours"
   - "Accès illimité"
   - "Support pédagogique personnalisé"
   - "Mises à jour gratuites incluses"

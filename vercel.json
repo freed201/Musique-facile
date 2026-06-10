@@ -3,7 +3,16 @@
   "framework": "astro",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "redirects": [],
+  "redirects": [
+    { "source": "/Z1", "destination": "https://school.sebastienzunino.com/test/gmln5", "permanent": true },
+    { "source": "/PENTA", "destination": "https://school.sebastienzunino.com/la-gamme-pentatonique-pour-les-debutants/gmln5", "permanent": true },
+    { "source": "/songbook", "destination": "https://bit.ly/LivreTK", "permanent": true },
+    { "source": "/ete", "destination": "https://ecole.musique-facile.fr/checkout/cart", "permanent": true },
+    { "source": "/vote", "destination": "https://form.typeform.com/to/Xj4zuWiQ?typeform-source=www.foliweb-awards.fr", "permanent": true },
+    { "source": "/IMAGINE", "destination": "https://school.musique-facile.fr/formation-7-jours/", "permanent": true },
+    { "source": "/imagine", "destination": "https://school.musique-facile.fr/formation-7-jours/", "permanent": true },
+    { "source": "/test", "destination": "https://www.musique-facile.fr/abonnement-ecole-de-musique-facile-very-important-musicien/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -38,6 +47,35 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://player.vimeo.com https://www.youtube.com https://s.ytimg.com https://player.ausha.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com https://player.ausha.co; connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://stats.g.doubleclick.net https://*.vimeo.com https://*.vimeocdn.com; media-src 'self' https://*.vimeocdn.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
         }
       ]
     }

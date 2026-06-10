@@ -12,7 +12,6 @@
     "build": "astro build && node scripts/patch-vercel-runtime.mjs",
     "preview": "astro preview",
     "astro": "astro",
-    "generate-sitemap": "tsc -p tsconfig.sitemap.json && node dist/scripts/generate-sitemap.js",
     "optimize-images": "node scripts/convert-to-webp.js",
     "lead-magnet:pdf": "node scripts/lead-magnet-to-pdf.mjs",
     "lead-magnet:build": "node scripts/lead-magnet-to-pdf.mjs content/lead-magnets/guitare-5-accords-magiques.md",
@@ -29,6 +28,7 @@
     "rehype-stringify": "^9.0.3",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
+    "tarteaucitronjs": "^1.33.0",
     "unified": "^10.1.0"
   },
   "devDependencies": {

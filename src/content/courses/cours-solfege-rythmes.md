@@ -62,7 +62,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "Ton professeur de musique"
       description: "Le solfège est cool, le rythme essentiel : je vous aide à progresser."
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
         - "40 ans de pratique"
@@ -150,17 +150,17 @@ preuveSociale:
       avatar: "https://test.musique-facile.fr/images/avatar-sophie.jpg"
   stats:
     students: "1000+"
-    successRate: "89%"
-    timeframe: "constatent une nette amélioration en moins de 15 jours"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Skilleos"
-      logo: "logo-Skilleos.png"
+      logo: "logo-Skilleos.webp"
       buttonLink: "https://www.skilleos.com/"
     - name: "Hal Leonard"
-      logo: "logo-Hal_Leonard.png"
+      logo: "logo-Hal_Leonard.webp"
       buttonLink: "https://www.halleonard.com/"
     - name: "Arturia"
-      logo: "logo-Arturia.png"
+      logo: "logo-Arturia.webp"
       buttonLink: "https://www.arturia.com/fr"
 
 benefices:

@@ -65,7 +65,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "Ton professeur de Piano"
       description: "15 ans d'expérience dans l'enseignement du piano en ligne"
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
         - "40 ans de pratique"
@@ -75,7 +75,7 @@ teachers:
   guests:
     - name: "Yannis Bouvet"
       subtitle: "Pyannist"
-      photo: "yannis.jpg"
+      photo: "yannis.webp"
       website: "https://www.youtube.com/c/Pyannist"
 
 
@@ -151,23 +151,23 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-emma.jpg"
     - text: "Les progrès sont visibles dès les premières semaines. Je recommande vivement cette formation."
       author: "Thomas P."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-thomas.jpg"
+      avatar: "https://ecole.musique-facile.fr/images/avatar-thomas.webp"
     - text: "Les exercices spécifiques pour chaque doigt ont complètement changé ma façon de jouer. Une vraie révélation."
       author: "Claire L."
       avatar: "https://ecole.musique-facile.fr/images/avatar-claire.jpg"
   stats:
     students: "1100+"
-    successRate: "90%"
-    timeframe: "des élèves constatent une nette amélioration de leur maîtrise en moins de 15 jours"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Roland"
-      logo: "logo-Roland.png"
+      logo: "logo-Roland.webp"
       buttonLink: "https://www.roland.com/fr/"
     - name: "Skilleos"
-      logo: "logo-Skilleos.png"
+      logo: "logo-Skilleos.webp"
       buttonLink: "https://www.skilleos.com/"
     - name: "Casio"
-      logo: "logo-casio.png"
+      logo: "logo-casio.webp"
       buttonLink: "https://www.casio.com/fr/electronic-musical-instruments/"
 
 

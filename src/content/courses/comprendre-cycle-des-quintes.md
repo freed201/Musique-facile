@@ -64,7 +64,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "Professeur de musique"
       description: "L'outil indispensable pour comprendre la musique"
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
         - "40 ans de pratique"
@@ -151,17 +151,17 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-elodie.jpg"
   stats:
     students: "1600+"
-    successRate: "90%"
-    timeframe: "des élèves ont utilisé le cycle de quintes dans les semaines suivant la formation"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Skilleos"
-      logo: "logo-Skilleos.png"
+      logo: "logo-Skilleos.webp"
       buttonLink: "https://www.skilleos.com/"
     - name: "Hal Leonard"
-      logo: "logo-Hal-Leonard.png"
+      logo: "logo-Hal-Leonard.webp"
       buttonLink: "https://www.halleonard.com/"
     - name: "Arturia"
-      logo: "logo-Arturia.png"
+      logo: "logo-Arturia.webp"
       buttonLink: "https://www.arturia.com/fr"
 
 benefices:

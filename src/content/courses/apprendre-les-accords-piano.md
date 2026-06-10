@@ -64,7 +64,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "Pianiste depuis l'âge de 5 ans"
       description: "Connaître les accords, c'est se libérer pour jouer de façon ludique et agréable"
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
         - "40 ans de pratique"
@@ -149,20 +149,20 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-lucas.jpg"
     - text: "Les exercices pratiques m'ont permis de vraiment progresser et de maîtriser les accords que je trouvais impossibles avant."
       author: "Marie T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-marie.jpg"
+      avatar: "https://ecole.musique-facile.fr/images/avatar-marie.webp"
   stats:
     students: "3000+"
-    successRate: "96%"
-    timeframe: "des élèves accompagnent facilement des morceaux modernes."
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Roland"
-      logo: "logo-Roland.png"
+      logo: "logo-Roland.webp"
       buttonLink: "https://www.roland.com/fr/"
     - name: "Skilleos"
-      logo: "logo-Skilleos.png"
+      logo: "logo-Skilleos.webp"
       buttonLink: "https://www.skilleos.com/"
     - name: "Casio"
-      logo: "logo-casio.png"
+      logo: "logo-casio.webp"
       buttonLink: "https://www.casio.com/fr/electronic-musical-instruments/"
 
 benefices:

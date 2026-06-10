@@ -2,24 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import FooterModern from '../components/FooterModern.astro';
+import ConsentManager from '../components/ConsentManager.astro';
 import '../styles/global.css';
 
 const title = "5 Accords Magiques pour 100 Chansons | Musique Facile";
 const description = "Téléchargez GRATUITEMENT notre guide exclusif : apprenez 5 accords de guitare simples et jouez plus de 100 chansons dès aujourd'hui. Méthode garantie pour débutants.";
 const ogImage = "https://musique-facile.fr/images/lead-magnet-5-accords.webp";
-const gtmId = import.meta.env.PUBLIC_GTM_ID || 'GTM-NP758HSC';
 ---
 
 <!doctype html>
 <html lang="fr">
   <head>
-    <!-- Google Tag Manager -->
-    <script is:inline define:vars={{ gtmId }}>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer',gtmId);</script>
-    <!-- End Google Tag Manager -->
+    <!-- Consentement cookies + GTM (chargé après consentement) -->
+    <ConsentManager />
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,9 +33,6 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID || 'GTM-NP758HSC';
     <title>{title}</title>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <Header />
 

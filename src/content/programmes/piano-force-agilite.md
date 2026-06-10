@@ -8,7 +8,7 @@ lienAchat: "https://musique-facile.fr/paiement/piano-debutant"
 author: "Musique Facile"
 datePublished: "2025-01-28"
 dateModified: "2025-01-28"
-price: "129 EUR"
+price: "69 EUR"
 duration: "P15H"
 provider:
   name: "Musique Facile"
@@ -31,7 +31,7 @@ dataGenerale:
   certificat: true
   acces: "Illimité"
   support: "Email & Forum privé"
-  garantie: "30 jours satisfait ou remboursé"
+  garantie: "15 jours satisfait ou remboursé"
 
 # Data programme
 # Data programme
@@ -117,5 +117,5 @@ garanties:
   - "Accès illimité à vie"
   - "Mises à jour gratuites"
   - "Support personnalisé"
-  - "30 jours satisfait ou remboursé"
+  - "15 jours satisfait ou remboursé"
 ---

@@ -65,7 +65,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "Ton prof d'ukulélé"
       description: "Avec mon approche, nombreux élèves ont progressé et pris plaisir à jouer de l'ukulélé."
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
         - "40 ans de pratique"
@@ -154,17 +154,17 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-laura.jpg"
   stats:
     students: "750+"
-    successRate: "92%"
-    timeframe: "des élèves ressentent mieux le rythme en moins de 3 semaines"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Kala Ukuleles"
-      logo: "logo-Kala.png"
+      logo: "logo-Kala.webp"
       buttonLink: "https://kalabrand.com/"
     - name: "Skilleos"
-      logo: "logo-Skilleos.png"
+      logo: "logo-Skilleos.webp"
       buttonLink: "https://www.skilleos.com/"
     - name: "Anuenue"
-      logo: "logo-anueanue.png"
+      logo: "logo-anueanue.webp"
       buttonLink: "https://www.anuenueusa.com/"
 
 benefices:

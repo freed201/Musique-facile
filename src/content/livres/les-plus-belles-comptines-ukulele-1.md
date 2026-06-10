@@ -1,8 +1,8 @@
 ---
 title: "Les Plus Belles Comptines avec mon Ukulélé"
 description: "Un livre ludique pour apprendre à jouer des comptines populaires au ukulélé. Idéal pour les parents et les débutants, avec des tablatures détaillées et des illustrations en couleurs."
-ogImage: "/images/livres/Comptine-ukulele-1.jpg"
-coverImage: "/images/livres/Comptine-ukulele-1.jpg"
+ogImage: "/images/livres/Comptine-ukulele-1.webp"
+coverImage: "/images/livres/Comptine-ukulele-1.webp"
 price: "18,00 €"
 author: "Non spécifié"
 datePublished: "2019"

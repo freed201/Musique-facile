@@ -3,6 +3,7 @@ import '@fontsource/poppins';
 import '@fontsource/raleway';
 import '../styles/global.css';
 import ExternalResources from '../components/ExternalResources.astro';
+import ConsentManager from '../components/ConsentManager.astro';
 import animationsScript from '../scripts/animations.js?url';
 
 interface Props {
@@ -18,15 +19,13 @@ const {
   title,
   description = "Apprenez la musique facilement avec nos formations en ligne. Guitare, piano, ukulélé et solfège.",
   keywords,
-  ogImage = "https://musique-facile.fr/images/og-default.jpg",
+  ogImage = "https://musique-facile.fr/images/og-default.webp",
   canonicalUrl = Astro.url.href,
   robots = "index, follow"
 } = Astro.props;
 
-const gtmId = import.meta.env.PUBLIC_GTM_ID || 'GTM-NP758HSC';
-
 const siteUrl = 'https://musique-facile.fr';
-const ogImageValue = ogImage || '/images/og-default.jpg';
+const ogImageValue = ogImage || '/images/og-default.webp';
 const absoluteOgImage = ogImageValue.startsWith('http') ? ogImageValue : `${siteUrl}${ogImageValue}`;
 
 // Schema.org pour la page
@@ -51,13 +50,8 @@ const schema = {
 <!doctype html>
 <html lang="fr">
   <head>
-    <!-- Google Tag Manager -->
-    <script is:inline define:vars={{ gtmId }}>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer',gtmId);</script>
-    <!-- End Google Tag Manager -->
+    <!-- Consentement cookies + GTM (chargé après consentement) -->
+    <ConsentManager />
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -66,6 +60,9 @@ const schema = {
     {robots && <meta name="robots" content={robots} />}
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#6C3FA0" />
 
     <!-- Preload des fonts critiques pour améliorer FCP -->
     <link rel="preload" href="/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -99,10 +96,6 @@ const schema = {
     <title>{title}</title>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <main>
       <slot />
     </main>

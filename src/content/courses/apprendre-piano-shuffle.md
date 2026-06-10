@@ -64,7 +64,7 @@ teachers:
       lastName: "Fieffé"
       subtitle: "Ton prof de Piano"
       description: "Le shuffle, il n'y a que ça de vrai pour faire bouger la tête."
-      photo: "fred.jpg"
+      photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
         - "40 ans de pratique"
@@ -159,17 +159,17 @@ preuveSociale:
       avatar: "https://ecole.musique-facile.fr/images/avatar-elodie.jpg"
   stats:
     students: "200+"
-    successRate: "92%"
-    timeframe: "s'amusent à jouer shuffle en moins de 3 semaines"
+    successRate: "4,7/5"
+    timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:
     - name: "Roland"
-      logo: "logo-Roland.png"
+      logo: "logo-Roland.webp"
       buttonLink: "https://www.roland.com/fr/"
     - name: "Skilleos"
-      logo: "logo-Skilleos.png"
+      logo: "logo-Skilleos.webp"
       buttonLink: "https://www.skilleos.com/"
     - name: "Casio"
-      logo: "logo-casio.png"
+      logo: "logo-casio.webp"
       buttonLink: "https://www.casio.com/fr/electronic-musical-instruments/"
 
 benefices:

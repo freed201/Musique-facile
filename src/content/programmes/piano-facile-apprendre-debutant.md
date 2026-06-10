@@ -31,7 +31,7 @@ dataGenerale:
   certificat: true
   acces: "Illimité"
   support: "Email & Forum privé"
-  garantie: "30 jours satisfait ou remboursé"
+  garantie: "15 jours satisfait ou remboursé"
 
 # Data programme
 dataProgramme:
@@ -333,5 +333,5 @@ garanties:
   - "Accès illimité à vie"
   - "Mises à jour gratuites"
   - "Support personnalisé"
-  - "30 jours satisfait ou remboursé"
+  - "15 jours satisfait ou remboursé"
 ---

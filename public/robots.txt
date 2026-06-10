@@ -8,7 +8,6 @@ Disallow: /404.html
 Disallow: /merci-lead-magnet/
 Disallow: /preview-refonte/
 Disallow: /maintenance/
-Disallow: /stage2025/
 Disallow: /pack-vacances-ukulele/
 
 # Bloquer les URLs avec paramètres spam/tracking

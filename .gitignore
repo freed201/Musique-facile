@@ -34,3 +34,6 @@ root/
 workflows.json
 full-n8n-backup.tar.gz
 .vercel
+
+# SEO local (à uploader manuellement dans GSC)
+disavow.txt
