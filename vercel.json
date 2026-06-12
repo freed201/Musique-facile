@@ -4,6 +4,30 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "guitare-facile.fr" }],
+      "destination": "https://musique-facile.fr/cours/cours-de-guitare/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.guitare-facile.fr" }],
+      "destination": "https://musique-facile.fr/cours/cours-de-guitare/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "piano-facile.fr" }],
+      "destination": "https://musique-facile.fr/cours/cours-de-piano/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.piano-facile.fr" }],
+      "destination": "https://musique-facile.fr/cours/cours-de-piano/",
+      "permanent": true
+    },
     { "source": "/Z1", "destination": "https://school.sebastienzunino.com/test/gmln5", "permanent": true },
     { "source": "/PENTA", "destination": "https://school.sebastienzunino.com/la-gamme-pentatonique-pour-les-debutants/gmln5", "permanent": true },
     { "source": "/songbook", "destination": "https://bit.ly/LivreTK", "permanent": true },
