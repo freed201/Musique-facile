@@ -20,9 +20,9 @@
  *   BREVO_API_KEY            -- clé API v3 (xkeysib-...)   [REQUIS]
  *   BREVO_LIST_CONTACT       -- (optionnel) ID liste « Contacts hub » ; fallback BREVO_LIST_GENERAL
  *   BREVO_LIST_GENERAL       -- ID liste par défaut (numérique)
- *   BREVO_SENDER_EMAIL       -- expéditeur VALIDÉ dans Brevo (déf. fred@musique-facile.fr)
+ *   BREVO_SENDER_EMAIL       -- expéditeur VALIDÉ dans Brevo (déf. fred@musiqfreed.fr)
  *   BREVO_SENDER_NAME        -- nom expéditeur (déf. « Fred Fieffé · Musique Facile »)
- *   CONTACT_NOTIFY_EMAIL     -- destinataire de la notif (déf. fred@musique-facile.fr)
+ *   CONTACT_NOTIFY_EMAIL     -- destinataire de la notif (déf. contact@musiqfreed.fr)
  *   PUBLIC_SITE_URL          -- base URL (déf. https://musique-facile.fr)
  *
  * La clé API n'est JAMAIS exposée au client : tout passe par cet endpoint serverless.
@@ -97,12 +97,12 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: 'Service de contact non configuré' }, 500);
   }
 
-  // L'expéditeur DOIT être un sender validé dans Brevo. fred@musique-facile.fr l'est
-  // (contact@/support@ ne le sont pas → l'email partirait en échec).
-  const senderEmail = process.env.BREVO_SENDER_EMAIL || 'fred@musique-facile.fr';
+  // L'expéditeur DOIT être un sender validé dans Brevo. fred@musiqfreed.fr l'est déjà.
+  // Quand contact@musiqfreed.fr sera validé dans Brevo, poser BREVO_SENDER_EMAIL=contact@musiqfreed.fr.
+  const senderEmail = process.env.BREVO_SENDER_EMAIL || 'fred@musiqfreed.fr';
   const senderName = process.env.BREVO_SENDER_NAME || 'Fred Fieffé · Musique Facile';
   // Destinataire de la notif : boîte qui REÇOIT (pas besoin de validation Brevo).
-  const notifyEmail = process.env.CONTACT_NOTIFY_EMAIL || 'fred@musique-facile.fr';
+  const notifyEmail = process.env.CONTACT_NOTIFY_EMAIL || 'contact@musiqfreed.fr';
 
   // ── 1. Créer / mettre à jour le contact dans Brevo (best-effort, ne bloque pas la notif) ──
   const listIds = pickContactListIds();
