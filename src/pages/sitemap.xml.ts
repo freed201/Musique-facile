@@ -230,6 +230,14 @@ export const GET: APIRoute = async () => {
     <priority>0.4</priority>
   </url>
 
+  <!-- Page hub « liens » (link in bio) -->
+  <url>
+    <loc>${baseUrl}/liens/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>${formatDate(new Date())}</lastmod>
+  </url>
+
   <!-- Stage -->
   <url>
     <loc>${baseUrl}/stage2026/</loc>
