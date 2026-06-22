@@ -22,7 +22,7 @@
  *   BREVO_LIST_GENERAL       -- ID liste par défaut (numérique)
  *   BREVO_SENDER_EMAIL       -- expéditeur VALIDÉ dans Brevo (déf. fred@musique-facile.fr)
  *   BREVO_SENDER_NAME        -- nom expéditeur (déf. « Fred Fieffé · Musique Facile »)
- *   CONTACT_NOTIFY_EMAIL     -- destinataire de la notif (déf. contact@musique-facile.fr)
+ *   CONTACT_NOTIFY_EMAIL     -- destinataire de la notif (déf. fred@musique-facile.fr)
  *   PUBLIC_SITE_URL          -- base URL (déf. https://musique-facile.fr)
  *
  * La clé API n'est JAMAIS exposée au client : tout passe par cet endpoint serverless.
@@ -102,7 +102,7 @@ export const POST: APIRoute = async ({ request }) => {
   const senderEmail = process.env.BREVO_SENDER_EMAIL || 'fred@musique-facile.fr';
   const senderName = process.env.BREVO_SENDER_NAME || 'Fred Fieffé · Musique Facile';
   // Destinataire de la notif : boîte qui REÇOIT (pas besoin de validation Brevo).
-  const notifyEmail = process.env.CONTACT_NOTIFY_EMAIL || 'contact@musique-facile.fr';
+  const notifyEmail = process.env.CONTACT_NOTIFY_EMAIL || 'fred@musique-facile.fr';
 
   // ── 1. Créer / mettre à jour le contact dans Brevo (best-effort, ne bloque pas la notif) ──
   const listIds = pickContactListIds();
@@ -175,7 +175,7 @@ export const POST: APIRoute = async ({ request }) => {
         sender: { email: senderEmail, name: senderName },
         to: [{ email: notifyEmail, name: 'Musique Facile' }],
         replyTo: { email, name },
-        subject: `📩 Nouveau message de ${name} (page /liens)`,
+        subject: `🌐 Site Musique Facile — nouveau message de ${name} (formulaire /liens)`,
         htmlContent: notifHtml,
         tags: ['contact-hub', 'liens'],
       }),

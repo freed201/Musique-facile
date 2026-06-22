@@ -132,7 +132,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     // J0 — Email transactionnel de livraison du PDF (uniquement si leadMagnet fourni)
     if (leadMagnet) {
-      const senderEmail = process.env.BREVO_SENDER_EMAIL || 'contact@musique-facile.fr';
+      const senderEmail = process.env.BREVO_SENDER_EMAIL || 'fred@musique-facile.fr';
       const senderName = process.env.BREVO_SENDER_NAME || 'Fred Fieffé · Musique Facile';
       const baseUrl = process.env.PUBLIC_SITE_URL || 'https://musique-facile.fr';
       const emailRes = await sendLeadMagnetEmail({
