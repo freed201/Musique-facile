@@ -18,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
 // ── Constantes de page ──────────────────────────────────────────────
 const canonicalUrl = 'https://musique-facile.fr/liens/';
 const photo = 'https://musique-facile.fr/images/prof/fred.webp';
-const contactEmail = 'fred@musique-facile.fr';
+const contactEmail = 'contact@musique-facile.fr'; // bouton "Me contacter" = mailto direct
 
 const title = 'Liens Musique Facile — Contact, YouTube, TikTok & Instagram | Fred Fieffé';
 const description =
@@ -176,55 +176,14 @@ const breadcrumbSchema = {
 
     <!-- ════════ BLOC 1 — CONTACT (CTA principal) ════════ -->
     <!--
-      <details> = « section dépliante » : fonctionne SANS JavaScript.
-      Le JS améliore l'envoi (POST /api/contact). Si le JS échoue,
-      le bloc « écris-moi directement » sert de secours immédiat (mailto).
+      Formulaire de contact retiré temporairement (en attente de validation
+      d'un sender Brevo). On affiche un simple email cliquable (mailto).
+      Le formulaire + l'endpoint /api/contact restent dans l'historique git
+      (PR #14/#16) pour réactivation une fois Brevo réglé.
     -->
-    <details class="contact" id="contact">
-      <summary class="hub-btn hub-btn-contact">
-        <span aria-hidden="true">📩</span> Me contacter
-      </summary>
-
-      <div class="contact-panel">
-        <form id="contact-form" novalidate>
-          <div class="field">
-            <label for="c-name">Ton nom</label>
-            <input id="c-name" name="name" type="text" autocomplete="name" required maxlength="120" placeholder="Ex : Camille" />
-          </div>
-          <div class="field">
-            <label for="c-email">Ton email</label>
-            <input id="c-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="camille@email.com" />
-          </div>
-          <div class="field">
-            <label for="c-message">Ton message</label>
-            <textarea id="c-message" name="message" rows="4" required maxlength="2000" placeholder="Dis-moi tout en quelques mots…"></textarea>
-          </div>
-
-          <label class="consent">
-            <input type="checkbox" name="consent" required />
-            <span>J'accepte d'être recontacté(e) par Musique Facile au sujet de ma demande.</span>
-          </label>
-
-          <button type="submit" class="hub-btn hub-btn-submit">
-            <span class="submit-text">Envoyer mon message</span>
-            <span class="submit-loading" aria-hidden="true">Envoi…</span>
-          </button>
-
-          <p class="form-msg form-msg--ok" role="status" aria-live="polite">
-            ✅ Merci&nbsp;! Ton message est parti, je te réponds vite.
-          </p>
-          <p class="form-msg form-msg--err" role="alert" aria-live="assertive">
-            ⚠️ Oups, l'envoi a échoué. Écris-moi directement&nbsp;:
-            <a href={`mailto:${contactEmail}`} class="mailto-fallback">{contactEmail}</a>
-          </p>
-        </form>
-
-        <p class="contact-direct">
-          Ou par email&nbsp;:
-          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-        </p>
-      </div>
-    </details>
+    <a class="hub-btn hub-btn-contact" href={`mailto:${contactEmail}`} data-track="contact:email">
+      <span aria-hidden="true">📩</span> Me contacter
+    </a>
 
     <!-- ════════ BLOC 2 — MES CONTENUS ════════ -->
     <nav class="links" aria-label="Mes contenus">
@@ -366,141 +325,21 @@ const breadcrumbSchema = {
     transform: scale(0.985);
   }
 
-  /* ── CTA principal : Me contacter ── */
-  .contact {
-    margin-top: var(--space-2);
-  }
-
+  /* ── CTA principal : Me contacter (mailto direct) ── */
   .hub-btn-contact {
     justify-content: center;
     background: var(--brand-500);
     color: #fff;
     font-size: var(--text-lg);
     box-shadow: var(--shadow-brand);
-    list-style: none; /* masque le triangle <summary> (Firefox) */
     text-align: center;
   }
-
-  /* masque le marqueur natif de <summary> (Chrome/Safari) */
-  .hub-btn-contact::-webkit-details-marker { display: none; }
 
   .hub-btn-contact:hover {
     background: var(--brand-600);
     transform: translateY(-2px);
     box-shadow: 0 12px 26px rgba(108, 63, 160, 0.35);
   }
-
-  .contact[open] .hub-btn-contact {
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-  }
-
-  /* ── Panneau du formulaire ── */
-  .contact-panel {
-    background: var(--surface-white);
-    border: 2px solid var(--brand-100);
-    border-top: none;
-    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
-    padding: var(--space-5);
-    animation: slideDown var(--duration-base) var(--ease-out);
-  }
-
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-6px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .field {
-    margin-bottom: var(--space-4);
-    text-align: left;
-  }
-
-  .field label {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: var(--text-sm);
-    font-weight: var(--font-semibold);
-    color: var(--text-secondary);
-    margin-bottom: var(--space-2);
-  }
-
-  .field input,
-  .field textarea {
-    width: 100%;
-    padding: var(--space-3) var(--space-4);
-    font-family: var(--font-body);
-    font-size: var(--text-base); /* 16px = pas de zoom auto iOS */
-    color: var(--text-primary);
-    background: var(--surface-light);
-    border: 2px solid var(--border-default);
-    border-radius: var(--radius-md);
-    transition: border-color var(--duration-fast) var(--ease-out);
-  }
-
-  .field textarea { resize: vertical; min-height: 96px; }
-
-  .field input:focus,
-  .field textarea:focus {
-    outline: none;
-    border-color: var(--brand-500);
-  }
-
-  .consent {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-2);
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-    text-align: left;
-    margin-bottom: var(--space-4);
-    cursor: pointer;
-  }
-
-  .consent input { margin-top: 0.2em; flex-shrink: 0; }
-
-  .hub-btn-submit {
-    justify-content: center;
-    background: var(--brand-600);
-    color: #fff;
-    font-size: var(--text-base);
-    border: none;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .hub-btn-submit:hover:not(:disabled) { background: var(--brand-700); }
-  .hub-btn-submit:disabled { opacity: 0.7; cursor: not-allowed; }
-
-  .submit-loading { display: none; }
-  #contact-form.loading .submit-text { display: none; }
-  #contact-form.loading .submit-loading { display: inline; }
-
-  /* Messages succès / erreur (cachés par défaut) */
-  .form-msg {
-    display: none;
-    margin: var(--space-4) 0 0;
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius-md);
-    font-size: var(--text-sm);
-    text-align: center;
-  }
-
-  .form-msg--ok  { background: var(--success-50); color: var(--success-700); }
-  .form-msg--err { background: var(--error-50);   color: var(--error-700); }
-
-  #contact-form.ok    .form-msg--ok  { display: block; }
-  #contact-form.ok    .field,
-  #contact-form.ok    .consent,
-  #contact-form.ok    .hub-btn-submit     { display: none; }
-  #contact-form.error .form-msg--err  { display: block; }
-
-  .mailto-fallback { color: inherit; font-weight: var(--font-bold); }
-
-  .contact-direct {
-    text-align: center;
-    font-size: var(--text-sm);
-    color: var(--text-muted);
-    margin: var(--space-4) 0 0;
-  }
-  .contact-direct a { color: var(--brand-600); font-weight: var(--font-semibold); }
 
   /* ════════ BLOCS DE LIENS ════════ */
   .links { display: flex; flex-direction: column; gap: var(--space-3); }
@@ -592,53 +431,7 @@ const breadcrumbSchema = {
 </style>
 
 <script>
-  // ════════ Formulaire de contact → POST /api/contact (Brevo, clé côté serveur) ════════
-  // Fallback : si le réseau / l'API échoue, on affiche un message + lien mailto.
-  const form = document.getElementById('contact-form') as HTMLFormElement | null;
-
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      form.classList.remove('error', 'ok');
-
-      const name = (form.querySelector('#c-name') as HTMLInputElement)?.value.trim();
-      const email = (form.querySelector('#c-email') as HTMLInputElement)?.value.trim();
-      const message = (form.querySelector('#c-message') as HTMLTextAreaElement)?.value.trim();
-      const consent = (form.querySelector('input[name="consent"]') as HTMLInputElement)?.checked;
-
-      // Validation native (champs requis + email valide)
-      if (!form.reportValidity() || !name || !email || !message || !consent) return;
-
-      form.classList.add('loading');
-      const submitBtn = form.querySelector('.hub-btn-submit') as HTMLButtonElement;
-      if (submitBtn) submitBtn.disabled = true;
-
-      try {
-        const res = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, message, consent: true, source: 'hub:/liens' }),
-        });
-        const data = await res.json().catch(() => ({}));
-
-        if (res.ok && data.ok) {
-          form.classList.add('ok');
-          if ((window as any).gtag) {
-            (window as any).gtag('event', 'contact_submit', { event_category: 'hub', event_label: 'liens' });
-          }
-        } else {
-          throw new Error('contact failed');
-        }
-      } catch {
-        form.classList.add('error');
-      } finally {
-        form.classList.remove('loading');
-        if (submitBtn) submitBtn.disabled = false;
-      }
-    });
-  }
-
-  // ════════ Tracking des clics sortants (GTM / GA si présent) ════════
+  // ════════ Tracking des clics (GTM / GA si présent) ════════
   document.querySelectorAll<HTMLAnchorElement>('[data-track]').forEach((a) => {
     a.addEventListener('click', () => {
       if ((window as any).gtag) {
