@@ -28,19 +28,20 @@ const description =
 const withUtm = (url: string) =>
   url + (url.includes('?') ? '&' : '?') + 'utm_source=hub&utm_medium=liens&utm_campaign=hub_musiquefacile';
 
-// BLOC 2 — Mes contenus
+// BLOC 2 — Mes contenus (icônes = vrais logos carrés, déjà dans /images/logo/)
 const contentLinks = [
   {
-    href: 'https://www.youtube.com/@musique-facile',
-    emoji: '📺',
+    // ?sub_confirmation=1 = méthode officielle YouTube : ouvre la pop-up d'abonnement
+    href: 'https://www.youtube.com/@musique-facile?sub_confirmation=1',
+    icon: '/images/logo/youtube-picto.webp',
     label: 'YouTube',
-    sub: 'Cours & tutos en vidéo',
-    aria: 'Ma chaîne YouTube Musique Facile (nouvel onglet)',
+    sub: "S'abonner à la chaîne",
+    aria: "M'abonner à la chaîne YouTube Musique Facile (nouvel onglet)",
     external: true,
   },
   {
     href: 'https://www.tiktok.com/@musique_facile',
-    emoji: '🎵',
+    icon: '/images/logo/tiktok-picto.webp',
     label: 'TikTok',
     sub: 'Astuces musique en 60 secondes',
     aria: 'Mon compte TikTok Musique Facile (nouvel onglet)',
@@ -48,7 +49,7 @@ const contentLinks = [
   },
   {
     href: 'https://www.instagram.com/musique_facile/',
-    emoji: '📸',
+    icon: '/images/logo/instagram-picto.webp',
     label: 'Instagram',
     sub: 'Coulisses & inspiration',
     aria: 'Mon compte Instagram Musique Facile (nouvel onglet)',
@@ -56,11 +57,19 @@ const contentLinks = [
   },
   {
     href: 'https://musique-facile.fr/',
-    emoji: '🌐',
+    icon: '/favicon.svg',
     label: 'Mon site',
     sub: 'Cours de guitare, ukulélé & piano',
     aria: 'Le site Musique Facile',
     external: false,
+  },
+  {
+    href: 'https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-fieff%C3%A9/',
+    icon: '/images/logo/linkedin-picto.webp',
+    label: 'LinkedIn',
+    sub: 'Le parcours pro de Fred',
+    aria: 'Le profil LinkedIn de Frédéric Fieffé (nouvel onglet)',
+    external: true,
   },
 ];
 
@@ -69,6 +78,7 @@ const sameAs = [
   'https://www.youtube.com/@musique-facile',
   'https://www.tiktok.com/@musique_facile',
   'https://www.instagram.com/musique_facile/',
+  'https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-fieff%C3%A9/',
   'https://musique-facile.fr',
 ];
 
@@ -227,7 +237,7 @@ const breadcrumbSchema = {
           aria-label={l.aria}
           {...(l.external ? { target: '_blank', rel: 'noopener' } : {})}
         >
-          <span class="hub-btn-emoji" aria-hidden="true">{l.emoji}</span>
+          <img class="hub-btn-icon" src={l.icon} alt="" width="28" height="28" loading="lazy" decoding="async" aria-hidden="true" />
           <span class="hub-btn-body">
             <span class="hub-btn-label">{l.label}</span>
             <span class="hub-btn-sub">{l.sub}</span>
@@ -525,6 +535,15 @@ const breadcrumbSchema = {
     flex-shrink: 0;
     width: 2rem;
     text-align: center;
+  }
+
+  /* Vrais logos réseaux (YouTube, TikTok, Instagram, LinkedIn) + favicon du site */
+  .hub-btn-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    object-fit: contain;
+    display: block;
   }
 
   .hub-btn-body { display: flex; flex-direction: column; flex: 1; min-width: 0; }
