@@ -8,6 +8,7 @@ dateModified: "2026-06-06"
 prod: "Y"
 schemaType: "BlogPosting"
 instrument: "général"
+siloSlug: "pourquoi-tu-stagnes-en-musique"
 level: "débutant"
 category: "pratique"
 tags: ["rythme", "métronome", "main droite", "guitare", "ukulélé", "pratique quotidienne"]

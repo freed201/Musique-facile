@@ -115,7 +115,7 @@ faqs:
   </style>
 
 ## **Par où commencer le piano ? Les 6 bases, dans l'ordre**  
-En 13 ans de cours, j'ai vu une chose se répéter : ceux qui « ne savent pas par où commencer » abandonnent souvent, alors que tout tient en **six bases**, prises dans le bon ordre. Les voici, sans jargon, avec un exercice concret à chaque étape.  
+En 15 ans de cours, j'ai vu une chose se répéter : ceux qui « ne savent pas par où commencer » abandonnent souvent, alors que tout tient en **six bases**, prises dans le bon ordre. Les voici, sans jargon, avec un exercice concret à chaque étape.  
 
 ---
 

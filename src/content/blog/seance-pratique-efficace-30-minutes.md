@@ -196,7 +196,7 @@ Voici la méthode exacte, testée avec des centaines d'élèves adultes. Elle fo
 **Pourquoi c'est vital :**
 Cette phase crée l'association positive "Pratiquer = Plaisir". Sans elle, ton cerveau associe la pratique à l'effort pur. Avec elle, tu termines satisfait et motivé.
 
-> 📊 **Donnée clé :** Dans notre étude interne (2023-2024), 85% des élèves qui terminent par un moment de plaisir gardent leur routine plus de 6 mois, contre seulement 40% pour ceux qui finissent sur du technique pur.
+> 💡 **À retenir :** D'expérience, les élèves qui terminent leur séance par un moment de plaisir tiennent leur routine bien plus longtemps que ceux qui finissent sur du pur technique. L'association « pratiquer = plaisir » est ce qui fait revenir au clavier jour après jour.
 
 **Idées concrètes :**
 - **Guitare :** "Knockin' on Heaven's Door" (Em-G-D-A, ultra simple)
@@ -396,9 +396,9 @@ Voici la vérité : **tu peux progresser seul(e) avec cette méthode**. Des mill
 
 Un **stage de 2-3 jours** avec un prof peut débloquer ce qui coince depuis des mois. Pourquoi ? Parce qu'en immersion, tu corriges 10-15 détails techniques + tu repars avec une routine claire.
 
-**Résultat observé chez Musique Facile :**
-- 70% des stagiaires progressent l'équivalent de 3 mois en 3 jours
-- 85% repartent avec une routine qu'ils tiennent 6+ mois
+**Ce qu'on observe chez Musique Facile :**
+- La plupart des stagiaires progressent en trois jours autant qu'en plusieurs semaines de travail en solo
+- La grande majorité repart avec une routine claire qu'elle tient dans la durée
 
 Si tu sens que tu stagnes malgré la pratique régulière, ça vaut le coup d'envisager un coup de pouce :
 👉 **[Découvrir les stages Musique Facile 2026](https://musique-facile.fr/stage2026/)**

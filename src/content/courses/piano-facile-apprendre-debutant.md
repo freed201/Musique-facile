@@ -63,7 +63,7 @@ teachers:
     - firstName: "Fred"
       lastName: "Fieffé"
       subtitle: "Ton professeur"
-      description: "13 ans d'expérience dans l'enseignement de la musique en ligne."
+      description: "15 ans d'expérience dans l'enseignement de la musique en ligne."
       photo: "fred.webp"
       website: "https://musique-facile.fr"
       credentials:
