@@ -23,6 +23,7 @@
  */
 import type { APIRoute } from 'astro';
 import { sendLeadMagnetEmail } from './_lead-magnet-emails';
+import { getClientIp, rateLimit, tooManyRequests } from './_rate-limit';
 
 export const prerender = false;
 
@@ -63,6 +64,9 @@ const pickListIds = (instrument?: string): number[] => {
 };
 
 export const POST: APIRoute = async ({ request }) => {
+  const rl = rateLimit(`subscribe:${getClientIp(request)}`, { limit: 6, windowMs: 60_000 });
+  if (!rl.ok) return tooManyRequests(rl.retryAfter);
+
   let body: SubscribeBody;
   try {
     body = await request.json();
