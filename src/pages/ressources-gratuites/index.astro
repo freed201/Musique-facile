@@ -5,6 +5,7 @@ import FooterModern from '../../components/FooterModern.astro';
 import RessourceCard from '../../components/RessourceCard.astro';
 import RessourceFilter from '../../components/RessourceFilter.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import LeadCaptureForm from '../../components/LeadCaptureForm.astro';
 import { getCollection } from 'astro:content';
 
 // Récupérer toutes les ressources
@@ -130,6 +131,15 @@ const stats = [
         </div>
       </div>
     </section>
+
+    <!-- Capture email : guide gratuit en bonus -->
+    <LeadCaptureForm
+      leadMagnet="guitare-5-accords-magiques"
+      title="Recevez un guide gratuit en bonus"
+      subtitle="Les 5 accords magiques pour jouer 100 chansons à la guitare — directement dans votre boîte mail."
+      buttonText="Recevoir mon guide"
+      theme="dark"
+    />
 
     <!-- Section CTA -->
     <section class="cta-section">

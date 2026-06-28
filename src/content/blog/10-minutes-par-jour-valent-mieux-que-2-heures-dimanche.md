@@ -11,7 +11,6 @@ level: "tous-niveaux"
 category: "théorie"
 tags: ["pratique quotidienne", "apprentissage musique", "sommeil", "régularité", "progression"]
 pillar: true
-siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 schemaType: "BlogPosting"
 prod: "Y"
 keywords: "10 minutes par jour musique, combien de temps pratiquer instrument, régularité pratique musicale, sommeil apprentissage musique, pratique quotidienne guitare piano"

@@ -17,7 +17,7 @@ category: "pratique"
 level: "débutant"
 instrument: "piano"
 
-introduction: "Quand on commence le piano adulte, le piège n'est pas le manque de temps : c'est de le dépenser n'importe comment. En 13 ans à enseigner, j'ai vu une constante : les élèves qui progressent vite ne pratiquent pas plus, ils pratiquent trois choses précises. Les voici, avec exactement comment les travailler."
+introduction: "Quand on commence le piano adulte, le piège n'est pas le manque de temps : c'est de le dépenser n'importe comment. En 15 ans à enseigner, j'ai vu une constante : les élèves qui progressent vite ne pratiquent pas plus, ils pratiquent trois choses précises. Les voici, avec exactement comment les travailler."
 conclusion: "Ces trois exercices — les bases, l'oreille, la lecture — ne paient pas en une séance. Ils paient en trois semaines. Garde-les courts, fais-les souvent, et tu sentiras la différence sur chaque nouveau morceau. C'est tout l'inverse de la séance marathon du dimanche."
 prod: Y
 schemaType: "BlogPosting"
