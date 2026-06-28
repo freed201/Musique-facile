@@ -31,6 +31,7 @@
  *   STAGE_NOTIFICATION_EMAIL   -- (optionnel) défaut: contact@musique-facile.fr
  */
 import type { APIRoute } from 'astro';
+import { getClientIp, rateLimit, tooManyRequests } from './_rate-limit';
 
 export const prerender = false;
 
@@ -130,6 +131,9 @@ const buildConfirmEmail = (firstName: string, niveau: string, format: string, uk
 </body></html>`;
 
 export const POST: APIRoute = async ({ request }) => {
+  const rl = rateLimit(`stage:${getClientIp(request)}`, { limit: 4, windowMs: 60_000 });
+  if (!rl.ok) return tooManyRequests(rl.retryAfter);
+
   let body: InscriptionBody;
   try {
     body = await request.json();

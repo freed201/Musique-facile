@@ -28,6 +28,7 @@
  * La clé API n'est JAMAIS exposée au client : tout passe par cet endpoint serverless.
  */
 import type { APIRoute } from 'astro';
+import { getClientIp, rateLimit, tooManyRequests } from './_rate-limit';
 
 export const prerender = false;
 
@@ -67,6 +68,9 @@ const pickContactListIds = (): number[] => {
 };
 
 export const POST: APIRoute = async ({ request }) => {
+  const rl = rateLimit(`contact:${getClientIp(request)}`, { limit: 4, windowMs: 60_000 });
+  if (!rl.ok) return tooManyRequests(rl.retryAfter);
+
   let body: ContactBody;
   try {
     body = await request.json();
