@@ -58,16 +58,21 @@ const blogSchema = {
   "name": "Blog Musique Facile",
   "description": "Articles, conseils et astuces pour progresser en musique",
   "url": canonicalURL,
-  "blogPost": publishedPosts.slice(0, 20).map(post => ({
+  "blogPost": publishedPosts.map(post => ({
     "@type": "BlogPosting",
     "headline": post.data.title,
     "description": post.data.description,
-    "image": post.data.ogImage,
+    "image": post.data.ogImage?.startsWith('http')
+      ? post.data.ogImage
+      : `${Astro.url.origin}${post.data.ogImage}`,
     "datePublished": post.data.datePublished,
     "dateModified": post.data.dateModified,
     "author": {
       "@type": "Person",
-      "name": post.data.author
+      "name": post.data.author,
+      ...(post.data.author === "Fred Fieffé"
+        ? { "url": `${Astro.url.origin}/auteur/fred-fieffe` }
+        : {})
     },
     "url": `${Astro.url.origin}/blog/${post.slug}`
   }))
@@ -89,6 +94,25 @@ const itemListSchema = {
   }))
 };
 
+// Schema.org BreadcrumbList (fil d'Ariane Accueil > Blog)
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${Astro.url.origin}/` },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": canonicalURL }
+  ]
+};
+
+// Date de dernière mise à jour du blog (article le plus récemment modifié)
+const lastUpdatedISO = publishedPosts.reduce((max, p) => {
+  const d = p.data.dateModified || p.data.datePublished;
+  return d && d > max ? d : max;
+}, '');
+const lastUpdatedLabel = lastUpdatedISO
+  ? new Date(lastUpdatedISO).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })
+  : '';
+
 const ARTICLES_PER_PAGE = 12;
 const totalPages = Math.ceil(publishedPosts.length / ARTICLES_PER_PAGE);
 ---
@@ -103,6 +127,7 @@ const totalPages = Math.ceil(publishedPosts.length / ARTICLES_PER_PAGE);
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
 
   <Header />
@@ -125,6 +150,9 @@ const totalPages = Math.ceil(publishedPosts.length / ARTICLES_PER_PAGE);
       <div class="container">
         <!-- Introduction -->
         <div class="blog-intro">
+          <p class="blog-authority">
+            Ce blog est animé par <a href="/auteur/fred-fieffe/"><strong>Fred Fieffé</strong></a>, musicien depuis plus de 40 ans et professeur depuis 15 ans, qui a accompagné plus de <strong>80 000 élèves</strong> (note moyenne de <strong>4,7/5 sur 929 avis</strong>). Tu y trouveras aujourd'hui <strong>{publishedPosts.length} articles</strong> couvrant la guitare ({instrumentCounts.guitare}), le piano ({instrumentCounts.piano}), l'ukulélé ({instrumentCounts.ukulele}) et le solfège ({instrumentCounts.solfege}).{lastUpdatedLabel && ` Dernière mise à jour : ${lastUpdatedLabel}.`}
+          </p>
           <p>
             <strong>Pour qui est ce blog ?</strong> Ce blog s'adresse aux adultes débutants, faux-débutants et musiciens qui reprennent un instrument après une pause. Si tu cherches une approche sans pression, progressive et motivante pour apprendre la musique, tu es au bon endroit.
           </p>
@@ -143,7 +171,8 @@ const totalPages = Math.ceil(publishedPosts.length / ARTICLES_PER_PAGE);
         <!-- Filtres -->
         <FilterBar counts={instrumentCounts} />
 
-        <!-- Statistiques -->
+        <!-- Titre de section + statistiques -->
+        <h2 class="articles-heading">Tous nos articles</h2>
         <div class="blog-stats" id="blogStats">
           <span id="statsText">Affichage de {publishedPosts.length} articles</span>
         </div>
@@ -287,6 +316,12 @@ const totalPages = Math.ceil(publishedPosts.length / ARTICLES_PER_PAGE);
     font-weight: 600;
   }
 
+  .blog-intro .blog-authority {
+    font-size: 1.15rem;
+    padding-left: 1.25rem;
+    border-left: 3px solid var(--theme-current);
+  }
+
   .blog-intro a {
     color: var(--theme-current);
     text-decoration: none;
@@ -309,6 +344,14 @@ const totalPages = Math.ceil(publishedPosts.length / ARTICLES_PER_PAGE);
     display: inline-block;
     margin-left: 1rem;
     font-size: 0.95rem;
+  }
+
+  /* Titre de section articles */
+  .articles-heading {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--theme-current);
+    margin-bottom: 0.75rem;
   }
 
   /* Stats */

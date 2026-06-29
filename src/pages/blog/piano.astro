@@ -101,7 +101,9 @@ const collectionSchema = {
             {debutantPosts.slice(0, 6).map(post => (
               <article class="post-card">
                 <a href={`/blog/${post.slug}`}>
-                  <div class="post-image" style={`background-image: url(${post.data.ogImage})`}></div>
+                  <div class="post-image">
+                    <img class="post-image__img" src={post.data.ogImage} alt={post.data.title} loading="lazy" decoding="async" width="1200" height="630" />
+                  </div>
                   <div class="post-content">
                     <div class="post-badges">
                       <span class="badge badge-level">Débutant</span>
@@ -134,7 +136,9 @@ const collectionSchema = {
             {tutorielPosts.slice(0, 9).map(post => (
               <article class="post-card">
                 <a href={`/blog/${post.slug}`}>
-                  <div class="post-image" style={`background-image: url(${post.data.ogImage})`}></div>
+                  <div class="post-image">
+                    <img class="post-image__img" src={post.data.ogImage} alt={post.data.title} loading="lazy" decoding="async" width="1200" height="630" />
+                  </div>
                   <div class="post-content">
                     <div class="post-badges">
                       {post.data.level && <span class="badge badge-level">{post.data.level}</span>}
@@ -167,7 +171,9 @@ const collectionSchema = {
             {pratiquePosts.slice(0, 6).map(post => (
               <article class="post-card">
                 <a href={`/blog/${post.slug}`}>
-                  <div class="post-image" style={`background-image: url(${post.data.ogImage})`}></div>
+                  <div class="post-image">
+                    <img class="post-image__img" src={post.data.ogImage} alt={post.data.title} loading="lazy" decoding="async" width="1200" height="630" />
+                  </div>
                   <div class="post-content">
                     <div class="post-badges">
                       {post.data.level && <span class="badge badge-level">{post.data.level}</span>}
@@ -304,8 +310,15 @@ const collectionSchema = {
 
   .post-image {
     height: 200px;
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
+  }
+
+  .post-image__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
   .post-content {

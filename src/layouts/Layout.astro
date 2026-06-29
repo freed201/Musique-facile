@@ -25,6 +25,8 @@ const {
 } = Astro.props;
 
 const siteUrl = 'https://musique-facile.fr';
+// Le hero.webp n'est l'élément LCP que sur la page d'accueil : on ne le précharge que là.
+const isHomepage = Astro.url.pathname === '/';
 const ogImageValue = ogImage || '/images/og-default.webp';
 const absoluteOgImage = ogImageValue.startsWith('http') ? ogImageValue : `${siteUrl}${ogImageValue}`;
 
@@ -39,10 +41,17 @@ const schema = {
   "publisher": {
     "@type": "Organization",
     "name": "Musique Facile",
+    "url": "https://musique-facile.fr",
     "logo": {
       "@type": "ImageObject",
       "url": "https://musique-facile.fr/logo.jpg"
-    }
+    },
+    "sameAs": [
+      "https://www.youtube.com/@Musique-Facile",
+      "https://www.instagram.com/guitare_et_ukulele_facile/",
+      "https://www.tiktok.com/@musique_facile",
+      "https://facebook.com/MusiqueFacileFacebook"
+    ]
   }
 };
 ---
@@ -64,12 +73,10 @@ const schema = {
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#6C3FA0" />
 
-    <!-- Preload des fonts critiques pour améliorer FCP -->
-    <link rel="preload" href="/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/poppins-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
-
-    <!-- Preload hero background LCP (element LCP sur mobile) -->
-    <link rel="preload" href="/images/hero.webp" as="image" type="image/webp" fetchpriority="high" />
+    <!-- Preload hero background LCP (élément LCP sur mobile, uniquement sur la page d'accueil) -->
+    {isHomepage && (
+      <link rel="preload" href="/images/hero.webp" as="image" type="image/webp" fetchpriority="high" />
+    )}
 
     <!-- DNS Prefetch pour Google Analytics (GTM est gere dans ExternalResources) -->
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
