@@ -24,16 +24,26 @@ interface Props {
   author: string;
   datePublished: string;
   pageUrl: string;
+  instrument?: string;
 }
 
-const { products, author, datePublished, pageUrl } = Astro.props;
+const { products, author, datePublished, pageUrl, instrument } = Astro.props;
+
+// Nom de la liste par instrument. Composant partagé par les 3 guides d'achat ;
+// le nom codé en dur "Guitares folk…" polluait le Schema des pages ukulélé et piano.
+const LIST_NAMES: Record<string, string> = {
+  ukulele: "Ukulélés recommandés pour débuter",
+  guitare: "Guitares folk recommandées pour débuter",
+  piano: "Pianos numériques recommandés pour débuter",
+};
+const listName = LIST_NAMES[instrument ?? ""] ?? "Instruments recommandés pour débuter";
 
 const reviewDate = new Date(datePublished).toISOString().split('T')[0];
 
 const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Guitares folk recommandées pour débuter",
+  "name": listName,
   "itemListOrder": "https://schema.org/ItemListUnordered",
   "numberOfItems": products.length,
   "itemListElement": products.map((product, index) => ({

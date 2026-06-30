@@ -1,6 +1,6 @@
 ---
 pillar: true
-title: "Débuter l'Ukulélé — Méthode Simple 2026 | Musique Facile"
+title: "Débuter l'Ukulélé — Méthode Simple 2026"
 description: "4 accords suffisent pour jouer vos 1ers morceaux en 1 semaine. Guide pour adultes débutants par Fred Fieffé, 80 000+ élèves formés, méthode testée et approuvée."
 meta: "Découvrez comment débuter au ukulélé facilement avec notre méthode simple et ludique. Parfait pour les adultes et ados, cet article vous guide à travers les bases indispensables pour apprendre facilement."
 author: "Fred Fieffé"
@@ -30,6 +30,13 @@ instrument: "ukulele"
 level: "débutant"
 category: "pratique"
 ---
+
+## En bref : débuter l'ukulélé en 2026
+
+- **Pourquoi l'ukulélé ?** **4 cordes en nylon** souples qui ne font pas mal aux doigts — le confort dès le premier jour.
+- **Combien d'accords ?** **4 accords** (C, F, G, Am) pour jouer des centaines de chansons.
+- **En combien de temps ?** **15 minutes par jour pendant 7 jours** suffisent pour ton premier morceau.
+- **Quel budget ?** **80 à 150 €** pour un bon modèle débutant, léger et transportable partout.
 
 ## Pourquoi choisir le ukulélé quand on débute la musique ?
 
@@ -98,10 +105,10 @@ Le ukulélé est l'instrument le plus accessible pour les adultes qui veulent se
 
 ### Ukulélé et bien-être
 
-Jouer du ukulélé a des effets prouvés sur la santé mentale :
+Jouer du ukulélé est bénéfique pour le bien-être mental :
 
-- **Réduit le stress** : -25% de cortisol après 20 min de pratique
-- **Améliore l'humeur** : Libération de dopamine
+- **Réduit le stress** : quelques minutes de pratique procurent un réel effet d'apaisement
+- **Améliore l'humeur** : le plaisir de progresser entretient la motivation
 - **Combat l'anxiété** : Concentration sur le présent (mindfulness)
 - **Renforce la confiance** : Satisfaction de jouer rapidement
 - **Crée du lien social** : Communauté accueillante
@@ -246,6 +253,10 @@ Avant d'apprendre les accords, accorde ton ukulélé :
 
 ### Accord 1 : C (Do majeur) - LE plus facile
 
+<figure style="margin:1.25rem 0;text-align:center;">
+  <img src="/images/blog/accords-ukulele/accord-ukulele-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) au ukulélé : annulaire sur la 3e case de la corde A, les trois autres cordes à vide" />
+</figure>
+
 **Difficulté :** ⭐ (1/5)
 **Doigts utilisés :** 1 seul !
 
@@ -266,6 +277,10 @@ Avant d'apprendre les accords, accorde ton ukulélé :
 
 ### Accord 2 : Am (La mineur) - Aussi facile !
 
+<figure style="margin:1.25rem 0;text-align:center;">
+  <img src="/images/blog/accords-ukulele/accord-ukulele-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) au ukulélé : majeur sur la 2e case de la corde G, les trois autres cordes à vide" />
+</figure>
+
 **Difficulté :** ⭐ (1/5)
 **Doigts utilisés :** 1 seul !
 
@@ -284,6 +299,10 @@ Avant d'apprendre les accords, accorde ton ukulélé :
 **Chanson jour 1 :** Avec C et Am, tu peux déjà jouer des bouts de "Somewhere Over the Rainbow" !
 
 ### Accord 3 : F (Fa majeur) - Un peu plus
+
+<figure style="margin:1.25rem 0;text-align:center;">
+  <img src="/images/blog/accords-ukulele/accord-ukulele-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) au ukulélé : index sur la 1re case de la corde E et majeur sur la 2e case de la corde G, cordes C et A à vide" />
+</figure>
 
 **Difficulté :** ⭐⭐ (2/5)
 **Doigts utilisés :** 2
@@ -306,12 +325,16 @@ Avant d'apprendre les accords, accorde ton ukulélé :
 
 ### Accord 4 : G (Sol majeur) - Le challenge
 
+<figure style="margin:1.25rem 0;text-align:center;">
+  <img src="/images/blog/accords-ukulele/accord-ukulele-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) au ukulélé : index 2e case corde C, majeur 2e case corde A, annulaire 3e case corde E, corde G à vide" />
+</figure>
+
 **Difficulté :** ⭐⭐⭐ (3/5)
 **Doigts utilisés :** 3
 
 **Position :**
-- Index (1) sur la **2ème case de la 1ère corde** (A)
-- Majeur (2) sur la **2ème case de la 3ème corde** (C)
+- Index (1) sur la **2ème case de la 3ème corde** (C)
+- Majeur (2) sur la **2ème case de la 1ère corde** (A)
 - Annulaire (3) sur la **3ème case de la 2ème corde** (E)
 - Corde 4 (G) sonne à vide
 

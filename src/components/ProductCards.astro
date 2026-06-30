@@ -19,9 +19,22 @@ interface Product {
 interface Props {
   products: Product[];
   title?: string;
+  instrument?: string;
 }
 
-const { products, title = "Les guitares recommandées en un coup d'œil" } = Astro.props;
+// Libellés par instrument. Ce composant est partagé par les 3 guides d'achat
+// (ukulélé, guitare folk, piano numérique) ; sans cette table, les libellés codés
+// en dur pour la guitare polluaient les pages ukulélé et piano (titre + alt images).
+const LABELS: Record<string, { sectionTitle: string; altNoun: string; agr: string }> = {
+  ukulele: { sectionTitle: "Les ukulélés recommandés en un coup d'œil", altNoun: "ukulélé", agr: "" },
+  guitare: { sectionTitle: "Les guitares recommandées en un coup d'œil", altNoun: "guitare folk", agr: "e" },
+  piano: { sectionTitle: "Les pianos numériques recommandés en un coup d'œil", altNoun: "piano numérique", agr: "" },
+};
+const FALLBACK = { sectionTitle: "Les instruments recommandés en un coup d'œil", altNoun: "instrument", agr: "" };
+
+const { products, title, instrument } = Astro.props;
+const labels = LABELS[instrument ?? ""] ?? FALLBACK;
+const heading = title ?? labels.sectionTitle;
 
 const withImg = products.filter((p) => p.image);
 
@@ -30,15 +43,15 @@ const pct = (v: string) =>
 ---
 
 {withImg.length > 0 && (
-  <section class="product-cards" aria-label={title}>
-    <h2>{title}</h2>
+  <section class="product-cards" aria-label={heading}>
+    <h2>{heading}</h2>
     <div class="pc-list">
       {withImg.map((p) => (
         <article class="pc-card">
           <div class="pc-media">
             <img
               src={p.image}
-              alt={`${p.name} — guitare folk ${p.brand} recommandée par Fred Fieffé`}
+              alt={`${p.name} — ${labels.altNoun} ${p.brand} recommandé${labels.agr} par Fred Fieffé`}
               loading="lazy"
               decoding="async"
             />

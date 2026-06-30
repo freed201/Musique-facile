@@ -6,7 +6,7 @@ meta: "Quel est le meilleur cours de guitare en ligne en 2026 ? Comparatif compl
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
-ogImage: "/images/blog/meilleurs-cours-guitare-en-ligne-2026.webp"
+ogImage: "/images/blog/meilleurs-cours-guitare-en-ligne-compares-2026.webp"
 datePublished: "2026-02-17"
 dateModified: "2026-02-17"
 introduction: "Il existe des dizaines de plateformes de cours guitare en ligne. Comment choisir la meilleure ? Ce comparatif analyse **7 plateformes majeures** sur 8 critères objectifs : méthode pédagogique, prix réel sur 3 ans, qualité vidéo, niveau d'accompagnement et résultats des élèves."

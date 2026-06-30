@@ -40,7 +40,16 @@ const config = instrumentConfig[detectedInstrument] || instrumentConfig.general;
 
 <article class="article-card" data-instrument={detectedInstrument}>
   <a href={`/blog/${slug}`} class="card-link">
-    <div class="card-image" style={`background-image: url(${image})`}>
+    <div class="card-image">
+      <img
+        class="card-image__img"
+        src={image}
+        alt={title}
+        loading="lazy"
+        decoding="async"
+        width="1200"
+        height="630"
+      />
       <div class="card-badges">
         <span class="badge badge-instrument" style={`background-color: ${config.color}`}>
           <Icon name={config.iconName} size={14} /> {config.label}
@@ -58,7 +67,7 @@ const config = instrumentConfig[detectedInstrument] || instrumentConfig.general;
     </div>
 
     <div class="card-content">
-      <h2 class="card-title">{title}</h2>
+      <h3 class="card-title">{title}</h3>
       <p class="card-description">{description}</p>
 
       <div class="card-footer">
@@ -102,10 +111,23 @@ const config = instrumentConfig[detectedInstrument] || instrumentConfig.general;
 
   .card-image {
     height: 220px;
-    background-size: cover;
-    background-position: center;
     position: relative;
     overflow: hidden;
+  }
+
+  .card-image__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .article-card:hover .card-image__img {
+    transform: scale(1.05);
   }
 
   .card-image::after {
