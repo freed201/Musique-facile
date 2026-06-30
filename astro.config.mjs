@@ -3,6 +3,7 @@ import vercel from '@astrojs/vercel/serverless';
 import { remarkCustomBlocks } from './src/remark-custom-blocks.mjs';
 import remarkOptimizeImages from './src/remark-optimize-images.mjs';
 import remarkLazyImages from './src/remark-lazy-images.mjs';
+import remarkAffiliateLinks from './src/remark-affiliate-links.mjs';
 import compress from 'astro-compress';
 
 export default defineConfig({
@@ -117,7 +118,7 @@ export default defineConfig({
   },
 
   markdown: {
-    remarkPlugins: [remarkCustomBlocks, remarkOptimizeImages, remarkLazyImages],
+    remarkPlugins: [remarkCustomBlocks, remarkOptimizeImages, remarkLazyImages, remarkAffiliateLinks],
   },
 
   // Optimisations de build

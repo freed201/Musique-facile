@@ -1,6 +1,6 @@
 ---
 pillar: true
-title: "Débuter l'Ukulélé — Méthode Simple 2026 | Musique Facile"
+title: "Débuter l'Ukulélé — Méthode Simple 2026"
 description: "4 accords suffisent pour jouer vos 1ers morceaux en 1 semaine. Guide pour adultes débutants par Fred Fieffé, 80 000+ élèves formés, méthode testée et approuvée."
 meta: "Découvrez comment débuter au ukulélé facilement avec notre méthode simple et ludique. Parfait pour les adultes et ados, cet article vous guide à travers les bases indispensables pour apprendre facilement."
 author: "Fred Fieffé"
@@ -30,6 +30,13 @@ instrument: "ukulele"
 level: "débutant"
 category: "pratique"
 ---
+
+## En bref : débuter l'ukulélé en 2026
+
+- **Pourquoi l'ukulélé ?** **4 cordes en nylon** souples qui ne font pas mal aux doigts — le confort dès le premier jour.
+- **Combien d'accords ?** **4 accords** (C, F, G, Am) pour jouer des centaines de chansons.
+- **En combien de temps ?** **15 minutes par jour pendant 7 jours** suffisent pour ton premier morceau.
+- **Quel budget ?** **80 à 150 €** pour un bon modèle débutant, léger et transportable partout.
 
 ## Pourquoi choisir le ukulélé quand on débute la musique ?
 
@@ -98,10 +105,10 @@ Le ukulélé est l'instrument le plus accessible pour les adultes qui veulent se
 
 ### Ukulélé et bien-être
 
-Jouer du ukulélé a des effets prouvés sur la santé mentale :
+Jouer du ukulélé est bénéfique pour le bien-être mental :
 
-- **Réduit le stress** : -25% de cortisol après 20 min de pratique
-- **Améliore l'humeur** : Libération de dopamine
+- **Réduit le stress** : quelques minutes de pratique procurent un réel effet d'apaisement
+- **Améliore l'humeur** : le plaisir de progresser entretient la motivation
 - **Combat l'anxiété** : Concentration sur le présent (mindfulness)
 - **Renforce la confiance** : Satisfaction de jouer rapidement
 - **Crée du lien social** : Communauté accueillante

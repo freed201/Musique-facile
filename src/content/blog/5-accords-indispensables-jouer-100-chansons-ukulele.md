@@ -19,15 +19,6 @@ instrument: "ukulele"
 
 introduction: "Le ukulélé est un instrument qui apporte joie et simplicité. En maîtrisant seulement cinq accords clés, vous pouvez étonnamment jouer une centaine de chansons. Cet article explore comment enchaîner ces accords sans difficulté et propose des idées de morceaux à essayer. Découvrez comment les cours vidéo peuvent vous aider à débuter efficacement."
 conclusion: "Avec ces cinq accords, vous pouvez aisément explorer un vaste répertoire musical et progresser rapidement en tant que joueur de ukulélé. Grâce aux conseils et exercices proposés, améliorer vos compétences devient ludique et accessible. Rejoindre une formation vidéo dédiée est une excellente manière d'approfondir vos connaissances et d'atteindre vos objectifs musicaux de manière guidée et structurée."
-videos:
-  - title: "Une belle histoire – Play Along Guitare #Shorts  #springonyoutube"
-    url: "https://youtu.be/fNKFL5HsImY"
-  - title: "&quot;Flower&quot;- Miley Cyrus - Guitar Play along - Easy chords"
-    url: "https://youtu.be/xU4N-Hn8uE8"
-  - title: "Greensday - American Idiot Guitar Play Along  #playalong"
-    url: "https://youtu.be/7YsjrQnOvdU"
-  - title: "STARLIGHT à LA GUITARE - Playalong Express! 🎶🌠 #tuto #guitare"
-    url: "https://youtu.be/uBqlSQVpMNM"
 faqs:
   - question: "Quels sont les 5 accords de base indispensables pour débuter au ukulélé ?"
     answer: "Les 5 accords essentiels sont C (Do majeur), G (Sol majeur), Am (La mineur), F (Fa majeur) et Dm (Ré mineur). Avec ces cinq accords seulement, vous pouvez jouer plus de 100 chansons populaires. L'accord C est le plus simple avec un seul doigt, suivi de Am également très facile. Les accords G, F et Dm demandent un peu plus de coordination mais restent accessibles aux débutants."
@@ -45,7 +36,8 @@ faqs:
 prod: Y
 schemaType: "BlogPosting"
 ---
-**Les 5 Accords à Connaître Absolument**
+## Les 5 accords à connaître absolument
+
 Vous savez, quand on débute au ukulélé, on nous parle souvent de ces fameux cinq accords : **C**, **G**, **Am**, **F** et **Dm**. Ces accords, c'est un peu comme les cinq doigts de la main... sauf qu'ici, ce sont les clés pour ouvrir la porte de centaines de chansons. Franchement, sans ces accords, c'est comme essayer de cuisiner sans sel : ça manque un peu de saveur !
 
 D'abord, parlons de l'accord de **C**. Hyper simple à jouer, on place juste un doigt sur la troisième case de la corde la plus en bas, et hop ! C’est le genre d'accord qui sonne bien tout seul. Puis, y a **G**, qui demande un peu plus de jonglage des doigts. Mais pas de panique ! Une fois qu'on a le coup de main, c’est un jeu d'enfant. Allez, un petit secret : le **Am**. Un seul doigt encore, simple comme bonjour. On l’apprend vite fait.
@@ -53,7 +45,8 @@ D'abord, parlons de l'accord de **C**. Hyper simple à jouer, on place juste un 
 Et si on jette un œil à **F** et **Dm**, là on entre dans une danse un peu plus complexe. Mais rappelez-vous, ces deux-là sont indispensables pour donner cette petite touche mélodieuse. Pour les maîtriser, rien de tel que de répéter en boucle, comme un bon refrain. 
 
 Alors, comment éviter les erreurs de débutant ? Utilisez un métronome pour garder le rythme et faites attention à bien positionner vos doigts pour éviter ces petits bruits de cordes étouffées. Et surtout, amusez-vous ! C’est en jouant et rejouant que la magie opère, promis juré.
-**Comment Bien les Enchaîner sans Blocage**
+## Comment bien les enchaîner sans blocage
+
 Imaginez que vous êtes dans une danse. Chaque pas, chaque mouvement s’enchaîne harmonieusement. C'est exactement ce que fait un **enchaînement fluide d'accords** en jouant du ukulélé. Car oui, sans ça, c'est comme danser avec des pieds pris dans le béton – le rythme casse, l’harmonie s’évapore et la magie s’envole.
 
 Mais comment s'assurer que ces transitions se passent en douceur ? Il existe des astuces et des exercices sympas pour vous aider. Un classique ? Le bon vieux `changement en deux temps`. Essayez ça : placez vos doigts en position sur un accord (disons **C**), strummez doucement, puis passez à un autre (comme **G**), mais en comptant \"un-deux\". Prenez votre temps, restez relax.
@@ -65,7 +58,8 @@ Et franchement, on ne le dira jamais assez, mais la **pratique régulière**, il
 Bon, maintenant, mettez en application ces petits conseils. Et rappelez-vous : chaque note, chaque accord est un pas vers plus de musique. 🎵
 
 On enchaîne ?
-**Jouer en Rythme avec des Exemples Concrets**
+## Jouer en rythme avec des exemples concrets
+
 Pour bien jouer du ukulélé, adopter un bon rythme, c'est crucial! Voilà quelques modèles de **rythmes super simples** mais efficaces pour les débutants. On commence par le classique `down-down-up-up-down-up`. Impressionnant par sa simplicité, il vous plonge dans le cœur de nombreuses chansons populaires. Faites l'expérience avec \"Stand By Me\" ou \"Let It Be\" — vous verrez, c'est magique!
 
 Ensuite, y a le `down-down-down-up-down-up`. Ce modèle est un peu comme un bon vieux chausson confortable : rassurant, et ça marche à tous les coups! Pensons à \"I'm Yours\" de Jason Mraz... Parfait pour pratiquer.
@@ -79,7 +73,8 @@ Essayez aussi le `muting`, où vous étouffez légèrement les cordes avec la pa
 En parlant de trucs cools, on ne peut pas passer à côté de \"Riptide\" de Vance Joy. Simple à jouer, elle utilise ce fameux `down-down-up-down` qui reste en tête. Une bonne occasion de tester tout ce qu'on a vu!
 
 Avec ces rythmes, varier est primordial. Non seulement ça évite la monotonie, mais ça booste aussi votre progression. Alors allez-y, essayez, et amusez-vous! Vous verrez, ça va vite devenir instinctif.
-**Des Idées de Chansons à Tester avec ces 5 Accords**
+## Des idées de chansons à tester avec ces 5 accords
+
 Voilà, on y est. Alors, avec les cinq accords de base que vous avez appris, voyons ensemble quelques chansons populaires que vous pourrez jouer sans trop de souci.
 
 ### ``Let It Be`` des Beatles
@@ -91,7 +86,7 @@ Ensuite, il y a **Riptide** de Vance Joy. C'est un vrai régal pour ceux qui veu
 ### ``I’m Yours`` de Jason Mraz
 On n'oublie pas **I’m Yours** de Jason Mraz, un titre incontournable des répertoires ukulélé. Avec son ambiance feel-good et ses accords faciles, ce morceau donne une impression de chaleur et de bonne humeur à quiconque l'entend.
 
-### **Des défis pour progresser**
+### Des défis pour progresser
 
 - **Challenge 1 : Vitesse et précision**
   Essayez de jouer ``Riptide`` de plus en plus vite sans vous tromper d'accord. Vous verrez, c'est un sacré exercice de précision !

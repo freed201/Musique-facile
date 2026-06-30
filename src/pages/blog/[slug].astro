@@ -191,6 +191,7 @@ if (entry.data.siloSlug && !entry.data.pillar) {
         author={author}
         datePublished={datePublished}
         pageUrl={canonicalURL.toString()}
+        instrument={entry.data.instrument}
       />
     )}
 
@@ -347,7 +348,7 @@ if (entry.data.siloSlug && !entry.data.pillar) {
         )}
         <Content />
         {entry.data.products && entry.data.products.length > 0 && (
-          <ProductCards products={entry.data.products} />
+          <ProductCards products={entry.data.products} instrument={entry.data.instrument} />
         )}
         {showInlineOptIn && (
           <InlineOptIn
