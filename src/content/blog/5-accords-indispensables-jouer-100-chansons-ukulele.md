@@ -1,7 +1,7 @@
 ---
 siloSlug: "debuter-ukulele-methode-simple-apprendre"
 title: "5 Accords Indispensables pour Jouer 100 Chansons au Ukulélé"
-description: "Cinq accords essentiels pour jouer des dizaines de chansons au ukulélé, avec des conseils d'enchaînement simples pour débuter."
+description: "Les 5 accords C, G, Am, F et Dm permettent de jouer plus de 100 chansons au ukulélé. Positions, diagrammes et conseils d'enchaînement pour débuter."
 meta: "Apprenez à jouer 100 chansons au ukulélé avec seulement 5 accords essentiels. Cet article guide les débutants avec des conseils pratiques et des idées de morceaux."
 keywords: "accords ukulélé débutant, jouer des chansons ukulélé, apprendre ukulélé facilement, cours ukulélé adulte"
 author: "Fred Fieffé"
@@ -36,7 +36,32 @@ faqs:
 prod: Y
 schemaType: "BlogPosting"
 ---
+## En bref : les 5 accords pour jouer 100 chansons
+
+Les **5 accords indispensables** au ukulélé sont **C, G, Am, F et Dm**. À eux seuls, ils permettent de jouer plus de **100 chansons** pop, folk et variété.
+
+| Accord | Nom | Position (cordes G-C-E-A) | Difficulté |
+|---|---|---|---|
+| **C** | Do majeur | Annulaire sur la 3ᵉ case de la corde A | ★ très facile (1 doigt) |
+| **Am** | La mineur | Majeur sur la 2ᵉ case de la corde G | ★ très facile (1 doigt) |
+| **F** | Fa majeur | Index 1ʳᵉ case (corde E) + majeur 2ᵉ case (corde G) | ★★ facile (2 doigts) |
+| **G** | Sol majeur | Index (C, 2ᵉ case), majeur (A, 2ᵉ case), annulaire (E, 3ᵉ case) | ★★★ moyen (3 doigts) |
+| **Dm** | Ré mineur | Index (E, 1ʳᵉ case), annulaire (C, 2ᵉ case), majeur (G, 2ᵉ case) | ★★★ moyen (3 doigts) |
+
+Comptez **10 à 15 minutes par jour pendant 1 à 2 semaines** pour les enchaîner avec fluidité.
+
 ## Les 5 accords à connaître absolument
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-ukulele/accord-ukulele-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) au ukulélé : annulaire sur la 3e case de la corde A, les trois autres cordes à vide" />
+    <img src="/images/blog/accords-ukulele/accord-ukulele-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) au ukulélé : majeur sur la 2e case de la corde G, les trois autres cordes à vide" />
+    <img src="/images/blog/accords-ukulele/accord-ukulele-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) au ukulélé : index sur la 1re case de la corde E et majeur sur la 2e case de la corde G, cordes C et A à vide" />
+    <img src="/images/blog/accords-ukulele/accord-ukulele-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) au ukulélé : index 2e case corde C, majeur 2e case corde A, annulaire 3e case corde E, corde G à vide" />
+    <img src="/images/blog/accords-ukulele/accord-ukulele-dm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré mineur (Dm) au ukulélé : index 1re case corde E, annulaire 2e case corde C, majeur 2e case corde G, corde A à vide" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 5 accords de base au ukulélé (cordes G-C-E-A) : C, Am, F, G et Dm. Les chiffres indiquent le doigt à utiliser — 1 = index, 2 = majeur, 3 = annulaire.</figcaption>
+</figure>
 
 Vous savez, quand on débute au ukulélé, on nous parle souvent de ces fameux cinq accords : **C**, **G**, **Am**, **F** et **Dm**. Ces accords, c'est un peu comme les cinq doigts de la main... sauf qu'ici, ce sont les clés pour ouvrir la porte de centaines de chansons. Franchement, sans ces accords, c'est comme essayer de cuisiner sans sel : ça manque un peu de saveur !
 

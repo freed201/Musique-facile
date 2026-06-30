@@ -133,6 +133,12 @@ const UKULELE_CHORDS = {
     frets:   [2, 2, 2, 0],
     fingers: [1, 2, 3, 0],
   },
+  dm: {
+    name: 'Dm',
+    longName: 'Ré mineur',
+    frets:   [2, 2, 1, 0],
+    fingers: [2, 3, 1, 0],
+  },
   em: {
     name: 'Em',
     longName: 'Mi mineur',

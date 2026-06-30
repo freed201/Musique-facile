@@ -253,6 +253,10 @@ Avant d'apprendre les accords, accorde ton ukulélé :
 
 ### Accord 1 : C (Do majeur) - LE plus facile
 
+<figure style="margin:1.25rem 0;text-align:center;">
+  <img src="/images/blog/accords-ukulele/accord-ukulele-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) au ukulélé : annulaire sur la 3e case de la corde A, les trois autres cordes à vide" />
+</figure>
+
 **Difficulté :** ⭐ (1/5)
 **Doigts utilisés :** 1 seul !
 
@@ -273,6 +277,10 @@ Avant d'apprendre les accords, accorde ton ukulélé :
 
 ### Accord 2 : Am (La mineur) - Aussi facile !
 
+<figure style="margin:1.25rem 0;text-align:center;">
+  <img src="/images/blog/accords-ukulele/accord-ukulele-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) au ukulélé : majeur sur la 2e case de la corde G, les trois autres cordes à vide" />
+</figure>
+
 **Difficulté :** ⭐ (1/5)
 **Doigts utilisés :** 1 seul !
 
@@ -291,6 +299,10 @@ Avant d'apprendre les accords, accorde ton ukulélé :
 **Chanson jour 1 :** Avec C et Am, tu peux déjà jouer des bouts de "Somewhere Over the Rainbow" !
 
 ### Accord 3 : F (Fa majeur) - Un peu plus
+
+<figure style="margin:1.25rem 0;text-align:center;">
+  <img src="/images/blog/accords-ukulele/accord-ukulele-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) au ukulélé : index sur la 1re case de la corde E et majeur sur la 2e case de la corde G, cordes C et A à vide" />
+</figure>
 
 **Difficulté :** ⭐⭐ (2/5)
 **Doigts utilisés :** 2
@@ -313,12 +325,16 @@ Avant d'apprendre les accords, accorde ton ukulélé :
 
 ### Accord 4 : G (Sol majeur) - Le challenge
 
+<figure style="margin:1.25rem 0;text-align:center;">
+  <img src="/images/blog/accords-ukulele/accord-ukulele-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) au ukulélé : index 2e case corde C, majeur 2e case corde A, annulaire 3e case corde E, corde G à vide" />
+</figure>
+
 **Difficulté :** ⭐⭐⭐ (3/5)
 **Doigts utilisés :** 3
 
 **Position :**
-- Index (1) sur la **2ème case de la 1ère corde** (A)
-- Majeur (2) sur la **2ème case de la 3ème corde** (C)
+- Index (1) sur la **2ème case de la 3ème corde** (C)
+- Majeur (2) sur la **2ème case de la 1ère corde** (A)
 - Annulaire (3) sur la **3ème case de la 2ème corde** (E)
 - Corde 4 (G) sonne à vide
 
