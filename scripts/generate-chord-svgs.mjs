@@ -17,8 +17,10 @@ import path from 'node:path';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Diagrammes ukulélé nécessaires aux articles (pilier : C, F, G, Am ; accords : + Dm).
+// Diagrammes guitare nécessaires à l'article pilier (5 accords essentiels : Em, A, C, G, D).
 const JOBS = [
   { instrument: 'ukulele', keys: ['c', 'g', 'am', 'f', 'dm'], dir: 'accords-ukulele' },
+  { instrument: 'guitare', keys: ['em', 'a', 'c', 'g', 'd'], dir: 'accords-guitare' },
 ];
 
 for (const { instrument, keys, dir } of JOBS) {

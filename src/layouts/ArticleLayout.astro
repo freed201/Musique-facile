@@ -122,6 +122,7 @@ const authorSchema = {
   "sameAs": [
     "https://www.youtube.com/@MusiqueFacile",
     "https://www.tiktok.com/@musiquefacile",
+    "https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-fieff%C3%A9/",
     "https://musique-facile.fr"
   ],
   "knowsAbout": ["guitare", "piano", "ukulélé", "solfège", "pédagogie musicale"],
@@ -153,6 +154,10 @@ const schema = {
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": url
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".article-intro", ".faq-section"]
   }
 };
 
@@ -318,7 +323,7 @@ const howToSchema = songInfo ? {
       <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
     )}
 
-    <ExternalResources loadVideoScripts={true} />
+    <ExternalResources loadVideoScripts={Boolean(videos && videos.length > 0)} />
     <title>{pageTitle}</title>
   </head>
   <body>

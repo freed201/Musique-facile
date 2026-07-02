@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { marked } from 'marked';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import FAQSchema from '../../components/FAQSchema.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
@@ -71,6 +72,11 @@ const {
 } = entry.data;
 
 const { Content, headings } = await entry.render();
+
+// introduction/conclusion sont du Markdown inline (gras, liens) dans le frontmatter,
+// il faut le convertir en HTML avant affichage (sinon `**gras**` et `[texte](lien)` s'affichent littéralement)
+const introductionHtml = introduction ? marked.parseInline(introduction) : '';
+const conclusionHtml = conclusion ? marked.parseInline(conclusion) : '';
 
 // Déterminer si l'article est "long" (5+ headings H2/H3)
 const showTOC = headings.filter(h => h.depth === 2 || h.depth === 3).length >= 5;
@@ -309,9 +315,7 @@ if (entry.data.siloSlug && !entry.data.pillar) {
 
       <div class="article-main">
         <!-- Introduction -->
-        <div class="article-intro">
-          {introduction}
-        </div>
+        <div class="article-intro" set:html={introductionHtml} />
 
 <!-- Vidéos (si présentes) -->
 {videos && videos.length > 0 && (
@@ -371,9 +375,15 @@ if (entry.data.siloSlug && !entry.data.pillar) {
               if (!body) return;
               const h2s = Array.from(body.querySelectorAll(':scope > h2'));
 
+              // Si le 1er H2 est le bloc "En bref" (answer-first), on le laisse tranquille
+              // et on cible le H2 suivant pour ne pas intercaler la pub avant la réponse.
+              const isEnBref = (h2) => /^en bref/i.test(h2.textContent.trim());
+              const cardTargetIdx = h2s.length >= 1 && isEnBref(h2s[0]) ? 1 : 0;
+              const cardTarget = h2s[cardTargetIdx];
+
               const card = body.querySelector(':scope > [data-buying-guide-card]');
-              if (card && h2s.length >= 1) {
-                h2s[0].insertAdjacentElement('afterend', card);
+              if (card && cardTarget) {
+                cardTarget.insertAdjacentElement('afterend', card);
               }
 
               const optin = body.querySelector(':scope > [data-inline-optin]');
@@ -397,7 +407,7 @@ if (entry.data.siloSlug && !entry.data.pillar) {
         <section class="article-conclusion">
           <div class="conclusion-content">
             <h2>Conclusion</h2>
-            <div set:html={conclusion}></div>
+            <div set:html={conclusionHtml}></div>
           </div>
         </section>
       )}
