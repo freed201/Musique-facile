@@ -5,7 +5,7 @@
  * pourquoi certains ne s'affichent pas
  */
 
-import { readdir, readFile, writeFile } from 'fs/promises';
+import { readdir, readFile, writeFile, mkdir } from 'fs/promises';
 import { join } from 'path';
 import matter from 'gray-matter';
 
@@ -158,12 +158,13 @@ async function analyzeArticles() {
     }
   };
 
+  await mkdir('./seo-audit', { recursive: true });
   await writeFile(
-    './BLOG-ARTICLES-ANALYSIS.json',
+    './seo-audit/BLOG-ARTICLES-ANALYSIS.json',
     JSON.stringify(detailedReport, null, 2)
   );
 
-  console.log(`\n💾 Rapport détaillé sauvegardé: BLOG-ARTICLES-ANALYSIS.json\n`);
+  console.log(`\n💾 Rapport détaillé sauvegardé: seo-audit/BLOG-ARTICLES-ANALYSIS.json\n`);
 }
 
 analyzeArticles().catch(console.error);
