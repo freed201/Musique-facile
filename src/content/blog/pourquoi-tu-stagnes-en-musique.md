@@ -204,6 +204,8 @@ Les neurosciences montrent que le cerveau apprend un geste complexe **3 fois plu
 
 **Total :** 44 minutes pour maîtriser proprement = **10 fois plus efficace** que 2h à vitesse normale avec erreurs.
 
+Si tu n'arrives pas à tenir un tempo stable avec ton métronome, c'est souvent un symptôme différent — voir notre article dédié [Pourquoi tu n'arrives pas à tenir le rythme avec un métronome](/blog/pourquoi-tu-narrives-pas-tenir-rythme-metronome/).
+
 ---
 
 ### Cause 5 : Tu n'as pas de feedback extérieur (angle mort)
@@ -406,7 +408,7 @@ Maintenant que tu as identifié la(les) cause(s), voici un plan d'action concret
 
 ---
 
-## Pourquoi un accompagnement professionnel déblo que les stagnations ? (sans bullshit)
+## Pourquoi un accompagnement professionnel débloque les stagnations ? (sans bullshit)
 
 ### Ce qu'un prof voit en 5 minutes
 
@@ -528,8 +530,8 @@ Voici ce qui se passe lors d'une séance type avec un élève en stagnation :
 
 ### Motivation et déblocage
 
-📖 **[Comment réussir une séance de pratique efficace en 30 minutes](/blog/seance-pratique-efficace-30-minutes/)**
-→ Structure ta pratique pour rester motivé et progresser
+📖 **[Pourquoi tu n'arrives pas à tenir le rythme avec un métronome](/blog/pourquoi-tu-narrives-pas-tenir-rythme-metronome/)**
+→ Corrige la cause n°4 de stagnation vue plus haut : le calage sur un tempo stable
 
 📖 **[Passer du ukulélé débutant à initié : le vrai cap à franchir](/blog/passer-ukulele-debutant-initie/)**
 → Gérer le plateau débutant→intermédiaire
