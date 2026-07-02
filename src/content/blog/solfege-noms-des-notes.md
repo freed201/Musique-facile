@@ -28,7 +28,7 @@ faqs:
     answer: "Non, ce n’est pas obligatoire pour débuter. Mais comprendre les bases du solfège aide à progresser plus vite et à communiquer avec d’autres musiciens."
 ---
 
-# 🎶 Pourquoi Do, Ré, Mi ? L’histoire fascinante des noms des notes de musique 🎶  
+## 🎶 Pourquoi Do, Ré, Mi ? L’histoire fascinante des noms des notes de musique 🎶  
 
 🎵 **Pourquoi Do, Ré, Mi… et pas autre chose ?**  
 

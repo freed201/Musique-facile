@@ -23,8 +23,6 @@ faqs:
     answer: "L'idéal est de pratiquer un peu chaque jour, même 10 minutes, plutôt que de tout concentrer en une fois. L'objectif n'est pas la performance d'une session, mais la création d'un réflexe : des gestes répétés quotidiennement finissent par devenir automatiques. La constance bat toujours l'intensité ponctuelle."
 ---
 
-# Pourquoi 10 minutes par jour valent mieux que 2 heures le dimanche
-
 Tous les lundis, j'ai des élèves qui me sortent la même phrase. "J'ai pas eu beaucoup de temps cette semaine, mais j'ai fait deux heures dimanche pour rattraper." Ils sont contents, ils ont l'impression d'avoir été sérieux.
 
 Et pourtant, je vois tout de suite qu'ils n'ont pas progressé.
