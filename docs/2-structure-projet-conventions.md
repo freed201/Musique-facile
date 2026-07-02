@@ -1,3 +1,5 @@
+> ⚠️ **Doc historique (janv. 2026, partiellement obsolète)** : ce document décrit encore Netlify / ActiveCampaign / `generate-sitemap`. La stack réelle est **Vercel + Brevo** (sitemap = route `src/pages/sitemap.xml.ts`). Pour l'opérationnel à jour : `CLAUDE.md`, `docs/vercel-checklist.md`, `docs/BREVO_SETUP.md`. Les concepts (silos SEO, funnel, checklists) restent valables.
+
 # Structure projet & conventions
 
 Meta

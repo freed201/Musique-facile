@@ -13,6 +13,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "optimize-images": "node scripts/convert-to-webp.js",
+    "blog:analyze": "node scripts/analyze-blog-articles.js",
+    "chords:generate": "node scripts/generate-chord-svgs.mjs",
     "lead-magnet:pdf": "node scripts/lead-magnet-to-pdf.mjs",
     "lead-magnet:build": "node scripts/lead-magnet-to-pdf.mjs content/lead-magnets/guitare-5-accords-magiques.md",
     "lead-magnet:build-all": "node scripts/lead-magnet-to-pdf.mjs content/lead-magnets/guitare-5-accords-magiques.md && node scripts/lead-magnet-to-pdf.mjs content/lead-magnets/piano-5-melodies-5-doigts.md && node scripts/lead-magnet-to-pdf.mjs content/lead-magnets/ukulele-4-accords-bonheur.md",
@@ -34,6 +36,7 @@
   "devDependencies": {
     "@types/node": "^20.11.0",
     "astro-compress": "^2.3.9",
+    "gray-matter": "^4.0.3",
     "marked": "^18.0.3",
     "puppeteer": "^24.43.0",
     "sharp": "^0.34.4",
