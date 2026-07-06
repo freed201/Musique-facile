@@ -34,7 +34,7 @@ const currentDate = new Date();
 
 const publishedPosts = allPosts.filter(post =>
   post.slug !== currentSlug &&
-  post.data.prod !== 'N' &&
+  post.data.prod === 'Y' && // même logique stricte que [slug].astro (sinon lien vers 404)
   new Date(post.data.datePublished) <= currentDate &&
   !post.data.prev // Exclure pages multiples
 );
