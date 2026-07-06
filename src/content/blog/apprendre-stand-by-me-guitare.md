@@ -1,7 +1,7 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Stand by Me (Ben E. King) - Tutoriel Guitare"
-description: "Stand by Me à la guitare : 4 accords, la célèbre progression doo-wop des années 50 et le groove qui vient de la basse. Le morceau parfait pour une première chanson complète."
+description: "Stand by Me à la guitare : 4 accords, la célèbre progression doo-wop des années 50 et le groove venu de la basse. Parfait pour une première chanson complète."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"

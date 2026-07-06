@@ -1,7 +1,7 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Wonderwall (Oasis) - Tutoriel Guitare"
-description: "Le tutoriel de référence pour jouer Wonderwall d'Oasis : capo case 2, les 5 accords ouverts, la rythmique qui sonne, et l'astuce des doigts ancrés. Pour débutants motivés."
+description: "Le tutoriel de référence pour jouer Wonderwall d'Oasis : capo case 2, 5 accords ouverts, la rythmique qui sonne et l'astuce des doigts ancrés. Pour débutants."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"

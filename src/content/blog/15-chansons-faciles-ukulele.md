@@ -1,7 +1,7 @@
 ---
 siloSlug: "debuter-ukulele-methode-simple-apprendre"
 title: "15 Chansons Faciles Ukulélé Débutant — Jouez dès Maintenant"
-description: "15 chansons faciles à jouer à l'ukulélé pour débutants. Accords simples, tutoriels pas à pas, du niveau 1 étoile au niveau 3 étoiles. Jouez dès votre première semaine !"
+description: "15 chansons faciles à jouer à l'ukulélé pour débutants. Accords simples, tutoriels pas à pas, du niveau 1 à 3 étoiles. Jouez dès votre première semaine !"
 meta: "Découvrez 15 chansons faciles pour débuter l'ukulélé : chansons françaises, pop internationale, classiques hawaïens. Avec accords et tablatures pour progresser rapidement."
 author: "Fred Fieffé"
 publisher: "Musique Facile"

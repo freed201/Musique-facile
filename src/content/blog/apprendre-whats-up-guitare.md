@@ -1,7 +1,7 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "What's Up (4 Non Blondes) - Tutoriel Guitare"
-description: "What's Up des 4 Non Blondes à la guitare : seulement 3 accords (G-A-C), un tempo lent et un refrain à reprendre en chœur. Le morceau parfait pour une toute première chanson."
+description: "What's Up des 4 Non Blondes à la guitare : 3 accords (G-A-C), un tempo lent et un refrain à reprendre en chœur. Parfait pour une toute première chanson."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"

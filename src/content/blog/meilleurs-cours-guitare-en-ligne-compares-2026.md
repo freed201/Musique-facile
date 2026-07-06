@@ -1,7 +1,7 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Meilleurs Cours de Guitare en Ligne 2026 — Comparatif Complet"
-description: "Comparatif objectif des 7 meilleures plateformes de cours guitare en ligne en 2026 : prix, méthode, niveau, avantages et inconvénients. Abonnement ou paiement unique ?"
+description: "Comparatif des 7 meilleures plateformes de cours guitare en ligne en 2026 : prix, méthode, niveau, avantages et inconvénients. Abonnement ou paiement unique ?"
 meta: "Quel est le meilleur cours de guitare en ligne en 2026 ? Comparatif complet de 7 plateformes (imusic-school, HGuitare, Musique Facile, Yousician...) avec tableaux prix, avantages et inconvénients."
 author: "Fred Fieffé"
 publisher: "Musique Facile"

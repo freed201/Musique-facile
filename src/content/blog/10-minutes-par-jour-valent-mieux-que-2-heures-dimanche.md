@@ -1,6 +1,6 @@
 ---
 title: "Pourquoi 10 minutes par jour valent mieux que 2 heures le dimanche"
-description: "Le sommeil consolide ce que tu pratiques dans la journée. Pourquoi la régularité bat l'intensité, avec les études qui le prouvent et une méthode concrète testée en cours."
+description: "Le sommeil consolide ce que tu pratiques dans la journée. Pourquoi la régularité bat l'intensité, avec les études qui le prouvent et une méthode testée en cours."
 author: "Fred Fieffé"
 ogImage: "/images/blog/10-minutes-par-jour-pratique-musique.webp"
 datePublished: "2026-04-20"
