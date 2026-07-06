@@ -74,7 +74,8 @@
         "hooks": [
           { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/check-content-laws.sh\"" },
           { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/check-csp-sync.sh\"" },
-          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/check-img-alt.sh\"" }
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/check-img-alt.sh\"" },
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/check-blog-quality.sh\"" }
         ]
       },
       {
