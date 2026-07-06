@@ -8,8 +8,8 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
-introduction: "Avec 'L'Opportuniste', Jacques Dutronc propose une critique politique mordante sortie en 1968, sur une mélodie entraînante yé-yé rock. Découvrez l'histoire de ce classique satirique et apprenez à le jouer avec notre tutoriel accessible."
+dateModified: "2026-07-06"
+introduction: "Avec 'L'Opportuniste', Jacques Dutronc propose une critique politique mordante sortie en 1968, juste après Mai 68, sur une mélodie entraînante yé-yé rock. Avec seulement 5 accords et un tempo modéré de 94 BPM, c'est un morceau accessible aux guitaristes intermédiaires. Découvrez l'histoire de ce classique satirique et apprenez à le jouer étape par étape avec notre tutoriel."
 
 songInfo:
   inBook: true
@@ -42,6 +42,14 @@ relatedLinks:
     url: "/blog/apprendre-un-autre-monde-guitare"
     description: "Le rock français des années 80."
 instrument: "guitare"
+category: "tutoriel"
+level: "intermédiaire"
+tags:
+  - lopportuniste guitare
+  - jacques dutronc guitare
+  - tutoriel guitare
+  - chanson française guitare
+  - rythmique yé-yé
 faqs:
   - question: "Quels accords pour jouer L'Opportuniste de Jacques Dutronc ?"
     answer: "Le morceau utilise 5 accords pour une difficulté de 3/5, sur une rythmique yé-yé rock entraînante (94 BPM). Ce classique de 1968 est accessible : la grille se répète et le tempo est modéré. Le défi est surtout de garder une main droite régulière et pétillante, dans l'esprit des sixties."
@@ -50,7 +58,18 @@ faqs:
   - question: "L'Opportuniste convient-elle aux débutants ?"
     answer: "Avec 5 accords et un tempo modéré, c'est un morceau abordable pour un débutant un peu à l'aise (difficulté 3/5). Travaille la rythmique yé-yé caractéristique sur un seul accord d'abord, puis ajoute les changements. C'est un excellent terrain pour travailler le groove pop des années 60."
 ---
-# Jacques Dutronc : Un artiste aux multiples facettes
+## En bref
+
+**L'Opportuniste** de Jacques Dutronc se joue avec **5 accords** sur une rythmique yé-yé rock entraînante à **94 BPM**, pour une difficulté **3/5**. Sortie en **1968** juste après Mai 68, c'est une satire politique où le narrateur « retourne sa veste » : un morceau accessible dès qu'on tient une main droite régulière et pétillante.
+
+- **Accords** : 5 au total
+- **Tempo** : 94 BPM — modéré
+- **Difficulté** : 3/5 — intermédiaire accessible
+- **Année** : 1968 (paroles de Jacques Lanzmann, musique de Jacques Dutronc)
+
+Pour poser des bases solides avant ce morceau, passe par notre [guide complet pour apprendre la guitare facilement](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Qui est Jacques Dutronc ?
 
 Né le 28 avril 1943 à Paris, Jacques Dutronc est une figure emblématique de la culture française. Avant de se lancer dans la musique, il s'essaie au cinéma et explore divers horizons artistiques. Sa rencontre avec le parolier Jacques Lanzmann est décisive, marquant le début d'une collaboration fructueuse qui propulsera Dutronc au sommet des charts français. Le style musical de Dutronc mêle rock, yé-yé et une touche de psychédélisme, le tout sur fond de textes incisifs et satiriques.
 
@@ -66,7 +85,7 @@ Avec un tempo modéré de 94 bpm (battements par minute), le morceau est idéal 
 
 Les paroles de "L'opportuniste" utilisent un double discours et des métaphores pour brocarder les figures politiques prêtes à changer de camp en fonction du vent. Un refrain accrocheur et une montée dynamique renforcent l'impact de ce titre marquant. Dutronc, par son interprétation unique, parvient à allier légèreté musicale et profondeur textuelle.
 
-Les riffs de guitare, plutôt simples mais efficaces, servent le texte avec finesse. On pourrait comparer "L'opportuniste" à d'autres classiques de la chanson satirique française, tel Serge Gainsbourg, qui autrefois lui avait déjà permis de s'exprimer librement sur des thèmes aussi audacieux.
+Les riffs de guitare, plutôt simples mais efficaces, servent le texte avec finesse. "L'opportuniste" s'inscrit dans la grande tradition de la chanson satirique française, aux côtés d'un Georges Brassens ou d'un Serge Gainsbourg, où l'ironie du texte prime sur la virtuosité instrumentale. Dans le même esprit de chanson française à message, tu peux enchaîner avec [Foule sentimentale d'Alain Souchon](/blog/tutoriel-foule-sentimentale-chanson/).
 
 ## Comparaison avec d'autres œuvres
 

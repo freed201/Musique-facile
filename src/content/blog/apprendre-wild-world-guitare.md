@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
+dateModified: "2026-07-06"
 introduction: "Avec 'Wild World', Cat Stevens livre une chanson qui transcende les époques depuis 1970 avec sa profondeur émotionnelle et sa simplicité mélodique. Issue de l'album légendaire 'Tea for the Tillerman', découvrez l'histoire de cette ballade folk et apprenez à jouer ses riffs caractéristiques."
 
 songInfo:
@@ -43,6 +43,14 @@ relatedLinks:
     url: "/blog/apprendre-stand-by-me-guitare"
     description: "Un classique des années 60 avec progression simple."
 instrument: "guitare"
+category: "tutoriel"
+level: "intermédiaire"
+tags:
+  - wild world guitare
+  - cat stevens guitare
+  - tutoriel guitare
+  - ballade folk
+  - accords guitare intermédiaire
 faqs:
   - question: "Quels accords pour jouer Wild World de Cat Stevens ?"
     answer: "Le morceau utilise 8 accords et repose sur une progression descendante (type Am – D – G – C – F…) très musicale, pour une difficulté de 4/5. Cette ballade folk de 1970 est un excellent exercice : sa suite d'accords, riche mais logique, apprend beaucoup sur l'enchaînement harmonique."
@@ -51,9 +59,17 @@ faqs:
   - question: "Pourquoi Wild World est-elle un bon morceau pour progresser ?"
     answer: "Parce que sa progression d'accords « en cascade » est à la fois riche et logique : en l'apprenant, tu intègres un enchaînement harmonique qu'on retrouve dans de nombreuses chansons. C'est un excellent pont entre le répertoire à 4 accords et des morceaux plus élaborés, tout en restant très mélodique."
 ---
-# Wild World par Cat Stevens : Un Voyage Émotionnel dans la Bouleversante Année 1970
+## En bref
 
-"Wild World" de Cat Stevens est plus qu'une simple chanson; c'est un voyage émotionnel dans l'univers personnel et musical de l'un des plus grands artistes de folk rock des années 1970. Ce morceau intemporel, extrait de l'album "Tea for the Tillerman" sorti en 1970, se distingue par son rythme apaisant de 75 BPM et son pouvoir de transport direct, tant par sa mélodie que par ses paroles empreintes de complexité émotionnelle.
+**Wild World** de Cat Stevens se joue avec **8 accords** en **do majeur** (aucun capo, accordage standard), sur un tempo folk apaisant d'environ **75 BPM**. Sa progression descendante — Am, D, G, C, F — est riche mais logique : un excellent morceau, coté **4/5**, pour passer du répertoire à 4 accords à un jeu plus mélodique.
+
+- **Accords (8)** : Am, D7, G, C, F, Dm, E
+- **Capo** : aucun (accordage standard)
+- **Tonalité** : do majeur (relatif la mineur)
+- **Difficulté** : 4/5 — intermédiaire
+- **Album** : *Tea for the Tillerman* (1970)
+
+"Wild World" est plus qu'une simple chanson : c'est un voyage émotionnel dans l'univers de l'un des plus grands artistes de folk-rock des années 1970. Ce morceau intemporel se distingue par son rythme apaisant et ses paroles empreintes de complexité émotionnelle. Si tu débutes, commence par notre [guide complet pour apprendre la guitare facilement](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/) avant de t'attaquer à cette progression.
 
 ## Cat Stevens : Qui Est-Il ?
 
@@ -83,6 +99,8 @@ Ce morceau reste un exemple de comment une chanson peut être personnelle et uni
 
 Pour les passionnés de guitare, "Wild World" représente un défi stimulant et enrichissant. Le morceau figure à la page 92 du livre "40 CHANSONS FRANCAISES ET HITS POP-ROCK". Avec une note de difficulté de 4 sur 5, il est idéal pour ceux qui cherchent à améliorer leur technicité, particulièrement sur les riffs et la rythmique.
 
-1. **Comprendre les Accords** : Avec huit accords à maîtriser, une bonne compréhension est la clé pour naviguer à travers cette chanson.
+1. **Comprendre les Accords** : Avec huit accords à maîtriser, une bonne compréhension est la clé pour naviguer à travers cette chanson. Si Am, F ou Dm te résistent encore, révise d'abord les [5 accords guitare indispensables et leur enchaînement](/blog/top-5-accords-guitare-debutants-enchainement-facile/).
 2. **Rythme et Placement** : La subtilité de la rythmique de "Wild World" réside dans sa capacité à souligner et accentuer les émotions des paroles. 
 3. **Pratiquer les Riffs du Refrain** : Cela nécessite non seulement un bon contrôle des techniques mais aussi une sensibilité à jouer avec authenticité.
+
+Une fois "Wild World" en place, enchaîne avec une autre ballade au tempo lent : [Stand by Me de Ben E. King](/blog/apprendre-stand-by-me-guitare/), parfaite pour consolider tes transitions d'accords.

@@ -8,8 +8,8 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
-introduction: "Avec 'Everybody Hurts', R.E.M. a créé un hymne de réconfort et d'humanité qui transcende les générations. Plongez dans l'histoire, l'impact et les subtilités de ce morceau emblématique."
+dateModified: "2026-07-06"
+introduction: "Avec 'Everybody Hurts', R.E.M. a créé un hymne de réconfort et d'humanité qui transcende les générations. Sorti en 1992 sur l'album 'Automatic for the People', ce morceau en ré majeur se joue sans capo sur un tempo lent : un excellent premier morceau émouvant pour travailler les arpèges. Plongez dans son histoire et apprenez à le jouer."
 
 songInfo:
   inBook: true
@@ -29,7 +29,7 @@ videos:
 
 
 conclusion: |
-  Avec "Everybody Hurts", R.E.M. a capturé l'essence de la connexion humaine à travers la musique. En rendant le chagrin universel et partagé, ils offrent un espace pour la guérison collective. L'écoute de ce morceau nous rappelle que nous ne sommes jamais vraiment seuls dans nos luttes. Alors que cette chanson continue de toucher de nouvelles générations, elle reste un rappel intemporel de notre humanité commune.<br<<br>Pourquoi ne pas découvrir d'autres facettes fascinantes de R.E.M. et plonger dans leur riche discographie? Explorez leurs œuvres et laissez-vous transporter dans un voyage musical unique.
+  Avec "Everybody Hurts", R.E.M. a capturé l'essence de la connexion humaine à travers la musique. En rendant le chagrin universel et partagé, ils offrent un espace pour la guérison collective. L'écoute de ce morceau nous rappelle que nous ne sommes jamais vraiment seuls dans nos luttes. Alors que cette chanson continue de toucher de nouvelles générations, elle reste un rappel intemporel de notre humanité commune.<br><br>Pourquoi ne pas découvrir d'autres facettes fascinantes de R.E.M. et plonger dans leur riche discographie ? Explorez leurs œuvres et laissez-vous transporter dans un voyage musical unique.
 
 
 relatedLinks:
@@ -43,6 +43,14 @@ relatedLinks:
     url: "/blog/apprendre-wild-world-guitare"
     description: "Une ballade folk touchante des années 70."
 instrument: "guitare"
+category: "tutoriel"
+level: "débutant"
+tags:
+  - everybody hurts guitare
+  - rem guitare
+  - tutoriel guitare débutant
+  - ballade guitare
+  - arpèges guitare
 faqs:
   - question: "Everybody Hurts de R.E.M. est-elle facile à la guitare ?"
     answer: "Oui, c'est l'un des morceaux les plus accessibles aux débutants (difficulté 2/5). Malgré une grille de 9 accords, l'essentiel repose sur une alternance très simple et répétitive, jouée en arpèges sur un tempo lent (65 BPM). Idéal pour travailler un jeu doux et régulier."
@@ -51,9 +59,17 @@ faqs:
   - question: "Everybody Hurts est-elle un bon premier morceau émouvant ?"
     answer: "Tout à fait. Son message d'espoir, son tempo lent et sa structure répétitive en font un excellent morceau pour un débutant qui veut jouer quelque chose de touchant. C'est aussi un très bon exercice de fingerpicking et de régularité, sans difficulté technique majeure."
 ---
-# "Everybody Hurts" de R.E.M. : Plongée dans un classique intemporel
+## En bref
 
-Aujourd'hui, tournons notre regard vers une pièce musicale qui a résonné avec tant de force à travers le monde, "Everybody Hurts" de R.E.M. Il y a des chansons qui parlent à notre âme et celle-ci en est assurément une. Comme un baume pour les cœurs en détresse, ce morceau émouvant nous rappelle que la souffrance est partagée et que l'espoir est à portée de main. Sorti en 1992 dans l'album "Automatic for the People", cet hymne à l'humanité reste incontestablement l'une des chansons les plus emblématiques du groupe.
+**Everybody Hurts** de R.E.M. est l'un des morceaux les plus accessibles aux débutants (**difficulté 2/5**). Il se joue en **ré majeur**, **sans capo**, autour de quatre accords principaux (D, G, Em, A) sur un tempo lent en **12/8** : idéal pour travailler des arpèges doux et réguliers.
+
+- **Accords** : D, G, Em, A (9 au total, mais l'essentiel tient en 4)
+- **Capo** : aucun (accordage standard)
+- **Tonalité** : ré majeur
+- **Difficulté** : 2/5 — débutant
+- **Album** : *Automatic for the People* (1992)
+
+Il y a des chansons qui parlent à notre âme, et "Everybody Hurts" en est assurément une. Comme un baume pour les cœurs en détresse, ce morceau nous rappelle que la souffrance est partagée et que l'espoir est à portée de main. Si tu débutes, notre [guide complet pour apprendre la guitare facilement](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/) t'aidera à poser les bases avant de te lancer dans les arpèges.
 
 ## Présentation de l'Artiste
 
@@ -83,10 +99,12 @@ Les paroles de "Everybody Hurts" sont d'une simplicité désarmante, mais cette 
 
 L'impact de "Everybody Hurts" ne se limite pas seulement à la musique. Elle a été saluée pour son potentiel à soulager et inspirer, même des décennies après sa sortie. Son influence transcende le milieu musical, touchant aussi le cinéma, la télévision et de nombreuses initiatives sociales. Par sa structure, la chanson constitue un tournant dans le style prédominant de R.E.M., ajoutant une dimension plus directe à leur art.
 
-## Apprendre "Everybody Hurts"
+## Comment apprendre "Everybody Hurts" à la guitare ?
 
 Pour ceux intéressés par l'apprentissage de cette pièce, elle est une parfaite initiation aux nuances de la guitare grâce à sa difficulté modérée et sa progression d'accords simple. Voici quelques ressources pour vous aider à maîtriser ce morceau :
 
 1. **Tutoriel Version Simplifiée** : Parfait pour les débutants, cette version se concentre sur les bases, sans inclure le pont. [Tutoriel simplifié sur YouTube](https://youtu.be/XlQXn361fQw)
 2. **Démo Version simple** : Une présentation pour visualiser comment jouer ces accords dans un rythme fluide. [Vidéo démo sur YouTube](https://youtube.com/shorts/KJZ9WSr7NjA?feature=share)
 3. **Play-Along** : Une vidéo pour jouer en temps réel avec des indications à l'écran. [Vidéo Play-Along sur YouTube](https://youtu.be/0l-5FzzEQcg)
+
+Une fois les arpèges d'"Everybody Hurts" en place, prolonge dans le même registre émouvant avec [Chasing Cars de Snow Patrol](/blog/apprendre-chasing-cars-guitare/), une autre ballade rock accessible.
