@@ -25,7 +25,7 @@ Meta SEO/OG/Twitter, JSON-LD BlogPosting + Breadcrumb, temps de lecture, TOC (si
 - `category` + `level` + `tags` (3-6 tags) : pilotent le classement des index et le scoring RelatedArticles.
 - `introduction` : **réponse directe de 40-70 mots** à la question du titre (bloc answer-first affiché en tête — levier de citation LLM n°1).
 - `faqs[]` : ≥3 Q/R pour les piliers et guides d'achat ; recommandé partout ailleurs (sans `faqs`, une AutoFAQ générique est publiée avec son JSON-LD — acceptable seulement si ses questions template conviennent à l'article).
-- `dateModified ≥ datePublished`, **sincère** : ne changer `dateModified` que lors d'une modification substantielle du contenu (jamais de mise à jour de masse — 78 articles ont porté un 2026-06-06 factice, c'est l'anti-modèle).
+- `dateModified ≥ datePublished`, **sincère** : ne changer `dateModified` que lors d'une modification substantielle du contenu. Un alignement de masse n'est légitime que s'il suit une vraie refonte de masse (cas du 2026-06-06, refonte SEO/GEO réelle — commits `6de3858`/`0df1784`) ; un bump de date sans changement de fond est interdit.
 - `ogImage` : chemin existant dans `public/` (WebP).
 - **Interdits** : champs legacy `meta` et `keywords` (redondants avec `description`) ; `datePublished` future sauf publication programmée volontaire.
 
