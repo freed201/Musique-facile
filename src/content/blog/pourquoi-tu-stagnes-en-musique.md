@@ -33,7 +33,7 @@ faqs:
   - question: "L'âge est-il une cause de stagnation pour les adultes ?"
     answer: "Non. L'âge n'est pas une cause directe de stagnation. Les adultes peuvent progresser aussi efficacement que les jeunes, mais avec des méthodes adaptées. La vraie différence : les adultes ont moins de temps et plus d'attentes, ce qui nécessite une pratique plus structurée et ciblée."
   - question: "Un professeur ou un stage peut-il vraiment débloquer une stagnation ?"
-    answer: "Oui, dans 75% des cas observés chez Musique Facile. Un regard extérieur identifie en quelques minutes les angles morts que tu ne vois pas (posture, rythme, tension, technique). Un stage de 2-3 jours permet souvent de débloquer ce qui coince depuis 2-3 mois de pratique solo."
+    answer: "Oui, très souvent. Un regard extérieur identifie en quelques minutes les angles morts que tu ne vois pas (posture, rythme, tension, technique). Un stage de 2-3 jours permet souvent de débloquer ce qui coince depuis des semaines, voire des mois, de pratique solo."
 ---
 
 Tu pratiques ton instrument régulièrement, tu connais les bases, mais depuis quelques semaines tu as **l'impression de tourner en rond**. Tu joues les mêmes morceaux, tu répètes les mêmes exercices, et pourtant... rien ne bouge. Bienvenue dans ce qu'on appelle **la phase de stagnation musicale**.
@@ -121,7 +121,7 @@ Tu rejoues le même passage 10 fois, et tu fais la même erreur aux mêmes endro
 
 Voici les 7 causes les plus fréquentes de stagnation, observées chez des centaines d'élèves adultes. **Identifie celle(s) qui te concerne(nt).**
 
-### Cause 1 : Tu pratiques dans ta zone de confort (80% des cas)
+### Cause 1 : Tu pratiques dans ta zone de confort (la plus fréquente)
 
 **Le problème :**
 Tu joues toujours ce que tu maîtrises déjà. C'est agréable, mais ça ne crée aucun progrès. Ton cerveau n'est jamais mis au défi.
@@ -156,7 +156,7 @@ Tu enchaînes G-D 50 fois, mais tu ne remarques pas que ton auriculaire se lève
 
 **Outil magique :** Enregistre-toi (audio ou vidéo). Tu verras immédiatement ce que tu ne sens pas.
 
-> 🎥 **Astuce de Fred :** "Je demande à mes élèves de se filmer 1 fois par semaine. 90% découvrent des erreurs de posture, rythme ou technique qu'ils ne sentaient pas du tout."
+> 🎥 **Astuce de Fred :** "Je demande à mes élèves de se filmer une fois par semaine. La plupart découvrent des erreurs de posture, de rythme ou de technique qu'ils ne sentaient pas du tout."
 
 ---
 
@@ -189,7 +189,7 @@ Un objectif = progression mesurable. 5 objectifs = dispersion = stagnation.
 Tu veux jouer "à vitesse réelle" dès le début. Tu bâcles les passages difficiles, tu accumules les erreurs, et tu n'arrives jamais à jouer proprement.
 
 **Donnée scientifique :**
-Les neurosciences montrent que le cerveau apprend un geste complexe **3 fois plus vite à vitesse lente** (50-60% du tempo cible) qu'à vitesse normale avec erreurs.
+Le cerveau apprend un geste complexe bien plus efficacement à vitesse lente (50-60 % du tempo cible) qu'à vitesse normale avec des erreurs : tu enregistres le bon mouvement au lieu de renforcer le mauvais.
 
 **Solution :**
 **La règle du métronome progressif :**
@@ -210,7 +210,7 @@ Les neurosciences montrent que le cerveau apprend un geste complexe **3 fois plu
 | 6 | 110 BPM | 10 fois | 10 min |
 | 7 | 120 BPM | 5 fois | 5 min |
 
-**Total :** 44 minutes pour maîtriser proprement = **10 fois plus efficace** que 2h à vitesse normale avec erreurs.
+**Total :** 44 minutes pour maîtriser proprement — bien plus efficace que 2h à vitesse normale avec des erreurs.
 
 Si tu n'arrives pas à tenir un tempo stable avec ton métronome, c'est souvent un symptôme différent — voir notre article dédié [Pourquoi tu n'arrives pas à tenir le rythme avec un métronome](/blog/pourquoi-tu-narrives-pas-tenir-rythme-metronome/).
 
@@ -243,7 +243,7 @@ Seul, tu ne vois pas tes erreurs. Tu as des **angles morts** : posture, rythme q
 - **Moyen terme :** Rejoins un groupe de pratique (en ligne ou physique)
 - **Long terme :** 1-2 séances avec un prof pour identifier les angles morts
 
-> 🎯 **Donnée Musique Facile :** 75% de nos élèves en stagnation débloquent en **1-2 séances** de cours quand un prof identifie le point aveugle précis.
+> 🎯 **Ce que j'observe en cours :** la plupart des élèves en stagnation débloquent en **1-2 séances** quand un prof identifie le point aveugle précis.
 
 ---
 
@@ -268,7 +268,7 @@ Tu pratiques, mais tu **n'écoutes pas activement** de musique. Résultat : ton 
    - Fois 5 : Ornements/détails
 3. Essaye de reproduire ce que tu entends
 
-**Impact :** Après 2 semaines d'écoute active, ton oreille détecte 60% plus d'erreurs dans ta propre pratique.
+**Impact :** après quelques semaines d'écoute active, ton oreille détecte bien plus d'erreurs dans ta propre pratique.
 
 ---
 
@@ -388,12 +388,12 @@ Maintenant que tu as identifié la(les) cause(s), voici un plan d'action concret
 
 ### Durée moyenne selon l'approche
 
-| Approche | Durée stagnation | Probabilité déblocage |
+| Approche | Durée stagnation | Chances de déblocage |
 |----------|-----------------|----------------------|
-| Tu ne changes rien | 2-6 mois | 20% |
-| Tu augmentes juste le temps de pratique | 1-3 mois | 40% |
-| Tu ajustes ta méthode (plan ci-dessus) | 2-4 semaines | 75% |
-| Tu travailles avec un prof/stage | 1-2 semaines | 85% |
+| Tu ne changes rien | 2-6 mois | Faibles |
+| Tu augmentes juste le temps de pratique | 1-3 mois | Moyennes |
+| Tu ajustes ta méthode (plan ci-dessus) | 2-4 semaines | Élevées |
+| Tu travailles avec un prof/stage | 1-2 semaines | Très élevées |
 
 ### Les 3 types de plateaux
 
@@ -412,7 +412,7 @@ Maintenant que tu as identifié la(les) cause(s), voici un plan d'action concret
 - Solution : Feedback extérieur (prof, stage) obligatoire
 - Déblocage nécessite aide externe
 
-> 🎯 **Conseil de Fred :** "Si tu stagnes plus de 6 semaines malgré les ajustements, c'est le signal qu'il te faut un regard extérieur. 80% de mes élèves débloquent en 1-2 séances après un plateau de 2+ mois."
+> 🎯 **Conseil de Fred :** "Si tu stagnes plus de 6 semaines malgré les ajustements, c'est le signal qu'il te faut un regard extérieur. La plupart de mes élèves débloquent en 1-2 séances après un plateau de plusieurs mois."
 
 ---
 
@@ -475,7 +475,7 @@ Voici ce qui se passe lors d'une séance type avec un élève en stagnation :
 - ✅ Tu sens une **tension/douleur** physique en jouant
 - ✅ Tu veux **accélérer** ta progression pour un événement (concert, cadeau, projet)
 
-**Ne procrastine pas :** 2-3 mois de stagnation = risque d'abandon à 60%. Un stage ou 2-3 cours peuvent éviter ça.
+**Ne procrastine pas :** une stagnation qui s'éternise sur plusieurs mois augmente nettement le risque d'abandon. Un stage ou 2-3 cours peuvent éviter ça.
 
 👉 **[Découvrir les stages Musique Facile 2026](/stage2026/)**
 
@@ -569,7 +569,7 @@ Voilà, tu connais maintenant **les 7 causes cachées de la stagnation** et le *
 ✅ **Durée moyenne** : 2-6 semaines avec ajustements
 ✅ **7 causes** : Zone de confort, répétition sans correction, dispersion, vitesse inadaptée, angle mort, oreille non entraînée, changement constant de méthode
 ✅ **Plan 4 étapes** : Diagnostic précis → Slow motion (semaine 1) → Variations (semaine 2) → Intégration + nouveau challenge (semaine 3)
-✅ **Accompagnement** : Déblocage 75-85% en 1-2 semaines (stage ou cours)
+✅ **Accompagnement** : déblocage souvent rapide, en 1-2 semaines (stage ou cours)
 
 **Ce qui change avec ce guide :**
 - Tu comprends **pourquoi** tu stagnes (pas "tu es nul")
