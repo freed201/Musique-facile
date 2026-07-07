@@ -20,6 +20,8 @@ tags:
   - accords guitare
   - rythmique guitare
   - tutoriel guitare
+introduction: "Wonderwall d'Oasis se joue avec un capo case 2 et 5 formes d'accords ouverts (Em7, G, Dsus4, A7sus4, Cadd9), pour une difficulté de 4/5. Ce tutoriel de référence te donne les accords, la rythmique qui sonne et l'astuce des doigts ancrés qui restent posés d'un accord à l'autre."
+
 songInfo:
   inBook: true
   bookPage: 89
@@ -46,7 +48,15 @@ faqs:
 ---
 « Wonderwall », c'est probablement LA chanson qu'on entend dans toutes les soirées, autour de tous les feux de camp, depuis 1995. Écrite par Noel Gallagher pour l'album *(What's the Story) Morning Glory?* d'Oasis, elle est devenue un véritable rite de passage pour les guitaristes. Et il y a une raison concrète à ça : sa technique repose sur une astuce qui la rend bien plus facile qu'elle n'en a l'air.
 
-## Les accords (et le secret des doigts qui ne bougent pas)
+## En bref
+
+**Wonderwall d'Oasis se joue avec un capo case 2 et 5 formes d'accords ouverts (Em7, G, Dsus4, A7sus4, Cadd9)**, pour une difficulté de 4/5. L'astuce qui fait tout sonner : garder l'annulaire et l'auriculaire posés d'un accord à l'autre — les doigts « ancrés ».
+
+- **Accords** : Em7, G, Dsus4, A7sus4, Cadd9
+- **Capo** : case 2 (tonalité originale d'Oasis)
+- **Difficulté** : 4/5
+
+## Quels accords pour Wonderwall ? (et le secret des doigts qui ne bougent pas)
 
 Place ton **capo à la case 2**, puis joue ces formes :
 

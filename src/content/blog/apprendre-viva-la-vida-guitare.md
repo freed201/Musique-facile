@@ -20,6 +20,8 @@ tags:
   - accords guitare
   - rythmique guitare
   - tutoriel guitare
+introduction: "Viva la Vida de Coldplay repose sur une boucle de 4 accords jouée du début à la fin, pour une difficulté de 2/5. C'est un excellent premier morceau « épique » : tout est dans l'intensité et la régularité du strumming, pas dans la technique. Ce tutoriel te donne la grille et le placement pour le faire sonner."
+
 songInfo:
   inBook: true
   bookPage: 80
@@ -46,7 +48,15 @@ faqs:
 ---
 Sortie en 2008 et produite par Brian Eno, « Viva La Vida » est l'un des plus grands succès de Coldplay. Son titre vient d'un tableau de Frida Kahlo (« Vive la vie »), et ses paroles racontent la chute d'un roi qui régnait sur le monde et a tout perdu. À la guitare, c'est un morceau étonnamment simple — à condition de comprendre une particularité : à l'origine, **ce n'est pas une chanson de guitare**.
 
-## Les accords
+## En bref
+
+**Viva la Vida de Coldplay repose sur une boucle de 4 accords, jouée du début à la fin.** Difficulté 2/5 : le morceau est techniquement simple, tout est dans l'intensité et la régularité du strumming qui imite la fameuse ligne de cordes. Un excellent premier morceau « épique ».
+
+- **Accords** : une boucle de 4 accords
+- **Difficulté** : 2/5 — débutant
+- **La clé** : le strumming régulier et l'intensité, pas la technique
+
+## Quels accords pour Viva la Vida ?
 
 Une boucle de 4 accords, sur tout le morceau :
 
