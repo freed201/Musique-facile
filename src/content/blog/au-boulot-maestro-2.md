@@ -8,8 +8,17 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-02-10"
-dateModified: "2026-06-06"
-introduction: "On passe en revue les 10 erreurs courantes qui ralentissent ta progression musicale et comment les éviter pour jouer avec plus de plaisir et d’aisance."
+dateModified: "2026-07-07"
+category: "pratique"
+level: "débutant"
+instrument: "général"
+tags:
+  - erreurs progression musicale
+  - progresser en musique
+  - régularité pratique
+  - posture instrument
+  - métronome
+introduction: "On passe en revue les 10 erreurs courantes qui ralentissent ta progression musicale : trop se focaliser sur le matériel, viser la perfection immédiate, mauvaise posture, manque de régularité, rythme négligé… et comment les corriger simplement pour jouer avec plus de plaisir, d’aisance et de fluidité au quotidien."
 
 conclusion: |
     Mets en pratique ces conseils et tu verras la différence rapidement dans ta progression musicale.
@@ -23,7 +32,17 @@ faqs:
     answer: "Oui. Jouer 15 minutes par jour est bien plus efficace que 3 heures une seule fois par semaine. La régularité ancre les gestes et entretient la mémoire musculaire. Une pratique courte mais quotidienne crée une progression durable, là où les séances longues et espacées laissent peu de traces."
 ---
 
-## 10 erreurs qui freinent ta progression musicale
+## En bref
+
+**Les 3 erreurs les plus fréquentes qui freinent la progression musicale : viser la perfection immédiate, manquer de régularité, et s'arrêter à chaque erreur au lieu de continuer et corriger après coup.** La bonne nouvelle : toutes se corrigent facilement une fois repérées.
+
+- **La clé n°1** : la régularité (15 min/jour bat 3h une fois par semaine)
+- **Le réflexe à perdre** : s'arrêter dès qu'on se trompe
+- **L'outil sous-utilisé** : le métronome, pour ancrer le rythme
+
+Ce sujet fait partie de notre dossier sur [pourquoi tu stagnes en musique](/blog/pourquoi-tu-stagnes-en-musique/).
+
+## Quelles sont les 10 erreurs qui freinent ta progression musicale ?
 
 ### 1. Se Focaliser sur le Matériel
 
@@ -67,5 +86,5 @@ S’arrêter systématiquement dès qu’on fait une erreur brise le rythme. Con
 
 ## Bonus : Jouer avec Ses Oreilles
 
-Jouer de la musique, c’est avant tout écouter. Ne te perds pas dans la technique au point d’oublier de ressentir la musique.
+Jouer de la musique, c’est avant tout écouter. Ne te perds pas dans la technique au point d’oublier de ressentir la musique. Pour aller plus loin sur la régularité, découvre pourquoi [10 minutes par jour valent mieux que 2 heures le dimanche](/blog/10-minutes-par-jour-valent-mieux-que-2-heures-dimanche/).
 
