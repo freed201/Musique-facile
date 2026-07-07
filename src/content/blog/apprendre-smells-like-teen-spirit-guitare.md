@@ -20,6 +20,8 @@ tags:
   - power chords
   - rythmique guitare
   - tutoriel guitare
+introduction: "Smells Like Teen Spirit de Nirvana est plus accessible qu'il n'y paraît : le riff repose sur seulement 4 power chords (F5, Bb5, Ab5, Db5) qui utilisent tous la même forme, déplacée sur le manche. Difficulté 4/5, surtout pour la dynamique grunge « doux-fort ». Ce tutoriel te donne la forme unique, l'ordre des accords et le secret du son qui claque."
+
 songInfo:
   inBook: true
   bookPage: 100
@@ -46,7 +48,15 @@ faqs:
 ---
 En 1991, « Smells Like Teen Spirit » fait basculer le rock. Sur l'album *Nevermind* de Nirvana, ce titre devient l'hymne de toute une génération et impose le grunge au grand public. Bonne nouvelle pour le débutant : le riff le plus célèbre des années 90 repose sur **4 power chords**, une seule forme qu'on déplace. C'est le morceau parfait pour apprendre cette technique rock essentielle.
 
-## Les accords : 4 power chords, une seule forme
+## En bref
+
+**Smells Like Teen Spirit de Nirvana se joue avec 4 power chords (F5, Bb5, Ab5, Db5) — tous la même forme, déplacée sur le manche.** Difficulté 4/5 : la technique est simple, tout est dans la dynamique grunge « doux sur les couplets, explosif sur le refrain ».
+
+- **Accords** : 4 power chords (F5, Bb5, Ab5, Db5), une seule forme
+- **Difficulté** : 4/5 — surtout la dynamique
+- **Le secret** : le contraste doux/fort, pas la vitesse
+
+## Quels accords pour Smells Like Teen Spirit ? (4 power chords, une seule forme)
 
 - F5
 - Bb5

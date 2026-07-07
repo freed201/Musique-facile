@@ -20,6 +20,8 @@ tags:
   - accords guitare
   - rythmique guitare
   - tutoriel guitare
+introduction: "Redemption Song de Bob Marley est un morceau acoustique doux, parfait pour travailler les arpèges : 4 accords principaux et un tempo lent (60 BPM). Difficulté 2/5. Ce tutoriel te donne la grille, le picking et les conseils pour restituer la simplicité émouvante de ce classique."
+
 songInfo:
   inBook: true
   bookPage: 60
@@ -48,7 +50,15 @@ faqs:
 ---
 « Redemption Song » est à part dans l'œuvre de Bob Marley. Pas de batterie, pas de cuivres, pas de groupe reggae : juste une voix et une guitare. Figurant sur *Uprising* (1980), le dernier album sorti de son vivant, écrite alors qu'il était malade, c'est un appel à la liberté intérieure — « *Emancipate yourselves from mental slavery* », un vers emprunté à Marcus Garvey. Pour le débutant, c'est un cadeau : lente, douce, et parfaite pour travailler un jeu propre.
 
-## Les accords
+## En bref
+
+**Redemption Song de Bob Marley se joue avec 4 accords principaux, en arpèges doux sur un tempo lent (60 BPM).** Difficulté 2/5 : un morceau acoustique idéal pour travailler le picking et la régularité.
+
+- **Accords** : 4 principaux
+- **Difficulté** : 2/5 — débutant
+- **Style** : arpèges doux, tempo lent
+
+## Quels accords pour Redemption Song ?
 
 - G
 - Em
