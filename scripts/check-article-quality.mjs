@@ -171,7 +171,10 @@ async function checkArticle(slug, entry, corpus) {
   if (/<style[\s>]/i.test(cleanBody)) {
     warnings.push('W-HTML-INLINE : bloc <style> dans le markdown — interdit, utiliser les tokens CSS du site');
   }
-  if (/<div[\s>]/i.test(cleanBody)) {
+  // <figure class="chord-chart"> est un pattern légitime (grille de diagrammes d'accords SVG,
+  // cf. scripts/generate-chord-svgs.mjs) — seuls les <div> hors de ce wrapper sont du HTML legacy.
+  const bodyWithoutChordFigures = cleanBody.replace(/<figure class="chord-chart"[\s\S]*?<\/figure>/gi, '');
+  if (/<div[\s>]/i.test(bodyWithoutChordFigures)) {
     warnings.push('W-HTML-INLINE : <div> dans le markdown — utiliser les blocs `::: info|tip|warning`');
   }
 
