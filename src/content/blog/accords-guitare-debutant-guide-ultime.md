@@ -23,7 +23,7 @@ meta: "📢 Découvrez les accords de guitare essentiels pour débutants 🎸. A
 keywords: "accords guitare, apprendre accords guitare, accords guitare facile, comment apprendre accords guitare, accords majeurs mineurs guitare, cours guitare en ligne"
 
 ---
-# 🎸 Accords Guitare Débutant : Guide Ultime pour Apprendre Facilement
+## 🎸 Accords Guitare Débutant : Guide Ultime pour Apprendre Facilement
 
 <div style="display:grid; grid-template-columns:1fr; gap:10px; max-width:500px; margin:auto;">
     <h3 style="text-align:center; color:#333; font-family:sans-serif;">📖 Sommaire</h3>

@@ -59,7 +59,7 @@ instrument: "guitare"
 
 
 
-# 🏋️‍♂️ Exercices Pratiques pour Maîtriser les Accords 🎸  
+## 🏋️‍♂️ Exercices Pratiques pour Maîtriser les Accords 🎸  
 
 Maîtriser les **changements d’accords** et les **enchaînements fluides** est une étape clé pour progresser à la guitare. Voici une série d’exercices simples et efficaces pour vous aider à **jouer proprement et rapidement**.
 

@@ -59,7 +59,7 @@ instrument: "guitare"
 
 
 
-# 🛠 Techniques pour Jouer les Accords
+## 🛠 Techniques pour Jouer les Accords
 
 Apprendre à poser les doigts correctement et à enchaîner les accords est essentiel pour jouer de la guitare **sans frustration**. Voici les **meilleures techniques** pour réussir vos accords facilement.
 
