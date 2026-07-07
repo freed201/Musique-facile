@@ -5,7 +5,7 @@ description: "D’où viennent les noms des notes de musique ? Pourquoi Do, Ré,
 ogImage: "/images/blog/solfege-noms-des-notes.webp"
 author: "Fred Fieffé"
 datePublished: "2025-04-07"
-dateModified: "2026-03-19"
+dateModified: "2026-07-07"
 introduction: "Si tu joues d’un instrument, tu utilises Do, Ré, Mi, Fa, Sol, La, Si tous les jours. Mais pourquoi ces syllabes-là et pas d’autres ? On remonte un millénaire en arrière pour découvrir l’origine fascinante des noms des notes, de Guido d’Arezzo aux systèmes utilisés dans le monde entier."
 prod: Y
 instrument: "solfege"
@@ -28,34 +28,21 @@ faqs:
     answer: "Non, ce n’est pas obligatoire pour débuter. Mais comprendre les bases du solfège aide à progresser plus vite et à communiquer avec d’autres musiciens."
 ---
 
-## 🎶 Pourquoi Do, Ré, Mi ? L’histoire fascinante des noms des notes de musique 🎶  
+## En bref
 
-🎵 **Pourquoi Do, Ré, Mi… et pas autre chose ?**  
+**Les noms Do, Ré, Mi, Fa, Sol, La, Si viennent d'un hymne latin du XIe siècle**, *Ut queant laxis*. Le moine **Guido d'Arezzo** a pris la première syllabe de chaque vers pour aider ses élèves à mémoriser les hauteurs de notes. *Ut* est ensuite devenu *Do* (plus facile à chanter), et *Si* a été ajouté au XVIe siècle à partir de *Sancte Ioannes* (Saint Jean).
 
-Si tu joues d’un instrument, t’utilises ces notes **tous les jours** :  
-Do, Ré, Mi, Fa, Sol, La, Si.  
+- **Inventeur** : Guido d'Arezzo, moine italien, XIe siècle
+- **Source** : l'hymne *Ut queant laxis*
+- **Do = C** : le système de lettres antique (A-G) a fusionné avec les syllabes
 
-Mais t’es-tu déjà demandé **d’où elles viennent** ?  
-Pourquoi ces syllabes-là et pas d’autres ?  
-Et pourquoi, en anglais, on parle de **A, B, C, D, E, F, G** ? 🤔  
-
-**Dans cet article**, on plonge dans **l’histoire secrète du solfège** et des noms des notes :  
-
-✅ Comment **Guido d’Arezzo** a révolutionné l’apprentissage musical 🎶  
-✅ Pourquoi **Do correspond à C** et pas à A  
-✅ D’où viennent les **dièses, bémols et bécars**  
-✅ Pourquoi certains pays utilisent encore **d’autres systèmes**  
-
-> **Accroche-toi, on remonte un millénaire en arrière !** ⏳  
+Si tu joues d'un instrument, tu utilises ces notes tous les jours : Do, Ré, Mi, Fa, Sol, La, Si. Mais d'où viennent-elles, et pourquoi parle-t-on de **A, B, C, D, E, F, G** en anglais ? Accroche-toi, on remonte un millénaire en arrière ! ⏳
 
 ---
 
 ## 📚 Avant le solfège : la notation par lettres  
 
-<div class="info">
-<h3>🕰 Le début de la notation musicale</h3>
-<p>Avant Do, Ré, Mi… les notes étaient **juste des lettres**.</p>
-</div>
+> **🕰 Le début de la notation musicale.** Avant Do, Ré, Mi… les notes étaient **juste des lettres**.
 
 🌟 **Les Grecs** avaient déjà un système de notation, mais il était **hyper compliqué**.  
 Résultat ? Pas très pratique pour apprendre…  

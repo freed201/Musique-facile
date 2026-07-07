@@ -2,12 +2,12 @@
 pillar: true
 title: "Pourquoi tu Stagnes en Musique (et Comment Débloquer ta Progression)"
 description: "Tu pratiques régulièrement mais tu ne progresses plus ? Découvre les 7 causes cachées de la stagnation musicale et les solutions concrètes pour te débloquer."
-introduction: "Oui, stagner en musique est normal et même inévitable dans ton apprentissage. Voici pourquoi : **1) Les phases de stagnation** durent 2-6 semaines et indiquent que ton cerveau consolide les acquis avant le prochain bond de progression. **2) Presque tous les musiciens adultes** vivent plusieurs plateaux pendant leurs 2 premières années — c'est universel. **3) La stagnation n'est pas un manque de talent**, mais souvent le résultat de 7 causes spécifiques (pratique répétitive, objectifs flous, techniques inadaptées) que tu peux corriger rapidement. Ce guide te montre comment identifier pourquoi tu stagnes et comment débloquer ta progression en 2-3 semaines avec des actions concrètes."
+introduction: "Oui, stagner en musique est normal et même inévitable. Les phases de stagnation durent 2-6 semaines : c'est le signe que ton cerveau consolide les acquis avant le prochain bond de progression. Presque tous les musiciens adultes les traversent. Ce n'est pas un manque de talent, mais le résultat de 7 causes précises que tu peux corriger. Ce guide te montre lesquelles, et comment débloquer ta progression en 2-3 semaines."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2026-02-05"
-dateModified: "2026-06-06"
+dateModified: "2026-07-07"
 prod: Y
 instrument: "général"
 level: "débutant"
@@ -49,6 +49,14 @@ Dans ce guide complet, tu vas découvrir :
 > 📊 **Donnée rassurante :** Le plateau d'apprentissage est un phénomène bien connu en pédagogie : après une phase de progrès rapides, le cerveau a besoin de consolider ses acquis avant de franchir le palier suivant. Sur le terrain, en accompagnant des centaines d'élèves chez Musique Facile, on le constate à chaque fois : presque personne n'y échappe — et c'est presque toujours suivi d'un **bond de progression**. Les plateaux durent en général 2 à 6 semaines.
 
 ---
+
+## En bref
+
+**Stagner en musique est normal, et même bon signe** : c'est le moment où ton cerveau consolide avant le prochain bond de progression. Ces plateaux durent en général 2 à 6 semaines. La stagnation n'est pas un manque de talent, mais le résultat de causes précises (pratique répétitive, objectifs flous, technique inadaptée) que tu peux corriger.
+
+- **C'est universel** : presque tous les musiciens adultes traversent plusieurs plateaux
+- **Durée** : 2 à 6 semaines si tu ajustes ta pratique
+- **La solution** : identifier la cause, puis pratiquer *différemment* (pas forcément plus)
 
 ## Comment reconnaître une vraie stagnation musicale ? (les 5 signes qui ne trompent pas)
 
@@ -469,7 +477,7 @@ Voici ce qui se passe lors d'une séance type avec un élève en stagnation :
 
 **Ne procrastine pas :** 2-3 mois de stagnation = risque d'abandon à 60%. Un stage ou 2-3 cours peuvent éviter ça.
 
-👉 **[Découvrir les stages Musique Facile 2026](https://musique-facile.fr/stage2026/)**
+👉 **[Découvrir les stages Musique Facile 2026](/stage2026/)**
 
 ---
 
@@ -575,7 +583,7 @@ Voilà, tu connais maintenant **les 7 causes cachées de la stagnation** et le *
 **La stagnation ne dit pas que tu n'as pas de talent. Elle dit que tu es prêt pour le niveau suivant.** 🎵
 
 **Besoin d'un coup de pouce pour débloquer rapidement ?**
-👉 **[Stages intensifs Musique Facile 2026](https://musique-facile.fr/stage2026/)**
+👉 **[Stages intensifs Musique Facile 2026](/stage2026/)**
 2-3 jours pour identifier tes angles morts et repartir avec une routine déblocante.
 
 **Des questions ?** Explore notre **[blog complet](/blog/)** avec 90+ articles pour tous les niveaux ! 🎸🎹🏝️
