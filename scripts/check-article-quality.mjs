@@ -57,6 +57,17 @@ async function loadCorpus() {
   return corpus;
 }
 
+/** Astro lowercase les slugs de content collection : une résolution de lien/silo
+ * doit matcher insensible à la casse, même si le nom de fichier a des majuscules. */
+function resolveSlug(corpus, slug) {
+  if (corpus.has(slug)) return corpus.get(slug);
+  const lower = slug.toLowerCase();
+  for (const [key, entry] of corpus) {
+    if (key.toLowerCase() === lower) return entry;
+  }
+  return undefined;
+}
+
 function isPublished(entry) {
   if (!entry) return false;
   const { data } = entry;
@@ -92,7 +103,7 @@ async function checkArticle(slug, entry, corpus) {
   }
 
   if (data.siloSlug) {
-    const pilier = corpus.get(data.siloSlug);
+    const pilier = resolveSlug(corpus, data.siloSlug);
     if (!pilier) {
       errors.push(`E-SILO-CASSE : siloSlug "${data.siloSlug}" ne correspond à aucun article`);
     } else if (pilier.data.pillar !== true) {
@@ -182,7 +193,7 @@ async function checkArticle(slug, entry, corpus) {
   for (const lien of liensInternes) {
     const m = lien.match(/^\/blog\/([^/]+)\/?$/);
     if (!m) continue;
-    const cible = corpus.get(m[1]);
+    const cible = resolveSlug(corpus, m[1]);
     if (!cible) {
       errors.push(`E-LIEN-MORT : ${lien} — aucun article ne correspond`);
     } else if (!isPublished(cible)) {
