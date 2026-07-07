@@ -20,6 +20,8 @@ tags:
   - accords guitare
   - rythmique guitare
   - tutoriel guitare
+introduction: "Back to Black d'Amy Winehouse se joue à la guitare avec 7 accords en ré mineur, pour une difficulté de 3/5. Tout le charme du morceau tient dans le groove retenu de la rythmique, sur un tempo à 123 BPM. Ce tutoriel te donne les accords, la grille et les conseils pour restituer ce feeling « soul » sans te presser."
+
 songInfo:
   inBook: true
   bookPage: 8
@@ -46,7 +48,15 @@ faqs:
 ---
 Sortie en 2006, « Back to Black » est le morceau-titre de l'album qui a fait d'Amy Winehouse une légende. Avec son producteur Mark Ronson, elle y ressuscite le son des girl-groups Motown des années 60 : cuivres, batterie sèche et cette mélancolie en ré mineur qui te prend aux tripes. À la guitare, le défi n'est pas la technique pure, mais le **feeling soul** — apprendre à jouer moins pour dire plus.
 
-## Les accords
+## En bref
+
+**Back to Black d'Amy Winehouse se joue avec 7 accords en ré mineur, pour une difficulté de 3/5.** Tout le charme du morceau tient dans le groove « retenu » de la rythmique, sur un tempo à 123 BPM. Un bon morceau pour travailler la nuance plutôt que la vitesse.
+
+- **Accords** : 7 au total
+- **Tonalité** : ré mineur (Dm)
+- **Difficulté** : 3/5 — intermédiaire accessible
+
+## Quels accords pour Back to Black ?
 
 - Dm
 - Am

@@ -19,6 +19,8 @@ tags:
   - rythmique pop
   - jouer une chanson
   - hey ya
+introduction: "Hey Ya d'OutKast se joue à la guitare avec 4 accords en boucle, en do majeur, sur un tempo entraînant. Difficulté 2/5. Ce tutoriel te donne la grille, l'ordre des accords et la rythmique syncopée qui donne toute son énergie à ce tube."
+
 songInfo:
   inBook: true
   bookPage: 27
@@ -48,7 +50,15 @@ faqs:
 
 Si tu veux un morceau énergique et jouable rapidement, Hey Ya! est un très bon choix. Le niveau est débutant, tu peux le jouer avec quatre accords, et tu peux faire une version simple sans te compliquer la vie. L’objectif ici est clair : t’aider à jouer le morceau du début à la fin, avec une rythmique stable et une structure facile à suivre.
 
-## Accords
+## En bref
+
+**Hey Ya d'OutKast se joue avec 4 accords en boucle, en do majeur.** Difficulté 2/5 : la grille est simple et se répète, tout le plaisir vient de la rythmique syncopée et entraînante.
+
+- **Accords** : 4 en boucle (tonalité de do)
+- **Difficulté** : 2/5 — débutant
+- **La clé** : le groove syncopé
+
+## Quels accords pour Hey Ya ?
 
 La version simple se joue avec quatre accords. Tu peux les enchaîner en boucle :
 

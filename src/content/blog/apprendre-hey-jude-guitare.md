@@ -20,6 +20,8 @@ tags:
   - accords guitare
   - rythmique guitare
   - tutoriel guitare
+introduction: "Hey Jude des Beatles est un grand morceau, mais exigeant à la guitare (13 accords, difficulté 5/5). Bonne nouvelle : son célèbre coda final « na na na… » se joue sur une simple boucle de 3 accords, G – C – D, accessible à un débutant motivé. Ce tutoriel te guide sur la version simplifiée et le fameux final à reprendre en chœur."
+
 songInfo:
   inBook: true
   bookPage: 30
@@ -46,7 +48,15 @@ faqs:
 ---
 « Hey Jude », c'est l'une des chansons les plus aimées des Beatles — et l'une des plus rassurantes. Paul McCartney l'a écrite en 1968 pour Julian, le fils de John Lennon, en plein divorce de ses parents (le titre était d'abord « Hey Jules »). Avec ses 7 minutes et son final repris en chœur partout dans le monde, elle a une réputation intimidante. En version simplifiée, elle est pourtant tout à fait à ta portée.
 
-## Les accords (version simplifiée en G)
+## En bref
+
+**Hey Jude des Beatles est un morceau exigeant à la guitare (difficulté 5/5, 13 accords en tout)** — mais son célèbre coda final « na na na… » se joue sur une simple boucle de **3 accords : G – C – D**, à la portée d'un débutant motivé. C'est la section la plus accessible et la plus jouissive à jouer en groupe.
+
+- **Accords** : 13 sur le morceau complet, mais 3 (G-C-D) pour le coda
+- **Tonalité** : fa majeur (F)
+- **Difficulté** : 5/5 pour le morceau entier — le coda reste très abordable
+
+## Quels accords pour Hey Jude ? (version simplifiée en G)
 
 - G
 - D

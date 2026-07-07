@@ -20,6 +20,8 @@ tags:
   - accords guitare
   - rythmique guitare
   - tutoriel guitare
+introduction: "Chasing Cars de Snow Patrol est un morceau idéal pour débuter : la même poignée d'accords (Em, C, G, D) tourne du début à la fin, avec un capo case 4. Difficulté 3/5. Ce tutoriel te montre la grille, le placement du capo et surtout comment jouer la dynamique doux/fort qui rend le morceau vivant."
+
 songInfo:
   inBook: true
   bookPage: 68
@@ -46,7 +48,15 @@ faqs:
 ---
 « Chasing Cars » de Snow Patrol (album *Eyes Open*, 2006) doit une bonne partie de sa célébrité à la série *Grey's Anatomy*, qui l'a propulsée dans le monde entier. Mais pour un guitariste débutant, son vrai intérêt est ailleurs : c'est sans doute **la chanson la plus répétitive du répertoire pop**. Une seule boucle d'accords, et tu tiens le morceau presque en entier.
 
-## Les accords
+## En bref
+
+**Chasing Cars de Snow Patrol est parfait pour débuter : la même poignée d'accords (Em, C, G, D) tourne du début à la fin, avec un capo case 4.** Difficulté 3/5 : tout se joue dans la dynamique (doux sur les couplets, plus fort sur le refrain), pas dans la technique.
+
+- **Accords** : Em, C, G, D (la même grille tout du long)
+- **Capo** : case 4 (pour la tonalité originale)
+- **Difficulté** : 3/5
+
+## Quels accords pour Chasing Cars ?
 
 Une boucle, c'est tout :
 

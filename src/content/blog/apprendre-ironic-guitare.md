@@ -20,6 +20,8 @@ tags:
   - accords guitare
   - rythmique guitare
   - tutoriel guitare
+introduction: "Ironic d'Alanis Morissette se joue avec 4 accords ouverts et un capo case 2, sur une rythmique pop énergique. Difficulté 3/5. Ce tutoriel te donne les accords, le placement du capo et la rythmique dynamique qui porte ce tube des années 90."
+
 songInfo:
   inBook: true
   bookPage: 45
@@ -44,7 +46,15 @@ faqs:
 ---
 Sorti en 1995 sur l'album *Jagged Little Pill*, « Ironic » est l'un des hymnes de la pop-rock des années 90. Au-delà du tube, c'est un terrain de jeu idéal pour débutant : la chanson tourne autour de la fameuse boucle **Em – C – G – D**, qu'on retrouve dans des centaines d'autres morceaux. L'apprendre ici, c'est se constituer un passe-partout.
 
-## Les accords
+## En bref
+
+**Ironic d'Alanis Morissette se joue avec 4 accords ouverts et un capo case 2**, sur une rythmique pop énergique. Difficulté 3/5 : un bon morceau pour travailler un strumming dynamique.
+
+- **Accords** : 4 ouverts
+- **Capo** : case 2
+- **Difficulté** : 3/5
+
+## Quels accords pour Ironic ?
 
 Place le **capo case 2**, puis joue cette boucle :
 

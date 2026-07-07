@@ -20,6 +20,8 @@ tags:
   - accords guitare
   - rythmique guitare
   - tutoriel guitare
+introduction: "Stand by Me de Ben E. King est parfait pour une première chanson complète : 4 accords et la célèbre progression doo-wop des années 50, sur un tempo lent qu'on compte en demi-temps. Difficulté 2/5. Ce tutoriel te donne la grille, la rythmique et l'astuce pour retrouver le groove qui, à l'origine, vient de la ligne de basse."
+
 songInfo:
   inBook: true
   bookPage: 72
@@ -46,7 +48,15 @@ faqs:
 ---
 « Stand by Me », c'est l'une de ces chansons que tout le monde reconnaît dès les premières notes. Sortie en 1961, co-écrite par Ben E. King avec le duo Leiber & Stoller, elle a connu une seconde vie en 1986 grâce au film du même nom. Pour un guitariste débutant, c'est un cadeau : 4 accords, un tempo lent, et une seule boucle à connaître pour jouer le morceau entier.
 
-## Les accords
+## En bref
+
+**Stand by Me de Ben E. King se joue avec 4 accords et la célèbre progression doo-wop des années 50 (I–vi–IV–V).** Difficulté 2/5, sur un tempo lent qu'on ressent en demi-temps : un morceau idéal pour une première chanson complète.
+
+- **Accords** : 4 (progression doo-wop I–vi–IV–V)
+- **Difficulté** : 2/5 — débutant
+- **La clé** : le groove, qui vient à l'origine de la ligne de basse
+
+## Quels accords pour Stand by Me ?
 
 Toute la chanson tient sur cette boucle, répétée du début à la fin :
 

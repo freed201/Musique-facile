@@ -20,6 +20,8 @@ tags:
   - accords guitare
   - rythmique guitare
   - tutoriel guitare
+introduction: "What's Up des 4 Non Blondes ne demande que 3 accords (G, A, C) et un tempo lent : c'est l'un des meilleurs morceaux pour une toute première chanson à la guitare. Difficulté 3/5, surtout pour le refrain à reprendre en chœur. Ce tutoriel te donne les accords, la rythmique et les conseils pour chanter en jouant."
+
 songInfo:
   inBook: true
   bookPage: 82
@@ -48,7 +50,15 @@ faqs:
 ---
 Sortie en 1992 sur l'album *Bigger, Better, Faster, More!* et écrite par Linda Perry, « What's Up » des 4 Non Blondes est devenue un hymne intergénérationnel. Pour le guitariste qui débute, c'est presque le morceau idéal : **3 accords seulement**, un tempo lent, une seule grille — et un refrain que tout le monde reprend en chœur.
 
-## Les accords
+## En bref
+
+**What's Up des 4 Non Blondes se joue avec seulement 3 accords (G, A, C) sur un tempo lent.** Difficulté 3/5 : c'est l'un des meilleurs morceaux pour une toute première chanson, avec son refrain à reprendre en chœur.
+
+- **Accords** : G, A, C (3 seulement)
+- **Difficulté** : 3/5
+- **Idéal pour** : chanter en jouant
+
+## Quels accords pour What's Up ?
 
 Trois accords, c'est tout :
 

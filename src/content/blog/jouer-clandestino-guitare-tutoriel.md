@@ -19,6 +19,8 @@ tags:
   - rythmique guitare
   - jouer une chanson
   - manu chao
+introduction: "Clandestino de Manu Chao est un morceau très accessible : 3 accords seulement, un capo case 2 et une rythmique douce. Difficulté 2/5. Ce tutoriel te donne les accords, le placement du capo et le groove latino discret qui fait tout le charme de ce classique."
+
 songInfo:
   inBook: true
   bookPage: 12
@@ -45,7 +47,15 @@ faqs:
 
 Si tu veux jouer une chanson entière rapidement, Clandestino est un excellent choix. Le niveau est débutant, les accords sont simples, et tu peux faire une version très propre en restant détendu. Ici, tu vas apprendre les accords, la rythmique de base, la structure, et un plan d’entraînement court pour le travailler efficacement.
 
-## Accords
+## En bref
+
+**Clandestino de Manu Chao se joue avec 3 accords seulement et un capo case 2**, sur une rythmique douce. Difficulté 2/5 : un excellent morceau pour débuter, au groove latino discret.
+
+- **Accords** : 3 seulement
+- **Capo** : case 2
+- **Difficulté** : 2/5 — débutant
+
+## Quels accords pour Clandestino ?
 
 Le morceau tourne sur trois accords en boucle. Avec un capo en case 2, tu gardes la tonalité originale tout en utilisant des formes faciles :
 
