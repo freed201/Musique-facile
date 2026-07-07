@@ -1,7 +1,7 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Smells Like Teen Spirit (Nirvana) - Guitare"
-description: "Smells Like Teen Spirit de Nirvana à la guitare : les 4 power chords (F5-Bb5-Ab5-Db5), la dynamique grunge « doux-fort » et le son qui claque. Tutoriel rock pour débutants."
+description: "Smells Like Teen Spirit de Nirvana à la guitare : 4 power chords (F5-Bb5-Ab5-Db5), la dynamique grunge « doux-fort » et le son qui claque. Tutoriel rock débutant."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"

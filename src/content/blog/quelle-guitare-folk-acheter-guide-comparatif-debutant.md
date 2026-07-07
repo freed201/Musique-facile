@@ -1,7 +1,7 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Quelle guitare folk acheter ? Le guide comparatif 2026 pour débutants"
-description: "Fender, Yamaha, Cort, Eastman, PRS, Harley Benton... On a passé au crible les meilleures guitares folk du premier prix aux modèles haut de gamme. Dreadnought ou parlor ? Nos recommandations honnêtes par budget."
+description: "Fender, Yamaha, Cort... Les meilleures guitares folk passées au crible, du premier prix au haut de gamme. Dreadnought ou parlor ? Nos recommandations par budget."
 meta: "Comparatif des meilleures guitares folk acoustiques pour débutants en 2026. Fender, Yamaha, Cort, Eastman, PRS, Harley Benton — disponibles sur Thomann, Woodbrass et Amazon.fr. Recommandations par Fred Fieffé, musicien avec plus de 40 ans de pratique."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -380,6 +380,6 @@ Et surtout : **le mieux reste d'essayer**. Allez en magasin, emmenez un ami, lai
 
 ### Articles liés
 
-- [Accords guitare débutant — Le guide ultime](/blog/accords-guitare-debutant-guide-ultime)
+- [Top 5 accords guitare débutants — enchaînement facile](/blog/top-5-accords-guitare-debutants-enchainement-facile)
 - [Apprendre la guitare facilement — Guide complet pour débutants](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants)
 - [Booster sa progression musicale](/blog/booster-progression-musicale)

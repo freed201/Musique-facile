@@ -4,9 +4,8 @@ title: "3 Morceaux Faciles à la Guitare avec 3 Accords"
 description: "Apprenez vos premières chansons à la guitare avec des accords simples. Knockin' on Heaven's Door, Imagine, Perfect : jouez rapidement avec nos conseils."
 ogImage: "/images/blog/accords-guitare-debutant-guide-ultime.webp"
 prod: Y
-multi: "Y"
+multi: "N"
 prev: "erreurs-debutant-guitare-solutions"
-next: "astuces-progresser-guitare-debutant"
 number: "5/7"
 author: "Fred Fieffé"
 datePublished: "2025-04-04"
@@ -33,7 +32,7 @@ faqs:
 ---
 Tu connais tes premiers accords et tu veux enfin jouer de vrais morceaux ? Voici 3 chansons mythiques jouables avec 2 à 4 accords ouverts. Pour chaque morceau : les accords, la progression et des conseils concrets pour réussir.
 
-> Ce guide fait partie de la série [Apprendre la guitare pour débutants](/blog/accords-guitare-debutant-guide-ultime/) (partie 5/7).
+> Ce guide fait partie du parcours [Apprendre la guitare facilement — guide complet pour débutants](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
 
 ---
 
@@ -126,4 +125,4 @@ Voici **3 morceaux faciles** utilisant les accords appris, idéaux pour débuter
 
 Tu veux apprendre plus de morceaux et structurer ta progression ? Le [cours de guitare débutant](/cours/apprendre-guitare-debutant/) de Musique Facile te guide pas à pas, de tes premiers accords jusqu'à l'autonomie complète.
 
-**Prochaine étape :** [Les astuces pour progresser rapidement](/blog/astuces-progresser-guitare-debutant/)
+**Prochaine étape :** [Booster ta progression musicale](/blog/booster-progression-musicale/)

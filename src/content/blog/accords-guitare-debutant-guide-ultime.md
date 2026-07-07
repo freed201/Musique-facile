@@ -12,7 +12,6 @@ publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-04-04"
 dateModified: "2026-02-04"
 
-# Phase 3 - Maillage interne
 tags: ["accords", "débutant", "théorie", "technique"]
 category: "débutant"
 level: "débutant"

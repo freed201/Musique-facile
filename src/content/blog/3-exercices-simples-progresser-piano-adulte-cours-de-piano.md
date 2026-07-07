@@ -11,7 +11,6 @@ ogImage: "/images/blog/3-exercices-simples-progresser-piano-adulte-cours-de-pian
 datePublished: "2026-01-19"
 dateModified: "2026-06-06"
 
-# Phase 3 - Maillage interne
 tags: ["exercices", "progression", "adulte", "pratique"]
 category: "pratique"
 level: "débutant"

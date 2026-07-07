@@ -1,7 +1,7 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Viva La Vida (Coldplay) - Tutoriel Guitare"
-description: "Viva La Vida de Coldplay à la guitare : la boucle de 4 accords qui imite la mélodie de cordes, le strumming régulier et l'astuce pour la rendre épique. Tutoriel débutant."
+description: "Viva La Vida de Coldplay à la guitare : la boucle de 4 accords qui imite les cordes, le strumming régulier et l'astuce pour la rendre épique. Tutoriel débutant."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"

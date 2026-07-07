@@ -467,10 +467,10 @@ Pour aller plus loin dans ta pratique :
 
 🎯 **Motivation et obstacles :**
 - [Pourquoi tu stagnes en musique (même en pratiquant régulièrement)](/blog/pourquoi-tu-stagnes-en-musique/)
-- [Comment rester motivé dans l'apprentissage musical](/blog/comment-rester-motive-apprentissage-musical/)
+- [Pourquoi 10 minutes par jour valent mieux que 2 heures le dimanche](/blog/10-minutes-par-jour-valent-mieux-que-2-heures-dimanche/)
 
 🎼 **Technique et progression :**
-- [Les 5 erreurs qui ralentissent ta progression musicale](/blog/5-erreurs-ralentissent-progression-musicale/)
+- [Booster ta progression musicale](/blog/booster-progression-musicale/)
 - [3 exercices simples pour progresser au piano adulte](/blog/3-exercices-simples-progresser-piano-adulte-cours-de-piano/)
 
 📚 **Cours et accompagnement :**

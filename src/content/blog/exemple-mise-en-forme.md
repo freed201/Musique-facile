@@ -3,13 +3,12 @@ title: "Guide complet de mise en forme des articles"
 description: "Découvrez toutes les possibilités de mise en forme des articles avec des exemples concrets et des explications détaillées."
 prod: N
 theme: "piano"
-ogImage: "/images/blog/exemple-mise-en-forme.jpg"
+ogImage: "/logo.webp"
 author: "Fred Fieffé"
 datePublished: "2025-03-15"
 dateModified: "2025-03-15"
 introduction: "Cet article présente toutes les possibilités de mise en forme disponibles pour rédiger des articles riches et engageants. Vous découvrirez comment utiliser les images, les citations, les encadrés et bien plus encore."
 
-# Pas de vidéos/podcast pour cet exemple
 videos: []
 
 conclusion: |

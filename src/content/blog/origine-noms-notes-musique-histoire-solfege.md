@@ -2,7 +2,7 @@
 siloSlug: "solfege-noms-des-notes"
 title: "L'histoire fascinante des noms de notes de musique"
 prod: Y
-description: "Comment Do Ré Mi Fa Sol La Si sont devenus un langage universel"
+description: "Comment Do Ré Mi Fa Sol La Si sont devenus un langage universel : Guido d'Arezzo, l'hymne à saint Jean-Baptiste et l'histoire des noms des notes de musique."
 meta: "Découvrez l'origine des noms des notes de musique, comment Guido d'Arezzo a influencé le solfège et l'évolution des systèmes de notation musicale à travers les siècles."
 keywords: "les notes de musique,solfège,musique"
 author: "Fred Fieffé"

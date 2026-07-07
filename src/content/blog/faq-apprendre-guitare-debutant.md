@@ -4,7 +4,7 @@ title: "FAQ Guitare Débutant : Réponses à vos Questions"
 description: "Les réponses aux 10 questions les plus courantes des débutants en guitare. Temps d’apprentissage, choix de guitare, accords, médiator, motivation."
 ogImage: "/images/blog/accords-guitare-debutant-guide-ultime.webp"
 prod: Y
-multi: "Y"
+multi: "N"
 prev: "astuces-progresser-guitare-debutant"
 number: "7/7"
 author: "Fred Fieffé"
@@ -37,7 +37,7 @@ conclusion: "Tu as maintenant toutes les clés pour apprendre les accords et jou
 ---
 Tu débutes la guitare et tu te poses plein de questions ? C'est normal. Voici les réponses claires et directes aux 10 questions les plus fréquentes.
 
-> Ce guide fait partie de la série [Apprendre la guitare pour débutants](/blog/accords-guitare-debutant-guide-ultime/) (partie 7/7).
+> Ce guide fait partie du parcours [Apprendre la guitare facilement — guide complet pour débutants](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
 
 ---
 

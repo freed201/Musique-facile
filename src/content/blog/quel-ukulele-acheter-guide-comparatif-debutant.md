@@ -1,7 +1,7 @@
 ---
 siloSlug: "debuter-ukulele-methode-simple-apprendre"
 title: "Quel ukulélé acheter ? Le guide comparatif 2026 pour débutants"
-description: "Flight, Kala, Enya, Cascha, Baton Rouge... On a passé au crible les meilleurs ukulélés du premier prix aux modèles premium. Bois ou incassable ? Soprano ou concert ? Nos recommandations honnêtes."
+description: "Flight, Kala, Enya, Cascha... Les meilleurs ukulélés passés au crible, du premier prix au premium. Bois ou incassable ? Soprano ou concert ? Nos recommandations."
 meta: "Comparatif des meilleurs ukulélés pour débutants en 2026. Flight, Kala, Enya, Cascha, Baton Rouge — disponibles sur Thomann, Woodbrass et Amazon.fr. Recommandations par Fred Fieffé, musicien avec plus de 40 ans de pratique."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -431,5 +431,5 @@ Et surtout : n'attendez pas. Commandez-en un ce soir, et dans 3 jours vous jouer
 
 - [Débuter l'ukulélé — Méthode simple 2026](/blog/debuter-ukulele-methode-simple-apprendre)
 - [5 accords indispensables pour jouer 100 chansons au ukulélé](/blog/5-accords-indispensables-jouer-100-chansons-ukulele)
-- [Choisir son ukulélé en 2025](/blog/choisir-ukulele-2025)
-- [Pourquoi le ukulélé est idéal pour apprendre la musique](/blog/pourquoi-le-ukulele-est-ideal-pour-apprendre-la-musique)
+- [15 chansons faciles à jouer à l'ukulélé](/blog/15-chansons-faciles-ukulele)
+- [Origine, histoire et anecdotes du ukulélé](/blog/origine-histoire-anecdotes-ukulele)

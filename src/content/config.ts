@@ -224,7 +224,8 @@ const blogCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    description: z.string(),
+    // 80-165 caractères : gabarit meta description (voir .claude/rules/article-parfait.md)
+    description: z.string().min(80).max(165),
     meta: z.string().optional(),
     keywords: z.string().optional(),
     author: z.string(),
@@ -256,7 +257,8 @@ const blogCollection = defineCollection({
     leadMagnet: z.string().optional(),
 
     schemaType: z.string().optional(),
-    prod: z.enum(['Y', 'N']).optional(),
+    // Requis : un article sans `prod` était listé dans l'index/sitemap mais sans page générée (404)
+    prod: z.enum(['Y', 'N']),
     multi: z.enum(['Y', 'N']).optional(),
     number: z.string().optional(),
     prev: z.string().optional(),

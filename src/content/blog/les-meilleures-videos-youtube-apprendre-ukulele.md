@@ -12,7 +12,6 @@ ogImage: "/images/blog/les-meilleures-videos-youtube-apprendre-ukulele.webp"
 datePublished: "2026-04-02"
 dateModified: "2026-04-07"
 
-# Maillage interne & SEO
 theme: "ukulele"
 tags: ["youtube", "chaînes", "débutant", "tutoriel", "ressources", "communauté", "fingerpicking"]
 category: "général"
