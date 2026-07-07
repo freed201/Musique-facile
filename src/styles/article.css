@@ -266,6 +266,58 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Blocs d'appel (callouts) générés par le plugin remark ::: info|tip|warning */
+.article-body .info-box,
+.article-body .tip-box,
+.article-body .warning-box {
+  margin: 1.75rem 0;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--callout-accent, var(--theme-current));
+  background: var(--callout-bg, rgba(var(--theme-current-rgb), 0.06));
+}
+
+.article-body .info-box > :first-child,
+.article-body .tip-box > :first-child,
+.article-body .warning-box > :first-child {
+  margin-top: 0;
+}
+
+.article-body .info-box > :last-child,
+.article-body .tip-box > :last-child,
+.article-body .warning-box > :last-child {
+  margin-bottom: 0;
+}
+
+.article-body .tip-box {
+  --callout-accent: #2e9e5b;
+  --callout-bg: rgba(46, 158, 91, 0.08);
+}
+
+.article-body .warning-box {
+  --callout-accent: #d9822b;
+  --callout-bg: rgba(217, 130, 43, 0.09);
+}
+
+.article-body .info-box {
+  --callout-accent: #3272c8;
+  --callout-bg: rgba(50, 114, 200, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  .article-body .tip-box { --callout-bg: rgba(46, 158, 91, 0.15); }
+  .article-body .warning-box { --callout-bg: rgba(217, 130, 43, 0.16); }
+  .article-body .info-box { --callout-bg: rgba(50, 114, 200, 0.15); }
+}
+
+:root[data-theme="dark"] .article-body .tip-box { --callout-bg: rgba(46, 158, 91, 0.15); }
+:root[data-theme="dark"] .article-body .warning-box { --callout-bg: rgba(217, 130, 43, 0.16); }
+:root[data-theme="dark"] .article-body .info-box { --callout-bg: rgba(50, 114, 200, 0.15); }
+
+:root[data-theme="light"] .article-body .tip-box { --callout-bg: rgba(46, 158, 91, 0.08); }
+:root[data-theme="light"] .article-body .warning-box { --callout-bg: rgba(217, 130, 43, 0.09); }
+:root[data-theme="light"] .article-body .info-box { --callout-bg: rgba(50, 114, 200, 0.08); }
+
 /* Mise en valeur du texte */
 .article-body mark {
   background: linear-gradient(120deg, 

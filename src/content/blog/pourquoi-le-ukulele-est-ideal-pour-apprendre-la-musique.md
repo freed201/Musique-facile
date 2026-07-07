@@ -54,7 +54,7 @@ instrument: "ukulele"
 level: "débutant"
 category: "pratique"
 ---
-# Pourquoi le ukulélé est l'instrument parfait pour (re)découvrir la musique 🎶
+## Pourquoi le ukulélé est l'instrument parfait pour (re)découvrir la musique 🎶
 
 **Vous rêvez d'apprendre la musique mais vous pensez que c'est trop difficile, trop cher ou trop long ?** Le ukulélé va changer votre perception ! Cet instrument hawaïen joyeux est devenu le choix n°1 des débutants en musique pour une excellente raison : **c'est le seul instrument qui vous permet de jouer une chanson complète dès le premier jour**.
 

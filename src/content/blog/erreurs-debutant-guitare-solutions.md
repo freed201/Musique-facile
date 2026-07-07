@@ -59,7 +59,7 @@ instrument: "guitare"
 
 
 
-# ⚠️ Erreurs Courantes et Solutions  
+## ⚠️ Erreurs Courantes et Solutions  
 
 Tout débutant rencontre des **difficultés** en apprenant les accords. Voici **les erreurs les plus fréquentes** et des solutions simples pour les éviter.
 

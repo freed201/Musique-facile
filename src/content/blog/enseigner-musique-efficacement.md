@@ -5,7 +5,7 @@ description: "Un bon musicien n’est pas forcément un bon enseignant. La malé
 ogImage: "/images/blog/enseigner-musique-efficacement.webp"
 author: "Fred Fieffé"
 datePublished: "2025-03-24"
-dateModified: "2026-03-19"
+dateModified: "2026-07-06"
 introduction: "T’as déjà pris un cours avec un musicien ultra-talentueux et t’es ressorti encore plus perdu qu’avant ? Ce phénomène porte un nom : la malédiction du savoir. Quand tout est devenu automatique, expliquer les bases devient difficile. Voici pourquoi un bon musicien n’est pas forcément un bon prof, et comment trouver un enseignement adapté."
 prod: Y
 instrument: "général"
@@ -28,7 +28,15 @@ faqs:
     answer: "Oui, avec un cours bien structuré et progressif. L’essentiel est d’avoir un parcours qui décompose chaque compétence en étapes claires, ce que font les bonnes méthodes en ligne."
 ---
 
-# 🎶 Pourquoi les musiciens talentueux font parfois de mauvais profs ? 🎶  
+## En bref
+
+**Un excellent musicien n'est pas forcément un bon professeur.** En cause : la *malédiction du savoir* (curse of knowledge), un biais cognitif bien connu — quand un geste est devenu 100 % automatique, on n'arrive plus à le décomposer pour un débutant. Un bon prof, lui, sait simplifier, découper en étapes et varier ses explications.
+
+- **Le piège** : l'expert a oublié ce que c'est de ne pas savoir
+- **Le bon prof** : simplifie, décompose, s'adapte à l'élève
+- **Pour progresser** : choisis un enseignement structuré plutôt qu'un virtuose qui « fait comme lui »
+
+Ce sujet fait partie de notre dossier sur [pourquoi tu stagnes en musique](/blog/pourquoi-tu-stagnes-en-musique/).
 
 ✨ **Le paradoxe surprenant de l’apprentissage musical**  
 

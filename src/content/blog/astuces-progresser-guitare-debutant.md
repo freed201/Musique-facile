@@ -59,7 +59,7 @@ instrument: "guitare"
 
 
 
-# 🚀 Astuces pour Progresser Rapidement  
+## 🚀 Astuces pour Progresser Rapidement  
 
 Apprendre la guitare prend du temps, mais avec les bonnes méthodes, vous pouvez **accélérer vos progrès** et éviter la frustration. Voici **7 astuces essentielles** pour progresser efficacement.  
 
