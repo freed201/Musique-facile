@@ -8,8 +8,8 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
-introduction: "Avec 'La Seine', Vanessa Paradis et -M- nous offrent une immersion poétique dans l'atmosphère unique de Paris. Découvrez cette chanson iconique et apprenez à la jouer."
+dateModified: "2026-07-07"
+introduction: "La Seine de Vanessa Paradis et -M- se joue avec 8 accords et un capo case 5, sur un tempo très lent (55 BPM). Tiré du film 'Un monstre à Paris' (2011), ce duo poétique demande de la précision et de la délicatesse plus que de la vitesse. Voici comment l'aborder pas à pas."
 
 songInfo:
   inBook: true
@@ -42,6 +42,14 @@ relatedLinks:
     url: "/blog/jouer-hallelujah-jeff-buckley-guitare"
     description: "Une autre ballade romantique et touchante."
 instrument: "guitare"
+category: "tutoriel"
+level: "intermédiaire"
+tags:
+  - la seine vanessa paradis guitare
+  - vanessa paradis guitare
+  - tutoriel guitare
+  - ballade française guitare
+  - accords guitare intermédiaire
 faqs:
   - question: "Quels accords pour jouer La Seine de Vanessa Paradis et -M- ?"
     answer: "Le morceau utilise 8 accords avec un capo en case 5, pour une difficulté de 4/5. Tiré du film « Un monstre à Paris » (2011), ce duo poétique au tempo très lent (55 BPM) demande de la précision et de la délicatesse plus que de la vitesse."
@@ -50,30 +58,41 @@ faqs:
   - question: "Faut-il un capo pour jouer La Seine ?"
     answer: "Oui, place le capo en case 5 pour coller à la tonalité du duo Vanessa Paradis et -M-. Le capo permet de garder des formes d'accords jouables malgré une tonalité qui sonne haut. Avec un tempo de 55 BPM, tu as le temps de placer proprement chacun des 8 accords."
 ---
-### Plongée dans l'Univers de "La Seine"
+
+## En bref
+
+**La Seine de Vanessa Paradis et -M- se joue avec 8 accords et un capo case 5, sur un tempo très lent (55 BPM).** Difficulté 4/5 : le tempo lent laisse le temps de placer chaque accord, mais la richesse de la grille demande du travail — procède par petits segments.
+
+- **Accords** : 8, avec capo case 5
+- **Difficulté** : 4/5 — intermédiaire à avancé
+- **Origine** : bande originale du film *Un monstre à Paris* (2011)
+
+Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quelle est l'ambiance de "La Seine" ?
 
 La chanson "La Seine" est bien plus qu'une simple performance musicale ; elle est une immersion poétique au cœur de la capitale française. Avec un tempo rêveur de 55 BPM, le morceau est une invitation douce et rythmée à déambuler le long des quais parisiens. Cette ambiance est renforcée par la complicité étonnante entre l'icône de la pop française, Vanessa Paradis, et -M-, alias Mathieu Chedid, célèbre pour son approche innovante et virtuose de la musique. Le duo réunit ainsi douceur vocale et prouesse musicale pour capturer l'essence même de Paris.
 
-### Les Secrets Derrière la Création de la Chanson
+### Les secrets derrière la création de la chanson
 
 L'écriture de "La Seine" puise son inspiration dans l'atmosphère unique de Paris, une ville souvent associée à la romance et à l'art. Les accords de guitare s'entremêlent à la voix de Paradis, formant une mélodie qui évoque à la fois la légèreté et la profondeur des eaux de la Seine. Ce morceau est indexé à la page 36 du livre "40 Chansons françaises et hits pop-rock", ce qui témoigne de son importance dans le paysage musical français. Avec un niveau de difficulté classifié à 4 sur 5, et huit accords à maîtriser, la chanson challenge les guitaristes tout en les gratifiant d'une interprétation riche et nuancée.
 
-### Un Défi pour les Passionnés de Guitare
+## Comment relever le défi de jouer "La Seine" à la guitare ?
 
-Jouer "La Seine" est un exercice qui requiert finesse et précision. Pour ceux prêts à relever le défi, l'utilisation d'un capo sur la 5ème case est conseillée, permettant de capturer la tonalité unique de cette composition sans se perdre dans des accords trop complexes. La chanson, bien que délicate, offre une satisfaction immense lorsqu'elle résonne sous les doigts, mariant rythmiques enlevées et mélodies aériennes.
+Jouer "La Seine" est un exercice qui requiert finesse et précision. Pour ceux prêts à relever le défi, l'utilisation d'un capo sur la 5ème case est conseillée, permettant de capturer la tonalité unique de cette composition sans se perdre dans des accords trop complexes. La chanson, bien que délicate, offre une satisfaction immense lorsqu'elle résonne sous les doigts, mariant rythmiques enlevées et mélodies aériennes. Dans le même esprit de ballade poétique française, découvre aussi [Clandestino de Manu Chao](/blog/jouer-clandestino-guitare-tutoriel/).
 
-### Tutoriels et Approfondissements
+### Tutoriels et approfondissements
 
-Pour les enthousiastes en quête de perfectionnement, divers tutoriels sont disponibles en ligne. Ceux-ci varient d’une version simplifiée pour les débutants à des explorations plus détaillées des subtilités de la chanson. Ces ressources permettent d'appréhender pleinement la rythmique et la structure du morceau, garantissant une maîtrise progressive des accords et des transitions.
+Pour les enthousiastes en quête de perfectionnement, divers tutoriels sont disponibles en ligne. Ceux-ci varient d'une version simplifiée pour les débutants à des explorations plus détaillées des subtilités de la chanson. Ces ressources permettent d'appréhender pleinement la rythmique et la structure du morceau, garantissant une maîtrise progressive des accords et des transitions.
 
 - [Tutoriel Version Simplifiée](https://youtu.be/2nKY4jvFu5k)
 - [Version Complète et Subtilités](https://youtu.be/9Qa54ZVAobk)
 - [Jouer Avec Indications - Play Along](https://youtu.be/pRBbKVaG2lE)
 
-### L'Impact Musical de "La Seine"
+## Quel est l'impact musical de "La Seine" ?
 
 "La Seine" va au-delà de son rôle de bande originale. Elle s'inscrit dans la continuité d'un style musical propre à Vanessa Paradis et -M-, un style qui a su évoluer tout en conservant son essence. Le morceau a une résonance particulière, capable d'influencer d'autres artistes par sa structure innovante et son interprétation unique. Il maintient également une place de choix parmi les œuvres majeures de la discographie de Vanessa Paradis.
 
-### Une Collaboration Remarquable
+### Une collaboration remarquable
 
 La collaboration entre Vanessa Paradis et -M- n'était pas leur première, mais elle demeure l'une des plus emblématiques. Ce rapprochement artistico-musical souligne l'alchimie naturelle entre leurs talents respectifs et leur propension à expérimenter tout en respectant leur identité musicale. Leur travail commun sur "La Seine" est une démonstration parfaite de leur capacité à sublimer la scène musicale française.
