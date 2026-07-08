@@ -2,14 +2,12 @@
 siloSlug: "debuter-ukulele-methode-simple-apprendre"
 title: "Rythmiques Ukulélé : 3 Patterns Incontournables"
 description: "Trois rythmiques simples pour ukulélé débutant, avec des repères clairs pour faire sonner tes accords dès les premiers morceaux, sans te compliquer la vie."
-meta: "Découvrez comment maîtriser des rythmiques simples pour débutants avec notre formation sur les 3 patterns incontournables au ukulélé. Améliorez votre fluidité et appliquez-les sur des morceaux célèbres."
-keywords: "rythmique ukulélé débutant, strumming ukulélé facile, apprendre ukulélé en rythme, cours ukulélé adulte"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/rythmiques-ukulele-debutant-3-patterns-faciles.webp"
 datePublished: "2026-05-04"
-dateModified: "2026-06-06"
+dateModified: "2026-07-07"
 introduction: "La plupart des débutants passent des semaines sur leurs accords… et oublient le plus important : la main qui gratte. Or c'est elle qui fait qu'une chanson sonne, ou pas. Voici trois rythmiques (patterns de strumming) qui suffisent à accompagner des centaines de morceaux — du plus simple au plus groovy."
 conclusion: "Le Down-Up, l'Island et le Chunk : avec ces trois rythmiques, tu as de quoi accompagner une énorme partie de ton répertoire. Travaille-les lentement, un seul accord à la fois, puis pose-les sur une vraie chanson. C'est le moment où tu arrêtes de « plaquer des accords » pour vraiment faire de la musique."
 prod: Y
@@ -17,6 +15,12 @@ schemaType: "BlogPosting"
 instrument: "ukulele"
 level: "débutant"
 category: "pratique"
+tags:
+  - rythmique ukulélé débutant
+  - strumming ukulélé facile
+  - patterns ukulélé
+  - apprendre ukulélé en rythme
+  - cours ukulélé adulte
 faqs:
   - question: "Quelles sont les 3 rythmiques d'ukulélé à connaître pour débuter ?"
     answer: "Trois patterns incontournables : le « Down-Up Strum » (bas-haut, souple et naturel), le « Island Strum » (bas-bas-haut-haut-bas-haut, qui donne le côté ensoleillé hawaïen) et le « Chunk Strum » (avec un son percussif obtenu en étouffant les cordes avec la paume). Avec ces trois rythmiques, tu peux accompagner énormément de chansons."
@@ -25,7 +29,17 @@ faqs:
   - question: "Comment bien garder le tempo à l'ukulélé ?"
     answer: "Joue avec un métronome et commence très lentement, en respectant un intervalle régulier, avant d'accélérer par paliers. Travaille un seul pattern sur un seul accord d'abord, puis applique-le sur des chansons simples comme « Let It Be » ou « Three Little Birds ». Reste détendu : la précipitation est l'ennemie de la régularité."
 ---
-## La rythmique, c'est le battement de cœur de la chanson
+## En bref
+
+**3 rythmiques suffisent à accompagner des centaines de chansons à l'ukulélé** : le Down-Up Strum (bas-haut, le plus simple), l'Island Strum (bas-bas-haut-haut-bas-haut, le son hawaïen) et le Chunk Strum (percussif, en étouffant les cordes).
+
+- **Down-Up** : le plus simple, poignet souple
+- **Island** : le motif ensoleillé bas-bas-haut-haut-bas-haut
+- **Chunk** : ajoute un son percussif en étouffant les cordes
+
+Pour aller plus loin, découvre notre [méthode simple pour débuter l'ukulélé](/blog/debuter-ukulele-methode-simple-apprendre/).
+
+## Qu'est-ce que la rythmique, le battement de cœur de la chanson ?
 
 On commence presque toujours par les accords. Logique. Mais je vois sans cesse des élèves qui connaissent leurs accords par cœur… et dont le jeu sonne plat. La raison ? La main droite, celle qui gratte.
 
@@ -63,4 +77,4 @@ La rythmique ne prend vie que sur un morceau. Prends un classique à accords sim
 
 Ma méthode : maîtrise le pattern sur chaque accord séparément, puis enchaîne le couplet entier. Tu peux même changer de rythmique entre couplet et refrain pour varier. Tes premiers essais ne seront pas parfaits — c'est normal, et c'est exactement comme ça qu'on apprend.
 
-Pour aller plus loin, lis [les 5 accords indispensables au ukulélé](/blog/5-accords-indispensables-jouer-100-chansons-ukulele/). Et pour un parcours guidé, va voir nos [cours de ukulélé](/cours/cours-de-ukulele).
+Pour aller plus loin, lis [les 5 accords indispensables au ukulélé](/blog/5-accords-indispensables-jouer-100-chansons-ukulele/) et [comment lire un diagramme d'accord](/blog/comment-lire-diagramme-accord-ukulele/). Et pour un parcours guidé, va voir nos [cours de ukulélé](/cours/cours-de-ukulele).

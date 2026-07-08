@@ -2,14 +2,12 @@
 siloSlug: "debuter-ukulele-methode-simple-apprendre"
 title: "Comment Lire un Diagramme d’Accord Ukulélé en 2 Minutes"
 description: "Comprends vite un diagramme d’accord ukulélé : cases, cordes et doigtés expliqués simplement pour jouer tes premiers accords sans hésiter dès aujourd’hui."
-meta: "Découvrez comment lire facilement un diagramme d'accord ukulélé en juste 2 minutes. Guide rapide pour débutants passionnés par cet instrument charmant."
-keywords: "diagramme accord ukulélé, lire accord ukulélé, apprendre accords ukulélé, cours ukulélé débutant"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/comment-lire-diagramme-accord-ukulele.webp"
 datePublished: "2026-03-02"
-dateModified: "2026-06-06"
+dateModified: "2026-07-07"
 introduction: "Un diagramme d'accord, c'est juste une carte routière pour ta main gauche. Une fois qu'on a saisi la logique — et ça prend vraiment deux minutes — tu peux déchiffrer n'importe quel accord d'ukulélé tout seul. Voici comment lire cette petite grille, et les trois erreurs qui font sonner les débutants faux alors que leur doigté est bon."
 conclusion: "Lire un diagramme d'ukulélé tient en trois réflexes : repérer les cordes (GCEA), placer le bon doigt au bon endroit, et soigner la pression. Le reste, c'est de la pratique. Prends un accord facile comme le Do, répète-le jusqu'à ce qu'il sonne clair, et tu auras compris le principe pour tous les autres."
 prod: Y
@@ -17,6 +15,12 @@ schemaType: "BlogPosting"
 instrument: "ukulele"
 level: "débutant"
 category: "pratique"
+tags:
+  - diagramme accord ukulélé
+  - lire un accord ukulélé
+  - doigté ukulélé
+  - cours ukulélé débutant
+  - accords ukulélé
 faqs:
   - question: "Comment lire un diagramme d'accord d'ukulélé ?"
     answer: "Les lignes verticales représentent les 4 cordes (de gauche à droite : Sol, Do, Mi, La, soit GCEA) et les lignes horizontales les frettes. Les points ou numéros indiquent où poser les doigts. Les chiffres correspondent aux doigts : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire. C'est une carte routière pour ta main gauche."
@@ -25,6 +29,14 @@ faqs:
   - question: "Quelles erreurs éviter en débutant la lecture des diagrammes ukulélé ?"
     answer: "Trois pièges fréquents : poser le doigt trop près ou trop loin de la frette (le son buzze), appuyer trop fort (ça étouffe les cordes) et garder un poignet crispé. Vise une pression légère mais ferme, le doigt bien au centre de la case, et un poignet détendu. Commence par mémoriser C, G et F."
 ---
+## En bref
+
+**Un diagramme d'accord d'ukulélé se lit en 2 minutes** : les lignes verticales sont les 4 cordes (Sol-Do-Mi-La, ou « GCEA »), les lignes horizontales les frettes, et les points numérotés indiquent quel doigt poser où (1=index, 2=majeur, 3=annulaire, 4=auriculaire).
+
+- **Cordes** : GCEA de gauche à droite
+- **Doigts** : 1 index, 2 majeur, 3 annulaire, 4 auriculaire
+- **3 pièges à éviter** : doigt mal placé, trop de pression, poignet crispé
+
 ## La grille, décodée en 30 secondes
 
 Un diagramme d'accord, c'est une photo du manche, vu de face. Deux infos à retenir, c'est tout :

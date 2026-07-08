@@ -2,13 +2,12 @@
 siloSlug: "debuter-ukulele-methode-simple-apprendre"
 title: "15 Chansons Faciles Ukulélé Débutant — Jouez dès Maintenant"
 description: "15 chansons faciles à jouer à l'ukulélé pour débutants. Accords simples, tutoriels pas à pas, du niveau 1 à 3 étoiles. Jouez dès votre première semaine !"
-meta: "Découvrez 15 chansons faciles pour débuter l'ukulélé : chansons françaises, pop internationale, classiques hawaïens. Avec accords et tablatures pour progresser rapidement."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/15-chansons-faciles-ukulele.webp"
 datePublished: "2026-02-17"
-dateModified: "2026-02-17"
+dateModified: "2026-07-07"
 introduction: "Tu veux apprendre l'ukulélé mais tu ne sais pas par quelles chansons commencer ? Après avoir formé **4 900+ élèves débutants**, voici ma sélection des 15 meilleures chansons pour progresser rapidement — avec les accords exacts, le niveau de difficulté, et l'ordre dans lequel les apprendre."
 conclusion: "Ces 15 chansons couvrent tous les accords essentiels et tous les styles musicaux que tu vas aimer jouer. Commence par les ⭐ et progresse à ton rythme. La clé : 15 minutes par jour, de la régularité, et surtout du plaisir ! Pour aller plus vite et plus loin, rejoins notre [formation ukulélé débutant](/cours/apprendre-ukulele-debutant) — 41 vidéos, 79€ paiement unique, accès à vie."
 faqs:
@@ -27,9 +26,23 @@ schemaType: "BlogPosting"
 instrument: "ukulele"
 level: "débutant"
 category: "pratique"
+tags:
+  - chansons faciles ukulélé
+  - apprendre ukulélé débutant
+  - accords ukulélé
+  - tutoriel ukulélé
+  - répertoire ukulélé
 ---
 
-## Comment j'ai sélectionné ces 15 chansons
+## En bref
+
+**7 accords (C, G, Am, F, E7, D, G7) suffisent à jouer les 15 chansons de cette liste**, classées de ⭐ à ⭐⭐⭐. Commence par *Somewhere Over the Rainbow* (IZ) — 4 accords, tempo lent — puis progresse semaine après semaine.
+
+- **Semaine 1** : Somewhere Over the Rainbow, I'm Yours (C-G-Am-F)
+- **Semaine 4** : Wonderwall, Count on Me (fingerpicking, Am7)
+- **7 accords** couvrent l'intégralité du répertoire proposé
+
+## Comment ai-je sélectionné ces 15 chansons ?
 
 Après **15 ans d'enseignement** et **4 900+ élèves ukulélé formés**, j'ai identifié les critères d'une bonne chanson pour débutant :
 

@@ -8,9 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-03-07"
-dateModified: "2026-06-06"
-meta: "Jean-Jacques Goldman, une légende de la musique française. Découvrez ses plus grands succès et apprenez à les jouer avec nos tutoriels."
-keywords: "Jean-Jacques Goldman, musique française, On ira, À nos actes manqués, tutoriels musique, analyse musicale, chanson française"
+dateModified: "2026-07-07"
 introduction: Jean-Jacques Goldman, un nom qui résonne dans le cœur de nombreux amateurs de musique. Connu pour ses paroles poignantes et ses mélodies inoubliables, il a marqué l'histoire de la chanson française. À travers cet article, nous vous invitons à découvrir les secrets de son succès et à explorer ses plus grands titres grâce à nos tutoriels exclusifs.
 conclusion:
     Jean-Jacques Goldman n'est pas seulement un artiste, c'est un phénomène culturel. En explorant son œuvre, vous découvrirez un univers riche et inspirant. N'attendez plus pour plonger dans ses chansons et partager vos impressions avec nous. Consultez nos tutoriels pour approfondir votre expérience musicale et laissez-vous emporter par la magie de sa musique.
@@ -22,6 +20,14 @@ videos:
   - title: "Play Along : Joue On ira avec Goldman"
     url: "https://youtu.be/fTH2y1mhEoU"
 instrument: "guitare"
+category: "tutoriel"
+level: "débutant"
+tags:
+  - jean-jacques goldman guitare
+  - on ira guitare
+  - a nos actes manques guitare
+  - tutoriel guitare
+  - chanson française guitare
 
 faqs:
   - question: "Quelle chanson de Jean-Jacques Goldman apprendre à la guitare ?"
@@ -31,6 +37,16 @@ faqs:
   - question: "Pourquoi apprendre du Jean-Jacques Goldman à la guitare ?"
     answer: "Parce que son répertoire est à la fois immensément populaire et bien construit pour la guitare d'accompagnement. Ces chansons sont parfaites à jouer en groupe ou en famille, et elles font travailler des enchaînements d'accords que l'on retrouve dans toute la chanson française."
 ---
+
+## En bref
+
+**« On ira » et « À nos actes manqués » de Jean-Jacques Goldman se jouent avec des accords ouverts accessibles aux débutants motivés.** La difficulté tient surtout à la régularité de la rythmique, pas à la complexité technique.
+
+- **Morceaux recommandés** : « On ira », « À nos actes manqués »
+- **Niveau** : accords ouverts, accessibles aux débutants
+- **Le vrai défi** : la rythmique et l'interprétation
+
+Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
 
 ## 🎤 Une Carrière Remarquable  
 
@@ -47,7 +63,7 @@ Ses chansons, pleines de **sensibilité et d’authenticité**, touchent des mil
 
 ---
 
-## 🎼 Un Style Inimitable  
+## 🎼 Quel est le style inimitable de Goldman ?
 
 Goldman a su développer **un style unique**, mêlant **pop, rock et chanson française**.  
 
@@ -80,7 +96,7 @@ Jean-Jacques Goldman n’est **pas seulement un musicien**, c’est un **vérita
 💬 **Ses textes sont devenus la bande-son de nombreuses vies**.  
 ❤️ Il est impliqué dans **de nombreuses causes humanitaires**, notamment avec **les Restos du Cœur**, qu’il soutient **depuis leur création**.  
 
-Son **héritage musical** continue d’influencer **les artistes d’aujourd’hui** et inspire toujours **les nouvelles générations**.  
+Son **héritage musical** continue d’influencer **les artistes d’aujourd’hui** et inspire toujours **les nouvelles générations**. Dans le même esprit de répertoire accessible en français, découvre aussi [les tutoriels Foule Sentimentale d'Alain Souchon](/blog/tutoriel-foule-sentimentale-chanson/).
 
 ---
 

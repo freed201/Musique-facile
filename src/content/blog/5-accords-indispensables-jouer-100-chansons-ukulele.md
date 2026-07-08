@@ -2,14 +2,12 @@
 siloSlug: "debuter-ukulele-methode-simple-apprendre"
 title: "5 Accords Indispensables pour Jouer 100 Chansons au Ukulélé"
 description: "Les 5 accords C, G, Am, F et Dm permettent de jouer plus de 100 chansons au ukulélé. Positions, diagrammes et conseils d'enchaînement pour débuter."
-meta: "Apprenez à jouer 100 chansons au ukulélé avec seulement 5 accords essentiels. Cet article guide les débutants avec des conseils pratiques et des idées de morceaux."
-keywords: "accords ukulélé débutant, jouer des chansons ukulélé, apprendre ukulélé facilement, cours ukulélé adulte"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/5-accords-indispensables-jouer-100-chansons-ukulele.webp"
 datePublished: "2026-01-26"
-dateModified: "2026-06-06"
+dateModified: "2026-07-07"
 
 tags: ["accords", "débutant", "chansons", "rythme"]
 category: "pratique"
@@ -69,7 +67,7 @@ D'abord, parlons de l'accord de **C**. Hyper simple à jouer, on place juste un 
 Et si on jette un œil à **F** et **Dm**, là on entre dans une danse un peu plus complexe. Mais rappelez-vous, ces deux-là sont indispensables pour donner cette petite touche mélodieuse. Pour les maîtriser, rien de tel que de répéter en boucle, comme un bon refrain. 
 
 Alors, comment éviter les erreurs de débutant ? Utilisez un métronome pour garder le rythme et faites attention à bien positionner vos doigts pour éviter ces petits bruits de cordes étouffées. Et surtout, amusez-vous ! C’est en jouant et rejouant que la magie opère, promis juré.
-## Comment bien les enchaîner sans blocage
+## Comment bien enchaîner les accords sans blocage ?
 
 Imaginez que vous êtes dans une danse. Chaque pas, chaque mouvement s’enchaîne harmonieusement. C'est exactement ce que fait un **enchaînement fluide d'accords** en jouant du ukulélé. Car oui, sans ça, c'est comme danser avec des pieds pris dans le béton – le rythme casse, l’harmonie s’évapore et la magie s’envole.
 
@@ -123,5 +121,5 @@ On n'oublie pas **I’m Yours** de Jason Mraz, un titre incontournable des répe
 
 En diversifiant votre répertoire, non seulement vous vous amuserez davantage, mais vous deviendrez aussi plus confiant en votre jeu. Alors, quel sera le prochain morceau que vous oserez ?
 
-Pour aller plus loin, tu peux lire [des rythmiques simples pour accompagner tes accords](/blog/rythmiques-ukulele-debutant-3-patterns-faciles/).
+Pour aller plus loin, tu peux lire [des rythmiques simples pour accompagner tes accords](/blog/rythmiques-ukulele-debutant-3-patterns-faciles/) et notre [méthode simple pour débuter le ukulélé](/blog/debuter-ukulele-methode-simple-apprendre/).
 Pour un parcours guidé, voir nos [cours de ukulélé](/cours/cours-de-ukulele).
