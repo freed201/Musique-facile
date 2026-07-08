@@ -18,7 +18,7 @@ tags:
   - motivation musique
   - pratique instrument vacances
   - ukulélé vacances
-prod: "N"
+prod: "Y"
 schemaType: "BlogPosting"
 faqs:
   - question: "Pourquoi l'été est-il une bonne saison pour progresser en musique ?"
