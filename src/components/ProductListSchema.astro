@@ -83,10 +83,10 @@ const itemListSchema = {
           "name": "Musique Facile",
           "url": "https://musique-facile.fr"
         },
-        "itemReviewed": {
-          "@type": "Product",
-          "name": product.name
-        },
+        // Pas de "itemReviewed" ici : la Review est déjà imbriquée DANS le Product
+        // (item.review), donc l'entité évaluée est implicite. Le répéter créait un
+        // 2e Product réduit à { @type, name } que Google comptait comme un produit
+        // à part entière et invalidait ("offers/review/aggregateRating requis").
         "reviewRating": {
           "@type": "Rating",
           "ratingValue": product.ratingValue,
