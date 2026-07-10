@@ -120,6 +120,14 @@ const breadcrumbSchema = {
     </div>
   </nav>
 
+  <!-- Titre de page (H1) -->
+  <header class="faq-intro">
+    <div class="container">
+      <h1>Questions fréquentes sur les cours de musique en ligne</h1>
+      <p>Tout ce qu'il faut savoir avant de te lancer : tarifs, méthode, matériel et garanties, en guitare, piano, ukulélé et solfège.</p>
+    </div>
+  </header>
+
   <!-- FAQ Component -->
   <FAQ />
 
@@ -178,6 +186,25 @@ const breadcrumbSchema = {
   .breadcrumb [aria-current="page"] {
     color: var(--gray-900);
     font-weight: var(--font-medium);
+  }
+
+  .faq-intro {
+    padding: var(--space-12) var(--space-4) var(--space-2);
+    text-align: center;
+  }
+
+  .faq-intro h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: var(--font-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-3);
+  }
+
+  .faq-intro p {
+    color: var(--gray-600);
+    max-width: 60ch;
+    margin: 0 auto;
   }
 
   .faq-bottom-cta {

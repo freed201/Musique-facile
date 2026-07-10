@@ -61,6 +61,11 @@ Guides piliers transversaux (pédagogie et méthode, tous instruments) :
 ## Pages principales
 - Accueil : https://musique-facile.fr/
 - Tous les cours : https://musique-facile.fr/cours/
+- Cours de guitare (présentation) : https://musique-facile.fr/cours/cours-de-guitare/
+- Cours de piano (présentation) : https://musique-facile.fr/cours/cours-de-piano/
+- Cours de solfège (présentation) : https://musique-facile.fr/cours/cours-de-solfege/
+- Cours d'ukulélé (présentation) : https://musique-facile.fr/cours/cours-de-ukulele/
+- Quel instrument choisir ? (quiz d'orientation) : https://musique-facile.fr/quel-instrument-choisir/
 - Blog : https://musique-facile.fr/blog/
 - Auteur Fred Fieffé : https://musique-facile.fr/auteur/fred-fieffe/
 - À propos : https://musique-facile.fr/a-propos/

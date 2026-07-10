@@ -129,29 +129,10 @@ const quizData = {
 };
 ---
 
-<Layout title={title}>
-  <head>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://musique-facile.fr/images/quiz-instruments.webp" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-  </head>
-
-  <body>
+<Layout title={title} description={description} canonicalUrl={canonicalURL} robots="index, follow">
     <Header />
 
-    <main class="quiz-page">
+    <div class="quiz-page">
       <!-- Hero Section -->
       <section class="quiz-hero">
         <div class="container">
@@ -281,10 +262,9 @@ const quizData = {
           </div>
         </div>
       </section>
-    </main>
+    </div>
 
     <FooterModern />
-  </body>
 </Layout>
 
 <style>
