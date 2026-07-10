@@ -377,6 +377,6 @@ Mais si tu veux aller plus loin, voilà ce que je te recommande dans l'ordre :
 
 *Fred Fieffé · Musique Facile*
 
-*Auteur publié chez Hal Leonard · 80 000+ élèves formés en ligne · Lauréat du Prix Samuel Paty 2024 pour la pédagogie musicale*
+*Auteur publié chez Hal Leonard · 80 000+ élèves formés en ligne · Spectacle primé au Prix Samuel Paty des DDEN 2024*
 
 *Une question ? Réponds simplement à mon email, je lis tout.*
