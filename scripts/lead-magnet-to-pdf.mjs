@@ -588,7 +588,7 @@ const fullHtml = `<!DOCTYPE html>
     <div class="author-name">Fred Fieffé · Musique Facile</div>
     <div class="author-credits">
       12 ans d'enseignement · Auteur publié chez Hal Leonard<br/>
-      Lauréat du Prix Samuel Paty 2024 pour la pédagogie musicale
+      Spectacle primé au Prix Samuel Paty des DDEN 2024
     </div>
   </div>
 </div>

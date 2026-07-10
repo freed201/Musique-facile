@@ -89,7 +89,7 @@ Réponds-moi directement si tu as la moindre question. Je lis tout.
 
 Fred
 Musique Facile
-12 ans d'enseignement · 80 000+ élèves formés · Lauréat du Prix Samuel Paty 2024
+12 ans d'enseignement · 80 000+ élèves formés · Spectacle primé au Prix Samuel Paty des DDEN 2024
 
 PS : Tu peux aussi voir le PDF en ligne tout de suite ici :
 https://musique-facile.fr/lead-magnets/guitare-5-accords-magiques.pdf

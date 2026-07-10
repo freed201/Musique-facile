@@ -50,7 +50,7 @@ export const leadMagnetEmails: Record<string, LeadMagnetEmailMeta> = {
     <p>Si tu as la moindre question, réponds à cet email — je lis tout.</p>
 
     <p style="margin-top:24px">— Fred Fieffé<br>
-    <em style="font-size:14px;color:#666">Auteur Hal Leonard · Prix Samuel Paty 2024 · 80 000+ élèves</em></p>
+    <em style="font-size:14px;color:#666">Auteur Hal Leonard · Spectacle primé Samuel Paty 2024 · 80 000+ élèves</em></p>
 
     <div style="${footerStyle}">
       Tu reçois cet email parce que tu as demandé le guide « Les 5 Accords Magiques » sur musique-facile.fr.<br>
@@ -89,7 +89,7 @@ export const leadMagnetEmails: Record<string, LeadMagnetEmailMeta> = {
     <p>Une question ? Réponds à cet email — je lis tout.</p>
 
     <p style="margin-top:24px">— Fred Fieffé<br>
-    <em style="font-size:14px;color:#666">Auteur Hal Leonard · Prix Samuel Paty 2024 · 80 000+ élèves</em></p>
+    <em style="font-size:14px;color:#666">Auteur Hal Leonard · Spectacle primé Samuel Paty 2024 · 80 000+ élèves</em></p>
 
     <div style="${footerStyle}">
       Tu reçois cet email parce que tu as demandé le guide « Lire les notes au piano » sur musique-facile.fr.<br>
@@ -128,7 +128,7 @@ export const leadMagnetEmails: Record<string, LeadMagnetEmailMeta> = {
     <p>Une question ? Réponds à cet email — je lis tout.</p>
 
     <p style="margin-top:24px">— Fred Fieffé<br>
-    <em style="font-size:14px;color:#666">Auteur Hal Leonard · Prix Samuel Paty 2024 · 80 000+ élèves</em></p>
+    <em style="font-size:14px;color:#666">Auteur Hal Leonard · Spectacle primé Samuel Paty 2024 · 80 000+ élèves</em></p>
 
     <div style="${footerStyle}">
       Tu reçois cet email parce que tu as demandé le guide « Les 4 Accords du Ukulélé » sur musique-facile.fr.<br>
