@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import OptimizedImage from '../components/OptimizedImage.astro';
 
 const title = "À propos de Fred Fieffé et Musique Facile — Professeur de Musique en Ligne";
-const description = "Découvrez Fred Fieffé, professeur de musique certifié avec 15 ans d'expérience. Fondateur de Musique Facile, il a formé plus de 80 000 élèves en guitare, piano, ukulélé et solfège depuis 2015. Élu meilleur formateur Skilleos 2023/2024.";
+const description = "Fred Fieffé, professeur de musique avec 15 ans d'expérience et fondateur de Musique Facile, a formé 80 000+ élèves en guitare, piano, ukulélé et solfège depuis 2015.";
 
 // Schema.org pour la page About
 const aboutPageSchema = {
@@ -62,7 +62,6 @@ const breadcrumbSchema = {
 <Layout title={title} description={description}>
   <Fragment slot="head">
     <meta name="author" content="Fred Fieffé - Musique Facile">
-    <link rel="canonical" href="https://musique-facile.fr/a-propos">
     <script type="application/ld+json" set:html={JSON.stringify(aboutPageSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>

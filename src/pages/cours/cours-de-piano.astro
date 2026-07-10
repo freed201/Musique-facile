@@ -229,36 +229,16 @@ const faqSchema = {
 };
 ---
 
-<Layout title={title}>
-  <head>
-    <meta name="description" content={description} />
-    <meta name="keywords" content="cours de piano en ligne, apprendre le piano à distance, leçons de piano pour débutants, formation piano en ligne, cours de piano interactifs" />
-    <link rel="canonical" href={canonicalURL} />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://musique-facile.fr/images/og-cours-piano.jpg" />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="https://musique-facile.fr/images/og-cours-piano.jpg" />
-    
-    <!-- Schema.org -->
+<Layout title={title} description={description} canonicalUrl={canonicalURL} robots="index, follow">
+  <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(coursesSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(courseLDSchema)} />
-  </head>
+  </Fragment>
 
   <Header />
   
-  <main>
     <!-- Fil d'Ariane -->
     <BreadcrumbNav 
       items={[
@@ -533,7 +513,6 @@ const faqSchema = {
         </div>
       </div>
     </section>
-  </main>
 
   <FooterModern />
 </Layout>
