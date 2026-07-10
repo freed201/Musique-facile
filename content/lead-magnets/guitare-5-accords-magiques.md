@@ -10,7 +10,7 @@ On t'a probablement raconté qu'apprendre la guitare, c'était une longue route.
 
 C'est faux.
 
-J'enseigne la guitare depuis plus de 12 ans, à des milliers d'élèves en cours et en ligne. Et voici ce que j'ai vu se répéter chez tous les adultes qui ont arrêté la guitare au bout de 3 mois :
+J'enseigne la guitare depuis plus de 15 ans, à des milliers d'élèves en cours et en ligne. Et voici ce que j'ai vu se répéter chez tous les adultes qui ont arrêté la guitare au bout de 3 mois :
 
 **On leur a appris la technique avant de leur apprendre à jouer.**
 

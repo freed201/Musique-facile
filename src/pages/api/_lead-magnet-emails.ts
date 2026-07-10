@@ -70,7 +70,7 @@ export const leadMagnetEmails: Record<string, LeadMagnetEmailMeta> = {
 
     <p>Bienvenue. Tu viens de prendre la décision qui change tout : <strong>arrêter de subir le solfège et apprendre à le lire</strong>.</p>
 
-    <p>Dans ce guide, j'ai concentré 12 ans d'enseignement en 5 astuces. Pas de FACE, pas de méthode rébarbative. Des repères que tu vas retenir <strong>vraiment</strong>.</p>
+    <p>Dans ce guide, j'ai concentré 15 ans d'enseignement en 5 astuces. Pas de FACE, pas de méthode rébarbative. Des repères que tu vas retenir <strong>vraiment</strong>.</p>
 
     <p style="text-align:center;margin:32px 0">
       <a href="${baseUrl}/lead-magnets/piano-lire-les-notes.pdf" style="${btnStyle('#1565C0')}">📥 Télécharger le guide PDF</a>
