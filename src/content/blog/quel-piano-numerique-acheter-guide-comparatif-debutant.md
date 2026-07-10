@@ -97,6 +97,7 @@ products:
     url: "https://www.thomann.fr/kawai_nv5s.htm?offid=1&affid=4437"
     ratingValue: "19"
     reviewBody: "Le rêve absolu : une vraie mécanique de piano acoustique sans cordes. Le toucher est identique à un Kawai de concert. Le numérique le plus proche d'un acoustique qui existe."
+    image: "/images/blog/pianos/piano-kawai-nv5s.webp"
 prod: Y
 schemaType: "BlogPosting"
 instrument: "piano"
