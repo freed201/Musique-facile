@@ -43,7 +43,7 @@ hero:
   subtitle: "148 leçons progressives pour passer de grand débutant à pianiste autonome. La méthode qui a fait ses preuves auprès de 21 000 élèves."
   cta:
     text: "Je commence le piano - 299€"
-    price: "ou 3x 100€ sans frais"
+    price: "ou 3x 99€ sans frais"
   video:
     id: "1066493251"
   stats:
