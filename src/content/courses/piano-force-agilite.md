@@ -32,7 +32,7 @@ hasCourseInstance:
   offers:
     type: "Offer"
     priceCurrency: "EUR"
-    price: "69.00"
+    price: "79.00"
     availability: "https://schema.org/InStock"
     category: "Paid"
 
@@ -41,8 +41,8 @@ hero:
   title: "Gagnez en force et en finesse au piano avec 5 exercices clés"
   subtitle: "Des exercices ciblés pour développer l'agilité et le contrôle de vos doigts. 1 000 pianistes ont déjà progressé."
   cta:
-    text: "Je gagne en expressivité - 69€"
-    price: "ou 2x 35€ sans frais"
+    text: "Je gagne en expressivité - 79€"
+    price: "ou 2x 40€ sans frais"
   video:
     id: "1057421752"
   stats:

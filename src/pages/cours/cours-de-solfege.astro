@@ -91,6 +91,19 @@ const coursesSchema = {
 };
 
 // JSON-LD pour le cours principal
+// Fourchette de prix réelle des cours du hub → AggregateOffer (au lieu d'un prix unique trompeur)
+const hubPrices = solfegeCourses
+  .map(c => parseFloat(c.data.hasCourseInstance?.offers?.price || "0"))
+  .filter(p => p > 0);
+const hubAggregateOffer = {
+  "@type": "AggregateOffer",
+  "priceCurrency": "EUR",
+  "lowPrice": Math.min(...hubPrices).toFixed(2),
+  "highPrice": Math.max(...hubPrices).toFixed(2),
+  "offerCount": hubPrices.length,
+  "availability": "https://schema.org/InStock"
+};
+
 const courseLDSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
@@ -102,13 +115,7 @@ const courseLDSchema = {
     "name": "Musique Facile",
     "url": "https://musique-facile.fr"
   },
-  "offers": {
-    "@type": "Offer",
-    "url": canonicalURL,
-    "price": "69.00",
-    "priceCurrency": "EUR",
-    "availability": "https://schema.org/InStock"
-  },
+  "offers": hubAggregateOffer,
   "hasCourseInstance": {
     "@type": "CourseInstance",
     "courseMode": "online",
@@ -118,12 +125,7 @@ const courseLDSchema = {
       "@type": "VirtualLocation",
       "url": canonicalURL
     },
-    "offers": {
-      "@type": "Offer",
-      "price": "69.00",
-      "priceCurrency": "EUR",
-      "availability": "https://schema.org/InStock"
-    }
+    "offers": hubAggregateOffer
   },
   "inLanguage": "fr",
   "mainEntityOfPage": {
