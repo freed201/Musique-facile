@@ -4,6 +4,8 @@ import Header from '../../components/Header.astro';
 import FooterModern from '../../components/FooterModern.astro';
 import Icon from '../../components/Icon.astro';
 import { getCollection } from 'astro:content';
+import CoursesComparison from '../../components/CoursesComparison.astro';
+import AuthorBio from '../../components/AuthorBio.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 
 // Récupérer uniquement les cours de ukulélé
@@ -257,6 +259,8 @@ const faqSchema = {
       </div>
     </section>
 
+    <CoursesComparison courses={ukeleleCourses} instrument="ukulélé" />
+
     <section class="courses-grid" id="courses-list">
       <div class="container">
         <h2 class="section-title">Nos Cours d'Ukulélé</h2>
@@ -460,6 +464,8 @@ const faqSchema = {
         </div>
       </div>
     </section>
+
+    <AuthorBio />
 
     <section class="cta-section">
       <div class="container">

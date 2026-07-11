@@ -1,0 +1,116 @@
+---
+/**
+ * CoursesComparison.astro — Tableau comparatif des cours d'un hub instrument.
+ *
+ * Format answer-first et citable (les tableaux sont privilégiés par les moteurs IA /
+ * AI Overviews). Rendu depuis la liste de cours déjà filtrée du hub : reste juste
+ * automatiquement quand un cours est ajouté/retiré. Rappelle la garantie 15 jours.
+ */
+interface Props {
+  courses: any[];
+  instrument: string;
+}
+const { courses, instrument } = Astro.props;
+
+function priceLabel(c: any): string {
+  const p = c?.data?.hasCourseInstance?.offers?.price;
+  return p ? `${parseFloat(p).toFixed(0)} €` : '—';
+}
+function installmentLabel(c: any): string {
+  const raw = c?.data?.hero?.cta?.price || '';
+  return raw.replace(/^ou\s+/i, '').replace(/\s*sans frais\s*$/i, '').trim();
+}
+function niveau(c: any): string {
+  return c?.data?.hero?.badge || 'Tous niveaux';
+}
+---
+
+<section class="courses-compare" aria-labelledby="compare-title">
+  <div class="container">
+    <h2 id="compare-title">Comparatif des cours de {instrument}</h2>
+    <p class="compare-intro">
+      Tous nos cours de {instrument} : <strong>paiement unique, accès à vie</strong> et
+      <strong>garantie satisfait ou remboursé de 15 jours</strong>. Aucun abonnement.
+    </p>
+    <div class="compare-scroll">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th scope="col">Formation</th>
+            <th scope="col">Idéal pour</th>
+            <th scope="col">Prix (accès à vie)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {courses.map((c) => (
+            <tr>
+              <td><a href={`/cours/${c.slug}/`}>{c.data.title}</a></td>
+              <td>{niveau(c)}</td>
+              <td>
+                <strong>{priceLabel(c)}</strong>
+                {installmentLabel(c) && <span class="compare-inst"> · {installmentLabel(c)}</span>}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .courses-compare {
+    padding: var(--space-12) var(--space-4);
+  }
+  .courses-compare .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .courses-compare h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    font-weight: var(--font-bold);
+    text-align: center;
+    color: var(--gray-900);
+    margin-bottom: var(--space-3);
+  }
+  .compare-intro {
+    text-align: center;
+    color: var(--gray-600);
+    max-width: 62ch;
+    margin: 0 auto var(--space-6);
+  }
+  .compare-scroll {
+    overflow-x: auto;
+  }
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+  .compare-table th,
+  .compare-table td {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    border-bottom: 1px solid var(--gray-200);
+    vertical-align: top;
+  }
+  .compare-table thead th {
+    background: var(--surface-light);
+    color: var(--gray-700);
+    font-weight: var(--font-semibold);
+    white-space: nowrap;
+  }
+  .compare-table td a {
+    color: var(--brand-600);
+    font-weight: var(--font-medium);
+    text-decoration: none;
+  }
+  .compare-table td a:hover {
+    text-decoration: underline;
+  }
+  .compare-inst {
+    color: var(--gray-500);
+    font-weight: normal;
+  }
+</style>
