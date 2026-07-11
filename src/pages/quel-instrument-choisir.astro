@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import FooterModern from '../components/FooterModern.astro';
+import AuthorBio from '../components/AuthorBio.astro';
 
 const title = "Quel Instrument Choisir ? Quiz Gratuit | Musique Facile";
 const description = "Découvrez l'instrument idéal pour vous en 3 questions ! Piano, guitare, ukulélé ou solfège : notre quiz gratuit vous guide vers le bon choix.";
@@ -79,7 +80,7 @@ const quizData = {
       course: {
         title: "Guitare Débutant Complet",
         url: "/cours/apprendre-guitare-debutant",
-        price: "99",
+        price: "89",
         image: "/images/cours/apprendre-guitare-debutant/hero.webp"
       }
     },
@@ -121,12 +122,15 @@ const quizData = {
       course: {
         title: "Solfège Expert - Formation Complète",
         url: "/cours/solfege-expert-formation",
-        price: "149",
+        price: "79",
         image: "/images/cours/solfege-expert-formation/hero.webp"
       }
     }
   }
 };
+
+const instrumentOrder = ['guitare', 'piano', 'ukulele', 'solfege'];
+const instrumentLabels = { guitare: 'Guitare', piano: 'Piano', ukulele: 'Ukulélé', solfege: 'Solfège' };
 ---
 
 <Layout title={title} description={description} canonicalUrl={canonicalURL} robots="index, follow">
@@ -264,7 +268,76 @@ const quizData = {
       </section>
     </div>
 
-    <FooterModern />
+    <!-- Réponse statique crawlable/citable : quel instrument selon le profil (contenu du quiz exposé en HTML) -->
+  <section class="instrument-guide" aria-labelledby="ig-title">
+    <div class="container">
+      <h2 id="ig-title">Quel instrument choisir selon votre profil ?</h2>
+      <p class="ig-intro">Pas envie de faire le quiz ? Voici, en un coup d'œil, l'instrument le plus adapté selon ce que vous recherchez. Tous nos cours débutants : paiement unique, accès à vie, garantie satisfait ou remboursé de 15 jours.</p>
+
+      <div class="ig-scroll">
+        <table class="ig-table">
+          <thead>
+            <tr><th scope="col">Instrument</th><th scope="col">Idéal si vous voulez…</th><th scope="col">Cours pour débuter</th><th scope="col">Prix</th></tr>
+          </thead>
+          <tbody>
+            {instrumentOrder.map((key) => {
+              const r = quizData.results[key];
+              return (
+                <tr>
+                  <td><strong>{instrumentLabels[key]}</strong></td>
+                  <td>{r.benefits[0]}</td>
+                  <td><a href={r.course.url + '/'}>{r.course.title}</a></td>
+                  <td><strong>{r.course.price} €</strong></td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ig-cards">
+        {instrumentOrder.map((key) => {
+          const r = quizData.results[key];
+          return (
+            <article class="ig-card">
+              <h3>{r.title}</h3>
+              <p>{r.description}</p>
+              <ul>
+                {r.benefits.map((b) => <li>{b}</li>)}
+              </ul>
+              <a class="ig-card-cta" href={r.course.url + '/'}>Découvrir le cours de {instrumentLabels[key].toLowerCase()} →</a>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .instrument-guide { padding: var(--space-16) var(--space-4); background: var(--surface-light); }
+    .instrument-guide .container { max-width: 900px; margin: 0 auto; }
+    .instrument-guide h2 { font-family: var(--font-heading); font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: var(--font-bold); text-align: center; color: var(--gray-900); margin-bottom: var(--space-3); }
+    .ig-intro { text-align: center; color: var(--gray-600); max-width: 64ch; margin: 0 auto var(--space-8); }
+    .ig-scroll { overflow-x: auto; margin-bottom: var(--space-10); }
+    .ig-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+    .ig-table th, .ig-table td { padding: var(--space-3) var(--space-4); text-align: left; border-bottom: 1px solid var(--gray-200); vertical-align: top; }
+    .ig-table thead th { background: var(--surface); color: var(--gray-700); font-weight: var(--font-semibold); white-space: nowrap; }
+    .ig-table a { color: var(--brand-600); font-weight: var(--font-medium); text-decoration: none; }
+    .ig-table a:hover { text-decoration: underline; }
+    .ig-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-5); }
+    .ig-card { background: var(--surface); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: var(--space-5); }
+    .ig-card h3 { font-family: var(--font-heading); font-size: var(--text-lg); font-weight: var(--font-bold); color: var(--gray-900); margin-bottom: var(--space-3); }
+    .ig-card p { color: var(--gray-700); line-height: 1.6; margin-bottom: var(--space-4); }
+    .ig-card ul { list-style: none; padding: 0; margin: 0 0 var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); }
+    .ig-card li { color: var(--gray-700); padding-left: 1.4em; position: relative; }
+    .ig-card li::before { content: "✓"; position: absolute; left: 0; color: var(--brand-600); font-weight: bold; }
+    .ig-card-cta { color: var(--brand-600); font-weight: var(--font-semibold); text-decoration: none; }
+    .ig-card-cta:hover { text-decoration: underline; }
+  </style>
+
+  <AuthorBio />
+
+  <FooterModern />
 </Layout>
 
 <style>
