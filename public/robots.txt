@@ -1,89 +1,31 @@
 # robots.txt - musique-facile.fr
+# Version corrigée — juillet 2026
 
 User-agent: *
 Allow: /
 
-# Bloquer les pages non indexables
+# Pages non indexables
 Disallow: /404.html
 Disallow: /merci-lead-magnet/
 Disallow: /preview-refonte/
 Disallow: /maintenance/
 Disallow: /pack-vacances-ukulele/
 
-# Bloquer les URLs avec paramètres spam/tracking
+# URLs avec paramètres spam/tracking
 Disallow: /*?h=
 Disallow: /*?i=
 Disallow: /*?replytocom=
 Disallow: /*?trk=
 
-# Bloquer les anciennes URLs WordPress
+# Anciennes URLs WordPress
 Disallow: /wp-content/
 Disallow: /wp-admin/
 Disallow: /wp-login.php
 Disallow: /*.php$
 
-# Autoriser les moteurs de recherche
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-# Autoriser les robots IA
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Claude-User
-Allow: /
-
-User-agent: Claude-SearchBot
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
 # Bloquer Bytespider (ByteDance/TikTok) : scraping sans valeur éditoriale
 User-agent: Bytespider
 Disallow: /
-
-User-agent: cohere-ai
-Allow: /
-
-User-agent: YouBot
-Allow: /
-
-User-agent: Meta-ExternalAgent
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: DeepSeekBot
-Allow: /
-
-User-agent: GeminiBot
-Allow: /
 
 # Sitemap
 Sitemap: https://musique-facile.fr/sitemap.xml
