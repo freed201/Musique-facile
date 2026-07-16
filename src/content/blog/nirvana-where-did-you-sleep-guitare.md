@@ -1,8 +1,8 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Where Did You Sleep Last Night (Nirvana) - Guitare"
+title: "Where Did You Sleep Last Night (Nirvana) : signification + tuto"
 prod: Y
-description: "Where Did You Sleep Last Night de Nirvana : 6 accords, reprise folk-grunge MTV Unplugged 1993. Tutoriel guitare intermédiaire."
+description: "De Lead Belly au MTV Unplugged de 1993 : l'histoire du morceau, le sens des paroles et comment le jouer."
 ogImage: "/images/blog/nirvana-where-did-you-sleep-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -15,7 +15,7 @@ songInfo:
   inBook: true
   bookPage: 84
   chordCount: 6
-  difficulty: "Avancé"
+  difficulty: "4/5"
 
 videos:
   - title: "Tutoriel version simplifiée"

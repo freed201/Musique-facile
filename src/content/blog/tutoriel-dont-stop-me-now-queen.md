@@ -1,8 +1,8 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Don't Stop Me Now (Queen) - Tutoriel Guitare"
+title: "Don't Stop Me Now (Queen) : signification des paroles + tuto guitare"
 prod: Y
-description: "Don't Stop Me Now de Queen à la guitare : 10 accords avancés, hymne de Freddie Mercury 1979, 150 BPM. Tutoriel confirmés."
+description: "Ce que raconte l'hymne de Freddie Mercury (1979), et comment l'aborder à la guitare pas à pas."
 ogImage: "/images/blog/tutoriel-dont-stop-me-now-queen.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"

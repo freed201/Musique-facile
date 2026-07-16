@@ -2,7 +2,7 @@
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "La Seine (Vanessa Paradis & -M-) - Guitare"
 prod: Y
-description: "La Seine de Vanessa Paradis & -M- à la guitare : 8 accords avec capo case 5, ballade poétique 2011. Tutoriel intermédiaires."
+description: "Le capo en case 5, la grille complète et 2 vidéos pour monter cette ballade segment par segment."
 ogImage: "/images/blog/jouer-la-seine-vanessa-m.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
