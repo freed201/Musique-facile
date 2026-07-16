@@ -34,13 +34,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser le rock français à la guitare."
   - title: "Foule Sentimentale - Alain Souchon"
-    url: "/blog/tutoriel-foule-sentimentale-chanson"
+    url: "/blog/tutoriel-foule-sentimentale-chanson/"
     description: "Un autre classique poétique du rock français."
   - title: "Un Autre Monde - Téléphone"
-    url: "/blog/apprendre-un-autre-monde-guitare"
+    url: "/blog/apprendre-un-autre-monde-guitare/"
     description: "Le rock français énergique des années 80."
 instrument: "guitare"
 category: "tutoriel"

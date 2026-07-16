@@ -9,7 +9,7 @@ ogImage: "/images/blog/blog-guide-ukulele-debutant.webp"
 datePublished: "2026-04-05"
 dateModified: "2026-07-07"
 introduction: "Vous vous lancez dans le ukulélé, mais face à 400 résultats entre 15 et 500 €, difficile de choisir. Ce guide, fruit de **40 ans de pratique** et de centaines d'ukulélés testés, vous dit **concrètement** quoi acheter selon votre budget, avec des modèles disponibles sur **Thomann, Woodbrass et Amazon.fr**."
-conclusion: "Après 40 ans à jouer et tester des ukulélés, voici mon conseil : **le meilleur ukulélé, c'est celui que vous allez vraiment jouer.** Un Flight à 63 euros bien accordé sonnera mieux qu'un instrument à 300 euros qui reste dans son placard. N'attendez pas d'avoir le ukulélé parfait pour commencer. Commandez-en un ce soir, et dans 3 jours vous jouerez votre premier morceau. Prêt à vous lancer ? Rejoignez notre formation [Ukulélé Facile](/cours/cours-de-ukulele) pour un accompagnement vidéo pas à pas !"
+conclusion: "Après 40 ans à jouer et tester des ukulélés, voici mon conseil : **le meilleur ukulélé, c'est celui que vous allez vraiment jouer.** Un Flight à 63 euros bien accordé sonnera mieux qu'un instrument à 300 euros qui reste dans son placard. N'attendez pas d'avoir le ukulélé parfait pour commencer. Commandez-en un ce soir, et dans 3 jours vous jouerez votre premier morceau. Prêt à vous lancer ? Rejoignez notre formation [Ukulélé Facile](/cours/cours-de-ukulele/) pour un accompagnement vidéo pas à pas !"
 faqs:
   - question: "Quel est le meilleur ukulélé pour un débutant ?"
     answer: "Le Flight NUC310 Concert (environ 63 euros sur Thomann) est notre recommandation numéro 1. Excellent son, sillet en os, housse incluse, et un prix imbattable. Si vous privilégiez la robustesse, le Cascha Carbon Concert (environ 75 euros) est quasi indestructible."
@@ -430,7 +430,7 @@ Si vous avez un bon magasin de musique près de chez vous, **allez-y**. Un bon c
 - **Le meilleur son sous les 100 euros** — Flight NUC500 Concert (88 euros)
 - **Un instrument pour des années** — Kala KA-C Satin Mahogany Concert (135 euros)
 
-Et surtout : n'attendez pas. Commandez-en un ce soir, et dans 3 jours vous jouerez votre premier morceau. Pour apprendre pas à pas, découvrez notre [cours de ukulélé en ligne](/cours/cours-de-ukulele) avec plus de 250 vidéos progressives.
+Et surtout : n'attendez pas. Commandez-en un ce soir, et dans 3 jours vous jouerez votre premier morceau. Pour apprendre pas à pas, découvrez notre [cours de ukulélé en ligne](/cours/cours-de-ukulele/) avec plus de 250 vidéos progressives.
 
 ---
 
@@ -438,7 +438,7 @@ Et surtout : n'attendez pas. Commandez-en un ce soir, et dans 3 jours vous jouer
 
 ### Articles liés
 
-- [Débuter l'ukulélé — Méthode simple 2026](/blog/debuter-ukulele-methode-simple-apprendre)
-- [5 accords indispensables pour jouer 100 chansons au ukulélé](/blog/5-accords-indispensables-jouer-100-chansons-ukulele)
-- [15 chansons faciles à jouer à l'ukulélé](/blog/15-chansons-faciles-ukulele)
-- [Origine, histoire et anecdotes du ukulélé](/blog/origine-histoire-anecdotes-ukulele)
+- [Débuter l'ukulélé — Méthode simple 2026](/blog/debuter-ukulele-methode-simple-apprendre/)
+- [5 accords indispensables pour jouer 100 chansons au ukulélé](/blog/5-accords-indispensables-jouer-100-chansons-ukulele/)
+- [15 chansons faciles à jouer à l'ukulélé](/blog/15-chansons-faciles-ukulele/)
+- [Origine, histoire et anecdotes du ukulélé](/blog/origine-histoire-anecdotes-ukulele/)

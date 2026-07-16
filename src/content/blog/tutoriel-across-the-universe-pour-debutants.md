@@ -33,13 +33,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser les classiques des Beatles."
   - title: "Hey Jude - The Beatles"
-    url: "/blog/apprendre-hey-jude-guitare"
+    url: "/blog/apprendre-hey-jude-guitare/"
     description: "Un autre chef-d'œuvre des Beatles à la guitare."
   - title: "Where Did You Sleep Last Night - Nirvana"
-    url: "/blog/nirvana-where-did-you-sleep-guitare"
+    url: "/blog/nirvana-where-did-you-sleep-guitare/"
     description: "Une autre ballade folk-rock puissante."
 instrument: "guitare"
 category: "tutoriel"

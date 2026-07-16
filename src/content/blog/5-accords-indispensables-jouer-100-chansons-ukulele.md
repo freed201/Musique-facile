@@ -122,4 +122,4 @@ On n'oublie pas **I’m Yours** de Jason Mraz, un titre incontournable des répe
 En diversifiant votre répertoire, non seulement vous vous amuserez davantage, mais vous deviendrez aussi plus confiant en votre jeu. Alors, quel sera le prochain morceau que vous oserez ?
 
 Pour aller plus loin, tu peux lire [des rythmiques simples pour accompagner tes accords](/blog/rythmiques-ukulele-debutant-3-patterns-faciles/) et notre [méthode simple pour débuter le ukulélé](/blog/debuter-ukulele-methode-simple-apprendre/).
-Pour un parcours guidé, voir nos [cours de ukulélé](/cours/cours-de-ukulele).
+Pour un parcours guidé, voir nos [cours de ukulélé](/cours/cours-de-ukulele/).

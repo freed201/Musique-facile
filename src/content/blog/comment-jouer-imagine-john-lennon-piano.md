@@ -103,4 +103,4 @@ Enrichissez votre progression piano avec ces astuces et combinez votre pratique 
 Alors, en vous voyant progresser de cette manière, ce serait pas un peu le top ? 🌟
 
 Pour aller plus loin, tu peux lire [une séance de pratique efficace en 30 minutes](/blog/seance-pratique-efficace-30-minutes/).
-Pour un parcours guidé, voir nos [cours de piano](/cours/cours-de-piano).
+Pour un parcours guidé, voir nos [cours de piano](/cours/cours-de-piano/).

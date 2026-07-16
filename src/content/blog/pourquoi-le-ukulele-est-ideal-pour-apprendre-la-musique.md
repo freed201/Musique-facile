@@ -45,7 +45,7 @@ conclusion: "En somme, le ukulélé est bien plus qu'un simple instrument de mus
 4. **Jouez votre première chanson** : 'Riptide' ou 'I'm Yours' (2 heures)
 5. **Rejoignez une formation structurée** : progressez 3x plus vite avec un prof
 
-**Prêt à découvrir la joie de jouer de la musique ?** Nos formations ukulélé pour débutants vous guident pas à pas, avec des méthodes éprouvées sur plus de 80 000 élèves. Cours en vidéo, partitions simplifiées, et support personnel inclus. [👉 Découvrir nos cours d'ukulélé débutant](https://musique-facile.fr/cours/cours-de-ukulele) 🏖️"
+**Prêt à découvrir la joie de jouer de la musique ?** Nos formations ukulélé pour débutants vous guident pas à pas, avec des méthodes éprouvées sur plus de 80 000 élèves. Cours en vidéo, partitions simplifiées, et support personnel inclus. [👉 Découvrir nos cours d'ukulélé débutant](https://musique-facile.fr/cours/cours-de-ukulele/) 🏖️"
 
 
 prod: "N"

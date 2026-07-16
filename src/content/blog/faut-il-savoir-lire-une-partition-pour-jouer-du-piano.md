@@ -40,7 +40,7 @@ conclusion: "Alors, faut-il absolument savoir lire une partition pour jouer du p
 
 **La méthode idéale ?** Celle qui vous permet de **prendre du plaisir immédiatement** tout en **construisant des bases solides** pour le futur. Les cours de piano modernes intègrent ces deux perspectives, vous permettant d'explorer pleinement votre potentiel musical.
 
-**Prêt à commencer votre aventure pianistique ?** Découvrez nos formations adaptées à tous les profils, avec ou sans lecture de partition ! [👉 Voir nos cours de piano](/cours/cours-de-piano) 🎹"
+**Prêt à commencer votre aventure pianistique ?** Découvrez nos formations adaptées à tous les profils, avec ou sans lecture de partition ! [👉 Voir nos cours de piano](/cours/cours-de-piano/) 🎹"
 
 prod: Y
 schemaType: "BlogPosting"

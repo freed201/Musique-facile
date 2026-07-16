@@ -33,13 +33,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser les ballades émotionnelles."
   - title: "Wild World - Cat Stevens"
-    url: "/blog/apprendre-wild-world-guitare"
+    url: "/blog/apprendre-wild-world-guitare/"
     description: "Une autre ballade folk intemporelle et touchante."
   - title: "Fields of Gold - Sting"
-    url: "/blog/jouer-fields-of-gold-sting"
+    url: "/blog/jouer-fields-of-gold-sting/"
     description: "La ballade poétique de Sting à la guitare."
 instrument: "guitare"
 category: "tutoriel"

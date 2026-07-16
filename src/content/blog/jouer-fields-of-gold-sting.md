@@ -33,13 +33,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser les ballades folk-pop."
   - title: "Hallelujah - Jeff Buckley"
-    url: "/blog/jouer-hallelujah-jeff-buckley-guitare"
+    url: "/blog/jouer-hallelujah-jeff-buckley-guitare/"
     description: "La reprise légendaire de Leonard Cohen."
   - title: "Wild World - Cat Stevens"
-    url: "/blog/apprendre-wild-world-guitare"
+    url: "/blog/apprendre-wild-world-guitare/"
     description: "Un classique folk des années 70."
 instrument: "guitare"
 category: "tutoriel"

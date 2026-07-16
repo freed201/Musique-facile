@@ -65,7 +65,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
 
       <!-- Boutons d'action en haut -->
       <div class="action-buttons top-buttons">
-        <a href={`/cours/${Astro.params.slug}`} class="btn-back">
+        <a href={`/cours/${Astro.params.slug}/`} class="btn-back">
           ← Retour au cours
         </a>
         <a href={lienAchat} class="btn-start">
@@ -97,7 +97,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
 
       <!-- Boutons d'action en bas -->
       <div class="action-buttons bottom-buttons">
-        <a href={`/cours/${Astro.params.slug}`} class="btn-back">
+        <a href={`/cours/${Astro.params.slug}/`} class="btn-back">
           ← Retour au cours
         </a>
         <a href={lienAchat} class="btn-start">

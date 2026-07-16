@@ -15,7 +15,7 @@ ogImage: "/images/blog/apprendre-la-guitare-facilement-guide-complet-pour-debuta
 datePublished: "2026-02-05"
 dateModified: "2026-07-07"
 introduction: "Oui, apprendre la guitare est possible à tout âge, même sans expérience. Trois étapes suffisent pour bien débuter : **1) choisis la bonne guitare** (150-300 € selon ton budget), **2) maîtrise 5 accords essentiels** (Em, A, C, G, D) qui ouvrent 80 % des chansons populaires, **3) pratique 15 minutes par jour** avec une routine structurée. Tu joueras ton premier morceau en 2-3 semaines."
-conclusion: "Tu as maintenant toutes les clés pour débuter la guitare efficacement. En choisissant la bonne guitare, en maîtrisant les 5 accords de base, et en pratiquant 15 minutes par jour avec une routine structurée, tu joueras ton premier morceau en 2-3 semaines. N'oublie pas : la régularité vaut mieux que l'intensité. Prêt à te lancer ? Rejoins notre formation [Guitare Facile](/cours/cours-de-guitare) pour un accompagnement pas à pas et commence dès aujourd'hui ton aventure musicale !"
+conclusion: "Tu as maintenant toutes les clés pour débuter la guitare efficacement. En choisissant la bonne guitare, en maîtrisant les 5 accords de base, et en pratiquant 15 minutes par jour avec une routine structurée, tu joueras ton premier morceau en 2-3 semaines. N'oublie pas : la régularité vaut mieux que l'intensité. Prêt à te lancer ? Rejoins notre formation [Guitare Facile](/cours/cours-de-guitare/) pour un accompagnement pas à pas et commence dès aujourd'hui ton aventure musicale !"
 videos:
   - title: "Une belle histoire – Play Along Guitare #Shorts  #springonyoutube"
     url: "https://youtu.be/fNKFL5HsImY"
@@ -114,7 +114,7 @@ Le choix de ta première guitare dépend de ton budget, ta morphologie et le sty
 
 > **Conseil de Fred :** Si tu hésites entre folk et classique, choisis une **guitare folk**. C'est la plus polyvalente et elle est utilisée dans 80% des styles musicaux (pop, rock, chanson française, country, blues). La classique est parfaite pour la musique classique ou flamenco, mais plus limitée en styles modernes.
 
-Pour aller plus loin dans le choix de ton matériel, consulte notre [guide comparatif pour choisir ta guitare folk](/blog/quelle-guitare-folk-acheter-guide-comparatif-debutant).
+Pour aller plus loin dans le choix de ton matériel, consulte notre [guide comparatif pour choisir ta guitare folk](/blog/quelle-guitare-folk-acheter-guide-comparatif-debutant/).
 
 ---
 
@@ -197,7 +197,7 @@ Tous nos articles incluent des diagrammes clairs avec :
 
 Les vidéos sont le meilleur moyen de comprendre visuellement les positions :
 - YouTube : Chaîne "Guitare Facile" (gratuit)
-- Notre formation : [Cours de Guitare en ligne](/cours/cours-de-guitare) avec vues multi-angles
+- Notre formation : [Cours de Guitare en ligne](/cours/cours-de-guitare/) avec vues multi-angles
 - JustinGuitar : Excellent pour les bases (en anglais)
 
 **Applications mobiles**
@@ -206,7 +206,7 @@ Les vidéos sont le meilleur moyen de comprendre visuellement les positions :
 - **Ultimate Guitar** : Base de données d'accords + tablatures
 - **GuitarTuna** : Accordeur + bibliothèque d'accords gratuite
 
-Pour des exercices progressifs, consulte notre article [Top 5 des accords guitare débutants et enchaînements faciles](/blog/top-5-accords-guitare-debutants-enchainement-facile).
+Pour des exercices progressifs, consulte notre article [Top 5 des accords guitare débutants et enchaînements faciles](/blog/top-5-accords-guitare-debutants-enchainement-facile/).
 
 ---
 
@@ -277,7 +277,7 @@ Choisis 2 accords (exemple : Em et A) et pratique la transition :
 
 > **💪 Challenge :** Joue chaque pattern pendant 3 minutes sans t'arrêter, en changeant d'accord toutes les 8 mesures. Si tu tiens 3 minutes fluides, tu maîtrises le pattern !
 
-Découvre d'autres exercices dans notre article [Entraînement guitare : progresser en 10 minutes par jour](/blog/entrainement-guitare-10-minutes-debutants).
+Découvre d'autres exercices dans notre article [Entraînement guitare : progresser en 10 minutes par jour](/blog/entrainement-guitare-10-minutes-debutants/).
 
 ---
 
@@ -345,7 +345,7 @@ Objectif : Jouer un morceau que tu aimes
 - 15 min/jour > 2h une fois par semaine
 - La mémoire musculaire se construit par répétition quotidienne
 
-Pour structurer efficacement tes sessions, consulte [Séance de pratique efficace en 30 minutes](/blog/seance-pratique-efficace-30-minutes).
+Pour structurer efficacement tes sessions, consulte [Séance de pratique efficace en 30 minutes](/blog/seance-pratique-efficace-30-minutes/).
 
 ---
 
@@ -429,9 +429,9 @@ Jouer un morceau complet est le meilleur boost de motivation pour un débutant.
 ### Tutoriels recommandés
 
 Nos tutoriels vidéo pas à pas :
-- [Apprendre "Stand By Me" à la guitare](/blog/apprendre-stand-by-me-guitare)
-- [Apprendre "Wonderwall" à la guitare](/blog/apprendre-wonderwall-guitare)
-- [Apprendre "Redemption Song" à la guitare](/blog/apprendre-redemption-song-guitare)
+- [Apprendre "Stand By Me" à la guitare](/blog/apprendre-stand-by-me-guitare/)
+- [Apprendre "Wonderwall" à la guitare](/blog/apprendre-wonderwall-guitare/)
+- [Apprendre "Redemption Song" à la guitare](/blog/apprendre-redemption-song-guitare/)
 
 Tous nos tutoriels incluent :
 - Diagrammes d'accords clairs
@@ -439,7 +439,7 @@ Tous nos tutoriels incluent :
 - Paroles avec changements d'accords indiqués
 - Conseils techniques spécifiques
 
-Pour d'autres idées, consulte notre sélection de [morceaux faciles pour débuter la guitare](/blog/morceaux-faciles-guitare-debutant).
+Pour d'autres idées, consulte notre sélection de [morceaux faciles pour débuter la guitare](/blog/morceaux-faciles-guitare-debutant/).
 
 ---
 
@@ -469,7 +469,7 @@ Les cours en ligne sont une excellente option pour les adultes qui veulent appre
 - Cours progressifs et structurés
 - Communauté d'entraide en ligne
 
-Pour comparer en détail les plateformes disponibles (prix, contenu, avis), consulte notre [comparatif complet des meilleurs cours de guitare en ligne 2026](/blog/meilleurs-cours-guitare-en-ligne-compares-2026).
+Pour comparer en détail les plateformes disponibles (prix, contenu, avis), consulte notre [comparatif complet des meilleurs cours de guitare en ligne 2026](/blog/meilleurs-cours-guitare-en-ligne-compares-2026/).
 
 ### Plateformes recommandées
 
@@ -479,7 +479,7 @@ Pour comparer en détail les plateformes disponibles (prix, contenu, avis), cons
 - **89€ paiement unique, accès à vie** (sans abonnement)
 - Méthode 100% français pour adultes
 - Accompagnement personnalisé, garantie 15 jours
-- [Découvrir la formation guitare débutant](/cours/apprendre-guitare-debutant)
+- [Découvrir la formation guitare débutant](/cours/apprendre-guitare-debutant/)
 
 **JustinGuitar**
 - Gratuit (donations volontaires)
@@ -576,7 +576,7 @@ Beaucoup de débutants abandonnent dans les premiers mois. Voici comment faire p
 
 **Astuce motivation :** Chaque vendredi soir, joue uniquement tes morceaux préférés pendant 30 minutes, sans pression technique. C'est ta session "plaisir pur" qui te rappelle pourquoi tu as commencé.
 
-Pour garder le cap, lis aussi notre article [Pourquoi tu stagnes en musique (et comment débloquer)](/blog/pourquoi-tu-stagnes-en-musique).
+Pour garder le cap, lis aussi notre article [Pourquoi tu stagnes en musique (et comment débloquer)](/blog/pourquoi-tu-stagnes-en-musique/).
 
 ---
 
@@ -647,4 +647,4 @@ Pour garder le cap, lis aussi notre article [Pourquoi tu stagnes en musique (et 
 
 **Tu es prêt à commencer ton aventure guitare ?** Avec ce guide, tu as toutes les clés pour progresser efficacement. N'oublie pas : la régularité bat l'intensité, et le plaisir est le meilleur moteur de progression.
 
-Rejoins dès maintenant notre formation [Guitare Facile](/cours/cours-de-guitare) pour un accompagnement pas à pas et commence à jouer tes morceaux préférés dès les premières semaines ! 🎸
+Rejoins dès maintenant notre formation [Guitare Facile](/cours/cours-de-guitare/) pour un accompagnement pas à pas et commence à jouer tes morceaux préférés dès les premières semaines ! 🎸

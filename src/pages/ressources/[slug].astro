@@ -119,10 +119,10 @@ const similarRessources = allRessources
     <BreadcrumbNav 
       items={[
         { name: "Accueil", url: "/" },
-        { name: "Ressources Gratuites", url: "/ressources-gratuites" },
+        { name: "Ressources Gratuites", url: "/ressources-gratuites/" },
         { name: ressource.data.instrument === 'guitare' ? 'Guitare' : 
                ressource.data.instrument === 'piano' ? 'Piano' : 'Ukulélé', 
-          url: `/ressources-gratuites/${ressource.data.instrument}` },
+          url: `/ressources-gratuites/${ressource.data.instrument}/` },
         { name: ressource.data.title, url: Astro.url.pathname }
       ]}
     />
@@ -275,7 +275,7 @@ const similarRessources = allRessources
             <div class="sidebar-cta">
               <h3>Envie d'aller plus loin ?</h3>
               <p>Découvre notre formation complète pour progresser rapidement</p>
-              <a href={`/cours/cours-de-${ressource.data.instrument === 'ukulele' ? 'ukulele' : ressource.data.instrument}`} class="cta-link">
+              <a href={`/cours/cours-de-${ressource.data.instrument === 'ukulele' ? 'ukulele' : ressource.data.instrument}/`} class="cta-link">
                 <span>Nos cours de {ressource.data.instrument === 'guitare' ? 'guitare' : 
                                    ressource.data.instrument === 'piano' ? 'piano' : 'ukulélé'}</span>
                 <span class="arrow">→</span>

@@ -208,8 +208,8 @@ const faqSchema = {
     <BreadcrumbNav 
       items={[
         { name: "Accueil", url: "/" },
-        { name: "Cours", url: "/cours" },
-        { name: "Cours de Guitare", url: "/cours/cours-de-guitare" }
+        { name: "Cours", url: "/cours/" },
+        { name: "Cours de Guitare", url: "/cours/cours-de-guitare/" }
       ]}
     />
     
@@ -238,7 +238,7 @@ const faqSchema = {
         <div class="courses-wrapper">
           {guitarCourses.map(course => (
             <article class="course-card">
-              <a href={`/cours/${course.slug}`} class="course-link">
+              <a href={`/cours/${course.slug}/`} class="course-link">
                 <div class="course-image" style={`background-image: url(${course.data.ogImage})`}>
                   <div class="course-meta">
                     {course.data.bestSeller && (

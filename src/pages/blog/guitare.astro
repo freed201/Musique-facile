@@ -62,7 +62,7 @@ const collectionSchema = {
     <BreadcrumbsSchema
       items={[
         { name: "Accueil", url: "/" },
-        { name: "Blog", url: "/blog" }
+        { name: "Blog", url: "/blog/" }
       ]}
       currentPage="Guitare"
     />
@@ -100,7 +100,7 @@ const collectionSchema = {
           <div class="posts-wrapper">
             {debutantPosts.slice(0, 6).map(post => (
               <article class="post-card">
-                <a href={`/blog/${post.slug}`}>
+                <a href={`/blog/${post.slug}/`}>
                   <div class="post-image">
                     <img class="post-image__img" src={post.data.ogImage} alt={post.data.title} loading="lazy" decoding="async" width="1200" height="630" />
                   </div>
@@ -135,7 +135,7 @@ const collectionSchema = {
           <div class="posts-wrapper">
             {tutorielPosts.slice(0, 9).map(post => (
               <article class="post-card">
-                <a href={`/blog/${post.slug}`}>
+                <a href={`/blog/${post.slug}/`}>
                   <div class="post-image">
                     <img class="post-image__img" src={post.data.ogImage} alt={post.data.title} loading="lazy" decoding="async" width="1200" height="630" />
                   </div>
@@ -170,7 +170,7 @@ const collectionSchema = {
           <div class="posts-wrapper">
             {theoriePosts.slice(0, 6).map(post => (
               <article class="post-card">
-                <a href={`/blog/${post.slug}`}>
+                <a href={`/blog/${post.slug}/`}>
                   <div class="post-image">
                     <img class="post-image__img" src={post.data.ogImage} alt={post.data.title} loading="lazy" decoding="async" width="1200" height="630" />
                   </div>
@@ -201,7 +201,7 @@ const collectionSchema = {
       <div class="container">
         <h2>Prêt à passer à l'étape suivante ?</h2>
         <p>Découvrez nos formations complètes pour progresser rapidement à la guitare</p>
-        <a href="/cours/cours-de-guitare" class="cta-button">Découvrir les formations guitare</a>
+        <a href="/cours/cours-de-guitare/" class="cta-button">Découvrir les formations guitare</a>
       </div>
     </section>
   </main>

@@ -15,7 +15,7 @@ ogImage: "/images/blog/debuter-ukulele-methode-simple-apprendre.webp"
 datePublished: "2026-02-05"
 dateModified: "2026-06-06"
 introduction: "Oui, le ukulélé est l'instrument le plus facile pour débuter la musique. Pourquoi ? **1) 4 cordes nylon souples** (vs 6 pour la guitare) qui ne font pas mal aux doigts, **2) 4 accords simples** (C, F, G, Am) pour jouer des centaines de chansons dès la première semaine, **3) portable et abordable** (80-150 €). Ce guide te montre comment jouer ton premier morceau en 7 jours."
-conclusion: "Tu as maintenant toutes les clés pour débuter le ukulélé facilement ! Avec 4 accords de base, un rythme simple et 15 minutes de pratique quotidienne, tu joueras tes premières chansons en 1 semaine. Le ukulélé est l'instrument idéal pour les adultes : léger, peu cher, et incroyablement gratifiant. N'oublie pas : régularité et plaisir sont tes meilleurs alliés. Prêt à te lancer ? Rejoins notre formation [Ukulélé Facile](/cours/cours-de-ukulele) pour un accompagnement pas à pas et joue tes chansons préférées rapidement ! 🏖️"
+conclusion: "Tu as maintenant toutes les clés pour débuter le ukulélé facilement ! Avec 4 accords de base, un rythme simple et 15 minutes de pratique quotidienne, tu joueras tes premières chansons en 1 semaine. Le ukulélé est l'instrument idéal pour les adultes : léger, peu cher, et incroyablement gratifiant. N'oublie pas : régularité et plaisir sont tes meilleurs alliés. Prêt à te lancer ? Rejoins notre formation [Ukulélé Facile](/cours/cours-de-ukulele/) pour un accompagnement pas à pas et joue tes chansons préférées rapidement ! 🏖️"
 faqs:
   - question: "Quel type de ukulélé choisir pour débuter : soprano, concert ou ténor ?"
     answer: "Pour débuter, le ukulélé soprano est le plus recommandé. C'est le plus petit (53 cm), le plus abordable (60-120€), et il produit le son traditionnel hawaïen joyeux. Si tu as de grandes mains, le concert (58 cm) offre plus d'espace entre les frettes. Le ténor (66 cm) convient mieux aux joueurs intermédiaires. Privilégie un modèle en bois massif plutôt qu'en contreplaqué pour un son chaleureux."
@@ -118,7 +118,7 @@ Jouer du ukulélé est bénéfique pour le bien-être mental :
 - **Renforce la confiance** : Satisfaction de jouer rapidement
 - **Crée du lien social** : Communauté accueillante
 
-Pour approfondir, lis [Ukulélé et santé mentale : ce que dit vraiment la science](/blog/effet-antidepresseur-du-ukulele).
+Pour approfondir, lis [Ukulélé et santé mentale : ce que dit vraiment la science](/blog/effet-antidepresseur-du-ukulele/).
 
 ---
 
@@ -227,7 +227,7 @@ Le choix de ton premier ukulélé dépend de ta taille de main, ton budget et te
 - **Woodbrass** : Marques variées, livraison rapide
 - **Amazon** : Évite sauf marques reconnues (Kala, Cordoba)
 
-Pour plus de détails, consulte notre [guide comparatif : Quel ukulélé acheter en 2026 ?](/blog/quel-ukulele-acheter-guide-comparatif-debutant).
+Pour plus de détails, consulte notre [guide comparatif : Quel ukulélé acheter en 2026 ?](/blog/quel-ukulele-acheter-guide-comparatif-debutant/).
 
 ---
 
@@ -366,7 +366,7 @@ Avant d'apprendre les accords, accorde ton ukulélé :
 
 **Résultat jour 7 :** Tu joues "Somewhere Over the Rainbow" en entier !
 
-Pour aller plus loin, consulte [Les 5 accords indispensables pour jouer 100 chansons au ukulélé](/blog/5-accords-indispensables-jouer-100-chansons-ukulele).
+Pour aller plus loin, consulte [Les 5 accords indispensables pour jouer 100 chansons au ukulélé](/blog/5-accords-indispensables-jouer-100-chansons-ukulele/).
 
 ---
 
@@ -461,7 +461,7 @@ Le rythme (strumming) donne vie à tes accords. Voici 3 patterns ultra-simples p
 - **Semaine 3 :** 100-110 BPM (tempo normal)
 - **Mois 2 :** 120-140 BPM (rapide)
 
-Pour plus de rythmes, consulte [3 rythmiques ukulélé débutant incontournables](/blog/rythmiques-ukulele-debutant-3-patterns-faciles).
+Pour plus de rythmes, consulte [3 rythmiques ukulélé débutant incontournables](/blog/rythmiques-ukulele-debutant-3-patterns-faciles/).
 
 ---
 
@@ -683,7 +683,7 @@ Solution : 60% technique / 40% plaisir
 Conséquence : Pas de conscience de tes erreurs
 Solution : Enregistre 1 fois/semaine sur smartphone
 
-Pour une routine de 30 minutes, consulte [Séance de pratique efficace en 30 minutes](/blog/seance-pratique-efficace-30-minutes).
+Pour une routine de 30 minutes, consulte [Séance de pratique efficace en 30 minutes](/blog/seance-pratique-efficace-30-minutes/).
 
 ---
 
@@ -776,7 +776,7 @@ Ces chansons utilisent les 4 accords de base (C-F-Am-G) et sont parfaites pour l
 - UkuTabs.com (tabs + accords)
 - Ultimate-Guitar.com (filtrer par "ukulele")
 
-Pour plus d'inspiration, découvre [L'origine et l'histoire fascinante de l'ukulélé](/blog/origine-histoire-anecdotes-ukulele).
+Pour plus d'inspiration, découvre [L'origine et l'histoire fascinante de l'ukulélé](/blog/origine-histoire-anecdotes-ukulele/).
 
 ---
 
@@ -797,6 +797,6 @@ Pour plus d'inspiration, découvre [L'origine et l'histoire fascinante de l'ukul
 
 **Tu es prêt à commencer ton aventure ukulélé ?** Avec ce guide, tu as toutes les clés pour progresser rapidement. N'oublie pas : 15 minutes par jour, régularité et plaisir sont tes meilleurs alliés.
 
-Rejoins dès maintenant notre [formation ukulélé débutant](/cours/apprendre-ukulele-debutant) (41 vidéos, 79€ paiement unique, accès à vie) pour jouer tes chansons préférées en quelques semaines ! 🏖️🎶
+Rejoins dès maintenant notre [formation ukulélé débutant](/cours/apprendre-ukulele-debutant/) (41 vidéos, 79€ paiement unique, accès à vie) pour jouer tes chansons préférées en quelques semaines ! 🏖️🎶
 
-*Tu hésites entre l'ukulélé et la guitare ? Découvre notre guide [ukulélé ou guitare : quel instrument choisir](/quel-instrument-choisir) ou explore nos [cours de guitare en ligne](/cours/cours-de-guitare).*
+*Tu hésites entre l'ukulélé et la guitare ? Découvre notre guide [ukulélé ou guitare : quel instrument choisir](/quel-instrument-choisir/) ou explore nos [cours de guitare en ligne](/cours/cours-de-guitare/).*

@@ -30,13 +30,13 @@ conclusion: |
   "Machistador" représente bien plus qu'un simple morceau : c'est une invitation à explorer l'art de -M- et à se laisser emporter par son groove unique. Ce titre, avec son énergie débordante et sa rythmique entraînante, continue de marquer les esprits et de faire vibrer les amateurs de musique.<br><br>Si vous êtes prêt à relever le défi, prenez votre guitare et plongez dans l'univers captivant de Matthieu Chedid. En explorant "Machistador", vous découvrirez non seulement une nouvelle dimension de votre pratique instrumentale, mais également une ouverture vers un monde musical riche et inspirant.<br><br>Ne manquez pas d'explorer d'autres morceaux de -M- et de suivre son actualité sur ses réseaux sociaux et son site officiel. L'aventure musicale ne fait que commencer, et "Machistador" n'est que le premier pas dans cet univers vibrant et coloré.
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation complète pour maîtriser les techniques de guitare."
   - title: "Maîtrise Technique Guitare Avancée"
-    url: "/cours/maitrise-technique-guitare-avancee"
+    url: "/cours/maitrise-technique-guitare-avancee/"
     description: "Perfectionnez vos barrés et votre groove funky."
   - title: "Un Autre Monde - Téléphone"
-    url: "/blog/apprendre-un-autre-monde-guitare"
+    url: "/blog/apprendre-un-autre-monde-guitare/"
     description: "Un autre classique du rock français énergique."
 instrument: "guitare"
 category: "tutoriel"

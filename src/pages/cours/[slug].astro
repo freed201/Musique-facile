@@ -189,7 +189,7 @@ const pricingFeatures = pricing?.features || cta.features.map(f => f.text);
   <BreadcrumbNav
     items={[
       { name: "Accueil", url: "/" },
-      { name: "Cours", url: "/cours" },
+      { name: "Cours", url: "/cours/" },
       { name: title, url: Astro.url.pathname }
     ]}
   />
@@ -338,7 +338,7 @@ const pricingFeatures = pricing?.features || cta.features.map(f => f.text);
       })}
     </div>
     <div class="program-button-wrapper">
-      <a href={`/cours/programme/${Astro.params.slug}`} class="btn btn-program">
+      <a href={`/cours/programme/${Astro.params.slug}/`} class="btn btn-program">
         Découvre le programme complet de la formation !
         <span class="arrow">→</span>
       </a>

@@ -265,7 +265,7 @@ const advantages = [
     <BreadcrumbNav 
       items={[
         { name: "Accueil", url: "/" },
-        { name: "Cours", url: "/cours" }
+        { name: "Cours", url: "/cours/" }
       ]}
     />
     
@@ -276,19 +276,19 @@ const advantages = [
         <h1>Cours de Musique en Ligne</h1>
         <p class="subtitle">Explore tous nos cours en ligne pour apprendre la musique facilement. Guitare, piano, ukulélé, solfège : des formations claires, progressives et accessibles, pensées pour t'aider à progresser.</p>
         <div class="instrument-buttons">
-          <a href="/cours/cours-de-guitare" class="instrument-button theme-guitar">
+          <a href="/cours/cours-de-guitare/" class="instrument-button theme-guitar">
             <span class="button-icon"><Icon name="guitar" size={20} /></span>
             <span>Guitare</span>
           </a>
-          <a href="/cours/cours-de-piano" class="instrument-button theme-piano">
+          <a href="/cours/cours-de-piano/" class="instrument-button theme-piano">
             <span class="button-icon"><Icon name="piano" size={20} /></span>
             <span>Piano</span>
           </a>
-          <a href="/cours/cours-de-ukulele" class="instrument-button theme-ukulele">
+          <a href="/cours/cours-de-ukulele/" class="instrument-button theme-ukulele">
             <span class="button-icon"><Icon name="ukulele" size={20} /></span>
             <span>Ukulélé</span>
           </a>
-          <a href="/cours/cours-de-solfege" class="instrument-button theme-solfege">
+          <a href="/cours/cours-de-solfege/" class="instrument-button theme-solfege">
             <span class="button-icon"><Icon name="solfege" size={20} /></span>
             <span>Solfège</span>
           </a>
@@ -319,7 +319,7 @@ const advantages = [
                 <span class="instrument-tag">{getInstrumentLabel(course.data.theme)}</span>
                 <h3>{course.data.title}</h3>
                 <p>{course.data.description}</p>
-                <a href={`/cours/${course.slug}`} class="view-course-btn">
+                <a href={`/cours/${course.slug}/`} class="view-course-btn">
                   Découvrir le cours
                   <span class="arrow-icon">→</span>
                 </a>
@@ -354,7 +354,7 @@ const advantages = [
         <div class="courses-grid">
           {sortedCourses.map(course => (
             <article class={`course-card theme-${course.data.theme}`} data-category={course.data.theme}>
-              <a href={`/cours/${course.slug}`} class="course-link">
+              <a href={`/cours/${course.slug}/`} class="course-link">
                 <div class="course-image">
                   <img 
                     src={course.data.ogImage} 
@@ -552,22 +552,22 @@ const advantages = [
           <p>Choisissez l'instrument qui vous passionne et lancez-vous dans l'aventure dès aujourd'hui.</p>
           
           <div class="cta-instruments">
-            <a href="/cours/cours-de-guitare" class="cta-instrument theme-guitar">
+            <a href="/cours/cours-de-guitare/" class="cta-instrument theme-guitar">
               <span class="instrument-icon"><Icon name="guitar" size={24} /></span>
               <span class="instrument-name">Guitare</span>
               <span class="arrow">-></span>
             </a>
-            <a href="/cours/cours-de-piano" class="cta-instrument theme-piano">
+            <a href="/cours/cours-de-piano/" class="cta-instrument theme-piano">
               <span class="instrument-icon"><Icon name="piano" size={24} /></span>
               <span class="instrument-name">Piano</span>
               <span class="arrow">-></span>
             </a>
-            <a href="/cours/cours-de-ukulele" class="cta-instrument theme-ukulele">
+            <a href="/cours/cours-de-ukulele/" class="cta-instrument theme-ukulele">
               <span class="instrument-icon"><Icon name="ukulele" size={24} /></span>
               <span class="instrument-name">Ukulélé</span>
               <span class="arrow">-></span>
             </a>
-            <a href="/cours/cours-de-solfege" class="cta-instrument theme-solfege">
+            <a href="/cours/cours-de-solfege/" class="cta-instrument theme-solfege">
               <span class="instrument-icon"><Icon name="solfege" size={24} /></span>
               <span class="instrument-name">Solfège</span>
               <span class="arrow">-></span>

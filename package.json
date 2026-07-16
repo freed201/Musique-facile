@@ -15,6 +15,7 @@
     "optimize-images": "node scripts/convert-to-webp.js",
     "blog:analyze": "node scripts/analyze-blog-articles.js",
     "blog:quality": "node scripts/check-article-quality.mjs",
+    "check:links": "node scripts/check-trailing-slash.mjs",
     "chords:generate": "node scripts/generate-chord-svgs.mjs",
     "lead-magnet:pdf": "node scripts/lead-magnet-to-pdf.mjs",
     "lead-magnet:build": "node scripts/lead-magnet-to-pdf.mjs content/lead-magnets/guitare-5-accords-magiques.md",

@@ -30,13 +30,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour progresser vers les ballades acoustiques."
   - title: "Hallelujah - Jeff Buckley"
-    url: "/blog/jouer-hallelujah-jeff-buckley-guitare"
+    url: "/blog/jouer-hallelujah-jeff-buckley-guitare/"
     description: "Une autre ballade acoustique légendaire et émotionnelle."
   - title: "Fields of Gold - Sting"
-    url: "/blog/jouer-fields-of-gold-sting"
+    url: "/blog/jouer-fields-of-gold-sting/"
     description: "Une ballade folk-pop délicate et poétique."
 instrument: "guitare"
 category: "tutoriel"

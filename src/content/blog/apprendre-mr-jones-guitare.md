@@ -36,13 +36,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation complète pour débuter la guitare rock alternatif."
   - title: "What's Up - 4 Non Blondes"
-    url: "/blog/apprendre-whats-up-guitare"
+    url: "/blog/apprendre-whats-up-guitare/"
     description: "Un autre classique rock alternatif des années 90."
   - title: "Wonderwall - Oasis"
-    url: "/blog/apprendre-wonderwall-guitare"
+    url: "/blog/apprendre-wonderwall-guitare/"
     description: "Le hit Britpop incontournable à la guitare."
 instrument: "guitare"
 category: "tutoriel"

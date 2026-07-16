@@ -33,13 +33,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser les ballades françaises."
   - title: "Clandestino - Manu Chao"
-    url: "/blog/jouer-clandestino-guitare-tutoriel"
+    url: "/blog/jouer-clandestino-guitare-tutoriel/"
     description: "Un classique français accessible et poétique."
   - title: "Hallelujah - Jeff Buckley"
-    url: "/blog/jouer-hallelujah-jeff-buckley-guitare"
+    url: "/blog/jouer-hallelujah-jeff-buckley-guitare/"
     description: "Une autre ballade romantique et touchante."
 instrument: "guitare"
 category: "tutoriel"

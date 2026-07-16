@@ -21,7 +21,7 @@ const pillarPost = allPosts.find(post => post.slug === pillarSlug && post.data.p
 if (!pillarPost) return;
 
 const pillarTitle = pillarPost.data.title;
-const pillarUrl = `/blog/${pillarSlug}`;
+const pillarUrl = `/blog/${pillarSlug}/`;
 
 // Determiner la classe de theme instrument
 const instrumentThemeMap: Record<string, string> = {

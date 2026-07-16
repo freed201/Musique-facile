@@ -38,13 +38,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour progresser vers le rock alternatif."
   - title: "Smells Like Teen Spirit - Nirvana"
-    url: "/blog/apprendre-smells-like-teen-spirit-guitare"
+    url: "/blog/apprendre-smells-like-teen-spirit-guitare/"
     description: "Un autre classique du rock alternatif des années 90."
   - title: "Where Did You Sleep Last Night - Nirvana"
-    url: "/blog/nirvana-where-did-you-sleep-guitare"
+    url: "/blog/nirvana-where-did-you-sleep-guitare/"
     description: "Une ballade rock alternative puissante."
 instrument: "guitare"
 category: "tutoriel"

@@ -34,15 +34,15 @@ faqs:
   <nav aria-label="Sommaire">
     <h3>Sommaire</h3>
     <ul>
-      <li><a href="https://musique-facile.fr/blog/pourquoi-apprendre-le-piano" title="Pourquoi apprendre le piano ?">Pourquoi apprendre le piano ?</a></li>
-      <li><a href="https://musique-facile.fr/blog/debuter-le-piano-bases-essentielles" title="Débuter le piano : Les bases essentielles">Débuter le piano</a></li>
-      <li><a href="https://musique-facile.fr/blog/methodes-apprentissage-piano-debutant" title="Nos méthodes d’apprentissage pour débutants">Méthodes débutants</a></li>
-      <li><a href="https://musique-facile.fr/blog/techniques-essentielles-piano" title="Techniques essentielles pour bien jouer">Techniques essentielles</a></li>
-      <li><a href="https://musique-facile.fr/blog/erreurs-frequentes-piano-debutant" title="Les erreurs fréquentes des débutants">Erreurs fréquentes</a></li>
-      <li><a href="https://musique-facile.fr/blog/plan-travail-progresser-piano" title="Plan de travail pour progresser rapidement">Plan de travail</a></li>
-      <li><a href="https://musique-facile.fr/blog/ressources-apprendre-le-piano" title="Ressources supplémentaires pour aller plus loin">Ressources</a></li>
-      <li><a href="https://musique-facile.fr/blog/faq-piano-debutant" title="FAQ – Réponses aux questions des débutants">FAQ</a></li>
-      <li><a href="https://musique-facile.fr/blog/conclusion-apprentissage-piano" title="Conclusion et derniers conseils">Conclusion</a></li>
+      <li><a href="https://musique-facile.fr/blog/pourquoi-apprendre-le-piano/" title="Pourquoi apprendre le piano ?">Pourquoi apprendre le piano ?</a></li>
+      <li><a href="https://musique-facile.fr/blog/debuter-le-piano-bases-essentielles/" title="Débuter le piano : Les bases essentielles">Débuter le piano</a></li>
+      <li><a href="https://musique-facile.fr/blog/methodes-apprentissage-piano-debutant/" title="Nos méthodes d’apprentissage pour débutants">Méthodes débutants</a></li>
+      <li><a href="https://musique-facile.fr/blog/techniques-essentielles-piano/" title="Techniques essentielles pour bien jouer">Techniques essentielles</a></li>
+      <li><a href="https://musique-facile.fr/blog/erreurs-frequentes-piano-debutant/" title="Les erreurs fréquentes des débutants">Erreurs fréquentes</a></li>
+      <li><a href="https://musique-facile.fr/blog/plan-travail-progresser-piano/" title="Plan de travail pour progresser rapidement">Plan de travail</a></li>
+      <li><a href="https://musique-facile.fr/blog/ressources-apprendre-le-piano/" title="Ressources supplémentaires pour aller plus loin">Ressources</a></li>
+      <li><a href="https://musique-facile.fr/blog/faq-piano-debutant/" title="FAQ – Réponses aux questions des débutants">FAQ</a></li>
+      <li><a href="https://musique-facile.fr/blog/conclusion-apprentissage-piano/" title="Conclusion et derniers conseils">Conclusion</a></li>
     </ul>
   </nav>
 </div>

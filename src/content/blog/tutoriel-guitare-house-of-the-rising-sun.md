@@ -35,13 +35,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser les classiques folk-rock."
   - title: "Wild World - Cat Stevens"
-    url: "/blog/apprendre-wild-world-guitare"
+    url: "/blog/apprendre-wild-world-guitare/"
     description: "Une autre ballade folk intemporelle et accessible."
   - title: "Where Did You Sleep Last Night - Nirvana"
-    url: "/blog/nirvana-where-did-you-sleep-guitare"
+    url: "/blog/nirvana-where-did-you-sleep-guitare/"
     description: "Une reprise folk-rock puissante de Nirvana."
 instrument: "guitare"
 category: "tutoriel"

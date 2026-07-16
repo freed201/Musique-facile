@@ -34,13 +34,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser les ballades rock."
   - title: "Chasing Cars - Snow Patrol"
-    url: "/blog/apprendre-chasing-cars-guitare"
+    url: "/blog/apprendre-chasing-cars-guitare/"
     description: "Une autre ballade rock émouvante et accessible."
   - title: "Wild World - Cat Stevens"
-    url: "/blog/apprendre-wild-world-guitare"
+    url: "/blog/apprendre-wild-world-guitare/"
     description: "Une ballade folk touchante des années 70."
 instrument: "guitare"
 category: "tutoriel"

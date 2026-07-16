@@ -33,13 +33,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour progresser vers le rock grunge."
   - title: "Smells Like Teen Spirit - Nirvana"
-    url: "/blog/apprendre-smells-like-teen-spirit-guitare"
+    url: "/blog/apprendre-smells-like-teen-spirit-guitare/"
     description: "L'hymne grunge de Nirvana avec power chords."
   - title: "Where Is My Mind - Pixies"
-    url: "/blog/apprendre-where-is-my-mind-guitare"
+    url: "/blog/apprendre-where-is-my-mind-guitare/"
     description: "Un classique du rock alternatif des années 80."
 instrument: "guitare"
 category: "tutoriel"

@@ -99,4 +99,4 @@ Et vous savez quoi ? Jouer des chansons, même simples, vous permet d'ajuster et
 En gros, en jouant morceau par morceau, vous vous construisez un bagage musical tout en restant zen. Prenez le temps d'apprécier le processus. Après tout, l'apprentissage, c'est autant un voyage qu'une destination !
 
 Pour aller plus loin, tu peux lire [une séance de pratique efficace en 30 minutes](/blog/seance-pratique-efficace-30-minutes/).
-Pour un parcours guidé, voir nos [cours de guitare](/cours/cours-de-guitare).
+Pour un parcours guidé, voir nos [cours de guitare](/cours/cours-de-guitare/).

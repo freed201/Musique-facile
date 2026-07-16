@@ -71,4 +71,4 @@ La théorie ne sert à rien sans les doigts sur les cordes. Choisis un accord si
 
 Commence lentement, vérifie ton accordage souvent (une corde fausse gâche tout), et savoure le moment où les accords s'enchaînent enfin sans y penser.
 
-Pour aller plus loin, lis [débuter le ukulélé simplement](/blog/debuter-ukulele-methode-simple-apprendre/). Et pour un parcours guidé, va voir nos [cours de ukulélé](/cours/cours-de-ukulele).
+Pour aller plus loin, lis [débuter le ukulélé simplement](/blog/debuter-ukulele-methode-simple-apprendre/). Et pour un parcours guidé, va voir nos [cours de ukulélé](/cours/cours-de-ukulele/).

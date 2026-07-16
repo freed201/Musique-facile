@@ -71,4 +71,4 @@ Le risque des applis, c'est de zapper de l'une à l'autre sans jamais rien conso
 
 Ces applis ne remplacent pas un prof : elles enrichissent ta pratique et la rendent plus fun. Fais-en des alliées, pas des béquilles. Pour compléter ta routine, découvre aussi [notre entraînement guitare en 10 minutes par jour](/blog/entrainement-guitare-10-minutes-debutants/).
 
-Pour aller plus loin, découvre nos [cours de guitare](/cours/cours-de-guitare).
+Pour aller plus loin, découvre nos [cours de guitare](/cours/cours-de-guitare/).
