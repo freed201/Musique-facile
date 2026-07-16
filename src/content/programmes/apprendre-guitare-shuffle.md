@@ -146,4 +146,32 @@ garanties:
   - "Accès illimité à vie"
   - "Mises à jour gratuites"
   - "Support personnalisé"
+
+faq:
+  title: "Questions fréquentes sur le shuffle"
+  questions:
+    - question: "C'est quoi le shuffle, exactement ?"
+      answer: "Le shuffle est une façon de jouer les croches en les rendant inégales : la première est longue, la seconde est courte, au lieu de deux croches de durée identique. C'est ce déséquilibre qui produit le balancement caractéristique du blues, du rock'n'roll et du jazz. Sur une partition, il est souvent simplement indiqué par la mention « shuffle » en tête de morceau, les croches restant écrites normalement."
+    - question: "Quelle différence entre le shuffle et le swing ?"
+      answer: "Les deux reposent sur des croches inégales, mais le degré d'inégalité et l'intention diffèrent. Le shuffle est marqué, presque mécanique, et il structure le blues et le rock. Le swing est plus souple et plus nuancé, et c'est le terrain du jazz. La formation consacre une leçon entière à cette distinction, parce que la confondre est l'erreur la plus fréquente."
+    - question: "Faut-il savoir lire la musique pour suivre cette formation ?"
+      answer: "Non. La notation du shuffle est expliquée dans la formation, mais tout peut se travailler à l'oreille et au geste. Si vous savez placer vos accords de base et tenir une rythmique simple, vous avez le niveau requis."
+    - question: "Quel niveau faut-il avoir à la guitare ?"
+      answer: "Un niveau débutant suffit, à condition de tenir déjà une rythmique régulière en aller-retour. Si les changements d'accords vous demandent encore toute votre attention, commencez plutôt par le cours de guitare débutant : le shuffle se travaille une fois que la main droite est libre."
+    - question: "Combien de temps dure la formation ?"
+      answer: "18 vidéos pour 50 minutes de contenu au total. Ce n'est pas un cours qu'on regarde, c'est un cours qu'on pratique : comptez plutôt deux à trois semaines de travail quotidien pour que le shuffle devienne naturel sous les doigts."
+    - question: "À quoi ça sert concrètement ?"
+      answer: "À jouer une grande partie du répertoire blues, rock'n'roll et folk qui repose sur ce balancement. Une fois le shuffle acquis, des morceaux qui sonnaient plats ou approximatifs se mettent en place. C'est aussi la base rythmique du boogie et de nombreux accompagnements."
 ---
+
+## Pourquoi apprendre le shuffle change votre jeu
+
+Vous connaissez peut-être ce moment : vous jouez les bons accords, en rythme, et pourtant ça ne sonne pas comme le disque. Neuf fois sur dix, dans le blues et le rock'n'roll, la réponse tient dans un mot : le shuffle.
+
+Le principe est simple à énoncer. Au lieu de jouer deux croches de durée égale, on allonge la première et on raccourcit la seconde. Ce déséquilibre produit le balancement qu'on reconnaît dès la première mesure d'un blues. Simple à comprendre, long à installer dans les doigts : c'est exactement pour ça que cette formation existe.
+
+Les 18 vidéos, réparties sur 50 minutes, suivent une progression en quatre temps : d'abord la théorie du binaire et du ternaire, puis la distinction entre swing et shuffle, ensuite les exercices rythmiques (dire le shuffle, le taper, puis le jouer), et enfin l'accompagnement complet.
+
+Le cours est classé niveau **débutant**, mais avec une réserve : il suppose que vous tenez déjà une rythmique régulière en aller-retour. Si les changements d'accords vous accaparent encore, passez d'abord par le [cours de guitare débutant](/cours/apprendre-guitare-debutant/), et revenez ensuite.
+
+Le shuffle n'est pas propre à la guitare, d'ailleurs. Le même balancement se travaille au [piano](/cours/apprendre-piano-shuffle/) et au [ukulélé](/cours/apprendre-ukulele-shuffle/), avec la même logique rythmique.

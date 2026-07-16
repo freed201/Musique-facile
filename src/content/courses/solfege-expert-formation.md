@@ -209,3 +209,49 @@ faq:
       answer: "Absolument. Vous bénéficiez d'une garantie satisfait ou remboursé pendant 15 jours."
   backgroundPattern: "solfege-3-pattern.svg"
 ---
+
+## Le programme détaillé, module par module
+
+Le solfège a mauvaise réputation parce qu'on le présente presque toujours à l'envers : des règles d'abord, la musique ensuite. Ici, chaque notion sert immédiatement à comprendre un morceau que vous jouez déjà. Voici les 4 modules et ce que vous savez faire à la fin de chacun.
+
+### Module 1 — Altérations, intervalles et accords
+
+On commence par les altérations : dièses, bémols, bécarres, et surtout l'ordre dans lequel ils s'appliquent. Puis viennent les intervalles, qui sont la matière première de tout le reste. Un accord n'est rien d'autre qu'un empilement d'intervalles : une fois que vous voyez ça, la nomenclature des accords cesse d'être un code arbitraire.
+
+**Ce que vous savez faire à la fin du module 1 :** construire n'importe quel accord majeur, mineur ou de septième à partir de sa fondamentale, sans le chercher dans un tableau. Vous comprenez pourquoi un Am7 s'appelle Am7.
+
+### Module 2 — Gammes et harmonisation
+
+Gamme chromatique, gammes majeures, gammes mineures : on les construit plutôt que de les apprendre par cœur. L'harmonisation est le moment charnière du cours, celui où vous déduisez les accords d'une tonalité au lieu de les subir.
+
+**Ce que vous savez faire à la fin du module 2 :** donner les accords d'une tonalité donnée sans hésiter, et comprendre pourquoi tant de chansons tournent autour des mêmes quatre accords. C'est la réponse théorique aux [4 accords magiques](/blog/top-5-accords-guitare-debutants-enchainement-facile/) que vous utilisez peut-être déjà à la guitare.
+
+### Module 3 — Expression musicale et ornements
+
+Nuances, variations de tempo, symboles d'expression, puis les techniques d'articulation : liaison, piqué, ornementation. C'est ce qui sépare une partition jouée correctement d'une partition jouée musicalement.
+
+**Ce que vous savez faire à la fin du module 3 :** lire une partition et comprendre les intentions de son auteur, pas seulement ses notes. Vous savez ce qu'un compositeur attend quand il écrit un signe d'articulation.
+
+### Module 4 — Cadences, mesures et structure
+
+Les degrés musicaux et les cadences, traditionnelles comme blues, expliquent pourquoi une progression sonne comme une question ou comme une réponse. On termine par les barres de mesure et les symboles de répétition (Da Capo, Da Segno, Coda), qui rendent lisible n'importe quelle partition d'apparence labyrinthique.
+
+**Ce que vous savez faire à la fin du module 4 :** analyser la structure harmonique d'un morceau et anticiper où il va. C'est le socle si vous voulez composer ou arranger.
+
+## À qui s'adresse vraiment cette formation ?
+
+Elle s'adresse aux musiciens qui jouent déjà, au moins un peu, et qui butent sur le « pourquoi ». Si vous placez vos accords sans comprendre ce qui les relie, c'est exactement le cours qu'il vous faut.
+
+En revanche, si vous n'avez jamais lu une note, commencez plutôt par la [lecture de notes niveau débutant](/cours/lecture-de-notes-niveau-debutant/) : cette formation-ci suppose que vous savez déjà nommer les notes sur une portée.
+
+Les 40 leçons demandent un vrai travail de compréhension, pas de la mémorisation. Comptez 20 minutes par séance, crayon en main.
+
+## Ce que vous voulez savoir avant de vous lancer
+
+**Faut-il jouer d'un instrument ?** C'est fortement conseillé. Le solfège prend son sens quand vous pouvez entendre ce que vous analysez. Guitare, piano, ukulélé : peu importe lequel.
+
+**Est-ce du solfège scolaire ?** Non. Aucune dictée musicale, aucun exercice pour l'exercice. Chaque notion est reliée à une utilisation concrète.
+
+**Combien de temps pour en voir les effets ?** Le module 2 change généralement la façon dont on regarde une grille d'accords, et il arrive vite. Les élèves parlent souvent d'un déclic à ce moment-là.
+
+**Ça sert à quoi si je joue surtout des chansons ?** À arrêter de chercher les accords au hasard. Une fois l'harmonisation comprise, vous devinez la suite d'une grille avant de l'avoir lue, et vous transposez en tonalité de chant sans effort. Le [cycle des quintes](/cours/comprendre-cycle-des-quintes/) prolonge d'ailleurs directement ce travail.

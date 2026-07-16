@@ -236,3 +236,48 @@ faq:
       answer: "Notre support personnalisé par email est là pour vous accompagner à chaque étape. Posez vos questions et recevez des conseils adaptés à votre situation. Fred répond personnellement aux questions techniques. De plus, chaque leçon peut être revisionnée autant de fois que nécessaire grâce à l'accès à vie."
   backgroundPattern: "guitare-pattern.svg"
 ---
+## Le programme détaillé, module par module
+
+Beaucoup de débutants abandonnent parce qu'ils ne savent jamais où ils en sont. Cette formation répond à une seule question, à chaque étape : qu'est-ce que je sais jouer maintenant que je ne savais pas jouer hier ? Voici le détail des 4 modules et, surtout, ce que vous jouez concrètement à la fin de chacun.
+
+### Module 1 — Les bases essentielles
+
+On part vraiment de zéro : le nom des cordes, la posture, l'accordage, et la lecture d'un diagramme d'accord. Vous apprenez vos deux premiers accords, Em et C, choisis parce qu'ils ne demandent que deux doigts et qu'ils sonnent bien ensemble.
+
+**Ce que vous jouez à la fin du module 1 :** votre première mélodie sur une corde, et l'aller-retour entre Em et C sans regarder votre main gauche. C'est la première fois que ça ressemble à de la musique. Comptez une à deux semaines à 15 minutes par jour.
+
+### Module 2 — La rythmique
+
+C'est le module que la plupart des méthodes bâclent, et c'est pourtant là que tout se joue. Médiator ou doigts, coups vers le bas, aller-retour : on installe le geste avant d'ajouter la moindre complexité.
+
+**Ce que vous jouez à la fin du module 2 :** vos deux accords du module 1, mais en rythme, avec une pulsation régulière. Vous tenez une rythmique de base sur la durée d'une chanson entière sans vous perdre.
+
+### Module 3 — La maîtrise des accords
+
+On élargit le vocabulaire : D, G, E et A7 viennent s'ajouter aux deux premiers. Le vrai travail du module, ce ne sont pas les accords eux-mêmes, ce sont les **transitions** : c'est là que 90 % des débutants calent. Vous découvrez aussi les 4 accords magiques, cette poignée d'accords qui suffit à accompagner des centaines de chansons.
+
+**Ce que vous jouez à la fin du module 3 :** des chansons complètes, en enchaînant vos accords proprement et en rythme. C'est le module où l'on commence à jouer pour de vrai, pas seulement à s'exercer.
+
+### Module 4 — L'expression musicale
+
+Jouer juste, c'est bien. Jouer avec sa personnalité, c'est autre chose. On aborde la rythmique Feu de Camp et ses variantes, le shuffle et les rythmes ternaires, puis les arpèges avec le système PIMA.
+
+**Ce que vous jouez à la fin du module 4 :** le même morceau de trois façons différentes, et vos premières improvisations. Vous n'appliquez plus une recette, vous faites des choix.
+
+## À qui s'adresse vraiment cette formation ?
+
+Elle est faite pour vous si vous n'avez jamais touché une guitare, ou si vous avez déjà essayé les tutos YouTube sans jamais construire de progression cohérente. Les 82 leçons se suivent dans l'ordre, chacune s'appuyant sur la précédente.
+
+Elle l'est moins si vous jouez déjà vos accords barrés proprement et cherchez à travailler la technique avancée. Dans ce cas, orientez-vous plutôt vers la [maîtrise technique de la guitare](/cours/maitrise-technique-guitare-avancee/) ou vers le [cours de shuffle à la guitare](/cours/apprendre-guitare-shuffle/).
+
+Le rythme conseillé est de 15 à 20 minutes par jour. La régularité compte davantage que la durée des séances : nos élèves qui pratiquent quotidiennement jouent leurs premiers morceaux en 3 à 4 semaines.
+
+## Ce que vous voulez savoir avant de vous lancer
+
+**Combien de temps pour jouer une vraie chanson ?** Trois à quatre semaines à raison de 15 minutes par jour, en suivant les modules dans l'ordre. Les deux premiers accords tombent dès la première semaine.
+
+**Faut-il savoir lire la musique ?** Non. Aucun prérequis en solfège. Tout passe par les diagrammes d'accords, expliqués dès le module 1. Si le solfège vous intéresse par la suite, il fait l'objet d'une [formation à part](/cours/cours-de-solfege/).
+
+**Quelle guitare acheter pour commencer ?** Une acoustique ou une électrique, peu importe : les deux fonctionnent avec la méthode. Pas besoin d'ampli ni de pédales. Si vous hésitez encore, notre [guide comparatif des guitares folk](/blog/quelle-guitare-folk-acheter-guide-comparatif-debutant/) détaille les modèles selon le budget.
+
+**Et si je bloque ?** Chaque leçon se revisionne autant de fois que nécessaire, l'accès étant à vie. Et le support par email est là : je réponds personnellement aux questions techniques.

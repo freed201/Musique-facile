@@ -156,6 +156,8 @@ Une mauvaise posture peut entraîner :
 
 Avoir **des doigts souples et rapides**, ça ne vient pas tout seul. Voici **comment améliorer ton toucher**.  
 
+Un point que peu de méthodes assument : les doigts 4 et 5 sont faibles chez tout le monde, c'est anatomique. Le réflexe est de les contourner, et le déséquilibre s'installe pour des années. Si c'est ton point de blocage, la formation [Force et agilité au piano](/cours/piano-force-agilite/) est bâtie autour de 5 exercices qui s'attaquent précisément à ça.  
+
 ### 📌 **Les gammes : l’arme secrète des pianistes**  
 <div class="tip">
 <b>💡 Pourquoi c’est efficace ?</b>  

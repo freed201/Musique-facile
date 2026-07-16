@@ -148,5 +148,7 @@ Alors, toi, t’es plutôt **solfège latin** ou **notation anglaise** ?
 
 - [L’histoire fascinante des noms de notes de musique](/blog/origine-noms-notes-musique-histoire-solfege/)
 
-Tu veux maîtriser les bases du solfège pour progresser sur ton instrument ? Le [cours de solfège](/cours/cours-de-solfege/) de Musique Facile t’apprend à lire les notes, comprendre les rythmes et déchiffrer une partition, à ton rythme.  
+Tu veux maîtriser les bases du solfège pour progresser sur ton instrument ? Le [cours de solfège](/cours/cours-de-solfege/) de Musique Facile t’apprend à lire les notes, comprendre les rythmes et déchiffrer une partition, à ton rythme.
+
+Et si les altérations et les intervalles évoqués plus haut t’ont donné envie de creuser, la [formation solfège expert](/cours/solfege-expert-formation/) reprend exactement là où cet article s’arrête : construire les accords à partir des intervalles, harmoniser une gamme, et comprendre pourquoi tant de chansons tournent autour des mêmes accords.  
 

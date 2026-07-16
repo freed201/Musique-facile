@@ -18,11 +18,31 @@ const {
   theme,
   lienAchat,
   dataGenerale,
-  dataProgramme
+  dataProgramme,
+  faq
 } = programme.data;
 
 // Construction de l'URL complète pour schema.org
 const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
+
+// Corps markdown optionnel (contexte pédagogique propre au programme).
+// Les fiches sans corps ne rendent rien de plus.
+const { Content } = await programme.render();
+const hasIntro = programme.body.trim().length > 0;
+
+// FAQPage optionnelle : seulement si la fiche déclare des questions.
+const faqSchema = faq?.questions?.length ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.questions.map((item: { question: string; answer: string }) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+} : null;
 ---
 
 <ProgrammeLayout
@@ -32,6 +52,12 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
   theme={theme}
   url={canonicalURL.toString()}
 >
+  {faqSchema && (
+    <Fragment slot="head">
+      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    </Fragment>
+  )}
+
   <section class="programme-section">
     <div class="container">
       <header class="programme-header">
@@ -73,6 +99,12 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
         </a>
       </div>
 
+      {hasIntro && (
+        <div class="programme-intro">
+          <Content />
+        </div>
+      )}
+
       <!-- Bloc 2: Programme détaillé -->
       <div class="programme-content">
         {dataProgramme.map((session) => (
@@ -94,6 +126,18 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
           </div>
         ))}
       </div>
+
+      {faq?.questions?.length && (
+        <div class="programme-faq">
+          <h2 class="faq-heading">{faq.title || 'Questions fréquentes'}</h2>
+          {faq.questions.map((item: { question: string; answer: string }) => (
+            <div class="faq-item">
+              <h3 class="faq-question">{item.question}</h3>
+              <p class="faq-answer">{item.answer}</p>
+            </div>
+          ))}
+        </div>
+      )}
 
       <!-- Boutons d'action en bas -->
       <div class="action-buttons bottom-buttons">
@@ -123,6 +167,71 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
   .programme-header {
     text-align: center;
     margin-bottom: 2rem;
+  }
+
+  /* Intro pédagogique (corps markdown optionnel) */
+  .programme-intro {
+    margin-bottom: 3rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .programme-intro :global(h2) {
+    font-size: 1.75rem;
+    color: var(--color-dark);
+    margin: 2rem 0 0.75rem;
+  }
+
+  .programme-intro :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .programme-intro :global(p),
+  .programme-intro :global(ul) {
+    margin-bottom: 1rem;
+  }
+
+  .programme-intro :global(ul) {
+    padding-left: 1.5rem;
+  }
+
+  .programme-intro :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .programme-intro :global(strong) {
+    color: var(--color-dark);
+  }
+
+  .programme-intro :global(a) {
+    color: var(--theme-current);
+    text-decoration: underline;
+  }
+
+  /* FAQ optionnelle */
+  .programme-faq {
+    margin: 3rem 0;
+  }
+
+  .faq-heading {
+    font-size: 1.75rem;
+    color: var(--theme-current);
+    margin-bottom: 1.5rem;
+  }
+
+  .faq-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .faq-question {
+    font-size: 1.125rem;
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-answer {
+    color: var(--text-secondary);
+    line-height: 1.7;
   }
 
   .programme-title {

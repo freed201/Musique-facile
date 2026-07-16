@@ -20,6 +20,11 @@ const { course } = Astro.props;
 // Récupération du slug dès le début (utilisé dans les schemas)
 const { slug } = Astro.params;
 
+// Corps markdown optionnel : rendu en section « Programme détaillé » sous la
+// timeline. Les fiches sans corps (la majorité) ne rendent rien de plus.
+const { Content } = await course.render();
+const hasDetailedProgram = course.body.trim().length > 0;
+
 const {
   title,
   description,
@@ -345,6 +350,16 @@ const pricingFeatures = pricing?.features || cta.features.map(f => f.text);
     </div>
   </div>
 </section>
+
+{hasDetailedProgram && (
+  <section class="course-detail">
+    <div class="container">
+      <div class="course-detail-content">
+        <Content />
+      </div>
+    </div>
+  </section>
+)}
 
 <section class="mid-cta">
   <div class="container">
@@ -986,6 +1001,61 @@ const pricingFeatures = pricing?.features || cta.features.map(f => f.text);
 }
 
 /* CTA Mid-page */
+/* Programme détaillé : corps markdown optionnel de la fiche cours */
+.course-detail {
+  padding: var(--space-16) 0;
+  background: var(--bg-alt);
+}
+
+.course-detail-content {
+  max-width: 52rem;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  line-height: 1.7;
+}
+
+.course-detail-content :global(h2) {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  color: var(--text-primary);
+  margin: var(--space-10) 0 var(--space-4);
+}
+
+.course-detail-content :global(h2:first-child) {
+  margin-top: 0;
+}
+
+.course-detail-content :global(h3) {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--theme-current);
+  margin: var(--space-8) 0 var(--space-3);
+}
+
+.course-detail-content :global(p),
+.course-detail-content :global(ul) {
+  margin-bottom: var(--space-4);
+}
+
+.course-detail-content :global(ul) {
+  padding-left: var(--space-6);
+}
+
+.course-detail-content :global(li) {
+  margin-bottom: var(--space-2);
+}
+
+.course-detail-content :global(strong) {
+  color: var(--text-primary);
+  font-weight: var(--font-semibold);
+}
+
+.course-detail-content :global(a) {
+  color: var(--theme-current);
+  text-decoration: underline;
+}
+
 .mid-cta {
   padding: 3rem 0;
   background: linear-gradient(135deg, var(--theme-current), color-mix(in srgb, var(--theme-current) 80%, black));
