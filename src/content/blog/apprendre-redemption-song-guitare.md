@@ -1,12 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "Redemption Song (Bob Marley) - Guitare"
-description: "Redemption Song de Bob Marley à la guitare : 4 accords, tempo lent et arpèges doux. Le morceau acoustique parfait pour travailler un jeu propre et tout en finesse."
+description: "La grille, le picking en arpèges et 2 vidéos pas à pas pour jouer ce classique tout en douceur."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
+dateModified: "2026-07-16"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-redemption-song-guitare.webp"
@@ -26,7 +26,7 @@ songInfo:
   inBook: true
   bookPage: 60
   tempo: 60
-  chordCount: 7
+  chordCount: 4
   key: ""
   difficulty: "2/5"
 videos:

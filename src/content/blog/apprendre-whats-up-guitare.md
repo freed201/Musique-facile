@@ -1,12 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "What's Up (4 Non Blondes) - Tutoriel Guitare"
-description: "What's Up des 4 Non Blondes à la guitare : 3 accords (G-A-C), un tempo lent et un refrain à reprendre en chœur. Parfait pour une toute première chanson."
+description: "La même boucle d'accords tout du long : un seul enchaînement à travailler, et 2 vidéos à l'appui."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
+dateModified: "2026-07-16"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-whats-up-guitare.webp"
@@ -20,7 +20,7 @@ tags:
   - accords guitare
   - rythmique guitare
   - tutoriel guitare
-introduction: "What's Up des 4 Non Blondes ne demande que 3 accords (G, A, C) et un tempo lent : c'est l'un des meilleurs morceaux pour une toute première chanson à la guitare. Difficulté 3/5, surtout pour le refrain à reprendre en chœur. Ce tutoriel te donne les accords, la rythmique et les conseils pour chanter en jouant."
+introduction: "What's Up des 4 Non Blondes ne demande que 3 accords (G, Am, C) et un tempo lent : c'est l'un des meilleurs morceaux pour une toute première chanson à la guitare. Difficulté 3/5, surtout pour le refrain à reprendre en chœur. Ce tutoriel te donne les accords, la rythmique et les conseils pour chanter en jouant."
 
 songInfo:
   inBook: true
@@ -44,7 +44,7 @@ faqs:
   - question: "Pourquoi la chanson s'appelle What's Up alors que le refrain dit « What's going on » ?"
     answer: "C'est l'une des anecdotes les plus connues du morceau ! Le refrain chante « and I say hey-ey-ey, what's going on », mais le titre officiel est « What's Up ». La légende veut que ce soit pour éviter la confusion avec le classique « What's Going On » de Marvin Gaye. De quoi briller en société quand tu la joues."
   - question: "What's Up convient-elle à un débutant complet ?"
-    answer: "Oui, c'est un morceau de premier choix pour démarrer. Le tempo lent (64 BPM) laisse largement le temps de changer d'accord, et il n'y a que 3 formes à connaître. Le seul petit défi est le changement G-A : entraîne-le isolément, et le reste suit tout seul."
+    answer: "Oui, c'est un morceau de premier choix pour démarrer. Le tempo lent (64 BPM) laisse largement le temps de changer d'accord, et il n'y a que 3 formes à connaître. Le seul petit défi est le changement G-Am : entraîne-le isolément, et le reste suit tout seul."
   - question: "Quelle rythmique utiliser pour What's Up ?"
     answer: "Une rythmique ample et régulière fonctionne très bien : bas, bas-haut, haut-bas-haut, jouée lentement. La chanson monte progressivement en intensité jusqu'au refrain : commence doux sur le couplet, puis gratte plus large et plus fort sur le « what's going on » pour créer l'effet libérateur du morceau."
 ---
@@ -52,9 +52,9 @@ Sortie en 1992 sur l'album *Bigger, Better, Faster, More!* et écrite par Linda 
 
 ## En bref
 
-**What's Up des 4 Non Blondes se joue avec seulement 3 accords (G, A, C) sur un tempo lent.** Difficulté 3/5 : c'est l'un des meilleurs morceaux pour une toute première chanson, avec son refrain à reprendre en chœur.
+**What's Up des 4 Non Blondes se joue avec seulement 3 accords (G, Am, C) sur un tempo lent.** Difficulté 3/5 : c'est l'un des meilleurs morceaux pour une toute première chanson, avec son refrain à reprendre en chœur.
 
-- **Accords** : G, A, C (3 seulement)
+- **Accords** : G, Am, C (3 seulement)
 - **Difficulté** : 3/5
 - **Idéal pour** : chanter en jouant
 
@@ -63,10 +63,12 @@ Sortie en 1992 sur l'album *Bigger, Better, Faster, More!* et écrite par Linda 
 Trois accords, c'est tout :
 
 - G
-- A
+- Am
 - C
 
-La même boucle tourne sur le couplet, le refrain et le pont. Le seul petit défi, c'est le changement **G → A** : entraîne-le isolément quelques minutes, et le reste suit tout seul.
+La même boucle tourne sur le couplet, le refrain et le pont. Le seul petit défi, c'est le changement **G → Am** : entraîne-le isolément quelques minutes, et le reste suit tout seul.
+
+Pose un **capo en case 2** si tu veux jouer par-dessus l'enregistrement : le disque est en La majeur, et le capo te met à la bonne hauteur sans changer tes formes d'accords. Sans capo, tu joues en Sol majeur, ce qui marche très bien pour t'entraîner seul.
 
 Pour poser tes bases : [Apprendre la guitare facilement - Guide complet pour débutants motivés](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
 
@@ -84,13 +86,13 @@ Le titre, c'est le piège préféré des quiz musicaux : le refrain chante « *a
 
 ## La structure
 
-- Couplet : G – A – C (doux)
-- Refrain : G – A – C (plus fort, plus ouvert)
-- Pont : G – A – C
+- Couplet : G – Am – C (doux)
+- Refrain : G – Am – C (plus fort, plus ouvert)
+- Pont : G – Am – C
 
 ## Comment t'entraîner
 
-Travaille d'abord le changement **G → A** seul, au métronome à 50 BPM, jusqu'à ce qu'il soit propre. Ajoute ensuite le C, puis monte à 64 BPM. Enfin, joue le morceau entier en cherchant le crescendo couplet → refrain. Comme il n'y a que 3 accords, tu peux te concentrer entièrement sur le chant et l'énergie.
+Travaille d'abord le changement **G → Am** seul, au métronome à 50 BPM, jusqu'à ce qu'il soit propre. Ajoute ensuite le C, puis monte à 64 BPM. Enfin, joue le morceau entier en cherchant le crescendo couplet → refrain. Comme il n'y a que 3 accords, tu peux te concentrer entièrement sur le chant et l'énergie.
 
 Pour structurer ta pratique : [Comment structurer une séance de pratique de 30 minutes](/blog/seance-pratique-efficace-30-minutes/).
 
