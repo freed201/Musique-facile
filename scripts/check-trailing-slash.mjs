@@ -1,8 +1,13 @@
 #!/usr/bin/env node
 /**
- * Vérifie que les liens internes du build pointent vers la forme canonique
- * AVEC slash final (vercel.json > trailingSlash: true — un lien sans slash
- * provoque une redirection 308 inutile, pénalisée en crawl).
+ * Vérifie la forme des liens internes du build. Deux contrôles :
+ *
+ *  1. Slash final manquant — vercel.json > trailingSlash: true fait du slash
+ *     la forme canonique ; un lien sans slash coûte une redirection 308.
+ *  2. Double slash (`//`) — typiquement une concaténation `${base}/${x}` dont
+ *     la base porte déjà un slash. Produit un vrai 404, pas une redirection.
+ *     Ce cas est arrivé en juillet 2026 en normalisant les slashs : d'où ce
+ *     second contrôle.
  *
  * Usage : node scripts/check-trailing-slash.mjs  (après npm run build)
  * Scanne les href="..." internes des HTML de .vercel/output/static/.
@@ -35,11 +40,11 @@ const walk = (dir) => {
 };
 walk(OUT_DIR);
 
-const violations = new Map(); // href → [pages]
+const missingSlash = new Map(); // href → [pages]
+const doubleSlash = new Map();
 const HREF_RE = /href=(?:"([^"]*)"|'([^']*)'|([^\s>"']+))/g;
 
-const needsSlash = (href) => {
-  const [path] = href.split(/[?#]/);
+const needsSlash = (path) => {
   if (!path.startsWith('/') || path === '/') return false;
   if (path.endsWith('/')) return false;
   if (path.startsWith('/api/')) return false;
@@ -48,26 +53,38 @@ const needsSlash = (href) => {
   return true;
 };
 
+const record = (map, href, page) => {
+  if (!map.has(href)) map.set(href, []);
+  const pages = map.get(href);
+  if (pages.length < 3) pages.push(page);
+};
+
 for (const file of htmlFiles) {
   const html = readFileSync(file, 'utf8');
+  const page = file.replace(OUT_DIR, '');
   for (const match of html.matchAll(HREF_RE)) {
     const href = match[1] ?? match[2] ?? match[3];
-    if (needsSlash(href)) {
-      const page = file.replace(OUT_DIR, '');
-      if (!violations.has(href)) violations.set(href, []);
-      const pages = violations.get(href);
-      if (pages.length < 3) pages.push(page);
-    }
+    if (!href || !href.startsWith('/') || href.startsWith('//')) continue;
+    const [path] = href.split(/[?#]/);
+    if (path.includes('//')) record(doubleSlash, path, page);
+    else if (needsSlash(path)) record(missingSlash, path, page);
   }
 }
 
-if (violations.size === 0) {
-  console.log(`✓ ${htmlFiles.length} pages scannées — aucun lien interne sans slash final.`);
-  process.exit(0);
-}
+const report = (map, label) => {
+  if (map.size === 0) return 0;
+  console.error(`✗ ${map.size} lien(s) interne(s) ${label} :`);
+  for (const [href, pages] of [...map.entries()].sort()) {
+    console.error(`  ${href}\n    vu sur : ${pages.join(', ')}${pages.length === 3 ? '…' : ''}`);
+  }
+  return map.size;
+};
 
-console.error(`✗ ${violations.size} lien(s) interne(s) sans slash final :`);
-for (const [href, pages] of [...violations.entries()].sort()) {
-  console.error(`  ${href}\n    vu sur : ${pages.join(', ')}${pages.length === 3 ? '…' : ''}`);
+const failures = report(doubleSlash, 'avec un double slash (404)')
+  + report(missingSlash, 'sans slash final (redirection 308)');
+
+if (failures === 0) {
+  console.log(`✓ ${htmlFiles.length} pages scannées — liens internes conformes (slash final, pas de //).`);
+  process.exit(0);
 }
 process.exit(1);

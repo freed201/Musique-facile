@@ -5,9 +5,16 @@ import Header from '../components/Header.astro';
 import FooterModern from '../components/FooterModern.astro';
 import { getCollection } from 'astro:content';
 
-// Récupérer tous les articles de blog
-const allPosts = await getCollection('blog');
-const sortedPosts = allPosts.sort((a, b) => 
+// Récupérer les articles de blog RÉELLEMENT publiés. Le filtre doit rester
+// aligné sur celui de blog/[slug].astro (prod === "Y" + date passée) : sans
+// lui, le plan du site listait des articles dont la page n'est pas générée,
+// donc autant de liens vers des 404.
+const currentDate = new Date();
+const allPosts = (await getCollection('blog')).filter(post => {
+  if (post.data.prod !== 'Y') return false;
+  return new Date(post.data.datePublished) <= currentDate;
+});
+const sortedPosts = allPosts.sort((a, b) =>
   new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime()
 );
 

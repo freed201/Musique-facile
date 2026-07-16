@@ -286,7 +286,7 @@ const instrumentLabels = { guitare: 'Guitare', piano: 'Piano', ukulele: 'Ukulél
                 <tr>
                   <td><strong>{instrumentLabels[key]}</strong></td>
                   <td>{r.benefits[0]}</td>
-                  <td><a href={r.course.url + '/'}>{r.course.title}</a></td>
+                  <td><a href={r.course.url}>{r.course.title}</a></td>
                   <td><strong>{r.course.price} €</strong></td>
                 </tr>
               );
@@ -305,7 +305,7 @@ const instrumentLabels = { guitare: 'Guitare', piano: 'Piano', ukulele: 'Ukulél
               <ul>
                 {r.benefits.map((b) => <li>{b}</li>)}
               </ul>
-              <a class="ig-card-cta" href={r.course.url + '/'}>Découvrir le cours de {instrumentLabels[key].toLowerCase()} →</a>
+              <a class="ig-card-cta" href={r.course.url}>Découvrir le cours de {instrumentLabels[key].toLowerCase()} →</a>
             </article>
           );
         })}
