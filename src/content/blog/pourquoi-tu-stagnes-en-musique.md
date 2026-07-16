@@ -548,13 +548,13 @@ Voici ce qui se passe lors d'une séance type avec un élève en stagnation :
 
 ### Cours structurés (évite la stagnation)
 
-📚 **[Cours de guitare en ligne pour adultes débutants](/cours/guitare/)**
+📚 **[Cours de guitare en ligne pour adultes débutants](/cours/cours-de-guitare/)**
 → Progression claire avec feedback régulier
 
-📚 **[Cours de piano pour adultes : apprendre à son rythme](/cours/piano/)**
+📚 **[Cours de piano pour adultes : apprendre à son rythme](/cours/cours-de-piano/)**
 → Méthode anti-stagnation avec suivi
 
-📚 **[Cours d'ukulélé : méthode douce et progressive](/cours/ukulele/)**
+📚 **[Cours d'ukulélé : méthode douce et progressive](/cours/cours-de-ukulele/)**
 → Progression par paliers sans plateaux
 
 ---

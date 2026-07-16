@@ -606,7 +606,7 @@ Pour garder le cap, lis aussi notre article [Pourquoi tu stagnes en musique (et 
 - [Riche (Claudio Capeo) - Tutoriel Guitare](/blog/apprendre-riche-guitare/)
 - [Respire (Mickey 3D) - Tutoriel Guitare](/blog/apprendre-respire-guitare/)
 - [Partons Vite (Kaolin) - Tutoriel Guitare](/blog/apprendre-partons-vite-guitare/)
-- [Nous On Sait (Pierre Garnier) - Tutoriel Guitare](/blog/Nous-on-sait-guitare-tuto/)
+- [Nous On Sait (Pierre Garnier) - Tutoriel Guitare](/blog/nous-on-sait-guitare-tuto/)
 - [L'Opportuniste (Dutronc) - Tutoriel Guitare](/blog/jouer-lopportuniste-dutronc-guitare/)
 - [La Seine (Vanessa Paradis & -M-) - Guitare](/blog/jouer-la-seine-vanessa-m/)
 - [Machistador (-M-) - Tutoriel Guitare Funk](/blog/apprendre-machistador-guitare/)

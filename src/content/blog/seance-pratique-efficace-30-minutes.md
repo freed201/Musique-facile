@@ -482,9 +482,9 @@ Pour aller plus loin dans ta pratique :
 - [3 exercices simples pour progresser au piano adulte](/blog/3-exercices-simples-progresser-piano-adulte-cours-de-piano/)
 
 📚 **Cours et accompagnement :**
-- [Cours de guitare en ligne pour adultes débutants](/cours/guitare/)
-- [Cours de piano pour adultes : apprendre à son rythme](/cours/piano/)
-- [Cours d'ukulélé : méthode douce et progressive](/cours/ukulele/)
+- [Cours de guitare en ligne pour adultes débutants](/cours/cours-de-guitare/)
+- [Cours de piano pour adultes : apprendre à son rythme](/cours/cours-de-piano/)
+- [Cours d'ukulélé : méthode douce et progressive](/cours/cours-de-ukulele/)
 
 ---
 
