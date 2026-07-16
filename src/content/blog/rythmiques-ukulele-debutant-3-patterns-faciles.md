@@ -77,4 +77,4 @@ La rythmique ne prend vie que sur un morceau. Prends un classique à accords sim
 
 Ma méthode : maîtrise le pattern sur chaque accord séparément, puis enchaîne le couplet entier. Tu peux même changer de rythmique entre couplet et refrain pour varier. Tes premiers essais ne seront pas parfaits — c'est normal, et c'est exactement comme ça qu'on apprend.
 
-Pour aller plus loin, lis [les 5 accords indispensables au ukulélé](/blog/5-accords-indispensables-jouer-100-chansons-ukulele/) et [comment lire un diagramme d'accord](/blog/comment-lire-diagramme-accord-ukulele/). Et pour un parcours guidé, va voir nos [cours de ukulélé](/cours/cours-de-ukulele).
+Pour aller plus loin, lis [les 5 accords indispensables au ukulélé](/blog/5-accords-indispensables-jouer-100-chansons-ukulele/) et [comment lire un diagramme d'accord](/blog/comment-lire-diagramme-accord-ukulele/). Et pour un parcours guidé, va voir nos [cours de ukulélé](/cours/cours-de-ukulele/).

@@ -121,7 +121,7 @@ const relatedArticles = scoredPosts.length >= maxArticles
         {relatedArticles.map(post => {
           const instrument = post.data.instrument || detectInstrument(post);
           return (
-            <a href={`/blog/${post.slug}`} class="related-card">
+            <a href={`/blog/${post.slug}/`} class="related-card">
               <div class="card-image" style={`background-image: url(${post.data.ogImage})`}>
                 {post.data.tags && post.data.tags.length > 0 && (
                   <div class="card-tags">

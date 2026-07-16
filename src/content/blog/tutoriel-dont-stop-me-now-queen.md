@@ -33,13 +33,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour progresser vers les morceaux rock avancés."
   - title: "Hey Ya! - Outkast"
-    url: "/blog/jouer-hey-ya-outkast-guitare"
+    url: "/blog/jouer-hey-ya-outkast-guitare/"
     description: "Un autre hit énergique et joyeux à la guitare."
   - title: "Viva La Vida - Coldplay"
-    url: "/blog/apprendre-viva-la-vida-guitare"
+    url: "/blog/apprendre-viva-la-vida-guitare/"
     description: "Un classique pop-rock dynamique et accessible."
 instrument: "guitare"
 category: "tutoriel"

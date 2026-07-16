@@ -37,7 +37,7 @@ const displayPosts = [latestPost, ...randomPosts];
     <h2>Articles populaires</h2>
     <div class="posts-grid">
       {displayPosts.map((post, index) => (
-        <a href={`/blog/${post.slug}`} class="post-card">
+        <a href={`/blog/${post.slug}/`} class="post-card">
           <div class="post-image" style={`background-image: url(${post.data.ogImage})`}>
             <div class="post-overlay">
               <span class="read-more">Lire l'article →</span>

@@ -116,7 +116,7 @@ const breadcrumbSchema = {
         pas, et pourquoi — sans complaisance commerciale.
       </p>
       <p>
-        <a class="author-cta" href="/cours/cours-de-guitare">Découvrir mes cours de guitare →</a>
+        <a class="author-cta" href="/cours/cours-de-guitare/">Découvrir mes cours de guitare →</a>
       </p>
     </section>
 
@@ -126,7 +126,7 @@ const breadcrumbSchema = {
         <ul class="author-articles-list">
           {articles.map((a) => (
             <li>
-              <a href={`/blog/${a.slug}`}>
+              <a href={`/blog/${a.slug}/`}>
                 <span class="aa-title">{a.data.title}</span>
                 <time datetime={a.data.datePublished}>
                   {new Date(a.data.datePublished).toLocaleDateString('fr-FR', {

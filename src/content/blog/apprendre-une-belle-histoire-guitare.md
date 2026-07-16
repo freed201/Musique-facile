@@ -38,13 +38,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser les classiques français."
   - title: "Les Copains d'Abord - Georges Brassens"
-    url: "/blog/tutoriel-les-copains-dabord-guitare"
+    url: "/blog/tutoriel-les-copains-dabord-guitare/"
     description: "Un autre classique intemporel de la chanson française."
   - title: "La Seine - Vanessa Paradis & -M-"
-    url: "/blog/jouer-la-seine-vanessa-m"
+    url: "/blog/jouer-la-seine-vanessa-m/"
     description: "Une ballade française poétique et romantique."
 instrument: "guitare"
 category: "tutoriel"

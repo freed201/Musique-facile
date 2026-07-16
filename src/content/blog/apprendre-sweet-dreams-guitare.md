@@ -29,13 +29,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser les classiques pop-rock à la guitare."
   - title: "Don't Stop Me Now - Queen"
-    url: "/blog/tutoriel-dont-stop-me-now-queen"
+    url: "/blog/tutoriel-dont-stop-me-now-queen/"
     description: "Un autre classique énergique des années 80."
   - title: "Smells Like Teen Spirit - Nirvana"
-    url: "/blog/apprendre-smells-like-teen-spirit-guitare"
+    url: "/blog/apprendre-smells-like-teen-spirit-guitare/"
     description: "Le classique grunge des années 90."
 instrument: "guitare"
 category: "tutoriel"

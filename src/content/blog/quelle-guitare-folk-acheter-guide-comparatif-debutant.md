@@ -9,7 +9,7 @@ ogImage: "/images/blog/blog-guide-guitare-folk-debutant.webp"
 datePublished: "2026-04-08"
 dateModified: "2026-07-07"
 introduction: "Vous vous lancez dans la guitare folk, mais face à des milliers de modèles entre 60 et 3 000 €, difficile de choisir. Ce guide, fruit de **40 ans de pratique** et de centaines de guitares testées, vous dit **concrètement** quoi acheter selon votre budget, avec des modèles disponibles sur **Thomann, Woodbrass et Amazon.fr**."
-conclusion: "Après 40 ans à jouer et tester des guitares, voici mon conseil : **la meilleure guitare folk, c'est celle que vous allez vraiment jouer.** Une Harley Benton à 248 euros bien réglée sonnera mieux qu'une Martin à 2 000 euros qui reste dans son placard. N'attendez pas d'avoir la guitare parfaite pour commencer — mais prenez le temps d'essayer en magasin si vous le pouvez. Prêt à vous lancer ? Rejoignez notre formation [Guitare Facile](/cours/cours-de-guitare) pour un accompagnement vidéo pas à pas !"
+conclusion: "Après 40 ans à jouer et tester des guitares, voici mon conseil : **la meilleure guitare folk, c'est celle que vous allez vraiment jouer.** Une Harley Benton à 248 euros bien réglée sonnera mieux qu'une Martin à 2 000 euros qui reste dans son placard. N'attendez pas d'avoir la guitare parfaite pour commencer — mais prenez le temps d'essayer en magasin si vous le pouvez. Prêt à vous lancer ? Rejoignez notre formation [Guitare Facile](/cours/cours-de-guitare/) pour un accompagnement vidéo pas à pas !"
 faqs:
   - question: "Quelle est la meilleure guitare folk pour un débutant ?"
     answer: "Pour un budget serré, la Harley Benton CLA-15MCE (environ 248 euros sur Thomann) offre un rapport qualité/prix imbattable avec table massive, pan coupé et micro Fishman. Si vous préférez un grand classique, la Fender CD-60 V3 (environ 155 euros) est une valeur sûre."
@@ -379,7 +379,7 @@ Si vous avez un bon magasin de musique près de chez vous, **allez-y**. Un bon c
 - **Le meilleur son sous les 500 euros** — Eastman PCH1 (419 euros) : tout bois massif, introuvable ailleurs à ce prix
 - **Un instrument pour la vie** — PRS SE A40E (499-799 euros) ou Eastman E1OM (679 euros)
 
-Et surtout : **le mieux reste d'essayer**. Allez en magasin, emmenez un ami, laissez-le jouer pendant que vous écoutez, revenez une deuxième fois. Si l'effet waou est toujours là, c'est la bonne. Pour apprendre pas à pas, découvrez notre [cours de guitare en ligne](/cours/cours-de-guitare) avec des centaines de vidéos progressives.
+Et surtout : **le mieux reste d'essayer**. Allez en magasin, emmenez un ami, laissez-le jouer pendant que vous écoutez, revenez une deuxième fois. Si l'effet waou est toujours là, c'est la bonne. Pour apprendre pas à pas, découvrez notre [cours de guitare en ligne](/cours/cours-de-guitare/) avec des centaines de vidéos progressives.
 
 ---
 
@@ -387,6 +387,6 @@ Et surtout : **le mieux reste d'essayer**. Allez en magasin, emmenez un ami, lai
 
 ### Articles liés
 
-- [Top 5 accords guitare débutants — enchaînement facile](/blog/top-5-accords-guitare-debutants-enchainement-facile)
-- [Apprendre la guitare facilement — Guide complet pour débutants](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants)
-- [Booster sa progression musicale](/blog/booster-progression-musicale)
+- [Top 5 accords guitare débutants — enchaînement facile](/blog/top-5-accords-guitare-debutants-enchainement-facile/)
+- [Apprendre la guitare facilement — Guide complet pour débutants](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/)
+- [Booster sa progression musicale](/blog/booster-progression-musicale/)

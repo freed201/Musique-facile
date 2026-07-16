@@ -109,7 +109,7 @@ const hubAggregateOffer = {
 const courseLDSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
-  "@id": "https://musique-facile.fr/cours/cours-de-ukulele#course",
+  "@id": "https://musique-facile.fr/cours/cours-de-ukulele/#course",
   "name": "Cours d'Ukulélé en Ligne",
   "description": "Apprends l'ukulélé en ligne à ton rythme avec des cours clairs et motivants. Idéal pour débuter facilement, où tu veux, quand tu veux, sans aucune pression.",
   "provider": {
@@ -239,8 +239,8 @@ const faqSchema = {
     <BreadcrumbNav 
       items={[
         { name: "Accueil", url: "/" },
-        { name: "Cours", url: "/cours" },
-        { name: "Cours d'Ukulélé", url: "/cours/cours-de-ukulele" }
+        { name: "Cours", url: "/cours/" },
+        { name: "Cours d'Ukulélé", url: "/cours/cours-de-ukulele/" }
       ]}
     />
     
@@ -269,7 +269,7 @@ const faqSchema = {
         <div class="courses-wrapper">
           {ukeleleCourses.map((course, index) => (
             <article class="course-card" id={`course-${index + 1}`}>
-              <a href={`/cours/${course.slug}`} class="course-link">
+              <a href={`/cours/${course.slug}/`} class="course-link">
                 <div class="course-image" style={`background-image: url(${course.data.ogImage})`}>
                   <div class="course-meta">
                     {course.data.bestSeller && (

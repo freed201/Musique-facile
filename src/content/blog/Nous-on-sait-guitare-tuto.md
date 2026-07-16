@@ -32,13 +32,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour débuter avec les hits pop modernes."
   - title: "Perfect - Ed Sheeran"
-    url: "/blog/apprendre-perfect-guitare"
+    url: "/blog/apprendre-perfect-guitare/"
     description: "Une autre ballade pop romantique et moderne."
   - title: "Hey Jude - The Beatles"
-    url: "/blog/apprendre-hey-jude-guitare"
+    url: "/blog/apprendre-hey-jude-guitare/"
     description: "Un classique pop intemporel et accessible."
 instrument: "guitare"
 category: "tutoriel"

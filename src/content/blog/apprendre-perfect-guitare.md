@@ -36,13 +36,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour débuter avec les ballades pop modernes."
   - title: "Nous On Sait - Pierre Garnier"
-    url: "/blog/nous-on-sait-guitare-tuto"
+    url: "/blog/nous-on-sait-guitare-tuto/"
     description: "Une autre ballade pop française moderne."
   - title: "Chasing Cars - Snow Patrol"
-    url: "/blog/apprendre-chasing-cars-guitare"
+    url: "/blog/apprendre-chasing-cars-guitare/"
     description: "Une ballade rock émotionnelle et accessible."
 instrument: "guitare"
 category: "tutoriel"

@@ -34,13 +34,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser la chanson française."
   - title: "L'Opportuniste - Jacques Dutronc"
-    url: "/blog/jouer-lopportuniste-dutronc-guitare"
+    url: "/blog/jouer-lopportuniste-dutronc-guitare/"
     description: "Une autre chanson française satirique et engagée."
   - title: "Les Copains d'Abord - Georges Brassens"
-    url: "/blog/tutoriel-les-copains-dabord-guitare"
+    url: "/blog/tutoriel-les-copains-dabord-guitare/"
     description: "Un classique intemporel de la chanson française."
 instrument: "guitare"
 category: "tutoriel"

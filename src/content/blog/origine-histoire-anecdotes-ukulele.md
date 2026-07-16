@@ -118,4 +118,4 @@ Conseil d'entretien : l'ukulélé, malgré sa robustesse apparente, est sensible
 Et ce que certains pourraient considérer comme une humble guitare miniature, est pour beaucoup une porte ouverte vers la création musicale sans pression. Voilà pourquoi il est aujourd'hui une icône culturelle reconnue mondialement, un partenaire idéal pour qui veut s'essayer à faire vibrer quelques notes. 🎵
 
 Pour aller plus loin, tu peux lire [la méthode simple pour débuter le ukulélé](/blog/debuter-ukulele-methode-simple-apprendre/).
-Pour un parcours guidé, voir nos [cours de ukulélé](/cours/cours-de-ukulele).
+Pour un parcours guidé, voir nos [cours de ukulélé](/cours/cours-de-ukulele/).

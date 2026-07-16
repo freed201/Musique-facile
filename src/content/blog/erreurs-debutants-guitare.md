@@ -34,7 +34,7 @@ conclusion: "Tu connais maintenant les 10 erreurs qui font le plus souvent aband
 
 Dans quelques mois, si tu appliques ces conseils, tu joueras des morceaux que tu pensais impossibles aujourd'hui. **La guitare n'est pas difficile, elle est juste souvent mal enseignée.**
 
-**Prêt à passer à l'action ?** Découvre nos cours de guitare complets pour débutants. [👉 Voir nos formations de guitare](/cours/cours-de-guitare)
+**Prêt à passer à l'action ?** Découvre nos cours de guitare complets pour débutants. [👉 Voir nos formations de guitare](/cours/cours-de-guitare/)
 
 Tu préfères commencer gratuitement ? Consulte nos nombreux tutoriels vidéo sur YouTube et sur le blog pour continuer ta progression. La guitare t'attend ! 🎸✨"
 videos:

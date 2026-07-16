@@ -43,7 +43,7 @@ conclusion: "Le ukulélé ne soigne pas, mais faire de la musique fait réelleme
 
 **Le vrai atout du ukulélé, c'est l'accessibilité.** C'est l'instrument qui demande le moins d'efforts pour le plus de plaisir rapide. Et un instrument qu'on a vraiment envie de prendre en main chaque jour, c'est un instrument qui finit par faire du bien.
 
-**Envie de t'y mettre, simplement, à ton rythme ?** Découvre notre méthode pensée pour les débutants complets. [👉 Commencer le ukulélé](https://musique-facile.fr/cours/cours-de-ukulele) 🎵
+**Envie de t'y mettre, simplement, à ton rythme ?** Découvre notre méthode pensée pour les débutants complets. [👉 Commencer le ukulélé](https://musique-facile.fr/cours/cours-de-ukulele/) 🎵
 
 _Note importante : cet article est informatif et ne constitue pas un avis médical. Le ukulélé est un complément bien-être agréable, jamais un substitut à un traitement. En cas de mal-être durable, de dépression ou d'anxiété, consulte un professionnel de santé._"
 videos:

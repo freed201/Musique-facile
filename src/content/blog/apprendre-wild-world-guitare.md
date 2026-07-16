@@ -34,13 +34,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser les ballades folk à la guitare."
   - title: "Fields of Gold - Sting"
-    url: "/blog/jouer-fields-of-gold-sting"
+    url: "/blog/jouer-fields-of-gold-sting/"
     description: "Une autre ballade folk-pop intemporelle."
   - title: "Stand by Me - Ben E. King"
-    url: "/blog/apprendre-stand-by-me-guitare"
+    url: "/blog/apprendre-stand-by-me-guitare/"
     description: "Un classique des années 60 avec progression simple."
 instrument: "guitare"
 category: "tutoriel"

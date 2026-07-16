@@ -73,4 +73,4 @@ En guitare comme pour une plante, on ne voit pas pousser sur le moment. D'où l'
 
 Et célèbre chaque étape, même modestement. Un « yes ! » intérieur, c'est déjà une tape dans le dos. Surtout, ne vis pas ces 10 minutes comme une corvée : rappelle-toi pourquoi tu as commencé — ces moments où les notes s'enchaînent toutes seules. Pour aller plus loin, découvre aussi [le top 5 des accords indispensables à enchaîner](/blog/top-5-accords-guitare-debutants-enchainement-facile/).
 
-Pour aller plus loin, lis [une séance de pratique efficace en 30 minutes](/blog/seance-pratique-efficace-30-minutes/). Et pour un parcours guidé, découvre nos [cours de guitare](/cours/cours-de-guitare).
+Pour aller plus loin, lis [une séance de pratique efficace en 30 minutes](/blog/seance-pratique-efficace-30-minutes/). Et pour un parcours guidé, découvre nos [cours de guitare](/cours/cours-de-guitare/).

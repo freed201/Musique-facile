@@ -112,7 +112,7 @@ const hubAggregateOffer = {
 const courseLDSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
-  "@id": "https://musique-facile.fr/cours/cours-de-piano#course",
+  "@id": "https://musique-facile.fr/cours/cours-de-piano/#course",
   "name": "Cours de Piano en Ligne",
   "description": "Maîtrisez le piano grâce à nos cours en ligne accessibles à tous. Apprenez à jouer vos morceaux préférés avec des leçons claires et des exercices adaptés à votre niveau.",
   "provider": {
@@ -243,8 +243,8 @@ const faqSchema = {
     <BreadcrumbNav 
       items={[
         { name: "Accueil", url: "/" },
-        { name: "Cours", url: "/cours" },
-        { name: "Cours de Piano", url: "/cours/cours-de-piano" }
+        { name: "Cours", url: "/cours/" },
+        { name: "Cours de Piano", url: "/cours/cours-de-piano/" }
       ]}
     />
     
@@ -273,7 +273,7 @@ const faqSchema = {
         <div class="courses-wrapper">
           {pianoCourses.map((course, index) => (
             <article class="course-card" id={`course-${index + 1}`}>
-              <a href={`/cours/${course.slug}`} class="course-link">
+              <a href={`/cours/${course.slug}/`} class="course-link">
                 <div class="course-image" style={`background-image: url(${course.data.ogImage})`}>
                   <div class="course-meta">
                     {course.data.bestSeller && (
@@ -350,7 +350,7 @@ const faqSchema = {
           <div class="exercise-card">
             <h3>Maîtrise Digitale</h3>
             <p>Renforcez le contrôle et l'agilité de vos doigts avec nos 5 exercices essentiels.</p>
-            <a href="/cours/cours-exercices-techniques-piano" class="exercise-link">
+            <a href="/cours/cours-exercices-techniques-piano/" class="exercise-link">
               Découvrir les exercices <span>→</span>
             </a>
           </div>
@@ -358,7 +358,7 @@ const faqSchema = {
           <div class="exercise-card">
             <h3>L'Art des Accords</h3>
             <p>Apprenez à jouer, comprendre et utiliser les accords au piano efficacement.</p>
-            <a href="/cours/apprendre-les-accords-piano" class="exercise-link">
+            <a href="/cours/apprendre-les-accords-piano/" class="exercise-link">
               Explorer les accords <span>→</span>
             </a>
           </div>
@@ -366,7 +366,7 @@ const faqSchema = {
           <div class="exercise-card">
             <h3>Oreille Musicale</h3>
             <p>Développez votre écoute pour enrichir votre jeu et votre expression musicale.</p>
-            <a href="/cours/ameliorer-oreille-piano" class="exercise-link">
+            <a href="/cours/ameliorer-oreille-piano/" class="exercise-link">
               Améliorer votre oreille <span>→</span>
             </a>
           </div>

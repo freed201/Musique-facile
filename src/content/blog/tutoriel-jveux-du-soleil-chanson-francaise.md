@@ -34,13 +34,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour débuter avec les classiques français."
   - title: "Foule Sentimentale - Alain Souchon"
-    url: "/blog/tutoriel-foule-sentimentale-chanson"
+    url: "/blog/tutoriel-foule-sentimentale-chanson/"
     description: "Un autre classique de la chanson française des années 90."
   - title: "L'Opportuniste - Jacques Dutronc"
-    url: "/blog/jouer-lopportuniste-dutronc-guitare"
+    url: "/blog/jouer-lopportuniste-dutronc-guitare/"
     description: "Une chanson française satirique et accessible."
 instrument: "guitare"
 category: "tutoriel"

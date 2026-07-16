@@ -66,7 +66,7 @@ function getThemeLabel(theme: string): string {
       <h2 class="related-title">Ces formations pourraient aussi vous plaire</h2>
       <div class="related-grid">
         {relatedCourses.map(course => (
-          <a href={`/cours/${course.slug}`} class="related-card">
+          <a href={`/cours/${course.slug}/`} class="related-card">
             <div class="card-image" style={`background-image: url(/images/cours/${course.slug}/hero.webp)`}>
               <div class="card-badge">
                 <Icon name={getThemeIconName(course.data.theme)} size={16} /> {getThemeLabel(course.data.theme)}

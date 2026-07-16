@@ -15,7 +15,7 @@ ogImage: "/images/blog/guide-complet-apprentissage-piano.webp"
 datePublished: "2026-02-05"
 dateModified: "2026-07-02"
 introduction: "Oui, apprendre le piano à tout âge est possible, et même plus facile pour les adultes. Trois étapes : **1) choisis ton instrument** (acoustique, numérique ou clavier, 300-2000 € selon ton budget), **2) maîtrise tes premières mélodies** à deux mains en 2-3 semaines, **3) pratique 15-20 minutes par jour** avec une routine structurée. Ce guide t'accompagne pas à pas."
-conclusion: "Tu as maintenant toutes les clés pour débuter le piano efficacement. En choisissant le bon instrument, en structurant tes séances de 15-20 minutes par jour, et en restant motivé avec des objectifs réalistes, tu joueras tes premiers morceaux en 2-3 semaines. N'oublie pas : la régularité vaut mieux que l'intensité, et le plaisir est le meilleur moteur. Prêt à te lancer ? Rejoins notre formation [Piano Facile](/cours/cours-de-piano) pour un accompagnement pas à pas et transforme ton rêve en réalité !"
+conclusion: "Tu as maintenant toutes les clés pour débuter le piano efficacement. En choisissant le bon instrument, en structurant tes séances de 15-20 minutes par jour, et en restant motivé avec des objectifs réalistes, tu joueras tes premiers morceaux en 2-3 semaines. N'oublie pas : la régularité vaut mieux que l'intensité, et le plaisir est le meilleur moteur. Prêt à te lancer ? Rejoins notre formation [Piano Facile](/cours/cours-de-piano/) pour un accompagnement pas à pas et transforme ton rêve en réalité !"
 faqs:
   - question: "Combien de temps faut-il pour apprendre le piano ?"
     answer: "Avec 15-20 minutes de pratique quotidienne, tu peux jouer ta première mélodie simple en 2-3 semaines. Les deux mains ensemble sont accessibles dès la 3ème semaine. Pour atteindre un niveau intermédiaire (30-40 morceaux), compte 6-12 mois de pratique régulière."
@@ -125,7 +125,7 @@ Le choix de ton premier instrument dépend de ton budget, de ton espace et de te
 - **Casio** : Entrée de gamme abordable (CDP-S110, PX-S1100)
 - **Kawai** : Toucher exceptionnel (ES120, KDP-120)
 
-Pour approfondir le choix de ton instrument, consulte notre [guide des meilleures ressources pour apprendre le piano](/blog/ressources-apprendre-le-piano).
+Pour approfondir le choix de ton instrument, consulte notre [guide des meilleures ressources pour apprendre le piano](/blog/ressources-apprendre-le-piano/).
 
 ---
 
@@ -207,11 +207,11 @@ Sol Sol La Sol Ré Do (5-5-4-5-2-1)
 - **Simply Piano** : Parcours progressif ludique
 
 **Cours structurés :**
-- Notre formation [Piano Facile](/cours/cours-de-piano) avec méthode visuelle + solfège progressif
+- Notre formation [Piano Facile](/cours/cours-de-piano/) avec méthode visuelle + solfège progressif
 - **Méthode Hanon** : Exercices techniques (gratuit PDF)
 - **Méthode Beyer** : Classique pour débuter
 
-Pour des exercices complémentaires, consulte [3 exercices simples pour progresser au piano](/blog/3-exercices-simples-progresser-piano-adulte-cours-de-piano).
+Pour des exercices complémentaires, consulte [3 exercices simples pour progresser au piano](/blog/3-exercices-simples-progresser-piano-adulte-cours-de-piano/).
 
 ---
 
@@ -296,7 +296,7 @@ Objectif : Jouer un morceau que tu aimes (même incomplet)
 - Conséquence : Déséquilibre, morceau incomplet
 - Solution : Pratique main gauche seule autant que main droite
 
-Pour structurer efficacement tes sessions, consulte [Séance de pratique efficace en 30 minutes](/blog/seance-pratique-efficace-30-minutes).
+Pour structurer efficacement tes sessions, consulte [Séance de pratique efficace en 30 minutes](/blog/seance-pratique-efficace-30-minutes/).
 
 ---
 
@@ -507,7 +507,7 @@ Main droite : Do-Mi-Fa-Sol-Fa-Mi (répété en montant)
 
 > **🎯 Important :** Ne te compare PAS aux pianistes YouTube qui jouent depuis 10 ans. Compare-toi UNIQUEMENT à toi d'il y a 1 mois. Progression personnelle > comparaison externe.
 
-Pour rester motivé en cas de stagnation, lis [Pourquoi tu stagnes en musique (et comment débloquer)](/blog/pourquoi-tu-stagnes-en-musique).
+Pour rester motivé en cas de stagnation, lis [Pourquoi tu stagnes en musique (et comment débloquer)](/blog/pourquoi-tu-stagnes-en-musique/).
 
 ---
 
@@ -550,7 +550,7 @@ Les cours en ligne sont devenus une option crédible pour 75% des débutants adu
 - Méthode 100% français pour adultes
 - Pas de solfège obligatoire au début
 - Accompagnement personnalisé par Fred
-- [Garantie 15 jours satisfait ou remboursé](/cours/cours-de-piano)
+- [Garantie 15 jours satisfait ou remboursé](/cours/cours-de-piano/)
 
 **Simply Piano (Joytunes)**
 - 15€/mois
@@ -748,6 +748,6 @@ Jouer un morceau complet est le meilleur boost de motivation.
 
 **Tu es prêt à commencer ton aventure piano ?** Avec ce guide, tu as toutes les clés pour progresser efficacement. Régularité, plaisir et patience sont tes meilleurs alliés.
 
-Rejoins dès maintenant notre [formation piano débutant](/cours/piano-facile-apprendre-debutant) (148 leçons, paiement unique, accès à vie) pour un accompagnement pas à pas et joue tes morceaux préférés dès les premières semaines ! 🎹
+Rejoins dès maintenant notre [formation piano débutant](/cours/piano-facile-apprendre-debutant/) (148 leçons, paiement unique, accès à vie) pour un accompagnement pas à pas et joue tes morceaux préférés dès les premières semaines ! 🎹
 
-*Tu préfères la guitare ou l'ukulélé ? Découvre aussi nos [cours de guitare en ligne](/cours/cours-de-guitare) et nos [cours d'ukulélé en ligne](/cours/cours-de-ukulele).*
+*Tu préfères la guitare ou l'ukulélé ? Découvre aussi nos [cours de guitare en ligne](/cours/cours-de-guitare/) et nos [cours d'ukulélé en ligne](/cours/cours-de-ukulele/).*

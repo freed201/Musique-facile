@@ -36,13 +36,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser les classiques rock-reggae."
   - title: "Redemption Song - Bob Marley"
-    url: "/blog/apprendre-redemption-song-guitare"
+    url: "/blog/apprendre-redemption-song-guitare/"
     description: "Un classique reggae acoustique intemporel."
   - title: "Stand by Me - Ben E. King"
-    url: "/blog/apprendre-stand-by-me-guitare"
+    url: "/blog/apprendre-stand-by-me-guitare/"
     description: "Une ballade soul avec une rythmique groove."
 instrument: "guitare"
 category: "tutoriel"

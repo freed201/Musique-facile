@@ -35,13 +35,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser les ballades rock émotionnelles."
   - title: "Everybody Hurts - R.E.M."
-    url: "/blog/tutoriel-everybody-hurts-facile"
+    url: "/blog/tutoriel-everybody-hurts-facile/"
     description: "Une autre ballade rock porteuse d'espoir et d'émotion."
   - title: "Chasing Cars - Snow Patrol"
-    url: "/blog/apprendre-chasing-cars-guitare"
+    url: "/blog/apprendre-chasing-cars-guitare/"
     description: "Une ballade rock moderne et accessible."
 instrument: "guitare"
 category: "tutoriel"

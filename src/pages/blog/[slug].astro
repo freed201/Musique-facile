@@ -137,16 +137,16 @@ const leadMagnetId = entry.data.leadMagnet
 // Construction des breadcrumbs dynamiques
 const breadcrumbItems = [
   { name: "Accueil", url: "/" },
-  { name: "Blog", url: "/blog" }
+  { name: "Blog", url: "/blog/" }
 ];
 
 // Ajouter un niveau intermédiaire si l'article a un instrument spécifique
 if (entry.data.instrument && entry.data.instrument !== 'général') {
   const instrumentMap: Record<string, { name: string; url: string }> = {
-    'guitare': { name: 'Guitare', url: '/blog/guitare' },
-    'piano': { name: 'Piano', url: '/blog/piano' },
-    'ukulele': { name: 'Ukulélé', url: '/blog/ukulele' },
-    'solfege': { name: 'Solfège', url: '/blog/solfege' }
+    'guitare': { name: 'Guitare', url: '/blog/guitare/' },
+    'piano': { name: 'Piano', url: '/blog/piano/' },
+    'ukulele': { name: 'Ukulélé', url: '/blog/ukulele/' },
+    'solfege': { name: 'Solfège', url: '/blog/solfege/' }
   };
 
   const instrumentData = instrumentMap[entry.data.instrument];
@@ -164,7 +164,7 @@ if (entry.data.siloSlug && !entry.data.pillar) {
   if (pillarArticle) {
     breadcrumbItems.push({
       name: pillarArticle.data.title,
-      url: `/blog/${pillarArticle.slug}`
+      url: `/blog/${pillarArticle.slug}/`
     });
   }
 }
@@ -239,13 +239,13 @@ if (entry.data.siloSlug && !entry.data.pillar) {
     {entry.data.multi === 'Y' && (
       <nav class="article-navigation top-nav">
         {entry.data.prev && (
-          <a href={`/blog/${entry.data.prev}`} class="nav-link prev">
+          <a href={`/blog/${entry.data.prev}/`} class="nav-link prev">
             <span class="nav-arrow">←</span>
             <span class="nav-text">Page précédente</span>
           </a>
         )}
         {entry.data.next && (
-          <a href={`/blog/${entry.data.next}`} class="nav-link next">
+          <a href={`/blog/${entry.data.next}/`} class="nav-link next">
             <span class="nav-text">Page suivante</span>
             <span class="nav-arrow">→</span>
           </a>
@@ -419,13 +419,13 @@ if (entry.data.siloSlug && !entry.data.pillar) {
       {entry.data.multi === 'Y' && (
         <nav class="article-navigation bottom-nav">
           {entry.data.prev && (
-            <a href={`/blog/${entry.data.prev}`} class="nav-link prev">
+            <a href={`/blog/${entry.data.prev}/`} class="nav-link prev">
               <span class="nav-arrow">←</span>
               <span class="nav-text">Page précédente</span>
             </a>
           )}
           {entry.data.next && (
-            <a href={`/blog/${entry.data.next}`} class="nav-link next">
+            <a href={`/blog/${entry.data.next}/`} class="nav-link next">
               <span class="nav-text">Page suivante</span>
               <span class="nav-arrow">→</span>
             </a>
@@ -437,7 +437,7 @@ if (entry.data.siloSlug && !entry.data.pillar) {
         <div class="container">
           <h2 class="section-title">Alors, prêt(e) à rejoindre l'aventure ?</h2>
           <div class="buttons-grid">
-            <a href="/cours/cours-de-guitare" class="course-button theme-guitar">
+            <a href="/cours/cours-de-guitare/" class="course-button theme-guitar">
               <div class="button-background" style="background-image: url('/images/cours/cours-de-guitare.webp')"></div>
               <div class="button-content">
                 <span class="button-icon">🎸</span>
@@ -449,7 +449,7 @@ if (entry.data.siloSlug && !entry.data.pillar) {
               </div>
             </a>
 
-            <a href="/cours/cours-de-piano" class="course-button theme-piano">
+            <a href="/cours/cours-de-piano/" class="course-button theme-piano">
               <div class="button-background" style="background-image: url('/images/cours/cours-de-piano.webp')"></div>
               <div class="button-content">
                 <span class="button-icon">🎹</span>
@@ -461,7 +461,7 @@ if (entry.data.siloSlug && !entry.data.pillar) {
               </div>
             </a>
 
-            <a href="/cours/cours-de-ukulele" class="course-button theme-ukulele">
+            <a href="/cours/cours-de-ukulele/" class="course-button theme-ukulele">
               <div class="button-background" style="background-image: url('/images/cours/cours-de-ukulele.webp')"></div>
               <div class="button-content">
                 <span class="button-icon">🏖️</span>
@@ -473,7 +473,7 @@ if (entry.data.siloSlug && !entry.data.pillar) {
               </div>
             </a>
 
-            <a href="/cours/cours-de-solfege" class="course-button theme-solfege">
+            <a href="/cours/cours-de-solfege/" class="course-button theme-solfege">
               <div class="button-background" style="background-image: url('/images/cours/cours-de-solfege.webp')"></div>
               <div class="button-content">
                 <span class="button-icon">🎼</span>

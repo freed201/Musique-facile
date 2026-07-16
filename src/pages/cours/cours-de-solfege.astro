@@ -109,7 +109,7 @@ const hubAggregateOffer = {
 const courseLDSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
-  "@id": "https://musique-facile.fr/cours/cours-de-solfege#course",
+  "@id": "https://musique-facile.fr/cours/cours-de-solfege/#course",
   "name": "Cours de Solfège en Ligne",
   "description": "Apprends le solfège en ligne en toute simplicité. Des cours clairs, progressifs et concrets pour comprendre la musique, lire une partition et développer ton oreille musicale efficacement.",
   "provider": {
@@ -239,8 +239,8 @@ const faqSchema = {
     <BreadcrumbNav 
       items={[
         { name: "Accueil", url: "/" },
-        { name: "Cours", url: "/cours" },
-        { name: "Cours de Solfège", url: "/cours/cours-de-solfege" }
+        { name: "Cours", url: "/cours/" },
+        { name: "Cours de Solfège", url: "/cours/cours-de-solfege/" }
       ]}
     />
     
@@ -269,7 +269,7 @@ const faqSchema = {
         <div class="courses-wrapper">
           {solfegeCourses.map((course, index) => (
             <article class="course-card" id={`course-${index + 1}`}>
-              <a href={`/cours/${course.slug}`} class="course-link">
+              <a href={`/cours/${course.slug}/`} class="course-link">
                 <div class="course-image" style={`background-image: url(${course.data.ogImage})`}>
                   <div class="course-meta">
                     {course.data.bestSeller && (

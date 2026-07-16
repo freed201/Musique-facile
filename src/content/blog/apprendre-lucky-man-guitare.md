@@ -35,13 +35,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation complète pour débuter la guitare avec les bonnes bases."
   - title: "Wonderwall - Tutoriel Guitare Britpop"
-    url: "/blog/apprendre-wonderwall-guitare"
+    url: "/blog/apprendre-wonderwall-guitare/"
     description: "Un autre classique Britpop incontournable des années 90."
   - title: "Chasing Cars - Cours de Guitare"
-    url: "/blog/apprendre-chasing-cars-guitare"
+    url: "/blog/apprendre-chasing-cars-guitare/"
     description: "Apprenez cette ballade rock avec des accords suspendus."
 instrument: "guitare"
 category: "tutoriel"

@@ -35,13 +35,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser les classiques français."
   - title: "Foule Sentimentale - Alain Souchon"
-    url: "/blog/tutoriel-foule-sentimentale-chanson"
+    url: "/blog/tutoriel-foule-sentimentale-chanson/"
     description: "Une autre chanson française poétique et engagée."
   - title: "La Seine - Vanessa Paradis & -M-"
-    url: "/blog/jouer-la-seine-vanessa-m"
+    url: "/blog/jouer-la-seine-vanessa-m/"
     description: "Une ballade française romantique et poétique."
 instrument: "guitare"
 category: "tutoriel"

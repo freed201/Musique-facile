@@ -9,7 +9,7 @@ ogImage: "/images/blog/15-chansons-faciles-ukulele.webp"
 datePublished: "2026-02-17"
 dateModified: "2026-07-07"
 introduction: "Tu veux apprendre l'ukulélé mais tu ne sais pas par quelles chansons commencer ? Après avoir formé **4 900+ élèves débutants**, voici ma sélection des 15 meilleures chansons pour progresser rapidement — avec les accords exacts, le niveau de difficulté, et l'ordre dans lequel les apprendre."
-conclusion: "Ces 15 chansons couvrent tous les accords essentiels et tous les styles musicaux que tu vas aimer jouer. Commence par les ⭐ et progresse à ton rythme. La clé : 15 minutes par jour, de la régularité, et surtout du plaisir ! Pour aller plus vite et plus loin, rejoins notre [formation ukulélé débutant](/cours/apprendre-ukulele-debutant) — 41 vidéos, 79€ paiement unique, accès à vie."
+conclusion: "Ces 15 chansons couvrent tous les accords essentiels et tous les styles musicaux que tu vas aimer jouer. Commence par les ⭐ et progresse à ton rythme. La clé : 15 minutes par jour, de la régularité, et surtout du plaisir ! Pour aller plus vite et plus loin, rejoins notre [formation ukulélé débutant](/cours/apprendre-ukulele-debutant/) — 41 vidéos, 79€ paiement unique, accès à vie."
 faqs:
   - question: "Quelle est la chanson la plus facile à jouer à l'ukulélé pour un débutant absolu ?"
     answer: "Somewhere Over the Rainbow (version IZ) est LA chanson idéale pour débuter. Elle n'utilise que 4 accords (C, G, Am, F), le tempo est lent, et elle est immédiatement reconnaissable. En 30 minutes de pratique, tu peux jouer l'intro complète. C'est la chanson que je fais jouer à tous mes élèves lors de la première semaine."
@@ -291,9 +291,9 @@ Pour apprendre ces chansons pas à pas :
 
 - **YouTube** : Recherche le nom de la chanson + "ukulele tutorial beginner" ou "ukulele débutant"
 - **Ultimate-Guitar.com** : Filtre "ukulele" pour avoir les tablatures officielles
-- **Notre formation complète** : [Cours Ukulélé Débutant](/cours/apprendre-ukulele-debutant) — 41 vidéos progressives, de l'accordage à ton premier répertoire
+- **Notre formation complète** : [Cours Ukulélé Débutant](/cours/apprendre-ukulele-debutant/) — 41 vidéos progressives, de l'accordage à ton premier répertoire
 
-Pour approfondir ta pratique, découvre aussi notre article sur [comment débuter l'ukulélé avec la méthode simple](/blog/debuter-ukulele-methode-simple-apprendre) et notre guide sur [les 5 accords indispensables pour jouer 100 chansons à l'ukulélé](/blog/5-accords-indispensables-jouer-100-chansons-ukulele).
+Pour approfondir ta pratique, découvre aussi notre article sur [comment débuter l'ukulélé avec la méthode simple](/blog/debuter-ukulele-methode-simple-apprendre/) et notre guide sur [les 5 accords indispensables pour jouer 100 chansons à l'ukulélé](/blog/5-accords-indispensables-jouer-100-chansons-ukulele/).
 
 ---
 
@@ -303,6 +303,6 @@ Tu as maintenant une feuille de route claire. 15 chansons, organisées par nivea
 
 **Mon conseil n°1 :** Ne passe pas à la chanson suivante avant de pouvoir jouer la précédente sans regarder les accords. La solidité des bases est ce qui fait la différence entre un débutant qui abandonne après 3 semaines et un musicien qui joue encore 10 ans plus tard.
 
-Prêt à accélérer ta progression ? Rejoins notre [formation ukulélé débutant](/cours/apprendre-ukulele-debutant) pour 41 leçons vidéo HD, de l'accordage jusqu'à ton premier répertoire complet — **79€ paiement unique, accès à vie, garantie 15 jours**.
+Prêt à accélérer ta progression ? Rejoins notre [formation ukulélé débutant](/cours/apprendre-ukulele-debutant/) pour 41 leçons vidéo HD, de l'accordage jusqu'à ton premier répertoire complet — **79€ paiement unique, accès à vie, garantie 15 jours**.
 
-*Tu hésites encore entre l'ukulélé et la guitare ? Consulte notre [quiz : quel instrument choisir](/quel-instrument-choisir) pour trouver l'instrument qui te correspond vraiment.*
+*Tu hésites encore entre l'ukulélé et la guitare ? Consulte notre [quiz : quel instrument choisir](/quel-instrument-choisir/) pour trouver l'instrument qui te correspond vraiment.*

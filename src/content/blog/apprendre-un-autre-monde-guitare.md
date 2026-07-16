@@ -34,13 +34,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser le rock français à la guitare."
   - title: "Foule Sentimentale - Alain Souchon"
-    url: "/blog/tutoriel-foule-sentimentale-chanson"
+    url: "/blog/tutoriel-foule-sentimentale-chanson/"
     description: "Un autre classique du rock français poétique."
   - title: "Machistador - -M-"
-    url: "/blog/apprendre-machistador-guitare"
+    url: "/blog/apprendre-machistador-guitare/"
     description: "Le groove funky de Matthieu Chedid."
 instrument: "guitare"
 category: "tutoriel"

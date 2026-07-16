@@ -59,7 +59,7 @@ const booksSchema = {
         <div class="books-wrapper">
           {sortedBooks.map(book => (
             <article class="book-card">
-              <a href={`/livres/${book.slug}`} class="book-link">
+              <a href={`/livres/${book.slug}/`} class="book-link">
                 <div class="book-cover">
                   <img 
                     src={book.data.coverImage} 

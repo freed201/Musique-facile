@@ -35,13 +35,13 @@ conclusion: |
 
 relatedLinks:
   - title: "Apprendre la Guitare Débutant : Cours Complet"
-    url: "/cours/apprendre-guitare-debutant"
+    url: "/cours/apprendre-guitare-debutant/"
     description: "Formation pour maîtriser la chanson française à la guitare."
   - title: "La Seine - Vanessa Paradis & -M-"
-    url: "/blog/jouer-la-seine-vanessa-m"
+    url: "/blog/jouer-la-seine-vanessa-m/"
     description: "Une belle ballade poétique française."
   - title: "J'veux du Soleil - Au P'tit Bonheur"
-    url: "/blog/tutoriel-jveux-du-soleil-chanson-francaise"
+    url: "/blog/tutoriel-jveux-du-soleil-chanson-francaise/"
     description: "Un autre hit feel-good de la chanson française."
 instrument: "guitare"
 category: "tutoriel"
