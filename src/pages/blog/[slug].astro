@@ -85,6 +85,19 @@ const showTOC = headings.filter(h => h.depth === 2 || h.depth === 3).length >= 5
 const wordCount = entry.body.split(/\s+/).length; // Nombre de mots
 const readingTime = Math.ceil(wordCount / 250); // 250 mots/minute en moyenne
 
+// Date de mise à jour visible : affichée seulement si elle diffère vraiment de
+// la date de publication (une date de MàJ identique n'apporte aucun signal, et
+// les moteurs IA privilégient les contenus dont la fraîcheur est explicite).
+const isUpdated = Boolean(dateModified) &&
+  new Date(dateModified).toDateString() !== new Date(datePublished).toDateString();
+const formattedDateModified = isUpdated
+  ? new Date(dateModified).toLocaleDateString('fr-FR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+  : '';
+
 // Construction de l'URL complète pour schema.org
 const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
 
@@ -225,6 +238,11 @@ if (entry.data.siloSlug && !entry.data.pillar) {
               day: 'numeric'
             })}
           </time>
+          {isUpdated && (
+            <span class="article-updated">
+              Mis à jour le <time datetime={dateModified}>{formattedDateModified}</time>
+            </span>
+          )}
           <span class="article-author">Par {author}</span>
           <span class="reading-time" title={`Environ ${readingTime} minute${readingTime > 1 ? 's' : ''} de lecture`}>
             📖 {readingTime} min
@@ -529,6 +547,14 @@ if (entry.data.siloSlug && !entry.data.pillar) {
     font-size: 0.9rem;
     font-weight: 600;
     cursor: help;
+  }
+
+  .article-updated {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
   }
 
   .song-info {

@@ -7,7 +7,7 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/15-chansons-faciles-ukulele.webp"
 datePublished: "2026-02-17"
-dateModified: "2026-07-07"
+dateModified: "2026-07-16"
 introduction: "Tu veux apprendre l'ukulélé mais tu ne sais pas par quelles chansons commencer ? Après avoir formé **4 900+ élèves débutants**, voici ma sélection des 15 meilleures chansons pour progresser rapidement — avec les accords exacts, le niveau de difficulté, et l'ordre dans lequel les apprendre."
 conclusion: "Ces 15 chansons couvrent tous les accords essentiels et tous les styles musicaux que tu vas aimer jouer. Commence par les ⭐ et progresse à ton rythme. La clé : 15 minutes par jour, de la régularité, et surtout du plaisir ! Pour aller plus vite et plus loin, rejoins notre [formation ukulélé débutant](/cours/apprendre-ukulele-debutant/) — 41 vidéos, 79€ paiement unique, accès à vie."
 faqs:
@@ -257,7 +257,11 @@ Les chansons sont classées du plus facile (⭐) au plus difficile (⭐⭐⭐).
 
 ---
 
-## Plan de progression recommandé
+## En combien de temps peut-on jouer ces 15 chansons ?
+
+**Comptez environ 2 mois à raison de 15 minutes par jour pour couvrir les 15 chansons**, avec les 2 premières jouables dès la fin de la première semaine. Les 10 premières s'étalent sur 4 semaines ; les 5 dernières, qui demandent un barré partiel et un rythme à 3 temps, occupent le deuxième mois.
+
+Ce rythme est celui que je constate chez mes élèves qui pratiquent tous les jours. En pratiquant 3 fois par semaine, comptez plutôt le double. La régularité pèse davantage que la durée des séances.
 
 | Semaine | Chansons à travailler | Compétences développées |
 |---------|----------------------|------------------------|
@@ -269,9 +273,11 @@ Les chansons sont classées du plus facile (⭐) au plus difficile (⭐⭐⭐).
 
 ---
 
-## Les accords indispensables à maîtriser
+## Quels accords faut-il connaître pour jouer ces 15 chansons ?
 
-Ces **7 accords** couvrent les 15 chansons de cette liste :
+**Sept accords suffisent : C, G, Am, F, E7, D et G7.** Quatre d'entre eux (C, G, Am, F) couvrent déjà les cinq premières chansons, et le C ne demande qu'un seul doigt. Les trois autres (E7, D, G7) n'arrivent qu'à partir de la deuxième semaine.
+
+Autrement dit, vous n'avez pas besoin d'apprendre un catalogue d'accords avant de jouer votre première chanson. Deux accords suffisent à démarrer.
 
 | Accord | Doigts nécessaires | Chansons où il apparaît |
 |--------|-------------------|------------------------|
@@ -285,9 +291,11 @@ Ces **7 accords** couvrent les 15 chansons de cette liste :
 
 ---
 
-## Où trouver les tablatures et tutoriels vidéo
+## Où trouver les tablatures et tutoriels de ces chansons ?
 
-Pour apprendre ces chansons pas à pas :
+**Trois sources couvrent l'essentiel : YouTube pour les tutoriels vidéo, Ultimate-Guitar pour les tablatures, et une formation structurée si vous voulez une progression plutôt qu'une collection de morceaux isolés.** Les deux premières sont gratuites, et suffisent si vous savez déjà ce que vous cherchez.
+
+La limite du tutoriel isolé, c'est qu'il vous apprend une chanson, pas l'instrument. C'est la raison pour laquelle tant de débutants savent jouer trois morceaux et bloquent sur le quatrième.
 
 - **YouTube** : Recherche le nom de la chanson + "ukulele tutorial beginner" ou "ukulele débutant"
 - **Ultimate-Guitar.com** : Filtre "ukulele" pour avoir les tablatures officielles

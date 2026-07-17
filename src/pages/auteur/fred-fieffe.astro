@@ -36,9 +36,34 @@ const personSchema = {
     "sameAs": [
       "https://www.youtube.com/@Musique-Facile",
       "https://www.tiktok.com/@musique_facile",
+      "https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-fieff%C3%A9/",
       "https://musique-facile.fr"
     ],
     "award": ["Prix spécial Samuel Paty des DDEN 2024 (spectacle « La Légende des 4 Terres »)", "Meilleur formateur Skilleos 2023/2024"],
+    // Doit rester aligné sur le authorSchema de ArticleLayout.astro : les deux
+    // décrivent la même personne et les moteurs les recoupent.
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Expérience professionnelle",
+        "name": "Musicien professionnel depuis plus de 40 ans"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Expérience professionnelle",
+        "name": "15 ans d'enseignement de la musique, plus de 80 000 élèves formés"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Publication",
+        "name": "Auteur publié chez Hal Leonard"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Formation professionnelle",
+        "name": "Formateur LinkedIn Learning"
+      }
+    ],
     "worksFor": {
       "@type": "Organization",
       "name": "Musique Facile",

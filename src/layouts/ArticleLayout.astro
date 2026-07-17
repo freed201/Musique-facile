@@ -126,6 +126,35 @@ const authorSchema = {
     "https://musique-facile.fr"
   ],
   "knowsAbout": ["guitare", "piano", "ukulélé", "solfège", "pédagogie musicale"],
+  // E-E-A-T : les crédentiels rendent l'auteur identifiable et vérifiable, ce
+  // que les moteurs IA privilégient pour citer une source. Doit rester aligné
+  // sur /auteur/fred-fieffe/ et sur .claude/rules/contenu-credibilite.md.
+  "award": [
+    "Prix spécial Samuel Paty des DDEN 2024 (spectacle « La Légende des 4 Terres »)",
+    "Meilleur formateur Skilleos 2023/2024"
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Expérience professionnelle",
+      "name": "Musicien professionnel depuis plus de 40 ans"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Expérience professionnelle",
+      "name": "15 ans d'enseignement de la musique, plus de 80 000 élèves formés"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Publication",
+      "name": "Auteur publié chez Hal Leonard"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Formation professionnelle",
+      "name": "Formateur LinkedIn Learning"
+    }
+  ],
   "worksFor": {
     "@type": "Organization",
     "name": "Musique Facile",
