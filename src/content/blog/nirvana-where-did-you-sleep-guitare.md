@@ -128,3 +128,9 @@ Leur album "Nevermind" (1991) a marqué un tournant dans l'histoire du rock.
 Cobain, musicien ultra sensible, s'est imposé par sa voix, sa fragilité, son intensité. Son style unique continue d'inspirer une génération entière, bien au-delà du grunge.
 
 > **Attention.** Ne te décourage pas si l'interprétation te semble difficile : le plus important, c'est de jouer avec ton cœur et de ressentir le morceau. La technique suivra avec la pratique !
+
+## Aller plus loin dans le blues folk
+
+Ce morceau vient d'un vieux blues traditionnel, et c'est aussi par là qu'on peut le prolonger. Le balancement ternaire du blues, ces croches longue-courte qu'on appelle le shuffle, est ce qui sépare une reprise correcte d'une reprise qui respire. Le [cours de shuffle à la guitare](/cours/apprendre-guitare-shuffle/) en fait le tour en 18 vidéos.
+
+Et si les accords te demandent encore toute ton attention, reprends les bases avec le [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/) avant de revenir à ce morceau.

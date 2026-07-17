@@ -71,6 +71,8 @@ faqs:
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
 
+C'est aussi une bonne porte d'entrée vers le jeu ternaire : ce balancement à trois temps par pulsation est le même que celui du blues et du rock'n'roll. Si le 6/8 de ce morceau te plaît, le [cours de shuffle à la guitare](/cours/apprendre-guitare-shuffle/) t'explique la mécanique complète en 18 vidéos.
+
 ## Qui sont The Animals, la voix d'une génération ?
 
 The Animals, groupe mythique des années 60, a su imposer son style en fusionnant rock, blues et la tradition des ballades folk.  

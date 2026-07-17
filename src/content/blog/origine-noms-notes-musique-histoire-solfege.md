@@ -75,3 +75,9 @@ Mais bon, l'évolution veut qu'aujourd'hui cet intervalle soit devenu un ingréd
 Dans un souffle plus récent, le XXe siècle a bousculé encore plus la vieille école de notes avec des systèmes de notation expérimentaux. Imaginez des partitions qui ressemblent à des œuvres d'art moderne, des symboles abstraits qui capturent l'essence de la musique sans s'embarrasser de lignes ou de clés traditionnelles. Une véritable révolution graphique et sonore.
 
 > Si la musique est devenue un labyrinthe de possibilités infinies, c'est grâce à ces ajoutions sonores qui ont transformé ses chants en un véritable langage universel et éternellement jeune.
+
+## Et maintenant, comment passer de l'histoire à la pratique ?
+
+Connaître l'origine des noms de notes, c'est une chose. Savoir s'en servir en jouant, c'en est une autre. Les altérations et les intervalles évoqués ici sont précisément le point de départ de la [formation solfège expert](/cours/solfege-expert-formation/) : on y construit les accords à partir des intervalles, on harmonise les gammes, et on comprend enfin pourquoi certaines progressions sonnent comme une question et d'autres comme une réponse.
+
+Si vous préférez commencer par les fondations, l'[histoire des noms de notes vue côté solfège](/blog/solfege-noms-des-notes/) reprend la même matière sous un angle plus pratique.

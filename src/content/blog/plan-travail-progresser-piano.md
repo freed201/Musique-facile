@@ -191,6 +191,8 @@ Envie de savoir comment bien organiser l'apprentissage d'un morceau ? Dans cette
 
 ## **3. Exercices Clés pour Progresser Rapidement 🚀**  
 
+Ces exercices demandent des doigts qui répondent. Si les tiens manquent encore de force ou d'indépendance, la formation [Force et agilité au piano](/cours/piano-force-agilite/) travaille ce socle en 15 minutes par jour, en amont de ton plan de travail habituel.  
+
 <div class="tip">
 <b>📌 Indépendance des mains</b>  
 <br>  

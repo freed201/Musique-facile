@@ -1,5 +1,5 @@
 ---
-affichage: "N"
+affichage: "Y"
 classement: 3
 title: "Piano Expressif : L'Art de Jouer avec Force et Finesse"
 description: "Maîtrisez les nuances au piano : de la douceur à la puissance. Exercices pratiques pour une interprétation nuancée et expressive."
@@ -257,3 +257,61 @@ faq:
       answer: "Un support personnalisé est disponible pour répondre à toutes vos questions."
   backgroundPattern: "piano-force-agilite-pattern.svg"
 ---
+
+## Le programme détaillé, exercice par exercice
+
+Les doigts 4 et 5 sont faibles chez tout le monde : c'est anatomique, pas un manque de talent. Le problème, c'est qu'on les contourne au lieu de les travailler, et le déséquilibre s'installe pour des années. Cette formation est bâtie autour de 5 exercices qui s'attaquent à ce point précis. Voici ce que chacun développe.
+
+### Introduction — La manière de travailler
+
+Avant le premier exercice, on règle la question de la méthode : comment travailler sans se faire mal, à quelle vitesse, et quelles erreurs coûtent le plus cher. Le document de cours à télécharger accompagne les 5 exercices.
+
+**Ce que vous en retirez :** une façon de travailler qui évite les tendinites et le découragement. La plupart des pianistes autodidactes forcent au lieu de relâcher.
+
+### Exercice 1 — Motifs et changement de doigts
+
+Un motif simple, décliné en changements de doigts 2-3-4 puis 3-4-5 à la main droite, avant de passer à la main gauche. Puis la même phrase à l'envers, et deux évolutions.
+
+**Ce que vous jouez à la fin :** le motif dans les deux sens, aux deux mains, sans que les doigts 4 et 5 traînent derrière les autres.
+
+### Exercice 2 — Le travail à trois doigts
+
+Cinq variations sur un principe : jouer à trois doigts, mais jamais les mêmes. C'est court sur le papier et redoutable en pratique, parce qu'on ne peut plus compenser avec les doigts forts.
+
+**Ce que vous jouez à la fin :** des combinaisons que la main refusait au départ. C'est l'exercice qui révèle les faiblesses cachées.
+
+### Exercice 3 — Main gauche et rythmes
+
+La main gauche, souvent négligée, prend le premier rôle : phrase en croches, en croche pointée double, puis en shuffle. On y ajoute les montées d'accords majeurs dans les trois rythmes.
+
+**Ce que vous jouez à la fin :** la même phrase en trois rythmiques différentes à la main gauche. Le passage au shuffle prépare directement le [piano shuffle](/cours/apprendre-piano-shuffle/).
+
+### Exercice 4 — Articulation et interprétation
+
+La gamme de Do majeur, main droite puis main gauche puis mains ensemble, déclinée en lié piqué, piqué lié, legato et pizzicato. L'articulation est ce qui donne du relief à une phrase.
+
+**Ce que vous jouez à la fin :** la même gamme avec cinq articulations distinctes et audibles. Vous choisissez votre toucher au lieu de le subir.
+
+### Exercice 5 — Force et agilité
+
+Le dernier exercice concentre le travail de force à la main droite. Il n'a de sens qu'une fois les quatre précédents assimilés.
+
+**Ce que vous jouez à la fin :** des traits rapides sans perte de régularité ni de son sur les doigts faibles.
+
+## À qui s'adresse vraiment cette formation ?
+
+Elle est faite pour les pianistes qui jouent déjà des morceaux mais butent sur la vitesse, la régularité, ou une main gauche qui ne suit pas. Il faut savoir se repérer sur le clavier et lire les notes.
+
+Si vous débutez complètement, commencez par [Piano Facile — Apprendre en débutant](/cours/piano-facile-apprendre-debutant/). Ces exercices seraient contre-productifs sans bases.
+
+Comptez 15 minutes par jour, en échauffement avant votre travail habituel. Ce sont des exercices de fond : les effets se voient sur des semaines, pas sur des séances.
+
+## Ce que vous voulez savoir avant de vous lancer
+
+**Faut-il un vrai piano ?** Un clavier de 61 touches suffit, mais des touches lestées font une vraie différence sur un travail de force. Un synthé à touches légères vous fera travailler à moitié.
+
+**Est-ce que ça remplace les gammes ?** Non, ça les complète. L'exercice 4 s'appuie d'ailleurs sur la gamme de Do majeur, mais en travaillant l'articulation plutôt que la vélocité pure.
+
+**Combien de temps avant de sentir une différence ?** Les élèves rapportent généralement un gain de netteté au bout de deux à trois semaines de pratique quotidienne. La force, elle, met plus longtemps.
+
+**Je peux les faire dans le désordre ?** Non. Chaque exercice suppose le précédent, et l'exercice 5 est franchement inutile si les doigts ne sont pas déjà indépendants. Pour aller plus loin ensuite, la [maîtrise technique du piano](/cours/maitrise-technique-piano-avancee/) prend le relais.

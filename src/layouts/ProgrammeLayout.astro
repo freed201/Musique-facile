@@ -70,7 +70,8 @@ const schema = {
     
     <!-- Schema.org -->
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    
+    <slot name="head" />
+
     <ExternalResources loadVideoScripts={true} />
     <title>{title}</title>
   </head>

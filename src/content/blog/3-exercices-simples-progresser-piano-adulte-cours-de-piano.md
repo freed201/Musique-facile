@@ -67,3 +67,5 @@ Aucun de ces exercices ne paie en une séance. Ils paient cumulés. Mon plan pou
 Et garde un cap par séance : lundi la lecture, mercredi la technique, samedi tu te fais plaisir sur un morceau que tu adores. Un passage résiste ? Note-le, et reviens-y la semaine suivante avec un œil neuf. Sois indulgent : c'est un marathon, pas un sprint.
 
 Pour aller plus loin, lis [une séance de pratique efficace en 30 minutes](/blog/seance-pratique-efficace-30-minutes/). Et pour un parcours guidé, va voir nos [cours de piano](/cours/cours-de-piano/).
+
+Si ce sont tes doigts qui coincent plutôt que ta méthode (une main gauche qui ne suit pas, des doigts 4 et 5 qui traînent), la formation [Force et agilité au piano](/cours/piano-force-agilite/) propose 5 exercices ciblés sur ce point précis, à faire en échauffement de tes séances.

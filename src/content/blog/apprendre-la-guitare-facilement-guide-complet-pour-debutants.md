@@ -214,6 +214,8 @@ Pour des exercices progressifs, consulte notre article [Top 5 des accords guitar
 
 Le rythme est aussi important que les accords. Sans rythme stable, même les bons accords sonnent faux.
 
+Une fois ta rythmique de base en place, le premier élargissement utile est le shuffle : ces croches inégales, longue-courte, qui donnent son balancement au blues et au rock'n'roll. C'est ce qui explique qu'un morceau puisse sonner plat alors que tous les accords sont justes. Le [cours de shuffle à la guitare](/cours/apprendre-guitare-shuffle/) le décortique en 50 minutes.
+
 ### Utilise un métronome (ton meilleur ami)
 
 **Pourquoi c'est crucial ?**

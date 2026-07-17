@@ -180,3 +180,5 @@ Si tu veux apprivoiser la lecture de notes à ton rythme, notre formation **Lect
 Tu peux déchiffrer les partitions en toute décontraction, même si tu pars de zéro !
 
 [👉 Je découvre la formation Lecture de notes](/cours/lecture-de-notes-niveau-debutant/)
+
+Et une fois les notes déchiffrées sans effort, la suite logique est de comprendre ce qu'elles racontent ensemble : intervalles, construction des accords, harmonisation des gammes. C'est le programme de la [formation solfège expert](/cours/solfege-expert-formation/), qui s'adresse justement aux musiciens qui jouent déjà mais butent sur le « pourquoi ».
