@@ -107,9 +107,15 @@ CSS **piloté par tokens**, mobile-first, aucune couleur/espacement en dur. `des
 - **Pas de rollupOptions custom** dans `astro.config.mjs` : un chunking `manualChunks: 'vendor'` cassait le bundle SSR Vercel (`ERR_MODULE_NOT_FOUND` au runtime). Laisser Vite gérer le chunking.
 - **Variables d'environnement** : copier `.env.example` → `.env`. Clés requises en prod : `BREVO_API_KEY`, `BREVO_LIST_GENERAL`, `BREVO_LIST_STAGE_2026`, `PUBLIC_GTM_ID`, `PUBLIC_SITE_URL` (cette dernière documentée mais le domaine reste en dur dans plusieurs endroits — dette connue).
 
+## Optimisations Vercel (perf/SEO, PAS de coût)
+
+`docs/VERCEL-OPTIMISATIONS.md` liste les chantiers d'optimisation Vercel (SSR→statique des landing, cache PDF, recompression images, `inlineStylesheets`). ⚠️ Motivation = **vitesse de chargement + SEO uniquement** : le site consomme ~5 Go/mois, très loin des limites du plan — aucun enjeu de coût.
+
+**Au démarrage d'une session** : si des chantiers y sont encore en statut **À FAIRE**, les mentionner brièvement à Fred (titre + priorité), **sans les lancer**, puis attendre ses instructions.
+
 ## Documentation de référence
 
-- `docs/` : référentiel numéroté `1-…` à `10 - …` (architecture, conventions, workflow publication, SEO/GEO, images, funnel CRO, runbook, structured data, checklists, best practices — ⚠️ partiellement obsolète, décrit Netlify/ActiveCampaign, voir bandeaux en tête) + `vercel-checklist.md`, `BREVO_SETUP.md`, `EMAIL_SEQUENCES.md` (à jour).
+- `docs/` : référentiel numéroté `1-…` à `10 - …` (architecture, conventions, workflow publication, SEO/GEO, images, funnel CRO, runbook, structured data, checklists, best practices — ⚠️ partiellement obsolète, décrit Netlify/ActiveCampaign, voir bandeaux en tête) + `vercel-checklist.md`, `VERCEL-OPTIMISATIONS.md`, `BREVO_SETUP.md`, `EMAIL_SEQUENCES.md` (à jour).
 - `CHANGELOG_DEV.md` : historique des refontes (palette violet, emojis → SVG inline, animations, layouts cours « decision-first »).
 - `content/lead-magnets/` (racine, ≠ `src/content/`) : sources markdown des PDF lead magnets (syntaxe custom `:::chord`/`:::chords` pour les diagrammes d'accords, rendues par `scripts/lead-magnet-to-pdf.mjs` via Puppeteer).
 
