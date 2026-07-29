@@ -75,6 +75,15 @@ Avant de te lancer, révise les bases avec notre [guide complet pour apprendre l
 
 - **Boucle complète** : E – E/B – A – G – B – B/G – E
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-e.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi majeur (E) à la guitare : index sur la 1re case de la corde Sol, majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, cordes Mi et Si à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La majeur (A) à la guitare : index, majeur et annulaire tous sur la 2e case des cordes Ré, Sol et Si, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Trois des accords de Where Did You Sleep Last Night : E, A et G. Le B et les deux basses imposées, E/B et B/G, figurent sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire.</figcaption>
+</figure>
+
 Les deux accords à basse imposée, E/B et B/G, ne sont pas des complications gratuites : ils font descendre la ligne de basse par paliers, et c'est ce mouvement qui donne au morceau son côté lancinant, presque hypnotique dans la version Unplugged de Nirvana.
 
 Si tu débutes, joue simplement E – A – G – B en ignorant les basses : la chanson tient debout. Tu ajouteras les renversements ensuite, une fois la boucle installée.

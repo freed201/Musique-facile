@@ -77,6 +77,15 @@ Avant de te lancer, révise les bases avec notre [guide complet pour apprendre l
 - **Intro, couplet et refrain** : Bm – F# – Em – F#
 - **Variante** : un passage Dm – Em – F# vient relancer un couplet
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-bm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Si mineur (Bm) à la guitare : barré de l'index sur la 2e case, majeur sur la 3e case de la corde Si, annulaire et auriculaire sur la 4e case des cordes Ré et Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-dm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré mineur (Dm) à la guitare : index sur la 1re case de la corde Mi aiguë, majeur sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, cordes Mi grave et La étouffées" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords principaux de J'veux du Soleil : Bm, Em et Dm. Le F#, qui alterne avec le Bm tout au long du morceau, figure sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
 Deux barrés à tenir, le Bm et le F#, et ils s'enchaînent en boucle à 108 BPM. C'est un excellent morceau pour muscler la main gauche, mais ce n'est pas le premier à choisir si tes barrés sont encore fragiles.
 
 Le F# revient une mesure sur deux : travaille l'aller-retour Bm – F# isolément, très lentement, jusqu'à ce que les deux positions se posent d'un bloc. Le reste du morceau suivra tout seul.

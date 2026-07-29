@@ -64,6 +64,18 @@ Deux chemins possibles, et ils ne donnent pas le même résultat.
 
 **La version simplifiée, sans capo** : G, D, Em, C, A7 et D7. Plus rapide à mettre en place, mais tu ne seras pas dans la tonalité de l'enregistrement.
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La septième (A7) à la guitare : majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Si, cordes La, Sol et Mi aiguë à vide, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré septième (D7) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Sol, annulaire sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 6 accords de la version simplifiée de Hey Jude, sans capo : G, D, Em, C, A7 et D7. Les formes de la version du livre (capo 5) figurent sur la fiche du morceau et dans la vidéo. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
 Les **A7** et **D7** ne sont pas plus durs à plaquer qu'un accord ouvert classique : ce sont eux qui apportent la fameuse couleur Beatles, en créant une petite tension avant de retomber sur l'accord suivant.
 
 Pour assurer tes accords ouverts avant d'attaquer : [Apprendre la guitare facilement - Guide complet pour débutants motivés](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).

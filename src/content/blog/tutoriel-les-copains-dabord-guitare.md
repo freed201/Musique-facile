@@ -78,6 +78,17 @@ Avant de te lancer, révise les bases avec notre [guide complet pour apprendre l
 
 - **Couplet** : D – E7 – G – F# – F#7 – A7 – D, puis la même marche qui repart
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-e7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi septième (E7) à la guitare : majeur sur la 2e case de la corde La, index sur la 1re case de la corde Sol, les quatre autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La septième (A7) à la guitare : majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Si, cordes La, Sol et Mi aiguë à vide, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-bm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Si mineur (Bm) à la guitare : barré de l'index sur la 2e case, majeur sur la 3e case de la corde Si, annulaire et auriculaire sur la 4e case des cordes Ré et Sol, corde Mi grave étouffée" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords principaux des Copains d'Abord : D, E7, G, A7 et Bm. Le F#, le F#7 et le C7 figurent sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
 Trois accords demandent un barré : F#, F#7 et Bm. Le F# et le F#7 partagent la même base, seul un doigt bouge entre les deux, donc tu apprends deux accords pour le prix d'un. Les autres sont des positions ouvertes classiques.
 
 Si les barrés te bloquent encore, travaille d'abord le morceau en remplaçant F# et F#7 par un F#m partiel sur les quatre cordes aiguës. Ce n'est pas la version du disque, mais ça te permet de jouer la chanson en entier pendant que la main se muscle.

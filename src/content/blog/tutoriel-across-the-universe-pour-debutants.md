@@ -76,6 +76,16 @@ Avant de te lancer, révise les bases avec notre [guide complet pour apprendre l
 - **Couplet** : Em7 – A, en balancement
 - **Refrain** : A – A7 – G – D, deux fois
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-a.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La majeur (A) à la guitare : index, majeur et annulaire tous sur la 2e case des cordes Ré, Sol et Si, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La septième (A7) à la guitare : majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Si, cordes La, Sol et Mi aiguë à vide, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords principaux d'Across the Universe : A, A7, D et G. Le Em7 du couplet figure sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
 L'A7 n'apparaît qu'au refrain, juste avant le G : c'est lui qui crée l'appel, cette sensation que la phrase doit se résoudre. Le Em7 du couplet, lui, est un Em auquel tu retires un doigt, ce qui laisse le morceau respirer sous la mélodie.
 
 À 76 BPM, tout se joue en douceur. Lennon accompagnait la chanson en arpèges plutôt qu'en accords plaqués : essaie, la différence est frappante.

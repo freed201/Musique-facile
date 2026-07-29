@@ -78,6 +78,18 @@ Avant de te lancer, révise les bases avec notre [guide complet pour apprendre l
 - **Couplet** : G – Am – C – G – D
 - **Refrain** : Am – Em – Bm/D – C – G, puis Am – B7 – Em – Bm/D
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-b7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Si septième (B7) à la guitare : index sur la 1re case de la corde Ré, majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Sol, auriculaire sur la 2e case de la corde Mi aiguë" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords principaux de Riche, avec capo en case 2 : G, Am, C, D, Em et B7. Le Bm/D du refrain figure sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
 Le morceau file à 165 BPM : à cette vitesse, ce ne sont pas les formes qui posent problème mais les transitions. Travaille d'abord le refrain à la moitié du tempo, en particulier le passage Am – B7 – Em qui arrive vite.
 
 Le Bm/D est un Bm dont la basse est jouée en 5e case de la corde de La : si tu débutes, joue un Bm ordinaire, la différence est discrète dans un accompagnement gratté.

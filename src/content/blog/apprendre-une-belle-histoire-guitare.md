@@ -80,6 +80,16 @@ Avant de te lancer, révise les bases avec notre [guide complet pour apprendre l
 
 - **Couplet et refrain** : Am – Dm7 – G7 – CMaj7 – FMaj7, puis Esus4 – E7 pour relancer
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-fmaj7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur septième (FMaj7) à la guitare : annulaire sur la 3e case de la corde Ré, majeur sur la 2e case de la corde Sol, index sur la 1re case de la corde Si, corde Mi aiguë à vide, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-e7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi septième (E7) à la guitare : majeur sur la 2e case de la corde La, index sur la 1re case de la corde Sol, les quatre autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-e.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi majeur (E) à la guitare : index sur la 1re case de la corde Sol, majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, cordes Mi et Si à vide" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords principaux d'Une Belle Histoire : Am, FMaj7, E7 et E. Le Dm7, le G7, le CMaj7 et l'Esus4 figurent sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire.</figcaption>
+</figure>
+
 Ne te laisse pas impressionner par les septièmes. Le Dm7 est un Dm dont tu retires un doigt, le CMaj7 un C dont tu lèves l'index, le FMaj7 un F sans barré (xx3210). Ce sont des accords plus faciles que leurs versions de base, pas plus difficiles.
 
 L'Esus4 qui précède le E7 crée la petite tension avant le retour au Am : joue-les l'un derrière l'autre en gardant la même main, c'est un simple doigt qui se pose et se lève.

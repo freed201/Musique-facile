@@ -81,6 +81,16 @@ Avant de te lancer, révise les bases avec notre [guide complet pour apprendre l
 - **Pont** : G – Em7 – C – D
 - **Fin** : G – Dsus4/F# – Em – Em7/D – C – D – G
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 4 accords de base de Perfect, avec capo en case 1 : G, Em, C et D. Leurs variantes (Em7, Cadd9, Dsus4/F#, Em7/D) figurent sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire.</figcaption>
+</figure>
+
 Le Em7 et le Cadd9 sont des cadeaux pour la main gauche : entre G, Em7 et Cadd9, l'annulaire et l'auriculaire ne bougent pas de la 3e case. Tu passes d'un accord à l'autre en déplaçant seulement deux doigts, ce qui explique pourquoi ce morceau sonne bien même joué lentement.
 
 La descente finale (Dsus4/F# puis Em7/D) fait glisser la basse de sol à ré : c'est joli, mais parfaitement optionnel tant que le reste n'est pas fluide.

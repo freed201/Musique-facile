@@ -62,6 +62,16 @@ Sorti en 1995 sur l'album *Jagged Little Pill*, « Ironic » est l'un des hymnes
 - **Couplet** : D/F# – G – D/F# – Em7
 - **Refrain** : D – G – D – Em, puis FMaj7 – C – D
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-fmaj7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur septième (FMaj7) à la guitare : annulaire sur la 3e case de la corde Ré, majeur sur la 2e case de la corde Sol, index sur la 1re case de la corde Si, corde Mi aiguë à vide, cordes Mi grave et La étouffées" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords de base d'Ironic : G, D, Em et FMaj7, à jouer avec un capo en case 4. Leurs variantes (CMaj7, D6(11), D/F#, Em7) figurent sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
 Le D/F# n'est qu'un D majeur dont tu attrapes la basse fa dièse avec le pouce par-dessus le manche. Le Em7, c'est un Em auquel tu retires un doigt. Et le CMaj7, un C dont tu lèves l'index. Vu comme ça, la grille devient beaucoup moins impressionnante.
 
 Si la transition **G → D** te résiste encore, ce morceau est parfait pour la dompter en situation réelle : elle revient à chaque mesure du refrain.

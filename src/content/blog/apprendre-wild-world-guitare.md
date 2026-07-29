@@ -78,6 +78,18 @@ faqs:
 - **Intro et couplet** : Am – D/F# – G – C – F – Dm – E
 - **Refrain** : C – G – F, puis F – G – F – C – G
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) à la guitare : barré de l'index sur la 1re case, majeur sur la 2e case de la corde Sol, annulaire et auriculaire sur la 3e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-dm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré mineur (Dm) à la guitare : index sur la 1re case de la corde Mi aiguë, majeur sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-e.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi majeur (E) à la guitare : index sur la 1re case de la corde Sol, majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, cordes Mi et Si à vide" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords principaux de Wild World : Am, G, C, F, Dm et E. Le D/F#, le G6 et le G7 figurent sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
 Le D/F# n'a rien d'intimidant : c'est un D majeur dont tu attrapes la basse fa dièse avec le pouce passé par-dessus le manche. Cat Stevens enchaîne ainsi une basse qui descend régulièrement, de La à Mi, et c'est elle qui donne au couplet son air de dégringolade tranquille.
 
 Le G6 et le G7 servent d'ornements en fin de phrase : ce sont des G auxquels tu ajoutes ou déplaces un doigt, rien de plus.

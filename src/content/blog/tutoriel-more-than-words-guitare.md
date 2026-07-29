@@ -74,6 +74,17 @@ Avant de te lancer, révise les bases avec notre [guide complet pour apprendre l
 - **Intro et couplet** : G – Cadd9 – Am7 – C – D, en boucle
 - **Fin** : G – Cadd9 – Am7 – D7 – G
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré septième (D7) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Sol, annulaire sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords de base de More Than Words : G, C, D, D7 et Em. Leurs variantes (Cadd9, Am7, Em7, Bm7, Cm, G7, D/F#) figurent sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire.</figcaption>
+</figure>
+
 La liste impressionne, mais la plupart de ces accords sont des variantes proches les unes des autres : Cadd9 et Am7 se jouent avec les mêmes doigts en 3e case que le G, et Em7 n'est qu'un Em allégé. Tu bouges peu la main.
 
 La vraie difficulté est ailleurs : le morceau se joue en fingerstyle, avec des percussions frappées sur la caisse entre les accords. C'est cette coordination-là qu'il faut travailler, pas la grille.

@@ -76,6 +76,15 @@ Avant de te lancer, révise les bases avec notre [guide complet pour apprendre l
 
 - **Couplet et refrain** : G – D – Dsus2 – Asus2, en boucle
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords de base de Lucky Man : G, D et Em. Les trois variantes suspendues du morceau (Dsus2, Asus2, Asus4) figurent sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire.</figcaption>
+</figure>
+
 Le Dsus2 est un D dont tu retires l'index, l'Asus2 un A dont tu lèves un doigt, l'Asus4 un A auquel tu en ajoutes un. Autrement dit, tu tiens une position et tu fais bouger un seul doigt : c'est ce balancement qui donne au morceau sa sensation de flottement, sans jamais changer vraiment d'accord.
 
 À 156 BPM, ne cherche pas à tout plaquer. Laisse les cordes à vide sonner entre les positions, c'est ce qui crée le tapis sonore de The Verve.

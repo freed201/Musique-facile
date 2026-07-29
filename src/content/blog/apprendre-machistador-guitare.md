@@ -73,6 +73,14 @@ Avant de te lancer, révise les bases avec notre [guide complet pour apprendre l
 - **Couplet** : Gm, tenu
 - **Refrain** : Gm – B – C – Gm
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-gm.svg" width="150" height="180" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol mineur (Gm) à la guitare : barré de l'index sur la 3e case des six cordes, annulaire et auriculaire sur la 5e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les deux accords de base de Machistador : Gm et C. Le B du refrain figure sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
 Sur le papier, c'est le morceau le plus simple du répertoire de -M-. En pratique, tout se joue dans la main droite : le Gm barré doit être étouffé et relancé sans arrêt pour produire ce grattage funk sec, avec des ghost notes entre les accents. Garde la main qui ne s'arrête jamais de bouger, même quand elle ne fait pas sonner les cordes : c'est ce mouvement continu qui crée le groove.
 
 ## Quelle est l'aventure musicale de "Machistador" ?

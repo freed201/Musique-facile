@@ -79,6 +79,16 @@ Avant de te lancer, révise les bases avec notre [guide complet pour apprendre l
 - **Refrain** : C – Am – FMaj7/C – C, puis retour sur Am – Dsus2 – FMaj7/C – G
 - **Pont** : C – Am – C – Am – C – G – FMaj7/C
 
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-fmaj7-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur septième basse do (FMaj7/C) à la guitare : annulaire et auriculaire sur la 3e case des cordes La et Ré, majeur sur la 2e case de la corde Sol, index sur la 1re case de la corde Si, cordes Mi grave et Mi aiguë à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords principaux de One : Am, FMaj7/C, G et C. Le Dsus2 figure sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
 Le Dsus2 se joue comme un D dont tu retires l'index, le FMaj7/C comme un F sans barré avec le do à la basse. Ces deux couleurs suspendues, un peu flottantes, sont exactement ce qui donne au morceau son côté nu et retenu : ne les remplace pas par un D et un F ordinaires, tu perdrais l'atmosphère.
 
 ## Présentation du groupe U2
