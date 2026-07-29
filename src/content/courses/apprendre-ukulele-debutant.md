@@ -141,13 +141,13 @@ preuveSociale:
   testimonials:
     - text: "Cette formation a rendu l'apprentissage de l'ukulélé si facile ! Je joue mes premiers morceaux en un temps record."
       author: "Léa B."
-      avatar: "https://test.musique-facile.fr/images/avatar/avatar-lea.png"
+      avatar: "/images/cours/apprendre-ukulele-debutant/testimonial-1.webp"
     - text: "J'avais peur de ne pas être doué, mais les leçons sont tellement bien faites que j'ai pris confiance en moi."
       author: "Alex T."
-      avatar: "https://test.musique-facile.fr/images/avatar/avatar_alex.png"
+      avatar: "/images/cours/apprendre-ukulele-debutant/testimonial-2.webp"
     - text: "La progression est bien pensée, et les exercices sont vraiment motivants. Merci pour cette formation !"
       author: "Julie R."
-      avatar: "https://test.musique-facile.fr/images/avatar/avatar_julie.png"
+      avatar: "/images/cours/apprendre-ukulele-debutant/testimonial-3.webp"
   stats:
     students: "4.900+"
     successRate: "4,7/5"

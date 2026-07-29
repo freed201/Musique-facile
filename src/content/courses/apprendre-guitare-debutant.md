@@ -56,7 +56,7 @@ hero:
     - value: "4.7/5"
       label: "(+180 avis)"
       icon: "⭐"
-  imageBK: "https://test.musique-facile.fr/images/cours_de_guitare.jpg"
+  imageBK: "/images/cours/apprendre-guitare-debutant/hero.webp"
 
 teachers:
   mainTeachers:

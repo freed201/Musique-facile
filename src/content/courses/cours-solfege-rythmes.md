@@ -54,7 +54,7 @@ hero:
     - value: "4.6/5"
       label: "note moyenne"
       icon: "⭐"
-  imageBK: "https://test.musique-facile.fr/images/solfege-rythme.jpg"
+  imageBK: "/images/cours/cours-solfege-rythmes/hero.webp"
 
 teachers:
   mainTeachers:
@@ -141,13 +141,13 @@ preuveSociale:
   testimonials:
     - text: "Grâce à cette formation, j'ai compris des concepts rythmiques qui me semblaient impossibles auparavant. Une révélation !"
       author: "Claire M."
-      avatar: "https://test.musique-facile.fr/images/avatar-claire.jpg"
+      avatar: "/images/cours/cours-solfege-rythmes/testimonial-1.webp"
     - text: "Les exercices m'ont aidé à intégrer des rythmes complexes dans mon jeu. Je recommande à tous les musiciens !"
       author: "Jean-Paul R."
-      avatar: "https://test.musique-facile.fr/images/avatar-jeanpaul.jpg"
+      avatar: "/images/cours/cours-solfege-rythmes/testimonial-2.webp"
     - text: "Je jouais déjà, mais cette formation m'a permis de vraiment comprendre la polyrythmie. Merci !"
       author: "Sophie L."
-      avatar: "https://test.musique-facile.fr/images/avatar-sophie.jpg"
+      avatar: "/images/cours/cours-solfege-rythmes/testimonial-3.webp"
   stats:
     students: "1000+"
     successRate: "4,7/5"
@@ -175,14 +175,14 @@ benefices:
     - icon: "🎵"
       title: "Améliorez votre expression musicale"
       description: "Associez technique et émotion pour enrichir vos performances musicales."
-  backgroundImage: "https://test.musique-facile.fr/images/rythmes-pattern-bg.jpg"
+  backgroundImage: "/images/cours/cours-solfege-rythmes/timeline-1.webp"
 
 cta:
   title: "Débloquez votre potentiel rythmique"
   subtitle: "Rejoignez la formation 'Solfège Partie 2' et maîtrisez les rythmes avancés dès aujourd'hui."
   buttonText: "Commencer maintenant"
   buttonLink: "https://ecole.musique-facile.fr/solfege-partie-2/buy"
-  backgroundImage: "https://test.musique-facile.fr/images/solfege-cta-bg.jpg"
+  backgroundImage: "/images/cours/cours-solfege-rythmes/hero.webp"
   features:
     - icon: "⭐"
       text: "Accès instantané au cours complet"

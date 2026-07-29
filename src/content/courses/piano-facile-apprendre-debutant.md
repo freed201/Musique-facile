@@ -56,7 +56,7 @@ hero:
     - value: "4.7/5"
       label: "note moyenne"
       icon: "⭐"
-  imageBK: "https://test.musique-facile.fr/images/piano-debutant.jpg"
+  imageBK: "/images/cours/piano-facile-apprendre-debutant/hero.webp"
 
 teachers:
   mainTeachers:
@@ -79,7 +79,7 @@ timeline:
   - number: 1
     title: "Premiers Pas sur le Piano"
     objective: "Initiez-vous aux bases du piano, apprenez à identifier les notes et à vous familiariser avec le clavier."
-    image: "https://test.musique-facile.fr/images/methode/Apprendre_piano_1.png"
+    image: "/images/cours/piano-facile-apprendre-debutant/timeline-1.webp"
     imageAlt: "Premiers Pas sur le Piano"
     details:
       - "Découverte des Notes et du Clavier"
@@ -93,7 +93,7 @@ timeline:
   - number: 2
     title: "Accords et Notations : Les Fondements"
     objective: "Comprenez et pratiquez les accords majeurs et mineurs, et apprenez à les enchaîner harmonieusement."
-    image: "https://test.musique-facile.fr/images/methode/Apprendre_piano_2.png"
+    image: "/images/cours/piano-facile-apprendre-debutant/timeline-2.webp"
     imageAlt: "Accords et Notations : Les Fondements"
     details:
       - "Initiation aux Intervalles"
@@ -105,7 +105,7 @@ timeline:
   - number: 3
     title: "Premiers Morceaux : De la Théorie à la Pratique"
     objective: "Jouez vos premiers morceaux et maîtrisez les rythmes de base."
-    image: "https://test.musique-facile.fr/images/methode/Apprendre_piano_3.png"
+    image: "/images/cours/piano-facile-apprendre-debutant/timeline-3.webp"
     imageAlt: "Premiers Morceaux : De la Théorie à la Pratique"
     details:
       - "Classique du Gospel : Initiation et Perfectionnement"
@@ -119,7 +119,7 @@ timeline:
   - number: 4
     title: "Rythme et Techniques Musicales"
     objective: "Approfondissez votre sens du rythme, découvrez le contretemps et ses applications musicales."
-    image: "https://test.musique-facile.fr/images/methode/Apprendre_piano_4.png"
+    image: "/images/cours/piano-facile-apprendre-debutant/timeline-4.webp"
     imageAlt: "Rythme et Techniques Musicales"
     details:
       - "Apprendre le Rythme et le Contretemps"
@@ -130,7 +130,7 @@ timeline:
   - number: 5
     title: "Lecture et Interprétation"
     objective: "Développez vos compétences en lecture de partitions, des clés de sol et de fa aux nuances musicales."
-    image: "https://test.musique-facile.fr/images/methode/Apprendre_piano_5.png"
+    image: "/images/cours/piano-facile-apprendre-debutant/timeline-5.webp"
     imageAlt: "Lecture et Interprétation"
     details:
       - "Comprendre et Lire les Partitions"
@@ -141,7 +141,7 @@ timeline:
   - number: 6
     title: "Élargir les Compétences Techniques"
     objective: "Explorez des techniques avancées telles que les arpèges, les renversements d'accords et les variations de rythme."
-    image: "https://test.musique-facile.fr/images/methode/Apprendre_piano_6.png"
+    image: "/images/cours/piano-facile-apprendre-debutant/timeline-6.webp"
     imageAlt: "Élargir les Compétences Techniques"
     details:
       - "Techniques Avancées et Arpèges"
@@ -177,13 +177,13 @@ preuveSociale:
   testimonials:
     - text: "Je n'avais jamais touché un piano avant, et maintenant je peux jouer mes morceaux préférés. Merci pour cette méthode incroyable !"
       author: "Isabelle T."
-      avatar: "https://test.musique-facile.fr/images/avatar/avatar-isabelle.png"
+      avatar: "/images/cours/piano-facile-apprendre-debutant/testimonial-1.webp"
     - text: "Les leçons sont si bien expliquées que même un débutant complet peut suivre sans problème."
       author: "Hugo M."
-      avatar: "https://test.musique-facile.fr/images/avatar/avatar-hugo.png"
+      avatar: "/images/cours/piano-facile-apprendre-debutant/testimonial-2.webp"
     - text: "Grâce à cette formation, j'ai enfin réalisé mon rêve de jouer du piano. Les exercices sont parfaits pour progresser rapidement."
       author: "Élodie P."
-      avatar: "https://test.musique-facile.fr/images/avatar/avatar-elodie.png"
+      avatar: "/images/cours/piano-facile-apprendre-debutant/testimonial-3.webp"
   stats:
     students: "21000+"
     successRate: "4,7/5"

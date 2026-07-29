@@ -1185,10 +1185,13 @@ const courseSchema = {
 .cta-background {
   position: absolute;
   inset: 0;
-  background-image: url('https://test.musique-facile.fr/images/guitar-pattern-dark.jpg');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.1;
+  /* Texture décorative en CSS pur : l'ancienne image pointait vers
+     test.musique-facile.fr, un sous-domaine inexistant (requête en échec
+     sur chaque page cours). */
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 75% 65%, rgba(255, 255, 255, 0.25) 0%, transparent 50%);
+  opacity: 0.12;
   transform: rotate(-3deg) scale(1.2);
 }
 
