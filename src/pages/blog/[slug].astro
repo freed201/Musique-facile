@@ -42,7 +42,7 @@ function getYouTubeEmbedUrl(url: string) {
   // Gestion des shorts YouTube
   if (url.includes('/shorts/')) {
     const shortId = url.split('/shorts/')[1].split('?')[0];
-    return `https://www.youtube.com/embed/${shortId}?si=QQvDZ8APhQNzMK1R`;
+    return `https://www.youtube-nocookie.com/embed/${shortId}?si=QQvDZ8APhQNzMK1R`;
   }
   
   // Gestion des URLs YouTube standard
@@ -50,7 +50,7 @@ function getYouTubeEmbedUrl(url: string) {
   const match = url.match(regExp);
   const videoId = (match && match[2].length === 11) ? match[2] : null;
   
-  return videoId ? `https://www.youtube.com/embed/${videoId}?si=QQvDZ8APhQNzMK1R` : null;
+  return videoId ? `https://www.youtube-nocookie.com/embed/${videoId}?si=QQvDZ8APhQNzMK1R` : null;
 }
 
 const { entry } = Astro.props;

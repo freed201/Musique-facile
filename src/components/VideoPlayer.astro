@@ -28,7 +28,7 @@ function getVideoData(url: string) {
     return {
       type: 'youtube',
       id: ytMatch[1],
-      embedUrl: `https://www.youtube.com/embed/${ytMatch[1]}?rel=0&modestbranding=1${autoplay ? '&autoplay=1' : ''}`
+      embedUrl: `https://www.youtube-nocookie.com/embed/${ytMatch[1]}?rel=0&modestbranding=1${autoplay ? '&autoplay=1' : ''}`
     };
   }
 

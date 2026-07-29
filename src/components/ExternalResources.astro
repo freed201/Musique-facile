@@ -2,8 +2,12 @@
 /**
  * Ressources Externes Optimisées
  * - Les fonts sont maintenant chargées localement via @fontsource (pas de blocage externe)
- * - Scripts vidéo chargés uniquement sur les pages qui en ont besoin
  * - Preconnect aux domaines externes pour réduire la latence
+ *
+ * Les API JS des lecteurs (youtube.com/iframe_api, player.vimeo.com/api/player.js)
+ * ne sont PAS chargées : aucun code du site n'utilise YT.Player ni Vimeo.Player,
+ * les lecteurs sont de simples <iframe>. Le script YouTube échouait en plus
+ * systématiquement (chargé en crossorigin, sans en-tête CORS côté YouTube).
  */
 
 interface Props {
@@ -12,25 +16,14 @@ interface Props {
 
 const { loadVideoScripts = false } = Astro.props;
 
-const videoScripts = [
-  {
-    url: "https://player.vimeo.com/api/player.js",
-    defer: true
-  },
-  {
-    url: "https://www.youtube.com/iframe_api",
-    defer: true
-  }
-];
-
 // Preconnect au GTM (toujours nécessaire)
 const preconnectDomains = [
   'https://www.googletagmanager.com'
 ];
 
-// Preconnect vidéo seulement si nécessaire
+// Preconnect vidéo seulement si nécessaire (domaine sans cookie de tracking)
 const videoPreconnectDomains = [
-  'https://www.youtube.com',
+  'https://www.youtube-nocookie.com',
   'https://player.vimeo.com'
 ];
 ---
@@ -48,13 +41,4 @@ const videoPreconnectDomains = [
     <link rel="preconnect" href={domain} />
     <link rel="dns-prefetch" href={domain} />
   </>
-))}
-
-<!-- Scripts vidéo chargés seulement sur les pages avec vidéos -->
-{loadVideoScripts && videoScripts.map(resource => (
-  <script
-    src={resource.url}
-    defer={resource.defer}
-    crossorigin="anonymous"
-  ></script>
 ))}
