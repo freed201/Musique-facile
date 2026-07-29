@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "L'Opportuniste (Dutronc) - Tutoriel Guitare"
+title: "L'Opportuniste (Dutronc) : Accords et Tab Guitare"
 prod: Y
 description: "Maîtrisez L'Opportuniste de Jacques Dutronc à la guitare : 5 accords, satire politique de 1968, rythmique yé-yé rock. Tutoriel vidéo pour intermédiaires."
 ogImage: "/images/blog/jouer-lopportuniste-dutronc-guitare.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-06"
+dateModified: "2026-07-29"
 introduction: "Avec 'L'Opportuniste', Jacques Dutronc propose une critique politique mordante sortie en 1968, juste après Mai 68, sur une mélodie entraînante yé-yé rock. Avec seulement 5 accords et un tempo modéré de 94 BPM, c'est un morceau accessible aux guitaristes intermédiaires. Découvrez l'histoire de ce classique satirique et apprenez à le jouer étape par étape avec notre tutoriel."
 
 songInfo:
@@ -62,12 +62,32 @@ faqs:
 
 **L'Opportuniste** de Jacques Dutronc se joue avec **5 accords** sur une rythmique yé-yé rock entraînante à **94 BPM**, pour une difficulté **3/5**. Sortie en **1968** juste après Mai 68, c'est une satire politique où le narrateur « retourne sa veste » : un morceau accessible dès qu'on tient une main droite régulière et pétillante.
 
-- **Accords** : 5 au total
+- **Accords** : G, C, Am, Em, Bm
 - **Tempo** : 94 BPM — modéré
 - **Difficulté** : 3/5 — intermédiaire accessible
 - **Année** : 1968 (paroles de Jacques Lanzmann, musique de Jacques Dutronc)
 
 Pour poser des bases solides avant ce morceau, passe par notre [guide complet pour apprendre la guitare facilement](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour L'Opportuniste ?
+
+**Cinq accords, sans capo : G, C, Am, Em et Bm.** Quatre sont des accords ouverts de base ; seul le Bm demande un barré, et il n'arrive qu'en fin de phrase.
+
+- **Couplet** : G – C – Am – Em, deux fois, puis Bm
+- **Refrain** : G – C – Am – G, puis G – C – Am – Em, et Am – Em – Bm – Em – G
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-bm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Si mineur (Bm) à la guitare : barré de l'index sur la 2e case, majeur sur la 3e case de la corde Si, annulaire et auriculaire sur la 4e case des cordes Ré et Sol, corde Mi grave étouffée" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 5 accords de L'Opportuniste à la guitare : G, C, Am, Em et Bm. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+Le Bm tombe toujours au même endroit, sur la chute de la phrase. Repère-le à l'oreille avant de le travailler : tu sauras exactement quand l'anticiper. Si le barré ne passe pas encore, joue un Bm partiel sur les trois cordes aiguës, le temps que la main se muscle.
 
 ## Qui est Jacques Dutronc ?
 

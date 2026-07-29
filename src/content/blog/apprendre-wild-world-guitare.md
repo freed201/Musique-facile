@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Wild World (Cat Stevens) - Tutoriel Guitare"
+title: "Wild World (Cat Stevens) : Accords et Tab Guitare"
 prod: Y
-description: "Wild World de Cat Stevens à la guitare : 8 accords, ballade folk 1970, riffs caractéristiques. Tutoriel guitaristes intermédiaires."
+description: "Les accords de Wild World (Am, D/F#, G, C, F, Dm, E) et la grille du couplet au refrain. Cat Stevens à la guitare, sans capo, tempo 75 BPM."
 ogImage: "/images/blog/apprendre-wild-world-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-06"
+dateModified: "2026-07-29"
 introduction: "Avec 'Wild World', Cat Stevens livre une chanson qui transcende les époques depuis 1970 avec sa profondeur émotionnelle et sa simplicité mélodique. Issue de l'album légendaire 'Tea for the Tillerman', découvrez l'histoire de cette ballade folk et apprenez à jouer ses riffs caractéristiques."
 
 songInfo:
@@ -70,6 +70,29 @@ faqs:
 - **Album** : *Tea for the Tillerman* (1970)
 
 "Wild World" est plus qu'une simple chanson : c'est un voyage émotionnel dans l'univers de l'un des plus grands artistes de folk-rock des années 1970. Ce morceau intemporel se distingue par son rythme apaisant et ses paroles empreintes de complexité émotionnelle. Si tu débutes, commence par notre [guide complet pour apprendre la guitare facilement](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/) avant de t'attaquer à cette progression.
+
+## Quels accords pour Wild World ?
+
+**Neuf accords, sans capo : Am, D/F#, G, C, F, Dm, E, G6 et G7.** La descente du couplet est la signature du morceau.
+
+- **Intro et couplet** : Am – D/F# – G – C – F – Dm – E
+- **Refrain** : C – G – F, puis F – G – F – C – G
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) à la guitare : barré de l'index sur la 1re case, majeur sur la 2e case de la corde Sol, annulaire et auriculaire sur la 3e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-dm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré mineur (Dm) à la guitare : index sur la 1re case de la corde Mi aiguë, majeur sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-e.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi majeur (E) à la guitare : index sur la 1re case de la corde Sol, majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, cordes Mi et Si à vide" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords principaux de Wild World : Am, G, C, F, Dm et E. Le D/F#, le G6 et le G7 figurent sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+Le D/F# n'a rien d'intimidant : c'est un D majeur dont tu attrapes la basse fa dièse avec le pouce passé par-dessus le manche. Cat Stevens enchaîne ainsi une basse qui descend régulièrement, de La à Mi, et c'est elle qui donne au couplet son air de dégringolade tranquille.
+
+Le G6 et le G7 servent d'ornements en fin de phrase : ce sont des G auxquels tu ajoutes ou déplaces un doigt, rien de plus.
 
 ## Cat Stevens : Qui Est-Il ?
 

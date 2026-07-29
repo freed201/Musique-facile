@@ -38,6 +38,9 @@ full-n8n-backup.tar.gz
 # SEO local (à uploader manuellement dans GSC)
 disavow.txt
 
+# Sources privées de Fred (PDF des livres, matériaux non publiables) — JAMAIS versionnées
+sources-privees/
+
 # Artefacts d'audit/nettoyage historiques (conservés en local, hors versionnage)
 seo-audit/
 scripts-nettoyage/

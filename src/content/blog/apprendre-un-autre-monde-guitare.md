@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Un Autre Monde (Téléphone) - Tutoriel Guitare"
+title: "Un Autre Monde (Téléphone) : Accords et Tab Guitare"
 prod: Y
-description: "Un Autre Monde de Téléphone à la guitare : 6 accords avec sus4, rythmique rock français, hit 1984. Tutoriel intermédiaires."
+description: "Les 6 accords d'Un Autre Monde (D, Bm, F#m, F#sus4, G, A), la grille du couplet au refrain et l'astuce capo pour éviter les barrés. Téléphone, 142 BPM."
 ogImage: "/images/blog/apprendre-un-autre-monde-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "Un Autre Monde de Téléphone se joue avec 6 accords, dont des sus4, à un tempo soutenu (142 BPM). Tirée de l'album éponyme de 1984, cette chanson offre une vision musicale d'évasion et de renouveau. Découvrez son histoire et apprenez à jouer ses riffs caractéristiques."
 
 songInfo:
@@ -64,11 +64,34 @@ faqs:
 
 **Un Autre Monde de Téléphone se joue avec 6 accords, dont des sus4, à un tempo soutenu (142 BPM).** Difficulté 3/5 : ce classique du rock français demande surtout de l'énergie et une main droite régulière. Un capo case 2 offre une version simplifiée aux débutants.
 
-- **Accords** : 6, dont des sus4
+- **Accords** : D, Bm, F#m, F#sus4, G, A
 - **Difficulté** : 3/5 — intermédiaire
 - **Sortie** : 1984
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Un Autre Monde ?
+
+**Six accords, sans capo : D, Bm, F#m, F#sus4, G et A.** Le morceau file à 142 BPM, ce qui laisse peu de temps entre les changements.
+
+- **Couplet** : D – Bm – F#m avec des F#sus4 en ornement, puis D – Bm – A
+- **Refrain** : G – A, en boucle
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-bm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Si mineur (Bm) à la guitare : barré de l'index sur la 2e case, majeur sur la 3e case de la corde Si, annulaire et auriculaire sur la 4e case des cordes Ré et Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-fdiese-m.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa dièse mineur (F#m) à la guitare : barré de l'index sur la 2e case des six cordes, annulaire et auriculaire sur la 4e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-fdiese-sus4.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa dièse suspendu 4 (F#sus4) à la guitare : barré de l'index sur la 2e case, majeur, annulaire et auriculaire sur la 4e case des cordes La, Ré et Sol" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La majeur (A) à la guitare : index, majeur et annulaire tous sur la 2e case des cordes Ré, Sol et Si, corde Mi grave étouffée" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 6 accords d'Un Autre Monde à la guitare : D, Bm, F#m, F#sus4, G et A. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+Le F#sus4 n'est pas un nouvel accord à apprendre : c'est le F#m dont tu ajoutes un doigt, le temps d'un aller-retour. C'est ce petit balancement qui donne son relief au couplet.
+
+Trois de ces accords se jouent en barré (Bm, F#m, F#sus4), et c'est là toute la difficulté du morceau. Si les barrés ne sont pas encore stables, pose un capo en case 2 et joue les formes C, Am, Em, F et G : tu retrouves exactement les mêmes accords, avec un seul barré à tenir.
 
 ## Qui est Téléphone ?
 

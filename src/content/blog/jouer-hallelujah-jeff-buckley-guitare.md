@@ -1,15 +1,15 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Hallelujah (Jeff Buckley) - Tutoriel Guitare"
+title: "Hallelujah (Jeff Buckley) : Accords et Tab Guitare"
 prod: Y
-description: "Hallelujah de Jeff Buckley à la guitare : 6 accords avec capo case 1, reprise de Leonard Cohen. Tutoriel intermédiaires."
+description: "Les 5 accords de Hallelujah (C, Am, F, G, E7) en diagrammes, le capo case 1 et la grille complète en arpèges. Tutoriel guitare pas à pas, tempo 70 BPM."
 ogImage: "/images/blog/jouer-hallelujah-jeff-buckley-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
-introduction: "Plongez dans l'univers musical et émotionnel de Jeff Buckley avec 'Hallelujah', sa reprise iconique de Leonard Cohen sortie en 1994 sur l'album 'Grace'. Découvrez comment jouer cette chanson intemporelle qui continue de résonner profondément chez les musiciens du monde entier."
+dateModified: "2026-07-29"
+introduction: "Hallelujah de Jeff Buckley se joue avec 5 accords (C, Am, F, G, E7) et un capo en case 1, en arpèges sur un tempo lent de 70 BPM. Difficulté 3/5 : les formes sont simples, le vrai travail porte sur la régularité du picking et sur la longueur du morceau, qui enchaîne plusieurs couplets."
 
 songInfo:
   inBook: true
@@ -60,13 +60,37 @@ faqs:
 ---
 ## En bref
 
-**Hallelujah de Jeff Buckley se joue avec un capo case 1 et 6 accords, pour une difficulté de 3/5.** C'est une reprise du morceau de Leonard Cohen (1984), magnifique à jouer en arpèges sur un tempo lent (70 BPM) : idéale pour travailler le fingerpicking en douceur.
+**Hallelujah de Jeff Buckley se joue avec 5 accords (C, Am, F, G, E7) et un capo case 1, pour une difficulté de 3/5.** C'est une reprise du morceau de Leonard Cohen (1984), magnifique à jouer en arpèges sur un tempo lent (70 BPM) : idéale pour travailler le fingerpicking en douceur.
 
-- **Accords** : 6, avec capo case 1
+- **Accords** : C, Am, F, G, E7 — capo case 1
 - **Difficulté** : 3/5 — intermédiaire accessible
 - **Style** : fingerpicking / arpèges, tempo lent
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Hallelujah ?
+
+**Cinq accords, avec un capo en case 1 : C, Am, F, G et E7.** La grille est aussi célèbre que le morceau : elle suit exactement ce que raconte le texte quand il énumère les degrés.
+
+- **Intro** : C – Am – C – Am
+- **Couplet** : C – Am – C – Am, puis F – G – C – G, puis C – (F puis G dans la même mesure) – Am – F, et G – E7 – Am
+- **Refrain** : F – F – Am – Am, puis F – F – C – G
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) à la guitare : barré de l'index sur la 1re case, majeur sur la 2e case de la corde Sol, annulaire et auriculaire sur la 3e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-e7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi septième (E7) à la guitare : majeur sur la 2e case de la corde La, index sur la 1re case de la corde Sol, les quatre autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g-barre3.svg" width="150" height="180" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur barré en 3e case à la guitare : barré de l'index sur la 3e case, majeur sur la 4e case de la corde Sol, annulaire et auriculaire sur la 5e case des cordes La et Ré" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords de Hallelujah, avec un capo en case 1 : C, Am, F, G et E7, plus la version barrée du G en 3e case, pratique quand F et G tombent dans la même mesure. Les chiffres indiquent le doigt : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+Quand F et G tombent dans la même mesure, beaucoup de guitaristes passent sur un G barré en 3e case : la transition depuis le F barré devient plus naturelle, puisque la main garde la même forme et se contente de glisser.
+
+Tout se joue à la main droite. L'arpège suit toujours la même logique : la basse d'abord, c'est-à-dire la corde la plus grave de l'accord (la corde de La pour un C, la corde de Mi pour un G), puis les cordes aiguës une par une. Garde les doigts du système PIMA, pouce sur les basses, index-majeur-annulaire sur les aiguës.
 
 "Hallelujah" est une chanson initialement écrite par Leonard Cohen, un auteur-compositeur-interprète canadien connu pour ses textes poétiques et spirituels. Sortie en 1984 sur l'album "Various Positions", la chanson a mis du temps à percer, mais elle n'a jamais cessé d'évoluer, s'imprégnant de nouvelles significations au fil des reprises. Jeff Buckley en a livré une version en 1994 dans son seul album studio complet, "Grace". 
 

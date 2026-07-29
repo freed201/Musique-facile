@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Everybody Hurts (R.E.M.) - Tutoriel Guitare"
+title: "Everybody Hurts (R.E.M.) : Accords et Tab Guitare"
 prod: Y
 description: "Everybody Hurts de R.E.M. à la guitare : 9 accords simples, ballade rock 1992, hymne d'espoir. Tutoriel vidéo débutants."
 ogImage: "/images/blog/tutoriel-everybody-hurts-facile.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-06"
+dateModified: "2026-07-29"
 introduction: "Avec 'Everybody Hurts', R.E.M. a créé un hymne de réconfort et d'humanité qui transcende les générations. Sorti en 1992 sur l'album 'Automatic for the People', ce morceau en ré majeur se joue sans capo sur un tempo lent : un excellent premier morceau émouvant pour travailler les arpèges. Plongez dans son histoire et apprenez à le jouer."
 
 songInfo:
@@ -70,6 +70,30 @@ faqs:
 - **Album** : *Automatic for the People* (1992)
 
 Il y a des chansons qui parlent à notre âme, et "Everybody Hurts" en est assurément une. Comme un baume pour les cœurs en détresse, ce morceau nous rappelle que la souffrance est partagée et que l'espoir est à portée de main. Si tu débutes, notre [guide complet pour apprendre la guitare facilement](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/) t'aidera à poser les bases avant de te lancer dans les arpèges.
+
+## Quels accords pour Everybody Hurts ?
+
+**Un capo en case 1, et neuf accords : D, G, Em, A, Bm, C, Am, B et F#.** Mais l'essentiel du morceau tient en deux.
+
+- **Intro et couplet** : D – G, en boucle
+- **Refrain** : Em – A, puis retour sur D – G
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La majeur (A) à la guitare : index, majeur et annulaire tous sur la 2e case des cordes Ré, Sol et Si, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-bm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Si mineur (Bm) à la guitare : barré de l'index sur la 2e case, majeur sur la 3e case de la corde Si, annulaire et auriculaire sur la 4e case des cordes Ré et Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords principaux d'Everybody Hurts : D, G, Em, A, Bm, C et Am. Le B et le F# du pont figurent sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+Oui, deux accords suffisent pour jouer la quasi-totalité de la chanson. Les autres n'apparaissent que dans le pont et la montée finale. C'est ce dépouillement qui rend Everybody Hurts si accessible, et si efficace : R.E.M. mise tout sur l'arpège et la lenteur (65 BPM), pas sur l'harmonie.
+
+Travaille l'arpège main droite plutôt que les changements d'accords : c'est lui qui porte le morceau.
 
 ## Présentation de l'Artiste
 

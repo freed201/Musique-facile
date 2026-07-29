@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "So Lonely (The Police) - Tutoriel Guitare"
+title: "So Lonely (The Police) : Accords et Tab Guitare"
 prod: Y
-description: "So Lonely de The Police à la guitare : 4 accords avec capo case 5, fusion rock-reggae 1978. Tutoriel vidéo intermédiaires."
+description: "Les 4 accords de So Lonely (G, D, Em, C) en diagrammes, le capo case 5 et la grille. The Police à la guitare, tempo 80 BPM, fusion rock-reggae."
 ogImage: "/images/blog/apprendre-so-lonely-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: |
   Avec "So Lonely", The Police a su donner naissance à un titre où la fraîcheur du reggae rencontre l'énergie brute du rock, créant ainsi un morceau à la fois dansant et introspectif.  
   Plonge dans l’histoire fascinante de ce classique, apprends à le jouer pas à pas et découvre pourquoi cette chanson continue d’inspirer autant de guitaristes et de fans, tous styles confondus.
@@ -71,6 +71,24 @@ faqs:
 - **Difficulté** : 3/5 — le défi est rythmique, pas technique
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour So Lonely ?
+
+**Quatre accords avec un capo en case 5 : G, D, Em et C.** La même boucle tourne sur le couplet comme sur le refrain.
+
+- **Couplet et refrain** : G – D – Em – C, en boucle
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 4 accords de So Lonely, avec capo en case 5 : G, D, Em et C. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire.</figcaption>
+</figure>
+
+Toute la personnalité du morceau vient de la main droite, pas des accords. The Police alterne un couplet en contretemps reggae, gratté sec et court, et un refrain rock joué à fond. Même grille, deux attitudes : c'est là qu'il faut mettre ton travail.
 
 ## Quel est le contexte historique et artistique de "So Lonely" ?
 

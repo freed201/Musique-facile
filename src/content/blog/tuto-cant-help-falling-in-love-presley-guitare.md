@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Can't Help Falling in Love (Elvis) - Guitare"
+title: "Can't Help Falling in Love (Elvis) : Accords Guitare"
 prod: Y
 description: "Can't Help Falling in Love d'Elvis Presley : 10 accords en Do majeur, ballade romantique 1961. Tutoriel guitare intermédiaires."
 ogImage: "/images/blog/tuto-cant-help-falling-in-love-presley-guitare.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-02-21"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: |
   Avec "I Can't Help Falling in Love with You", Elvis Presley nous emmène dans l’une des balades les plus romantiques et universelles de la musique.  
   Ce morceau, simple et sincère, est devenu un passage obligé pour tout guitariste amateur ou passionné.  
@@ -16,7 +16,7 @@ introduction: |
 
 songInfo:
   inBook: true
-  bookPage: 94
+  bookPage: 10
   tempo: 123
   chordCount: 10
   key: "C"
@@ -65,6 +65,32 @@ faqs:
 - **Sortie** : 1961, album *Blue Hawaii*
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Can't Help Falling in Love ?
+
+**Dix accords avec un capo en case 2 : C, G, Em, Am, Am/G, F, G7, B7, A7 et Dm.** La chanson paraît simple, mais sa grille est plus riche que la moyenne.
+
+- **Intro** : C – G – C – G
+- **Refrain** : C – Em – Am – Am/G – F – C – G – G7, puis F – G – Am – F
+- **Couplet** : Em – B7, répété, puis Em – A7 – Dm – G7 – C
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) à la guitare : barré de l'index sur la 1re case, majeur sur la 2e case de la corde Sol, annulaire et auriculaire sur la 3e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-b7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Si septième (B7) à la guitare : index sur la 1re case de la corde Ré, majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Sol, auriculaire sur la 2e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La septième (A7) à la guitare : majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Si, cordes La, Sol et Mi aiguë à vide, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-dm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré mineur (Dm) à la guitare : index sur la 1re case de la corde Mi aiguë, majeur sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, cordes Mi grave et La étouffées" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords principaux de Can't Help Falling in Love : C, G, Em, Am, F, B7, A7 et Dm. Le Am/G et le G7 figurent sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+Le Am/G n'a rien de compliqué : c'est un Am dont tu poses le pouce ou l'annulaire sur la 3e case de la corde de Mi grave. Cette basse qui descend de La vers Sol puis Fa, c'est exactement ce qui donne à la chanson son air de berceuse qui s'écoule.
+
+Le couplet en Em – B7 change complètement d'atmosphère : garde le B7 propre, ses quatre doigts se posent d'un coup avec un peu d'habitude.
 
 ## Qui est Elvis Presley, l'icône intemporelle du rock'n'roll ?
 

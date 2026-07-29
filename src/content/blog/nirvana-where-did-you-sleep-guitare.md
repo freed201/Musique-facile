@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Where Did You Sleep Last Night (Nirvana) : signification + tuto"
+title: "Where Did You Sleep Last Night : Accords Guitare"
 prod: Y
 description: "De Lead Belly au MTV Unplugged de 1993 : l'histoire du morceau, le sens des paroles et comment le jouer."
 ogImage: "/images/blog/nirvana-where-did-you-sleep-guitare.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "Where Did You Sleep Last Night de Nirvana se joue avec 6 accords, dont des power chords, difficulté avancée — le vrai défi est la montée d'émotion, pas la technique. Immortalisée lors du MTV Unplugged de 1993, cette reprise d'un vieux blues folk a marqué toute une génération. Découvre son histoire et comment l'aborder à la guitare."
 
 songInfo:
@@ -63,11 +63,30 @@ faqs:
 
 **Where Did You Sleep Last Night de Nirvana se joue avec 6 accords, dont des power chords, difficulté avancée.** Le vrai défi n'est pas technique mais émotionnel : gérer la montée d'intensité, du murmure au cri, comme Kurt Cobain lors du MTV Unplugged de 1993.
 
-- **Accords** : 6, dont des power chords
+- **Accords** : E, E/B, A, G, B et B/G
 - **Difficulté** : avancé — le défi est la dynamique émotionnelle
 - **Origine** : chant traditionnel américain, popularisé par Lead Belly
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Where Did You Sleep Last Night ?
+
+**Six accords, sans capo : E, E/B, A, G, B et B/G.** La même boucle revient du début à la fin, couplets comme pont.
+
+- **Boucle complète** : E – E/B – A – G – B – B/G – E
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-e.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi majeur (E) à la guitare : index sur la 1re case de la corde Sol, majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, cordes Mi et Si à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La majeur (A) à la guitare : index, majeur et annulaire tous sur la 2e case des cordes Ré, Sol et Si, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Trois des accords de Where Did You Sleep Last Night : E, A et G. Le B et les deux basses imposées, E/B et B/G, figurent sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire.</figcaption>
+</figure>
+
+Les deux accords à basse imposée, E/B et B/G, ne sont pas des complications gratuites : ils font descendre la ligne de basse par paliers, et c'est ce mouvement qui donne au morceau son côté lancinant, presque hypnotique dans la version Unplugged de Nirvana.
+
+Si tu débutes, joue simplement E – A – G – B en ignorant les basses : la chanson tient debout. Tu ajouteras les renversements ensuite, une fois la boucle installée.
 
 ## Quelle est l'histoire derrière "Where Did You Sleep Last Night" ?
 

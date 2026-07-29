@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Fields of Gold (Sting) - Tutoriel Guitare"
+title: "Fields of Gold (Sting) : Accords et Tab Guitare"
 prod: Y
 description: "Fields of Gold de Sting à la guitare : 6 accords avec capo case 2, ballade folk-pop 1993, arpèges. Tutoriel intermédiaires."
 ogImage: "/images/blog/jouer-fields-of-gold-sting.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "Fields of Gold de Sting se joue avec 6 accords et un capo case 2, en fingerpicking sur un tempo posé (104 BPM). Extraite de l'album 'Ten Summoner's Tales' (1993), cette ballade explore l'amour, la nostalgie et la beauté de la nature. Voici comment l'apprendre pas à pas."
 
 songInfo:
@@ -68,6 +68,28 @@ faqs:
 - **Difficulté** : 3/5 — intermédiaire
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Fields of Gold ?
+
+**Six accords avec un capo en case 2 : Am, Asus2, C, F, FMaj7 et G.** L'intro pose le Am seul, puis la grille se déroule.
+
+- **Couplet** : Asus2 – F – C, puis Asus2 – FMaj7 – C – F – G – Am
+- **Pont** : F – C, répété, puis F – G – C
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) à la guitare : barré de l'index sur la 1re case, majeur sur la 2e case de la corde Sol, annulaire et auriculaire sur la 3e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-fmaj7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur septième (FMaj7) à la guitare : annulaire sur la 3e case de la corde Ré, majeur sur la 2e case de la corde Sol, index sur la 1re case de la corde Si, corde Mi aiguë à vide, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords principaux de Fields of Gold : Am, C, F, FMaj7 et G. L'Asus2 figure sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+L'Asus2 et le FMaj7 sont les deux couleurs à soigner : le premier est un Am dont tu retires un doigt, le second un F sans barré (xx3210). Ces deux allègements laissent des cordes sonner à vide, ce qui donne le côté aéré, presque suspendu, du morceau.
+
+Le capo en case 2 est indispensable pour retrouver la tonalité du disque et chanter dessus.
 
 ## Un voyage musical avec Sting
 

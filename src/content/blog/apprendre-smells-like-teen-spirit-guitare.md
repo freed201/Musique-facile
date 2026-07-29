@@ -1,12 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Smells Like Teen Spirit (Nirvana) - Guitare"
+title: "Smells Like Teen Spirit : Accords et Tab Guitare"
 description: "Smells Like Teen Spirit de Nirvana à la guitare : 4 power chords (F5-Bb5-Ab5-Db5), la dynamique grunge « doux-fort » et le son qui claque. Tutoriel rock débutant."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
+dateModified: "2026-07-29"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-smells-like-teen-spirit-guitare.webp"
@@ -58,12 +58,12 @@ En 1991, « Smells Like Teen Spirit » fait basculer le rock. Sur l'album *Never
 
 ## Quels accords pour Smells Like Teen Spirit ? (4 power chords, une seule forme)
 
-- F5
-- Bb5
-- Ab5
-- Db5
+**Pose un capo en case 1 et joue quatre power chords : E5, A5, G5 et C5.** Ils sonnent alors F5, Bb5, Ab5 et Db5, c'est-à-dire exactement la tonalité du disque.
 
-Un **power chord** (accord de quinte, noté « 5 ») est une forme à 2 doigts qu'on **glisse le long du manche sans changer de doigté**. Tu apprends donc une seule position, puis tu la balades : F5 → Bb5 → Ab5 → Db5. C'est ce qui rend ce riff mythique étonnamment accessible.
+- **Couplet et refrain** : E5 – A5 – G5 – C5, en boucle
+- **Pont** : E5 – F5 – E5 – A5 – G5
+
+Un **power chord** (accord de quinte, noté « 5 ») est une forme à 2 doigts qu'on **glisse le long du manche sans changer de doigté**. Le capo change tout ici : sans lui, il faudrait attaquer directement en Bb5, Ab5 et Db5, bien plus haut sur le manche. Avec lui, tu joues quatre positions faciles proches du sillet.
 
 Pour les bases de la main gauche : [Apprendre la guitare facilement - Guide complet pour débutants motivés](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
 

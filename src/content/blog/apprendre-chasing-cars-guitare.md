@@ -1,12 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Chasing Cars (Snow Patrol) - Tutoriel Guitare"
-description: "Chasing Cars à la guitare : une seule boucle de 4 accords sur tout le morceau, en arpèges. La chanson la plus répétitive (et donc la plus accessible) à apprendre."
+title: "Chasing Cars (Snow Patrol) : Accords et Tablature Guitare"
+description: "Les 5 accords de Chasing Cars (A, D, Dsus2, E, E/G#), la grille du refrain et les arpèges. Une boucle courte sur tout le morceau, sans capo, à 104 BPM."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
+dateModified: "2026-07-29"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-chasing-cars-guitare.webp"
@@ -20,13 +20,13 @@ tags:
   - accords guitare
   - rythmique guitare
   - tutoriel guitare
-introduction: "Chasing Cars de Snow Patrol est un morceau idéal pour débuter : la même poignée d'accords (Em, C, G, D) tourne du début à la fin, avec un capo case 4. Difficulté 3/5. Ce tutoriel te montre la grille, le placement du capo et surtout comment jouer la dynamique doux/fort qui rend le morceau vivant."
+introduction: "Chasing Cars de Snow Patrol est un morceau idéal pour débuter : la même poignée d'accords (A, D, Dsus2, E, E/G#) tourne du début à la fin, sans capo, à 104 BPM. Difficulté 3/5. Ce tutoriel te montre la grille, les arpèges et surtout la dynamique doux/fort qui rend le morceau vivant."
 
 songInfo:
   inBook: true
   bookPage: 68
   tempo: 104
-  chordCount: 3
+  chordCount: 5
   key: ""
   difficulty: "3/5"
 videos:
@@ -37,12 +37,12 @@ videos:
   - title: "Play Along"
     url: "https://youtu.be/w_iytD4QXKM"
 faqs:
-  - question: "Combien d'accords faut-il vraiment pour jouer Chasing Cars ?"
-    answer: "Une seule boucle de 4 accords (Em – C – G – D) suffit pour jouer le morceau quasi entier. C'est l'une des chansons les plus répétitives du répertoire pop : la même grille tourne sur le couplet ET le refrain. C'est ce qui en fait un excellent morceau pour débutant, à condition de supporter la répétition !"
+  - question: "Quels sont les accords de Chasing Cars ?"
+    answer: "Cinq accords, sans capo : A, D, Dsus2, E et E/G#. Le refrain tourne sur A – E/G# – Dsus2 – A, et le couplet reprend les mêmes couleurs en arpèges. C'est l'une des chansons les plus répétitives du répertoire pop : la même grille sert du début à la fin."
   - question: "Faut-il jouer Chasing Cars en arpèges ou en accords plaqués ?"
     answer: "Dans l'original de Snow Patrol, la guitare est jouée en arpèges (on égrène les cordes une par une) plutôt qu'en gros accords grattés. C'est ce qui donne ce côté délicat et planant. Pour débuter, tu peux commencer en accords plaqués très doux, puis passer aux arpèges quand tu es à l'aise."
-  - question: "Pourquoi mettre un capo case 4 ?"
-    answer: "Le capo case 4 te rapproche de la tonalité originale du morceau, ce qui est pratique si tu veux jouer en même temps que l'enregistrement ou chanter dans la bonne hauteur. Tu gardes exactement les mêmes formes d'accords (Em, C, G, D), elles sonnent simplement plus haut."
+  - question: "Faut-il un capo pour jouer Chasing Cars ?"
+    answer: "Non, le morceau se joue sans capo dans sa tonalité d'origine (la majeur). Le A et le Dsus2 se prennent en position haute, vers la 5e case, et le E/G# en 4e case : c'est ce placement qui donne le son aérien du disque, avec des cordes qui continuent de sonner d'un accord à l'autre."
   - question: "Comment éviter que Chasing Cars devienne ennuyeux à jouer ?"
     answer: "Justement parce que la grille ne change pas, tout se joue dans les nuances : commence très doux sur le couplet, puis ouvre le son et gratte plus fort sur le refrain. Travaille ce contraste fort/doux (la dynamique), c'est lui qui rend le morceau vivant malgré sa simplicité."
 ---
@@ -50,24 +50,21 @@ faqs:
 
 ## En bref
 
-**Chasing Cars de Snow Patrol est parfait pour débuter : la même poignée d'accords (Em, C, G, D) tourne du début à la fin, avec un capo case 4.** Difficulté 3/5 : tout se joue dans la dynamique (doux sur les couplets, plus fort sur le refrain), pas dans la technique.
+**Chasing Cars de Snow Patrol est parfait pour débuter : la même poignée d'accords (A, D, Dsus2, E, E/G#) tourne du début à la fin, sans capo.** Difficulté 3/5 : tout se joue dans la dynamique (doux sur les couplets, plus fort sur le refrain), pas dans la technique.
 
-- **Accords** : Em, C, G, D (la même grille tout du long)
-- **Capo** : case 4 (pour la tonalité originale)
+- **Accords** : A, D, Dsus2, E, E/G# (la même grille tout du long)
+- **Tempo** : 104 BPM, sans capo
 - **Difficulté** : 3/5
 
 ## Quels accords pour Chasing Cars ?
 
-Une boucle, c'est tout :
+**Cinq accords, sans capo : A, D, Dsus2, E et E/G#.** Le refrain tourne sur A – E/G# – Dsus2 – A, et le couplet se joue en arpèges sur ces mêmes couleurs.
 
-- Em
-- C
-- G
-- D
+Dans la version du livre, le A et le Dsus2 se prennent en position haute (5e case) et le E/G# en 4e case : c'est ce placement qui donne le son aérien du morceau, avec ces cordes qui continuent de sonner d'un accord à l'autre. Les diagrammes exacts sont sur la fiche du morceau dans « 40 chansons françaises et hits pop-rock » et dans la vidéo.
 
-**Capo case 4** si tu veux coller à la tonalité originale (mêmes formes, son plus haut). Cette grille tourne sur le couplet comme sur le refrain : une fois la boucle propre, tu sais jouer la chanson.
+Le Dsus2 est la couleur signature du morceau : c'est un D dont on retire un doigt, ce qui laisse une note en suspens et donne cette impression de flottement. Ne le remplace pas par un D ordinaire, tu perdrais l'essentiel.
 
-Pour bétonner ces 4 accords : [Apprendre la guitare facilement - Guide complet pour débutants motivés](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+Pour consolider tes accords de base : [Apprendre la guitare facilement - Guide complet pour débutants motivés](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
 
 ## La rythmique : pense « arpèges »
 
@@ -87,10 +84,10 @@ Travaille ce contraste fort/doux : c'est lui qui empêche le morceau de devenir 
 
 ## Comment t'entraîner
 
-Joue la boucle Em – C – G – D en boucle pendant 3 minutes, d'abord plaquée, puis en arpèges. Ensuite, amuse-toi à alterner « couplet doux / refrain fort » sur la même grille. En te concentrant sur les nuances plutôt que sur les accords, tu progresses sur une compétence utile partout.
+Joue la boucle A – E/G# – Dsus2 – A pendant 3 minutes, d'abord plaquée, puis en arpèges. Ensuite, amuse-toi à alterner « couplet doux / refrain fort » sur la même grille. En te concentrant sur les nuances plutôt que sur les accords, tu progresses sur une compétence utile partout.
 
 Pour cadrer tes séances : [Comment structurer une séance de pratique de 30 minutes](/blog/seance-pratique-efficace-30-minutes/).
 
 ## Conclusion
 
-Chasing Cars prouve qu'on peut émouvoir avec presque rien : 4 accords, une boucle, et beaucoup de nuance. Profites-en pour travailler ta dynamique et tes arpèges — deux compétences qui te serviront sur des dizaines d'autres morceaux.
+Chasing Cars prouve qu'on peut émouvoir avec presque rien : une boucle de quelques accords et beaucoup de nuance. Profites-en pour travailler ta dynamique et tes arpèges, deux compétences qui te serviront sur des dizaines d'autres morceaux.

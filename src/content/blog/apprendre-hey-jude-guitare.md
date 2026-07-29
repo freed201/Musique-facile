@@ -1,12 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Hey Jude (The Beatles) - Tutoriel Guitare"
+title: "Hey Jude (The Beatles) : Accords et Tab Guitare"
 description: "Hey Jude des Beatles à la guitare : la grille du couplet, le pré-refrain en A7-D7 et surtout le mythique « na na na » final. Tutoriel pas à pas pour débutants."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
+dateModified: "2026-07-29"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-hey-jude-guitare.webp"
@@ -26,7 +26,7 @@ songInfo:
   inBook: true
   bookPage: 30
   tempo: 74
-  chordCount: 13
+  chordCount: 9
   key: "F"
   difficulty: "5/5"
 videos:
@@ -52,18 +52,29 @@ faqs:
 
 **Hey Jude des Beatles est un morceau exigeant à la guitare (difficulté 5/5, 13 accords en tout)** — mais son célèbre coda final « na na na… » se joue sur une simple boucle de **3 accords : G – C – D**, à la portée d'un débutant motivé. C'est la section la plus accessible et la plus jouissive à jouer en groupe.
 
-- **Accords** : 13 sur le morceau complet, mais 3 (G-C-D) pour le coda
+- **Accords** : 9 sur le morceau complet (capo 5), mais 3 (G-C-D) pour le coda
 - **Tonalité** : fa majeur (F)
 - **Difficulté** : 5/5 pour le morceau entier — le coda reste très abordable
 
 ## Quels accords pour Hey Jude ? (version simplifiée en G)
 
-- G
-- D
-- Em
-- C
-- A7
-- D7
+Deux chemins possibles, et ils ne donnent pas le même résultat.
+
+**La version du livre, dans la tonalité du disque** : capo en case 5, et neuf accords — C, C7, Dm, Dm/C, F, FMaj7/E, G, G/B et G7. Le capo te place en fa majeur, la tonalité d'origine, tout en gardant des formes ouvertes sous les doigts. Les basses descendantes (Dm/C, FMaj7/E, G/B) sont la signature harmonique des Beatles.
+
+**La version simplifiée, sans capo** : G, D, Em, C, A7 et D7. Plus rapide à mettre en place, mais tu ne seras pas dans la tonalité de l'enregistrement.
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La septième (A7) à la guitare : majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Si, cordes La, Sol et Mi aiguë à vide, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré septième (D7) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Sol, annulaire sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 6 accords de la version simplifiée de Hey Jude, sans capo : G, D, Em, C, A7 et D7. Les formes de la version du livre (capo 5) figurent sur la fiche du morceau et dans la vidéo. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
 
 Les **A7** et **D7** ne sont pas plus durs à plaquer qu'un accord ouvert classique : ce sont eux qui apportent la fameuse couleur Beatles, en créant une petite tension avant de retomber sur l'accord suivant.
 

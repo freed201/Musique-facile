@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Une Belle Histoire (Fugain) - Tutoriel Guitare"
+title: "Une Belle Histoire (Fugain) : Accords Guitare"
 prod: Y
-description: "Une Belle Histoire de Michel Fugain à la guitare : 8 accords variés, chanson française des années 70. Tutoriel vidéo."
+description: "Les 8 accords d'Une Belle Histoire (Am, Dm7, G7, CMaj7, FMaj7, Esus4, E7, E) et la grille complète. Fugain à la guitare, sans capo, tempo 85 BPM."
 ogImage: "/images/blog/apprendre-une-belle-histoire-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: |
   Avec "Une Belle Histoire", Michel Fugain a capturé l’esprit de liberté, de rencontre et de voyage qui traverse toute la chanson française des années 70.  
   Découvre l’histoire de ce morceau emblématique, apprends à le jouer à la guitare, et laisse-toi emporter par la poésie et la fraîcheur qui font de cette chanson un classique intergénérationnel.
@@ -73,6 +73,26 @@ faqs:
 - **Sortie** : 1972
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Une Belle Histoire ?
+
+**Huit accords, sans capo : Am, Dm7, G7, CMaj7, FMaj7, Esus4, E7 et E.** La grille est une descente très régulière, toujours dans le même ordre.
+
+- **Couplet et refrain** : Am – Dm7 – G7 – CMaj7 – FMaj7, puis Esus4 – E7 pour relancer
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-fmaj7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur septième (FMaj7) à la guitare : annulaire sur la 3e case de la corde Ré, majeur sur la 2e case de la corde Sol, index sur la 1re case de la corde Si, corde Mi aiguë à vide, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-e7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi septième (E7) à la guitare : majeur sur la 2e case de la corde La, index sur la 1re case de la corde Sol, les quatre autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-e.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi majeur (E) à la guitare : index sur la 1re case de la corde Sol, majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, cordes Mi et Si à vide" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les accords principaux d'Une Belle Histoire : Am, FMaj7, E7 et E. Le Dm7, le G7, le CMaj7 et l'Esus4 figurent sur la fiche du morceau dans le livre et dans la vidéo du tutoriel. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire.</figcaption>
+</figure>
+
+Ne te laisse pas impressionner par les septièmes. Le Dm7 est un Dm dont tu retires un doigt, le CMaj7 un C dont tu lèves l'index, le FMaj7 un F sans barré (xx3210). Ce sont des accords plus faciles que leurs versions de base, pas plus difficiles.
+
+L'Esus4 qui précède le E7 crée la petite tension avant le retour au Am : joue-les l'un derrière l'autre en gardant la même main, c'est un simple doigt qui se pose et se lève.
 
 ## Qui est Michel Fugain ? Un voyage musical avec "Une Belle Histoire"
 
