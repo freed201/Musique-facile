@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "J'veux du Soleil - Tutoriel Guitare Facile"
+title: "J'veux du Soleil : Accords et Tablature Guitare"
 prod: Y
 description: "J'veux du Soleil (Au P'tit Bonheur) à la guitare : 3 accords simples, hymne pop des années 90. Tutoriel vidéo débutants."
 ogImage: "/images/blog/tutoriel-jveux-du-soleil-chanson-francaise.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "J'veux du Soleil d'Au P'tit Bonheur se joue avec seulement 3 accords (Am, E, Dm), sans capo, sur un tempo entraînant (108 BPM). Sortie en single en 1991, cette chanson joyeuse et intemporelle reste un classique des feux de camp. Découvrez son histoire et apprenez à la jouer."
 
 songInfo:
@@ -69,6 +69,17 @@ faqs:
 - **Difficulté** : 3/5 — le tempo est le seul vrai défi
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour J'veux du Soleil ?
+
+**Quatre accords, sans capo : Bm, F#, Em et Dm.** La boucle ne change jamais, du premier au dernier couplet.
+
+- **Intro, couplet et refrain** : Bm – F# – Em – F#
+- **Variante** : un passage Dm – Em – F# vient relancer un couplet
+
+Deux barrés à tenir, le Bm et le F#, et ils s'enchaînent en boucle à 108 BPM. C'est un excellent morceau pour muscler la main gauche, mais ce n'est pas le premier à choisir si tes barrés sont encore fragiles.
+
+Le F# revient une mesure sur deux : travaille l'aller-retour Bm – F# isolément, très lentement, jusqu'à ce que les deux positions se posent d'un bloc. Le reste du morceau suivra tout seul.
 
 ## Quel est le contexte de "J'veux du Soleil" ?
 

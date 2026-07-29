@@ -1,12 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Wonderwall (Oasis) - Tutoriel Guitare"
+title: "Wonderwall (Oasis) : Accords et Tablature Guitare"
 description: "Le tutoriel de référence pour jouer Wonderwall d'Oasis : capo case 2, 5 accords ouverts, la rythmique qui sonne et l'astuce des doigts ancrés. Pour débutants."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
+dateModified: "2026-07-29"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-wonderwall-guitare.webp"
@@ -58,13 +58,11 @@ faqs:
 
 ## Quels accords pour Wonderwall ? (et le secret des doigts qui ne bougent pas)
 
-Place ton **capo à la case 2**, puis joue ces formes :
+**Place ton capo à la case 2, puis joue ces formes : Em7, G, Dsus4, Cadd9 et A7sus4**, auxquelles s'ajoutent deux basses descendantes, G/E et G/F#.
 
-- Em7
-- G
-- Dsus4
-- Cadd9
-- A7sus4
+- **Couplet** : Em7 – G, en boucle
+- **Pré-refrain** : Cadd9 – Dsus4 – Em7, puis Cadd9 – Dsus4 – G – G/F#
+- **Refrain** : Cadd9 – Em7 – G – Em7
 
 **Le secret de Wonderwall :** garde ton **annulaire et ton auriculaire posés sur la case 3** des deux cordes les plus aiguës, du début à la fin. Tu n'as plus qu'à bouger les autres doigts pour changer d'accord. C'est exactement ce que fait Noel Gallagher, et c'est ce qui donne cette sonorité « qui résonne » si caractéristique.
 

@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "La Seine (Vanessa Paradis & -M-) - Guitare"
+title: "La Seine (Vanessa Paradis & -M-) : Accords et Tab Guitare"
 prod: Y
-description: "Le capo en case 5, la grille complète et 2 vidéos pour monter cette ballade segment par segment."
+description: "Les 8 accords de La Seine (Am, F, C, E7/B…) en diagrammes, le capo case 5 et la grille complète du couplet au pont. Tempo 55 BPM, tutoriel pas à pas."
 ogImage: "/images/blog/jouer-la-seine-vanessa-m.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "La Seine de Vanessa Paradis et -M- se joue avec 8 accords et un capo case 5, sur un tempo très lent (55 BPM). Tiré du film 'Un monstre à Paris' (2011), ce duo poétique demande de la précision et de la délicatesse plus que de la vitesse. Voici comment l'aborder pas à pas."
 
 songInfo:
@@ -68,6 +68,29 @@ faqs:
 - **Origine** : bande originale du film *Un monstre à Paris* (2011)
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour La Seine ?
+
+**Huit accords, avec un capo en case 5 : Am, F, C, E7/B, Dm, G, A7 et FMaj7/C.** Le couplet et le refrain tournent sur les quatre premiers, le pont introduit les autres.
+
+- **Couplet et refrain** : Am – F – C – E7/B – Am
+- **Pont** : Am – A7 – Dm – E7/B, puis F – G – A, et FMaj7/C sur la fin
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) à la guitare : barré de l'index sur la 1re case, majeur sur la 2e case de la corde Sol, annulaire et auriculaire sur la 3e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-dm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré mineur (Dm) à la guitare : index sur la 1re case de la corde Mi aiguë, majeur sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La septième (A7) à la guitare : majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Si, cordes La, Sol et Mi aiguë à vide, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-e7-b.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi septième basse si (E7/B) à la guitare : majeur sur la 2e case de la corde La, index sur la 1re case de la corde Sol, cordes Ré, Si et Mi aiguë à vide, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-fmaj7-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur septième basse do (FMaj7/C) à la guitare : annulaire et auriculaire sur la 3e case des cordes La et Ré, majeur sur la 2e case de la corde Sol, index sur la 1re case de la corde Si, cordes Mi grave et Mi aiguë à vide" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 8 accords de La Seine à la guitare, avec capo en case 5 : Am, F, C, Dm, G, A7, E7/B et FMaj7/C. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+Le vrai point de vigilance n'est pas la difficulté des formes, mais leur nombre. Travaille le couplet seul jusqu'à ce qu'il tourne sans réfléchir, puis attaque le pont séparément.
 
 ## Quelle est l'ambiance de "La Seine" ?
 

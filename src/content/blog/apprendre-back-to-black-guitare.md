@@ -1,12 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Back to Black (Amy Winehouse) - Guitare"
-description: "Back to Black d'Amy Winehouse à la guitare : la marche d'accords en ré mineur, le groove soul retenu et l'art de jouer « moins pour dire plus ». Tutoriel détaillé."
+title: "Back to Black (Amy Winehouse) : Accords et Tablature Guitare"
+description: "Les 7 accords de Back to Black (Dm, Gm, Bb, A…), la grille du couplet au pont et le groove soul retenu à 123 BPM. Tutoriel guitare pas à pas."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
+dateModified: "2026-07-29"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-back-to-black-guitare.webp"
@@ -38,9 +38,9 @@ videos:
     url: "https://youtu.be/t8NnwIBWI1w"
 faqs:
   - question: "Dans quelle tonalité se joue Back to Black ?"
-    answer: "Le morceau est en ré mineur (Dm), ce qui lui donne sa couleur sombre et mélancolique. Le couplet descend par une marche d'accords (Dm – Am – … ) typique de la soul des années 60. C'est cette tonalité mineure qui crée toute l'émotion du titre, dans la veine des girl-groups Motown qui ont inspiré Amy Winehouse et son producteur Mark Ronson."
+    answer: "Le morceau est en ré mineur (Dm), ce qui lui donne sa couleur sombre et mélancolique. Le couplet descend par une marche d'accords (Dm – Gm – Bb – A) typique de la soul des années 60. C'est cette tonalité mineure qui crée toute l'émotion du titre, dans la veine des girl-groups Motown qui ont inspiré Amy Winehouse et son producteur Mark Ronson."
   - question: "Quels accords faut-il pour jouer Back to Black ?"
-    answer: "Une version accessible utilise Dm, Am, G, F et E. Le E (majeur) joué dans un contexte mineur crée la petite tension dramatique caractéristique avant de retomber sur le Am. Ce sont tous des accords ouverts ou des barrés simples, donc le morceau est jouable dès qu'on maîtrise ses premiers barrés."
+    answer: "Sept accords : Dm, Gm, Bb, A, A7, F et BbMaj7. Le couplet et le refrain tournent sur Dm – Gm – Bb – A, le pont ajoute BbMaj7, F et A7. Attention, la version du livre les joue en barrés (Dm en 5e case, Gm en 3e, Bb en 6e, A en 5e) : c'est là qu'est la vraie difficulté du morceau."
   - question: "Comment retrouver le groove soul du morceau ?"
     answer: "Le secret, c'est la retenue. Le groove soul de Back to Black ne s'obtient pas en grattant fort, mais en jouant court et étouffé : pose la paume sur les cordes pour les amortir (palm mute) et attaque sec, presque chuchoté. C'est ce contraste entre la voix puissante et l'accompagnement très sobre qui fait tout le caractère du titre."
   - question: "Back to Black est-elle difficile pour un débutant ?"
@@ -58,13 +58,27 @@ Sortie en 2006, « Back to Black » est le morceau-titre de l'album qui a fait d
 
 ## Quels accords pour Back to Black ?
 
-- Dm
-- Am
-- G
-- F
-- E
+**Sept accords : Dm, Gm, Bb, A, A7, F et BbMaj7.** La boucle principale est courte, le pont apporte le reste.
 
-Le morceau est en **ré mineur (Dm)** : c'est là que vit toute son émotion. Surveille le **E majeur** glissé dans ce contexte mineur — il crée cette petite tension dramatique juste avant de retomber sur le Am.
+- **Couplet et refrain** : Dm – Gm – Bb – A
+- **Pont** : Dm – BbMaj7 – F – A – A7, à jouer deux fois
+
+Le morceau est en **ré mineur** : c'est là que vit toute son émotion. Le A majeur, glissé dans ce contexte mineur, crée la petite tension dramatique juste avant le retour sur le Dm.
+
+Prépare-toi à travailler tes barrés. Dans la version du livre, Dm, Gm, Bb et A se jouent tous en position barrée, respectivement en 5e, 3e, 6e et 5e case. C'est là qu'est la vraie difficulté du morceau, bien plus que dans la rythmique.
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-dm-barre5.svg" width="150" height="180" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré mineur (Dm) barré en 5e case à la guitare : index barrant la 5e case, majeur sur la 6e case de la corde Si, annulaire et auriculaire sur la 7e case des cordes Ré et Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-gm.svg" width="150" height="180" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol mineur (Gm) à la guitare : barré de l'index sur la 3e case des six cordes, annulaire et auriculaire sur la 5e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-bb.svg" width="150" height="180" loading="lazy" decoding="async" alt="Diagramme de l'accord Si bémol majeur (Bb) à la guitare : barré de l'index sur la 6e case, majeur sur la 7e case de la corde Sol, annulaire et auriculaire sur la 8e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a-barre5.svg" width="150" height="180" loading="lazy" decoding="async" alt="Diagramme de l'accord La majeur (A) barré en 5e case à la guitare : index barrant la 5e case, majeur sur la 6e case de la corde Sol, annulaire et auriculaire sur la 7e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a7-barre5.svg" width="150" height="180" loading="lazy" decoding="async" alt="Diagramme de l'accord La septième (A7) barré en 5e case à la guitare : index barrant la 5e case, majeur sur la 6e case de la corde Sol, annulaire sur la 7e case de la corde La" />
+    <img src="/images/blog/accords-guitare/accord-guitare-f.svg" width="150" height="180" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) à la guitare : barré de l'index sur la 1re case, majeur sur la 2e case de la corde Sol, annulaire et auriculaire sur la 3e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-bbmaj7.svg" width="150" height="180" loading="lazy" decoding="async" alt="Diagramme de l'accord Si bémol majeur septième (BbMaj7) à la guitare : index barrant la 1re case des cordes La et Mi aiguë, majeur sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Ré, auriculaire sur la 3e case de la corde Si" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 7 accords de Back to Black à la guitare : Dm, Gm, Bb, A, A7, F et BbMaj7, dans les positions du livre. Le repère « 5fr » indique la case où commence le diagramme. Les chiffres sur les points donnent le doigt : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
 
 Si tes premiers barrés ne sont pas encore stables, consolide-les ici : [Apprendre la guitare facilement - Guide complet pour débutants motivés](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
 

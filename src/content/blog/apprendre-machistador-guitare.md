@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Machistador (-M-) - Tutoriel Guitare Funk"
+title: "Machistador (-M-) : Accords et Tab Guitare"
 prod: Y
 description: "Machistador de -M- à la guitare : groove funky, rythmique énergique, 4 accords en barré. Tutoriel guitaristes intermédiaires."
 ogImage: "/images/blog/apprendre-machistador-guitare.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "Avec 'Machistador', Matthieu Chedid alias -M- nous offre une explosion de funk et d'énergie pure, tirée de l'album culte 'Je dis aime' (1999). Découvrez l'histoire de ce morceau emblématique du rock français et apprenez à le jouer avec notre tutoriel adapté aux guitaristes intermédiaires."
 
 songInfo:
@@ -65,6 +65,15 @@ faqs:
 - **Difficulté** : 5/5 — le vrai défi est rythmique
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Machistador ?
+
+**Trois accords seulement, sans capo : Gm, B et C.** Le couplet reste sur le Gm du début à la fin.
+
+- **Couplet** : Gm, tenu
+- **Refrain** : Gm – B – C – Gm
+
+Sur le papier, c'est le morceau le plus simple du répertoire de -M-. En pratique, tout se joue dans la main droite : le Gm barré doit être étouffé et relancé sans arrêt pour produire ce grattage funk sec, avec des ghost notes entre les accents. Garde la main qui ne s'arrête jamais de bouger, même quand elle ne fait pas sonner les cordes : c'est ce mouvement continu qui crée le groove.
 
 ## Quelle est l'aventure musicale de "Machistador" ?
 

@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Les Copains d'Abord (Brassens) - Tutoriel Guitare"
+title: "Les Copains d'Abord (Brassens) : Accords Guitare"
 prod: Y
-description: "Les Copains d'Abord de Brassens à la guitare : 13 accords, hymne à l'amitié 1964. Tutoriel vidéo complet pour intermédiaires."
+description: "Les accords des Copains d'Abord (D, E7, G, F#, F#7, A7, Bm, C7) et la grille du couplet. Brassens à la guitare, sans capo, tempo 80 BPM."
 ogImage: "/images/blog/tutoriel-les-copains-dabord-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "Les Copains d'Abord de Georges Brassens se joue avec 13 accords, difficulté 4/5 — un vrai défi de mémoire et d'aisance, à un tempo pourtant modéré. Écrite en 1964 pour le film d'Yves Robert « Les Copains », cette chanson est devenue l'hymne non-officiel de l'amitié à la française. Découvre son histoire et comment l'aborder à la guitare."
 
 songInfo:
@@ -71,6 +71,16 @@ faqs:
 - **Origine** : écrite en 1964 pour le film « Les Copains » d'Yves Robert
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Les Copains d'Abord ?
+
+**Huit accords, sans capo : D, E7, G, F#, F#7, A7, Bm et C7.** C'est la chanson la plus dense du répertoire de Brassens côté harmonie, et c'est justement ce qui la rend intéressante à travailler.
+
+- **Couplet** : D – E7 – G – F# – F#7 – A7 – D, puis la même marche qui repart
+
+Trois accords demandent un barré : F#, F#7 et Bm. Le F# et le F#7 partagent la même base, seul un doigt bouge entre les deux, donc tu apprends deux accords pour le prix d'un. Les autres sont des positions ouvertes classiques.
+
+Si les barrés te bloquent encore, travaille d'abord le morceau en remplaçant F# et F#7 par un F#m partiel sur les quatre cordes aiguës. Ce n'est pas la version du disque, mais ça te permet de jouer la chanson en entier pendant que la main se muscle.
 
 ## Quel est le titre, l'artiste et l'album de ce morceau ?
 

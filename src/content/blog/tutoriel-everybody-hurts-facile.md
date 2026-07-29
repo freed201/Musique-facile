@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Everybody Hurts (R.E.M.) - Tutoriel Guitare"
+title: "Everybody Hurts (R.E.M.) : Accords et Tab Guitare"
 prod: Y
 description: "Everybody Hurts de R.E.M. à la guitare : 9 accords simples, ballade rock 1992, hymne d'espoir. Tutoriel vidéo débutants."
 ogImage: "/images/blog/tutoriel-everybody-hurts-facile.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-06"
+dateModified: "2026-07-29"
 introduction: "Avec 'Everybody Hurts', R.E.M. a créé un hymne de réconfort et d'humanité qui transcende les générations. Sorti en 1992 sur l'album 'Automatic for the People', ce morceau en ré majeur se joue sans capo sur un tempo lent : un excellent premier morceau émouvant pour travailler les arpèges. Plongez dans son histoire et apprenez à le jouer."
 
 songInfo:
@@ -70,6 +70,17 @@ faqs:
 - **Album** : *Automatic for the People* (1992)
 
 Il y a des chansons qui parlent à notre âme, et "Everybody Hurts" en est assurément une. Comme un baume pour les cœurs en détresse, ce morceau nous rappelle que la souffrance est partagée et que l'espoir est à portée de main. Si tu débutes, notre [guide complet pour apprendre la guitare facilement](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/) t'aidera à poser les bases avant de te lancer dans les arpèges.
+
+## Quels accords pour Everybody Hurts ?
+
+**Un capo en case 1, et neuf accords : D, G, Em, A, Bm, C, Am, B et F#.** Mais l'essentiel du morceau tient en deux.
+
+- **Intro et couplet** : D – G, en boucle
+- **Refrain** : Em – A, puis retour sur D – G
+
+Oui, deux accords suffisent pour jouer la quasi-totalité de la chanson. Les autres n'apparaissent que dans le pont et la montée finale. C'est ce dépouillement qui rend Everybody Hurts si accessible, et si efficace : R.E.M. mise tout sur l'arpège et la lenteur (65 BPM), pas sur l'harmonie.
+
+Travaille l'arpège main droite plutôt que les changements d'accords : c'est lui qui porte le morceau.
 
 ## Présentation de l'Artiste
 

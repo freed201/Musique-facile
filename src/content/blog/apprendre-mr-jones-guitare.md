@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Mr. Jones (Counting Crows) - Tutoriel Guitare"
+title: "Mr. Jones (Counting Crows) : Accords Guitare"
 prod: Y
 description: "Mr. Jones des Counting Crows à la guitare : 5 accords faciles, rythmique rock alternatif, hit 1993. Tutoriel débutants/intermédiaires."
 ogImage: "/images/blog/apprendre-mr-jones-guitare.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "Avec 'Mr. Jones', Counting Crows nous offrent une chanson introspective et universelle sur le désir de reconnaissance, extraite de l'album 'August and Everything After' (1993). Découvrez l'histoire fascinante de ce hit des années 90 et apprenez à le jouer avec notre tutoriel détaillé."
 
 songInfo:
@@ -70,6 +70,27 @@ faqs:
 - **Album** : *August and Everything After* (1993)
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Mr. Jones ?
+
+**Cinq accords, sans capo : Am, F, Dm, G et C.** Tous ouverts sauf le F, et la grille ne change quasiment jamais.
+
+- **Intro et couplet** : Am – F – Dm – G, puis Am – F – G
+- **Refrain** : C – F – G, en boucle
+- **Pont** : F – Am – G – Am
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) à la guitare : barré de l'index sur la 1re case, majeur sur la 2e case de la corde Sol, annulaire et auriculaire sur la 3e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-dm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré mineur (Dm) à la guitare : index sur la 1re case de la corde Mi aiguë, majeur sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 5 accords de Mr. Jones : Am, F, Dm, G et C. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+À 142 BPM, le F arrive vite et revient souvent. C'est le morceau idéal pour transformer ton barré de F en réflexe : travaille d'abord l'aller-retour Am – F seul, très lentement, avant de monter le tempo.
 
 ## Qui sont Counting Crows et quelle est l'histoire de "Mr Jones" ?
 

@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "House of The Rising Sun - Tutoriel Guitare"
+title: "House of The Rising Sun : Accords et Tab Guitare"
 prod: Y
-description: "House of The Rising Sun (The Animals) : 5 accords, arpège iconique, ballade folk-rock 1964. Tutoriel vidéo facile."
+description: "Les 5 accords de House of The Rising Sun (Am, C, D, F, E) en diagrammes, la grille complète et l'arpège en 6/8. Sans capo, tempo 85 BPM."
 ogImage: "/images/blog/tutoriel-guitare-house-of-the-rising-sun.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "House of The Rising Sun se joue avec 5 accords en La mineur, en arpèges sur un rythme ternaire à 6/8, difficulté 2/5. The Animals en ont livré en 1964 la version la plus iconique. Découvre l'histoire du morceau et comment maîtriser son arpège hypnotique, même si tu débutes."
 
 songInfo:
@@ -70,6 +70,26 @@ faqs:
 - **Difficulté** : 2/5 — débutant
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour House of The Rising Sun ?
+
+**Cinq accords, sans capo : Am, C, D, F et E.** La grille est toujours la même, ce qui rend le morceau très accessible malgré sa réputation.
+
+- **Boucle principale** : Am – C – D – F, puis Am – E – Am – E
+- **Couplet** : Am – C – D – F, puis Am – C – E – Am
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) à la guitare : barré de l'index sur la 1re case, majeur sur la 2e case de la corde Sol, annulaire et auriculaire sur la 3e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-e.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi majeur (E) à la guitare : index sur la 1re case de la corde Sol, majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, cordes Mi et Si à vide" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 5 accords de House of The Rising Sun : Am, C, D, F et E. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+Le seul obstacle est le F barré, qui tombe à chaque tour de grille. Si tu le rates encore, joue-le sur les quatre cordes aiguës seulement : à l'arpège, personne n'entendra la différence.
 
 C'est aussi une bonne porte d'entrée vers le jeu ternaire : ce balancement à trois temps par pulsation est le même que celui du blues et du rock'n'roll. Si le 6/8 de ce morceau te plaît, le [cours de shuffle à la guitare](/cours/apprendre-guitare-shuffle/) t'explique la mécanique complète en 18 vidéos.
 

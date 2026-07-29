@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Respire (Mickey 3D) - Tutoriel Guitare"
+title: "Respire (Mickey 3D) : Accords et Tablature Guitare"
 prod: Y
-description: "Respire de Mickey 3D à la guitare : 6 accords simples, hymne écologique 2003. Tutoriel vidéo facile débutants."
+description: "Les 6 accords de Respire (Am, Dm, G, F, E7, FMaj7), la grille du couplet au refrain, sans capo. Tutoriel guitare facile à 97 BPM, hymne écolo de 2003."
 ogImage: "/images/blog/apprendre-respire-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: |
   Avec "Respire", Mickey 3D délivre un message fort et universel, alliant l’urgence écologique à une mélodie accessible et accrocheuse.  
   Découvre l’histoire inspirante de cette chanson culte, analyse ses paroles et apprends à la jouer pas à pas, pour mêler plaisir musical et engagement citoyen à chaque accord.
@@ -67,11 +67,32 @@ faqs:
 
 **Respire de Mickey 3D se joue sans capo, avec 6 accords, sur un tempo modéré (97 BPM).** Difficulté 2/5 : cet hymne écologique de 2003 repose sur une rythmique régulière, idéale pour travailler les changements d'accords tout en chantant son refrain devenu culte.
 
-- **Accords** : 6, sans capo
+- **Accords** : Am, Dm, G, F, E7, FMaj7
 - **Difficulté** : 2/5 — débutant
 - **Sortie** : 2003
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Respire ?
+
+**Six accords, sans capo : Am, Dm, G, F, E7 et FMaj7.** Le morceau tourne en la mineur, ce qui lui donne cette couleur grave sous des paroles pourtant très directes.
+
+- **Couplet** : Am – Dm – G – E7, puis FMaj7 – Dm – E7 – FMaj7 – G
+- **Refrain** : Am – Dm – G – F puis G, en boucle
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-dm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré mineur (Dm) à la guitare : index sur la 1re case de la corde Mi aiguë, majeur sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) à la guitare : barré de l'index sur la 1re case, majeur sur la 2e case de la corde Sol, annulaire et auriculaire sur la 3e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-e7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi septième (E7) à la guitare : majeur sur la 2e case de la corde La, index sur la 1re case de la corde Sol, les quatre autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-fmaj7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur septième (FMaj7) à la guitare : annulaire sur la 3e case de la corde Ré, majeur sur la 2e case de la corde Sol, index sur la 1re case de la corde Si, corde Mi aiguë à vide, cordes Mi grave et La étouffées" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 6 accords de Respire à la guitare : Am, Dm, G, F, E7 et FMaj7. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+Le FMaj7 est la version facile du F : tu gardes la même forme en retirant le barré, ce qui laisse sonner la corde de mi aiguë à vide. Si le F barré du refrain te bloque encore, joue-le en FMaj7, le morceau reste parfaitement cohérent.
 
 ## Qui est Mickey 3D ? Entre engagement et créativité
 

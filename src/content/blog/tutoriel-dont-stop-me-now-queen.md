@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Don't Stop Me Now (Queen) : signification des paroles + tuto guitare"
+title: "Don't Stop Me Now (Queen) : Accords et Tab Guitare"
 prod: Y
 description: "Ce que raconte l'hymne de Freddie Mercury (1979), et comment l'aborder à la guitare pas à pas."
 ogImage: "/images/blog/tutoriel-dont-stop-me-now-queen.webp"
@@ -8,14 +8,14 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
-introduction: "Don't Stop Me Now de Queen se joue avec 10 accords à 150 BPM, difficulté 5/5 — un défi réservé aux guitaristes confirmés. Sortie en 1979, cette explosion d'énergie signée Freddie Mercury reste un hymne intemporel. Découvrez son histoire et comment l'aborder progressivement."
+dateModified: "2026-07-29"
+introduction: "Don't Stop Me Now de Queen se joue avec 7 accords (F, Am, Dm, Gm, C7, C, D7) à 150 BPM, difficulté 5/5 : un défi réservé aux guitaristes à l'aise avec le Gm barré. Sortie en 1979, cette explosion d'énergie signée Freddie Mercury reste un hymne intemporel."
 
 songInfo:
   inBook: true
   bookPage: 14
   tempo: 150
-  chordCount: 10
+  chordCount: 7
   difficulty: "5/5"
 
 videos:
@@ -61,13 +61,25 @@ faqs:
 ---
 ## En bref
 
-**Don't Stop Me Now de Queen se joue avec 10 accords à un tempo très rapide (150 BPM), difficulté 5/5.** Réservé aux guitaristes confirmés : le vrai défi est la vélocité des changements d'accords, pas leur complexité individuelle. Travaille d'abord à 50 % du tempo avant d'accélérer par paliers.
+**Don't Stop Me Now de Queen se joue avec 7 accords à un tempo très rapide (150 BPM), difficulté 5/5.** Réservé aux guitaristes confirmés : le vrai défi est la vélocité des changements d'accords, pas leur complexité individuelle. Travaille d'abord à 50 % du tempo avant d'accélérer par paliers.
 
-- **Accords** : 10, dont certains sous plusieurs formes
+- **Accords** : F, Am, Dm, Gm, C7, C et D7
 - **Tempo** : 150 BPM — très rapide
 - **Difficulté** : 5/5 — guitariste confirmé
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Don't Stop Me Now ?
+
+**Sept accords, sans capo : F, Am, Dm, Gm, C7, C et D7.** La grille descend par paliers, à la manière d'une progression de piano transposée à la guitare.
+
+- **Couplet** : F – Am – Dm – Gm – C7, puis F – C
+- **Refrain** : F – Gm – Am – Dm – Gm – C7
+- **Pont** : D7 – Gm, deux fois
+
+Le Gm barré revient à chaque tour et le tempo est à 150 BPM : c'est là que se situe la difficulté, pas dans la lecture de la grille. Freddie Mercury a écrit ce morceau au piano, ce qui explique cette harmonie plus mobile que la moyenne du rock.
+
+Travaille d'abord l'enchaînement Dm – Gm – C7 seul : une fois qu'il tourne, le reste du morceau est à ta portée.
 
 ## Quelle est l'histoire de "Don't Stop Me Now" ?
 

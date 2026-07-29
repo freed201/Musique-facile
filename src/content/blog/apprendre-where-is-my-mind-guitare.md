@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Where Is My Mind (Pixies) - Tutoriel Guitare"
+title: "Where Is My Mind (Pixies) : Accords et Tab Guitare"
 prod: Y
-description: "Maîtrisez Where Is My Mind des Pixies à la guitare : 6 accords avec barrés, rock alternatif de 1988, riff hypnotique. Tutoriel vidéo pour intermédiaires."
+description: "Les 6 accords de Where Is My Mind (E, C#m, G#, A, Am, B) et la grille du refrain au couplet. Pixies à la guitare, sans capo, tempo 85 BPM."
 ogImage: "/images/blog/apprendre-where-is-my-mind-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: |
   Avec "Where Is My Mind", les Pixies nous plongent dans une introspection fascinante et musicale.  
   Découvre l’histoire de cette chanson culte, son impact unique sur le rock, et apprends à la jouer pas à pas, même si tu n’es pas un grand technicien de la guitare.
@@ -73,6 +73,17 @@ faqs:
 - **Album** : *Surfer Rosa* (1988)
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Where Is My Mind ?
+
+**Six accords, sans capo : E, C#m, G#, A, Am et B.** La boucle principale ne bouge quasiment jamais.
+
+- **Intro, couplet et refrain** : E – C#m – G# – A, en boucle
+- **Relance** : E – G# – A – Am – C#m – B
+
+Le morceau tourne en mi majeur, ce qui amène naturellement des barrés : C#m, G# et B en réclament un. Le C#m est la forme du Am déplacée en 4e case, le G# celle du F déplacée en 4e case aussi. Une fois ces deux repères pris, la grille se joue presque sans bouger la main de place.
+
+Le Am qui apparaît dans la relance est bien un La mineur ouvert, pas une coquille : c'est cet emprunt hors tonalité qui donne au morceau sa couleur bancale, si caractéristique des Pixies.
 
 ## Qui sont les Pixies ? Un phare du rock alternatif
 

@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Riche (Claudio Capéo) - Tutoriel Guitare"
+title: "Riche (Claudio Capéo) : Accords et Tab Guitare"
 prod: Y
-description: "Riche de Claudio Capéo à la guitare : 7 accords avec capo case 2, rythmique folk-pop. Tutoriel vidéo intermédiaires."
+description: "Les 7 accords de Riche (G, Am, C, D, Em, Bm/D, B7), le capo case 2 et la grille du couplet au refrain. Claudio Capéo à la guitare, tempo 165 BPM."
 ogImage: "/images/blog/apprendre-riche-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "Avec 'Riche', Claudio Capéo nous rappelle que la vraie richesse se mesure en amour et en souvenirs partagés, non en biens matériels. Découvrez l'histoire touchante de cette chanson tirée de son album éponyme (2016) et apprenez à la jouer à la guitare avec notre tutoriel détaillé."
 
 songInfo:
@@ -70,6 +70,17 @@ faqs:
 - **Difficulté** : 3/5 — intermédiaire
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Riche ?
+
+**Sept accords avec un capo en case 2 : G, Am, C, D, Em, Bm/D et B7.** Le couplet reste très simple, c'est le refrain qui monte d'un cran.
+
+- **Couplet** : G – Am – C – G – D
+- **Refrain** : Am – Em – Bm/D – C – G, puis Am – B7 – Em – Bm/D
+
+Le morceau file à 165 BPM : à cette vitesse, ce ne sont pas les formes qui posent problème mais les transitions. Travaille d'abord le refrain à la moitié du tempo, en particulier le passage Am – B7 – Em qui arrive vite.
+
+Le Bm/D est un Bm dont la basse est jouée en 5e case de la corde de La : si tu débutes, joue un Bm ordinaire, la différence est discrète dans un accompagnement gratté.
 
 ## Qui est Claudio Capéo ?
 

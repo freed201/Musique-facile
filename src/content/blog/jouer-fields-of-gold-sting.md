@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Fields of Gold (Sting) - Tutoriel Guitare"
+title: "Fields of Gold (Sting) : Accords et Tab Guitare"
 prod: Y
 description: "Fields of Gold de Sting à la guitare : 6 accords avec capo case 2, ballade folk-pop 1993, arpèges. Tutoriel intermédiaires."
 ogImage: "/images/blog/jouer-fields-of-gold-sting.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "Fields of Gold de Sting se joue avec 6 accords et un capo case 2, en fingerpicking sur un tempo posé (104 BPM). Extraite de l'album 'Ten Summoner's Tales' (1993), cette ballade explore l'amour, la nostalgie et la beauté de la nature. Voici comment l'apprendre pas à pas."
 
 songInfo:
@@ -68,6 +68,17 @@ faqs:
 - **Difficulté** : 3/5 — intermédiaire
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Fields of Gold ?
+
+**Six accords avec un capo en case 2 : Am, Asus2, C, F, FMaj7 et G.** L'intro pose le Am seul, puis la grille se déroule.
+
+- **Couplet** : Asus2 – F – C, puis Asus2 – FMaj7 – C – F – G – Am
+- **Pont** : F – C, répété, puis F – G – C
+
+L'Asus2 et le FMaj7 sont les deux couleurs à soigner : le premier est un Am dont tu retires un doigt, le second un F sans barré (xx3210). Ces deux allègements laissent des cordes sonner à vide, ce qui donne le côté aéré, presque suspendu, du morceau.
+
+Le capo en case 2 est indispensable pour retrouver la tonalité du disque et chanter dessus.
 
 ## Un voyage musical avec Sting
 

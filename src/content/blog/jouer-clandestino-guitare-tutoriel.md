@@ -1,12 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Clandestino (Manu Chao) - Tutoriel Guitare"
-description: "Clandestino de Manu Chao avec trois accords faciles, capo case 2 et rythmique douce. Guide clair pour jouer le morceau complet."
+title: "Clandestino (Manu Chao) : Accords et Tablature Guitare"
+description: "Les 3 accords de Clandestino (Em, Am, B7) en diagrammes, le capo case 2, la rythmique et 3 vidéos. Une grille facile pour jouer le morceau en entier."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
+dateModified: "2026-07-29"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/jouer-clandestino-guitare-tutoriel.webp"
@@ -38,7 +38,7 @@ faqs:
   - question: "Faut-il un capo pour jouer Clandestino ?"
     answer: "Le capo est recommandé en case 2 pour garder la couleur originale. Sans capo, tu peux jouer les mêmes formes d’accords en sonnant plus grave."
   - question: "Quels sont les accords de Clandestino ?"
-    answer: "Le morceau se joue avec trois accords. Avec capo 2, les formes sont Am, G et F."
+    answer: "Trois accords suffisent : Em (Mi mineur), Am (La mineur) et B7 (Si septième), avec un capo en case 2 pour retrouver la tonalité du disque. Le couplet enchaîne Em – Em – Em – Am puis Am – B7 – B7 – Em, et le refrain tourne sur Am – B7 – Em."
   - question: "Est-ce un bon morceau pour débuter la guitare ?"
     answer: "Oui, la progression est simple, la rythmique est accessible, et tu peux jouer une chanson complète rapidement."
   - question: "Combien de temps faut-il pour le jouer correctement ?"
@@ -57,15 +57,25 @@ Si tu veux jouer une chanson entière rapidement, Clandestino est un excellent c
 
 ## Quels accords pour Clandestino ?
 
-Le morceau tourne sur trois accords en boucle. Avec un capo en case 2, tu gardes la tonalité originale tout en utilisant des formes faciles :
+**Trois accords en boucle : Em, Am et B7.** Avec un capo en case 2, tu gardes la tonalité originale tout en utilisant ces formes faciles.
 
-- Am
-- G
-- F
+- **Couplet** : Em – Em – Em – Am, puis Am – B7 – B7 – Em
+- **Refrain** : Am – B7 – Em
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-b7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Si septième (B7) à la guitare : index sur la 1re case de la corde Ré, majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Sol, auriculaire sur la 2e case de la corde Mi aiguë" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 3 accords de Clandestino à la guitare : Em, Am et B7, avec capo en case 2. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+Pour enrichir l'accompagnement, alterne les basses : corde de mi puis corde de la sur le Em, corde de la puis corde de mi sur le Am, et corde de la puis corde de mi en case 2 sur le B7.
 
 Sans capo, tu peux garder les mêmes formes, mais le rendu est plus grave. C’est très bien si tu n’as pas de capo. L’important est d’être confortable et de garder un son propre.
 
-Conseil d’enchaînement : commence par Am → G → F → G très lentement. Place d’abord ton index, puis les autres doigts. Si tu bloques sur F, joue une version simplifiée en posant deux doigts seulement sur les cordes aiguës. Le but n’est pas la perfection, c’est la fluidité.
+Conseil d’enchaînement : commence par Em → Am → B7 → Em très lentement. Place d’abord ton index, puis les autres doigts. Le B7 demande quatre doigts, c’est lui qui bloque au début : travaille-le isolément avant de l’insérer dans la boucle. Le but n’est pas la perfection, c’est la fluidité.
 
 Autre astuce : vérifie que toutes les cordes sonnent bien sur chaque accord. Si une corde étouffe, relâche un peu la pression et ajuste la position du doigt. Un accord propre, même joué lentement, donne tout de suite une impression plus musicale.
 
@@ -89,7 +99,7 @@ Pense aussi à la dynamique : tu peux jouer un peu plus doux sur les couplets et
 
 Clandestino est très répétitif, ce qui est parfait pour apprendre. La progression reste la même sur couplet et refrain :
 
-Am → G → F → G
+Em → Am → B7 → Em
 
 Structure simple pour s’entraîner :
 
@@ -116,13 +126,13 @@ Tu peux progresser vite avec une séance courte et régulière. Voici deux forma
 
 ### 10 minutes
 
-1. 2 minutes d’échauffement : Am → G → F → G très lentement.
+1. 2 minutes d’échauffement : Em → Am → B7 → Em très lentement.
 2. 4 minutes de rythmique : un accord fixe + pattern bas bas haut haut bas haut.
 3. 4 minutes sur la boucle complète avec changements.
 
 ### 30 minutes
 
-1. 5 minutes d’accords : transitions lentes et propres.
+1. 5 minutes d’accords : transitions lentes et propres, en insistant sur le passage Am → B7.
 2. 10 minutes de rythmique : d’abord sans changement, puis avec un changement par mesure.
 3. 10 minutes de boucle complète avec structure (intro, couplet, refrain).
 4. 5 minutes de plaisir : joue la chanson en entier, même imparfaitement.

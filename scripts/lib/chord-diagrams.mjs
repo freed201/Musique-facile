@@ -81,6 +81,119 @@ const GUITARE_CHORDS = {
     frets:   [-1, 2, 1, 2, 0, 2],
     fingers: [0, 2, 1, 3, 0, 4],
   },
+  // Accords de septième ouverts — positions standard, ajoutées pour les tutos de morceaux
+  // (Hallelujah, Foule sentimentale, La Seine). À VALIDER PAR FRED avant publication.
+  e7: {
+    name: 'E7',
+    longName: 'Mi septième',
+    frets:   [0, 2, 0, 1, 0, 0],
+    fingers: [0, 2, 0, 1, 0, 0],
+  },
+  d7: {
+    name: 'D7',
+    longName: 'Ré septième',
+    frets:   [-1, -1, 0, 2, 1, 2],
+    fingers: [0, 0, 0, 2, 1, 3],
+  },
+  a7: {
+    name: 'A7',
+    longName: 'La septième',
+    frets:   [-1, 0, 2, 0, 2, 0],
+    fingers: [0, 0, 2, 0, 3, 0],
+  },
+
+  // --- Positions relevées dans « 40 chansons françaises et hits pop-rock » (Fred Fieffé)
+  // et validées par Fred. Certaines sont propres à un morceau : voir le commentaire.
+  bm: {
+    name: 'Bm',
+    longName: 'Si mineur',
+    frets:   [-1, 2, 4, 4, 3, 2],
+    fingers: [0, 1, 3, 4, 2, 1],
+    barre: { fret: 2, fromString: 1, toString: 5, finger: 1 },
+  },
+  fmaj7: {
+    name: 'FMaj7',
+    longName: 'Fa majeur septième',
+    frets:   [-1, -1, 3, 2, 1, 0],
+    fingers: [0, 0, 3, 2, 1, 0],
+  },
+  'fmaj7-c': {
+    name: 'FMaj7/C',
+    longName: 'Fa majeur septième, basse do',
+    frets:   [0, 3, 3, 2, 1, 0],
+    fingers: [0, 3, 4, 2, 1, 0],
+  },
+  'e7-b': {
+    name: 'E7/B',
+    longName: 'Mi septième, basse si',
+    frets:   [-1, 2, 0, 1, 0, 0],
+    fingers: [0, 2, 0, 1, 0, 0],
+  },
+  'fdiese-m': {
+    name: 'F#m',
+    longName: 'Fa dièse mineur',
+    frets:   [2, 4, 4, 2, 2, 2],
+    fingers: [1, 3, 4, 1, 1, 1],
+    barre: { fret: 2, fromString: 0, toString: 5, finger: 1 },
+  },
+  'fdiese-sus4': {
+    name: 'F#sus4',
+    longName: 'Fa dièse suspendu 4',
+    frets:   [2, 4, 4, 4, 2, 2],
+    fingers: [1, 2, 3, 4, 1, 1],
+    barre: { fret: 2, fromString: 0, toString: 5, finger: 1 },
+  },
+  gm: {
+    name: 'Gm',
+    longName: 'Sol mineur',
+    frets:   [3, 5, 5, 3, 3, 3],
+    fingers: [1, 3, 4, 1, 1, 1],
+    barre: { fret: 3, fromString: 0, toString: 5, finger: 1 },
+  },
+  bb: {
+    name: 'Bb',
+    longName: 'Si bémol majeur',
+    frets:   [6, 8, 8, 7, 6, 6],
+    fingers: [1, 3, 4, 2, 1, 1],
+    barre: { fret: 6, fromString: 0, toString: 5, finger: 1 },
+  },
+  bbmaj7: {
+    name: 'BbMaj7',
+    longName: 'Si bémol majeur septième',
+    frets:   [-1, 1, 3, 2, 3, 1],
+    fingers: [0, 1, 3, 2, 4, 1],
+    barre: { fret: 1, fromString: 1, toString: 5, finger: 1 },
+  },
+  // Position barrée en 3e case, utilisée sur Hallelujah (notée G* dans le livre)
+  'g-barre3': {
+    name: 'G',
+    longName: 'Sol majeur (barré 3e case)',
+    frets:   [3, 5, 5, 4, 3, 3],
+    fingers: [1, 3, 4, 2, 1, 1],
+    barre: { fret: 3, fromString: 0, toString: 5, finger: 1 },
+  },
+  // Positions hautes propres à Back to Black
+  'dm-barre5': {
+    name: 'Dm',
+    longName: 'Ré mineur (barré 5e case)',
+    frets:   [-1, 5, 7, 7, 6, 5],
+    fingers: [0, 1, 3, 4, 2, 1],
+    barre: { fret: 5, fromString: 1, toString: 5, finger: 1 },
+  },
+  'a-barre5': {
+    name: 'A',
+    longName: 'La majeur (barré 5e case)',
+    frets:   [5, 7, 7, 6, 5, 5],
+    fingers: [1, 3, 4, 2, 1, 1],
+    barre: { fret: 5, fromString: 0, toString: 5, finger: 1 },
+  },
+  'a7-barre5': {
+    name: 'A7',
+    longName: 'La septième (barré 5e case)',
+    frets:   [5, 7, 5, 6, 5, 5],
+    fingers: [1, 3, 1, 2, 1, 1],
+    barre: { fret: 5, fromString: 0, toString: 5, finger: 1 },
+  },
   e: {
     name: 'E',
     longName: 'Mi majeur',

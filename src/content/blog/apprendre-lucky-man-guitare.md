@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Lucky Man (The Verve) - Tutoriel Guitare"
+title: "Lucky Man (The Verve) : Accords et Tab Guitare"
 prod: Y
 description: "Lucky Man de The Verve à la guitare : 5 accords simples, rythmique Britpop, classique 1997. Tutoriel vidéo débutants."
 ogImage: "/images/blog/apprendre-lucky-man-guitare.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "Avec 'Lucky Man', The Verve nous offre une chanson pleine d'émotion et de profondeur, tirée de l'album légendaire Urban Hymns (1997). Découvrez l'histoire de ce classique de la Britpop et apprenez à le jouer à la guitare avec nos tutoriels vidéo détaillés, accessibles aux débutants."
 
 songInfo:
@@ -69,6 +69,16 @@ faqs:
 - **Album** : *Urban Hymns* (1997)
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Lucky Man ?
+
+**Six accords, sans capo : G, D, Dsus2, Asus2, Asus4 et Em.** Trois d'entre eux sont des variantes suspendues, et c'est toute la signature du morceau.
+
+- **Couplet et refrain** : G – D – Dsus2 – Asus2, en boucle
+
+Le Dsus2 est un D dont tu retires l'index, l'Asus2 un A dont tu lèves un doigt, l'Asus4 un A auquel tu en ajoutes un. Autrement dit, tu tiens une position et tu fais bouger un seul doigt : c'est ce balancement qui donne au morceau sa sensation de flottement, sans jamais changer vraiment d'accord.
+
+À 156 BPM, ne cherche pas à tout plaquer. Laisse les cordes à vide sonner entre les positions, c'est ce qui crée le tapis sonore de The Verve.
 
 ## Qui est The Verve et quelle est l'histoire du morceau ?
 

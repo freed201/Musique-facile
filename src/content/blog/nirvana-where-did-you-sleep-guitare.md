@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Where Did You Sleep Last Night (Nirvana) : signification + tuto"
+title: "Where Did You Sleep Last Night : Accords Guitare"
 prod: Y
 description: "De Lead Belly au MTV Unplugged de 1993 : l'histoire du morceau, le sens des paroles et comment le jouer."
 ogImage: "/images/blog/nirvana-where-did-you-sleep-guitare.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "Where Did You Sleep Last Night de Nirvana se joue avec 6 accords, dont des power chords, difficulté avancée — le vrai défi est la montée d'émotion, pas la technique. Immortalisée lors du MTV Unplugged de 1993, cette reprise d'un vieux blues folk a marqué toute une génération. Découvre son histoire et comment l'aborder à la guitare."
 
 songInfo:
@@ -63,11 +63,21 @@ faqs:
 
 **Where Did You Sleep Last Night de Nirvana se joue avec 6 accords, dont des power chords, difficulté avancée.** Le vrai défi n'est pas technique mais émotionnel : gérer la montée d'intensité, du murmure au cri, comme Kurt Cobain lors du MTV Unplugged de 1993.
 
-- **Accords** : 6, dont des power chords
+- **Accords** : E, E/B, A, G, B et B/G
 - **Difficulté** : avancé — le défi est la dynamique émotionnelle
 - **Origine** : chant traditionnel américain, popularisé par Lead Belly
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Where Did You Sleep Last Night ?
+
+**Six accords, sans capo : E, E/B, A, G, B et B/G.** La même boucle revient du début à la fin, couplets comme pont.
+
+- **Boucle complète** : E – E/B – A – G – B – B/G – E
+
+Les deux accords à basse imposée, E/B et B/G, ne sont pas des complications gratuites : ils font descendre la ligne de basse par paliers, et c'est ce mouvement qui donne au morceau son côté lancinant, presque hypnotique dans la version Unplugged de Nirvana.
+
+Si tu débutes, joue simplement E – A – G – B en ignorant les basses : la chanson tient debout. Tu ajouteras les renversements ensuite, une fois la boucle installée.
 
 ## Quelle est l'histoire derrière "Where Did You Sleep Last Night" ?
 

@@ -20,7 +20,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Diagrammes guitare nécessaires à l'article pilier (5 accords essentiels : Em, A, C, G, D).
 const JOBS = [
   { instrument: 'ukulele', keys: ['c', 'g', 'am', 'f', 'dm'], dir: 'accords-ukulele' },
-  { instrument: 'guitare', keys: ['em', 'a', 'c', 'g', 'd'], dir: 'accords-guitare' },
+  {
+    instrument: 'guitare',
+    keys: [
+      'em', 'a', 'c', 'g', 'd', 'am', 'f', 'dm', 'e', 'b7', 'e7', 'd7', 'a7',
+      // positions relevées dans le livre de Fred (barrés + accords à basse imposée)
+      'bm', 'fmaj7', 'fmaj7-c', 'e7-b', 'fdiese-m', 'fdiese-sus4', 'gm', 'bb',
+      'g-barre3', 'dm-barre5', 'a-barre5', 'a7-barre5', 'bbmaj7',
+    ],
+    dir: 'accords-guitare',
+  },
 ];
 
 for (const { instrument, keys, dir } of JOBS) {

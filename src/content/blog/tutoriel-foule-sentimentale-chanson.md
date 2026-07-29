@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Foule Sentimentale (Souchon) - Tutoriel Guitare"
+title: "Foule Sentimentale (Souchon) : Accords et Tab Guitare"
 prod: Y
-description: "Foule Sentimentale d'Alain Souchon à la guitare : 5 accords simples, critique sociale poétique 1993. Tutoriel vidéo facile."
+description: "Les 5 accords de Foule Sentimentale (Em, Am, D7, B7, C) en diagrammes et les 2 suites qui alternent dans le morceau. Sans capo, tempo lent à 55 BPM."
 ogImage: "/images/blog/tutoriel-foule-sentimentale-chanson.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "Foule Sentimentale d'Alain Souchon se joue avec 5 accords sur un tempo lent (55 BPM), difficulté 2/5. Sortie en 1993, cette critique poétique de la société de consommation est devenue un grand classique. Découvre son histoire et comment l'interpréter avec la juste sensibilité, pas à pas."
 
 songInfo:
@@ -69,6 +69,28 @@ faqs:
 - **Sortie** : 1993
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Foule Sentimentale ?
+
+**Cinq accords, sans capo : Em, Am, D7, B7 et C.** Le morceau alterne deux suites très proches, et c'est là que se joue toute la subtilité.
+
+- **Suite 1** : Em – Am – D7 – B7
+- **Suite 2** : Em – C – Am – B7
+
+L'ordre des deux varie au fil du morceau. Si tu te trompes de suite, presque personne ne l'entendra : garde le tempo plutôt que de t'arrêter pour corriger.
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré septième (D7) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Sol, annulaire sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-b7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Si septième (B7) à la guitare : index sur la 1re case de la corde Ré, majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Sol, auriculaire sur la 2e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 5 accords de Foule Sentimentale : Em, Am, D7, B7 et C. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+Pour la main droite, gratte uniquement les cordes graves sur les coups non accentués, et toutes les cordes sur les accents. C'est ce contraste qui donne sa respiration à l'accompagnement.
 
 ## Qui est Alain Souchon ?
 

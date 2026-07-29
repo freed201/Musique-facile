@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Can't Help Falling in Love (Elvis) - Guitare"
+title: "Can't Help Falling in Love (Elvis) : Accords Guitare"
 prod: Y
 description: "Can't Help Falling in Love d'Elvis Presley : 10 accords en Do majeur, ballade romantique 1961. Tutoriel guitare intermédiaires."
 ogImage: "/images/blog/tuto-cant-help-falling-in-love-presley-guitare.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2025-02-21"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: |
   Avec "I Can't Help Falling in Love with You", Elvis Presley nous emmène dans l’une des balades les plus romantiques et universelles de la musique.  
   Ce morceau, simple et sincère, est devenu un passage obligé pour tout guitariste amateur ou passionné.  
@@ -16,7 +16,7 @@ introduction: |
 
 songInfo:
   inBook: true
-  bookPage: 94
+  bookPage: 10
   tempo: 123
   chordCount: 10
   key: "C"
@@ -65,6 +65,18 @@ faqs:
 - **Sortie** : 1961, album *Blue Hawaii*
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Can't Help Falling in Love ?
+
+**Dix accords avec un capo en case 2 : C, G, Em, Am, Am/G, F, G7, B7, A7 et Dm.** La chanson paraît simple, mais sa grille est plus riche que la moyenne.
+
+- **Intro** : C – G – C – G
+- **Refrain** : C – Em – Am – Am/G – F – C – G – G7, puis F – G – Am – F
+- **Couplet** : Em – B7, répété, puis Em – A7 – Dm – G7 – C
+
+Le Am/G n'a rien de compliqué : c'est un Am dont tu poses le pouce ou l'annulaire sur la 3e case de la corde de Mi grave. Cette basse qui descend de La vers Sol puis Fa, c'est exactement ce qui donne à la chanson son air de berceuse qui s'écoule.
+
+Le couplet en Em – B7 change complètement d'atmosphère : garde le B7 propre, ses quatre doigts se posent d'un coup avec un peu d'habitude.
 
 ## Qui est Elvis Presley, l'icône intemporelle du rock'n'roll ?
 

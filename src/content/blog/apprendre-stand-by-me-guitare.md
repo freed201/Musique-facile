@@ -1,12 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Stand by Me (Ben E. King) - Tutoriel Guitare"
-description: "Stand by Me à la guitare : 4 accords, la célèbre progression doo-wop des années 50 et le groove venu de la basse. Parfait pour une première chanson complète."
+title: "Stand by Me (Ben E. King) : Accords et Tablature Guitare"
+description: "Les 4 accords de Stand by Me (G, Em, C, D) en diagrammes et la progression doo-wop des années 50. Une boucle facile pour une première chanson complète."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
+dateModified: "2026-07-29"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-stand-by-me-guitare.webp"
@@ -58,12 +58,17 @@ faqs:
 
 ## Quels accords pour Stand by Me ?
 
-Toute la chanson tient sur cette boucle, répétée du début à la fin :
+**Quatre accords : G, Em, C et D**, avec un capo en case 2 pour retrouver la tonalité du disque. Toute la chanson tient sur cette boucle, répétée du début à la fin : G – G – Em – Em – C – D – G – G.
 
-- G
-- Em
-- C
-- D
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 4 accords de Stand by Me à la guitare : G, Em, C et D. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire.</figcaption>
+</figure>
 
 C'est la célèbre **progression doo-wop des années 50** (I – vi – IV – V). Tu la retrouveras dans des dizaines de tubes : l'apprendre ici, c'est ouvrir la porte à plein d'autres chansons.
 

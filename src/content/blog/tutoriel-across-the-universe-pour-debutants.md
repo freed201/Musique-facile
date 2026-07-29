@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Across the Universe (Beatles) - Tutoriel Guitare"
+title: "Across the Universe (Beatles) : Accords Guitare"
 prod: Y
 description: "Across the Universe des Beatles : 8 accords avec capo case 2, ballade psychédélique 1969. Tutoriel guitare intermédiaires."
 ogImage: "/images/blog/tutoriel-across-the-universe-pour-debutants.webp"
@@ -9,7 +9,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "Across the Universe des Beatles se joue avec 8 accords et un capo case 2, sur un tempo lent (76 BPM), difficulté 4/5. Cette œuvre inoubliable de 1969 allie la poésie introspective de John Lennon à une mélodie envoûtante. Découvrez son histoire et comment l'aborder à la guitare."
 
 songInfo:
@@ -68,6 +68,17 @@ faqs:
 - **Difficulté** : 4/5 — intermédiaire
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Across the Universe ?
+
+**Cinq accords, sans capo : D, A, A7, G et Em7.** Tous ouverts, aucun barré.
+
+- **Couplet** : Em7 – A, en balancement
+- **Refrain** : A – A7 – G – D, deux fois
+
+L'A7 n'apparaît qu'au refrain, juste avant le G : c'est lui qui crée l'appel, cette sensation que la phrase doit se résoudre. Le Em7 du couplet, lui, est un Em auquel tu retires un doigt, ce qui laisse le morceau respirer sous la mélodie.
+
+À 76 BPM, tout se joue en douceur. Lennon accompagnait la chanson en arpèges plutôt qu'en accords plaqués : essaie, la différence est frappante.
 
 ## Qui sont les Beatles et John Lennon ?
 

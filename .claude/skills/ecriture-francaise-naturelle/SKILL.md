@@ -5,7 +5,8 @@ description: >-
   tiret cadratin en incise, lexique surreprésenté (plonger dans, naviguer, à
   l'ère de, incontournable, crucial, robuste...), structures rhétoriques
   ("il ne s'agit pas de X mais de Y", énumérations ternaires systématiques),
-  connecteurs mécaniques, gras et listes en excès, rythme trop régulier.
+  fausse agentivité, voix passive, déclaratives vagues, connecteurs mécaniques,
+  gras et listes en excès, rythme trop régulier ou trop haché.
   Déclencher cette skill DÈS QUE la tâche consiste à produire du texte français
   destiné à être lu ou envoyé : e-mail, message LinkedIn, post réseaux sociaux,
   article, newsletter, page web, proposition commerciale, prospection, fiche,
@@ -56,6 +57,7 @@ Ces tournures sont des traductions automatiques de tics anglophones. Elles sonne
 | une solution scalable | scalable | qui grandit sans casser |
 | tapisserie / mosaïque de | tapestry | un ensemble de |
 | il vaut la peine de noter | it's worth noting | à noter |
+| à la fin de la journée | at the end of the day | au fond, finalement |
 
 ### Formules rhétoriques signature (supprimer)
 
@@ -75,9 +77,9 @@ Ce sont les tournures qui déclenchent immédiatement le réflexe "écrit par Ch
 
 Ces mots ne sont pas interdits, mais ils sont vidés de sens dans 90 % des cas. Avant de les garder, vérifier qu'ils apportent une information. Sinon, supprimer ou préciser.
 
-Liste courte des plus fréquents : **véritable, incontournable, crucial, essentiel, robuste, riche, fascinant, passionnant, dynamique, vital, nuancé, fluide / sans couture, optimiser, approfondir, de surcroît, notamment** (en excès).
+Liste courte des plus fréquents : **véritable, incontournable, crucial, essentiel, robuste, riche, fascinant, passionnant, dynamique, vital, nuancé, fluide / sans couture, pertinent, innovant, puissant, optimiser, approfondir, de surcroît, notamment** (en excès).
 
-Règle : un adjectif qui pourrait s'appliquer à n'importe quel sujet ne décrit rien. « Une formation incontournable » ne dit rien ; « une formation qui évite trois erreurs classiques » dit quelque chose.
+Règle : un adjectif qui pourrait s'appliquer à n'importe quel sujet ne décrit rien. « Une formation incontournable » ne dit rien ; « une formation qui évite trois erreurs classiques » dit quelque chose. Le test : « est-ce que ce mot apporte une information que le lecteur n'aurait pas sans lui ? » Si non, supprimer ou préciser.
 
 Pour la liste complète avec les remplacements et le registre, voir `references/lexique-et-tournures.md`.
 
@@ -85,9 +87,12 @@ Pour la liste complète avec les remplacements et le registre, voir `references/
 
 Remplacer les verbes passe-partout par des verbes qui montrent l'effet réel :
 
-- permettre de → aider à, éviter de, débloquer, faire gagner
+- permettre de → aider à, éviter de, débloquer, faire gagner, donner accès à
 - favoriser / contribuer à → augmenter, déclencher, faciliter (si vrai)
 - mettre en avant → montrer, prouver, rappeler
+- approfondir → creuser, détailler, aller plus loin
+- s'inscrire dans → faire partie de, aller avec
+- accompagner (jargon) → aider, suivre, former
 
 ### Structures et rythme
 
@@ -96,6 +101,48 @@ Remplacer les verbes passe-partout par des verbes qui montrent l'effet réel :
 - **Connecteurs logiques.** Supprimer environ la moitié des « de plus », « par ailleurs », « ainsi », « en effet », « cependant ». Ils donnent un ton dissertation. Mais en garder quelques-uns : zéro connecteur sonne aussi faux.
 - **Longueur des phrases.** L'IA produit des phrases de longueur trop uniforme (faible "burstiness"). Alterner volontairement : une phrase courte, une longue, une rupture. Une phrase de trois mots a le droit d'exister.
 - **Ton.** L'IA reste toujours équilibrée et prudente. Assumer un angle, une préférence, un avis quand le contexte le permet.
+- **Fragmentation dramatique.** Empiler des fragments courts pour faire "profond" est un tic (« Un point. C'est tout. C'est ça le sujet. »). C'est l'excès inverse du rythme uniforme : varier ne veut pas dire hacher. Préférer des phrases complètes ; faire confiance au fond plutôt qu'à la mise en scène.
+- **Hedging.** L'IA empile les précautions (« il est important de noter que », « dans une certaine mesure », « on pourrait dire que », « généralement / souvent / parfois » accumulés). En garder au plus une. Si c'est vrai, l'affirmer ; sinon, préciser la condition.
+
+## Nommer qui agit
+
+Marqueur discret mais fiable. L'IA fait agir des choses inanimées et cache les personnes. Trois formes à corriger.
+
+### Fausse agentivité
+
+Une chose abstraite ne fait pas une action humaine. Une plainte ne « devient » pas un correctif : quelqu'un corrige. Une décision n'« émerge » pas : quelqu'un décide. Nommer la personne, ou à défaut mettre le lecteur à sa place avec « tu / vous ».
+
+| Tournure IA | Le problème | À écrire plutôt |
+| --- | --- | --- |
+| « la plainte devient un correctif » | la plainte n'a rien fait | « l'équipe a corrigé le bug la semaine suivante » |
+| « la décision émerge » / « s'impose » | personne ne décide | « la direction a tranché » |
+| « la culture change / évolue » | une culture ne bouge pas seule | « les gens ont changé leurs habitudes » |
+| « la conversation se déplace vers » | personne ne pilote | « on a fini par parler de » |
+| « les données nous disent / révèlent » | les données ne parlent pas | « en lisant les chiffres, on voit que » |
+| « le marché récompense / sanctionne » | abstraction sans acteur | « les clients paient / arrêtent d'acheter » |
+| « l'histoire retiendra » | personnification | « les historiens retiendront » |
+
+### Voix passive qui cache l'acteur
+
+La passive dilue et masque qui fait quoi. Retrouver l'acteur et le mettre en tête de phrase.
+
+- « une décision a été prise » → nommer qui a décidé.
+- « il a été constaté / observé que » → « on a constaté que », ou nommer qui.
+- « des erreurs ont été commises » → nommer qui les a commises.
+- « ce point sera abordé plus loin » → « j'y reviens plus loin ».
+
+La passive reste légitime quand l'acteur est vraiment inconnu ou sans intérêt (« le pont a été construit en 1890 »). Le test : si on peut nommer l'acteur sans alourdir, le faire.
+
+### Déclaratives vagues
+
+Phrases qui annoncent de l'importance sans nommer la chose précise. Les couper ou les remplacer par le fait concret.
+
+- « les raisons sont structurelles » → dire laquelle.
+- « les enjeux sont importants » / « les conséquences sont réelles » → nommer l'enjeu, la conséquence.
+- « c'est là le vrai problème » → dire quel problème.
+- « l'impact est considérable » → chiffrer ou décrire l'effet.
+
+Même logique que le lexique fourre-tout : si la phrase pourrait s'appliquer à n'importe quel sujet, elle ne dit rien.
 
 ### Mise en forme
 
@@ -124,11 +171,29 @@ C'est l'étape qui fait la différence. Après avoir rédigé un texte français
 3. Repérer les formules signature (« il ne s'agit pas… », « à l'ère de… », « en somme »...). Supprimer ou reformuler.
 4. Compter les énumérations par trois. En casser au moins une si elles s'enchaînent.
 5. Compter les connecteurs logiques. En supprimer environ la moitié.
-6. Vérifier la variation de longueur des phrases. Couper ou fusionner pour créer du relief.
+6. Vérifier la variation de longueur des phrases. Couper ou fusionner pour créer du relief, sans tomber dans la fragmentation hachée.
 7. Vérifier que chaque adjectif d'éloge (« incontournable », « véritable »...) apporte une info. Sinon, le retirer.
-8. Vérifier qu'il y a au moins un élément concret : un chiffre, un exemple, un cas réel, un détail.
+8. Repérer les choses inanimées qui font des actions humaines (« la décision émerge », « le marché récompense ») et la voix passive qui cache l'acteur. Nommer qui agit.
+9. Repérer les déclaratives vagues (« les enjeux sont importants ») et les remplacer par le fait précis.
+10. Vérifier qu'il y a au moins un élément concret : un chiffre, un exemple, un cas réel, un détail.
 
 Ne pas annoncer cette passe à l'utilisateur ni la décrire dans la réponse. La livrer directement propre.
+
+## Auto-notation (pour un texte qui compte)
+
+Sur un texte important, se noter de 1 à 10 sur cinq axes avant de livrer. En dessous de 35/50, retravailler.
+
+| Axe | La question |
+| --- | --- |
+| Franchise | Des affirmations, ou des annonces qui tournent autour ? |
+| Rythme | Longueurs variées, ou métronome ? |
+| Confiance au lecteur | Le texte respecte-t-il son intelligence (pas de sur-explication) ? |
+| Naturel | Ça sonne écrit par une personne ? |
+| Densité | Reste-t-il quelque chose à couper ? |
+
+## Test final en une phrase
+
+Si on remplace le sujet du texte par n'importe quel autre sujet et que les phrases tiennent toujours, c'est que le texte ne dit rien. Ajouter du concret : un chiffre, un exemple, un cas, un détail vécu.
 
 ## Exemple avant / après
 
@@ -141,3 +206,4 @@ Ne pas annoncer cette passe à l'utilisateur ni la décrire dans la réponse. La
 > L'automatisation fait gagner du temps sur les tâches répétitives. Pour un indépendant, ça peut représenter une demi-journée par semaine récupérée. Le seul vrai travail, c'est de repérer quelle tâche automatiser en premier.
 
 Ce qui a changé : tiret cadratin supprimé, « à l'ère du », « il est crucial », « il ne s'agit pas seulement… mais », « véritable », « robuste », « optimiser », « libérer votre potentiel », « en somme », « incontournable » et le ciblage ternaire retirés. Ajout d'un élément concret (la demi-journée) et d'un angle (par où commencer).
+

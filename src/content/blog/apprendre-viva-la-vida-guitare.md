@@ -1,12 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Viva La Vida (Coldplay) - Tutoriel Guitare"
-description: "Viva La Vida de Coldplay à la guitare : la boucle de 4 accords qui imite les cordes, le strumming régulier et l'astuce pour la rendre épique. Tutoriel débutant."
+title: "Viva La Vida (Coldplay) : Accords et Tablature Guitare"
+description: "Les 4 accords de Viva La Vida (C, D, G, Em) en diagrammes, le strumming qui imite les cordes et 3 vidéos. Une seule boucle facile, du début à la fin."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
+dateModified: "2026-07-29"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-viva-la-vida-guitare.webp"
@@ -58,12 +58,17 @@ Sortie en 2008 et produite par Brian Eno, « Viva La Vida » est l'un des plus g
 
 ## Quels accords pour Viva la Vida ?
 
-Une boucle de 4 accords, sur tout le morceau :
+**Une boucle de 4 accords : C, D, G et Em**, sur tout le morceau, avec un capo en case 1 pour coller à la tonalité du disque.
 
-- C
-- D
-- G
-- Em
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-em.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur (Em) à la guitare : majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, les 4 autres cordes à vide" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 4 accords de Viva La Vida à la guitare : C, D, G et Em. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire.</figcaption>
+</figure>
 
 La même grille sert pour l'intro, les couplets et le refrain. Apprends-la proprement, et tu tiens le titre entier.
 

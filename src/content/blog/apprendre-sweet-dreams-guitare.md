@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Sweet Dreams (Eurythmics) - Tutoriel Guitare"
+title: "Sweet Dreams (Eurythmics) : Accords et Tab Guitare"
 prod: Y
-description: "Sweet Dreams d'Eurythmics à la guitare : 5 accords, rythmique synth-pop, hit années 80. Tutoriel vidéo intermédiaires."
+description: "Les 5 accords de Sweet Dreams (Am, F, E, Dm, D) et la boucle qui tourne du début à la fin, sans capo. Recréer le riff synthé à la guitare, à 93 BPM."
 ogImage: "/images/blog/apprendre-sweet-dreams-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "Plongez dans l'univers électronique et révolutionnaire de 'Sweet Dreams (Are Made of This)', l'un des morceaux les plus emblématiques des années 80 créé par Eurythmics. Découvrez comment adapter ce classique synth-pop de 1983 à la guitare avec notre tutoriel détaillé."
 
 songInfo:
@@ -58,11 +58,32 @@ faqs:
 
 **Sweet Dreams des Eurythmics se transpose à la guitare avec 5 accords, sans capo, sur un tempo modéré (93 BPM).** Difficulté 3/5 : le morceau original repose sur un riff de synthé, pas de guitare — le défi est de recréer sa pulsation hypnotique avec un strumming régulier et obstiné.
 
-- **Accords** : 5, sans capo
+- **Accords** : Am, F, E, Dm, D
 - **Difficulté** : 3/5 — le vrai défi est le groove, pas les accords
 - **Sortie** : janvier 1983
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Sweet Dreams ?
+
+**Cinq accords, sans capo : Am, F, E, Dm et D.** La grille est courte et tourne du début à la fin.
+
+- **Boucle principale** : F – F puis E – Am, enchaîné sur Dm – F – E
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) à la guitare : barré de l'index sur la 1re case, majeur sur la 2e case de la corde Sol, annulaire et auriculaire sur la 3e case des cordes La et Ré" />
+    <img src="/images/blog/accords-guitare/accord-guitare-e.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi majeur (E) à la guitare : index sur la 1re case de la corde Sol, majeur sur la 2e case de la corde La, annulaire sur la 2e case de la corde Ré, cordes Mi et Si à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-dm.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré mineur (Dm) à la guitare : index sur la 1re case de la corde Mi aiguë, majeur sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, majeur sur la 2e case de la corde Mi aiguë, cordes Mi grave et La étouffées" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 5 accords de Sweet Dreams à la guitare : Am, F, E, Dm et D. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
+
+Si le F barré te bloque, remplace-le par un Fmaj7/C : la couleur reste la même et la main souffre moins.
+
+Toute la difficulté est ailleurs. Le riff d'origine est joué au synthétiseur, pas à la guitare : ta main droite doit donc imiter une machine, avec une pulsation régulière et obstinée qui ne faiblit jamais. Compte les temps à voix haute au début, c'est le meilleur moyen de tenir ce côté hypnotique sans accélérer.
 
 ## Comment est né le duo Eurythmics ?
 Formé en 1980, Eurythmics est le fruit de la collaboration entre Annie Lennox, chanteuse à la voix ensorcelante, et Dave Stewart, guitariste et producteur de génie. Le duo s'est rencontré dans le groupe The Tourists, mais c'est avec Eurythmics qu'ils trouveront véritablement leur voie, adoptant un style audacieux et avant-gardiste. Leur son se distingue par l'utilisation innovante des synthétiseurs, couplée à la voix éthérée et puissante de Lennox.

@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "More Than Words (Extreme) - Tutoriel Guitare"
+title: "More Than Words (Extreme) : Accords Guitare"
 prod: Y
 description: "More Than Words d'Extreme à la guitare : ballade acoustique 1990, technique avancée, accordage spécial. Tutoriel confirmés."
 ogImage: "/images/blog/tutoriel-more-than-words-guitare.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: "More Than Words d'Extreme se joue en accordage un demi-ton en dessous, avec fingerstyle et percussions sur la caisse, difficulté 5/5. Sortie en 1990 sur l'album Pornograffitti, cette ballade acoustique reste une référence du genre. Découvre son histoire et comment décomposer sa technique exigeante."
 
 songInfo:
@@ -66,6 +66,17 @@ faqs:
 - **Difficulté** : 5/5 — le défi est la coordination
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour More Than Words ?
+
+**Douze accords, sans capo : G, Cadd9, Am7, C, D, D7, Em, Em7, Bm7, Cm, G7 et D/F#.** C'est le morceau le plus fourni du livre côté harmonie.
+
+- **Intro et couplet** : G – Cadd9 – Am7 – C – D, en boucle
+- **Fin** : G – Cadd9 – Am7 – D7 – G
+
+La liste impressionne, mais la plupart de ces accords sont des variantes proches les unes des autres : Cadd9 et Am7 se jouent avec les mêmes doigts en 3e case que le G, et Em7 n'est qu'un Em allégé. Tu bouges peu la main.
+
+La vraie difficulté est ailleurs : le morceau se joue en fingerstyle, avec des percussions frappées sur la caisse entre les accords. C'est cette coordination-là qu'il faut travailler, pas la grille.
 
 ## À la découverte du groupe Extreme
 

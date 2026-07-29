@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Apprendre Perfect à la Guitare (Ed Sheeran) - Tutoriel 2025"
+title: "Perfect (Ed Sheeran) : Accords et Tablature Guitare"
 prod: Y
 description: "Maîtrisez Perfect d'Ed Sheeran à la guitare : 8 accords simples, ballade pop romantique de 2017, tempo 95 BPM. Tutoriel vidéo facile pour débutants."
 ogImage: "/images/blog/apprendre-perfect-guitare.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: |
   Avec "Perfect", Ed Sheeran offre une mélodie qui capte l’essence de l’amour sincère et de l’émotion brute.  
   Plonge dans l’univers de ce morceau qui a touché des millions de cœurs, découvre ses secrets de composition, et apprends à le jouer simplement à la guitare, quel que soit ton niveau.
@@ -71,6 +71,19 @@ faqs:
 - **Album** : ÷ (Divide), 2017
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Perfect ?
+
+**Un capo en case 1, et huit accords : G, Em7, Cadd9, D, Em, C, Dsus4/F# et Em7/D.** Le cœur du morceau tient en quatre.
+
+- **Couplet** : G – Em7 – Cadd9 – D, en boucle
+- **Refrain** : Em – C – G – D
+- **Pont** : G – Em7 – C – D
+- **Fin** : G – Dsus4/F# – Em – Em7/D – C – D – G
+
+Le Em7 et le Cadd9 sont des cadeaux pour la main gauche : entre G, Em7 et Cadd9, l'annulaire et l'auriculaire ne bougent pas de la 3e case. Tu passes d'un accord à l'autre en déplaçant seulement deux doigts, ce qui explique pourquoi ce morceau sonne bien même joué lentement.
+
+La descente finale (Dsus4/F# puis Em7/D) fait glisser la basse de sol à ré : c'est joli, mais parfaitement optionnel tant que le reste n'est pas fluide.
 
 ## Quelle est l'histoire du morceau "Perfect" ?
 

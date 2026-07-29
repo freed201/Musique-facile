@@ -1,12 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "What's Up (4 Non Blondes) - Tutoriel Guitare"
-description: "La même boucle d'accords tout du long : un seul enchaînement à travailler, et 2 vidéos à l'appui."
+title: "What's Up (4 Non Blondes) : Accords et Tablature Guitare"
+description: "Les 3 accords de What's Up (G, Am, C) en diagrammes, la rythmique et 4 vidéos. Une seule boucle du début à la fin : la chanson facile idéale pour débuter."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-16"
+dateModified: "2026-07-29"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-whats-up-guitare.webp"
@@ -39,8 +39,10 @@ videos:
   - title: "Play Along What's Up"
     url: "https://youtu.be/VIKmAndFsm0"
 faqs:
+  - question: "Quels sont les accords de What's Up ?"
+    answer: "Trois accords ouverts : G (Sol majeur), Am (La mineur) et C (Do majeur). Ils tournent en boucle sur le couplet, le refrain et le pont. Pour jouer par-dessus l'enregistrement, pose un capo en case 2 : le disque est en La majeur, et le capo t'y met sans changer tes formes d'accords."
   - question: "Combien d'accords faut-il pour jouer What's Up ?"
-    answer: "Seulement 3 : G, A et C, joués en boucle sur tout le morceau. C'est l'une des raisons pour lesquelles « What's Up » des 4 Non Blondes est si souvent recommandée comme toute première chanson : 3 accords ouverts, un tempo lent, et la même grille du début à la fin."
+    answer: "Seulement 3 : G, Am et C, joués en boucle sur tout le morceau. C'est l'une des raisons pour lesquelles « What's Up » des 4 Non Blondes est si souvent recommandée comme toute première chanson : 3 accords ouverts, un tempo lent, et la même grille du début à la fin."
   - question: "Pourquoi la chanson s'appelle What's Up alors que le refrain dit « What's going on » ?"
     answer: "C'est l'une des anecdotes les plus connues du morceau ! Le refrain chante « and I say hey-ey-ey, what's going on », mais le titre officiel est « What's Up ». La légende veut que ce soit pour éviter la confusion avec le classique « What's Going On » de Marvin Gaye. De quoi briller en société quand tu la joues."
   - question: "What's Up convient-elle à un débutant complet ?"
@@ -60,11 +62,16 @@ Sortie en 1992 sur l'album *Bigger, Better, Faster, More!* et écrite par Linda 
 
 ## Quels accords pour What's Up ?
 
-Trois accords, c'est tout :
+**Trois accords ouverts : G, Am et C.** C'est tout, du début à la fin.
 
-- G
-- Am
-- C
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : majeur sur la 3e case de la corde Mi grave, index sur la 2e case de la corde La, annulaire sur la 3e case de la corde Mi aiguë" />
+    <img src="/images/blog/accords-guitare/accord-guitare-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 2e case de la corde Sol, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) à la guitare : index sur la 1re case de la corde Si, majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde La, corde Mi grave étouffée" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 3 accords de What's Up à la guitare : G, Am et C. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire.</figcaption>
+</figure>
 
 La même boucle tourne sur le couplet, le refrain et le pont. Le seul petit défi, c'est le changement **G → Am** : entraîne-le isolément quelques minutes, et le reste suit tout seul.
 

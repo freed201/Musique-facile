@@ -1,12 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Hey Jude (The Beatles) - Tutoriel Guitare"
+title: "Hey Jude (The Beatles) : Accords et Tab Guitare"
 description: "Hey Jude des Beatles à la guitare : la grille du couplet, le pré-refrain en A7-D7 et surtout le mythique « na na na » final. Tutoriel pas à pas pour débutants."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-06-06"
+dateModified: "2026-07-29"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-hey-jude-guitare.webp"
@@ -26,7 +26,7 @@ songInfo:
   inBook: true
   bookPage: 30
   tempo: 74
-  chordCount: 13
+  chordCount: 9
   key: "F"
   difficulty: "5/5"
 videos:
@@ -52,18 +52,17 @@ faqs:
 
 **Hey Jude des Beatles est un morceau exigeant à la guitare (difficulté 5/5, 13 accords en tout)** — mais son célèbre coda final « na na na… » se joue sur une simple boucle de **3 accords : G – C – D**, à la portée d'un débutant motivé. C'est la section la plus accessible et la plus jouissive à jouer en groupe.
 
-- **Accords** : 13 sur le morceau complet, mais 3 (G-C-D) pour le coda
+- **Accords** : 9 sur le morceau complet (capo 5), mais 3 (G-C-D) pour le coda
 - **Tonalité** : fa majeur (F)
 - **Difficulté** : 5/5 pour le morceau entier — le coda reste très abordable
 
 ## Quels accords pour Hey Jude ? (version simplifiée en G)
 
-- G
-- D
-- Em
-- C
-- A7
-- D7
+Deux chemins possibles, et ils ne donnent pas le même résultat.
+
+**La version du livre, dans la tonalité du disque** : capo en case 5, et neuf accords — C, C7, Dm, Dm/C, F, FMaj7/E, G, G/B et G7. Le capo te place en fa majeur, la tonalité d'origine, tout en gardant des formes ouvertes sous les doigts. Les basses descendantes (Dm/C, FMaj7/E, G/B) sont la signature harmonique des Beatles.
+
+**La version simplifiée, sans capo** : G, D, Em, C, A7 et D7. Plus rapide à mettre en place, mais tu ne seras pas dans la tonalité de l'enregistrement.
 
 Les **A7** et **D7** ne sont pas plus durs à plaquer qu'un accord ouvert classique : ce sont eux qui apportent la fameuse couleur Beatles, en créant une petite tension avant de retomber sur l'accord suivant.
 

@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Wild World (Cat Stevens) - Tutoriel Guitare"
+title: "Wild World (Cat Stevens) : Accords et Tab Guitare"
 prod: Y
-description: "Wild World de Cat Stevens à la guitare : 8 accords, ballade folk 1970, riffs caractéristiques. Tutoriel guitaristes intermédiaires."
+description: "Les accords de Wild World (Am, D/F#, G, C, F, Dm, E) et la grille du couplet au refrain. Cat Stevens à la guitare, sans capo, tempo 75 BPM."
 ogImage: "/images/blog/apprendre-wild-world-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-06"
+dateModified: "2026-07-29"
 introduction: "Avec 'Wild World', Cat Stevens livre une chanson qui transcende les époques depuis 1970 avec sa profondeur émotionnelle et sa simplicité mélodique. Issue de l'album légendaire 'Tea for the Tillerman', découvrez l'histoire de cette ballade folk et apprenez à jouer ses riffs caractéristiques."
 
 songInfo:
@@ -70,6 +70,17 @@ faqs:
 - **Album** : *Tea for the Tillerman* (1970)
 
 "Wild World" est plus qu'une simple chanson : c'est un voyage émotionnel dans l'univers de l'un des plus grands artistes de folk-rock des années 1970. Ce morceau intemporel se distingue par son rythme apaisant et ses paroles empreintes de complexité émotionnelle. Si tu débutes, commence par notre [guide complet pour apprendre la guitare facilement](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/) avant de t'attaquer à cette progression.
+
+## Quels accords pour Wild World ?
+
+**Neuf accords, sans capo : Am, D/F#, G, C, F, Dm, E, G6 et G7.** La descente du couplet est la signature du morceau.
+
+- **Intro et couplet** : Am – D/F# – G – C – F – Dm – E
+- **Refrain** : C – G – F, puis F – G – F – C – G
+
+Le D/F# n'a rien d'intimidant : c'est un D majeur dont tu attrapes la basse fa dièse avec le pouce passé par-dessus le manche. Cat Stevens enchaîne ainsi une basse qui descend régulièrement, de La à Mi, et c'est elle qui donne au couplet son air de dégringolade tranquille.
+
+Le G6 et le G7 servent d'ornements en fin de phrase : ce sont des G auxquels tu ajoutes ou déplaces un doigt, rien de plus.
 
 ## Cat Stevens : Qui Est-Il ?
 

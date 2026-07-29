@@ -1,14 +1,14 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Une Belle Histoire (Fugain) - Tutoriel Guitare"
+title: "Une Belle Histoire (Fugain) : Accords Guitare"
 prod: Y
-description: "Une Belle Histoire de Michel Fugain à la guitare : 8 accords variés, chanson française des années 70. Tutoriel vidéo."
+description: "Les 8 accords d'Une Belle Histoire (Am, Dm7, G7, CMaj7, FMaj7, Esus4, E7, E) et la grille complète. Fugain à la guitare, sans capo, tempo 85 BPM."
 ogImage: "/images/blog/apprendre-une-belle-histoire-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-07"
+dateModified: "2026-07-29"
 introduction: |
   Avec "Une Belle Histoire", Michel Fugain a capturé l’esprit de liberté, de rencontre et de voyage qui traverse toute la chanson française des années 70.  
   Découvre l’histoire de ce morceau emblématique, apprends à le jouer à la guitare, et laisse-toi emporter par la poésie et la fraîcheur qui font de cette chanson un classique intergénérationnel.
@@ -73,6 +73,16 @@ faqs:
 - **Sortie** : 1972
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
+
+## Quels accords pour Une Belle Histoire ?
+
+**Huit accords, sans capo : Am, Dm7, G7, CMaj7, FMaj7, Esus4, E7 et E.** La grille est une descente très régulière, toujours dans le même ordre.
+
+- **Couplet et refrain** : Am – Dm7 – G7 – CMaj7 – FMaj7, puis Esus4 – E7 pour relancer
+
+Ne te laisse pas impressionner par les septièmes. Le Dm7 est un Dm dont tu retires un doigt, le CMaj7 un C dont tu lèves l'index, le FMaj7 un F sans barré (xx3210). Ce sont des accords plus faciles que leurs versions de base, pas plus difficiles.
+
+L'Esus4 qui précède le E7 crée la petite tension avant le retour au Am : joue-les l'un derrière l'autre en gardant la même main, c'est un simple doigt qui se pose et se lève.
 
 ## Qui est Michel Fugain ? Un voyage musical avec "Une Belle Histoire"
 
