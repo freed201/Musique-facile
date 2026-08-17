@@ -116,14 +116,18 @@ const iconSVGs: Record<string, string> = {
   .course-includes-title {
     text-align: center;
     font-size: 2.2rem;
-    color: var(--theme-current);
+    color: var(--theme-ink);
     margin-bottom: 3rem;
   }
 
+  /* Flux, pas grille : le nombre d'éléments dépend de la fiche (3 à 6).
+     Une grille en colonnes laissait une ou deux cellules vides en fin de
+     ligne — le fond des cartes rendait le trou visible. */
   .course-includes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
     max-width: 900px;
     margin: 0 auto;
   }
@@ -131,6 +135,8 @@ const iconSVGs: Record<string, string> = {
   .include-card {
     display: flex;
     align-items: center;
+    flex: 1 1 260px;
+    max-width: 100%;
     gap: 1rem;
     background: var(--bg-light, #f8f9fc);
     padding: 1.25rem 1.5rem;
@@ -145,19 +151,19 @@ const iconSVGs: Record<string, string> = {
   }
 
   .include-card:focus-within {
-    outline: 3px solid var(--theme-current);
+    outline: 3px solid var(--theme-ink);
     outline-offset: 2px;
   }
 
   .include-icon {
     flex-shrink: 0;
-    color: var(--theme-current);
+    color: var(--theme-ink);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 44px;
     height: 44px;
-    background: color-mix(in srgb, var(--theme-current) 8%, transparent);
+    background: var(--theme-soft);
     border-radius: 50%;
   }
 
@@ -194,7 +200,7 @@ const iconSVGs: Record<string, string> = {
     }
 
     .course-includes-grid {
-      grid-template-columns: 1fr;
+      flex-direction: column;
       padding: 0 1rem;
     }
 

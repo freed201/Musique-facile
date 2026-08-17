@@ -112,7 +112,7 @@
 }
 
 .btn-piano:hover:not(:disabled):not([aria-disabled="true"]) {
-  background: var(--piano-500);
+  background: var(--piano-600);
   color: white;
   box-shadow: var(--shadow-piano);
 }
