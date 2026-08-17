@@ -299,6 +299,17 @@ Autrement dit, vous n'avez pas besoin d'apprendre un catalogue d'accords avant d
   <figcaption style="text-align:center;font-size:0.9rem;margin-top:0.75rem;">Six des sept accords de cette liste. Les points indiquent où poser les doigts ; une corde sans point se joue à vide.</figcaption>
 </figure>
 
+Trois autres accords reviennent dans les morceaux de la fin de liste. Am7 est le plus simple du ukulélé : les quatre cordes à vide, aucun doigt à poser.
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-ukulele/accord-ukulele-am7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur septième (Am7) au ukulélé : les quatre cordes à vide, aucun doigt à poser" />
+    <img src="/images/blog/accords-ukulele/accord-ukulele-a.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La majeur (A) au ukulélé : majeur 2e case corde G, index 1re case corde C, cordes E et A à vide" />
+    <img src="/images/blog/accords-ukulele/accord-ukulele-bb.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Si bémol majeur (Bb) au ukulélé : index barrant la 1re case des cordes E et A, annulaire 2e case corde C, auriculaire 3e case corde G" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;margin-top:0.75rem;">Am7, A et Bb, utilisés dans les derniers morceaux de la liste.</figcaption>
+</figure>
+
 | Accord | Doigts nécessaires | Chansons où il apparaît |
 |--------|-------------------|------------------------|
 | **C** | 1 doigt | Presque toutes |

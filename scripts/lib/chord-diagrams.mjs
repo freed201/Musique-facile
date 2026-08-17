@@ -276,6 +276,27 @@ const UKULELE_CHORDS = {
     frets:   [0, 0, 0, 1],
     fingers: [0, 0, 0, 1],
   },
+
+  am7: {
+    name: 'Am7',
+    longName: 'La mineur septième',
+    frets:   [0, 0, 0, 0],
+    fingers: [0, 0, 0, 0],
+  },
+
+  a: {
+    name: 'A',
+    longName: 'La majeur',
+    frets:   [2, 1, 0, 0],
+    fingers: [2, 1, 0, 0],
+  },
+
+  bb: {
+    name: 'Bb',
+    longName: 'Si bémol majeur',
+    frets:   [3, 2, 1, 1],
+    fingers: [4, 3, 1, 1],
+  },
 };
 
 const CATALOGUE = {

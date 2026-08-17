@@ -1,7 +1,7 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "15 Morceaux Faciles à la Guitare pour Débutants"
-description: "15 morceaux faciles à jouer à la guitare, classés du plus simple au plus exigeant. Accords, tempo et tutoriel complet pour chacun. Jouez dès cette semaine."
+description: "15 morceaux faciles à la guitare pour débutants, du plus simple au plus exigeant. Accords, tempo et tutoriel complet pour chaque chanson. Jouez dès cette semaine."
 ogImage: "/images/blog/accords-guitare-debutant-guide-ultime.webp"
 prod: Y
 author: "Fred Fieffé"
@@ -14,10 +14,10 @@ category: "tutoriel"
 schemaType: "BlogPosting"
 tags:
   - morceaux faciles guitare
-  - guitare debutant
+  - morceau guitare debutant
   - chansons faciles guitare
-  - apprendre guitare chanson
-  - accords guitare debutant
+  - guitare facile morceau
+  - morceau simple guitare
 faqs:
   - question: "Quel est le morceau le plus facile à jouer à la guitare pour un débutant ?"
     answer: "Clandestino de Manu Chao : trois accords seulement (Em, Am, B7), un tempo de 85 BPM et la même boucle du début à la fin. Il n'y a aucune partie à mémoriser en plus de la grille. Stand by Me arrive juste derrière avec quatre accords ouverts sur un tempo encore plus lent (61 BPM)."
@@ -27,6 +27,8 @@ faqs:
     answer: "Avec 15 à 20 minutes par jour, comptez une à deux semaines pour une version simple des premiers morceaux de la liste. Ce qui prend du temps n'est pas d'apprendre les accords, mais d'enchaîner proprement : travaillez les transitions lentement avant d'accélérer."
   - question: "Faut-il un capodastre pour ces morceaux ?"
     answer: "Pour la plupart, non. Deux exceptions dans cette liste : Partons Vite se joue avec un capo à la case 3. Sur les autres, le capo reste facultatif et sert uniquement à ajuster la hauteur à votre voix si vous chantez."
+  - question: "Quels morceaux jouer à la guitare avec seulement 3 accords ?"
+    answer: "Deux morceaux de cette liste tiennent en trois accords : Clandestino de Manu Chao (Em, Am, B7) et What's Up de 4 Non Blondes (G, Am, C). Le premier est le plus accessible des deux, son tempo est plus régulier et la boucle ne change jamais. Stand by Me et Redemption Song en demandent quatre, ce qui reste très accessible."
   - question: "Faut-il un médiator ou peut-on jouer avec les doigts ?"
     answer: "Les deux fonctionnent. Le médiator donne un son plus net sur les morceaux en strumming comme Hey Ya! ou So Lonely. Les doigts conviennent mieux aux morceaux lents et arpégés comme Lucky Man ou Redemption Song. Essayez les deux et gardez ce qui vous semble naturel."
 ---
@@ -267,6 +269,8 @@ La même grille du début à la fin, mais des accords un peu moins courants. Le 
 Les positions moins courantes arrivent plus tard : B7 sur Clandestino, Fmaj7 sur Respire, Cadd9 et Em7 sur Perfect, Dsus2 sur Chasing Cars. Chacune est expliquée dans le tutoriel du morceau concerné, avec son diagramme.
 
 Pour réviser les positions de base avant de vous lancer, le [top 5 des accords guitare pour débutants](/blog/top-5-accords-guitare-debutants-enchainement-facile/) reprend les essentiels avec leurs enchaînements.
+
+Si vous cherchez précisément des chansons à trois accords, [votre première chanson à 3 accords](/blog/apprendre-jouer-chanson-trois-accords-guitare-debutants/) détaille la méthode sur un morceau complet.
 
 ---
 
