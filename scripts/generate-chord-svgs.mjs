@@ -16,10 +16,15 @@ import path from 'node:path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Diagrammes ukulélé nécessaires aux articles (pilier : C, F, G, Am ; accords : + Dm).
+// Diagrammes ukulélé nécessaires aux articles (pilier : C, F, G, Am ; accords : + Dm,
+// et les accords cités par « 15 chansons faciles ukulélé » : D, G7, Em, A7, C7).
 // Diagrammes guitare nécessaires à l'article pilier (5 accords essentiels : Em, A, C, G, D).
 const JOBS = [
-  { instrument: 'ukulele', keys: ['c', 'g', 'am', 'f', 'dm'], dir: 'accords-ukulele' },
+  {
+    instrument: 'ukulele',
+    keys: ['c', 'g', 'am', 'f', 'dm', 'd', 'g7', 'em', 'a7', 'c7'],
+    dir: 'accords-ukulele',
+  },
   {
     instrument: 'guitare',
     keys: [

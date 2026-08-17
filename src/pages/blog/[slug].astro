@@ -13,6 +13,7 @@ import PillarLink from '../../components/blog/PillarLink.astro';
 import ArticleCTA from '../../components/blog/ArticleCTA.astro';
 import BuyingGuideCard from '../../components/blog/BuyingGuideCard.astro';
 import InlineOptIn from '../../components/blog/InlineOptIn.astro';
+import { buildItemListSchema } from '../../utils/listItems';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
@@ -81,6 +82,7 @@ const conclusionHtml = conclusion ? marked.parseInline(conclusion) : '';
 // Déterminer si l'article est "long" (5+ headings H2/H3)
 const showTOC = headings.filter(h => h.depth === 2 || h.depth === 3).length >= 5;
 
+
 // Calcul du temps de lecture (estimation basée sur le contenu)
 const wordCount = entry.body.split(/\s+/).length; // Nombre de mots
 const readingTime = Math.ceil(wordCount / 250); // 250 mots/minute en moyenne
@@ -100,6 +102,13 @@ const formattedDateModified = isUpdated
 
 // Construction de l'URL complète pour schema.org
 const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr');
+// Schema ItemList pour les articles-liste (« 15 chansons faciles… »).
+// Déduit des titres numérotés ; null pour un article ordinaire.
+const itemListSchema = buildItemListSchema(headings, {
+  name: title,
+  description: entry.data.description,
+  url: canonicalURL.toString(),
+});
 
 // Construction du schema.org
 const schema = {
@@ -202,6 +211,11 @@ if (entry.data.siloSlug && !entry.data.pillar) {
       items={breadcrumbItems}
       currentPage={title}
     />
+
+    <!-- Schema.org ItemList : article-liste (chansons, exercices, erreurs…) -->
+    {itemListSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+    )}
 
     <!-- Schema.org ItemList/Product (guides d'achat avec produits comparés) -->
     {entry.data.products && entry.data.products.length > 0 && (

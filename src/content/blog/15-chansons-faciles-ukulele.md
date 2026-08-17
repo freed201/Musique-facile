@@ -7,7 +7,7 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/15-chansons-faciles-ukulele.webp"
 datePublished: "2026-02-17"
-dateModified: "2026-07-16"
+dateModified: "2026-08-17"
 introduction: "Tu veux apprendre l'ukulélé mais tu ne sais pas par quelles chansons commencer ? Après avoir formé **4 900+ élèves débutants**, voici ma sélection des 15 meilleures chansons pour progresser rapidement — avec les accords exacts, le niveau de difficulté, et l'ordre dans lequel les apprendre."
 conclusion: "Ces 15 chansons couvrent tous les accords essentiels et tous les styles musicaux que tu vas aimer jouer. Commence par les ⭐ et progresse à ton rythme. La clé : 15 minutes par jour, de la régularité, et surtout du plaisir ! Pour aller plus vite et plus loin, rejoins notre [formation ukulélé débutant](/cours/apprendre-ukulele-debutant/) — 41 vidéos, 79€ paiement unique, accès à vie."
 faqs:
@@ -136,6 +136,8 @@ Les chansons sont classées du plus facile (⭐) au plus difficile (⭐⭐⭐).
 
 **Astuce :** L'arpège classique "pouce-index-majeur" suffit pour toute la chanson. Apprends d'abord le motif à vide, puis ajoute les accords.
 
+
+**Tu joues aussi de la guitare ?** Le tutoriel guitare de [Hallelujah](/blog/jouer-hallelujah-jeff-buckley-guitare/) détaille les accords et la tablature.
 ---
 
 ### 7. Trois Petits Chats — Comptine traditionnelle
@@ -162,6 +164,8 @@ Les chansons sont classées du plus facile (⭐) au plus difficile (⭐⭐⭐).
 
 **Astuce :** L'accord D peut se jouer en version simplifiée à 2 doigts (D simplifié). Passe au barré complet quand tu es prêt.
 
+
+**Tu joues aussi de la guitare ?** Le tutoriel guitare de [Perfect](/blog/apprendre-perfect-guitare/) détaille les accords et la tablature.
 ---
 
 ### 9. Count on Me — Bruno Mars
@@ -203,6 +207,8 @@ Les chansons sont classées du plus facile (⭐) au plus difficile (⭐⭐⭐).
 
 **Astuce :** Am7 est plus facile que Am normal (même 1 doigt). C'est souvent une surprise pour les élèves que cette chanson "d'ados" soit si accessible.
 
+
+**Tu joues aussi de la guitare ?** Le tutoriel guitare de [Wonderwall](/blog/apprendre-wonderwall-guitare/) détaille les accords et la tablature.
 ---
 
 ### 12. Over the Rainbow / What a Wonderful World — medley
@@ -229,6 +235,8 @@ Les chansons sont classées du plus facile (⭐) au plus difficile (⭐⭐⭐).
 
 **Astuce :** L'accord Bm peut être remplacé par Bm7 (2 doigts) le temps de t'habituer. Le son est légèrement différent mais la chanson reste reconnaissable.
 
+
+**Tu joues aussi de la guitare ?** Le tutoriel guitare de [Chasing Cars](/blog/apprendre-chasing-cars-guitare/) détaille les accords et la tablature.
 ---
 
 ### 14. Let Her Go — Passenger
@@ -278,6 +286,18 @@ Ce rythme est celui que je constate chez mes élèves qui pratiquent tous les jo
 **Sept accords suffisent : C, G, Am, F, E7, D et G7.** Quatre d'entre eux (C, G, Am, F) couvrent déjà les cinq premières chansons, et le C ne demande qu'un seul doigt. Les trois autres (E7, D, G7) n'arrivent qu'à partir de la deuxième semaine.
 
 Autrement dit, vous n'avez pas besoin d'apprendre un catalogue d'accords avant de jouer votre première chanson. Deux accords suffisent à démarrer.
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-ukulele/accord-ukulele-c.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do majeur (C) au ukulélé : annulaire sur la 3e case de la corde A, les trois autres cordes à vide" />
+    <img src="/images/blog/accords-ukulele/accord-ukulele-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) au ukulélé : index 2e case corde C, annulaire 3e case corde E, majeur 2e case corde A, corde G à vide" />
+    <img src="/images/blog/accords-ukulele/accord-ukulele-am.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La mineur (Am) au ukulélé : majeur sur la 2e case de la corde G, les trois autres cordes à vide" />
+    <img src="/images/blog/accords-ukulele/accord-ukulele-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) au ukulélé : majeur 2e case corde G, index 1re case corde E, cordes C et A à vide" />
+    <img src="/images/blog/accords-ukulele/accord-ukulele-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) au ukulélé : index 2e case corde G, majeur 2e case corde C, annulaire 2e case corde E, corde A à vide" />
+    <img src="/images/blog/accords-ukulele/accord-ukulele-g7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol septième (G7) au ukulélé : majeur 2e case corde C, index 1re case corde E, annulaire 2e case corde A, corde G à vide" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;margin-top:0.75rem;">Six des sept accords de cette liste. Les points indiquent où poser les doigts ; une corde sans point se joue à vide.</figcaption>
+</figure>
 
 | Accord | Doigts nécessaires | Chansons où il apparaît |
 |--------|-------------------|------------------------|
