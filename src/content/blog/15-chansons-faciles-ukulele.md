@@ -295,11 +295,12 @@ Autrement dit, vous n'avez pas besoin d'apprendre un catalogue d'accords avant d
     <img src="/images/blog/accords-ukulele/accord-ukulele-f.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa majeur (F) au ukulélé : majeur 2e case corde G, index 1re case corde E, cordes C et A à vide" />
     <img src="/images/blog/accords-ukulele/accord-ukulele-d.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré majeur (D) au ukulélé : index 2e case corde G, majeur 2e case corde C, annulaire 2e case corde E, corde A à vide" />
     <img src="/images/blog/accords-ukulele/accord-ukulele-g7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol septième (G7) au ukulélé : majeur 2e case corde C, index 1re case corde E, annulaire 2e case corde A, corde G à vide" />
+    <img src="/images/blog/accords-ukulele/accord-ukulele-e7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi septième (E7) au ukulélé : index 1re case corde G, majeur 2e case corde C, annulaire 2e case corde A, corde E à vide" />
   </div>
-  <figcaption style="text-align:center;font-size:0.9rem;margin-top:0.75rem;">Six des sept accords de cette liste. Les points indiquent où poser les doigts ; une corde sans point se joue à vide.</figcaption>
+  <figcaption style="text-align:center;font-size:0.9rem;margin-top:0.75rem;">Les sept accords de cette liste. Les points indiquent où poser les doigts ; une corde sans point se joue à vide.</figcaption>
 </figure>
 
-Trois autres accords reviennent dans les morceaux de la fin de liste. Am7 est le plus simple du ukulélé : les quatre cordes à vide, aucun doigt à poser.
+Trois accords supplémentaires reviennent dans les morceaux de la fin de liste. Am7 est le plus simple du ukulélé : les quatre cordes à vide, aucun doigt à poser.
 
 <figure class="chord-chart" style="margin:1.75rem 0;">
   <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">

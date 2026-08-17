@@ -22,7 +22,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const JOBS = [
   {
     instrument: 'ukulele',
-    keys: ['c', 'g', 'am', 'f', 'dm', 'd', 'g7', 'em', 'a7', 'c7', 'am7', 'a', 'bb'],
+    keys: ['c', 'g', 'am', 'f', 'dm', 'd', 'g7', 'em', 'a7', 'c7', 'am7', 'a', 'bb', 'e7'],
     dir: 'accords-ukulele',
   },
   {

@@ -284,6 +284,13 @@ const UKULELE_CHORDS = {
     fingers: [0, 0, 0, 0],
   },
 
+  e7: {
+    name: 'E7',
+    longName: 'Mi septième',
+    frets:   [1, 2, 0, 2],
+    fingers: [1, 2, 0, 3],
+  },
+
   a: {
     name: 'A',
     longName: 'La majeur',
