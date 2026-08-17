@@ -45,20 +45,22 @@
   --guitar-950: #0d3011;
 
   /* ========================================
-     🎹 PIANO (Bleu Material)
-     Base: #2196F3 (WCAG AA gros texte: 3.26:1 — utiliser 700+ pour petit texte)
+     🎹 PIANO (Teal — couleur des visuels Musique Facile)
+     Base: #418991, échantillonnée sur les miniatures vidéo de Fred.
+     Remplace le bleu Material #2196F3, générique et moins lisible
+     (3,12:1 contre 4,03:1 sur blanc). Texte : 700+. Aplat : 600+.
      ======================================== */
-  --piano-50: #e3f2fd;
-  --piano-100: #bbdefb;
-  --piano-200: #90caf9;
-  --piano-300: #64b5f6;
-  --piano-400: #42a5f5;
-  --piano-500: #2196F3;
-  --piano-600: #1e88e5;
-  --piano-700: #1976d2;
-  --piano-800: #1565c0;
-  --piano-900: #0d47a1;
-  --piano-950: #072651;
+  --piano-50: #E8F1F2;
+  --piano-100: #C8DFE1;
+  --piano-200: #9EC7CB;
+  --piano-300: #74AFB5;
+  --piano-400: #5A9BA3;
+  --piano-500: #418991;
+  --piano-600: #3A7B82;
+  --piano-700: #31676D;
+  --piano-800: #2A585D;
+  --piano-900: #1F4247;
+  --piano-950: #132A2D;
 
   /* ========================================
      🏝️ UKULELE (Ambre Material)
@@ -235,7 +237,7 @@
   /* Shadows colorées (instruments) */
   --shadow-brand: 0 8px 20px rgba(108, 63, 160, 0.25);
   --shadow-guitar: 0 8px 20px rgba(76, 175, 80, 0.25);
-  --shadow-piano: 0 8px 20px rgba(33, 150, 243, 0.25);
+  --shadow-piano: 0 8px 20px rgba(65, 137, 145, 0.28);
   --shadow-ukulele: 0 8px 20px rgba(255, 152, 0, 0.25);
   --shadow-solfege: 0 8px 20px rgba(229, 57, 53, 0.25);
 
@@ -355,9 +357,9 @@
   --theme-current-dark: var(--piano-600);
   --theme-current-light: var(--piano-400);
 
-  --theme-ink: var(--piano-800);      /* #1565c0 — 5,6:1 sur blanc */
-  --theme-surface: var(--piano-800);
-  --theme-deep: var(--piano-900);
+  --theme-ink: var(--piano-700);      /* #31676D — 6,4:1 sur blanc */
+  --theme-surface: var(--piano-600);  /* blanc dessus : 4,8:1 */
+  --theme-deep: var(--piano-800);
   --theme-soft: var(--piano-50);
   --theme-line: var(--piano-200);
 }
