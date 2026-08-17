@@ -3,6 +3,14 @@
    Design System complet et unifié
    ======================================== */
 
+/* Reset box-sizing : sans lui, `.container` (width:100% + padding) déborde
+   de la fenêtre — 32 px de scroll horizontal sur mobile, sur tout le site. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   /* ========================================
      💜 BRAND (Violet profond — Page d'accueil)
@@ -296,40 +304,110 @@
   --theme-current: var(--brand-500);
   --theme-current-dark: var(--brand-600);
   --theme-current-light: var(--brand-400);
+
+  /* Rôles accessibles par défaut (violet de marque) — voir bloc ci-dessous */
+  --theme-ink: var(--brand-600);
+  --theme-surface: var(--brand-500);
+  --theme-deep: var(--brand-700);
+  --theme-soft: var(--brand-50);
+  --theme-line: var(--brand-200);
 }
 
 /* ========================================
    🎨 CLASSES DE THÈME (compatibilité)
+
+   Quatre rôles accessibles s'ajoutent à `--theme-current` (conservé pour
+   l'existant, mais trop clair pour porter du texte : le vert #4CAF50 plafonne
+   à 2,64:1 sur blanc et 2,78:1 sous du blanc).
+
+   --theme-ink     : texte de la couleur d'instrument sur fond clair (≥ 4,5:1)
+   --theme-surface : aplat plein portant du texte blanc (≥ 4,5:1)
+   --theme-deep    : état survolé / actif de l'aplat
+   --theme-soft    : fond teinté doux (badges, pastilles)
+   --theme-line    : bordure teintée sur --theme-soft
    ======================================== */
 .theme-main {
   --theme-current: var(--brand-500);
   --theme-current-dark: var(--brand-600);
   --theme-current-light: var(--brand-400);
+
+  --theme-ink: var(--brand-600);      /* #5a3488 — 7,0:1 sur blanc */
+  --theme-surface: var(--brand-500);  /* blanc dessus : 8,0:1 */
+  --theme-deep: var(--brand-700);
+  --theme-soft: var(--brand-50);
+  --theme-line: var(--brand-200);
 }
 
 .theme-guitar {
   --theme-current: var(--guitar-500);
   --theme-current-dark: var(--guitar-600);
   --theme-current-light: var(--guitar-400);
+
+  --theme-ink: var(--guitar-800);     /* #2e7d32 — 5,4:1 sur blanc */
+  --theme-surface: var(--guitar-800); /* blanc dessus : 5,1:1 */
+  --theme-deep: var(--guitar-900);
+  --theme-soft: var(--guitar-50);
+  --theme-line: var(--guitar-200);
 }
 
 .theme-piano {
   --theme-current: var(--piano-500);
   --theme-current-dark: var(--piano-600);
   --theme-current-light: var(--piano-400);
+
+  --theme-ink: var(--piano-800);      /* #1565c0 — 5,6:1 sur blanc */
+  --theme-surface: var(--piano-800);
+  --theme-deep: var(--piano-900);
+  --theme-soft: var(--piano-50);
+  --theme-line: var(--piano-200);
 }
 
 .theme-ukulele {
   --theme-current: var(--ukulele-500);
   --theme-current-dark: var(--ukulele-600);
   --theme-current-light: var(--ukulele-400);
+
+  /* L'ambre est la teinte la plus difficile : #FF9800 tombe à 2,1:1 sous du
+     blanc. Il faut descendre sous le -900 pour tenir le ratio. */
+  --theme-ink: #9E4200;               /* 5,7:1 sur blanc */
+  --theme-surface: #B84C00;           /* blanc dessus : 4,8:1 */
+  --theme-deep: #8F3C00;
+  --theme-soft: var(--ukulele-50);
+  --theme-line: var(--ukulele-300);
 }
 
 .theme-solfege {
   --theme-current: var(--solfege-500);
   --theme-current-dark: var(--solfege-600);
   --theme-current-light: var(--solfege-400);
+
+  --theme-ink: var(--solfege-800);    /* #b71c1c — 6,9:1 sur blanc */
+  --theme-surface: var(--solfege-800);
+  --theme-deep: var(--solfege-900);
+  --theme-soft: var(--solfege-50);
+  --theme-line: var(--solfege-200);
 }
+
+/* Sur fond sombre, la couleur d'instrument doit s'éclaircir pour rester
+   lisible ; les aplats, eux, restent foncés et gardent leur texte blanc. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-guitar,
+  :root:not([data-theme="light"]).theme-guitar { --theme-ink: var(--guitar-300); --theme-soft: #16261a; --theme-line: #2f5a33; }
+  :root:not([data-theme="light"]) .theme-piano,
+  :root:not([data-theme="light"]).theme-piano { --theme-ink: var(--piano-300); --theme-soft: #13202f; --theme-line: #2a4670; }
+  :root:not([data-theme="light"]) .theme-ukulele,
+  :root:not([data-theme="light"]).theme-ukulele { --theme-ink: var(--ukulele-300); --theme-soft: #291d10; --theme-line: #5c4218; }
+  :root:not([data-theme="light"]) .theme-solfege,
+  :root:not([data-theme="light"]).theme-solfege { --theme-ink: var(--solfege-200); --theme-soft: #2a1416; --theme-line: #5c2a2c; }
+  :root:not([data-theme="light"]) .theme-main,
+  :root:not([data-theme="light"]).theme-main { --theme-ink: var(--brand-300); --theme-soft: #1d1430; --theme-line: #3d2a5c; }
+}
+
+[data-theme="dark"] .theme-guitar  { --theme-ink: var(--guitar-300); --theme-soft: #16261a; --theme-line: #2f5a33; }
+[data-theme="dark"] .theme-piano   { --theme-ink: var(--piano-300); --theme-soft: #13202f; --theme-line: #2a4670; }
+[data-theme="dark"] .theme-ukulele { --theme-ink: var(--ukulele-300); --theme-soft: #291d10; --theme-line: #5c4218; }
+[data-theme="dark"] .theme-solfege { --theme-ink: var(--solfege-200); --theme-soft: #2a1416; --theme-line: #5c2a2c; }
+[data-theme="dark"] .theme-main    { --theme-ink: var(--brand-300); --theme-soft: #1d1430; --theme-line: #3d2a5c; }
 
 /* ========================================
    ♿ ACCESSIBILITÉ

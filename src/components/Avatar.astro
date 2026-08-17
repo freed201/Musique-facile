@@ -1,0 +1,78 @@
+---
+/**
+ * Avatar.astro
+ * Photo ronde avec repli sur les initiales quand le fichier n'existe pas.
+ *
+ * Les fiches cours référencent leurs visuels par convention de nommage
+ * (`/images/cours/<slug>/testimonial-2.webp`) sans garantie que le fichier
+ * existe : `piano-force-agilite` n'a que son `hero.webp`, et affichait donc
+ * des cadres vides. L'existence est vérifiée au build (pages statiques), pas
+ * dans le navigateur : aucun JavaScript, aucune image cassée envoyée au client.
+ */
+import { publicAssetExists } from '../utils/publicAsset';
+
+interface Props {
+  /** Chemin public de l'image, ex. `/images/prof/fred.webp` */
+  src: string;
+  /** Nom de la personne : sert d'alternative textuelle et d'initiales de repli */
+  name: string;
+  size?: number;
+  class?: string;
+}
+
+const { src, name, size = 56, class: className = '' } = Astro.props;
+
+const hasImage = publicAssetExists(src);
+
+const initials = name
+  .split(/[\s-]+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map(word => word[0]?.toUpperCase() ?? '')
+  .join('');
+---
+
+{hasImage ? (
+  <img
+    class={`avatar ${className}`}
+    src={src}
+    alt={`Photo de ${name}`}
+    width={size}
+    height={size}
+    loading="lazy"
+    decoding="async"
+    style={`--avatar-size: ${size}px`}
+  />
+) : (
+  <span
+    class={`avatar avatar-fallback ${className}`}
+    style={`--avatar-size: ${size}px`}
+    role="img"
+    aria-label={`Photo de ${name} indisponible`}
+  >{initials}</span>
+)}
+
+<style>
+  .avatar {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .avatar-fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--theme-soft, #eef0f4);
+    color: var(--theme-ink, #444);
+    border: 1px solid var(--theme-line, #d8dce4);
+    font-family: var(--font-heading);
+    font-weight: var(--font-semibold);
+    font-size: calc(var(--avatar-size) * 0.36);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    user-select: none;
+  }
+</style>

@@ -1,0 +1,27 @@
+---
+/**
+ * ContentIcon.astro
+ * Rend un pictogramme déclaré dans le frontmatter d'une fiche.
+ *
+ * Le contenu stocke des emojis (`icon: "🎸"`) ; on préfère la version SVG
+ * quand elle existe, pour un rendu identique sur tous les systèmes. Un emoji
+ * non répertorié reste affiché tel quel plutôt que de laisser un vide.
+ */
+import Icon from './Icon.astro';
+import { emojiToIcon } from '../utils/emojiToIcon';
+
+interface Props {
+  icon: string | undefined;
+  size?: number;
+  class?: string;
+}
+
+const { icon, size = 24, class: className = '' } = Astro.props;
+const iconName = emojiToIcon(icon);
+---
+
+{iconName ? (
+  <Icon name={iconName} size={size} class={className} />
+) : (
+  <span class={`content-icon-emoji ${className}`} style={`font-size: ${size}px; line-height: 1;`} aria-hidden="true">{icon}</span>
+)}

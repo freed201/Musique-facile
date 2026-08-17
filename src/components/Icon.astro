@@ -294,6 +294,58 @@ const { name, size = 24, class: className = '' } = Astro.props;
   </svg>
 )}
 
+{name === 'star-outline' && (
+  <svg class={`icon icon-star-outline ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.4l6.1-.9z"/>
+  </svg>
+)}
+
+{name === 'users' && (
+  <svg class={`icon icon-users ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+    <circle cx="9" cy="7" r="4"/>
+    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+  </svg>
+)}
+
+{name === 'clock' && (
+  <svg class={`icon icon-clock ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M12 7v5l3 2"/>
+  </svg>
+)}
+
+{name === 'hourglass' && (
+  <svg class={`icon icon-hourglass ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M6 2h12M6 22h12"/>
+    <path d="M8 2v4a4 4 0 0 0 4 4 4 4 0 0 0 4-4V2"/>
+    <path d="M8 22v-4a4 4 0 0 1 4-4 4 4 0 0 1 4 4v4"/>
+  </svg>
+)}
+
+{name === 'frown' && (
+  <svg class={`icon icon-frown ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M8.5 15.5a4.5 4.5 0 0 1 7 0"/>
+    <path d="M9 9.5h.01M15 9.5h.01"/>
+  </svg>
+)}
+
+{name === 'video' && (
+  <svg class={`icon icon-video ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="2" y="5" width="14" height="14" rx="2"/>
+    <path d="m16 10 6-3v10l-6-3z"/>
+  </svg>
+)}
+
+{name === 'calendar' && (
+  <svg class={`icon icon-calendar ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="3" y="5" width="18" height="16" rx="2"/>
+    <path d="M8 3v4M16 3v4M3 10h18"/>
+  </svg>
+)}
+
 <style>
   .icon {
     display: inline-block;
