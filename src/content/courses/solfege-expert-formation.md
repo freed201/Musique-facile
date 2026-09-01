@@ -140,16 +140,10 @@ valeurUnique:
       text: "Un programme flexible, conçu pour s'adapter à votre emploi du temps."
 
 preuveSociale:
-  testimonials:
-    - text: "Grâce à cette formation, j'ai enfin compris les altérations et les intervalles. Un vrai changement dans ma pratique musicale."
-      author: "Mathilde L."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-mathilde.jpg"
-    - text: "Les exercices sont clairs et progressifs. Cette méthode m'a permis de progresser rapidement."
-      author: "Paul G."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-paul.jpg"
-    - text: "Je pensais que les gammes et harmonies étaient trop complexes pour moi, mais cette formation m'a prouvé le contraire."
-      author: "Laura T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-laura.jpg"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "600+"
     successRate: "4,7/5"

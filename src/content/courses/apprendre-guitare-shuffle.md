@@ -141,16 +141,10 @@ valeurUnique:
       text: "Des exercices pratiques pour maîtriser le shuffle rapidement."
 
 preuveSociale:
-  testimonials:
-    - text: "Grâce à ce cours, j'ai enfin capté le shuffle !"
-      author: "Jerôme"
-      avatar: "https://ecole.musique-facile.fr/images/avatar-julie.jpg"
-    - text: "Les leçons sont très claires et les explications sur le shuffle binaire/ternaire sont une révélation. Merci !"
-      author: "Alex R."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-alex.jpg"
-    - text: "En quelques semaines, j'ai maîtrisé des rythmiques que je pensais hors de portée. Une méthode incroyable !"
-      author: "Pauline M."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-pauline.jpg"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "100+"
     successRate: "4,7/5"

@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import FooterModern from '../components/FooterModern.astro';
 import ConsentManager from '../components/ConsentManager.astro';
 import '../styles/global.css';
+import { ratingSummary, reviewsSource, students } from '../data/proof';
 
 const title = "5 Accords Magiques pour 100 Chansons | Musique Facile";
 const description = "Téléchargez GRATUITEMENT notre guide exclusif : apprenez 5 accords de guitare simples et jouez plus de 100 chansons dès aujourd'hui. Méthode garantie pour débutants.";
@@ -77,15 +78,23 @@ const ogImage = "https://musique-facile.fr/images/lead-magnet-5-accords.webp";
               </ul>
 
               <!-- Social Proof -->
+              <!--
+                Les deux avatars affichés ici étaient des photos de banque
+                d'images présentées comme des élèves, et « téléchargé par plus de
+                80 000 guitaristes » confondait le nombre d'élèves formés avec un
+                nombre de téléchargements du PDF, qui n'a jamais été mesuré.
+                Remplacés par la note réelle et sa source.
+              -->
               <div class="lm-social-proof">
-                <div class="lm-avatars">
-                  <img src="/images/marie.webp" alt="Élève satisfait" />
-                  <img src="/images/thomas.webp" alt="Élève satisfait" />
-                  <span class="avatar-count">+80 000</span>
-                </div>
                 <div class="lm-proof-text">
-                  <div class="stars">⭐⭐⭐⭐⭐</div>
-                  <p>Téléchargé par plus de 80 000 guitaristes</p>
+                  <div class="stars" aria-hidden="true">⭐⭐⭐⭐⭐</div>
+                  <p>
+                    <strong>{ratingSummary}</strong> —
+                    <a href={reviewsSource.url} rel="noopener nofollow" target="_blank">
+                      {reviewsSource.label}
+                    </a>
+                  </p>
+                  <p class="lm-proof-students">{students.display} élèves formés depuis 2015</p>
                 </div>
               </div>
             </div>
@@ -185,44 +194,12 @@ const ogImage = "https://musique-facile.fr/images/lead-magnet-5-accords.webp";
         </div>
       </section>
 
-      <!-- Témoignages -->
-      <section class="lm-testimonials">
-        <div class="container">
-          <h2 class="section-title">Ils ont transformé leur jeu grâce à ce guide</h2>
-
-          <div class="testimonials-grid">
-            <div class="testimonial-card">
-              <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-              <p class="testimonial-text">
-                "En 3 jours, je jouais déjà 'Knockin' on Heaven's Door' !
-                Ces 5 accords sont vraiment magiques. Merci Fred !"
-              </p>
-              <div class="testimonial-author">
-                <img src="/images/marie.webp" alt="Marie D." />
-                <div>
-                  <strong>Marie D.</strong>
-                  <span>Débutante, 34 ans</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-              <p class="testimonial-text">
-                "J'avais essayé pendant des mois sans succès. Ce guide m'a tout débloqué.
-                La liste des 100 chansons est incroyable !"
-              </p>
-              <div class="testimonial-author">
-                <img src="/images/thomas.webp" alt="Thomas L." />
-                <div>
-                  <strong>Thomas L.</strong>
-                  <span>Étudiant, 22 ans</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <!--
+        Section « Ils ont transformé leur jeu grâce à ce guide » retirée le
+        2026-09-01 : les deux témoignages (Marie D., Thomas L.) étaient inventés
+        et illustrés par des photos de banque d'images. Les vrais avis d'élèves
+        se déclarent dans src/data/testimonials.ts.
+      -->
 
       <!-- CTA Final -->
       <section class="lm-cta-final">
@@ -317,6 +294,12 @@ const ogImage = "https://musique-facile.fr/images/lead-magnet-5-accords.webp";
     flex-shrink: 0;
     font-size: 0.9rem;
     font-weight: bold;
+  }
+
+  .lm-proof-students {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    margin-top: 0.25rem;
   }
 
   .lm-social-proof {

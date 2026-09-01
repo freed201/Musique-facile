@@ -26,16 +26,10 @@ features:
   - icon: "🔄"
     text: "Mises à jour gratuites"
 
-testimonials:
-  - text: "Un livre exceptionnel qui m'a permis de progresser rapidement. Les explications sont claires et les chansons bien choisies."
-    author: "Marie Dubois"
-    role: "Élève guitariste"
-  - text: "La méthode est très bien pensée, on progresse naturellement d'une chanson à l'autre. Les vidéos complémentaires sont un vrai plus."
-    author: "Thomas Martin"
-    role: "Guitariste amateur"
-  - text: "Enfin un livre qui rend l'apprentissage de la guitare accessible et amusant. Je recommande vivement !"
-    author: "Julie Lefebvre"
-    role: "Débutante en guitare"
+# Les trois témoignages retirés le 2026-09-01 (Marie Dubois, Thomas Martin,
+# Julie Lefebvre) portaient exactement les noms du lot de contenu de démonstration
+# de la page d'accueil, confirmé fabriqué par Fred. Aucun avis réel disponible.
+testimonials: []
 
 tableOfContents:
   - title: "Introduction et Bases"

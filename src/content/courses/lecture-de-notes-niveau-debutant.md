@@ -140,16 +140,10 @@ valeurUnique:
       text: "Un apprentissage flexible, adapté à votre emploi du temps."
 
 preuveSociale:
-  testimonials:
-    - text: "Avant cette formation, je pensais que lire des partitions était impossible. Maintenant, je lis des notes avec confiance !"
-      author: "Pauline T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-pauline.jpg"
-    - text: "Les explications sont claires et accessibles. J'ai progressé bien plus vite que prévu !"
-      author: "Manu"
-      avatar: "https://ecole.musique-facile.fr/images/avatar-julien.jpg"
-    - text: "J'ai enfin compris les bases du solfège et je peux lire des partitions sans difficulté. Une méthode géniale !"
-      author: "Élodie L."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-elodie.jpg"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "4100+"
     successRate: "4,7/5"

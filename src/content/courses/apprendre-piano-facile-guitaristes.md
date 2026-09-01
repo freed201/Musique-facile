@@ -141,16 +141,10 @@ valeurUnique:
       text: "Intégrer les connaissances du piano pour enrichir vos compositions à la guitare."
 
 preuveSociale:
-  testimonials:
-    - text: "Grâce à cette formation, j'ai découvert comment utiliser le piano pour créer des progressions d'accords plus intéressantes à la guitare."
-      author: "Nicolas D."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-nicolas.jpg"
-    - text: "Le lien entre le piano et la guitare est clair et accessible. Je recommande vivement ce cours !"
-      author: "Julie T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-julie.jpg"
-    - text: "Cette formation m'a aidé à improviser de manière plus créative. Le piano est un complément génial pour la guitare !"
-      author: "Alexandre L."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-alexandre.jpg"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "830+"
     successRate: "4,7/5"

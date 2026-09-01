@@ -139,16 +139,10 @@ valeurUnique:
       text: "Des outils pratiques pour composer, improviser et interpréter avec confiance."
 
 preuveSociale:
-  testimonials:
-    - text: "Le cycle des quintes me semblait complexe, mais cette formation m'a permis de tout comprendre en quelques semaines. Merci pour cette méthode claire et efficace !"
-      author: "Thomas"
-      avatar: "https://ecole.musique-facile.fr/images/avatar-julie.jpg"
-    - text: "J'ai enfin compris les relations entre les gammes et tonalités. Mon jeu s'est enrichi, et je peux maintenant improviser avec confiance."
-      author: "Marc T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-marc.jpg"
-    - text: "Les exercices pratiques sont vraiment utiles, et les explications sont accessibles même pour un débutant."
-      author: "Elodie R."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-elodie.jpg"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "1600+"
     successRate: "4,7/5"

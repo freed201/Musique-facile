@@ -138,16 +138,10 @@ valeurUnique:
       text: "Des exercices interactifs pour progresser rapidement."
 
 preuveSociale:
-  testimonials:
-    - text: "Cette formation a rendu l'apprentissage de l'ukulélé si facile ! Je joue mes premiers morceaux en un temps record."
-      author: "Léa B."
-      avatar: "/images/cours/apprendre-ukulele-debutant/testimonial-1.webp"
-    - text: "J'avais peur de ne pas être doué, mais les leçons sont tellement bien faites que j'ai pris confiance en moi."
-      author: "Alex T."
-      avatar: "/images/cours/apprendre-ukulele-debutant/testimonial-2.webp"
-    - text: "La progression est bien pensée, et les exercices sont vraiment motivants. Merci pour cette formation !"
-      author: "Julie R."
-      avatar: "/images/cours/apprendre-ukulele-debutant/testimonial-3.webp"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "4.900+"
     successRate: "4,7/5"

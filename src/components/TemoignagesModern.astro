@@ -1,59 +1,46 @@
 ---
 /**
  * TemoignagesModern.astro
- * Section témoignages avec carousel moderne
+ * Bloc de preuve sociale de la page d'accueil.
+ *
+ * Deux états, pilotés par src/data/testimonials.ts :
+ *  - tableau vide      → note agrégée + sa source vérifiable, sans carrousel ;
+ *  - tableau renseigné → le carrousel réapparaît, sans rien changer ici.
+ *
+ * Les trois témoignages qui vivaient dans ce fichier étaient du contenu de
+ * démonstration (photos de banque d'images, confirmé par Fred le 2026-09-01).
+ * Ils ont été retirés : un avis inventé est une pratique commerciale trompeuse.
  */
-import { students, reviews, videos, ratingSummary, counterAttrs } from '../data/proof';
-
-interface Testimonial {
-  id: string;
-  name: string;
-  role: string;
-  image?: string;
-  quote: string;
-  rating: number;
-  instrument: 'guitar' | 'piano' | 'ukulele' | 'solfege';
-}
+import { students, reviews, videos, rating, ratingSummary, reviewsSource, counterAttrs } from '../data/proof';
+import { testimonials as realTestimonials, formatTestimonialDate, type Testimonial } from '../data/testimonials';
 
 interface Props {
   title?: string;
   testimonials?: Testimonial[];
 }
 
-const defaultTestimonials: Testimonial[] = [
-  {
-    id: '1',
-    name: 'Marie Dubois',
-    role: 'Élève en guitare',
-    image: '/images/marie.webp',
-    quote: "Grâce à Musique Facile, j'ai pu apprendre la guitare à mon rythme. En seulement quelques mois, je peux déjà jouer mes morceaux préférés !",
-    rating: 5,
-    instrument: 'guitar'
-  },
-  {
-    id: '2',
-    name: 'Thomas Martin',
-    role: 'Élève en piano',
-    image: '/images/thomas.webp',
-    quote: "Je cherchais une méthode flexible pour apprendre le piano et j'ai trouvé exactement ce qu'il me fallait. La progression est bien pensée.",
-    rating: 5,
-    instrument: 'piano'
-  },
-  {
-    id: '3',
-    name: 'Sophie Laurent',
-    role: 'Élève en ukulélé',
-    image: '/images/sophie.webp',
-    quote: "Le ukulélé semblait si simple et pourtant j'avais du mal à progresser seule. Fred explique tout de manière claire et accessible !",
-    rating: 5,
-    instrument: 'ukulele'
-  }
-];
+const INSTRUMENT_LABELS: Record<Testimonial['instrument'], string> = {
+  guitar: 'Guitare',
+  piano: 'Piano',
+  ukulele: 'Ukulélé',
+  solfege: 'Solfège',
+};
 
-const {
-  title = "Ce que nos élèves en disent",
-  testimonials = defaultTestimonials
-} = Astro.props;
+const { testimonials = realTestimonials } = Astro.props;
+const hasTestimonials = testimonials.length > 0;
+
+// Sans témoignage à montrer, « Ce que nos élèves en disent » n'annonce plus rien
+// de ce que la section contient réellement.
+const title =
+  Astro.props.title ?? (hasTestimonials ? 'Ce que nos élèves en disent' : 'La note de nos élèves');
+
+// Date du dernier relevé sur la page source, en toutes lettres.
+// toLocaleDateString rend « 1 septembre » : en français le premier du mois
+// s'écrit « 1er ».
+const checkedOnDate = new Date(reviewsSource.checkedOn);
+const checkedOnLabel = checkedOnDate
+  .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
+  .replace(/^1 /, '1er ');
 ---
 
 <section class="testimonials-section" data-animate="reveal">
@@ -71,76 +58,89 @@ const {
         </div>
         <span class="rating-text">{ratingSummary}</span>
       </div>
+      <p class="rating-source">
+        <a href={reviewsSource.url} rel="noopener nofollow" target="_blank">
+          {reviews.display} {reviewsSource.label}
+        </a>
+        <span class="rating-source-date"> — relevé le {checkedOnLabel}</span>
+      </p>
     </div>
 
-    <!-- Carousel -->
-    <div class="testimonials-carousel" id="testimonials-carousel">
-      <div class="carousel-track">
-        {testimonials.map((testimonial) => (
-          <article class={`testimonial-card theme-${testimonial.instrument}`}>
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">
-                {testimonial.image ? (
-                  <img
-                    src={testimonial.image}
-                    alt={`Photo de ${testimonial.name}`}
-                    width="56"
-                    height="56"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div class="avatar-placeholder">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                )}
+    {/* Carrousel — affiché seulement si src/data/testimonials.ts contient de vrais avis */}
+    {hasTestimonials && (
+      <div class="testimonials-carousel" id="testimonials-carousel">
+        <div class="carousel-track">
+          {testimonials.map((testimonial) => (
+            <article class={`testimonial-card theme-${testimonial.instrument}`}>
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">
+                  {testimonial.image ? (
+                    <img
+                      src={testimonial.image}
+                      alt={`Photo de ${testimonial.name}`}
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="avatar-placeholder">
+                      {testimonial.name.charAt(0)}
+                    </div>
+                  )}
+                </div>
+                <div class="testimonial-info">
+                  <h3 class="testimonial-name">{testimonial.name}</h3>
+                  <p class="testimonial-role">
+                    {INSTRUMENT_LABELS[testimonial.instrument]} · {formatTestimonialDate(testimonial.date)}
+                    {testimonial.sourceUrl && (
+                      <> · <a href={testimonial.sourceUrl} rel="noopener nofollow" target="_blank">{testimonial.sourceName ?? 'voir l\'avis'}</a></>
+                    )}
+                  </p>
+                </div>
+                <div class="testimonial-stars">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <svg class={star <= (testimonial.rating ?? 0) ? 'star-filled' : ''} width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  ))}
+                </div>
               </div>
-              <div class="testimonial-info">
-                <h3 class="testimonial-name">{testimonial.name}</h3>
-                <p class="testimonial-role">{testimonial.role}</p>
-              </div>
-              <div class="testimonial-stars">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <svg class={star <= testimonial.rating ? 'star-filled' : ''} width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                ))}
-              </div>
-            </div>
 
-            <blockquote class="testimonial-quote">
-              <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path d="M10 11H6a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1v7c0 2.21-1.79 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M19 11h-4a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1v7c0 2.21-1.79 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-              {testimonial.quote}
-            </blockquote>
-          </article>
-        ))}
-      </div>
-
-      <!-- Navigation -->
-      <div class="carousel-nav">
-        <button class="carousel-btn prev" aria-label="Témoignage précédent">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M12 15l-5-5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <div class="carousel-dots">
-          {testimonials.map((_, index) => (
-            <button
-              class={`carousel-dot ${index === 0 ? 'active' : ''}`}
-              aria-label={`Aller au témoignage ${index + 1}`}
-              data-index={index}
-            ></button>
+              <blockquote class="testimonial-quote">
+                <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="none">
+                  <path d="M10 11H6a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1v7c0 2.21-1.79 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M19 11h-4a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1v7c0 2.21-1.79 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                {testimonial.quote}
+              </blockquote>
+            </article>
           ))}
         </div>
-        <button class="carousel-btn next" aria-label="Témoignage suivant">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M8 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
+
+        <!-- Navigation -->
+        <div class="carousel-nav">
+          <button class="carousel-btn prev" aria-label="Témoignage précédent">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M12 15l-5-5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="carousel-dots">
+            {testimonials.map((_, index) => (
+              <button
+                class={`carousel-dot ${index === 0 ? 'active' : ''}`}
+                aria-label={`Aller au témoignage ${index + 1}`}
+                data-index={index}
+              ></button>
+            ))}
+          </div>
+          <button class="carousel-btn next" aria-label="Témoignage suivant">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M8 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
       </div>
-    </div>
+    )}
 
     <!-- Stats -->
     <div class="testimonials-stats" data-stagger-group=".stat">
@@ -209,6 +209,29 @@ const {
     font-size: var(--text-sm);
     color: var(--text-secondary);
     font-weight: var(--font-medium);
+  }
+
+  /* Provenance de la note : discrète, mais toujours lisible et cliquable. */
+  .rating-source {
+    margin-top: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--text-muted, #6b7280);
+    text-align: center;
+  }
+
+  .rating-source a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .rating-source a:hover,
+  .rating-source a:focus-visible {
+    color: var(--text-secondary);
+  }
+
+  .rating-source-date {
+    white-space: nowrap;
   }
 
   /* Carousel */

@@ -174,16 +174,10 @@ valeurUnique:
       text: "Des exercices pratiques pour renforcer vos acquis."
 
 preuveSociale:
-  testimonials:
-    - text: "Je n'avais jamais touché un piano avant, et maintenant je peux jouer mes morceaux préférés. Merci pour cette méthode incroyable !"
-      author: "Isabelle T."
-      avatar: "/images/cours/piano-facile-apprendre-debutant/testimonial-1.webp"
-    - text: "Les leçons sont si bien expliquées que même un débutant complet peut suivre sans problème."
-      author: "Hugo M."
-      avatar: "/images/cours/piano-facile-apprendre-debutant/testimonial-2.webp"
-    - text: "Grâce à cette formation, j'ai enfin réalisé mon rêve de jouer du piano. Les exercices sont parfaits pour progresser rapidement."
-      author: "Élodie P."
-      avatar: "/images/cours/piano-facile-apprendre-debutant/testimonial-3.webp"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "21000+"
     successRate: "4,7/5"

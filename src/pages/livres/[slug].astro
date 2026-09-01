@@ -164,6 +164,7 @@ const bookSchema = {
             )}
           </div>
 
+          {testimonials.length > 0 && (
           <aside class="testimonials">
             <h2>Ce qu'en pensent nos lecteurs</h2>
             {testimonials.map(testimonial => (
@@ -178,6 +179,7 @@ const bookSchema = {
               </div>
             ))}
           </aside>
+          )}
         </div>
 
         <div class="final-cta">
