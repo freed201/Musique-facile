@@ -76,7 +76,7 @@ Pour assurer ces accords : [Apprendre la guitare facilement - Guide complet pour
 
 ## La particularité : tu imites les cordes
 
-Le riff principal de Viva La Vida est joué par des **violons**, pas par une guitare. À la guitare, on recrée donc cette mélodie en grattant la boucle C – D – G – Em. C'est pour ça que ton strumming doit rester **régulier et chantant** : il remplace le mouvement continu des cordes.
+Le riff principal de [Viva La Vida](https://fr.wikipedia.org/wiki/Viva_la_Vida_%28chanson%29) est joué par des **violons**, pas par une guitare. À la guitare, on recrée donc cette mélodie en grattant la boucle C – D – G – Em. C'est pour ça que ton strumming doit rester **régulier et chantant** : il remplace le mouvement continu des cordes.
 
 - **Bas — bas — haut — haut — bas — haut**, sans jamais casser le flux.
 

@@ -96,7 +96,7 @@ Le couplet en Em – B7 change complètement d'atmosphère : garde le B7 propre,
 
 Elvis Presley, surnommé **"The King"**, a révolutionné la musique en fusionnant rock, gospel et blues.  
 Dès les années 50, son style unique et son charisme ont marqué des générations.  
-Parmi ses tubes inoubliables, *I Can't Help Falling in Love with You* occupe une place toute particulière dans le cœur des amateurs de belles mélodies.
+Parmi ses tubes inoubliables, *I [Can't Help Falling in Love](https://fr.wikipedia.org/wiki/Can%27t_Help_Falling_in_Love) with You* occupe une place toute particulière dans le cœur des amateurs de belles mélodies.
 
 > **Le savais-tu ?** La mélodie de ce tube est inspirée du morceau classique français "Plaisir d'amour" de Jean-Paul-Égide Martini, composé en 1784. Elvis a ainsi rendu hommage à la tradition tout en créant un classique moderne.
 

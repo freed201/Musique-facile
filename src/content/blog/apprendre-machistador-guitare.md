@@ -93,7 +93,7 @@ Sur le papier, c'est le morceau le plus simple du répertoire de -M-. En pratiqu
 
 ## Comment analyser les paroles et l'harmonie musicale ?
 
-Les paroles de "Machistador" intriguent par leur nature poétique et ludique, typique de l'univers de -M-. Les thèmes de la chanson sont souvent ouverts à l'interprétation, mais on retrouve une exploration de l'identité et de l'autodérision. En utilisant des métaphores et des jeux de mots, Chedid engage son public non seulement par le son, mais par l'intellect.
+Les paroles de "[Machistador](https://fr.wikipedia.org/wiki/Machistador)" intriguent par leur nature poétique et ludique, typique de l'univers de -M-. Les thèmes de la chanson sont souvent ouverts à l'interprétation, mais on retrouve une exploration de l'identité et de l'autodérision. En utilisant des métaphores et des jeux de mots, Chedid engage son public non seulement par le son, mais par l'intellect.
 
 **Relation entre paroles et musique** : L'énergie des paroles est amplifiée par la composition musicale, notamment grâce à une rythmique funkieuse. Avec un tempo de 110 BPM, le morceau peut sembler exigeant, mais chaque note transmet une vitalité contagieuse. Les accords en barré accentuent le dynamisme, soulignant le lien entre la guitare et la voix dans une danse fluide et engageante.
 

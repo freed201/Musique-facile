@@ -82,7 +82,7 @@ Si tu veux consolider tes accords de base, tu peux jeter un œil à ce guide : [
 
 ## Rythmique
 
-Hey Ya! est un morceau pop très entraînant. Tu peux commencer avec une rythmique très simple, puis l’enrichir quand tu te sens à l’aise.
+[Hey Ya!](https://fr.wikipedia.org/wiki/Hey_Ya!) est un morceau pop très entraînant. Tu peux commencer avec une rythmique très simple, puis l’enrichir quand tu te sens à l’aise.
 
 Pattern de base en 4 temps :
 

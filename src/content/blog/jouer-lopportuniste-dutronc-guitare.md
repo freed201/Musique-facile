@@ -97,7 +97,7 @@ Dutronc décroche plusieurs distinctions tout au long de sa carrière, parmi les
 
 ## "L'opportuniste" : Un morceau au rythme et aux paroles accrocheurs
 
-"L'opportuniste" est extrait de l'album éponyme sorti en 1968, une époque où la France vit de grands bouleversements sociaux et politiques. Inspiré par ces événements, Dutronc, aidé de Lanzmann, compose une chanson critiquant l'opportunisme des hommes politiques. Tant par ses paroles que par sa mélodie entraînante, "L'opportuniste" réussit à captiver l’audience et à rester dans les esprits.
+"[L'opportuniste](https://fr.wikipedia.org/wiki/L%27Opportuniste)" est extrait de l'album éponyme sorti en 1968, une époque où la France vit de grands bouleversements sociaux et politiques. Inspiré par ces événements, Dutronc, aidé de Lanzmann, compose une chanson critiquant l'opportunisme des hommes politiques. Tant par ses paroles que par sa mélodie entraînante, "L'opportuniste" réussit à captiver l’audience et à rester dans les esprits.
 
 Avec un tempo modéré de 94 bpm (battements par minute), le morceau est idéal pour les guitaristes intermédiaires. Il présente une difficulté de 3 sur 5, rendant sa maîtrise accessible tout en offrant l'occasion de perfectionner la transition entre ses cinq accords distincts. En somme, c'est une chanson parfaitement équilibrée pour s'amuser tout en travaillant sa technique.
 

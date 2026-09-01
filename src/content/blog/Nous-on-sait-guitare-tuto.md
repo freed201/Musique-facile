@@ -70,7 +70,7 @@ Avant de te lancer, révise les bases avec notre [guide complet pour apprendre l
 
 ## Qui est Pierre Garnier et quelle est l'histoire de "Nous on sait" ?
 
-Pierre Garnier, un nom qui résonne fort dans l'univers de la musique française grâce à son passage marquant à la Star Academy. Son titre "Nous on sait" a captivé le public, et nombreux sont ceux qui souhaitent s'approprier ce morceau envoûtant. Que vous soyez débutant ou musicien confirmé, ce tuto vous guidera pour maîtriser chaque nuance de cette chanson.
+Pierre Garnier, un nom qui résonne fort dans l'univers de la musique française grâce à son passage marquant à la Star Academy. Son titre "[Nous on sait](https://fr.wikipedia.org/wiki/Nous_on_sait)" a captivé le public, et nombreux sont ceux qui souhaitent s'approprier ce morceau envoûtant. Que vous soyez débutant ou musicien confirmé, ce tuto vous guidera pour maîtriser chaque nuance de cette chanson.
 
 ### Le parcours de Pierre Garnier
 
