@@ -33,7 +33,7 @@ faqs:
 ---
 ## En bref
 
-**Oui, un enfant apprend un geste musical plus vite** — son cerveau est ultra-plastique et il n'a pas peur de se tromper. Mais l'adulte a des atouts décisifs sur la distance : l'analyse, le regroupement d'informations (« chunking »), la métacognition et une motivation choisie. Le vrai facteur de progrès, à tout âge, n'est ni le talent ni l'âge : c'est la **régularité**.
+**Oui, un enfant apprend un geste musical plus vite** — son cerveau est ultra-plastique et il n'a pas peur de se tromper. C'est mesurable : les musiciens ayant commencé avant sept ans présentent des différences de structure cérébrale que l'on ne retrouve pas chez ceux qui ont démarré plus tard ([Steele, Bailey, Zatorre & Penhune, *The Journal of Neuroscience*, 2013](https://doi.org/10.1523/JNEUROSCI.3578-12.2013)). Mais l'adulte a des atouts décisifs sur la distance : l'analyse, le regroupement d'informations (« chunking »), la métacognition et une motivation choisie. Le vrai facteur de progrès, à tout âge, n'est ni le talent ni l'âge : c'est la **régularité**.
 
 - **L'enfant** : plasticité, imitation, apprentissage rapide mais peu flexible
 - **L'adulte** : compréhension, transfert de compétences, progrès plus durables

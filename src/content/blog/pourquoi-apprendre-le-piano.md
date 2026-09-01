@@ -119,7 +119,9 @@ Pour vous prouver que c'est possible, nous offrons une **formation gratuite comp
 
 ## **3. Les Bienfaits Scientifiques du Piano sur le Cerveau et la Santé**
 
-**Apprendre le piano adulte** présente des bienfaits extraordinaires pour votre cerveau, prouvés par de nombreuses études scientifiques ! Jouer du piano est l'un des meilleurs exercices cérébraux que vous puissiez pratiquer.
+**Apprendre le piano adulte** mobilise beaucoup de choses en même temps : lecture, coordination des deux mains, écoute, mémoire. C'est ce qui en fait un exercice mental exigeant et complet.
+
+Sur les bienfaits mesurés de la pratique musicale, avec les études à l'appui, j'ai détaillé ce que dit vraiment la recherche dans [cet article sur la musique et le moral](/blog/effet-antidepresseur-du-ukulele/).
 
 ### **Le Piano : Un Entraînement Complet pour le Cerveau**
 

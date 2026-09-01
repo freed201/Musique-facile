@@ -339,7 +339,7 @@ Après chaque séance, note **un seul progrès** dans un carnet ou une note tél
 
 Trouve quelqu'un (ami, famille, groupe Facebook) qui pratique aussi. Envoyez-vous une confirmation après chaque séance : "Séance faite ! 💪"
 
-**Impact :** Engagement social = 2x plus de chances de tenir sur 3 mois (étude Habit Lab, 2020).
+**Impact :** en cours, ce sont mes élèves qui se rendent des comptes entre eux qui tiennent le plus longtemps. Je n'ai pas de chiffre à te donner là-dessus, juste ce que j'observe.
 
 ---
 

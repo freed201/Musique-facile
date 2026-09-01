@@ -205,7 +205,7 @@ Yousician est une **application mobile** qui transforme l'apprentissage en jeu v
 
 ---
 
-### 6. Fender Play — L'autorité de marque
+### 6. [Fender Play](https://www.fender.com/play) — L'autorité de marque
 
 Fender est **la marque de guitare** la plus reconnue au monde. Sa plateforme en ligne bénéficie d'une crédibilité immédiate.
 
@@ -252,16 +252,16 @@ JustinGuitar est probablement **la meilleure ressource gratuite** pour apprendre
 **Débutant adulte francophone : Musique Facile ou HGuitare. Budget serré ou anglophone à l'aise : JustinGuitar, gratuit. Envie de jouer plusieurs instruments : imusic-school.** Le bon choix dépend de trois choses seulement : ta langue, ton budget, et si tu veux ou non des cours en direct.
 
 ### Tu es débutant absolu, adulte, et tu veux une méthode progressive en français
-→ **Musique Facile** (89€ à vie) ou **HGuitare** (dès 16,50€/mois en formule 12 mois, avec cours en direct)
+→ **Musique Facile** (89€ à vie) ou **[HGuitare](https://www.hguitare.com/)** (dès 16,50€/mois en formule 12 mois, avec cours en direct)
 
 ### Tu veux le maximum de contenu pour explorer plusieurs instruments
-→ **imusic-school** (14,90-29,99€/mois)
+→ **[imusic-school](https://www.imusic-school.com/)** (14,90-29,99€/mois)
 
 ### Tu veux tester gratuitement avant de payer
-→ **JeJoueDeLaGuitare** (52 semaines gratuites) ou **JustinGuitar** (si tu parles anglais)
+→ **[JeJoueDeLaGuitare](https://www.jejouedelaguitare.com/)** (52 semaines gratuites) ou **[JustinGuitar](https://www.justinguitar.com/)** (si tu parles anglais)
 
 ### Tu veux quelque chose de fun sur smartphone
-→ **Yousician** (application mobile gamifiée)
+→ **[Yousician](https://yousician.com/)** (application mobile gamifiée)
 
 ### Tu veux la progression la plus économique sur le long terme
 → **Musique Facile** — 89€ une fois, pour toujours

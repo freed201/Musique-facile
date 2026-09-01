@@ -107,7 +107,7 @@ Le choix de ta première guitare dépend de ton budget, ta morphologie et le sty
 
 ### Marques fiables pour débutants
 
-- **Yamaha** : Excellent rapport qualité/prix (modèles C40, F310)
+- **[Yamaha](https://fr.yamaha.com/fr/products/musical_instruments/guitars_basses/index.html)** : Excellent rapport qualité/prix (modèles C40, F310)
 - **Ibanez** : Guitares confortables, bon pour le rock (GRG, GIO)
 - **Fender** : Qualité constante, son authentique (CD-60, Squier Affinity)
 - **Harley Benton** : Entrée de gamme abordable (80-150€, uniquement en ligne chez Thomann)

@@ -54,6 +54,8 @@ Ton cerveau fait exactement la même chose avec les gestes que tu lui apprends. 
 
 Ce phénomène a un nom technique : la consolidation de la mémoire procédurale. L'étude la plus célèbre sur le sujet date de 2002. Matthew Walker et Robert Stickgold, à Harvard, ont publié dans la revue *Neuron* une recherche intitulée *Practice with sleep makes perfect*. Ils ont fait apprendre à des participants une séquence d'appuis sur un clavier, puis ils ont mesuré leurs performances avant et après une nuit de sommeil. Résultat : les participants qui avaient dormi progressaient sans avoir repratiqué. Ceux qui restaient éveillés douze heures, pas d'amélioration.
 
+Tu peux vérifier par toi-même : Walker, M. P., Brakefield, T., Morgan, A., Hobson, J. A. & Stickgold, R., *Practice with Sleep Makes Perfect: Sleep-Dependent Motor Skill Learning*, [Neuron, 2002, vol. 35, p. 205-211](https://doi.org/10.1016/S0896-6273(02)00746-8).
+
 Les premiers chiffres annoncés par Walker étaient spectaculaires, de l'ordre de 20% d'amélioration après une nuit. Des études plus récentes ont re-mesuré cet effet avec des protocoles plus fins et l'ont revu à environ 5 à 7%. L'effet existe, il est juste plus modeste que le chiffre d'origine. Même 5% de mieux sans avoir touché à l'instrument, c'est énorme.
 
 Plus près de la musique, la chercheuse Sarah Allen a répliqué le même protocole en 2012 avec 60 pianistes et une mélodie de 13 notes. Les gains observés en laboratoire se retrouvaient aussi dans la pratique musicale réelle. La confirmation était là : ce n'est pas un artefact d'expérience, c'est vraiment comme ça que ton cerveau apprend la musique.
