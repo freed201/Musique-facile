@@ -142,16 +142,10 @@ valeurUnique:
       text: "Un apprentissage structuré pour progresser rapidement."
 
 preuveSociale:
-  testimonials:
-    - text: "Cette formation m'a permis de jouer des rythmiques variées avec beaucoup plus de fluidité. Un vrai changement !"
-      author: "Camille L."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-camille.jpg"
-    - text: "Les leçons sont bien expliquées, et j'ai enfin compris comment varier mes rythmes pour enrichir mes morceaux."
-      author: "Julien T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-julien.jpg"
-    - text: "Grâce à cette méthode, je peux accompagner mes amis en soirée avec des rythmiques beaucoup plus originales."
-      author: "Laura M."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-laura.jpg"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "750+"
     successRate: "4,7/5"

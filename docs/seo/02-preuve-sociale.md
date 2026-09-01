@@ -115,29 +115,57 @@ J'ai mis `url` à la place, qui rend la note vérifiable. Dis-moi si tu veux qua
 C'est le sujet de la question ci-dessous. Je n'y ai pas touché parce que je n'ai pas de
 confirmation qu'ils sont fabriqués, contrairement aux six retirés.
 
-## 4. Décision qui te revient
+## 4. Suite donnée : les 54 témoignages des pages cours sont retirés
 
-**Q1 — Les 58 témoignages restants sont-ils réels ?**
+Fred a répondu le 1er septembre : les autres avis posent le même problème, il fournira de vrais
+témoignages. Les **54 témoignages des 18 fiches `src/content/courses/*.md`** sont donc passés à
+`testimonials: []`, avec un commentaire expliquant pourquoi dans chaque fichier.
 
-| Où | Combien | Ce que j'observe |
-|---|---:|---|
-| `src/content/courses/*.md` (18 fiches) | **54** | Signés en prénom + initiale (« Lucas M. », « Emma L. », « Marie T. »…). **13 sur 54 commencent par « Grâce à… »** et la structure est très homogène. Aucune date, aucune source. Ils alimentent un schema `Review` sur chaque page cours. |
-| `src/content/livres/Kaili-et-son-ukulele.md` | 2 | « Marie, maman d'Emma » et « Seb, papa d'Ethan ». Ceux-là **sonnent vrais** : détails concrets, tournures naturelles. |
-| `les-plus-belles-comptines-*` (3 fiches) | 2 | Idem. |
+Conséquences dans le rendu :
+- **Plus aucun schema `Review` sur les pages cours** (`grep -rl '"@type":"Review"' … → 0`).
+  Ces `Review` portaient en prime un `datePublished` égal à la date de publication du cours,
+  c'est-à-dire une date d'avis fabriquée.
+- Le témoignage mis en avant et le bloc des témoignages restants ne sont plus rendus.
 
-Les 54 témoignages de cours ont le même profil que les six que tu viens de confirmer stock :
-même absence de date, même moule rédactionnel. S'ils sont inventés, ils posent un double
-problème — pratique commerciale trompeuse (DGCCRF) et faux `Review` dans les données
-structurées, ce que Google sanctionne.
+### Un effet de bord rattrapé
+La section 11 de `cours/[slug].astro` était **entièrement** enveloppée dans
+`{remainingTestimonials.length > 0 && (…)}`. Vider les témoignages a donc d'abord fait
+disparaître **aussi le bandeau de statistiques et les logos partenaires** (Hal Leonard,
+LinkedIn Learning, Skilleos) des 18 pages cours — des signaux, eux, parfaitement légitimes.
+Le garde ne couvre plus que le bloc des témoignages ; stats et partenaires sont revenus.
 
-→ **Sans réponse de ta part, je ne touche à rien** : je ne vais pas retirer 54 avis qui
-pourraient être réels. Mais tant que la question est ouverte, ils restent un risque.
+```
+$ page /cours/apprendre-guitare-debutant/ après correction
+  <section class=preuve-sociale        1   (revenue)
+  élèves satisfaits                    1   (revenu)
+  Ils nous font confiance              1   (revenu)
+  testimonial-highlight-text           0   (retiré)
+  aria-label=Témoignages               0   (retiré)
+```
 
-Trois réponses possibles :
-- **(a)** « ils sont inventés » → je les retire tous et je vide le `Review` des pages cours ;
-- **(b)** « certains sont réels » → dis-moi lesquels, je garde ceux-là et je leur ajoute une date ;
-- **(c)** « je ne sais plus » → je propose de les retirer, quitte à les réintroduire plus tard
-  avec de vrais avis Skilleos, qui sont publics et donc citables.
+### Ce qui reste en ligne
+Les **4 témoignages des fiches livres** (« Marie, maman d'Emma » ; « Seb, papa d'Ethan »
+et 2 autres) : ils sonnent vrais — détails concrets, tournures naturelles — et rien n'indique
+qu'ils appartiennent au lot fabriqué. Ils restent, à vérifier par Fred.
+
+## 5. Décision qui te revient
+
+**Q1 — Les notes par cours sont-elles réelles ?** *(nouvelle, découverte pendant ce lot)*
+
+Chaque fiche cours porte son propre `ratingValue` / `reviewCount`, qui alimente un
+`aggregateRating` par page : 4.7 sur **360** avis pour le ukulélé débutant, 4.6 sur **300** pour
+la lecture de notes, 4.8 sur **220** pour les accords piano, 4.7 sur **180** pour la guitare
+débutant… **Additionnés, ces décomptes dépassent largement les 929 avis de la source Skilleos.**
+
+Si ces notes ne correspondent à aucun relevé, ce sont de fausses données structurées : Google
+peut retirer les étoiles de **tout le site**, pas seulement des pages cours.
+
+→ **Je n'y ai pas touché.** (a) elles viennent d'un export par cours → donne-moi la source ;
+(b) elles sont estimées → je les remplace par la note globale sourcée ; (c) je retire
+l'`aggregateRating` des pages cours et ne garde que celui de l'organisation.
+→ *Sans réponse : rien ne bouge, mais le risque reste ouvert. Consigné dans `docs/seo/A-FAIRE.md`.*
+
+Même question pour `preuveSociale.stats.students` — « 9 210 débutants » sur la page guitare.
 
 **Q2 — Le lien Skilleos.** Il est en `rel="noopener nofollow"`, sur `/a-propos/`, la home et la
 page `/5-accords-magiques/`. → *Sans réponse : je garde `nofollow`.*

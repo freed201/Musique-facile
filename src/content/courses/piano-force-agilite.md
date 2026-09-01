@@ -188,16 +188,10 @@ valeurUnique:
       text: "Un focus sur les résultats visibles dès les premières semaines."
 
 preuveSociale:
-  testimonials:
-    - text: "Grâce à cette méthode, j'ai vu une amélioration significative dans ma force et ma précision au piano."
-      author: "Claire T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-claire.jpg"
-    - text: "Les exercices sont simples à suivre et donnent des résultats incroyables. J'ai gagné en agilité et en confiance."
-      author: "Lucas R."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-lucas.jpg"
-    - text: "Je recommande cette formation à tous ceux qui veulent améliorer leur technique pianistique de manière structurée."
-      author: "Julie M."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-julie.jpg"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "1000+"
     successRate: "4,7/5"

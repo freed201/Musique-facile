@@ -142,16 +142,10 @@ valeurUnique:
       text: "Focus sur l'écoute active et l'interprétation musicale."
 
 preuveSociale:
-  testimonials:
-    - text: "Grâce à cette formation, j'ai découvert comment écouter et reproduire des notes avec précision. Une transformation incroyable !"
-      author: "Marie T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-marie.webp"
-    - text: "J'avais toujours du mal à improviser. Les exercices sur les intervalles et les rythmes m'ont permis de jouer avec plus de liberté."
-      author: "Paul M."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-paul.jpg"
-    - text: "Cette méthode m'a aidé à vraiment écouter la musique et à comprendre comment l'interpréter de manière expressive."
-      author: "Sophie L."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-sophie.jpg"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "1150+"
     successRate: "4,7/5"

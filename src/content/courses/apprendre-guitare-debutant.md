@@ -147,16 +147,10 @@ valeurUnique:
       text: "Des exercices pratiques pour renforcer vos acquis."
 
 preuveSociale:
-  testimonials:
-    - text: "Grâce à ce cours, j'ai appris à jouer mes premiers morceaux en moins d'une semaine. Une méthode incroyable !"
-      author: "Lucas M."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-lucas.jpg"
-    - text: "Je n'avais jamais touché une guitare auparavant, et maintenant je peux accompagner mes amis en soirée. Merci !"
-      author: "Roxanne"
-      avatar: "https://ecole.musique-facile.fr/images/avatar-clara.jpg"
-    - text: "Les leçons sont claires et motivantes, et j'ai progressé bien plus vite que je ne le pensais."
-      author: "Julien T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-julien.jpg"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "9210+"
     successRate: "4,7/5"

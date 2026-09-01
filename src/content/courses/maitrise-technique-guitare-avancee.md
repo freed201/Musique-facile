@@ -177,16 +177,10 @@ valeurUnique:
       text: "Des exercices pratiques pour consolider vos acquis."
 
 preuveSociale:
-  testimonials:
-    - text: "Franchement, jamais j’aurais cru pouvoir progresser autant sur des sujets aussi pointus ! Cette formation m’a vraiment poussé à dépasser mes limites… et ça, c’est juste incroyable. Un grand merci !"
-      author: "Lucas B."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-lucas.jpg"
-    - text: "Ce que j’ai adoré ? La diversité des cours, mais surtout les invités super inspirants. À chaque session, c’était une nouvelle découverte. Et ça, ça change tout pour progresser !"
-      author: "Élodie M."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-elodie.jpg"
-    - text: "Cette formation, c’est une pépite ! L’équipe est géniale, les sujets sont super bien choisis et les techniques qu’on apprend… incroyables ! Si j’avais découvert ça plus tôt, j’aurais progressé bien plus vite. Une expérience musicale au top!"
-      author: "Julien T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-julien.jpg"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "5200+"
     successRate: "4,7/5"

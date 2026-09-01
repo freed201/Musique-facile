@@ -145,16 +145,10 @@ valeurUnique:
       text: "Convient aux pianistes de tous niveaux."
 
 preuveSociale:
-  testimonials:
-    - text: "Grâce à ce cours, j'ai énormément gagné en précision et fluidité. Les exercices sont très bien expliqués !"
-      author: "Emma D."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-emma.jpg"
-    - text: "Les progrès sont visibles dès les premières semaines. Je recommande vivement cette formation."
-      author: "Thomas P."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-thomas.webp"
-    - text: "Les exercices spécifiques pour chaque doigt ont complètement changé ma façon de jouer. Une vraie révélation."
-      author: "Claire L."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-claire.jpg"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "1100+"
     successRate: "4,7/5"

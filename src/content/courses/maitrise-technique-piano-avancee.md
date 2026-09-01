@@ -174,16 +174,10 @@ valeurUnique:
       text: "Une attention particulière à l’expression musicale et à l’interprétation."
 
 preuveSociale:
-  testimonials:
-    - text: "Cette formation m'a permis de dépasser mes limites au piano. Les techniques avancées sont expliquées clairement et j'ai enfin pu jouer des morceaux complexes !"
-      author: "Marie T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-marie.webp"
-    - text: "Le programme est parfaitement structuré. J'ai appris à improviser et à explorer des styles variés avec beaucoup de plaisir."
-      author: "Julien M."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-julien.jpg"
-    - text: "Les exercices sont très bien pensés et l'accompagnement est excellent. Mon jeu a vraiment évolué grâce à cette formation."
-      author: "Sophie L."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-sophie.jpg"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "3500+"
     successRate: "4,7/5"

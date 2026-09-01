@@ -138,16 +138,10 @@ valeurUnique:
       text: "Des exercices interactifs pour mettre immédiatement en pratique vos acquis."
 
 preuveSociale:
-  testimonials:
-    - text: "Grâce à cette formation, j'ai compris des concepts rythmiques qui me semblaient impossibles auparavant. Une révélation !"
-      author: "Claire M."
-      avatar: "/images/cours/cours-solfege-rythmes/testimonial-1.webp"
-    - text: "Les exercices m'ont aidé à intégrer des rythmes complexes dans mon jeu. Je recommande à tous les musiciens !"
-      author: "Jean-Paul R."
-      avatar: "/images/cours/cours-solfege-rythmes/testimonial-2.webp"
-    - text: "Je jouais déjà, mais cette formation m'a permis de vraiment comprendre la polyrythmie. Merci !"
-      author: "Sophie L."
-      avatar: "/images/cours/cours-solfege-rythmes/testimonial-3.webp"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "1000+"
     successRate: "4,7/5"

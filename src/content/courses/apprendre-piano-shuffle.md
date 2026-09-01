@@ -147,16 +147,10 @@ valeurUnique:
       text: "Un focus sur les rythmiques et leur application dans des morceaux mélodiques."
 
 preuveSociale:
-  testimonials:
-    - text: "Grâce à ce cours, j'ai enfin compris le shuffle et je peux l'intégrer dans mes morceaux. Une méthode claire et efficace !"
-      author: "Sophie L."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-sophie.jpg"
-    - text: "Les exercices pratiques m'ont permis de ressentir le rythme shuffle en très peu de temps. Un grand merci !"
-      author: "Julien D."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-julien.jpg"
-    - text: "Le shuffle n'est plus un mystère pour moi. Ce cours est parfait pour progresser rapidement."
-      author: "Élodie R."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-elodie.jpg"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "200+"
     successRate: "4,7/5"

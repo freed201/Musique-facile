@@ -140,16 +140,10 @@ valeurUnique:
       text: "Un focus sur les intervalles et accords pour transformer votre jeu musical."
 
 preuveSociale:
-  testimonials:
-    - text: "Grâce à cette formation, j'ai enfin compris les bases des accords et je peux maintenant jouer des morceaux avec confiance."
-      author: "Emma L."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-emma.jpg"
-    - text: "Les explications sont claires et accessibles, même pour quelqu'un sans expérience musicale préalable."
-      author: "Lucas M."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-lucas.jpg"
-    - text: "Les exercices pratiques m'ont permis de vraiment progresser et de maîtriser les accords que je trouvais impossibles avant."
-      author: "Marie T."
-      avatar: "https://ecole.musique-facile.fr/images/avatar-marie.webp"
+  # Témoignages retirés le 2026-09-01 : aucun n'était daté ni sourçable, et ils
+  # partageaient le moule rédactionnel du lot de démonstration confirmé fabriqué
+  # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
+  testimonials: []
   stats:
     students: "3000+"
     successRate: "4,7/5"

@@ -640,9 +640,15 @@ const heroFacts = [
 )}
 
 <!-- SECTION 11 : Témoignages restants + stats + partenaires -->
-{remainingTestimonials.length > 0 && (
+<!--
+  La condition portait sur `remainingTestimonials` et enveloppait toute la
+  section : vider les témoignages faisait aussi disparaître le bandeau de stats
+  et les logos partenaires, qui eux sont de vrais signaux. Le garde ne couvre
+  plus que le bloc des témoignages.
+-->
 <section class="preuve-sociale">
   <div class="container">
+    {remainingTestimonials.length > 0 && (
     <div class="testimonials-wrapper" role="region" aria-label="Témoignages">
       {remainingTestimonials.map((testimonial, index) => {
         const testimonialImagePath = `/images/cours/${Astro.params.slug}/testimonial-${index + 2}.webp`;
@@ -659,6 +665,7 @@ const heroFacts = [
         );
       })}
     </div>
+    )}
 
     <div class="stats-banner">
       <div class="stat">
@@ -695,7 +702,6 @@ const heroFacts = [
     </div>
   </div>
 </section>
-)}
 
 <!-- SECTION 12 : Benefices -->
   <section class="benefices">
