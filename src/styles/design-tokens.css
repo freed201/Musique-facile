@@ -420,9 +420,12 @@
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
+    /* 1ms et pas 0.01ms : le minifieur d'astro-compress réécrivait la valeur
+       sous-milliseconde en « NaNs », invalide, donc ignorée par le navigateur —
+       prefers-reduced-motion ne coupait plus rien sur aucune page. */
+    animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 1ms !important;
     scroll-behavior: auto !important;
   }
 }

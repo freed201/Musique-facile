@@ -6,7 +6,7 @@ description: "Maîtrisez le shuffle à l'ukulélé en 15 leçons. Rythmes envoû
 ogImage: "/images/cours/apprendre-ukulele-shuffle/hero.webp"
 theme: "ukulele"
 datePublished: "2025-01-30"
-dateModified: "2025-01-30"
+dateModified: "2026-09-01"
 # ratingValue / reviewCount retirés le 2026-09-01 : ce cours n'a pas de fiche
 # Skilleos, donc aucune note vérifiable. Sans source, pas d'aggregateRating.
 category: "Cours de musique"      # pour Offer

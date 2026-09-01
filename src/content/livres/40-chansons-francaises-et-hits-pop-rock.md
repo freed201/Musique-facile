@@ -6,7 +6,7 @@ coverImage: "/images/livres/CARMF2838.webp"
 price: "24,70 €"
 author: "Fred Fieffé"
 datePublished: "2024-01-15"
-dateModified: "2024-01-15"
+dateModified: "2026-09-01"
 isbn: "979-8-9876543-2-1"
 pages: 108
 format: "21 x 29,7 cm - A4"

@@ -4,7 +4,7 @@ description: "Maîtrisez les rythmes complexes avec 55 leçons de solfège avanc
 ogImage: "/images/cours/cours-solfege-rythmes/hero.webp"
 theme: "solfege"
 datePublished: "2025-01-30"
-dateModified: "2025-01-30"
+dateModified: "2026-09-01"
 # Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
 # « Solfège : techniques avancées (partie 1) » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.7"

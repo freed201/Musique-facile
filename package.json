@@ -16,6 +16,8 @@
     "blog:analyze": "node scripts/analyze-blog-articles.js",
     "blog:quality": "node scripts/check-article-quality.mjs",
     "check:links": "node scripts/check-trailing-slash.mjs",
+    "check:seo": "node scripts/check-seo.mjs",
+    "seo:revisions": "node scripts/generate-page-revisions.mjs",
     "chords:generate": "node scripts/generate-chord-svgs.mjs",
     "lead-magnet:pdf": "node scripts/lead-magnet-to-pdf.mjs",
     "lead-magnet:build": "node scripts/lead-magnet-to-pdf.mjs content/lead-magnets/guitare-5-accords-magiques.md",
@@ -24,6 +26,7 @@
     "analyze:bundle": "du -sh dist && echo '\n📦 Bundle size:' && find dist -name '*.js' -type f -exec du -h {} + | sort -rh | head -10"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/vercel": "^7.8.2",
     "@fontsource/inter": "^5.3.0",
     "@fontsource/poppins": "^5.0.17",

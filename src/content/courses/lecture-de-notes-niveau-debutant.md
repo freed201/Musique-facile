@@ -6,7 +6,7 @@ description: "4 100 élèves, accès à vie dès 79€. Apprenez à lire les par
 ogImage: "/images/cours/lecture-de-notes-niveau-debutant/hero.webp"
 theme: "solfege"
 datePublished: "2025-01-30"
-dateModified: "2025-01-30"
+dateModified: "2026-09-01"
 # Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
 # « Solfège : les fondamentaux » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.7"

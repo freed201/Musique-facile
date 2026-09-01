@@ -6,7 +6,7 @@ description: "Maîtrisez les rythmiques ukulélé avec 43 chapitres progressifs.
 ogImage: "/images/cours/apprendre-la-rythmique-ukulele-facilement/hero.webp"
 theme: "ukulele"
 datePublished: "2025-01-30"
-dateModified: "2025-01-30"
+dateModified: "2026-09-01"
 # Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
 # « Ukulélé : Techniques avancées » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.6"

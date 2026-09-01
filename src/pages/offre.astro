@@ -3,10 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import FooterModern from '../components/FooterModern.astro';
 import '../components/Tabs.ts';
-
+import { rating, reviews, reviewsSource } from '../data/proof';
 
 // Construction de l'URL canonique
-const canonicalURL = new URL('/offre', Astro.site || 'https://musique-facile.fr').toString();
+const canonicalURL = new URL('/offre/', Astro.site || 'https://musique-facile.fr').toString();
 
 // Métadonnées SEO optimisées
 const title = "Pack Formation Guitare, Piano & Ukulélé à 99€ | Musique Facile";
@@ -15,6 +15,14 @@ const ogImage = "/images/offre-hero.webp";
 const keywords = "formation musique en ligne, pack guitare 99 euros, cours piano débutant, apprendre ukulélé, formation musicale complète, cours musique pas cher, pack formation musique, apprendre musique en ligne";
 
 // Schema.org enrichis pour SEO
+//
+// Pas d'aggregateRating sur ces quatre Product : chacun portait « 4.7 sur 929
+// avis », c'est-à-dire les mêmes avis Skilleos revendiqués quatre fois, pour
+// quatre packs qui n'existent pas sur Skilleos. Les 929 avis notent le
+// catalogue de Fred dans son ensemble, pas un pack en particulier — ils restent
+// donc sur l'EducationalOrganization de la page d'accueil, avec leur source.
+// Même règle que pour les pages cours (docs/seo/02b-notes-cours-skilleos.md) :
+// sans note propre et vérifiable, on ne publie pas de note.
 const guitarPackSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -24,13 +32,6 @@ const guitarPackSchema = {
   "brand": {
     "@type": "Brand",
     "name": "Musique Facile"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "reviewCount": "929",
-    "bestRating": "5",
-    "worstRating": "1"
   },
   "offers": {
     "@type": "Offer",
@@ -87,13 +88,6 @@ const ukulelePackSchema = {
     "@type": "Brand",
     "name": "Musique Facile"
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "reviewCount": "929",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
   "offers": {
     "@type": "Offer",
     "price": "99.00",
@@ -149,13 +143,6 @@ const pianoBeginnerSchema = {
     "@type": "Brand",
     "name": "Musique Facile"
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "reviewCount": "929",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
   "offers": {
     "@type": "Offer",
     "price": "99.00",
@@ -210,13 +197,6 @@ const pianoAdvancedSchema = {
   "brand": {
     "@type": "Brand",
     "name": "Musique Facile"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "reviewCount": "929",
-    "bestRating": "5",
-    "worstRating": "1"
   },
   "offers": {
     "@type": "Offer",
@@ -907,7 +887,7 @@ const testimonials = [
                 </div>
                 <div class="credential">
                   <span class="credential-icon">⭐</span>
-                  <span>Note moyenne 4.7/5</span>
+                  <span>Note moyenne {rating.display} — {reviews.display} {reviewsSource.label}</span>
                 </div>
               </div>
             </div>

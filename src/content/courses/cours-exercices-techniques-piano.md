@@ -6,7 +6,7 @@ description: "Renforcez l'agilité de vos doigts au piano avec 50+ vidéos. Exer
 ogImage: "/images/cours/cours-exercices-techniques-piano/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
-dateModified: "2025-01-30"
+dateModified: "2026-09-01"
 # Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
 # « Piano : Muscler ses doigts » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.6"
