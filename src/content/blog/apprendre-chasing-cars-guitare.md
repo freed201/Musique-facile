@@ -90,4 +90,4 @@ Pour cadrer tes séances : [Comment structurer une séance de pratique de 30 min
 
 ## Conclusion
 
-Chasing Cars prouve qu'on peut émouvoir avec presque rien : une boucle de quelques accords et beaucoup de nuance. Profites-en pour travailler ta dynamique et tes arpèges, deux compétences qui te serviront sur des dizaines d'autres morceaux.
+[Chasing Cars](https://fr.wikipedia.org/wiki/Chasing_Cars) prouve qu'on peut émouvoir avec presque rien : une boucle de quelques accords et beaucoup de nuance. Profites-en pour travailler ta dynamique et tes arpèges, deux compétences qui te serviront sur des dizaines d'autres morceaux.

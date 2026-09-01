@@ -92,7 +92,7 @@ L'A7 n'apparaît qu'au refrain, juste avant le G : c'est lui qui crée l'appel, 
 
 ## Qui sont les Beatles et John Lennon ?
 
-Les Beatles, formés en 1960 à Liverpool, sont sans doute l'un des groupes les plus influents de l'histoire de la musique. Avec plus de 600 millions d'albums vendus dans le monde, leur impact culturel est indéniable. John Lennon, l’un des membres emblématiques, a su marquer son époque par sa vision artistique, associant poésie et réalité dans des morceaux intemporels. Saviez-vous que l’idée d’"Across The Universe" lui est venue suite à une dispute avec sa première épouse, Cynthia ? Cette anecdote révèle comment les moments personnels tumultueux peuvent donner naissance à des chefs-d'œuvre artistiques.
+Les Beatles, formés en 1960 à Liverpool, sont sans doute l'un des groupes les plus influents de l'histoire de la musique. Avec plus de 600 millions d'albums vendus dans le monde, leur impact culturel est indéniable. John Lennon, l’un des membres emblématiques, a su marquer son époque par sa vision artistique, associant poésie et réalité dans des morceaux intemporels. Saviez-vous que l’idée d’"[Across The Universe](https://fr.wikipedia.org/wiki/Across_the_Universe)" lui est venue suite à une dispute avec sa première épouse, Cynthia ? Cette anecdote révèle comment les moments personnels tumultueux peuvent donner naissance à des chefs-d'œuvre artistiques.
 
 ## Quelle est l'histoire du morceau "Across The Universe" ?
 

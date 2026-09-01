@@ -97,4 +97,4 @@ Besoin d'une méthode de travail ? Vois [Comment structurer une séance de prati
 
 ## Conclusion
 
-Avec ses 4 accords et sa boucle unique, Stand by Me est souvent la première chanson qu'on arrive à jouer ET chanter d'un bout à l'autre. Prends ton temps, laisse respirer chaque accord, et savoure : tu joues un classique intemporel.
+Avec ses 4 accords et sa boucle unique, [Stand by Me](https://fr.wikipedia.org/wiki/Stand_by_Me_%28chanson_de_Ben_E._King%29) est souvent la première chanson qu'on arrive à jouer ET chanter d'un bout à l'autre. Prends ton temps, laisse respirer chaque accord, et savoure : tu joues un classique intemporel.

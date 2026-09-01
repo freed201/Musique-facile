@@ -93,7 +93,7 @@ Le capo en case 2 est indispensable pour retrouver la tonalité du disque et cha
 
 ## Un voyage musical avec Sting
 
-Lorsque l'on évoque Sting, on pense inévitablement à sa contribution inégalée à la musique, tant avec The Police que dans sa carrière solo. L'un de ses morceaux les plus poignants est sans doute "Fields of Gold", extrait de l'album *Ten Summoner's Tales*, sorti en 1993. Ce bijou musical invite l'auditeur à une réflexion douce et mélancolique, oscillant entre amour et nature.
+Lorsque l'on évoque Sting, on pense inévitablement à sa contribution inégalée à la musique, tant avec The Police que dans sa carrière solo. L'un de ses morceaux les plus poignants est sans doute "[Fields of Gold](https://fr.wikipedia.org/wiki/Fields_of_Gold)", extrait de l'album *Ten Summoner's Tales*, sorti en 1993. Ce bijou musical invite l'auditeur à une réflexion douce et mélancolique, oscillant entre amour et nature.
 
 ### L'univers enivrant de "Fields of Gold"
 

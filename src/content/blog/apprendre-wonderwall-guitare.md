@@ -92,4 +92,4 @@ Pour rendre tes séances plus efficaces : [Comment structurer une séance de pra
 
 ## Conclusion
 
-Wonderwall a l'air complexe, mais dès que tes deux doigts restent ancrés case 3, tout le reste se débloque. Garde le poignet qui balance, chante par-dessus, et tu tiens LE classique qui fait toujours son effet. Capo case 2, et c'est parti.
+[Wonderwall](https://fr.wikipedia.org/wiki/Wonderwall_%28chanson%29) a l'air complexe, mais dès que tes deux doigts restent ancrés case 3, tout le reste se débloque. Garde le poignet qui balance, chante par-dessus, et tu tiens LE classique qui fait toujours son effet. Capo case 2, et c'est parti.

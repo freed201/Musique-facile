@@ -106,7 +106,7 @@ Sa carrière a été reconnue par plusieurs distinctions. Alain Souchon a rempor
 
 ## Quel est le contexte de "Foule Sentimentale" ?
 
-"Foule Sentimentale" a été dévoilé en pleine effervescence musicale des années 90. Cet hymne critique aborde des sujets toujours actuels : la surconsommation, l'illusion du bonheur par l'acquisition de biens matériels et la quête de sens. La chanson se distingue par une mélodie simple et touchante, qui accompagne parfaitement les paroles empreintes de nostalgie et de questionnement intérieur.
+"[Foule Sentimentale](https://fr.wikipedia.org/wiki/Foule_sentimentale)" a été dévoilé en pleine effervescence musicale des années 90. Cet hymne critique aborde des sujets toujours actuels : la surconsommation, l'illusion du bonheur par l'acquisition de biens matériels et la quête de sens. La chanson se distingue par une mélodie simple et touchante, qui accompagne parfaitement les paroles empreintes de nostalgie et de questionnement intérieur.
 
 ### Analyse des paroles
 

@@ -84,7 +84,7 @@ Si tes premiers barrés ne sont pas encore stables, consolide-les ici : [Apprend
 
 ## La rythmique : le groove est dans la retenue
 
-C'est LE point clé de Back to Black. Le groove ne vient pas de la force, mais de la **sobriété** :
+C'est LE point clé de [Back to Black](https://fr.wikipedia.org/wiki/Back_to_Black_%28chanson%29). Le groove ne vient pas de la force, mais de la **sobriété** :
 
 - Joue **court et étouffé** : pose légèrement la paume sur les cordes (palm mute) et attaque sec.
 - Pense « chuchoté », pas « envoyé ».

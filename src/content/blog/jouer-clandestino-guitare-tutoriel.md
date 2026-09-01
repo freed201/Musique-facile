@@ -83,7 +83,7 @@ Si tu veux une base solide sur les accords de débutant, tu peux aussi lire ce g
 
 ## Rythmique
 
-La rythmique de Clandestino est douce et régulière. Tu peux la jouer de façon très simple, avec seulement des coups vers le bas, puis l’enrichir quand tu es à l’aise.
+La rythmique de [Clandestino](https://fr.wikipedia.org/wiki/Clandestino_%28chanson%29) est douce et régulière. Tu peux la jouer de façon très simple, avec seulement des coups vers le bas, puis l’enrichir quand tu es à l’aise.
 
 Pattern simple en 4 temps :
 

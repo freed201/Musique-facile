@@ -86,7 +86,7 @@ Tempo tranquille (74 BPM), feeling piano à la base. Un strumming souple suffit 
 
 - **Bas — bas — bas-haut — bas-haut**, sans précipiter.
 
-Laisse de l'air : Hey Jude respire, ne la sur-gratte pas.
+Laisse de l'air : [Hey Jude](https://fr.wikipedia.org/wiki/Hey_Jude) respire, ne la sur-gratte pas.
 
 ## La structure
 

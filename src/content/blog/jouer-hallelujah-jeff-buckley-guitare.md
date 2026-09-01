@@ -92,7 +92,7 @@ Quand F et G tombent dans la même mesure, beaucoup de guitaristes passent sur u
 
 Tout se joue à la main droite. L'arpège suit toujours la même logique : la basse d'abord, c'est-à-dire la corde la plus grave de l'accord (la corde de La pour un C, la corde de Mi pour un G), puis les cordes aiguës une par une. Garde les doigts du système PIMA, pouce sur les basses, index-majeur-annulaire sur les aiguës.
 
-"Hallelujah" est une chanson initialement écrite par Leonard Cohen, un auteur-compositeur-interprète canadien connu pour ses textes poétiques et spirituels. Sortie en 1984 sur l'album "Various Positions", la chanson a mis du temps à percer, mais elle n'a jamais cessé d'évoluer, s'imprégnant de nouvelles significations au fil des reprises. Jeff Buckley en a livré une version en 1994 dans son seul album studio complet, "Grace". 
+"[Hallelujah](https://fr.wikipedia.org/wiki/Hallelujah_%28chanson_de_Leonard_Cohen%29)" est une chanson initialement écrite par Leonard Cohen, un auteur-compositeur-interprète canadien connu pour ses textes poétiques et spirituels. Sortie en 1984 sur l'album "Various Positions", la chanson a mis du temps à percer, mais elle n'a jamais cessé d'évoluer, s'imprégnant de nouvelles significations au fil des reprises. Jeff Buckley en a livré une version en 1994 dans son seul album studio complet, "Grace". 
 
 C'est cette interprétation qui a propulsé le morceau dans une nouvelle dimension, alimentant sa renommée mondiale. Buckley a transformé l'œuvre de Cohen en une véritable exploration de la vulnérabilité humaine et de la recherche de rédemption.
 

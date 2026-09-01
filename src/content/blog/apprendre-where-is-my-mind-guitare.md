@@ -104,7 +104,7 @@ Rapidement, le groupe attire les projecteurs grâce à un style explosif qui ins
 
 ## Quel est le contexte de création de "Where Is My Mind" ?
 
-Écrit par Black Francis après une plongée dans les Caraïbes, "Where Is My Mind" traduit une expérience presque surnaturelle : un sentiment de flottement, d’étrangeté, face à des poissons “pas plus gros que ça” mais qui semblent venir d’un autre monde.  
+Écrit par Black Francis après une plongée dans les Caraïbes, "[Where Is My Mind](https://fr.wikipedia.org/wiki/Where_Is_My_Mind%3F)" traduit une expérience presque surnaturelle : un sentiment de flottement, d’étrangeté, face à des poissons “pas plus gros que ça” mais qui semblent venir d’un autre monde.  
 Sorti sur l’album culte *Surfer Rosa* (1988), le morceau mêle un tempo lent (85 BPM), une guitare hypnotique et une basse planante pour t’embarquer dans une balade psychédélique et introspective.
 
 ### Pourquoi ce titre fascine-t-il autant ?

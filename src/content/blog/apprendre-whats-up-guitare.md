@@ -89,7 +89,7 @@ La chanson **monte progressivement en intensité** : commence doux sur le couple
 
 ## L'anecdote à connaître
 
-Le titre, c'est le piège préféré des quiz musicaux : le refrain chante « *and I say hey-ey-ey, what's going on* », mais la chanson s'appelle officiellement **« What's Up »** — probablement pour éviter la confusion avec le classique « What's Going On » de Marvin Gaye. Parfait pour lancer la conversation quand tu la joues.
+Le titre, c'est le piège préféré des quiz musicaux : le refrain chante « *and I say hey-ey-ey, what's going on* », mais la chanson s'appelle officiellement **« [What's Up](https://fr.wikipedia.org/wiki/What%27s_Up%3F) »** — probablement pour éviter la confusion avec le classique « What's Going On » de Marvin Gaye. Parfait pour lancer la conversation quand tu la joues.
 
 ## La structure
 

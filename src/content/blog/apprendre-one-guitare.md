@@ -106,7 +106,7 @@ Le groupe voulait un nom ouvert, sans frontières ni barrières de style ou de p
 ## Le contexte de création de "One"
 
 Nous sommes en 1991. U2 traverse alors une crise profonde : tensions internes, doutes artistiques, risques de séparation…  
-Lors des sessions d’enregistrement de l’album "Achtung Baby" à Berlin, "One" naît presque par hasard, comme une réconciliation musicale.  
+Lors des sessions d’enregistrement de l’album "Achtung Baby" à Berlin, "[One](https://fr.wikipedia.org/wiki/One_%28chanson_de_U2%29)" naît presque par hasard, comme une réconciliation musicale.  
 Le morceau apparaît spontanément alors que le groupe tente de retrouver une inspiration collective.  
 L’émotion est telle qu’ils réalisent immédiatement qu’ils tiennent un chef-d’œuvre.
 

@@ -99,7 +99,7 @@ Le nom du groupe aurait été inspiré par le désir de combiner différents sty
 
 ## Quelle est l'histoire de "More Than Words" ?
 
-Sorti en 1990, "More Than Words" fait partie de l'album "Pornograffitti", un disque qui a su transcender les genres en mêlant des éléments de rock, de heavy metal et de funk. Cette chanson est une ballade romantique qui discute de l'authenticité des sentiments et de l'idée que les mots ne suffisent pas toujours à exprimer l'amour. Bettencourt et Cherone proposent ici une œuvre tout en simplicité mais pleine de sincérité, où la voix et la guitare dialoguent en parfaite harmonie.
+Sorti en 1990, "[More Than Words](https://fr.wikipedia.org/wiki/More_than_Words_%28chanson_d%27Extreme%29)" fait partie de l'album "Pornograffitti", un disque qui a su transcender les genres en mêlant des éléments de rock, de heavy metal et de funk. Cette chanson est une ballade romantique qui discute de l'authenticité des sentiments et de l'idée que les mots ne suffisent pas toujours à exprimer l'amour. Bettencourt et Cherone proposent ici une œuvre tout en simplicité mais pleine de sincérité, où la voix et la guitare dialoguent en parfaite harmonie.
 
 > **Info pratique.** Pour jouer "More Than Words" comme Extreme, pense à accorder ta guitare un demi-ton en-dessous (Eb Ab Db Gb Bb Eb). Cette petite différence donne à la chanson sa couleur sonore si particulière.
 

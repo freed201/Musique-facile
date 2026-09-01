@@ -95,7 +95,7 @@ L'idée est de garder un mouvement régulier et de gagner en pêche au moment du
 
 ## L'anecdote à connaître
 
-Petit clin d'œil culturel : beaucoup ont fait remarquer que les situations décrites dans « Ironic » (la pluie le jour de ton mariage…) relèvent plutôt de la **malchance** que de l'ironie au sens strict. Alanis elle-même en plaisante depuis. De quoi lancer la conversation quand tu la joues entre amis.
+Petit clin d'œil culturel : beaucoup ont fait remarquer que les situations décrites dans « [Ironic](https://fr.wikipedia.org/wiki/Ironic) » (la pluie le jour de ton mariage…) relèvent plutôt de la **malchance** que de l'ironie au sens strict. Alanis elle-même en plaisante depuis. De quoi lancer la conversation quand tu la joues entre amis.
 
 ## Comment t'entraîner
 

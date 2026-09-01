@@ -106,4 +106,4 @@ Pour organiser ta pratique : [Comment structurer une séance de pratique de 30 m
 
 ## Conclusion
 
-Redemption Song t'apprend à jouer **propre et doux**, deux qualités qui valent de l'or. Prends ton temps, soigne chaque note, et joue-la avec l'intention de gravité tranquille qu'y mettait Bob Marley. C'est un morceau qui touche, même joué tout simplement.
+[Redemption Song](https://fr.wikipedia.org/wiki/Redemption_Song) t'apprend à jouer **propre et doux**, deux qualités qui valent de l'or. Prends ton temps, soigne chaque note, et joue-la avec l'intention de gravité tranquille qu'y mettait Bob Marley. C'est un morceau qui touche, même joué tout simplement.
