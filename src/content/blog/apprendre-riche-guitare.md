@@ -21,8 +21,8 @@ songInfo:
 videos:
   - title: "Vidéo officielle de 'Riche'"
     url: "https://youtu.be/pplJ4vdt3kI"
-  - title: "Session acoustique de 'Riche'"
-    url: "https://youtube.com/shorts/bZTqR03qD_M"
+  - title: "Riche – Claudio Capéo | Play Along Guitare facile"
+    url: "https://youtu.be/EPlGAzAqPkc"
   - title: "Tutoriel complet de 'Riche'"
     url: "https://youtu.be/McgAODD4svo"
   - title: "Play Along : Joue avec Claudio Capéo"

@@ -21,8 +21,8 @@ songInfo:
 videos:
   - title: "Queen - Don't Stop Me Now (Live Performance)"
     url: "https://youtu.be/j_pWtOlMJo0"
-  - title: "Don't Stop Me Now - Animation par des fans"
-    url: "https://youtube.com/shorts/MZ7HW2rm81k"
+  - title: "Don't Stop Me Now guitare - Tutoriel débutant"
+    url: "https://youtu.be/j_pWtOlMJo0"
 
 
 

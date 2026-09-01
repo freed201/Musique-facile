@@ -32,8 +32,8 @@ songInfo:
 videos:
   - title: "Tutoriel Version Simplifiée"
     url: "https://youtu.be/cMZxsloPy_Y"
-  - title: "YouTube Shorts : Extrait"
-    url: "https://youtube.com/shorts/QGDPuHrVEwk"
+  - title: "Chasing Cars - Guitare Débutant | Tutoriel simple"
+    url: "https://youtu.be/cMZxsloPy_Y"
   - title: "Play Along"
     url: "https://youtu.be/w_iytD4QXKM"
 faqs:

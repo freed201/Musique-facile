@@ -35,6 +35,8 @@ interface Props {
   showAutoFaq?: boolean;
 }
 
+import videoMetadata from '../data/video-metadata.json';
+
 const { title, description, ogImage, author, datePublished, dateModified, url, theme = 'main', videos, songInfo, showAutoFaq = true } = Astro.props;
 const siteUrl = 'https://musique-facile.fr';
 const ogImageValue = ogImage || '/images/og-default.webp';
@@ -206,19 +208,30 @@ const extractYouTubeId = (url: string) => {
   return (match && match[2].length === 11) ? match[2] : null;
 };
 
-// Construction du schema VideoObject si vidéos présentes
-const videoSchemas = videos && videos.length > 0 ? videos.map(video => {
+// Construction du schema VideoObject.
+//
+// `uploadDate` valait auparavant `isoDatePublished`, c'est-à-dire la date de
+// publication de l'ARTICLE : une date de mise en ligne inventée, et aucune
+// durée déclarée. Les deux sont désormais lues dans src/data/video-metadata.json,
+// relevé sur les pages YouTube (`npm run videos:metadata`).
+//
+// Une vidéo absente du relevé, ou devenue indisponible, ne produit plus de
+// VideoObject : mieux vaut pas de balisage qu'un balisage pointant vers une
+// vidéo morte.
+const videoSchemas = videos && videos.length > 0 ? videos.flatMap(video => {
   const videoId = extractYouTubeId(video.url);
-  return {
+  const meta = videoId ? (videoMetadata.videos as Record<string, any>)[videoId] : null;
+  if (!videoId || meta?.status !== 'ok') return [];
+  return [{
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    "name": video.title || pageTitle,
+    "name": video.title || meta.youtubeTitle || pageTitle,
     "description": video.description || pageDescription,
-    "thumbnailUrl": video.thumbnail || (videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : absoluteOgImage),
-    "uploadDate": isoDatePublished,
-    "contentUrl": video.url,
-    "embedUrl": videoId ? `https://www.youtube.com/embed/${videoId}` : video.url,
-    "duration": video.duration,
+    "thumbnailUrl": meta.thumbnail ? `https://musique-facile.fr${meta.thumbnail}` : absoluteOgImage,
+    "uploadDate": meta.uploadDate,
+    ...(meta.duration ? { "duration": meta.duration } : {}),
+    "contentUrl": `https://www.youtube.com/watch?v=${videoId}`,
+    "embedUrl": `https://www.youtube-nocookie.com/embed/${videoId}`,
     "publisher": {
       "@type": "Organization",
       "name": "Musique Facile",
@@ -227,7 +240,7 @@ const videoSchemas = videos && videos.length > 0 ? videos.map(video => {
         "url": "https://musique-facile.fr/logo.webp"
       }
     }
-  };
+  }];
 }) : [];
 
 // Construction du schema HowTo pour les tutoriels
@@ -283,14 +296,10 @@ const howToSchema = songInfo ? {
       "text": "Assemblez tous les éléments et jouez le morceau du début à la fin.",
       "url": url,
       "image": absoluteOgImage,
-      "video": videos && videos.length > 0 ? {
-        "@type": "VideoObject",
-        "name": videos[0].title || pageTitle,
-        "description": pageDescription,
-        "thumbnailUrl": extractYouTubeId(videos[0].url) ? `https://img.youtube.com/vi/${extractYouTubeId(videos[0].url)}/maxresdefault.jpg` : absoluteOgImage,
-        "contentUrl": videos[0].url,
-        "uploadDate": isoDatePublished
-      } : undefined
+      // Même règle que ci-dessus : on réutilise le VideoObject déjà construit
+      // depuis le relevé réel, plutôt que d'en refabriquer un avec la date de
+      // l'article.
+      "video": videoSchemas.length > 0 ? videoSchemas[0] : undefined
     }
   ],
   "author": authorSchema,

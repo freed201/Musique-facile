@@ -1,7 +1,7 @@
 # À faire — chantier SEO / visibilité IA
 
 Liste vivante des points en attente. Mise à jour au fil des lots.
-Dernière révision : **1er septembre 2026** (après le lot 3).
+Dernière révision : **1er septembre 2026** (après le lot 4).
 
 ---
 
@@ -57,9 +57,20 @@ Une cinquantaine d'articles ont un `<title>` de 78 à 90 caractères, à cause d
 volontaire par `songInfo` (« … | 7 Accords | Difficulté 3/5 »). Google coupe au-delà de ~60.
 On raccourcit, ou on garde et `check:seo` les exempte explicitement ? *(question Q3 du plan)*
 
-### 6. IDs YouTube des 20 guides prioritaires
-Nécessaires au lot 4. Liste des articles dans `00-plan.md`, § 5. Trois d'entre eux ont déjà leur
-vidéo déclarée dans le frontmatter.
+### 6. ~~IDs YouTube des 20 guides prioritaires~~ — **sans objet, traité au lot 4**
+54 articles déclaraient déjà des vidéos : 135 identifiants étaient dans le repo, il n'y avait
+rien à fournir. En revanche **17 vidéos étaient mortes** et ont été remplacées (voir
+`docs/seo/04-videos.md`). Reste deux choses de ton côté :
+- **Transcriptions** : le champ `transcript` et son rendu en `<details>` sont prêts. Un export
+  des sous-titres YouTube de tes vidéos principales serait le levier de citabilité le plus
+  direct qui reste.
+- **Mr. Jones** : la vidéo compagnon `jkFHCYOB5VI`, dont la description pointe vers l'article,
+  est **non répertoriée**. J'ai pris la version publique à la place. À toi de voir si tu la publies.
+
+### 7. Liens externes — chantier éditorial
+**81 articles sur 103 n'ont aucun lien sortant.** C'est un signal de « page fermée ». Le choix
+d'un lien pertinent demande un jugement éditorial : je peux proposer une sélection par lots de
+10 (source du morceau, page officielle de l'artiste, fabricant pour les guides d'achat).
 
 ---
 

@@ -20,8 +20,8 @@ songInfo:
 videos:
   - title: "Tutoriel Simplifié : Débutants - 'Les Copains d’Abord'"
     url: "https://youtu.be/VqGD0NHeGNE"
-  - title: "Démo Débutant : Version Simplifiée"
-    url: "https://youtu.be/ktzZhw6rgcE"
+  - title: "Les Copains d’abord guitare – Tutoriel débutant"
+    url: "https://youtu.be/VqGD0NHeGNE"
   - title: "Tutoriel Complet : Tous les accords en détail"
     url: "https://youtu.be/KFpcmLv-vu4"
   - title: "Play Along : Jouez en temps réel"
@@ -159,6 +159,6 @@ Si tu rencontres des difficultés, n'hésite pas à visionner les différentes v
 ### Quels tutoriels vidéos sont disponibles ?
 
 1. **Débutant** : [Lien vidéo YouTube](https://youtu.be/VqGD0NHeGNE) - "Apprends à jouer 'Les Copains d'Abord' de Brassens avec notre tutoriel guitare facile pour débutants. Suis les accords pas à pas."
-2. **Démo Débutant** : [Lien vidéo YouTube](https://youtu.be/ktzZhw6rgcE) - "Découvre la version débutant de 'Les Copains d'Abord' avec des accords simplifiés pour guitare. Parfait pour les débutants."
+2. **Démo Débutant** : [Lien vidéo YouTube](https://youtu.be/VqGD0NHeGNE) - "Découvre la version débutant de 'Les Copains d'Abord' avec des accords simplifiés pour guitare. Parfait pour les débutants."
 3. **Tuto Complet** : [Lien vidéo YouTube](https://youtu.be/KFpcmLv-vu4) - "Apprends à jouer 'Les Copains d'Abord' de Georges Brassens avec ce tutoriel complet. Tous les accords détaillés."
 4. **Play Along** : [Lien vidéo YouTube](https://youtu.be/xQrS__o0yFc) - "Joue 'Les Copains d'Abord' en temps réel avec moi. Suis les accords affichés à l'écran et joue en même temps."

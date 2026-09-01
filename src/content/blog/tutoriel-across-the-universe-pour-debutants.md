@@ -22,8 +22,8 @@ songInfo:
 videos:
   - title: "Tutoriel Simplifié : Découvrir 'Across The Universe'"
     url: "https://youtu.be/oGzzFOOdvFs"
-  - title: "Short : Subtilités de 'Across The Universe'"
-    url: "https://youtube.com/shorts/sZ90cR1Upok"
+  - title: "Across The Universe guitare - Tutoriel débutant"
+    url: "https://youtu.be/oGzzFOOdvFs"
 
 
 

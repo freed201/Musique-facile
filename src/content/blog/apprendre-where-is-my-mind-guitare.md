@@ -25,8 +25,8 @@ videos:
     url: "https://youtu.be/JomLddLcL2M"
   - title: "Play Along : Joue avec les Pixies"
     url: "https://youtu.be/f83evhPPaoQ"
-  - title: "Tutoriel simplifié : Short YouTube"
-    url: "https://youtube.com/shorts/O7ICANzjuWs"
+  - title: "Where Is My Mind (Pixies) : tuto guitare débutant"
+    url: "https://youtu.be/u43nywi1Dlo"
   - title: "Tutoriel avancé : Maîtrise complète"
     url: "https://youtu.be/u43nywi1Dlo"
 

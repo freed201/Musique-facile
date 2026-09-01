@@ -11,6 +11,7 @@ import ProductCards from '../../components/ProductCards.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import PillarLink from '../../components/blog/PillarLink.astro';
 import ArticleCTA from '../../components/blog/ArticleCTA.astro';
+import VideoEmbed from '../../components/VideoEmbed.astro';
 import BuyingGuideCard from '../../components/blog/BuyingGuideCard.astro';
 import InlineOptIn from '../../components/blog/InlineOptIn.astro';
 import { buildItemListSchema } from '../../utils/listItems';
@@ -37,23 +38,6 @@ export async function getStaticPaths() {
       props: { entry },
     }));
 }
-
-// Fonction utilitaire pour extraire l'ID YouTube d'une URL et gérer les shorts
-function getYouTubeEmbedUrl(url: string) {
-  // Gestion des shorts YouTube
-  if (url.includes('/shorts/')) {
-    const shortId = url.split('/shorts/')[1].split('?')[0];
-    return `https://www.youtube-nocookie.com/embed/${shortId}?si=QQvDZ8APhQNzMK1R`;
-  }
-  
-  // Gestion des URLs YouTube standard
-  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-  const match = url.match(regExp);
-  const videoId = (match && match[2].length === 11) ? match[2] : null;
-  
-  return videoId ? `https://www.youtube-nocookie.com/embed/${videoId}?si=QQvDZ8APhQNzMK1R` : null;
-}
-
 const { entry } = Astro.props;
 const {
   title,
@@ -349,33 +333,16 @@ if (entry.data.siloSlug && !entry.data.pillar) {
         <!-- Introduction -->
         <div class="article-intro" set:html={introductionHtml} />
 
-<!-- Vidéos (si présentes) -->
+<!-- Vidéos : façade légère, l'iframe n'est chargée qu'au clic (VideoEmbed) -->
 {videos && videos.length > 0 && (
   <section class="video-section">
     <div class="video-grid">
-      {videos.map(video => {
-        const embedUrl = getYouTubeEmbedUrl(video.url);
-        return embedUrl && (
-          <div class="video-item">
-            <div class="video-wrapper">
-              <iframe
-                width="560"
-                height="315"
-                src={embedUrl}
-                title={video.title}
-                loading="lazy"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-        );
-      })}
+      {videos.map(video => (
+        <VideoEmbed url={video.url} title={video.title} transcript={video.transcript} />
+      ))}
     </div>
   </section>
-      )}
+)}
 
 
       <!-- Contenu principal -->

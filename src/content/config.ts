@@ -277,9 +277,16 @@ const blogCollection = defineCollection({
       key: z.string().optional(),
       difficulty: z.string().optional()
     }).optional(),
+    // Vidéos YouTube de l'article. La durée, la date de mise en ligne et la
+    // miniature ne se saisissent PAS ici : elles sont relevées sur YouTube par
+    // `npm run videos:metadata` et stockées dans src/data/video-metadata.json,
+    // pour qu'aucune de ces valeurs ne soit estimée à la main.
     videos: z.array(z.object({
       title: z.string(),
-      url: z.string()
+      url: z.string(),
+      // Transcription facultative. Rendue dans un <details> présent dans le
+      // HTML : repliée à l'écran, mais lisible par un robot.
+      transcript: z.string().optional()
     })).optional(),
     podcast: z.object({
       url: z.string()
