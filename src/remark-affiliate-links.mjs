@@ -11,59 +11,19 @@
  */
 
 import { visit } from 'unist-util-visit';
-
-const SITE_HOST = 'musique-facile.fr';
-
-// Sous-chaînes de hostname considérées comme affiliées / marchandes.
-const AFFILIATE_HOSTS = [
-  'thomann.',
-  'amazon.',
-  'amzn.to',
-  'woodbrass.com',
-  'algam-webstore',
-];
-
-// Plateformes concurrentes citées dans les comparatifs. Un comparatif qui ne
-// nomme pas ses liens n'est pas vérifiable, donc pas crédible — mais rien
-// n'oblige à leur transmettre de l'autorité : `nofollow`.
-const COMPETITOR_HOSTS = [
-  'hguitare.com',
-  'imusic-school.com',
-  'yousician.com',
-  'justinguitar.com',
-  'jejouedelaguitare.com',
-  'flowkey.com',
-  'fender.com/play',
-  'skilleos.com',
-  'tousencoeur',
-];
+import { relForUrl } from './utils/external-link-rel.mjs';
 
 export function remarkAffiliateLinks() {
   return (tree) => {
     visit(tree, 'link', (node) => {
       const url = node.url || '';
       if (!/^https?:\/\//i.test(url)) return; // interne / ancre → on ignore
-
-      let host = '';
-      try {
-        host = new URL(url).hostname.toLowerCase();
-      } catch {
-        return; // URL invalide → on n'y touche pas
-      }
-
-      if (host === SITE_HOST || host.endsWith('.' + SITE_HOST)) return; // lien interne absolu
-
-      const isAffiliate = AFFILIATE_HOSTS.some((h) => host.includes(h));
-      const isCompetitor = COMPETITOR_HOSTS.some((h) => (host + new URL(url).pathname).includes(h));
-
+      const rel = relForUrl(url);
+      if (!rel) return;                        // lien interne absolu → on ignore
       node.data = node.data || {};
       node.data.hProperties = node.data.hProperties || {};
       node.data.hProperties.target = '_blank';
-      node.data.hProperties.rel = isAffiliate
-        ? 'sponsored nofollow noopener'
-        : isCompetitor
-          ? 'nofollow noopener noreferrer'
-          : 'noopener noreferrer';
+      node.data.hProperties.rel = rel;
     });
   };
 }

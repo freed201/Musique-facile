@@ -31,7 +31,7 @@ faqs:
 ---
 ## En bref
 
-**Un trio d'applis suffit à accompagner tes débuts à la guitare** : GuitarTuna pour accorder, Yousician pour apprendre accords et rythme avec un feedback instantané, et une appli de play-along pour jouer de vrais morceaux. Elles complètent ta pratique, elles ne la remplacent pas.
+**Un trio d'applis suffit à accompagner tes débuts à la guitare** : [GuitarTuna](https://www.guitartuna.com/) pour accorder, [Yousician](https://yousician.com/) pour apprendre accords et rythme avec un feedback instantané, et une appli de play-along pour jouer de vrais morceaux. Elles complètent ta pratique, elles ne la remplacent pas.
 
 - **Accordeur** : GuitarTuna, au début de chaque session
 - **Apprentissage guidé** : Yousician, feedback en temps réel

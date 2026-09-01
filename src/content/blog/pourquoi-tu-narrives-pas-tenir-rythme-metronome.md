@@ -27,7 +27,7 @@ faqs:
 
 ## En bref
 
-**Le problème n'est ni le métronome ni tes oreilles : c'est ta main droite qui s'arrête sur les changements d'accord.** Ce micro-silence te désynchronise. La solution : deux semaines, dix minutes par jour, métronome à 60 BPM, main droite qui ne s'arrête jamais.
+**Le problème n'est ni le [métronome](https://fr.wikipedia.org/wiki/M%C3%A9tronome) ni tes oreilles : c'est ta main droite qui s'arrête sur les changements d'accord.** Ce micro-silence te désynchronise. La solution : deux semaines, dix minutes par jour, métronome à 60 BPM, main droite qui ne s'arrête jamais.
 
 - **Le coupable** : la main droite qui marque une pause sur les changements d'accord
 - **Le protocole** : 10 min/jour, 2 semaines, métronome à 60 BPM

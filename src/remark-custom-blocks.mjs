@@ -3,6 +3,7 @@ import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
+import { secureExternalLinks } from './utils/external-link-rel.mjs';
 
 // Regex pour détecter les blocs personnalisés
 const CUSTOM_BLOCK_REGEX = /^::: ?(info|tip|warning|section-colored)(?: ?\{([^}]*)\})?\s*$/;
@@ -14,7 +15,51 @@ async function markdownToHtml(markdown) {
     .use(remarkRehype)
     .use(rehypeStringify)
     .process(markdown);
-  return String(result);
+  // Ce pipeline est indépendant de celui des articles : les liens qu'il produit
+  // n'ont pas été vus par remark-affiliate-links. On leur applique la même règle.
+  return secureExternalLinks(String(result));
+}
+
+/**
+ * Reconstruit le Markdown d'un nœud inline.
+ *
+ * L'ancienne version lisait `child.value`, qui n'existe QUE sur les nœuds
+ * `text`. Un lien, du gras, de l'italique ou du code inline n'ont pas de
+ * `value` mais des `children` : leur texte disparaissait purement et
+ * simplement du bloc rendu. Un « [Czerny](https://fr.wikipedia.org/…) » écrit
+ * dans un bloc ::: info sortait en « études de  ou les exercices de  ».
+ *
+ * Le contenu du bloc étant ensuite repassé par markdownToHtml(), il suffit de
+ * restituer le Markdown d'origine pour que tout soit rendu correctement.
+ */
+function inlineToMarkdown(node) {
+  if (node == null) return '';
+  switch (node.type) {
+    case 'text':
+      return node.value ?? '';
+    case 'inlineCode':
+      return '`' + (node.value ?? '') + '`';
+    case 'strong':
+      return '**' + (node.children ?? []).map(inlineToMarkdown).join('') + '**';
+    case 'emphasis':
+      return '*' + (node.children ?? []).map(inlineToMarkdown).join('') + '*';
+    case 'delete':
+      return '~~' + (node.children ?? []).map(inlineToMarkdown).join('') + '~~';
+    case 'link': {
+      const label = (node.children ?? []).map(inlineToMarkdown).join('');
+      const title = node.title ? ` "${node.title}"` : '';
+      return `[${label}](${node.url}${title})`;
+    }
+    case 'image':
+      return `![${node.alt ?? ''}](${node.url})`;
+    case 'break':
+      return '  \n';
+    case 'html':
+      return node.value ?? '';
+    default:
+      // paragraphe ou conteneur inconnu : on descend dans ses enfants
+      return (node.children ?? []).map(inlineToMarkdown).join('') || (node.value ?? '');
+  }
 }
 
 export function remarkCustomBlocks() {
@@ -87,7 +132,7 @@ export function remarkCustomBlocks() {
       if (currentBlock) {
         // Ajouter le contenu au bloc courant
         if (node.type === 'paragraph') {
-          currentContent.push(node.children.map(child => child.value).join(''));
+          currentContent.push(inlineToMarkdown(node));
         } else {
           currentContent.push(node.value || '');
         }
