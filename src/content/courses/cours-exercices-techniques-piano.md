@@ -7,8 +7,11 @@ ogImage: "/images/cours/cours-exercices-techniques-piano/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
-ratingValue: "4.7"
-reviewCount: "80"
+# Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
+# « Piano : Muscler ses doigts » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
+ratingValue: "4.6"
+reviewCount: "9"
+ratingSourceUrl: "https://www.skilleos.com/cours/apprendre-muscler-doigts-piano-en-ligne"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org

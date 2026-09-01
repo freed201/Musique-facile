@@ -142,8 +142,12 @@ const coursesCollection = defineCollection({
       }))
     }),
 
+    // Note et nombre d'avis du cours. Optionnels et indissociables : sans les
+    // trois champs, aucun aggregateRating n'est publié — une note sans source
+    // vérifiable est une fausse donnée structurée.
     ratingValue: z.string().optional(),
     reviewCount: z.string().optional(),
+    ratingSourceUrl: z.string().url().optional(),
 
     transformation: z.object({
       title: z.string(),

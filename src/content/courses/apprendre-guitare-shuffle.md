@@ -7,8 +7,8 @@ ogImage: "/images/cours/apprendre-guitare-shuffle/hero.webp"
 theme: "guitar"
 datePublished: "2025-02-21"
 dateModified: "2025-02-21"
-ratingValue: "4.8"
-reviewCount: "8"
+# ratingValue / reviewCount retirés le 2026-09-01 : ce cours n'a pas de fiche
+# Skilleos, donc aucune note vérifiable. Sans source, pas d'aggregateRating.
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org

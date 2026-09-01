@@ -7,8 +7,11 @@ ogImage: "/images/cours/piano-force-agilite/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
-ratingValue: "4.8"
-reviewCount: "75"
+# Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
+# « Piano : les Tenues » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
+ratingValue: "4.7"
+reviewCount: "7"
+ratingSourceUrl: "https://www.skilleos.com/cours/apprendre-piano-les-tenues-en-ligne"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org

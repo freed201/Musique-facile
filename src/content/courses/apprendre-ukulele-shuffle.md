@@ -7,8 +7,8 @@ ogImage: "/images/cours/apprendre-ukulele-shuffle/hero.webp"
 theme: "ukulele"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
-ratingValue: "4.8"
-reviewCount: "8"
+# ratingValue / reviewCount retirés le 2026-09-01 : ce cours n'a pas de fiche
+# Skilleos, donc aucune note vérifiable. Sans source, pas d'aggregateRating.
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org

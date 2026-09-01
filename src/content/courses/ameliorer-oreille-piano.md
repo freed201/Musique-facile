@@ -7,8 +7,11 @@ ogImage: "/images/cours/ameliorer-oreille-piano/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+# Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
+# « Piano : Travailler son oreille » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.4"
-reviewCount: "85"
+reviewCount: "15"
+ratingSourceUrl: "https://www.skilleos.com/cours/apprendre-piano-travailler-son-oreille-en-ligne"
 category: "Cours de musique"      # pour Offer
 
 

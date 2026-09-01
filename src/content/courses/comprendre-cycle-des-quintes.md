@@ -7,8 +7,11 @@ ogImage: "/images/cours/comprendre-cycle-des-quintes/hero.webp"
 theme: "solfege"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+# Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
+# « Le cycle des quintes » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.8"
-reviewCount: "120"
+reviewCount: "32"
+ratingSourceUrl: "https://www.skilleos.com/cours/apprendre-utiliser-cycle-quintes-en-ligne"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org

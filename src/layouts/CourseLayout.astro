@@ -30,6 +30,7 @@ interface Props {
   };
   ratingValue?: string;
   reviewCount?: string;
+  ratingSourceUrl?: string;
   /** Programme de la formation → Course.syllabusSections */
   syllabusSections?: Array<Record<string, unknown>>;
   /** Durée ISO 8601 déjà normalisée par la page (« PT2H40M ») */
@@ -37,7 +38,11 @@ interface Props {
 }
 
 
-const { title, description, ogImage, theme = 'guitar', hero, teachers, ratingValue, reviewCount, syllabusSections, isoDuration } = Astro.props;
+const { title, description, ogImage, theme = 'guitar', hero, teachers, ratingValue, reviewCount, ratingSourceUrl, syllabusSections, isoDuration } = Astro.props;
+
+// Le repli précédent — « 4.7 » sur « 929 » — attribuait à UN cours la totalité
+// des avis de l'organisation. Sans note propre et sourcée, on ne publie rien.
+const hasSourcedRating = Boolean(ratingValue && reviewCount && ratingSourceUrl);
 const siteUrl = 'https://musique-facile.fr';
 const ogImageValue = ogImage || '/images/og-default.jpg';
 const absoluteOgImage = ogImageValue.startsWith('http') ? ogImageValue : `${siteUrl}${ogImageValue}`;
@@ -127,13 +132,19 @@ const courseSchema = {
     : {}),
   "educationalLevel": Astro.props.educationalLevel || ["Beginner"],
   "courseMode": Astro.props.courseMode || ["Online"],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": ratingValue || "4.7",
-    "reviewCount": reviewCount || "929",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
+  ...(hasSourcedRating
+    ? {
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": ratingValue,
+          "reviewCount": reviewCount,
+          "bestRating": "5",
+          "worstRating": "1",
+          // Fiche Skilleos du cours : la note est vérifiable, pas seulement déclarée.
+          "url": ratingSourceUrl
+        }
+      }
+    : {}),
   "hasCourseInstance": {
     "@type": "CourseInstance",
     "name": title,
