@@ -52,7 +52,7 @@ Ce que vous allez apprendre dans ce guide
 
 Que vous soyez **totalement novice** ou que vous ayez déjà essayé quelques accords sans succès, ce guide vous accompagnera **pas à pas** vers la maîtrise des **premiers accords** et vous donnera les **clés pour bien débuter** !  
 
-💡 *Astuce : pensez à accorder votre guitare avant de commencer à pratiquer ! Un accordeur en ligne peut vous aider si vous n’avez pas d’accordeur physique.*
+💡 *Astuce : pensez à accorder votre guitare avant de commencer à pratiquer ! Si vous n’avez pas d’accordeur physique, un [accordeur en ligne gratuit](https://tuner-online.com/fr/) fait très bien l’affaire depuis le micro de votre téléphone.*
 
 ---
 

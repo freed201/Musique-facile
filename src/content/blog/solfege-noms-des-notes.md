@@ -30,7 +30,7 @@ faqs:
 
 ## En bref
 
-**Les noms Do, Ré, Mi, Fa, Sol, La, Si viennent d'un hymne latin du XIe siècle**, *Ut queant laxis*. Le moine **Guido d'Arezzo** a pris la première syllabe de chaque vers pour aider ses élèves à mémoriser les hauteurs de notes. *Ut* est ensuite devenu *Do* (plus facile à chanter), et *Si* a été ajouté au XVIe siècle à partir de *Sancte Ioannes* (Saint Jean).
+**Les noms Do, Ré, Mi, Fa, Sol, La, Si viennent d'un hymne latin du XIe siècle**, *[Ut queant laxis](https://fr.wikipedia.org/wiki/Ut_queant_laxis)*. Le moine **[Guido d'Arezzo](https://fr.wikipedia.org/wiki/Guido_d%27Arezzo)** a pris la première syllabe de chaque vers pour aider ses élèves à mémoriser les hauteurs de notes. *Ut* est ensuite devenu *Do* (plus facile à chanter), et *Si* a été ajouté au XVIe siècle à partir de *Sancte Ioannes* (Saint Jean).
 
 - **Inventeur** : Guido d'Arezzo, moine italien, XIe siècle
 - **Source** : l'hymne *Ut queant laxis*

@@ -23,6 +23,21 @@ const AFFILIATE_HOSTS = [
   'algam-webstore',
 ];
 
+// Plateformes concurrentes citées dans les comparatifs. Un comparatif qui ne
+// nomme pas ses liens n'est pas vérifiable, donc pas crédible — mais rien
+// n'oblige à leur transmettre de l'autorité : `nofollow`.
+const COMPETITOR_HOSTS = [
+  'hguitare.com',
+  'imusic-school.com',
+  'yousician.com',
+  'justinguitar.com',
+  'jejouedelaguitare.com',
+  'flowkey.com',
+  'fender.com/play',
+  'skilleos.com',
+  'tousencoeur',
+];
+
 export function remarkAffiliateLinks() {
   return (tree) => {
     visit(tree, 'link', (node) => {
@@ -39,13 +54,16 @@ export function remarkAffiliateLinks() {
       if (host === SITE_HOST || host.endsWith('.' + SITE_HOST)) return; // lien interne absolu
 
       const isAffiliate = AFFILIATE_HOSTS.some((h) => host.includes(h));
+      const isCompetitor = COMPETITOR_HOSTS.some((h) => (host + new URL(url).pathname).includes(h));
 
       node.data = node.data || {};
       node.data.hProperties = node.data.hProperties || {};
       node.data.hProperties.target = '_blank';
       node.data.hProperties.rel = isAffiliate
         ? 'sponsored nofollow noopener'
-        : 'noopener noreferrer';
+        : isCompetitor
+          ? 'nofollow noopener noreferrer'
+          : 'noopener noreferrer';
     });
   };
 }

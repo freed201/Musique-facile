@@ -178,7 +178,7 @@ Le choix de ton premier ukulélé dépend de ta taille de main, ton budget et te
 
 **60-100€ (entrée de gamme qualité)**
 - **Mahalo** : Bon rapport qualité/prix, robuste
-- **Kala Makala** : Ligne budget de Kala, fiable
+- **[Kala](https://kalabrand.com/) Makala** : Ligne budget de Kala, fiable
 - **Flight** : Marque montante, design sympa
 
 **100-150€ (qualité supérieure)**

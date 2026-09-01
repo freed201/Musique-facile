@@ -57,7 +57,7 @@ Le choix de ton premier instrument dépend de ton budget, de ton espace et de te
   - Portable (pèse 10-15 kg)
   - Sons variés intégrés
 - **Inconvénient :** Toucher légèrement différent d'un acoustique
-- **Marques recommandées :** Yamaha P-45/P-125, Roland FP-30X, Casio CDP-S110
+- **Marques recommandées :** [Yamaha](https://fr.yamaha.com/fr/products/musical_instruments/pianos/index.html) P-45/P-125, [Roland](https://www.roland.com/fr/categories/pianos/) FP-30X, [Casio](https://www.casio.com/fr/electronic-musical-instruments/) CDP-S110
 
 **Piano acoustique droit**
 
