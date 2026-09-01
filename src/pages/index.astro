@@ -16,7 +16,7 @@
 
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import { ratingValue, bestRating, reviews, ratingSummary } from '../data/proof';
+import { ratingValue, bestRating, reviews, ratingSummary, reviewsSource } from '../data/proof';
 
 // Composants modernises
 import HeroModern from '../components/HeroModern.astro';
@@ -76,7 +76,10 @@ const organizationSchema = {
     "@type": "AggregateRating",
     "ratingValue": ratingValue,
     "reviewCount": reviews.display,
-    "bestRating": bestRating
+    "bestRating": bestRating,
+    // Page publique d'où viennent la note et le décompte, pour que la valeur
+    // soit vérifiable et pas seulement déclarée.
+    "url": reviewsSource.url
   }
 };
 
@@ -248,7 +251,7 @@ const faqSchema = {
   <QuizTeaser />
 
   <!-- 6. Temoignages -->
-  <TemoignagesModern title="Ce que nos élèves en disent" />
+  <TemoignagesModern />
 
   <!-- 6b. Lead Capture — guide gratuit (Brevo) -->
   <LeadCaptureForm theme="light" />
