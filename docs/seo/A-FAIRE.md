@@ -1,7 +1,7 @@
 # À faire — chantier SEO / visibilité IA
 
 Liste vivante des points en attente. Mise à jour au fil des lots.
-Dernière révision : **1er septembre 2026** (après le lot 4).
+Dernière révision : **1er septembre 2026** (après le lot 5, dernier lot du plan).
 
 ---
 
@@ -104,5 +104,5 @@ d'un lien pertinent demande un jugement éditorial : je peux proposer une sélec
 | Lot | Objet | Bloqué par |
 |---|---|---|
 | ~~3~~ | ~~Nettoyage on-page~~ — **livré** (PR lot 3) | — |
-| 4 | Vidéos YouTube sur les 20 guides : `VideoEmbed`, `VideoObject`, transcriptions | point 6 |
-| 5 | Maillage, réponses directes, `llms.txt` | rien |
+| ~~4~~ | ~~Vidéos YouTube~~ — **livré** (PR lot 4) | — |
+| ~~5~~ | ~~Maillage, réponses directes, `llms.txt`~~ — **livré** (PR lot 5) | — |
