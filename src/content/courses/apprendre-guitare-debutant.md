@@ -8,8 +8,11 @@ ogImage: "/images/cours/apprendre-guitare-debutant/hero.webp"
 theme: "guitar"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+# Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
+# « Guitare : les Fondamentaux » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.7"
-reviewCount: "180"
+reviewCount: "199"
+ratingSourceUrl: "https://www.skilleos.com/cours/apprendre-guitare-en-ligne"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org

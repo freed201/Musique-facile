@@ -7,8 +7,11 @@ ogImage: "/images/cours/apprendre-piano-facile-guitaristes/hero.webp"
 theme: "guitar"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+# Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
+# « Progresser en guitare en apprenant le piano » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.0"
-reviewCount: "60"
+reviewCount: "7"
+ratingSourceUrl: "https://www.skilleos.com/cours/progresser-guitare-en-apprenant-piano-en-ligne"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org

@@ -7,8 +7,11 @@ ogImage: "/images/cours/apprendre-ukulele-debutant/hero.webp"
 theme: "ukulele"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
+# Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
+# « Ukulélé : les fondamentaux » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.7"
-reviewCount: "360"
+reviewCount: "112"
+ratingSourceUrl: "https://www.skilleos.com/cours/apprendre-jouer-ukulele-en-ligne-debutant"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
@@ -143,7 +146,7 @@ preuveSociale:
   # (cf. docs/seo/02-preuve-sociale.md). Fred fournira de vrais avis.
   testimonials: []
   stats:
-    students: "4.900+"
+    students: "4 900+"
     successRate: "4,7/5"
     timeframe: "note moyenne donnée par les élèves — 929 avis"
   partners:

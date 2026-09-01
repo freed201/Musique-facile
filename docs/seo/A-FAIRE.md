@@ -1,11 +1,17 @@
 # À faire — chantier SEO / visibilité IA
 
 Liste vivante des points en attente. Mise à jour au fil des lots.
-Dernière révision : **1er septembre 2026**.
+Dernière révision : **1er septembre 2026** (après le lot 2 bis).
 
 ---
 
 ## Pour Fred
+
+### 0. Exporter les avis de la plateforme Musique Facile — **piste ouverte**
+Les cours vendus sur la plateforme de Fred ont de vrais élèves et de vrais retours, aujourd'hui
+non publiés faute de page publique de référence. Un export daté permettrait de les publier en
+`Review` individuels (auteur, date, texte), ce qui est vérifiable autrement qu'en agrégé. C'est
+notamment la seule façon de redonner des étoiles aux trois cours « shuffle ».
 
 ### 1. Trouver de vrais avis d'élèves — **prioritaire**
 Tous les témoignages fabriqués ont été retirés du site (lot 2). Il n'en reste aucun sur la home,
@@ -27,40 +33,20 @@ d'ajouter des entrées, le carrousel réapparaît tout seul). Pour les pages cou
 figurent sont donc déjà citables, à condition de les reproduire mot pour mot avec leur date et
 un lien vers la page.
 
-### 2. Décider du sort des notes par cours — **question ouverte**
-Chaque fiche `src/content/courses/*.md` porte son propre `ratingValue` et `reviewCount`, qui
-alimentent un `aggregateRating` par page cours :
+### 2. ~~Décider du sort des notes par cours~~ — **fait le 2026-09-01**
+Les décomptes d'origine n'étaient pas inventés : ils additionnaient les élèves de Skilleos et ceux
+de la plateforme de Fred. Ils n'étaient simplement pas vérifiables par un tiers. Décision de Fred :
+on ne publie que les chiffres Skilleos, publics. Les 15 cours ayant une fiche Skilleos portent sa
+note et son décompte réels, avec l'URL de la fiche dans le JSON-LD ; les 3 cours « shuffle »,
+exclusifs à la plateforme de Fred, n'ont plus de note faute de page publique de référence.
+**Total annoncé : 3 826 → 779 avis** — une sous-déclaration assumée.
+Voir `docs/seo/02b-notes-cours-skilleos.md`. Cinq correspondances restent à confirmer par Fred.
 
-| Cours | Note | Avis annoncés |
-|---|---|---:|
-| `apprendre-ukulele-debutant` | 4.7 | 360 |
-| `lecture-de-notes-niveau-debutant` | 4.6 | 300 |
-| `apprendre-les-accords-piano` | 4.8 | 220 |
-| `apprendre-guitare-debutant` | 4.7 | 180 |
-| `ameliorer-oreille-piano` | 4.4 | 85 |
-| `cours-exercices-techniques-piano` | 4.7 | 80 |
-| `cours-solfege-rythmes` | 4.6 | 75 |
-| `apprendre-piano-facile-guitaristes` | 4.0 | 60 |
-| `apprendre-la-rythmique-ukulele-facilement` | 4.6 | 55 |
-| `apprendre-piano-shuffle` | 4.5 | 15 |
-| `apprendre-guitare-shuffle` | 4.8 | 8 |
-| `apprendre-ukulele-shuffle` | 4.8 | 8 |
-| *(+ 6 autres fiches)* | | |
-
-Additionnés, ces `reviewCount` dépassent largement les 929 avis de la source Skilleos. Si ces
-notes ne correspondent à aucun relevé réel, ce sont de **fausses données structurées** — Google
-sanctionne, et les étoiles peuvent disparaître de toutes les pages du site, pas seulement des
-pages cours.
-
-→ **Rien n'a été touché.** Trois réponses possibles :
-- *(a)* elles viennent d'un export Podia/Skilleos par cours → me donner la source, je l'inscris ;
-- *(b)* elles sont estimées → les remplacer par la note globale sourcée (4,7/5 sur 929 avis) ;
-- *(c)* on retire l'`aggregateRating` des pages cours et on ne garde que celui de l'organisation.
-
-### 3. Même question pour les stats des pages cours
-Le bandeau de chaque page cours affiche `preuveSociale.stats.students` — par exemple
-**« 9 210 débutants »** sur `/cours/apprendre-guitare-debutant/` — et un `successRate`. Aucune
-source connue. Même arbitrage que le point 2.
+### 3. Nombres d'élèves par cours — vérifié, rien d'alarmant
+Les `preuveSociale.stats.students` totalisent **59 340**, ce qui reste **sous les 88 853 élèves
+affichés par Skilleos**. Contrairement aux avis, il n'y a pas d'incohérence arithmétique. Ils
+restent invérifiables un par un, mais ne constituent pas un risque immédiat. Une coquille a été
+corrigée : `4.900+` → `4 900+` sur le cours ukulélé débutant.
 
 ### 4. D'où vient « 95 % de satisfaction » ?
 Retiré au lot 1 (hero, témoignages, `/a-propos/`) faute de source. Si l'origine existe, il peut
@@ -78,6 +64,12 @@ vidéo déclarée dans le frontmatter.
 ---
 
 ## Dette technique repérée, non traitée
+
+- **`prefers-reduced-motion` est cassé sur les 178 pages** : `src/styles/design-tokens.css:423`
+  déclare `animation-duration: 0.01ms !important`, que le minifieur d'`astro-compress` réécrit en
+  **`animation-duration: NaNs !important`** — valeur invalide, donc ignorée. Les animations
+  tournent pour les personnes qui demandent explicitement de les réduire. Correction d'une ligne
+  (`0.01ms` → `1ms`), à faire au lot 3 avec l'accessibilité.
 
 - **51 images `public/images/cours/*/testimonial-*.webp`** ne sont plus référencées depuis le
   retrait des témoignages. À supprimer une fois le point 1 tranché (certaines pourraient servir

@@ -7,8 +7,11 @@ ogImage: "/images/cours/lecture-de-notes-niveau-debutant/hero.webp"
 theme: "solfege"
 datePublished: "2025-01-30"
 dateModified: "2025-01-30"
-ratingValue: "4.6"
-reviewCount: "300"
+# Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
+# « Solfège : les fondamentaux » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
+ratingValue: "4.7"
+reviewCount: "114"
+ratingSourceUrl: "https://www.skilleos.com/cours/solfege-fondamentaux-en-ligne"
 category: "Cours de musique"      # pour Offer
 
 # Données schema.org
