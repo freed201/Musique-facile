@@ -55,7 +55,7 @@ La bonne nouvelle, c'est qu'une fois repérées, elles se corrigent vite — et 
 ## **1. Se Précipiter sur des Morceaux Trop Difficiles 🎼**  
 
 ### 📌 **L’erreur**  
-Tu as envie de jouer un morceau super stylé (genre du Queen ou du Chopin) **mais tu galères dès la première mesure** ?  
+Tu as envie de jouer un morceau super stylé (genre du Queen ou du [Chopin](https://fr.wikipedia.org/wiki/Fr%C3%A9d%C3%A9ric_Chopin)) **mais tu galères dès la première mesure** ?  
 
 C’est normal ! Commencer par des morceaux trop complexes, c’est **le meilleur moyen de se frustrer** et de perdre en motivation.  
 

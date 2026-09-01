@@ -61,7 +61,7 @@ faqs:
 ---
 ## En bref
 
-**Partons Vite de Kaolin se joue avec 7 accords et un capo case 3, sur un tempo modéré (98 BPM).** Difficulté 2/5 : le capo place les accords dans des formes confortables, l'enjeu principal est la fluidité des transitions entre les 7 accords.
+**Partons Vite de [Kaolin](https://fr.wikipedia.org/wiki/Kaolin_%28groupe%29) se joue avec 7 accords et un capo case 3, sur un tempo modéré (98 BPM).** Difficulté 2/5 : le capo place les accords dans des formes confortables, l'enjeu principal est la fluidité des transitions entre les 7 accords.
 
 - **Accords** : 7, avec capo case 3
 - **Difficulté** : 2/5 — débutant motivé

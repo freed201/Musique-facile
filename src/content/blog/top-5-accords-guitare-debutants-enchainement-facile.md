@@ -43,7 +43,7 @@ faqs:
 
 - **Accords** : Em, C, G, D, Am — tous sans barré
 - **Le vrai défi** : enchaîner sans trou, pas connaître les positions
-- **Premier morceau** : *Knockin' on Heaven's Door* (Bob Dylan)
+- **Premier morceau** : *[Knockin' on Heaven's Door](https://fr.wikipedia.org/wiki/Knockin%27_on_Heaven%27s_Door)* (Bob Dylan)
 
 Avant de te lancer, révise les bases avec notre [guide complet pour apprendre la guitare](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
 

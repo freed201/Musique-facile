@@ -73,7 +73,7 @@ Le piège universel du débutant : accélérer sans le vouloir. La parade tient 
 
 ## Pose-les sur de vraies chansons
 
-La rythmique ne prend vie que sur un morceau. Prends un classique à accords simples — « Let It Be » des Beatles (C, G, Am, F) ou « Three Little Birds » de Bob Marley pour une vibe reggae décontractée.
+La rythmique ne prend vie que sur un morceau. Prends un classique à accords simples — « Let It Be » des Beatles (C, G, Am, F) ou « Three Little Birds » de [Bob Marley](https://fr.wikipedia.org/wiki/Bob_Marley) pour une vibe reggae décontractée.
 
 Ma méthode : maîtrise le pattern sur chaque accord séparément, puis enchaîne le couplet entier. Tu peux même changer de rythmique entre couplet et refrain pour varier. Tes premiers essais ne seront pas parfaits — c'est normal, et c'est exactement comme ça qu'on apprend.
 

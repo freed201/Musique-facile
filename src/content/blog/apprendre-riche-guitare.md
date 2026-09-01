@@ -63,7 +63,7 @@ faqs:
 
 ## En bref
 
-**Riche de Claudio Capéo se joue avec 7 accords et un capo case 2, sur un tempo enlevé (165 BPM).** Difficulté 3/5 : le tempo rapide demande des changements d'accords véloces — travaille d'abord très lentement au métronome avant d'accélérer.
+**Riche de [Claudio Capéo](https://fr.wikipedia.org/wiki/Claudio_Cap%C3%A9o) se joue avec 7 accords et un capo case 2, sur un tempo enlevé (165 BPM).** Difficulté 3/5 : le tempo rapide demande des changements d'accords véloces — travaille d'abord très lentement au métronome avant d'accélérer.
 
 - **Accords** : 7, avec capo case 2
 - **Tempo** : 165 BPM — rapide

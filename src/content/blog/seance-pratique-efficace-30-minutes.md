@@ -209,7 +209,7 @@ Cette phase crée l'association positive "Pratiquer = Plaisir". Sans elle, ton c
 **Idées concrètes :**
 - **Guitare :** "Knockin' on Heaven's Door" (Em-G-D-A, ultra simple)
 - **Piano :** "Lettre à Élise" (les 8 premières mesures)
-- **Ukulélé :** "I'm Yours" de Jason Mraz (C-G-Am-F)
+- **Ukulélé :** "I'm Yours" de [Jason Mraz](https://fr.wikipedia.org/wiki/Jason_Mraz) (C-G-Am-F)
 - **Tous :** Lance un karaoké avec ton instrument
 
 > 🎉 **Conseil de Fred :** "Je dis à mes élèves : **'Si tu ne souris pas au moins 1 fois pendant les 5 dernières minutes, ta séance est ratée.'** La musique, c'est du plaisir avant tout."
