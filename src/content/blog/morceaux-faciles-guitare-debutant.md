@@ -76,7 +76,7 @@ Trois accords, une boucle unique du début à la fin. C'est le morceau que je do
 
 [Tutoriel complet de Clandestino](/blog/jouer-clandestino-guitare-tutoriel/)
 
-### 2. Redemption Song — Bob Marley
+### 2. Redemption Song — [Bob Marley](https://fr.wikipedia.org/wiki/Bob_Marley)
 
 Le tempo le plus lent de la liste avec Stand by Me. Quatre accords ouverts, et assez d'espace entre les changements pour poser chaque position tranquillement.
 

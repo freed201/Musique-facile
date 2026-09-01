@@ -9,7 +9,7 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
 dateModified: "2026-07-29"
-introduction: "House of The Rising Sun se joue avec 5 accords en La mineur, en arpèges sur un rythme ternaire à 6/8, difficulté 2/5. The Animals en ont livré en 1964 la version la plus iconique. Découvre l'histoire du morceau et comment maîtriser son arpège hypnotique, même si tu débutes."
+introduction: "House of The Rising Sun se joue avec 5 accords en La mineur, en arpèges sur un rythme ternaire à 6/8, difficulté 2/5. [The Animals](https://fr.wikipedia.org/wiki/The_Animals) en ont livré en 1964 la version la plus iconique. Découvre l'histoire du morceau et comment maîtriser son arpège hypnotique, même si tu débutes."
 
 songInfo:
   inBook: true

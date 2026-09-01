@@ -70,7 +70,7 @@ Alors, comment s'y prend-on pour imiter ce maître britannique ? Eh bien, on j
 
 En termes de technique, il faut savoir alterner un **légato** impeccable avec une précision quasi militaire. C'est cette combinaison qui permet de renforcer l'impact émotionnel de l'œuvre. Lennon, influencé également par les **Beatles**, utilisait souvent des techniques simples mais puissantes, preuve qu'on n'a pas besoin de tout un orchestre pour émouvoir. 
 
-Et autre petit clin d'œil : saviez-vous que Phil Spector, co-producteur de l'album « Imagine », était un génie des arrangements ? On ressent encore davantage cette puissance émotionnelle en se remémorant l'engagement pacifiste de Lennon, régulièrement affichée aux côtés de Yoko Ono. En bref, on joue avec le cœur et l'esprit… C'est ça, recréer le feeling Lennon au piano !
+Et autre petit clin d'œil : saviez-vous que Phil Spector, co-producteur de l'album « [Imagine](https://fr.wikipedia.org/wiki/Imagine_%28chanson%29) », était un génie des arrangements ? On ressent encore davantage cette puissance émotionnelle en se remémorant l'engagement pacifiste de Lennon, régulièrement affichée aux côtés de Yoko Ono. En bref, on joue avec le cœur et l'esprit… C'est ça, recréer le feeling Lennon au piano !
 ## Quelle approche simplifiée pour un débutant ?
 Pour jouer **\"Imagine\"** de John Lennon au piano, même en simplifié, il faut accepter que **la main gauche fait tout le boulot**. Et oui, le truc, c'est de reproduire ce gimmick si particulier qui donne tout le rythme à la mélodie. Vous vous souvenez de cette intro presque planante, où on imagine direct la voix de Lennon en fond ? Eh bien, tout ça, c'est grâce à un jeu de **arpèges** tout simple, mais tellement efficace.
 

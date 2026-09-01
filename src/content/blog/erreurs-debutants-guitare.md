@@ -171,7 +171,7 @@ Le rythme compte souvent davantage que la précision de chaque note dans ce qui 
 - Pattern de base : bas, bas-haut, haut-bas-haut
 - Accentuation sur les temps 2 et 4
 
-> **🎯 Astuce.** Une application de métronome vibrant au poignet (type Soundbrenner) peut aider à ressentir physiquement le tempo plutôt que de seulement l'entendre — utile pour progresser sur la régularité rythmique.
+> **🎯 Astuce.** Une application de métronome vibrant au poignet (type [Soundbrenner](https://www.soundbrenner.com/)) peut aider à ressentir physiquement le tempo plutôt que de seulement l'entendre — utile pour progresser sur la régularité rythmique.
 
 ### Vérifier sa précision rythmique
 
