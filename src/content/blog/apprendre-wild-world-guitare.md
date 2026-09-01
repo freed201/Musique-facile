@@ -9,7 +9,7 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
 dateModified: "2026-07-29"
-introduction: "Avec 'Wild World', Cat Stevens livre une chanson qui transcende les époques depuis 1970 avec sa profondeur émotionnelle et sa simplicité mélodique. Issue de l'album légendaire 'Tea for the Tillerman', découvrez l'histoire de cette ballade folk et apprenez à jouer ses riffs caractéristiques."
+introduction: "Avec 'Wild World', Cat Stevens livre une chanson qui transcende les époques depuis 1970 avec sa profondeur émotionnelle et sa simplicité mélodique. Issue de l'album légendaire '[Tea for the Tillerman](https://fr.wikipedia.org/wiki/Tea_for_the_Tillerman)', découvrez l'histoire de cette ballade folk et apprenez à jouer ses riffs caractéristiques."
 
 songInfo:
   inBook: true

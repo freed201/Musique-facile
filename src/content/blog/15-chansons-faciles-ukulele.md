@@ -125,7 +125,7 @@ Les chansons sont classées du plus facile (⭐) au plus difficile (⭐⭐⭐).
 
 ## ⭐⭐ Niveau 2 — On monte d'un cran (semaine 2-3)
 
-### 6. Hallelujah — Jeff Buckley / Leonard Cohen
+### 6. Hallelujah — Jeff Buckley / [Leonard Cohen](https://fr.wikipedia.org/wiki/Hallelujah_%28chanson_de_Leonard_Cohen%29)
 
 **Un chef-d'œuvre à l'ukulélé.** Les accords peuvent sembler intimidants au départ, mais le tempo lent laisse du temps pour chaque changement.
 

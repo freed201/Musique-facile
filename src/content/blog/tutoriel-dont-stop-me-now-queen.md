@@ -9,7 +9,7 @@ publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
 dateModified: "2026-07-29"
-introduction: "Don't Stop Me Now de Queen se joue avec 7 accords (F, Am, Dm, Gm, C7, C, D7) à 150 BPM, difficulté 5/5 : un défi réservé aux guitaristes à l'aise avec le Gm barré. Sortie en 1979, cette explosion d'énergie signée Freddie Mercury reste un hymne intemporel."
+introduction: "Don't Stop Me Now de Queen se joue avec 7 accords (F, Am, Dm, Gm, C7, C, D7) à 150 BPM, difficulté 5/5 : un défi réservé aux guitaristes à l'aise avec le Gm barré. Sortie en 1979, cette explosion d'énergie signée [Freddie Mercury](https://fr.wikipedia.org/wiki/Freddie_Mercury) reste un hymne intemporel."
 
 songInfo:
   inBook: true

@@ -100,7 +100,7 @@ Avec ces rythmes, varier est primordial. Non seulement ça évite la monotonie, 
 Voilà, on y est. Alors, avec les cinq accords de base que vous avez appris, voyons ensemble quelques chansons populaires que vous pourrez jouer sans trop de souci.
 
 ### ``Let It Be`` des Beatles
-Commençons avec un classique : **Let It Be** des Beatles. Ce morceau, c'est vraiment un excellent début pour les novices. Pourquoi ? Eh bien, il utilise des accords simples et répétitifs, ce qui vous aide à bien vous caler sur le rythme. Imaginez-vous déjà en train de jouer cet hymne intemporel lors d'une soirée entre amis... magique, non ?
+Commençons avec un classique : **Let It Be** des [Beatles](https://fr.wikipedia.org/wiki/The_Beatles). Ce morceau, c'est vraiment un excellent début pour les novices. Pourquoi ? Eh bien, il utilise des accords simples et répétitifs, ce qui vous aide à bien vous caler sur le rythme. Imaginez-vous déjà en train de jouer cet hymne intemporel lors d'une soirée entre amis... magique, non ?
 
 ### ``Riptide`` de Vance Joy
 Ensuite, il y a **Riptide** de Vance Joy. C'est un vrai régal pour ceux qui veulent s'amuser tout en progressant. D'ailleurs, ce titre est connu pour être **LE tube** des apprentis ukulélistes. Sa rythmique entraînante et simple est parfaite pour travailler la coordination main gauche-main droite.

@@ -68,7 +68,7 @@ Avant de paniquer, assure-toi que tu es vraiment en phase de stagnation. Parfois
 
 Tu maîtrises 3-4 morceaux, mais tu n'arrives pas à en apprendre de nouveaux. Tu reviens toujours aux mêmes parce que "c'est plus confortable".
 
-**Exemple guitare :** Tu joues "Wonderwall" et "Knockin' on Heaven's Door" depuis 2 mois, mais tu bloques sur tout morceau avec barrés.
+**Exemple guitare :** Tu joues "Wonderwall" et "[Knockin' on Heaven's Door](https://fr.wikipedia.org/wiki/Knockin%27_on_Heaven%27s_Door)" depuis 2 mois, mais tu bloques sur tout morceau avec barrés.
 
 **Exemple piano :** Tu joues "Lettre à Élise" (les 16 premières mesures) en boucle, mais tu n'avances pas sur la suite ou d'autres morceaux.
 

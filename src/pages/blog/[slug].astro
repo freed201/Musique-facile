@@ -60,7 +60,35 @@ const { Content, headings } = await entry.render();
 
 // introduction/conclusion sont du Markdown inline (gras, liens) dans le frontmatter,
 // il faut le convertir en HTML avant affichage (sinon `**gras**` et `[texte](lien)` s'affichent littéralement)
-const introductionHtml = introduction ? marked.parseInline(introduction) : '';
+// L'introduction est rendue par `marked`, pas par le pipeline remark des
+// articles : le plugin remark-affiliate-links ne s'y applique donc pas, et un
+// lien externe écrit dans ce champ sortait sans `rel` ni `target`. On le pose
+// ici, avec la même règle que dans le corps.
+const COMPETITOR_HOSTS = [
+  'hguitare.com', 'imusic-school.com', 'yousician.com', 'justinguitar.com',
+  'jejouedelaguitare.com', 'flowkey.com', 'skilleos.com',
+];
+const AFFILIATE_HOSTS = ['thomann.', 'amazon.', 'amzn.to', 'woodbrass.com', 'algam-webstore'];
+
+function secureExternalLinks(html: string): string {
+  return html.replace(/<a\s+href="(https?:\/\/[^"]+)"/gi, (match, url) => {
+    let host = '';
+    try {
+      host = new URL(url).hostname.toLowerCase();
+    } catch {
+      return match;
+    }
+    if (host === 'musique-facile.fr' || host.endsWith('.musique-facile.fr')) return match;
+    const rel = AFFILIATE_HOSTS.some((h) => host.includes(h))
+      ? 'sponsored nofollow noopener'
+      : COMPETITOR_HOSTS.some((h) => host.includes(h))
+        ? 'nofollow noopener noreferrer'
+        : 'noopener noreferrer';
+    return `${match} target="_blank" rel="${rel}"`;
+  });
+}
+
+const introductionHtml = introduction ? secureExternalLinks(marked.parseInline(introduction) as string) : '';
 const conclusionHtml = conclusion ? marked.parseInline(conclusion) : '';
 
 // Déterminer si l'article est "long" (5+ headings H2/H3)
