@@ -6,7 +6,7 @@ description: "Maîtrisez le shuffle guitare avec notre formation complète. Tech
 ogImage: "/images/cours/apprendre-guitare-shuffle/hero.webp"
 theme: "guitar"
 datePublished: "2025-02-21"
-dateModified: "2025-02-21"
+dateModified: "2026-09-01"
 # ratingValue / reviewCount retirés le 2026-09-01 : ce cours n'a pas de fiche
 # Skilleos, donc aucune note vérifiable. Sans source, pas d'aggregateRating.
 category: "Cours de musique"      # pour Offer

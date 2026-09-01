@@ -6,7 +6,7 @@ description: "Le piano pour enrichir votre jeu de guitare. Formation dédiée au
 ogImage: "/images/cours/apprendre-piano-facile-guitaristes/hero.webp"
 theme: "guitar"
 datePublished: "2025-01-30"
-dateModified: "2025-01-30"
+dateModified: "2026-09-01"
 # Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
 # « Progresser en guitare en apprenant le piano » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.0"

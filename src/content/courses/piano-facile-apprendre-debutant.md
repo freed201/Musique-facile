@@ -7,7 +7,7 @@ bestSeller: true
 ogImage: "/images/cours/piano-facile-apprendre-debutant/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
-dateModified: "2025-01-30"
+dateModified: "2026-09-01"
 # Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
 # « Piano : les fondamentaux » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.7"

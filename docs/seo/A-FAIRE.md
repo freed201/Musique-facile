@@ -1,7 +1,7 @@
 # À faire — chantier SEO / visibilité IA
 
 Liste vivante des points en attente. Mise à jour au fil des lots.
-Dernière révision : **1er septembre 2026** (après le lot 2 bis).
+Dernière révision : **1er septembre 2026** (après le lot 3).
 
 ---
 
@@ -65,11 +65,15 @@ vidéo déclarée dans le frontmatter.
 
 ## Dette technique repérée, non traitée
 
-- **`prefers-reduced-motion` est cassé sur les 178 pages** : `src/styles/design-tokens.css:423`
-  déclare `animation-duration: 0.01ms !important`, que le minifieur d'`astro-compress` réécrit en
-  **`animation-duration: NaNs !important`** — valeur invalide, donc ignorée. Les animations
-  tournent pour les personnes qui demandent explicitement de les réduire. Correction d'une ligne
-  (`0.01ms` → `1ms`), à faire au lot 3 avec l'accessibilité.
+- ~~`prefers-reduced-motion` cassé sur les 178 pages~~ — **corrigé au lot 3** (`0.01ms` → `1ms`).
+- **46 défauts SEO hérités** figés dans `scripts/seo-baseline.json` : 21 titles > 60 caractères et
+  25 descriptions > 160, tous sur des articles publiés. `npm run check:seo` les affiche sans
+  bloquer et échoue sur tout défaut nouveau. À résorber par lots, avec validation éditoriale.
+- **3 gabarits `public/lead-magnets/*.html`** passés en `noindex` au lot 3. Seuls les `.pdf` sont
+  référencés par les e-mails Brevo : ils sont probablement supprimables.
+- ~~`offre.astro` et `CourseLayout` répètent « 4.7 » / « 929 » en dur~~ — **corrigé** : les 4
+  `aggregateRating` de `/offre/` sont retirés (mêmes avis revendiqués 4 fois), la note affichée
+  lit `src/data/proof.ts`.
 
 - **51 images `public/images/cours/*/testimonial-*.webp`** ne sont plus référencées depuis le
   retrait des témoignages. À supprimer une fois le point 1 tranché (certaines pourraient servir
@@ -81,10 +85,6 @@ vidéo déclarée dans le frontmatter.
   middleware que depuis `src/middleware.ts`, qui n'existe pas. La CSP réellement appliquée est
   celle de `vercel.json`. Décision à prendre — enregistrer le middleware et aligner les deux CSP,
   ou supprimer le code mort. Voir `.claude/rules/coherence-en-tetes-securite.md`.
-- **`offre.astro` et `CourseLayout.astro`** répètent « 4.7 » / « 929 » en dur au lieu de lire
-  `src/data/proof.ts`. À basculer au lot 3.
-- **36 URLs du sitemap** ont un `lastmod` figé en 2025-01, et trois en 2019 / 2021 / 2024.
-  Traité au lot 3.
 
 ---
 
@@ -92,6 +92,6 @@ vidéo déclarée dans le frontmatter.
 
 | Lot | Objet | Bloqué par |
 |---|---|---|
-| 3 | Nettoyage on-page : `##` du guide accords, titles, 3 canonicals, sitemap `lastmod`, RSS, `check:seo` | point 5 pour la partie titles |
+| ~~3~~ | ~~Nettoyage on-page~~ — **livré** (PR lot 3) | — |
 | 4 | Vidéos YouTube sur les 20 guides : `VideoEmbed`, `VideoObject`, transcriptions | point 6 |
 | 5 | Maillage, réponses directes, `llms.txt` | rien |

@@ -1,6 +1,6 @@
 ---
-title: "Accords Guitare Débutant - Guide Ultime"
-description: "Découvrez les accords de guitare essentiels pour débutants. Schémas détaillés, astuces pratiques et conseils pros."
+title: "Accords guitare débutant : les 7 essentiels | Musique Facile"
+description: "Sept accords ouverts suffisent pour jouer des centaines de chansons à la guitare. Diagrammes, majeur ou mineur, et dans quel ordre les apprendre."
 ogImage: "/images/blog/accords-guitare-debutant-guide-ultime.webp"
 prod: Y
 multi: "Y"
@@ -35,8 +35,8 @@ faqs:
 - **Mineurs** : son plus sombre, pour les ballades
 - **La première étape** : lire un diagramme d'accord, expliqué plus bas
 
-## ## Pourquoi apprendre les accords de guitare ?
-### Introduction
+## Pourquoi apprendre les accords de guitare ?
+
 Vous rêvez de jouer vos morceaux préférés à la guitare mais ne savez pas par où commencer ? Bonne nouvelle : apprendre les **accords de guitare** est la première étape essentielle pour progresser rapidement et jouer des chansons complètes dès les premières semaines. 🎵
 
 Les **accords** sont des combinaisons de notes qui forment la base de la musique. En maîtrisant seulement quelques **accords faciles**, vous pourrez accompagner des centaines de chansons populaires, quel que soit le style musical : pop, rock, folk, ou encore reggae.

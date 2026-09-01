@@ -6,7 +6,7 @@ description: "5 200 élèves, 4.5/5. 52 semaines de perfectionnement guitare par
 ogImage: "/images/cours/maitrise-technique-guitare-avancee/hero.webp"
 theme: "guitar"
 datePublished: "2025-01-30"
-dateModified: "2025-01-30"
+dateModified: "2026-09-01"
 # Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
 # « Guitare : techniques avancées » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.6"

@@ -6,7 +6,7 @@ description: "Maîtrisez le shuffle au piano avec notre formation complète. Ryt
 ogImage: "/images/cours/apprendre-piano-shuffle/hero.webp"
 theme: "piano"
 datePublished: "2025-01-30"
-dateModified: "2025-01-30"
+dateModified: "2026-09-01"
 # ratingValue / reviewCount retirés le 2026-09-01 : ce cours n'a pas de fiche
 # Skilleos, donc aucune note vérifiable. Sans source, pas d'aggregateRating.
 category: "Cours de musique"      # pour Offer

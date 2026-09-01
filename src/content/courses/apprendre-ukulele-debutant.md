@@ -6,7 +6,7 @@ description: "4 900 élèves, 4.7/5. 41 leçons vidéo en 2h30 pour jouer vos pr
 ogImage: "/images/cours/apprendre-ukulele-debutant/hero.webp"
 theme: "ukulele"
 datePublished: "2025-01-30"
-dateModified: "2025-01-30"
+dateModified: "2026-09-01"
 # Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
 # « Ukulélé : les fondamentaux » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.7"

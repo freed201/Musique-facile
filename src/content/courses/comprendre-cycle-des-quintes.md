@@ -6,7 +6,7 @@ description: "Maîtrisez le cycle des quintes, l'outil essentiel des musiciens. 
 ogImage: "/images/cours/comprendre-cycle-des-quintes/hero.webp"
 theme: "solfege"
 datePublished: "2025-01-30"
-dateModified: "2025-01-30"
+dateModified: "2026-09-01"
 # Note et nombre d'avis relevés le 2026-09-01 sur la fiche Skilleos du cours
 # « Le cycle des quintes » — seule source vérifiable. Ne pas modifier sans nouveau relevé.
 ratingValue: "4.8"

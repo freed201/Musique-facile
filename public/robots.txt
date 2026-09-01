@@ -10,6 +10,8 @@ Disallow: /merci-lead-magnet/
 Disallow: /preview-refonte/
 Disallow: /maintenance/
 Disallow: /pack-vacances-ukulele/
+# Gabarits de rendu des PDF lead magnets (jamais liés)
+Disallow: /lead-magnets/*.html
 
 # URLs avec paramètres spam/tracking
 Disallow: /*?h=
@@ -29,3 +31,6 @@ Disallow: /
 
 # Sitemap
 Sitemap: https://musique-facile.fr/sitemap.xml
+
+# Flux RSS du blog
+# https://musique-facile.fr/rss.xml
