@@ -32,8 +32,8 @@ songInfo:
 videos:
   - title: "Basics d'Ironic"
     url: "https://youtu.be/rW9bodiGcig"
-  - title: "YouTube Shorts : Ironic"
-    url: "https://youtube.com/shorts/3j05H5iNLNA"
+  - title: "Ironic - Guitare Tutoriel Débutant (Capo 4, 9 accords)"
+    url: "https://youtu.be/rW9bodiGcig"
 faqs:
   - question: "Quels accords pour jouer Ironic d'Alanis Morissette ?"
     answer: "Huit couleurs d'accords avec un capo en case 4 : CMaj7, D6(11), D/F#, G, Em7, D, Em et FMaj7. L'intro et le pont tournent sur CMaj7 – D6(11), le couplet sur D/F# – G – D/F# – Em7, et le refrain sur D – G – D – Em puis FMaj7 – C – D."

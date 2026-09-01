@@ -1,0 +1,238 @@
+---
+/**
+ * VideoEmbed.astro — lecteur YouTube en façade.
+ *
+ * Rien n'est demandé à YouTube tant que le visiteur n'a pas cliqué : la
+ * miniature est un WebP servi par le site, et l'iframe `youtube-nocookie.com`
+ * n'est injectée qu'au clic. Ça remplace l'iframe posée directement dans la
+ * page, qui ouvrait une connexion tierce dès l'affichage.
+ *
+ * CONSENTEMENT — tarteaucitron ne gère que Google Tag Manager sur ce site
+ * (voir ConsentManager.astro, seul `googletagmanagerId` y est déclaré). YouTube
+ * n'y est pas enregistré, il n'y a donc pas de service à solliciter. La façade
+ * suffit : aucune requête tierce n'est émise avant une action explicite du
+ * visiteur. Si YouTube est un jour ajouté à tarteaucitron, c'est ici qu'il
+ * faudra passer par lui.
+ *
+ * Les métadonnées (durée, date de mise en ligne, miniature) viennent de
+ * src/data/video-metadata.json, relevé sur YouTube — elles ne sont pas estimées.
+ */
+import videoMetadata from '../data/video-metadata.json';
+
+interface Props {
+  /** URL YouTube sous n'importe quelle forme (youtu.be, watch?v=, embed, shorts). */
+  url: string;
+  /** Titre affiché sous la vidéo et porté par l'iframe. */
+  title: string;
+  /** Transcription facultative, rendue dans un <details> présent dans le HTML. */
+  transcript?: string;
+}
+
+const { url, title, transcript } = Astro.props;
+
+export function extractYouTubeId(value: string): string | null {
+  const m = value.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/|v\/))([A-Za-z0-9_-]{11})/,
+  );
+  return m ? m[1] : null;
+}
+
+const videoId = extractYouTubeId(url);
+const meta = videoId ? (videoMetadata.videos as Record<string, any>)[videoId] : null;
+
+// Une vidéo dont on n'a pas relevé les métadonnées est soit inconnue, soit
+// devenue indisponible : on n'affiche pas de lecteur mort.
+const playable = Boolean(videoId && meta?.status === 'ok');
+const thumbnail = meta?.thumbnail ?? null;
+
+/** « PT7M9S » → « 7:09 », pour l'afficher à côté du bouton. */
+function humanDuration(iso?: string | null): string | null {
+  if (!iso) return null;
+  const m = iso.match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/);
+  if (!m) return null;
+  const [h, min, s] = [Number(m[1] ?? 0), Number(m[2] ?? 0), Number(m[3] ?? 0)];
+  const mm = h ? `${String(min).padStart(2, '0')}` : `${min}`;
+  return `${h ? `${h}:` : ''}${mm}:${String(s).padStart(2, '0')}`;
+}
+
+const duration = humanDuration(meta?.duration);
+const embedUrl = videoId
+  ? `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&autoplay=1`
+  : null;
+---
+
+{playable && (
+  <figure class="video-embed">
+    <div class="video-embed__frame" data-embed-url={embedUrl} data-title={title}>
+      <button type="button" class="video-embed__button" aria-label={`Lire la vidéo : ${title}`}>
+        {thumbnail ? (
+          <img
+            src={thumbnail}
+            alt=""
+            width="480"
+            height="270"
+            loading="lazy"
+            decoding="async"
+            class="video-embed__thumb"
+          />
+        ) : (
+          <span class="video-embed__thumb video-embed__thumb--empty" aria-hidden="true"></span>
+        )}
+        <span class="video-embed__play" aria-hidden="true">
+          <svg width="68" height="48" viewBox="0 0 68 48" focusable="false">
+            <path
+              d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.6 8.6 0 0 0-6 6A90 90 0 0 0 0 24a90 90 0 0 0 1.5 16.3 8.6 8.6 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.6 8.6 0 0 0 6-6A90 90 0 0 0 68 24a90 90 0 0 0-1.5-16.3z"
+              fill="#212121"
+              fill-opacity="0.85"
+            />
+            <path d="M27 34V14l18 10-18 10z" fill="#fff" />
+          </svg>
+        </span>
+        {duration && <span class="video-embed__duration" aria-hidden="true">{duration}</span>}
+      </button>
+    </div>
+
+    <figcaption class="video-embed__caption">{title}</figcaption>
+
+    {transcript && (
+      <details class="video-embed__transcript">
+        <summary>Transcription de la vidéo</summary>
+        <div class="video-embed__transcript-body">
+          {transcript.split('\n\n').map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </details>
+    )}
+  </figure>
+)}
+
+<style>
+  .video-embed {
+    margin: var(--space-8, 2rem) 0;
+  }
+
+  .video-embed__frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-lg, 0.75rem);
+    overflow: hidden;
+    background: #000;
+  }
+
+  .video-embed__button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+
+  .video-embed__button:focus-visible {
+    outline: 3px solid var(--theme-current, #6c3fa0);
+    outline-offset: 3px;
+  }
+
+  .video-embed__thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .video-embed__thumb--empty {
+    background: var(--gray-800, #1f2937);
+  }
+
+  .video-embed__play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+
+  .video-embed__button:hover .video-embed__play {
+    transform: scale(1.08);
+  }
+
+  .video-embed__button:hover .video-embed__play path:first-child {
+    fill: #f00;
+    fill-opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .video-embed__play,
+    .video-embed__button:hover .video-embed__play {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  .video-embed__duration {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.25rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .video-embed__frame :global(iframe) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .video-embed__caption {
+    margin-top: var(--space-2, 0.5rem);
+    font-size: var(--text-sm, 0.875rem);
+    color: var(--text-secondary, #4b5563);
+  }
+
+  .video-embed__transcript {
+    margin-top: var(--space-3, 0.75rem);
+    border: 1px solid var(--border-light, #e5e7eb);
+    border-radius: var(--radius-md, 0.5rem);
+    padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
+  }
+
+  .video-embed__transcript summary {
+    cursor: pointer;
+    font-weight: var(--font-semibold, 600);
+  }
+
+  .video-embed__transcript-body {
+    margin-top: var(--space-3, 0.75rem);
+    font-size: var(--text-sm, 0.875rem);
+    line-height: 1.7;
+  }
+</style>
+
+<script>
+  // L'iframe n'est créée qu'au clic. Aucune requête vers YouTube avant ça.
+  document.addEventListener('click', (event) => {
+    const button = (event.target as HTMLElement)?.closest?.('.video-embed__button');
+    if (!button) return;
+
+    const frame = button.closest('.video-embed__frame') as HTMLElement | null;
+    const embedUrl = frame?.dataset.embedUrl;
+    if (!frame || !embedUrl) return;
+
+    const iframe = document.createElement('iframe');
+    iframe.src = embedUrl;
+    iframe.title = frame.dataset.title ?? 'Vidéo';
+    iframe.allow =
+      'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.allowFullscreen = true;
+    frame.replaceChildren(iframe);
+    iframe.focus();
+  });
+</script>

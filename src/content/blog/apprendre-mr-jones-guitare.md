@@ -25,8 +25,8 @@ videos:
     url: "https://youtu.be/jkFHCYOB5VI"
   - title: "Play Along : Jouez 'Mr Jones' en rythme"
     url: "https://youtu.be/17um-YC555U"
-  - title: "Short Version"
-    url: "https://youtube.com/shorts/-FuyBaXha30"
+  - title: "Mr. Jones (Counting Crows) guitare – Tutoriel complet"
+    url: "https://youtu.be/Z3zlcYuuvlo"
 
 
 

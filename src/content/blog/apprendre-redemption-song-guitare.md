@@ -36,8 +36,8 @@ videos:
     url: "https://youtu.be/A9rWTmeLXw8"
   - title: "Play Along : Joue avec Bob Marley"
     url: "https://youtu.be/W6Jz9um_BXA"
-  - title: "Intro Rythmique sur Shorts"
-    url: "https://youtube.com/shorts/ZL8DWFF28vI"
+  - title: "Redemption Song guitare facile : 4 accords, on joue"
+    url: "https://youtu.be/J8qZFIlAKQs"
 faqs:
   - question: "Quels sont les accords de Redemption Song ?"
     answer: "Quatre accords ouverts suffisent : G (Sol majeur), Em (Mi mineur), C (Do majeur) et D (Ré majeur). La boucle des couplets est G – Em – C – D, et le refrain enchaîne C – D – G. Aucun barré, aucun capo : c'est l'une des grilles les plus accessibles du répertoire de Bob Marley."

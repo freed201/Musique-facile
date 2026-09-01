@@ -1,0 +1,1086 @@
+{
+  "_comment": "Relevé par scripts/fetch-video-metadata.mjs sur les pages de visionnage YouTube — ne pas éditer à la main. Les dates et durées viennent de la source, elles ne sont pas estimées.",
+  "_generatedBy": "npm run videos:metadata",
+  "videos": {
+    "uXa0tViwkYE": {
+      "status": "ok",
+      "uploadDate": "2024-05-21T07:14:10-07:00",
+      "duration": "PT9M39S",
+      "youtubeTitle": "Apprendre NOUS ON SAIT de PIERRE GARNIER - Le tuto GUITARE",
+      "thumbnail": "/images/video-thumbs/uXa0tViwkYE.webp",
+      "declaredTitle": "Nous On Sait (Pierre Garnier) - Tutoriel Guitare"
+    },
+    "7i7ZFCYkZZQ": {
+      "status": "ok",
+      "uploadDate": "2024-05-18T08:32:45-07:00",
+      "duration": "PT3M2S",
+      "youtubeTitle": "Pierre Garnier - Nous on sait - Tuto Play Along Guitare",
+      "thumbnail": "/images/video-thumbs/7i7ZFCYkZZQ.webp",
+      "declaredTitle": "Nous On Sait (Pierre Garnier) - Tutoriel Guitare"
+    },
+    "AgwMY5q7sIs": {
+      "status": "ok",
+      "uploadDate": "2024-04-19T07:00:06-07:00",
+      "duration": "PT5M21S",
+      "youtubeTitle": "Back To Black\" d'Amy Winehouse à la Guitare - Tutoriel Débutant Simplifié",
+      "thumbnail": "/images/video-thumbs/AgwMY5q7sIs.webp",
+      "declaredTitle": "Back to Black (Amy Winehouse) : Accords et Tablature Guitare"
+    },
+    "AX2JY6kgo5c": {
+      "status": "ok",
+      "uploadDate": "2024-05-07T07:18:32-07:00",
+      "duration": "PT8M31S",
+      "youtubeTitle": "Back to Black à la guitare – tutoriel complet (Amy Winehouse)",
+      "thumbnail": "/images/video-thumbs/AX2JY6kgo5c.webp",
+      "declaredTitle": "Back to Black (Amy Winehouse) : Accords et Tablature Guitare"
+    },
+    "t8NnwIBWI1w": {
+      "status": "ok",
+      "uploadDate": "2024-10-15T07:00:08-07:00",
+      "duration": "PT4M1S",
+      "youtubeTitle": "Back To Black – Play Along Guitare facile (accords à l’écran",
+      "thumbnail": "/images/video-thumbs/t8NnwIBWI1w.webp",
+      "declaredTitle": "Back to Black (Amy Winehouse) : Accords et Tablature Guitare"
+    },
+    "cMZxsloPy_Y": {
+      "status": "ok",
+      "uploadDate": "2024-07-28T03:00:08-07:00",
+      "duration": "PT5M36S",
+      "youtubeTitle": "Chasing Cars - Guitare Débutant | Tutoriel simple 🎸",
+      "thumbnail": "/images/video-thumbs/cMZxsloPy_Y.webp",
+      "declaredTitle": "Chasing Cars (Snow Patrol) : Accords et Tablature Guitare"
+    },
+    "w_iytD4QXKM": {
+      "status": "ok",
+      "uploadDate": "2024-12-31T07:00:27-08:00",
+      "duration": "PT4M24S",
+      "youtubeTitle": "Chasing Cars guitare - Play Along facile (morceau complet)",
+      "thumbnail": "/images/video-thumbs/w_iytD4QXKM.webp",
+      "declaredTitle": "Chasing Cars (Snow Patrol) : Accords et Tablature Guitare"
+    },
+    "9mKeqUp3Ng4": {
+      "status": "ok",
+      "uploadDate": "2014-09-03T13:52:11-07:00",
+      "duration": "PT6M58S",
+      "youtubeTitle": "A Sky Full Of Stars guitare - Tutoriel débutant",
+      "thumbnail": "/images/video-thumbs/9mKeqUp3Ng4.webp",
+      "declaredTitle": "Coldplay : Un Voyage Musical à Travers les Étoiles"
+    },
+    "x74bQgnUz3U": {
+      "status": "ok",
+      "uploadDate": "2014-11-07T09:02:56-08:00",
+      "duration": "PT4M",
+      "youtubeTitle": "Yellow – Guitare 🎸 Tutoriel Complet pour Débutants",
+      "thumbnail": "/images/video-thumbs/x74bQgnUz3U.webp",
+      "declaredTitle": "Coldplay : Un Voyage Musical à Travers les Étoiles"
+    },
+    "r5vK42iiGOI": {
+      "status": "ok",
+      "uploadDate": "2022-02-24T07:00:37-08:00",
+      "duration": "PT14M56S",
+      "youtubeTitle": "Fix You ukulélé - Tutoriel complet Coldplay (facile) 🎵",
+      "thumbnail": "/images/video-thumbs/r5vK42iiGOI.webp",
+      "declaredTitle": "Coldplay : Un Voyage Musical à Travers les Étoiles"
+    },
+    "3-s_CEJwxaY": {
+      "status": "ok",
+      "uploadDate": "2024-10-04T07:00:05-07:00",
+      "duration": "PT5M4S",
+      "youtubeTitle": "\"The Scientist\" de Coldplay | Accords - PlayAlong - Piano",
+      "thumbnail": "/images/video-thumbs/3-s_CEJwxaY.webp",
+      "declaredTitle": "Coldplay : Un Voyage Musical à Travers les Étoiles"
+    },
+    "2k72sN98kcg": {
+      "status": "ok",
+      "uploadDate": "2024-07-14T03:00:08-07:00",
+      "duration": "PT6M37S",
+      "youtubeTitle": "Hey Jude – Guitare | Tutoriel débutant simple",
+      "thumbnail": "/images/video-thumbs/2k72sN98kcg.webp",
+      "declaredTitle": "Hey Jude (The Beatles) : Accords et Tab Guitare"
+    },
+    "VAzOBATJK_c": {
+      "status": "ok",
+      "uploadDate": "2024-04-17T08:33:05-07:00",
+      "duration": "PT58S",
+      "youtubeTitle": "Hey Jude - Tutoriel Guitare Facile pour Débutants | The Beatles Simplifié #shorts",
+      "thumbnail": "/images/video-thumbs/VAzOBATJK_c.webp",
+      "declaredTitle": "Hey Jude (The Beatles) : Accords et Tab Guitare"
+    },
+    "ToaTKOuam9Y": {
+      "status": "ok",
+      "uploadDate": "2024-12-10T07:00:10-08:00",
+      "duration": "PT4M5S",
+      "youtubeTitle": "Hey Jude – Guitare Play Along complet + accords 🎸",
+      "thumbnail": "/images/video-thumbs/ToaTKOuam9Y.webp",
+      "declaredTitle": "Hey Jude (The Beatles) : Accords et Tab Guitare"
+    },
+    "rW9bodiGcig": {
+      "status": "ok",
+      "uploadDate": "2024-12-29T03:00:20-08:00",
+      "duration": "PT4M24S",
+      "youtubeTitle": "Ironic - Guitare Tutoriel Débutant (Capo 4, 9 accords) 🎸",
+      "thumbnail": "/images/video-thumbs/rW9bodiGcig.webp",
+      "declaredTitle": "Ironic (Alanis Morissette) : Accords et Tablature Guitare"
+    },
+    "fNKFL5HsImY": {
+      "status": "ok",
+      "uploadDate": "2025-03-29T09:00:56-07:00",
+      "duration": "PT52S",
+      "youtubeTitle": "Une belle histoire – Play Along Guitare (Shorts) 🎸",
+      "thumbnail": "/images/video-thumbs/fNKFL5HsImY.webp",
+      "declaredTitle": "Apprendre à Jouer Votre Première Chanson à 3 Accords"
+    },
+    "xU4N-Hn8uE8": {
+      "status": "ok",
+      "uploadDate": "2024-10-08T02:04:44-07:00",
+      "duration": "PT58S",
+      "youtubeTitle": "\"Flower\"- Miley Cyrus - Guitar Play along - Easy chords",
+      "thumbnail": "/images/video-thumbs/xU4N-Hn8uE8.webp",
+      "declaredTitle": "Apprendre à Jouer Votre Première Chanson à 3 Accords"
+    },
+    "uBqlSQVpMNM": {
+      "status": "ok",
+      "uploadDate": "2024-01-07T07:00:46-08:00",
+      "duration": "PT51S",
+      "youtubeTitle": "Starlight à la guitare – Playalong express 🎸",
+      "thumbnail": "/images/video-thumbs/uBqlSQVpMNM.webp",
+      "declaredTitle": "Apprendre à Jouer Votre Première Chanson à 3 Accords"
+    },
+    "7YsjrQnOvdU": {
+      "status": "ok",
+      "uploadDate": "2023-09-21T07:00:08-07:00",
+      "duration": "PT35S",
+      "youtubeTitle": "American Idiot guitare - Play Along Green Day 🎸",
+      "thumbnail": "/images/video-thumbs/7YsjrQnOvdU.webp",
+      "declaredTitle": "Apprendre à Jouer Votre Première Chanson à 3 Accords"
+    },
+    "-IkZKuyt9XQ": {
+      "status": "ok",
+      "uploadDate": "2025-07-25T07:54:34-07:00",
+      "duration": "PT1M20S",
+      "youtubeTitle": "👉 “Le TUBE K-Pop qui fait vibrer Netflix 🌟 Joue ‘Briller’ au ukulélé !”",
+      "thumbnail": "/images/video-thumbs/-IkZKuyt9XQ.webp",
+      "declaredTitle": "K-pop Demon Hunters : Jouer les Hits à l'Ukulélé"
+    },
+    "cm8jybzCUe4": {
+      "status": "ok",
+      "uploadDate": "2025-08-03T23:27:21-07:00",
+      "duration": "PT47S",
+      "youtubeTitle": "Golden – Ukulélé Play Along (Partie 1) | Demon Hunter ✨",
+      "thumbnail": "/images/video-thumbs/cm8jybzCUe4.webp",
+      "declaredTitle": "K-pop Demon Hunters : Jouer les Hits à l'Ukulélé"
+    },
+    "wb38GZ73dkE": {
+      "status": "ok",
+      "uploadDate": "2025-09-01T07:01:35-07:00",
+      "duration": "PT1M17S",
+      "youtubeTitle": "👉 “La CHANSON K-Pop qui cartonne sur Netflix 😱 Joue ‘Soda Pop’ au ukulélé !”",
+      "thumbnail": "/images/video-thumbs/wb38GZ73dkE.webp",
+      "declaredTitle": "K-pop Demon Hunters : Jouer les Hits à l'Ukulélé"
+    },
+    "zcSX7WWfctc": {
+      "status": "ok",
+      "uploadDate": "2024-06-09T03:00:06-07:00",
+      "duration": "PT3M51S",
+      "youtubeTitle": "Lucky Man - Guitare Débutant | Tutoriel simplifié",
+      "thumbnail": "/images/video-thumbs/zcSX7WWfctc.webp",
+      "declaredTitle": "Lucky Man (The Verve) : Accords et Tab Guitare"
+    },
+    "6UFiYxQ9gtI": {
+      "status": "ok",
+      "uploadDate": "2024-05-07T07:18:05-07:00",
+      "duration": "PT6M20S",
+      "youtubeTitle": "Lucky Man à la guitare – tutoriel facile (The Verve)",
+      "thumbnail": "/images/video-thumbs/6UFiYxQ9gtI.webp",
+      "declaredTitle": "Lucky Man (The Verve) : Accords et Tab Guitare"
+    },
+    "ohT9jFhm2BM": {
+      "status": "ok",
+      "uploadDate": "2022-12-09T09:23:43-08:00",
+      "duration": "PT2M48S",
+      "youtubeTitle": "The Verve - Lucky Man guitare - Tutoriel complet",
+      "thumbnail": "/images/video-thumbs/ohT9jFhm2BM.webp",
+      "declaredTitle": "Lucky Man (The Verve) : Accords et Tab Guitare"
+    },
+    "NdmZs8Pd5Nk": {
+      "status": "ok",
+      "uploadDate": "2025-09-02T06:30:47-07:00",
+      "duration": "PT41S",
+      "youtubeTitle": "Lucky Man de The Verve - Tutoriel Guitare Simplifié pour Débutants ! 🎸 #musique #guitar",
+      "thumbnail": "/images/video-thumbs/NdmZs8Pd5Nk.webp",
+      "declaredTitle": "Lucky Man (The Verve) : Accords et Tab Guitare"
+    },
+    "uWwVuOEe1_A": {
+      "status": "ok",
+      "uploadDate": "2024-12-08T03:00:18-08:00",
+      "duration": "PT5M50S",
+      "youtubeTitle": "Machistador -M- Guitare 🎸 Tutoriel Débutant (capo 3)",
+      "thumbnail": "/images/video-thumbs/uWwVuOEe1_A.webp",
+      "declaredTitle": "Machistador (-M-) : Accords et Tab Guitare"
+    },
+    "6jEfmITRtIw": {
+      "status": "ok",
+      "uploadDate": "2026-08-12T03:00:08-07:00",
+      "duration": "PT37S",
+      "youtubeTitle": "Machistador – -M- | guitare facile",
+      "thumbnail": "/images/video-thumbs/6jEfmITRtIw.webp",
+      "declaredTitle": "Machistador (-M-) : Accords et Tab Guitare"
+    },
+    "ntvBTSfdz7Y": {
+      "status": "ok",
+      "uploadDate": "2024-04-28T03:00:09-07:00",
+      "duration": "PT6M44S",
+      "youtubeTitle": "Apprendre Mr Jones des Counting Crows à la Guitare Pour Débutants - Tutoriel Facile",
+      "thumbnail": "/images/video-thumbs/ntvBTSfdz7Y.webp",
+      "declaredTitle": "Mr. Jones (Counting Crows) : Accords Guitare"
+    },
+    "jkFHCYOB5VI": {
+      "status": "ok",
+      "uploadDate": "2024-05-07T07:18:18-07:00",
+      "duration": "PT7M9S",
+      "youtubeTitle": "Mr. Jones à la guitare – tutoriel complet (Counting Crows)",
+      "thumbnail": "/images/video-thumbs/jkFHCYOB5VI.webp",
+      "declaredTitle": "Mr. Jones (Counting Crows) : Accords Guitare"
+    },
+    "17um-YC555U": {
+      "status": "ok",
+      "uploadDate": "2024-10-22T07:00:35-07:00",
+      "duration": "PT4M34S",
+      "youtubeTitle": "Mr Jones – Play Along Guitare (morceau complet)",
+      "thumbnail": "/images/video-thumbs/17um-YC555U.webp",
+      "declaredTitle": "Mr. Jones (Counting Crows) : Accords Guitare"
+    },
+    "Z3zlcYuuvlo": {
+      "status": "ok",
+      "uploadDate": "2014-02-28T08:04:06-08:00",
+      "duration": "PT9M8S",
+      "youtubeTitle": "Mr. Jones (Counting Crows) guitare – Tutoriel complet",
+      "thumbnail": "/images/video-thumbs/Z3zlcYuuvlo.webp",
+      "declaredTitle": "Mr. Jones (Counting Crows) : Accords Guitare"
+    },
+    "31DeKCzhP1Y": {
+      "status": "ok",
+      "uploadDate": "2024-11-24T03:00:08-08:00",
+      "duration": "PT6M53S",
+      "youtubeTitle": "U2 - One à la guitare 🎸 Tutoriel débutant simple",
+      "thumbnail": "/images/video-thumbs/31DeKCzhP1Y.webp",
+      "declaredTitle": "One (U2) : Accords et Tablature Guitare"
+    },
+    "cmjGvbPOi9c": {
+      "status": "ok",
+      "uploadDate": "2026-08-19T03:00:36-07:00",
+      "duration": "PT48S",
+      "youtubeTitle": "One – U2 | guitare facile",
+      "thumbnail": "/images/video-thumbs/cmjGvbPOi9c.webp",
+      "declaredTitle": "One (U2) : Accords et Tablature Guitare"
+    },
+    "UQPtqVhPelk": {
+      "status": "ok",
+      "uploadDate": "2024-10-20T03:00:15-07:00",
+      "duration": "PT6M42S",
+      "youtubeTitle": "Partons Vite - Guitare débutant | Tuto Kaolin 🎸",
+      "thumbnail": "/images/video-thumbs/UQPtqVhPelk.webp",
+      "declaredTitle": "Partons Vite (Kaolin) : Accords et Tab Guitare"
+    },
+    "ukcdAsdJwEI": {
+      "status": "ok",
+      "uploadDate": "2026-07-22T06:29:13-07:00",
+      "duration": "PT6M58S",
+      "youtubeTitle": "Partons Vite (Kaolin) : tuto guitare débutant",
+      "thumbnail": "/images/video-thumbs/ukcdAsdJwEI.webp",
+      "declaredTitle": "Partons Vite (Kaolin) : Accords et Tab Guitare"
+    },
+    "axscET_pADo": {
+      "status": "ok",
+      "uploadDate": "2024-06-11T07:06:59-07:00",
+      "duration": "PT3M52S",
+      "youtubeTitle": "Partons Vite – Kaolin | Play Along Guitare facile",
+      "thumbnail": "/images/video-thumbs/axscET_pADo.webp",
+      "declaredTitle": "Partons Vite (Kaolin) : Accords et Tab Guitare"
+    },
+    "Mq27EPbPNjg": {
+      "status": "ok",
+      "uploadDate": "2024-05-19T03:00:11-07:00",
+      "duration": "PT6M23S",
+      "youtubeTitle": "Perfect – Guitare | Tutoriel débutant pas à pas 🎸",
+      "thumbnail": "/images/video-thumbs/Mq27EPbPNjg.webp",
+      "declaredTitle": "Perfect (Ed Sheeran) : Accords et Tablature Guitare"
+    },
+    "xAYuq6aZ87w": {
+      "status": "ok",
+      "uploadDate": "2022-05-16T09:02:37-07:00",
+      "duration": "PT4M21S",
+      "youtubeTitle": "Perfect - Guitare Play Along: Tuto complet pour jouer",
+      "thumbnail": "/images/video-thumbs/xAYuq6aZ87w.webp",
+      "declaredTitle": "Perfect (Ed Sheeran) : Accords et Tablature Guitare"
+    },
+    "h-XzF_ACcI4": {
+      "status": "ok",
+      "uploadDate": "2024-10-01T07:00:20-07:00",
+      "duration": "PT4M19S",
+      "youtubeTitle": "Perfect – Guitare Play Along facile (morceau complet) 🎸",
+      "thumbnail": "/images/video-thumbs/h-XzF_ACcI4.webp",
+      "declaredTitle": "Perfect (Ed Sheeran) : Accords et Tablature Guitare"
+    },
+    "chr9FanEmT4": {
+      "status": "ok",
+      "uploadDate": "2024-09-01T03:00:23-07:00",
+      "duration": "PT6M19S",
+      "youtubeTitle": "Redemption Song guitare - Tutoriel débutant simple",
+      "thumbnail": "/images/video-thumbs/chr9FanEmT4.webp",
+      "declaredTitle": "Redemption Song (Bob Marley) : Accords et Tablature Guitare"
+    },
+    "A9rWTmeLXw8": {
+      "status": "ok",
+      "uploadDate": "2024-05-13T02:04:41-07:00",
+      "duration": "PT10M48S",
+      "youtubeTitle": "Redemption Song à la guitare – tutoriel complet (Bob Marley)",
+      "thumbnail": "/images/video-thumbs/A9rWTmeLXw8.webp",
+      "declaredTitle": "Redemption Song (Bob Marley) : Accords et Tablature Guitare"
+    },
+    "W6Jz9um_BXA": {
+      "status": "ok",
+      "uploadDate": "2024-04-23T07:00:06-07:00",
+      "duration": "PT3M48S",
+      "youtubeTitle": "Redemption Song guitare - Play Along complet (débutant)",
+      "thumbnail": "/images/video-thumbs/W6Jz9um_BXA.webp",
+      "declaredTitle": "Redemption Song (Bob Marley) : Accords et Tablature Guitare"
+    },
+    "J8qZFIlAKQs": {
+      "status": "ok",
+      "uploadDate": "2026-07-18T05:56:07-07:00",
+      "duration": "PT52S",
+      "youtubeTitle": "Redemption Song guitare facile : 4 accords, on joue",
+      "thumbnail": "/images/video-thumbs/J8qZFIlAKQs.webp",
+      "declaredTitle": "Redemption Song (Bob Marley) : Accords et Tablature Guitare"
+    },
+    "110_Rskw4JM": {
+      "status": "ok",
+      "uploadDate": "2024-12-15T03:00:16-08:00",
+      "duration": "PT7M3S",
+      "youtubeTitle": "Respire - Guitare Débutant | Tutoriel Mickey 3D",
+      "thumbnail": "/images/video-thumbs/110_Rskw4JM.webp",
+      "declaredTitle": "Respire (Mickey 3D) : Accords et Tablature Guitare"
+    },
+    "ugxpRYdsrD0": {
+      "status": "ok",
+      "uploadDate": "2025-03-26T08:01:16-07:00",
+      "duration": "PT7M16S",
+      "youtubeTitle": "Respire - Guitare | Tutoriel complet + astuces 🎸",
+      "thumbnail": "/images/video-thumbs/ugxpRYdsrD0.webp",
+      "declaredTitle": "Respire (Mickey 3D) : Accords et Tablature Guitare"
+    },
+    "D3I4Pw3CKHU": {
+      "status": "ok",
+      "uploadDate": "2024-08-06T07:00:06-07:00",
+      "duration": "PT3M42S",
+      "youtubeTitle": "Respire - Mickey 3D | Play Along Guitare facile (complet)",
+      "thumbnail": "/images/video-thumbs/D3I4Pw3CKHU.webp",
+      "declaredTitle": "Respire (Mickey 3D) : Accords et Tablature Guitare"
+    },
+    "pplJ4vdt3kI": {
+      "status": "ok",
+      "uploadDate": "2024-06-30T03:00:04-07:00",
+      "duration": "PT4M54S",
+      "youtubeTitle": "Apprendre Riche de Claudio Capéo- à la Guitare Pour Débutants - Tutoriel Facile",
+      "thumbnail": "/images/video-thumbs/pplJ4vdt3kI.webp",
+      "declaredTitle": "Riche (Claudio Capéo) : Accords et Tab Guitare"
+    },
+    "EPlGAzAqPkc": {
+      "status": "ok",
+      "uploadDate": "2024-11-26T07:00:33-08:00",
+      "duration": "PT4M7S",
+      "youtubeTitle": "Riche – Claudio Capéo | Play Along Guitare facile",
+      "thumbnail": "/images/video-thumbs/EPlGAzAqPkc.webp",
+      "declaredTitle": "Riche (Claudio Capéo) : Accords et Tab Guitare"
+    },
+    "McgAODD4svo": {
+      "status": "ok",
+      "uploadDate": "2024-05-07T07:17:37-07:00",
+      "duration": "PT7M2S",
+      "youtubeTitle": "Riche à la guitare – tutoriel complet (Claudio Capéo)",
+      "thumbnail": "/images/video-thumbs/McgAODD4svo.webp",
+      "declaredTitle": "Riche (Claudio Capéo) : Accords et Tab Guitare"
+    },
+    "LQSVnCuHIDU": {
+      "status": "ok",
+      "uploadDate": "2024-11-17T03:00:19-08:00",
+      "duration": "PT4M46S",
+      "youtubeTitle": "Smells Like Teen Spirit – Guitare: Tutoriel Débutant",
+      "thumbnail": "/images/video-thumbs/LQSVnCuHIDU.webp",
+      "declaredTitle": "Smells Like Teen Spirit : Accords et Tab Guitare"
+    },
+    "3L5akqUu-sU": {
+      "status": "ok",
+      "uploadDate": "2026-08-28T03:00:38-07:00",
+      "duration": "PT45S",
+      "youtubeTitle": "Smells Like Teen Spirit – Nirvana | guitare facile",
+      "thumbnail": "/images/video-thumbs/3L5akqUu-sU.webp",
+      "declaredTitle": "Smells Like Teen Spirit : Accords et Tab Guitare"
+    },
+    "dxeyX9M7EHU": {
+      "status": "ok",
+      "uploadDate": "2024-07-09T07:00:05-07:00",
+      "duration": "PT2M58S",
+      "youtubeTitle": "Smells Like Teen Spirit - Guitare Play Along facile 🎸",
+      "thumbnail": "/images/video-thumbs/dxeyX9M7EHU.webp",
+      "declaredTitle": "Smells Like Teen Spirit : Accords et Tab Guitare"
+    },
+    "kDSkc157Lmw": {
+      "status": "ok",
+      "uploadDate": "2024-09-22T03:00:15-07:00",
+      "duration": "PT6M36S",
+      "youtubeTitle": "So Lonely - Guitare débutant | Tutoriel simple 🎸",
+      "thumbnail": "/images/video-thumbs/kDSkc157Lmw.webp",
+      "declaredTitle": "So Lonely (The Police) : Accords et Tab Guitare"
+    },
+    "zRKzBdzCCnA": {
+      "status": "ok",
+      "uploadDate": "2024-05-13T02:04:26-07:00",
+      "duration": "PT6M9S",
+      "youtubeTitle": "So Lonely à la guitare – tutoriel complet (The Police)",
+      "thumbnail": "/images/video-thumbs/zRKzBdzCCnA.webp",
+      "declaredTitle": "So Lonely (The Police) : Accords et Tab Guitare"
+    },
+    "USZOBHQWq50": {
+      "status": "ok",
+      "uploadDate": "2024-05-14T07:00:12-07:00",
+      "duration": "PT2M46S",
+      "youtubeTitle": "So Lonely - The Police 🎸 Play Along guitare (capo 5)",
+      "thumbnail": "/images/video-thumbs/USZOBHQWq50.webp",
+      "declaredTitle": "So Lonely (The Police) : Accords et Tab Guitare"
+    },
+    "ogsj0mJV4DY": {
+      "status": "ok",
+      "uploadDate": "2024-05-05T03:00:07-07:00",
+      "duration": "PT5M3S",
+      "youtubeTitle": "Stand by Me – Guitare: Tutoriel simple débutant 🎸",
+      "thumbnail": "/images/video-thumbs/ogsj0mJV4DY.webp",
+      "declaredTitle": "Stand by Me (Ben E. King) : Accords et Tablature Guitare"
+    },
+    "sMMcbuahiRE": {
+      "status": "ok",
+      "uploadDate": "2024-05-13T02:05:07-07:00",
+      "duration": "PT10M10S",
+      "youtubeTitle": "Stand by Me à la guitare – tutoriel complet et facile",
+      "thumbnail": "/images/video-thumbs/sMMcbuahiRE.webp",
+      "declaredTitle": "Stand by Me (Ben E. King) : Accords et Tablature Guitare"
+    },
+    "BBxFpRZsAQ0": {
+      "status": "ok",
+      "uploadDate": "2024-09-17T07:00:14-07:00",
+      "duration": "PT2M59S",
+      "youtubeTitle": "Stand by Me guitare - Play Along facile (accords)",
+      "thumbnail": "/images/video-thumbs/BBxFpRZsAQ0.webp",
+      "declaredTitle": "Stand by Me (Ben E. King) : Accords et Tablature Guitare"
+    },
+    "7ya-PCIHPKk": {
+      "status": "ok",
+      "uploadDate": "2024-08-04T03:00:07-07:00",
+      "duration": "PT6M19S",
+      "youtubeTitle": "Sweet Dreams guitare - Tutoriel débutant simple 🎸",
+      "thumbnail": "/images/video-thumbs/7ya-PCIHPKk.webp",
+      "declaredTitle": "Sweet Dreams (Eurythmics) : Accords et Tab Guitare"
+    },
+    "eGJVTeHe58Q": {
+      "status": "ok",
+      "uploadDate": "2024-12-01T03:00:18-08:00",
+      "duration": "PT6M15S",
+      "youtubeTitle": "Un autre monde – Guitare | Tutoriel débutant 🎸",
+      "thumbnail": "/images/video-thumbs/eGJVTeHe58Q.webp",
+      "declaredTitle": "Un Autre Monde (Téléphone) : Accords et Tab Guitare"
+    },
+    "To4IR_JOG4M": {
+      "status": "ok",
+      "uploadDate": "2024-05-13T02:04:01-07:00",
+      "duration": "PT8M59S",
+      "youtubeTitle": "Un Autre Monde à la guitare – tutoriel complet (Téléphone)",
+      "thumbnail": "/images/video-thumbs/To4IR_JOG4M.webp",
+      "declaredTitle": "Un Autre Monde (Téléphone) : Accords et Tab Guitare"
+    },
+    "s2Gcq8iox5s": {
+      "status": "ok",
+      "uploadDate": "2024-07-23T07:00:08-07:00",
+      "duration": "PT3M58S",
+      "youtubeTitle": "Un autre monde – Guitare Play Along facile (complet)",
+      "thumbnail": "/images/video-thumbs/s2Gcq8iox5s.webp",
+      "declaredTitle": "Un Autre Monde (Téléphone) : Accords et Tab Guitare"
+    },
+    "DYAGYjbJBn0": {
+      "status": "ok",
+      "uploadDate": "2024-04-12T07:25:45-07:00",
+      "duration": "PT5M53S",
+      "youtubeTitle": "Une Belle Histoire guitare - Tutoriel Débutant 🎸",
+      "thumbnail": "/images/video-thumbs/DYAGYjbJBn0.webp",
+      "declaredTitle": "Une Belle Histoire (Fugain) : Accords Guitare"
+    },
+    "4Y0fh6FsW-A": {
+      "status": "ok",
+      "uploadDate": "2026-08-06T09:00:09-07:00",
+      "duration": "PT10M25S",
+      "youtubeTitle": "Une Belle Histoire à la guitare – tutoriel complet (Michel Fugain)",
+      "thumbnail": "/images/video-thumbs/4Y0fh6FsW-A.webp",
+      "declaredTitle": "Une Belle Histoire (Fugain) : Accords Guitare"
+    },
+    "NVKwDXqEmmk": {
+      "status": "ok",
+      "uploadDate": "2024-03-26T08:48:36-07:00",
+      "duration": "PT3M18S",
+      "youtubeTitle": "Une Belle Histoire – playalong guitare avec accords (Michel Fugain)",
+      "thumbnail": "/images/video-thumbs/NVKwDXqEmmk.webp",
+      "declaredTitle": "Une Belle Histoire (Fugain) : Accords Guitare"
+    },
+    "H-3FzDGyLZA": {
+      "status": "ok",
+      "uploadDate": "2024-10-27T04:00:18-07:00",
+      "duration": "PT7M52S",
+      "youtubeTitle": "Viva La Vida guitare - Tutoriel débutant simplifié 🎸",
+      "thumbnail": "/images/video-thumbs/H-3FzDGyLZA.webp",
+      "declaredTitle": "Viva La Vida (Coldplay) : Accords et Tablature Guitare"
+    },
+    "DBrSnoF0HqQ": {
+      "status": "ok",
+      "uploadDate": "2024-05-13T02:05:49-07:00",
+      "duration": "PT11M20S",
+      "youtubeTitle": "Viva La Vida à la guitare – tutoriel complet (Coldplay)",
+      "thumbnail": "/images/video-thumbs/DBrSnoF0HqQ.webp",
+      "declaredTitle": "Viva La Vida (Coldplay) : Accords et Tablature Guitare"
+    },
+    "soZiltPMTa4": {
+      "status": "ok",
+      "uploadDate": "2024-06-18T07:00:13-07:00",
+      "duration": "PT3M54S",
+      "youtubeTitle": "Viva La Vida guitare - Play Along complet (capo 1) 🎸",
+      "thumbnail": "/images/video-thumbs/soZiltPMTa4.webp",
+      "declaredTitle": "Viva La Vida (Coldplay) : Accords et Tablature Guitare"
+    },
+    "VmxphZivbiw": {
+      "status": "ok",
+      "uploadDate": "2025-01-05T03:00:16-08:00",
+      "duration": "PT4M48S",
+      "youtubeTitle": "What's Up - Guitare 🎸 Tutoriel Débutant (Version simple)",
+      "thumbnail": "/images/video-thumbs/VmxphZivbiw.webp",
+      "declaredTitle": "What's Up (4 Non Blondes) : Accords et Tablature Guitare"
+    },
+    "5LSvDmYaKFU": {
+      "status": "ok",
+      "uploadDate": "2026-07-20T08:00:05-07:00",
+      "duration": "PT6M12S",
+      "youtubeTitle": "What's Up (4 Non Blondes) guitare : 3 accords, tuto",
+      "thumbnail": "/images/video-thumbs/5LSvDmYaKFU.webp",
+      "declaredTitle": "What's Up (4 Non Blondes) : Accords et Tablature Guitare"
+    },
+    "VIKmAndFsm0": {
+      "status": "ok",
+      "uploadDate": "2024-03-26T08:47:36-07:00",
+      "duration": "PT4M40S",
+      "youtubeTitle": "What’s Up – playalong guitare avec accords (4 Non Blondes)",
+      "thumbnail": "/images/video-thumbs/VIKmAndFsm0.webp",
+      "declaredTitle": "What's Up (4 Non Blondes) : Accords et Tablature Guitare"
+    },
+    "JomLddLcL2M": {
+      "status": "ok",
+      "uploadDate": "2024-11-10T03:00:20-08:00",
+      "duration": "PT6M35S",
+      "youtubeTitle": "Where Is My Mind – Guitare 🎸 Tutoriel Débutant (Pixies)",
+      "thumbnail": "/images/video-thumbs/JomLddLcL2M.webp",
+      "declaredTitle": "Where Is My Mind (Pixies) : Accords et Tab Guitare"
+    },
+    "f83evhPPaoQ": {
+      "status": "ok",
+      "uploadDate": "2024-07-02T07:00:07-07:00",
+      "duration": "PT3M22S",
+      "youtubeTitle": "Where Is My Mind – Play Along Guitare (complet) 🎸",
+      "thumbnail": "/images/video-thumbs/f83evhPPaoQ.webp",
+      "declaredTitle": "Where Is My Mind (Pixies) : Accords et Tab Guitare"
+    },
+    "u43nywi1Dlo": {
+      "status": "ok",
+      "uploadDate": "2026-07-19T08:00:11-07:00",
+      "duration": "PT7M19S",
+      "youtubeTitle": "Where Is My Mind (Pixies) : tuto guitare débutant",
+      "thumbnail": "/images/video-thumbs/u43nywi1Dlo.webp",
+      "declaredTitle": "Where Is My Mind (Pixies) : Accords et Tab Guitare"
+    },
+    "0OyUCudbWX4": {
+      "status": "ok",
+      "uploadDate": "2024-12-22T03:00:19-08:00",
+      "duration": "PT6M51S",
+      "youtubeTitle": "Wonderwall à la guitare - Tutoriel débutant (capo 2) 🎸",
+      "thumbnail": "/images/video-thumbs/0OyUCudbWX4.webp",
+      "declaredTitle": "Wonderwall (Oasis) : Accords et Tablature Guitare"
+    },
+    "ahH6nVBsrNk": {
+      "status": "ok",
+      "uploadDate": "2022-10-27T08:30:02-07:00",
+      "duration": "PT2M50S",
+      "youtubeTitle": "Imagine – Ukulélé: Tutoriel facile pour débuter",
+      "thumbnail": "/images/video-thumbs/ahH6nVBsrNk.webp",
+      "declaredTitle": "Comment Jouer Imagine de John Lennon au Piano"
+    },
+    "yTNfbKpyW1w": {
+      "status": "ok",
+      "uploadDate": "2025-01-23T00:36:48-08:00",
+      "duration": "PT45S",
+      "youtubeTitle": "Jouez \"Imagine\" de John Lennon – Version Simple pour Débutants",
+      "thumbnail": "/images/video-thumbs/yTNfbKpyW1w.webp",
+      "declaredTitle": "Comment Jouer Imagine de John Lennon au Piano"
+    },
+    "cpdvLUY0xZI": {
+      "status": "ok",
+      "uploadDate": "2025-03-03T08:00:42-08:00",
+      "duration": "PT30S",
+      "youtubeTitle": "Imagine - Piano play along débutant (version simple) 🎹",
+      "thumbnail": "/images/video-thumbs/cpdvLUY0xZI.webp",
+      "declaredTitle": "Comment Jouer Imagine de John Lennon au Piano"
+    },
+    "Fm8tclrumsE": {
+      "status": "ok",
+      "uploadDate": "2025-03-01T08:00:24-08:00",
+      "duration": "PT30S",
+      "youtubeTitle": "Imagine – Piano play along débutant (version simple) 🎹",
+      "thumbnail": "/images/video-thumbs/Fm8tclrumsE.webp",
+      "declaredTitle": "Comment Jouer Imagine de John Lennon au Piano"
+    },
+    "1IxrMz-xibs": {
+      "status": "ok",
+      "uploadDate": "2026-06-16T08:00:10-07:00",
+      "duration": "PT1M9S",
+      "youtubeTitle": "Débuter le ukulélé : ta première leçon (1/16)",
+      "thumbnail": "/images/video-thumbs/1IxrMz-xibs.webp",
+      "declaredTitle": "Cours de Ukulélé Gratuit : 16 Vidéos pour Débuter de Zéro"
+    },
+    "yGjTKCGCRBk": {
+      "status": "ok",
+      "uploadDate": "2026-06-30T08:00:35-07:00",
+      "duration": "PT7M54S",
+      "youtubeTitle": "Accorder son ukulélé : la méthode simple débutant",
+      "thumbnail": "/images/video-thumbs/yGjTKCGCRBk.webp",
+      "declaredTitle": "Cours de Ukulélé Gratuit : 16 Vidéos pour Débuter de Zéro"
+    },
+    "LchvYznCmng": {
+      "status": "ok",
+      "uploadDate": "2026-07-21T08:00:36-07:00",
+      "duration": "PT12M1S",
+      "youtubeTitle": "4 accords au ukulélé pour jouer 1000 chansons",
+      "thumbnail": "/images/video-thumbs/LchvYznCmng.webp",
+      "declaredTitle": "Cours de Ukulélé Gratuit : 16 Vidéos pour Débuter de Zéro"
+    },
+    "bsQk9_V9n24": {
+      "status": "ok",
+      "uploadDate": "2026-07-28T09:00:37-07:00",
+      "duration": "PT7M59S",
+      "youtubeTitle": "Ta première rythmique au ukulélé qui groove",
+      "thumbnail": "/images/video-thumbs/bsQk9_V9n24.webp",
+      "declaredTitle": "Cours de Ukulélé Gratuit : 16 Vidéos pour Débuter de Zéro"
+    },
+    "Q9xxaRGF74c": {
+      "status": "ok",
+      "uploadDate": "2025-07-31T08:00:55-07:00",
+      "duration": "PT2M56S",
+      "youtubeTitle": "👉 “Tu vas ADORER jouer ça au ukulélé 😍 (Ordinary – Alex Warren)”",
+      "thumbnail": "/images/video-thumbs/Q9xxaRGF74c.webp",
+      "declaredTitle": "Ukulélé et Santé Mentale : Ce que Dit Vraiment la Science"
+    },
+    "AC04EWCiRi4": {
+      "status": "ok",
+      "uploadDate": "2025-07-21T05:57:01-07:00",
+      "duration": "PT2M49S",
+      "youtubeTitle": "👉 “Personne ne t’avait montré ça 😱 Joue ‘Viens On Essaie’ (Vitaa & Julien Doré) au ukulélé”",
+      "thumbnail": "/images/video-thumbs/AC04EWCiRi4.webp",
+      "declaredTitle": "Ukulélé et Santé Mentale : Ce que Dit Vraiment la Science"
+    },
+    "k84LDHEUEj8": {
+      "status": "ok",
+      "uploadDate": "2024-11-27T09:00:55-08:00",
+      "duration": "PT3M36S",
+      "youtubeTitle": "Creep by Radiohead on Ukulele - Play This Masterpiece in 3 Easy Minutes!",
+      "thumbnail": "/images/video-thumbs/k84LDHEUEj8.webp",
+      "declaredTitle": "Ukulélé et Santé Mentale : Ce que Dit Vraiment la Science"
+    },
+    "fcenZ4Zqj8M": {
+      "status": "ok",
+      "uploadDate": "2024-10-13T03:00:14-07:00",
+      "duration": "PT5M38S",
+      "youtubeTitle": "Clandestino guitare - Tutoriel débutant (3 accords) 🎸",
+      "thumbnail": "/images/video-thumbs/fcenZ4Zqj8M.webp",
+      "declaredTitle": "Clandestino (Manu Chao) : Accords et Tablature Guitare"
+    },
+    "R0U0blrNcaM": {
+      "status": "ok",
+      "uploadDate": "2025-03-12T08:00:35-07:00",
+      "duration": "PT7M33S",
+      "youtubeTitle": "Clandestino guitare - Tutoriel complet + version facile 🎸",
+      "thumbnail": "/images/video-thumbs/R0U0blrNcaM.webp",
+      "declaredTitle": "Clandestino (Manu Chao) : Accords et Tablature Guitare"
+    },
+    "cajhPhZDRlU": {
+      "status": "ok",
+      "uploadDate": "2024-05-07T07:10:25-07:00",
+      "duration": "PT2M29S",
+      "youtubeTitle": "Clandestino – Guitare Play Along facile (3 accords) 🎸",
+      "thumbnail": "/images/video-thumbs/cajhPhZDRlU.webp",
+      "declaredTitle": "Clandestino (Manu Chao) : Accords et Tablature Guitare"
+    },
+    "0WmyK-gFgq4": {
+      "status": "ok",
+      "uploadDate": "2024-04-22T02:50:35-07:00",
+      "duration": "PT4M25S",
+      "youtubeTitle": "Fields of Gold à la guitare – tutoriel complet (Sting)",
+      "thumbnail": "/images/video-thumbs/0WmyK-gFgq4.webp",
+      "declaredTitle": "Fields of Gold (Sting) : Accords et Tab Guitare"
+    },
+    "Lw5W5L4eNOo": {
+      "status": "ok",
+      "uploadDate": "2024-04-18T12:13:03-07:00",
+      "duration": "PT3M19S",
+      "youtubeTitle": "Fields of Gold – playalong guitare avec accords (Sting)",
+      "thumbnail": "/images/video-thumbs/Lw5W5L4eNOo.webp",
+      "declaredTitle": "Fields of Gold (Sting) : Accords et Tab Guitare"
+    },
+    "00vo_5ayyQM": {
+      "status": "ok",
+      "uploadDate": "2024-06-02T03:00:04-07:00",
+      "duration": "PT6M59S",
+      "youtubeTitle": "Hallelujah guitare – Tutoriel débutant simple 🎸",
+      "thumbnail": "/images/video-thumbs/00vo_5ayyQM.webp",
+      "declaredTitle": "Hallelujah (Jeff Buckley) : Accords et Tab Guitare"
+    },
+    "XjTbkEXzqHc": {
+      "status": "ok",
+      "uploadDate": "2026-08-13T09:00:19-07:00",
+      "duration": "PT10M1S",
+      "youtubeTitle": "Hallelujah à la guitare – tutoriel complet (Jeff Buckley)",
+      "thumbnail": "/images/video-thumbs/XjTbkEXzqHc.webp",
+      "declaredTitle": "Hallelujah (Jeff Buckley) : Accords et Tab Guitare"
+    },
+    "9N77P4o_RlI": {
+      "status": "ok",
+      "uploadDate": "2024-09-10T07:00:05-07:00",
+      "duration": "PT3M33S",
+      "youtubeTitle": "Hallelujah – Guitare Play Along complet + accords",
+      "thumbnail": "/images/video-thumbs/9N77P4o_RlI.webp",
+      "declaredTitle": "Hallelujah (Jeff Buckley) : Accords et Tab Guitare"
+    },
+    "_XN1LHmBsHA": {
+      "status": "ok",
+      "uploadDate": "2024-09-08T03:00:11-07:00",
+      "duration": "PT5M26S",
+      "youtubeTitle": "Hey Ya! Outkast guitare - Tutoriel débutant (5 étapes)",
+      "thumbnail": "/images/video-thumbs/_XN1LHmBsHA.webp",
+      "declaredTitle": "Hey Ya! (Outkast) : Accords et Tablature Guitare"
+    },
+    "9FpBiegyeaE": {
+      "status": "ok",
+      "uploadDate": "2025-02-26T07:00:12-08:00",
+      "duration": "PT5M1S",
+      "youtubeTitle": "Hey Ya! Outkast guitare - Tutoriel débutant complet 🎸",
+      "thumbnail": "/images/video-thumbs/9FpBiegyeaE.webp",
+      "declaredTitle": "Hey Ya! (Outkast) : Accords et Tablature Guitare"
+    },
+    "mAsqYo4G9co": {
+      "status": "ok",
+      "uploadDate": "2024-04-30T07:00:12-07:00",
+      "duration": "PT3M50S",
+      "youtubeTitle": "Outkast - Hey Ya! Guitare - Play along facile (80 bpm)",
+      "thumbnail": "/images/video-thumbs/mAsqYo4G9co.webp",
+      "declaredTitle": "Hey Ya! (Outkast) : Accords et Tablature Guitare"
+    },
+    "2nKY4jvFu5k": {
+      "status": "ok",
+      "uploadDate": "2024-04-20T08:23:24-07:00",
+      "duration": "PT6M23S",
+      "youtubeTitle": "La Seine à la guitare – tutoriel complet (Vanessa Paradis & -M-)",
+      "thumbnail": "/images/video-thumbs/2nKY4jvFu5k.webp",
+      "declaredTitle": "La Seine (Vanessa Paradis & -M-) : Accords et Tab Guitare"
+    },
+    "9Qa54ZVAobk": {
+      "status": "ok",
+      "uploadDate": "2025-03-05T07:00:18-08:00",
+      "duration": "PT8M9S",
+      "youtubeTitle": "La Seine – Guitare: Tutoriel simple et complet 🎸",
+      "thumbnail": "/images/video-thumbs/9Qa54ZVAobk.webp",
+      "declaredTitle": "La Seine (Vanessa Paradis & -M-) : Accords et Tab Guitare"
+    },
+    "pRBbKVaG2lE": {
+      "status": "ok",
+      "uploadDate": "2022-04-29T07:00:25-07:00",
+      "duration": "PT2M49S",
+      "youtubeTitle": "La Seine – Guitare Play Along - Vanessa Paradis & -M- 🎸",
+      "thumbnail": "/images/video-thumbs/pRBbKVaG2lE.webp",
+      "declaredTitle": "La Seine (Vanessa Paradis & -M-) : Accords et Tab Guitare"
+    },
+    "a_VoQaGba8k": {
+      "status": "ok",
+      "uploadDate": "2024-06-16T03:00:07-07:00",
+      "duration": "PT3M56S",
+      "youtubeTitle": "L’Opportuniste – Guitare 🎸 Tutoriel Débutant",
+      "thumbnail": "/images/video-thumbs/a_VoQaGba8k.webp",
+      "declaredTitle": "L'Opportuniste (Dutronc) : Accords et Tab Guitare"
+    },
+    "FJiiP7kNv2E": {
+      "status": "ok",
+      "uploadDate": "2024-05-07T07:17:52-07:00",
+      "duration": "PT6M47S",
+      "youtubeTitle": "L’Opportuniste à la guitare – tutoriel complet (Jacques Dutronc)",
+      "thumbnail": "/images/video-thumbs/FJiiP7kNv2E.webp",
+      "declaredTitle": "L'Opportuniste (Dutronc) : Accords et Tab Guitare"
+    },
+    "siU7HEfmGeg": {
+      "status": "ok",
+      "uploadDate": "2024-11-12T07:00:15-08:00",
+      "duration": "PT2M46S",
+      "youtubeTitle": "L'opportuniste – Guitare Play Along facile (complet)",
+      "thumbnail": "/images/video-thumbs/siU7HEfmGeg.webp",
+      "declaredTitle": "L'Opportuniste (Dutronc) : Accords et Tab Guitare"
+    },
+    "aUUhKVojziU": {
+      "status": "ok",
+      "uploadDate": "2022-11-03T11:06:17-07:00",
+      "duration": "PT39S",
+      "youtubeTitle": "Hakuna Matata ukulélé - Play Along Tutoriel facile 🎵",
+      "thumbnail": "/images/video-thumbs/aUUhKVojziU.webp",
+      "declaredTitle": "Les Meilleures Chaînes YouTube Françaises pour Apprendre le Ukulélé"
+    },
+    "-1Kz-UgEt2c": {
+      "status": "ok",
+      "uploadDate": "2023-03-27T02:52:20-07:00",
+      "duration": "PT44S",
+      "youtubeTitle": "Let It Be – Duo Guitare & Tongue Drum (Shorts)",
+      "thumbnail": "/images/video-thumbs/-1Kz-UgEt2c.webp",
+      "declaredTitle": "Les Meilleures Chaînes YouTube Françaises pour Apprendre le Ukulélé"
+    },
+    "lPt9RalzHDw": {
+      "status": "ok",
+      "uploadDate": "2024-08-11T03:00:10-07:00",
+      "duration": "PT5M25S",
+      "youtubeTitle": "Where Did You Sleep Last Night - Guitare | Tutoriel débutant",
+      "thumbnail": "/images/video-thumbs/lPt9RalzHDw.webp",
+      "declaredTitle": "Where Did You Sleep Last Night : Accords Guitare"
+    },
+    "zRQsxjbwEog": {
+      "status": "ok",
+      "uploadDate": "2024-05-07T07:17:22-07:00",
+      "duration": "PT8M13S",
+      "youtubeTitle": "Where Did You Sleep Last Night à la guitare – tutoriel Nirvana",
+      "thumbnail": "/images/video-thumbs/zRQsxjbwEog.webp",
+      "declaredTitle": "Where Did You Sleep Last Night : Accords Guitare"
+    },
+    "gZHUp6K12yU": {
+      "status": "ok",
+      "uploadDate": "2025-01-21T07:00:51-08:00",
+      "duration": "PT4M38S",
+      "youtubeTitle": "Where Did You Sleep Last Night – Guitare Play Along",
+      "thumbnail": "/images/video-thumbs/gZHUp6K12yU.webp",
+      "declaredTitle": "Where Did You Sleep Last Night : Accords Guitare"
+    },
+    "LxeIXcJgIQk": {
+      "status": "ok",
+      "uploadDate": "2023-10-14T07:00:19-07:00",
+      "duration": "PT1M45S",
+      "youtubeTitle": "Astuce accords ukulélé : apprendre… à l’envers",
+      "thumbnail": "/images/video-thumbs/LxeIXcJgIQk.webp",
+      "declaredTitle": "L'Origine et l'Histoire Fascinante de l'Ukulélé"
+    },
+    "qszeAz2YlRQ": {
+      "status": "ok",
+      "uploadDate": "2019-10-16T07:00:08-07:00",
+      "duration": "PT3M40S",
+      "youtubeTitle": "Ukulélé débutant: jouer sans bases et progresser 🎵",
+      "thumbnail": "/images/video-thumbs/qszeAz2YlRQ.webp",
+      "declaredTitle": "L'Origine et l'Histoire Fascinante de l'Ukulélé"
+    },
+    "8yLsHs_W0jI": {
+      "status": "ok",
+      "uploadDate": "2024-10-23T07:03:28-07:00",
+      "duration": "PT2M8S",
+      "youtubeTitle": "PlayAlong Ukulélé : \"Supersonic\" d'Oasis | Accords en Temps Réel + Tablature #ukulele",
+      "thumbnail": "/images/video-thumbs/8yLsHs_W0jI.webp",
+      "declaredTitle": "L'Origine et l'Histoire Fascinante de l'Ukulélé"
+    },
+    "bbW2GBKQ7Yg": {
+      "status": "ok",
+      "uploadDate": "2024-07-29T06:08:26-07:00",
+      "duration": "PT2M13S",
+      "youtubeTitle": "Shallow - Guitare Tutoriel Play Along (Lady Gaga) 🎸",
+      "thumbnail": "/images/video-thumbs/bbW2GBKQ7Yg.webp",
+      "declaredTitle": "Top 5 Accords Guitare Débutants - Enchaînement Facile"
+    },
+    "lq9gMSX-lE0": {
+      "status": "ok",
+      "uploadDate": "2024-05-26T03:00:07-07:00",
+      "duration": "PT6M12S",
+      "youtubeTitle": "Can't Help Falling in Love – Guitare - Tutoriel Débutant",
+      "thumbnail": "/images/video-thumbs/lq9gMSX-lE0.webp",
+      "declaredTitle": "Can't Help Falling in Love (Elvis) : Accords Guitare"
+    },
+    "rZuI7dVuC0E": {
+      "status": "ok",
+      "uploadDate": "2024-10-08T07:02:36-07:00",
+      "duration": "PT3M",
+      "youtubeTitle": "Can't Help Falling in Love guitare - Play Along facile 🎸",
+      "thumbnail": "/images/video-thumbs/rZuI7dVuC0E.webp",
+      "declaredTitle": "Can't Help Falling in Love (Elvis) : Accords Guitare"
+    },
+    "_y6QslDx2Uw": {
+      "status": "ok",
+      "uploadDate": "2024-05-07T07:18:49-07:00",
+      "duration": "PT8M25S",
+      "youtubeTitle": "Can’t Help Falling in Love à la guitare – tutoriel complet",
+      "thumbnail": "/images/video-thumbs/_y6QslDx2Uw.webp",
+      "declaredTitle": "Can't Help Falling in Love (Elvis) : Accords Guitare"
+    },
+    "oGzzFOOdvFs": {
+      "status": "ok",
+      "uploadDate": "2024-07-21T03:00:05-07:00",
+      "duration": "PT4M33S",
+      "youtubeTitle": "Across The Universe guitare - Tutoriel débutant 🎸",
+      "thumbnail": "/images/video-thumbs/oGzzFOOdvFs.webp",
+      "declaredTitle": "Across the Universe (Beatles) : Accords Guitare"
+    },
+    "j_pWtOlMJo0": {
+      "status": "ok",
+      "uploadDate": "2024-07-07T03:00:07-07:00",
+      "duration": "PT7M32S",
+      "youtubeTitle": "Don't Stop Me Now guitare - Tutoriel débutant 🎸",
+      "thumbnail": "/images/video-thumbs/j_pWtOlMJo0.webp",
+      "declaredTitle": "Don't Stop Me Now (Queen) : Accords et Tab Guitare"
+    },
+    "XlQXn361fQw": {
+      "status": "ok",
+      "uploadDate": "2024-09-29T03:00:11-07:00",
+      "duration": "PT7M11S",
+      "youtubeTitle": "Everybody Hurts guitare – Tutoriel débutant simple 🎸",
+      "thumbnail": "/images/video-thumbs/XlQXn361fQw.webp",
+      "declaredTitle": "Everybody Hurts (R.E.M.) : Accords et Tab Guitare"
+    },
+    "0l-5FzzEQcg": {
+      "status": "ok",
+      "uploadDate": "2024-04-15T09:50:45-07:00",
+      "duration": "PT4M45S",
+      "youtubeTitle": "Everybody Hurts – Guitare Play Along facile (complet)",
+      "thumbnail": "/images/video-thumbs/0l-5FzzEQcg.webp",
+      "declaredTitle": "Everybody Hurts (R.E.M.) : Accords et Tab Guitare"
+    },
+    "Ta06enxWgN0": {
+      "status": "ok",
+      "uploadDate": "2024-10-06T03:00:21-07:00",
+      "duration": "PT7M28S",
+      "youtubeTitle": "Foule Sentimentale guitare - Tutoriel débutant simple",
+      "thumbnail": "/images/video-thumbs/Ta06enxWgN0.webp",
+      "declaredTitle": "Foule Sentimentale (Souchon) : Accords et Tab Guitare"
+    },
+    "8wzmoLj0XlM": {
+      "status": "ok",
+      "uploadDate": "2022-04-19T07:53:35-07:00",
+      "duration": "PT5M24S",
+      "youtubeTitle": "Foule Sentimentale guitare - Play Along facile 🎸",
+      "thumbnail": "/images/video-thumbs/8wzmoLj0XlM.webp",
+      "declaredTitle": "Foule Sentimentale (Souchon) : Accords et Tab Guitare"
+    },
+    "j0hXAUERApw": {
+      "status": "ok",
+      "uploadDate": "2024-05-12T03:00:06-07:00",
+      "duration": "PT5M1S",
+      "youtubeTitle": "House Of The Rising Sun guitare - Tutoriel débutant",
+      "thumbnail": "/images/video-thumbs/j0hXAUERApw.webp",
+      "declaredTitle": "House of The Rising Sun : Accords et Tab Guitare"
+    },
+    "OPwxXfcsbUw": {
+      "status": "ok",
+      "uploadDate": "2024-05-07T07:19:06-07:00",
+      "duration": "PT6M31S",
+      "youtubeTitle": "House of the Rising Sun à la guitare – tutoriel facile",
+      "thumbnail": "/images/video-thumbs/OPwxXfcsbUw.webp",
+      "declaredTitle": "House of The Rising Sun : Accords et Tab Guitare"
+    },
+    "pTxadAtw4qs": {
+      "status": "ok",
+      "uploadDate": "2024-09-24T07:00:29-07:00",
+      "duration": "PT3M41S",
+      "youtubeTitle": "House of the Rising Sun guitare - Play Along facile 🎸",
+      "thumbnail": "/images/video-thumbs/pTxadAtw4qs.webp",
+      "declaredTitle": "House of The Rising Sun : Accords et Tab Guitare"
+    },
+    "iWv5RgwglDA": {
+      "status": "ok",
+      "uploadDate": "2024-11-03T03:00:16-08:00",
+      "duration": "PT5M35S",
+      "youtubeTitle": "J'veux du soleil guitare - Tutoriel débutant simple 🎸",
+      "thumbnail": "/images/video-thumbs/iWv5RgwglDA.webp",
+      "declaredTitle": "J'veux du Soleil : Accords et Tablature Guitare"
+    },
+    "kTSgGvu2WlQ": {
+      "status": "ok",
+      "uploadDate": "2025-03-19T08:00:59-07:00",
+      "duration": "PT7M3S",
+      "youtubeTitle": "J'veux du Soleil guitare - Tutoriel débutant simple 🎸",
+      "thumbnail": "/images/video-thumbs/kTSgGvu2WlQ.webp",
+      "declaredTitle": "J'veux du Soleil : Accords et Tablature Guitare"
+    },
+    "HnjPJ5cHGpc": {
+      "status": "ok",
+      "uploadDate": "2024-06-25T07:00:10-07:00",
+      "duration": "PT2M34S",
+      "youtubeTitle": "J'veux du soleil - Guitare Play Along facile (complet) 🎸",
+      "thumbnail": "/images/video-thumbs/HnjPJ5cHGpc.webp",
+      "declaredTitle": "J'veux du Soleil : Accords et Tablature Guitare"
+    },
+    "VqGD0NHeGNE": {
+      "status": "ok",
+      "uploadDate": "2024-08-18T03:00:22-07:00",
+      "duration": "PT6M40S",
+      "youtubeTitle": "Les Copains d’abord guitare – Tutoriel débutant 🎸",
+      "thumbnail": "/images/video-thumbs/VqGD0NHeGNE.webp",
+      "declaredTitle": "Les Copains d'Abord (Brassens) : Accords Guitare"
+    },
+    "KFpcmLv-vu4": {
+      "status": "ok",
+      "uploadDate": "2024-05-07T08:39:31-07:00",
+      "duration": "PT10M59S",
+      "youtubeTitle": "Les Copains d’abord à la guitare – tutoriel complet (Brassens)",
+      "thumbnail": "/images/video-thumbs/KFpcmLv-vu4.webp",
+      "declaredTitle": "Les Copains d'Abord (Brassens) : Accords Guitare"
+    },
+    "xQrS__o0yFc": {
+      "status": "ok",
+      "uploadDate": "2025-02-04T07:00:59-08:00",
+      "duration": "PT4M1S",
+      "youtubeTitle": "Les copains d’abord – Guitare Play Along complet + accords",
+      "thumbnail": "/images/video-thumbs/xQrS__o0yFc.webp",
+      "declaredTitle": "Les Copains d'Abord (Brassens) : Accords Guitare"
+    },
+    "IQDmUoKzZko": {
+      "status": "ok",
+      "uploadDate": "2024-03-29T08:14:22-07:00",
+      "duration": "PT4M27S",
+      "youtubeTitle": "More Than Words – playalong guitare avec accords (Extreme)",
+      "thumbnail": "/images/video-thumbs/IQDmUoKzZko.webp",
+      "declaredTitle": "More Than Words (Extreme) : Accords Guitare"
+    },
+    "4MIfAwX8NRs": {
+      "status": "ok",
+      "uploadDate": "2012-06-13T14:44:10-07:00",
+      "duration": "PT12M57S",
+      "youtubeTitle": "Apprenez 'A NOS ACTES MANQUÉS' de Jean-Jacques Goldman - Tutoriel Guitare Complet",
+      "thumbnail": "/images/video-thumbs/4MIfAwX8NRs.webp",
+      "declaredTitle": "Jean-Jacques Goldman à la Guitare - Tutoriels"
+    },
+    "3uTHfVIbTLI": {
+      "status": "ok",
+      "uploadDate": "2014-03-18T06:48:47-07:00",
+      "duration": "PT3M27S",
+      "youtubeTitle": "On ira – Guitare | Tutoriel détaillé pour débuter 🎸",
+      "thumbnail": "/images/video-thumbs/3uTHfVIbTLI.webp",
+      "declaredTitle": "Jean-Jacques Goldman à la Guitare - Tutoriels"
+    },
+    "fTH2y1mhEoU": {
+      "status": "ok",
+      "uploadDate": "2022-04-17T07:50:36-07:00",
+      "duration": "PT4M25S",
+      "youtubeTitle": "On ira – Jean‑Jacques Goldman | Play Along guitare facile 🎸",
+      "thumbnail": "/images/video-thumbs/fTH2y1mhEoU.webp",
+      "declaredTitle": "Jean-Jacques Goldman à la Guitare - Tutoriels"
+    }
+  }
+}

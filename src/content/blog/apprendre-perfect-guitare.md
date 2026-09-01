@@ -23,8 +23,8 @@ songInfo:
 videos:
   - title: "Version Simplifiée Tutoriel"
     url: "https://youtu.be/Mq27EPbPNjg"
-  - title: "Tutoriel Rythmique Complète"
-    url: "https://youtube.com/shorts/B3Y07H9DaAo?feature=share"
+  - title: "Perfect - Guitare Play Along: Tuto complet pour jouer"
+    url: "https://youtu.be/xAYuq6aZ87w"
   - title: "Play Along"
     url: "https://youtu.be/h-XzF_ACcI4"
 
@@ -145,7 +145,7 @@ Parce qu’il parle à tout le monde, sans jamais tricher sur l’émotion, et p
 Pour apprendre "Perfect" facilement et progresser pas à pas, voici des ressources sélectionnées :
 
 - **Version Simplifiée Tutoriel** : [YouTube](https://youtu.be/Mq27EPbPNjg)
-- **Tutoriel Rythmique Complète** : [YouTube Short](https://youtube.com/shorts/B3Y07H9DaAo?feature=share)
+- **Tutoriel Rythmique Complète** : [Play along vidéo](https://youtu.be/xAYuq6aZ87w)
 - **Play Along** : [Joue en même temps](https://youtu.be/h-XzF_ACcI4)
 
 Ces vidéos te guideront dans l’apprentissage, que tu sois débutant ou plus avancé, et t’aideront à peaufiner chaque détail de la chanson.

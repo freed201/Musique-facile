@@ -23,8 +23,8 @@ songInfo:
 videos:
   - title: "Tutoriel simplifié pour débutants"
     url: "https://youtu.be/DYAGYjbJBn0"
-  - title: "Démonstration de la version simple"
-    url: "https://youtube.com/shorts/uwFiDGnnBM4?feature=share"
+  - title: "Une Belle Histoire à la guitare – tutoriel complet (Michel Fugain)"
+    url: "https://youtu.be/4Y0fh6FsW-A"
   - title: "Tutoriel complet : Rythmique et structure"
     url: "https://youtu.be/4Y0fh6FsW-A"
   - title: "Play Along : Joue avec la chanson"
@@ -130,7 +130,7 @@ Le morceau est idéal pour progresser à la guitare et explorer différentes cou
 Sur la page 78 du livre "40 CHANSONS FRANÇAISES ET HITS POP-ROCK", tu trouveras une version adaptée à tous les niveaux, permettant de t’initier aux enchaînements d’accords complexes sans te décourager.
 
 - **Tutoriel simplifié pour débutants** : [YouTube](https://youtu.be/DYAGYjbJBn0) – parfait pour apprendre la base du morceau à ton rythme.
-- **Démonstration version courte** : [YouTube Short](https://youtube.com/shorts/uwFiDGnnBM4?feature=share) – pour visualiser les changements d’accords en temps réel.
+- **Démonstration version courte** : [Tutoriel vidéo](https://youtu.be/4Y0fh6FsW-A) – pour visualiser les changements d’accords en temps réel.
 - **Tutoriel complet** : [Rythmique et structure](https://youtu.be/4Y0fh6FsW-A) – pour maîtriser chaque section, des couplets au refrain.
 - **Play Along** : [Joue avec la chanson](https://youtu.be/NVKwDXqEmmk) – entraine-toi en conditions réelles, comme si tu accompagnais le Big Bazar sur scène !
 

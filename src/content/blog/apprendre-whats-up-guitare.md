@@ -32,8 +32,8 @@ songInfo:
 videos:
   - title: "Tutoriel What's Up - Version Simplifiée"
     url: "https://youtu.be/VmxphZivbiw"
-  - title: "What's Up - YouTube Shorts"
-    url: "https://youtube.com/shorts/rJu3ADWM9NY"
+  - title: "What's Up (4 Non Blondes) guitare : 3 accords, tuto"
+    url: "https://youtu.be/5LSvDmYaKFU"
   - title: "Maîtriser What's Up - Analyse Complète"
     url: "https://youtu.be/5LSvDmYaKFU"
   - title: "Play Along What's Up"

@@ -31,8 +31,8 @@ songInfo:
 videos:
   - title: "Tutoriel version simplifiée : les bases pour débuter"
     url: "https://youtu.be/_XN1LHmBsHA"
-  - title: "Shorts - extrait réfléchi"
-    url: "https://youtube.com/shorts/yn69Xp9V-ug"
+  - title: "Hey Ya! Outkast guitare - Tutoriel débutant complet"
+    url: "https://youtu.be/9FpBiegyeaE"
   - title: "Tutoriel complet : améliorons le morceau"
     url: "https://youtu.be/9FpBiegyeaE"
   - title: "Play Along : joue avec moi et Outkast"

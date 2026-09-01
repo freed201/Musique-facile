@@ -21,8 +21,8 @@ songInfo:
 videos:
   - title: "Tutoriel Simplifié : Jouer 'Everybody Hurts'"
     url: "https://youtu.be/XlQXn361fQw"
-  - title: "Démo : Version simple à la guitare"
-    url: "https://youtube.com/shorts/KJZ9WSr7NjA?feature=share"
+  - title: "Everybody Hurts – Guitare Play Along facile (complet)"
+    url: "https://youtu.be/0l-5FzzEQcg"
   - title: "Play-Along : Jouez 'Everybody Hurts' en direct"
     url: "https://youtu.be/0l-5FzzEQcg"
 
@@ -128,7 +128,7 @@ L'impact de "Everybody Hurts" ne se limite pas seulement à la musique. Elle a �
 Pour ceux intéressés par l'apprentissage de cette pièce, elle est une parfaite initiation aux nuances de la guitare grâce à sa difficulté modérée et sa progression d'accords simple. Voici quelques ressources pour vous aider à maîtriser ce morceau :
 
 1. **Tutoriel Version Simplifiée** : Parfait pour les débutants, cette version se concentre sur les bases, sans inclure le pont. [Tutoriel simplifié sur YouTube](https://youtu.be/XlQXn361fQw)
-2. **Démo Version simple** : Une présentation pour visualiser comment jouer ces accords dans un rythme fluide. [Vidéo démo sur YouTube](https://youtube.com/shorts/KJZ9WSr7NjA?feature=share)
+2. **Démo Version simple** : Une présentation pour visualiser comment jouer ces accords dans un rythme fluide. [Vidéo démo sur YouTube](https://youtu.be/0l-5FzzEQcg)
 3. **Play-Along** : Une vidéo pour jouer en temps réel avec des indications à l'écran. [Vidéo Play-Along sur YouTube](https://youtu.be/0l-5FzzEQcg)
 
 Une fois les arpèges d'"Everybody Hurts" en place, prolonge dans le même registre émouvant avec [Chasing Cars de Snow Patrol](/blog/apprendre-chasing-cars-guitare/), une autre ballade rock accessible.

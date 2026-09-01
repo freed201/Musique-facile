@@ -27,8 +27,8 @@ videos:
     url: "https://www.youtube.com/watch?v=lq9gMSX-lE0"
   - title: "Play Along : Joue avec Elvis Presley"
     url: "https://www.youtube.com/watch?v=rZuI7dVuC0E"
-  - title: "Tutoriel simplifié : Short YouTube"
-    url: "https://www.youtube.com/shorts/idJT93pMTh0"
+  - title: "Can’t Help Falling in Love à la guitare – tutoriel complet"
+    url: "https://youtu.be/_y6QslDx2Uw"
   - title: "Tutoriel avancé : Maîtrise complète"
     url: "https://www.youtube.com/watch?v=_y6QslDx2Uw"
 
