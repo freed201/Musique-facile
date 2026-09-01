@@ -62,7 +62,7 @@ faqs:
 
 ## En bref
 
-**J'veux du Soleil d'Au P'tit Bonheur se joue avec seulement 3 accords (Am, E, Dm), sans capo nécessaire.** Difficulté 3/5 à cause du tempo entraînant (108 BPM), mais la grille se répète : parfait pour une première chanson complète.
+**J'veux du Soleil d'[Au P'tit Bonheur](https://fr.wikipedia.org/wiki/Au_p%27tit_bonheur) se joue avec seulement 3 accords (Am, E, Dm), sans capo nécessaire.** Difficulté 3/5 à cause du tempo entraînant (108 BPM), mais la grille se répète : parfait pour une première chanson complète.
 
 - **Accords** : Am, E, Dm (3 seulement)
 - **Capo** : aucun (case 2 en option pour éviter le barré)

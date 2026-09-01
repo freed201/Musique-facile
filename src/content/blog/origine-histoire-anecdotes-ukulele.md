@@ -41,7 +41,7 @@ faqs:
 ---
 ## En bref
 
-L'ukulélé est né à **Hawaï vers 1879**, dérivé du *machete* (ou braguinha) apporté par des immigrants portugais de Madère — dont le luthier **Manuel Nunes**. Adopté par le roi Kalākaua et la danse hula, il est devenu un symbole hawaïen avant de conquérir le monde. Son nom signifie « puce sauteuse », clin d'œil au mouvement vif des doigts.
+L'ukulélé est né à **Hawaï vers 1879**, dérivé du *machete* (ou braguinha) apporté par des immigrants portugais de Madère — dont le luthier **Manuel Nunes**. Adopté par le [roi Kalākaua](https://fr.wikipedia.org/wiki/Kal%C4%81kaua) et la danse hula, il est devenu un symbole hawaïen avant de conquérir le monde. Son nom signifie « puce sauteuse », clin d'œil au mouvement vif des doigts.
 
 - **Racines** : le *machete* portugais de Madère, 1879
 - **Adoption** : Hawaï, sous l'impulsion du roi Kalākaua

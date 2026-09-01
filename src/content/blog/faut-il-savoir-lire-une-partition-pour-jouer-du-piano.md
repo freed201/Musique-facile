@@ -96,7 +96,7 @@ En maîtrisant cette lecture :
 
 ::: info
 
-Les fameuses études de Czerny ou les exercices de Hanon ne sont pas là par hasard. Ils renforcent la technique et la capacité à lire rapidement des partitions, tout en développant la sensibilité musicale.
+Les fameuses études de [Czerny](https://fr.wikipedia.org/wiki/Carl_Czerny) ou les exercices de [Hanon](https://fr.wikipedia.org/wiki/Charles-Louis_Hanon) ne sont pas là par hasard. Ils renforcent la technique et la capacité à lire rapidement des partitions, tout en développant la sensibilité musicale.
 
 :::
 

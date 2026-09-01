@@ -35,7 +35,7 @@ faqs:
 
 ## En bref
 
-**Jouer d'un instrument stimule la neuroplasticité** : ton cerveau crée de nouvelles connexions à chaque nouvel accord ou mélodie appris, quel que soit ton âge. La musique agit aussi comme un régulateur naturel du stress et de l'humeur. Le seul vrai prérequis : la régularité.
+**Jouer d'un instrument stimule la [neuroplasticité](https://fr.wikipedia.org/wiki/Plasticit%C3%A9_neuronale)** : ton cerveau crée de nouvelles connexions à chaque nouvel accord ou mélodie appris, quel que soit ton âge. La musique agit aussi comme un régulateur naturel du stress et de l'humeur. Le seul vrai prérequis : la régularité.
 
 - **À tout âge** : la neuroplasticité reste active chez l'adulte
 - **Bienfaits** : mémoire, coordination, concentration, bien-être

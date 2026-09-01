@@ -46,7 +46,7 @@ faqs:
   - question: "Smells Like Teen Spirit est-elle difficile pour un débutant ?"
     answer: "C'est un niveau intermédiaire (4/5). Les power chords sont faciles à former, mais le tempo est soutenu (117 BPM) et il faut gérer l'étouffement des cordes (palm mute) et la dynamique. Commence lentement, travaille les déplacements de la forme, puis cherche le contraste doux/fort. Une petite disto aide à obtenir le bon son."
 ---
-En 1991, « Smells Like Teen Spirit » fait basculer le rock. Sur l'album *Nevermind* de Nirvana, ce titre devient l'hymne de toute une génération et impose le grunge au grand public. Bonne nouvelle pour le débutant : le riff le plus célèbre des années 90 repose sur **4 power chords**, une seule forme qu'on déplace. C'est le morceau parfait pour apprendre cette technique rock essentielle.
+En 1991, « Smells Like Teen Spirit » fait basculer le rock. Sur l'album *Nevermind* de [Nirvana](https://fr.wikipedia.org/wiki/Smells_Like_Teen_Spirit), ce titre devient l'hymne de toute une génération et impose le grunge au grand public. Bonne nouvelle pour le débutant : le riff le plus célèbre des années 90 repose sur **4 power chords**, une seule forme qu'on déplace. C'est le morceau parfait pour apprendre cette technique rock essentielle.
 
 ## En bref
 

@@ -31,7 +31,7 @@ faqs:
 
 ## En bref
 
-La **pratique délibérée** — concept théorisé par le psychologue Anders Ericsson — consiste à cibler un point faible précis et à le travailler lentement, avec un objectif clair et un retour immédiat sur sa progression. C'est la **qualité de l'attention**, pas le nombre d'heures, qui fait progresser.
+La **pratique délibérée** — concept théorisé par le psychologue [Anders Ericsson](https://fr.wikipedia.org/wiki/K._Anders_Ericsson) — consiste à cibler un point faible précis et à le travailler lentement, avec un objectif clair et un retour immédiat sur sa progression. C'est la **qualité de l'attention**, pas le nombre d'heures, qui fait progresser.
 
 - **Le principe** : cibler ce qui coince plutôt que rejouer ce qu'on maîtrise déjà
 - **La méthode** : un objectif unique, le passage isolé, joué lentement puis accéléré, avec feedback
