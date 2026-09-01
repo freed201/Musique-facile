@@ -153,6 +153,10 @@ class ScrollAnimationManager {
     if (counters.length === 0) return;
 
     const animateCounter = (el) => {
+      // La valeur finale est deja ecrite dans le HTML au build (src/data/proof.ts) :
+      // on la memorise pour la restituer telle quelle a la fin, plutot que de la
+      // reformater. Sans ca, l'animation « corrigerait » le texte servi aux robots.
+      const finalText = el.textContent;
       const target = parseInt(el.dataset.counter);
       const duration = parseInt(el.dataset.duration) || 2000;
       const suffix = el.dataset.counterSuffix || '';
@@ -187,7 +191,7 @@ class ScrollAnimationManager {
         if (progress < 1) {
           requestAnimationFrame(updateCounter);
         } else {
-          el.textContent = prefix + formatNumber(target) + suffix;
+          el.textContent = finalText;
         }
       };
 
@@ -546,32 +550,21 @@ const initAnimations = () => {
      navigator.connection.effectiveType === '2g' ||
      navigator.connection.effectiveType === '3g');
 
+  // Sans IntersectionObserver, ScrollAnimationManager leverait a la construction
+  // et emporterait le reste de l'init avec lui.
+  const supportsObserver = 'IntersectionObserver' in window;
+
   // Toujours actif
   new PerformanceMonitor();
 
-  if (!prefersReducedMotion && !hasSlowConnection) {
+  // Pas de branche de repli : les valeurs finales des compteurs et les textes des
+  // sections sont deja dans le HTML rendu au build. Quand on n'anime pas, on ne
+  // touche a rien — les classes qui masquent (.animate-reveal, .stagger-item) ne
+  // sont posees que par ScrollAnimationManager, donc elles n'existent pas ici.
+  if (!prefersReducedMotion && !hasSlowConnection && supportsObserver) {
     injectAnimationStyles();
     new ScrollAnimationManager();
     new ParallaxManager();
-  } else {
-    // Fallback : afficher les valeurs finales des compteurs sans animation
-    document.querySelectorAll('[data-counter]').forEach((el) => {
-      const target = parseInt(el.dataset.counter);
-      const suffix = el.dataset.counterSuffix || '';
-      const prefix = el.dataset.counterPrefix || '';
-      const decimals = parseInt(el.dataset.counterDecimals) || 0;
-      if (decimals > 0) {
-        el.textContent = prefix + target.toFixed(decimals).replace('.', ',') + suffix;
-      } else {
-        el.textContent = prefix + (target >= 1000 ? target.toLocaleString('fr-FR') : target) + suffix;
-      }
-    });
-
-    // Rendre tout visible immediatement
-    document.querySelectorAll('.animate-reveal, .stagger-item').forEach((el) => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-    });
   }
 
   if (!prefersReducedMotion) {

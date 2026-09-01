@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import OptimizedImage from '../components/OptimizedImage.astro';
+import { students, rating, reviews, videos, teachingYears, reviewsSource } from '../data/proof';
 
 const title = "À propos de Fred Fieffé et Musique Facile — Professeur de Musique en Ligne";
 const description = "Fred Fieffé, professeur de musique avec 15 ans d'expérience et fondateur de Musique Facile, a formé 80 000+ élèves en guitare, piano, ukulélé et solfège depuis 2015.";
@@ -85,15 +86,15 @@ const breadcrumbSchema = {
 
             <div class="about-hero__stats">
               <div class="stat">
-                <span class="stat__number">80 000+</span>
+                <span class="stat__number">{students.display}</span>
                 <span class="stat__label">Élèves formés</span>
               </div>
               <div class="stat">
-                <span class="stat__number">4.7/5</span>
+                <span class="stat__number">{rating.display}</span>
                 <span class="stat__label">Note moyenne</span>
               </div>
               <div class="stat">
-                <span class="stat__number">15 ans</span>
+                <span class="stat__number">{teachingYears.display}</span>
                 <span class="stat__label">D'expérience</span>
               </div>
             </div>
@@ -253,19 +254,20 @@ const breadcrumbSchema = {
                 <dd>2015</dd>
 
                 <dt>Élèves formés</dt>
-                <dd>80 000+</dd>
+                <dd>{students.display}</dd>
 
                 <dt>Note moyenne</dt>
-                <dd>4.7/5 ⭐</dd>
+                <dd>{rating.display} ⭐</dd>
 
                 <dt>Avis vérifiés</dt>
-                <dd>929</dd>
+                <dd>
+                  <a href={reviewsSource.url} rel="noopener nofollow" target="_blank">
+                    {reviews.display} sur {reviewsSource.name}
+                  </a>
+                </dd>
 
                 <dt>Vidéos disponibles</dt>
-                <dd>1 400+</dd>
-
-                <dt>Taux de satisfaction</dt>
-                <dd>95%</dd>
+                <dd>{videos.display}</dd>
 
                 <dt>Distinction</dt>
                 <dd>Meilleur formateur Skilleos 2023/2024</dd>

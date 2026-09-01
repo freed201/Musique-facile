@@ -16,6 +16,7 @@
 
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import { ratingValue, bestRating, reviews, ratingSummary } from '../data/proof';
 
 // Composants modernises
 import HeroModern from '../components/HeroModern.astro';
@@ -73,9 +74,9 @@ const organizationSchema = {
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "reviewCount": "929",
-    "bestRating": "5"
+    "ratingValue": ratingValue,
+    "reviewCount": reviews.display,
+    "bestRating": bestRating
   }
 };
 
@@ -176,7 +177,7 @@ const faqSchema = {
       "name": "Musique Facile est-il fiable ? Quels sont les avis des élèves ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Avec une note de 4.7/5 basée sur 929 avis et plus de 80 000 élèves formés depuis 2015, Musique Facile est une plateforme reconnue. Fred Fieffé est également formateur sur LinkedIn Learning et Skilleos, et auteur de méthodes publiées chez Hal Leonard, l'un des plus grands éditeurs de partitions au monde."
+        "text": `Avec une note de ${ratingSummary} et plus de 80 000 élèves formés depuis 2015, Musique Facile est une plateforme reconnue. Fred Fieffé est également formateur sur LinkedIn Learning et Skilleos, et auteur de méthodes publiées chez Hal Leonard, l'un des plus grands éditeurs de partitions au monde.`
       }
     }
   ]

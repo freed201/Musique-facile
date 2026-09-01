@@ -5,6 +5,7 @@
  * Storytelling : musicien pro > pedagogue > 80 000 eleves.
  * Layout 2 colonnes : photo/video + texte + credentials.
  */
+import { students, rating, videos, teachingYears, counterAttrs } from '../data/proof';
 
 interface Props {
   title?: string;
@@ -91,19 +92,19 @@ const {
 
         <div class="instructor-stats" data-stagger-group=".stat">
           <div class="stat">
-            <span class="stat-number" data-counter="80000" data-counter-suffix="+" data-duration="2000">0</span>
+            <span class="stat-number" {...counterAttrs(students)}>{students.display}</span>
             <span class="stat-label">élèves formés</span>
           </div>
           <div class="stat">
-            <span class="stat-number" data-counter="4" data-counter-suffix=".7/5" data-duration="1500">0</span>
+            <span class="stat-number" {...counterAttrs(rating)}>{rating.display}</span>
             <span class="stat-label">note moyenne</span>
           </div>
           <div class="stat">
-            <span class="stat-number" data-counter="1400" data-counter-suffix="+" data-duration="2000">0</span>
+            <span class="stat-number" {...counterAttrs(videos)}>{videos.display}</span>
             <span class="stat-label">vidéos</span>
           </div>
           <div class="stat">
-            <span class="stat-number" data-counter="15" data-counter-suffix=" ans" data-duration="1500">0</span>
+            <span class="stat-number" {...counterAttrs(teachingYears)}>{teachingYears.display}</span>
             <span class="stat-label">d'expérience</span>
           </div>
         </div>

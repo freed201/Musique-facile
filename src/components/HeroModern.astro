@@ -1,5 +1,6 @@
 ---
 import Icon from './Icon.astro';
+import { studentsShort, videos, rating, ratingSummary, counterAttrs } from '../data/proof';
 /**
  * HeroModern.astro
  * Hero section modernisée - Design épuré avec 1 CTA principal
@@ -39,7 +40,7 @@ const {
       <!-- Badge de confiance -->
       <div class="hero-badge">
         <span class="badge-icon">★</span>
-        <span class="badge-text">4.7/5 sur 929 avis</span>
+        <span class="badge-text">{ratingSummary}</span>
       </div>
 
       <!-- Tagline GEO (positionnement ecole de musique en ligne) -->
@@ -124,16 +125,16 @@ const {
       )}
       <div class="hero-stats">
         <div class="stat-card">
-          <span class="stat-number" data-counter="80" data-counter-suffix="K+" data-duration="2000">0</span>
+          <span class="stat-number" {...counterAttrs(studentsShort)}>{studentsShort.display}</span>
           <span class="stat-label">Élèves formés</span>
         </div>
         <div class="stat-card">
-          <span class="stat-number" data-counter="1400" data-counter-suffix="+" data-duration="2500">0</span>
+          <span class="stat-number" {...counterAttrs(videos)}>{videos.display}</span>
           <span class="stat-label">Vidéos HD</span>
         </div>
         <div class="stat-card">
-          <span class="stat-number" data-counter="95" data-counter-suffix="%" data-duration="1800">0</span>
-          <span class="stat-label">Satisfaction</span>
+          <span class="stat-number" {...counterAttrs(rating)}>{rating.display}</span>
+          <span class="stat-label">Note moyenne</span>
         </div>
       </div>
     </div>

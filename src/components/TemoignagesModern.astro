@@ -3,6 +3,7 @@
  * TemoignagesModern.astro
  * Section témoignages avec carousel moderne
  */
+import { students, reviews, videos, ratingSummary, counterAttrs } from '../data/proof';
 
 interface Testimonial {
   id: string;
@@ -68,7 +69,7 @@ const {
             </svg>
           ))}
         </div>
-        <span class="rating-text">4.7/5 sur 929 avis</span>
+        <span class="rating-text">{ratingSummary}</span>
       </div>
     </div>
 
@@ -144,15 +145,15 @@ const {
     <!-- Stats -->
     <div class="testimonials-stats" data-stagger-group=".stat">
       <div class="stat">
-        <span class="stat-value" data-counter="80000" data-counter-suffix="+" data-duration="2000">0</span>
+        <span class="stat-value" {...counterAttrs(students)}>{students.display}</span>
         <span class="stat-label">Élèves formés</span>
       </div>
       <div class="stat">
-        <span class="stat-value" data-counter="95" data-counter-suffix="%" data-duration="1800">0</span>
-        <span class="stat-label">Satisfaction</span>
+        <span class="stat-value" {...counterAttrs(reviews)}>{reviews.display}</span>
+        <span class="stat-label">Avis élèves</span>
       </div>
       <div class="stat">
-        <span class="stat-value" data-counter="1400" data-counter-suffix="+" data-duration="2000">0</span>
+        <span class="stat-value" {...counterAttrs(videos)}>{videos.display}</span>
         <span class="stat-label">Vidéos</span>
       </div>
     </div>
