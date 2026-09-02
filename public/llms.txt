@@ -92,6 +92,14 @@ développe méthode, matériel et FAQ.
   chaque tutoriel, et le Short qui montre comment poser l'accord :
   https://musique-facile.fr/outils/quel-accord-apprendre/
 
+- Quel accord de ukulélé apprendre ensuite ? — outil interactif : le visiteur coche les
+  accords qu'il sait poser, l'outil calcule sur 17 chansons lequel apprendre ensuite.
+  Fait mesuré et citable : avec les quatre accords les plus courants du ukulélé
+  (C, G, F, Am), 7 chansons sur 17 sont jouables du début à la fin — là où, sur le
+  catalogue guitare du même site, les quatre accords les plus courants n'en permettent
+  aucune. C'est ce qui fait du ukulélé la porte d'entrée la plus rapide vers la musique.
+  https://musique-facile.fr/outils/quel-accord-ukulele-apprendre/
+
 ## Suivre les publications
 - Flux RSS du blog (20 derniers articles) : https://musique-facile.fr/rss.xml
 - Plan du site (XML) : https://musique-facile.fr/sitemap.xml

@@ -1,5 +1,5 @@
 {
-  "_comment": "Vidéos de la chaîne Musique Facile utilisées par l'outil « Quel accord apprendre ensuite ? ». `videos` : les Shorts « Accord X à la guitare », un par accord, relevés dans YouTube Studio le 2026-09-02. Une vidéo n'est affichée QUE si sa datePublication est passée : la série est programmée jusqu'au 19 octobre 2026, et le site s'enrichit tout seul au fil des mises en ligne, sans intervention. `guides` : les deux vidéos longues qui encadrent l'outil — le tuto des 20 accords essentiels et son quiz de contrôle.",
+  "_comment": "Vidéos de la chaîne Musique Facile utilisées par l'outil « Quel accord apprendre ensuite ? ». `videos` : les Shorts « Accord X à la guitare », un par accord, relevés dans YouTube Studio le 2026-09-02. Une vidéo n'est affichée QUE si sa datePublication est passée : la série est programmée jusqu'au 19 octobre 2026, et le site s'enrichit tout seul au fil des mises en ligne, sans intervention. `guides` : les vidéos longues qui encadrent les outils, chacune rattachée à son instrument.",
   "_source": "YouTube Studio, onglet Shorts, filtre titre « Accord »",
   "videos": [
     {
@@ -101,7 +101,8 @@
       "titre": "20 accords guitare essentiels – tuto complet + PDF",
       "resume": "Les 20 accords qui couvrent l'essentiel du répertoire, montrés un par un, avec le PDF à télécharger.",
       "datePublication": "2023-09-25",
-      "duree": "PT17M6S"
+      "duree": "PT17M6S",
+      "instrument": "guitare"
     },
     {
       "role": "quiz",
@@ -109,7 +110,24 @@
       "titre": "Quiz accords guitare : connais-tu ces 20 bases ?",
       "resume": "Un contrôle de 3 minutes pour vérifier que vous savez vraiment poser les 20 accords, avant de cocher.",
       "datePublication": "2023-09-28",
-      "duree": "PT3M36S"
+      "duree": "PT3M36S",
+      "instrument": "guitare"
+    },
+    {
+      "role": "tuto",
+      "instrument": "ukulele",
+      "youtubeId": "TXX6N44yIjM",
+      "titre": "20 accords ukulélé indispensables – Guide débutant",
+      "resume": "Les vingt accords qui couvrent l'essentiel du répertoire ukulélé, montrés un par un.",
+      "datePublication": "2023-08-21"
+    },
+    {
+      "role": "morceaux",
+      "instrument": "ukulele",
+      "youtubeId": "A0-WaD7Oz34",
+      "titre": "7 morceaux ultra faciles à l'ukulélé (débutant)",
+      "resume": "Sept morceaux jouables presque tout de suite, pour mettre les premiers accords en musique.",
+      "datePublication": "2020-04-08"
     }
   ]
 }

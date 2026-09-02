@@ -747,6 +747,8 @@ Ces chansons utilisent les 4 accords de base (C-F-Am-G) et sont parfaites pour l
 **Temps :** 1 semaine
 **Pourquoi :** Classique français, version uke très populaire
 
+Ces morceaux se recoupent : quatre accords bien tenus en ouvrent plusieurs d'un coup. L'outil [Quel accord de ukulélé apprendre ensuite ?](/outils/quel-accord-ukulele-apprendre/) fait le calcul pour vous, à partir des accords que vous savez déjà poser.
+
 ### 9. "You Are My Sunshine"
 
 **Accords :** C - F - G (3 accords)

@@ -271,6 +271,8 @@ Les chansons sont classées du plus facile (⭐) au plus difficile (⭐⭐⭐).
 
 Ce rythme est celui que je constate chez mes élèves qui pratiquent tous les jours. En pratiquant 3 fois par semaine, comptez plutôt le double. La régularité pèse davantage que la durée des séances.
 
+Si vous voulez savoir où vous en êtes dans cette liste, l'outil [Quel accord de ukulélé apprendre ensuite ?](/outils/quel-accord-ukulele-apprendre/) reprend ces chansons : vous cochez les accords que vous savez poser, il vous dit lesquelles sont déjà jouables et quel accord en débloquerait le plus.
+
 | Semaine | Chansons à travailler | Compétences développées |
 |---------|----------------------|------------------------|
 | **Semaine 1** | Somewhere Over the Rainbow, I'm Yours | Accords C-G-Am-F, strumming basique |

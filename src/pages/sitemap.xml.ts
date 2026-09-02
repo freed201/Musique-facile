@@ -117,6 +117,7 @@ export const GET: APIRoute = async () => {
     staticEntry('/5-accords-magiques/', 'monthly', '0.6'),
     staticEntry('/quel-instrument-choisir/', 'monthly', '0.6'),
     staticEntry('/outils/quel-accord-apprendre/', 'monthly', '0.8'),
+    staticEntry('/outils/quel-accord-ukulele-apprendre/', 'monthly', '0.8'),
     staticEntry('/faq/', 'monthly', '0.6'),
     staticEntry('/plan-du-site/', 'monthly', '0.4'),
     staticEntry('/liens/', 'monthly', '0.6'),

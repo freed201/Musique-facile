@@ -357,6 +357,11 @@ const UKULELE_CHORDS = {
     frets:   [3, 2, 1, 1],
     fingers: [4, 3, 1, 1],
   },
+
+  // Ajouts du 2026-09-02 pour l'outil « Quel accord de ukulélé apprendre
+  // ensuite ? » — positions standard, en attente de validation par Fred.
+  bm:    { name: 'Bm',    longName: 'Si mineur',       source: 'standard', frets: [4, 2, 2, 2], fingers: [3, 1, 1, 1], barre: { fret: 2, fromString: 1, toString: 3, finger: 1 } },
+  fsus2: { name: 'Fsus2', longName: 'Fa suspendu 2',   source: 'standard', frets: [0, 0, 1, 3], fingers: [0, 0, 1, 3] },
 };
 
 const CATALOGUE = {

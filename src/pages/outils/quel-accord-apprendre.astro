@@ -1,6 +1,6 @@
 ---
 /**
- * Outil « Quel accord apprendre ensuite ? »
+ * Outil « Quel accord de guitare apprendre ensuite ? »
  *
  * Le visiteur coche les accords qu'il connaît ; l'outil lui indique le seul
  * accord qui débloque le plus de morceaux du catalogue, le lui montre (schéma
@@ -8,33 +8,23 @@
  *
  * POURQUOI CETTE QUESTION, ET PAS « QUE PUIS-JE JOUER ? »
  * Mesuré sur le catalogue : avec les quatre accords que tout débutant apprend
- * en premier, AUCUN morceau n'est jouable intégralement. Un outil qui promet
- * « voici ce que tu peux jouer » afficherait donc une page vide et découragerait
- * exactement celui qu'il devait aider. La question « que dois-je apprendre
- * maintenant ? » transforme cette rareté en prochaine étape concrète.
+ * en premier, AUCUN morceau n'est jouable intégralement à la guitare. Un outil
+ * qui promet « voici ce que tu peux jouer » afficherait donc une page vide et
+ * découragerait exactement celui qu'il devait aider. La question « que dois-je
+ * apprendre maintenant ? » transforme cette rareté en prochaine étape concrète.
+ * (À l'ukulélé, le calcul donne l'inverse — voir /outils/quel-accord-ukulele/.)
  *
- * MOBILE D'ABORD
- * Deux tiers des visites se font au téléphone. La mise en page est donc pensée
- * pour le pouce : cases d'au moins 44 px, aucun tableau à faire défiler
- * latéralement, et une barre de résultat qui colle en bas de l'écran dès qu'on
- * a coché quelque chose — le compte reste visible pendant qu'on continue à
- * cocher. Le format deux colonnes n'apparaît qu'à partir de 900 px.
- *
- * TOUT EST DANS LE HTML
- * La liste des morceaux, leurs accords, le classement, les schémas et les
- * façades vidéo sont rendus au build. Le JavaScript ne fait que montrer,
- * masquer et compter : sans lui, la page reste entièrement lisible et
- * indexable. Les miniatures des vidéos masquées sont en `loading="lazy"`,
- * elles ne sont donc pas téléchargées tant qu'elles ne servent pas.
+ * Toute l'interface est dans OutilAccords.astro, partagée avec la version
+ * ukulélé. Cette page ne porte que les données, les textes et le SEO.
  */
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import FooterModern from '../../components/FooterModern.astro';
 import BreadcrumbsSchema from '../../components/BreadcrumbsSchema.astro';
-import FAQSchema from '../../components/FAQSchema.astro';
-import VideoEmbed from '../../components/VideoEmbed.astro';
+import OutilAccords from '../../components/outils/OutilAccords.astro';
 import data from '../../data/song-chords.json';
 import chordVideos from '../../data/chord-videos.json';
+import { classerAccords, jouablesAvec, cleDiagramme } from '../../utils/outil-accords';
 import diagrammesIndex from '../../data/chord-diagrams-index.json';
 
 const canonicalURL = new URL('/outils/quel-accord-apprendre/', Astro.site || 'https://musique-facile.fr').toString();
@@ -50,28 +40,15 @@ const description =
  */
 const morceaux = (data.songs as any[])
   .filter((s) => s.statut !== 'a-verifier' && s.slug && s.accords?.length)
+  .map((s) => ({
+    titre: s.titre,
+    artiste: s.artiste,
+    accords: s.accords as string[],
+    lien: `/blog/${s.slug}/`,
+    tempo: s.tempo ?? null,
+    difficulte: s.difficulte ?? null,
+  }))
   .sort((a, b) => a.accords.length - b.accords.length || a.titre.localeCompare(b.titre, 'fr'));
-
-/** Tous les accords du catalogue, du plus fréquent au plus rare. */
-const frequence = new Map<string, number>();
-for (const m of morceaux) {
-  for (const accord of m.accords) frequence.set(accord, (frequence.get(accord) ?? 0) + 1);
-}
-const accordsClasses = [...frequence.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-
-/**
- * Les accords proposés au visiteur : ceux qui reviennent au moins deux fois.
- * Ils sont coupés en deux groupes — trente cases d'un bloc, c'est un mur sur
- * un écran de téléphone. Les accords qui portent le répertoire sont visibles
- * d'emblée ; le reste tient dans un dépliant, présent dans le HTML.
- */
-const SEUIL_COURANT = 4;
-const accordsCourants = accordsClasses.filter(([, n]) => n >= SEUIL_COURANT).map(([c]) => c);
-const accordsSecondaires = accordsClasses.filter(([, n]) => n >= 2 && n < SEUIL_COURANT).map(([c]) => c);
-const accordsRares = accordsClasses.filter(([, n]) => n < 2).map(([c]) => c);
-
-const totalAccords = accordsClasses.length;
-const mediane = morceaux.length ? morceaux[Math.floor(morceaux.length / 2)].accords.length : 0;
 
 /**
  * Tutoriels vidéo par accord (Shorts de la chaîne).
@@ -82,51 +59,20 @@ const mediane = morceaux.length ? morceaux[Math.floor(morceaux.length / 2)].acco
  * s'enrichit donc tout seul à mesure que la série sort, sans rien à modifier.
  */
 const aujourdhui = new Date().toISOString().slice(0, 10);
-const videosParAccord = new Map<string, string>();
+const videosParAccord: Record<string, string> = {};
 for (const v of chordVideos.videos) {
   if (v.instrument !== 'guitare') continue;
   if (v.datePublication > aujourdhui) continue;
-  videosParAccord.set(v.accord, v.youtubeId);
+  videosParAccord[v.accord] = v.youtubeId;
 }
 
-/**
- * Schéma de l'accord, quand il existe.
- *
- * La liste n'est plus tenue à la main ici : elle est lue dans l'index écrit par
- * `npm run chords:generate`, qui déclare les SVG qu'il a réellement produits.
- * La page ne peut donc plus pointer vers un fichier inexistant, ni ignorer un
- * diagramme disponible. On ne fabrique jamais de schéma pour un accord absent
- * du catalogue de doigtés : un doigté inventé serait pire que pas de schéma.
- */
-const DIAGRAMMES: Record<string, string> = diagrammesIndex.diagrammes.guitare ?? {};
-const cleDiagramme = (accord: string) =>
-  accord.toLowerCase().replace(/#/g, 'diese').replace(/\//g, '-');
-const diagrammePour = (accord: string) => DIAGRAMMES[cleDiagramme(accord)] ?? null;
+const guides = (chordVideos.guides as any[]).filter((g) => g.instrument === 'guitare');
 
-/**
- * Ce qu'on sait montrer de chaque accord du catalogue.
- *
- * La liste couvre TOUS les accords, pas seulement les cochables : un accord
- * rare (Dsus4 sur Wonderwall, C/B sur Redemption Song) peut très bien être le
- * seul qui manque à un morceau, et donc être l'accord recommandé. Le limiter
- * aux cochables privait ces recommandations-là de leur schéma et de leur vidéo.
- */
-const aideParAccord = accordsClasses.map(([accord]) => ({
-  accord,
-  n: frequence.get(accord) ?? 0,
-  svg: diagrammePour(accord),
-  video: videosParAccord.get(accord) ?? null,
-}));
-const accordsAvecVideo = aideParAccord.filter((a) => a.video).map((a) => a.accord);
-const accordsAvecSchema = aideParAccord.filter((a) => a.svg).map((a) => a.accord);
-
-/** Combien de morceaux tomberaient avec les N accords les plus courants. */
-const jouablesAvec = (n: number) => {
-  const connus = new Set(accordsClasses.slice(0, n).map(([c]) => c));
-  return morceaux.filter((m) => m.accords.every((a: string) => connus.has(a))).length;
-};
-
-const guides = (chordVideos as any).guides ?? [];
+const classement = classerAccords(morceaux);
+const totalAccords = classement.length;
+const diagrammes = (diagrammesIndex.diagrammes as Record<string, Record<string, string>>).guitare ?? {};
+const nbSchemas = classement.filter(([a]) => diagrammes[cleDiagramme(a)]).length;
+const nbVideos = Object.keys(videosParAccord).filter((a) => classement.some(([c]) => c === a)).length;
 
 const breadcrumb = [
   { name: 'Accueil', url: 'https://musique-facile.fr/' },
@@ -134,12 +80,10 @@ const breadcrumb = [
 ];
 
 /**
- * Déclaré comme WebApplication, et non comme article.
- *
- * Sans ça, la page est lue comme un texte de plus sur les accords, alors que
- * c'est un outil : c'est la seule chose qui la distingue des cent articles du
- * blog aux yeux d'un moteur ou d'un LLM. Toutes les valeurs sont vraies et
- * vérifiables sur la page — pas de note ni d'avis, l'outil n'en a aucun.
+ * Déclaré comme WebApplication, et non comme article : c'est la seule chose
+ * qui distingue cette page des cent articles du blog aux yeux d'un moteur ou
+ * d'un LLM. Toutes les valeurs sont vraies et vérifiables sur la page — pas de
+ * note ni d'avis, l'outil n'en a aucun.
  */
 const appSchema = {
   '@context': 'https://schema.org',
@@ -152,46 +96,30 @@ const appSchema = {
   inLanguage: 'fr-FR',
   isAccessibleForFree: true,
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
-  description:
-    `Outil gratuit : cochez les accords de guitare que vous savez poser, il calcule sur ${morceaux.length} morceaux relevés dans le livre de Fred Fieffé lequel apprendre ensuite, combien de morceaux il débloque, et ceux que vous savez déjà jouer en entier.`,
+  description: `Outil gratuit : cochez les accords de guitare que vous savez poser, il calcule sur ${morceaux.length} morceaux relevés dans le livre de Fred Fieffé lequel apprendre ensuite, combien de morceaux il débloque, et ceux que vous savez déjà jouer en entier.`,
   featureList: [
     `Recommandation de l'accord qui débloque le plus de morceaux, sur un catalogue de ${morceaux.length} titres`,
     `Liste des morceaux jouables intégralement avec les accords déjà connus`,
-    `Schéma de doigté pour ${accordsAvecSchema.length} accords`,
-    `Tutoriel vidéo pour ${accordsAvecVideo.length} accords`,
+    `Schéma de doigté pour ${nbSchemas} accords`,
+    `Tutoriel vidéo pour ${nbVideos} accords`,
     'Filtre des morceaux jouables ou accessibles à un seul accord près',
   ],
-  creator: {
-    '@type': 'Person',
-    name: 'Fred Fieffé',
-    url: 'https://musique-facile.fr/a-propos/',
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'Musique Facile',
-    url: 'https://musique-facile.fr/',
-  },
+  creator: { '@type': 'Person', name: 'Fred Fieffé', url: 'https://musique-facile.fr/a-propos/' },
+  publisher: { '@type': 'Organization', name: 'Musique Facile', url: 'https://musique-facile.fr/' },
 };
 
-/**
- * Questions réellement posées par l'outil lui-même. Les réponses reprennent des
- * chiffres calculés sur le catalogue, pas des estimations.
- */
 const faqs = [
   {
     question: "D'où viennent les accords de ces morceaux ?",
-    answer:
-      `Ils sont relevés un par un dans le livre de Fred Fieffé, page par page, et non estimés d'oreille ou repris d'une base tierce. ${morceaux.length} morceaux sont retenus : un relevé qui laisse un doute est écarté de l'outil plutôt que publié avec une approximation.`,
+    answer: `Ils sont relevés un par un dans le livre de Fred Fieffé, page par page, et non estimés d'oreille ou repris d'une base tierce. ${morceaux.length} morceaux sont retenus : un relevé qui laisse un doute est écarté de l'outil plutôt que publié avec une approximation.`,
   },
   {
-    question: 'Pourquoi si peu de morceaux jouables au début ?',
-    answer:
-      `C'est mesuré sur le catalogue : avec les ${jouablesAvec(4) === 0 ? 'quatre premiers accords qu\'apprend un débutant, aucun morceau' : 'quatre premiers accords, très peu de morceaux'} n'est jouable du début à la fin. Il faut en général six accords pour en jouer ${jouablesAvec(6)} intégralement, et dix pour en jouer ${jouablesAvec(10)}. C'est justement pour ça que l'outil répond « quel accord apprendre ensuite » plutôt que « que peux-tu jouer ».`,
+    question: 'Pourquoi si peu de morceaux jouables au début à la guitare ?',
+    answer: `C'est mesuré sur le catalogue : avec les quatre premiers accords qu'apprend un débutant, aucun des ${morceaux.length} morceaux n'est jouable du début à la fin. Il en faut six pour en jouer ${jouablesAvec(morceaux, classement, 6)} intégralement, et dix pour en jouer ${jouablesAvec(morceaux, classement, 10)}. C'est justement pour ça que l'outil répond « quel accord apprendre ensuite » plutôt que « que peux-tu jouer ». À l'ukulélé, le même calcul donne l'inverse : quatre accords suffisent déjà pour plusieurs morceaux entiers.`,
   },
   {
     question: "Pourquoi certains accords n'ont-ils pas de schéma de doigté ?",
-    answer:
-      `Seules les positions du catalogue relu par Fred sont affichées, soit ${accordsAvecSchema.length} accords sur les ${totalAccords} du répertoire. Un accord absent de ce catalogue s'affiche sans schéma : un doigté inventé serait pire que pas de schéma du tout.`,
+    answer: `Seules les positions du catalogue de doigtés sont affichées, soit ${nbSchemas} accords sur les ${totalAccords} du répertoire. Un accord dont la position varierait trop d'un arrangement à l'autre s'affiche sans schéma : un doigté inventé serait pire que pas de schéma du tout.`,
   },
 ];
 ---
@@ -204,763 +132,24 @@ const faqs = [
 
   <Header />
 
-  <main class="app theme-guitar">
-    <div class="app-largeur">
-      <header class="app-tete">
-        <p class="app-surtitre">Outil guitare</p>
-        <h1>Quel accord apprendre ensuite&nbsp;?</h1>
-        <p class="app-intro">
-          Cochez les accords que vous savez déjà poser. L'outil vous indique celui
-          qui débloque le plus de morceaux d'un coup, vous montre comment le poser,
-          et liste ceux que vous pouvez déjà jouer en entier.
-        </p>
-        <ul class="app-stats">
-          <li><strong>{morceaux.length}</strong> morceaux relevés</li>
-          <li><strong>{totalAccords}</strong> accords différents</li>
-          <li><strong>{accordsAvecVideo.length}</strong> tutoriels vidéo</li>
-        </ul>
-      </header>
-
-      <div class="app-corps">
-        <!-- ÉTAPE 1 — la sélection. Sans JavaScript, les cases restent
-             affichées et tout le catalogue reste consultable plus bas. -->
-        <section class="carte etape" aria-labelledby="t-accords">
-          <h2 id="t-accords"><span class="etape-num" aria-hidden="true">1</span>Les accords que je connais</h2>
-          <p class="carte-aide">Touchez chaque accord que vous savez poser sans hésiter.</p>
-
-          <div id="accords-grille">
-            <div class="accords-grille">
-              {accordsCourants.map((accord) => (
-                <label class="accord-case">
-                  <input type="checkbox" name="accord" value={accord} />
-                  <span>{accord}</span>
-                </label>
-              ))}
-            </div>
-
-            {accordsSecondaires.length > 0 && (
-              <details class="accords-plus">
-                <summary>Afficher {accordsSecondaires.length} accords moins courants</summary>
-                <div class="accords-grille">
-                  {accordsSecondaires.map((accord) => (
-                    <label class="accord-case">
-                      <input type="checkbox" name="accord" value={accord} />
-                      <span>{accord}</span>
-                    </label>
-                  ))}
-                </div>
-              </details>
-            )}
-          </div>
-
-          {accordsRares.length > 0 && (
-            <p class="carte-note">
-              Les {accordsRares.length} accords qui n'apparaissent que dans un seul
-              morceau ne sont pas proposés&nbsp;: {accordsRares.join(', ')}.
-            </p>
-          )}
-        </section>
-
-        <!-- ÉTAPE 2 — le résultat. Le bloc par défaut est du vrai HTML : il
-             reste affiché et compréhensible si le script ne s'exécute pas. -->
-        <section class="carte etape carte-resultat" id="resultat" aria-labelledby="t-resultat">
-          <h2 id="t-resultat"><span class="etape-num" aria-hidden="true">2</span>Votre prochain accord</h2>
-
-          <p class="sr-only" id="annonce" role="status" aria-live="polite"></p>
-
-          <div id="resultat-vide">
-            <p class="carte-aide">
-              Cochez au moins un accord ci-dessus&nbsp;: l'outil calcule alors l'accord
-              qui vous ouvre le plus de morceaux. En attendant, le catalogue complet
-              est consultable plus bas.
-            </p>
-            <p class="carte-note">
-              Repère utile&nbsp;: avec les 6 accords les plus courants, {jouablesAvec(6)} morceaux
-              du catalogue deviennent jouables en entier&nbsp;; avec les 10 plus courants, {jouablesAvec(10)}.
-            </p>
-          </div>
-
-          <div id="resultat-plein" hidden>
-            <div class="cible">
-              <div class="cible-tete">
-                <p class="cible-label">Apprenez</p>
-                <p class="cible-accord" id="cible-accord"></p>
-                <p class="cible-gain" id="cible-gain"></p>
-              </div>
-              <img class="cible-schema" id="cible-schema" src="" alt="" width="200" height="240" hidden />
-            </div>
-
-            <!-- Une façade par accord filmé : le script révèle la bonne. Les
-                 miniatures masquées ne sont pas téléchargées (lazy). -->
-            <div class="cible-videos">
-              {aideParAccord.filter((a) => a.video).map((a) => (
-                <div class="cible-video" data-accord={a.accord} hidden>
-                  <VideoEmbed
-                    url={`https://www.youtube.com/shorts/${a.video}`}
-                    title={`Comment poser l'accord ${a.accord} à la guitare`}
-                    ratio="9 / 16"
-                    compact
-                  />
-                </div>
-              ))}
-            </div>
-
-            <!-- Table des schémas disponibles, écrite au build : le script y
-                 lit un chemin existant au lieu d'en fabriquer un qui ferait 404. -->
-            <div id="schemas" hidden>
-              {aideParAccord.filter((a) => a.svg).map((a) => (
-                <span data-accord={a.accord} data-schema={a.svg}></span>
-              ))}
-            </div>
-
-            <div id="cible-debloque"></div>
-            <div id="cible-jouables"></div>
-          </div>
-        </section>
-      </div>
-
-      <!-- ÉTAPE 3 — le catalogue, en cartes. Un tableau à faire défiler
-           latéralement est illisible au téléphone ; la carte permet en plus de
-           signaler l'accord qui manque, morceau par morceau. -->
-      <section class="etape" aria-labelledby="t-catalogue">
-        <h2 id="t-catalogue"><span class="etape-num" aria-hidden="true">3</span>Les {morceaux.length} morceaux du catalogue</h2>
-        <p class="carte-aide">
-          Classés du plus simple au plus exigeant. Chaque titre renvoie vers son
-          tutoriel&nbsp;: accords, rythmique et démonstration en vidéo.
-        </p>
-
-        <div class="filtres" id="filtres" hidden>
-          <button type="button" class="filtre est-actif" data-filtre="tous">Tous</button>
-          <button type="button" class="filtre" data-filtre="jouables">Jouables</button>
-          <button type="button" class="filtre" data-filtre="proches">À un accord près</button>
-        </div>
-
-        <ul class="morceaux" id="catalogue">
-          {morceaux.map((m) => (
-            <li class="morceau" data-accords={m.accords.join(' ')}>
-              <p class="morceau-etat" hidden></p>
-              <h3 class="morceau-titre"><a href={`/blog/${m.slug}/`}>{m.titre}</a></h3>
-              <p class="morceau-artiste">{m.artiste}</p>
-              <p class="morceau-accords">
-                {m.accords.map((a: string) => <span class="pastille" data-accord={a}>{a}</span>)}
-              </p>
-              <p class="morceau-meta">
-                <span>{m.accords.length} accords</span>
-                {m.tempo && <span>{m.tempo} BPM</span>}
-                {m.difficulte && <span>Niveau {m.difficulte}</span>}
-              </p>
-            </li>
-          ))}
-        </ul>
-        <p class="carte-note" id="catalogue-vide" hidden>
-          Aucun morceau ne correspond à ce filtre avec les accords cochés.
-        </p>
-      </section>
-
-      <section class="etape" aria-labelledby="t-classement">
-        <h2 id="t-classement">Les accords les plus rentables</h2>
-        <p class="carte-aide">
-          Sur les {morceaux.length} morceaux du catalogue, {totalAccords} accords
-          différents sont utilisés, et un morceau en demande {mediane} en médiane.
-          Voici ceux qui reviennent le plus souvent&nbsp;: les apprendre en premier
-          ouvre le plus de portes.
-        </p>
-        <ol class="classement">
-          {accordsClasses.slice(0, 12).map(([accord, n]) => (
-            <li>
-              <span class="classement-accord">{accord}</span>
-              <span class="classement-barre" aria-hidden="true">
-                <span style={`width: ${Math.round((n / accordsClasses[0][1]) * 100)}%`}></span>
-              </span>
-              <span class="classement-detail">{n} morceau{n > 1 ? 'x' : ''}</span>
-            </li>
-          ))}
-        </ol>
-        <p class="carte-note">
-          {accordsAvecSchema.length} de ces accords ont leur schéma de doigté
-          ({accordsAvecSchema.join(', ')}) et {accordsAvecVideo.length} leur tutoriel
-          vidéo ({accordsAvecVideo.join(', ')}). La série se complète semaine après semaine.
-        </p>
-      </section>
-
-      {guides.length > 0 && (
-        <section class="etape" aria-labelledby="t-guides">
-          <h2 id="t-guides">Les 20 accords essentiels, en vidéo</h2>
-          <p class="carte-aide">
-            Si vous ne savez pas quoi cocher, commencez par là&nbsp;: le tutoriel
-            complet des vingt accords qui portent l'essentiel du répertoire, puis
-            le quiz pour vérifier que vous les tenez vraiment.
-          </p>
-          <div class="guides">
-            {guides.map((g: any) => (
-              <article class="guide">
-                <VideoEmbed url={`https://www.youtube.com/watch?v=${g.youtubeId}`} title={g.titre} compact />
-                <h3 class="guide-titre">{g.titre}</h3>
-                <p class="guide-resume">{g.resume}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
-
-      <section class="etape" aria-labelledby="t-faq">
-        <h2 id="t-faq">Questions fréquentes</h2>
-        <FAQSchema faqs={faqs} showVisual={true} />
-      </section>
-
-      <section class="etape methode" aria-labelledby="t-methode">
-        <h2 id="t-methode">D'où viennent ces données&nbsp;?</h2>
-        <p>
-          Les accords sont relevés dans le livre de Fred Fieffé, page par page,
-          et non estimés. Un morceau dont le relevé laisse un doute est écarté de
-          l'outil plutôt que d'être publié avec une approximation&nbsp;: vous
-          pouvez vérifier chaque ligne, guitare en main. Les schémas de doigté
-          reprennent les positions du livre pour les accords qui y figurent, et
-          les positions standard pour les autres&nbsp;; un accord dont le doigté
-          varierait trop d'un arrangement à l'autre s'affiche sans schéma plutôt
-          qu'avec une position inventée.
-        </p>
-        <p>Le catalogue s'étoffe au fil des relectures et des nouveaux tutoriels.</p>
-      </section>
-    </div>
-
-    <!-- Barre de suivi, téléphone uniquement. Elle n'apparaît que si des
-         accords sont cochés et que la carte résultat est sortie de l'écran :
-         le compte reste sous les yeux pendant qu'on continue à cocher. -->
-    <div class="barre" id="barre" hidden>
-      <p class="barre-texte"><span id="barre-compte"></span></p>
-      <button type="button" class="barre-bouton" id="barre-bouton">Voir</button>
-    </div>
-  </main>
+  <OutilAccords
+    instrument="guitare"
+    surtitre="Outil guitare"
+    titre="Quel accord apprendre ensuite&nbsp;?"
+    intro="Cochez les accords que vous savez déjà poser. L'outil vous indique celui qui débloque le plus de morceaux d'un coup, vous montre comment le poser, et liste ceux que vous pouvez déjà jouer en entier."
+    morceaux={morceaux}
+    videosParAccord={videosParAccord}
+    ratioVideoAccord="9 / 16"
+    guides={guides}
+    titreGuides="Les 20 accords essentiels, en vidéo"
+    introGuides="Si vous ne savez pas quoi cocher, commencez par là&nbsp;: le tutoriel complet des vingt accords qui portent l'essentiel du répertoire, puis le quiz pour vérifier que vous les tenez vraiment."
+    origine={[
+      "Les accords sont relevés dans le livre de Fred Fieffé, page par page, et non estimés. Un morceau dont le relevé laisse un doute est écarté de l'outil plutôt que d'être publié avec une approximation&nbsp;: vous pouvez vérifier chaque ligne, guitare en main.",
+      "Les schémas de doigté reprennent les positions du livre pour les accords qui y figurent, et les positions standard pour les autres&nbsp;; un accord dont le doigté varierait trop d'un arrangement à l'autre s'affiche sans schéma plutôt qu'avec une position inventée.",
+      "Le catalogue s'étoffe au fil des relectures et des nouveaux tutoriels. Vous jouez du ukulélé&nbsp;? <a href=\"/outils/quel-accord-ukulele-apprendre/\">Le même outil existe pour l'ukulélé</a>, et le calcul y est beaucoup plus encourageant.",
+    ]}
+    faqs={faqs}
+  />
 
   <FooterModern />
 </Layout>
-
-<style>
-  /* ---------- Cadre général ---------- */
-  .app {
-    padding: var(--space-8, 2rem) 0 var(--space-16, 4rem);
-    background: var(--bg-page);
-
-    /* Fond plein portant du texte blanc. --theme-current (#4CAF50) ne donne que
-       2,8:1 avec du blanc : insuffisant. On l'assombrit une fois ici, ce qui
-       reste vrai quel que soit le thème d'instrument. */
-    --plein: color-mix(in srgb, var(--theme-current, #6c3fa0) 70%, #000);
-    /* États du catalogue, déclinés plus bas pour le thème sombre. */
-    --etat-ok: #15803d;
-    --etat-ok-trait: #16a34a;
-    --etat-proche: #b45309;
-    --etat-proche-trait: #d97706;
-    --manque-fond: #fef3c7;
-    --manque-texte: #92400e;
-  }
-
-  /* Convention du projet : la préférence système, sauf si le visiteur a
-     explicitement choisi le thème clair ; puis le choix explicite « sombre ». */
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme='light']) .app {
-      --etat-ok: #4ade80;
-      --etat-ok-trait: #22c55e;
-      --etat-proche: #fbbf24;
-      --etat-proche-trait: #f59e0b;
-      --manque-fond: rgb(251 191 36 / .16);
-      --manque-texte: #fcd34d;
-    }
-  }
-  :root[data-theme='dark'] .app {
-    --etat-ok: #4ade80;
-    --etat-ok-trait: #22c55e;
-    --etat-proche: #fbbf24;
-    --etat-proche-trait: #f59e0b;
-    --manque-fond: rgb(251 191 36 / .16);
-    --manque-texte: #fcd34d;
-  }
-  .app-largeur { max-width: 1080px; margin: 0 auto; padding: 0 var(--space-4, 1rem); }
-
-  .app-tete { margin-bottom: var(--space-6, 1.5rem); }
-  .app-surtitre {
-    margin: 0 0 var(--space-2, .5rem);
-    font-size: var(--text-xs, .75rem);
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--theme-ink, #6c3fa0);
-  }
-  .app h1 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.6rem, 6vw, 2.4rem);
-    line-height: 1.15;
-    margin: 0 0 var(--space-3, .75rem);
-  }
-  .app-intro {
-    margin: 0;
-    font-size: var(--text-base, 1rem);
-    line-height: 1.6;
-    color: var(--text-secondary);
-    max-width: 60ch;
-  }
-  .app-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2, .5rem) var(--space-4, 1rem);
-    list-style: none;
-    margin: var(--space-4, 1rem) 0 0;
-    padding: 0;
-    font-size: var(--text-sm, .875rem);
-    color: var(--text-muted, #6b7280);
-  }
-  .app-stats strong {
-    color: var(--theme-ink, #6c3fa0);
-    font-size: var(--text-lg, 1.125rem);
-    font-variant-numeric: tabular-nums;
-  }
-
-  /* ---------- Cartes ---------- */
-  .carte {
-    background: var(--bg-card);
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-lg, .75rem);
-    padding: var(--space-5, 1.25rem);
-    box-shadow: var(--shadow-sm, 0 1px 2px rgb(0 0 0 / .05));
-  }
-  .app-corps { display: grid; gap: var(--space-4, 1rem); margin-bottom: var(--space-8, 2rem); }
-
-  .etape { margin-bottom: var(--space-8, 2rem); }
-  .app-corps .etape { margin-bottom: 0; }
-  .app h2 {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2, .5rem);
-    font-family: var(--font-heading);
-    font-size: clamp(1.15rem, 4vw, 1.4rem);
-    margin: 0 0 var(--space-2, .5rem);
-  }
-  .etape-num {
-    display: grid;
-    place-items: center;
-    flex: none;
-    width: 1.75rem;
-    height: 1.75rem;
-    border-radius: 50%;
-    background: var(--plein);
-    color: #fff;
-    font-size: var(--text-sm, .875rem);
-    font-weight: 700;
-  }
-  .carte-aide { margin: 0 0 var(--space-4, 1rem); color: var(--text-secondary); line-height: 1.6; }
-  .carte-note {
-    margin: var(--space-3, .75rem) 0 0;
-    font-size: var(--text-sm, .875rem);
-    color: var(--text-muted, #6b7280);
-    line-height: 1.55;
-  }
-
-  /* ---------- Sélecteur d'accords ---------- */
-  .accords-grille {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(4.25rem, 1fr));
-    gap: var(--space-2, .5rem);
-  }
-  .accord-case { position: relative; }
-  .accord-case input {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    margin: 0; opacity: 0; cursor: pointer;
-  }
-  .accord-case span {
-    display: grid;
-    place-items: center;
-    min-height: 2.9rem; /* au-delà de 44 px : cible tactile confortable */
-    padding: .5rem .35rem;
-    border: 2px solid var(--border-default);
-    border-radius: var(--radius-md, .5rem);
-    background: var(--bg-page);
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-    transition: background .15s ease, border-color .15s ease, color .15s ease;
-  }
-  .accord-case input:checked + span {
-    background: var(--plein);
-    border-color: var(--plein);
-    color: #fff;
-  }
-  .accord-case input:focus-visible + span {
-    outline: 3px solid var(--theme-ink, #6c3fa0);
-    outline-offset: 2px;
-  }
-
-  .accords-plus { margin-top: var(--space-3, .75rem); }
-  .accords-plus summary {
-    cursor: pointer;
-    padding: .5rem 0;
-    font-size: var(--text-sm, .875rem);
-    font-weight: 600;
-    color: var(--theme-ink, #6c3fa0);
-  }
-  .accords-plus[open] summary { margin-bottom: var(--space-2, .5rem); }
-
-  /* ---------- Résultat ---------- */
-  .carte-resultat { border-left: 4px solid var(--plein); }
-  .cible {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-4, 1rem);
-    padding-bottom: var(--space-4, 1rem);
-    border-bottom: 1px solid var(--border-default);
-  }
-  .cible-label { margin: 0; font-size: var(--text-sm, .875rem); color: var(--text-muted, #6b7280); }
-  .cible-accord {
-    margin: 0;
-    font-family: var(--font-heading);
-    font-size: clamp(2.4rem, 12vw, 3.4rem);
-    line-height: 1;
-    font-weight: 800;
-    color: var(--theme-ink, #6c3fa0);
-  }
-  .cible-gain { margin: var(--space-1, .25rem) 0 0; font-weight: 600; }
-  .cible-schema { flex: none; width: 6.5rem; height: auto; }
-
-  .cible-videos { margin: var(--space-4, 1rem) 0 0; }
-  .cible-video { max-width: 15rem; margin: 0 auto; }
-
-  .carte-resultat h3 {
-    font-family: var(--font-heading);
-    font-size: var(--text-base, 1rem);
-    margin: var(--space-5, 1.25rem) 0 var(--space-2, .5rem);
-  }
-  .carte-resultat ul { margin: 0; padding-left: 1.1rem; line-height: 1.7; }
-
-  /* ---------- Filtres ---------- */
-  .filtres { display: flex; flex-wrap: wrap; gap: var(--space-2, .5rem); margin-bottom: var(--space-4, 1rem); }
-  .filtres[hidden] { display: none; }
-  .filtre {
-    min-height: 2.75rem;
-    padding: .45rem .9rem;
-    border: 1px solid var(--border-default);
-    border-radius: 999px;
-    background: var(--bg-card);
-    font-size: var(--text-sm, .875rem);
-    font-weight: 600;
-    color: var(--text-secondary);
-    cursor: pointer;
-  }
-  .filtre.est-actif {
-    background: var(--plein);
-    border-color: var(--plein);
-    color: #fff;
-  }
-
-  /* ---------- Morceaux ---------- */
-  .morceaux { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3, .75rem); }
-  .morceau {
-    background: var(--bg-card);
-    border: 1px solid var(--border-default);
-    border-left: 4px solid var(--border-default);
-    border-radius: var(--radius-md, .5rem);
-    padding: var(--space-4, 1rem);
-  }
-  .morceau[hidden] { display: none; }
-  .morceau-titre { font-family: var(--font-heading); font-size: var(--text-base, 1rem); margin: 0; }
-  .morceau-titre a { color: inherit; text-decoration: none; }
-  .morceau-titre a:hover { text-decoration: underline; }
-  .morceau-artiste { margin: .15rem 0 var(--space-3, .75rem); font-size: var(--text-sm, .875rem); color: var(--text-muted, #6b7280); }
-  .morceau-accords { display: flex; flex-wrap: wrap; gap: .3rem; margin: 0 0 var(--space-3, .75rem); }
-  .pastille {
-    padding: .2rem .5rem;
-    border-radius: var(--radius-sm, .25rem);
-    background: var(--bg-page);
-    font-size: var(--text-xs, .75rem);
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-  }
-  .morceau-meta {
-    display: flex; flex-wrap: wrap; gap: var(--space-3, .75rem);
-    margin: 0; font-size: var(--text-xs, .75rem); color: var(--text-muted, #6b7280);
-  }
-  .morceau-etat {
-    margin: 0 0 var(--space-2, .5rem);
-    font-size: var(--text-xs, .75rem);
-    font-weight: 700;
-    letter-spacing: .03em;
-    text-transform: uppercase;
-  }
-  .morceau-etat[hidden] { display: none; }
-
-  /* États pilotés par le script. La couleur est toujours doublée d'un texte
-     explicite : elle ne porte jamais l'information à elle seule. */
-  .morceau.est-jouable { border-left-color: var(--etat-ok-trait); }
-  .morceau.est-jouable .morceau-etat { color: var(--etat-ok); }
-  .morceau.est-proche { border-left-color: var(--etat-proche-trait); }
-  .morceau.est-proche .morceau-etat { color: var(--etat-proche); }
-  .pastille.est-connu { background: var(--theme-soft); color: var(--theme-ink); }
-  .pastille.est-manquant { background: var(--manque-fond); color: var(--manque-texte); }
-
-  /* ---------- Classement ---------- */
-  .classement { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2, .5rem); }
-  .classement li { display: grid; grid-template-columns: 3.2rem 1fr auto; align-items: center; gap: var(--space-3, .75rem); }
-  .classement-accord { font-weight: 700; font-variant-numeric: tabular-nums; }
-  .classement-barre { height: .5rem; border-radius: 999px; background: var(--border-default); overflow: hidden; }
-  .classement-barre span { display: block; height: 100%; background: var(--plein); }
-  .classement-detail { font-size: var(--text-sm, .875rem); color: var(--text-muted, #6b7280); white-space: nowrap; }
-
-  /* ---------- Guides ---------- */
-  .guides { display: grid; gap: var(--space-5, 1.25rem); }
-  .guide { background: var(--bg-card); border: 1px solid var(--border-default); border-radius: var(--radius-lg, .75rem); padding: var(--space-4, 1rem); }
-  .guide-titre { font-family: var(--font-heading); font-size: var(--text-base, 1rem); margin: var(--space-3, .75rem) 0 var(--space-1, .25rem); }
-  .guide-resume { margin: 0; font-size: var(--text-sm, .875rem); color: var(--text-secondary); line-height: 1.55; }
-
-  .sr-only {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
-  }
-
-  .methode { font-size: var(--text-sm, .875rem); color: var(--text-secondary); line-height: 1.65; }
-
-  /* ---------- Barre de suivi (téléphone) ---------- */
-  .barre {
-    position: fixed;
-    left: 0; right: 0; bottom: 0;
-    z-index: var(--z-sticky, 100);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-3, .75rem);
-    padding: var(--space-3, .75rem) var(--space-4, 1rem);
-    padding-bottom: calc(var(--space-3, .75rem) + env(safe-area-inset-bottom, 0px));
-    background: var(--plein);
-    color: #fff;
-    box-shadow: 0 -2px 12px rgb(0 0 0 / .18);
-  }
-  .barre[hidden] { display: none; }
-  .barre-texte { margin: 0; font-size: var(--text-sm, .875rem); font-weight: 600; }
-  .barre-bouton {
-    flex: none;
-    min-height: 2.75rem;
-    padding: .4rem 1.1rem;
-    border: 0;
-    border-radius: 999px;
-    background: #fff;
-    color: var(--plein);
-    font-weight: 700;
-    cursor: pointer;
-  }
-
-  /* ---------- À partir de la tablette ---------- */
-  @media (min-width: 640px) {
-    .morceaux { grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); }
-    .guides { grid-template-columns: 1fr 1fr; }
-    .cible-video { max-width: 12rem; margin: 0; }
-  }
-
-  /* Deux colonnes seulement quand il y a vraiment la place : la sélection à
-     gauche, le résultat qui suit le défilement à droite. */
-  @media (min-width: 900px) {
-    .app-corps { grid-template-columns: 1fr 22rem; align-items: start; }
-    .carte-resultat { position: sticky; top: var(--space-4, 1rem); }
-    .barre { display: none; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .accord-case span { transition: none; }
-  }
-</style>
-
-<script>
-  // Tout le contenu est déjà dans le HTML : ce script ne fait que montrer,
-  // masquer et compter. Sans lui, la page reste complète et lisible.
-  const grille = document.getElementById('accords-grille');
-  const vide = document.getElementById('resultat-vide');
-  const plein = document.getElementById('resultat-plein');
-  const catalogue = document.getElementById('catalogue');
-  const resultat = document.getElementById('resultat');
-
-  if (grille && vide && plein && catalogue && resultat) {
-    const elAccord = document.getElementById('cible-accord');
-    const elGain = document.getElementById('cible-gain');
-    const elSchema = document.getElementById('cible-schema') as HTMLImageElement | null;
-    const elDebloque = document.getElementById('cible-debloque');
-    const elJouables = document.getElementById('cible-jouables');
-    const elFiltres = document.getElementById('filtres');
-    const elCatalogueVide = document.getElementById('catalogue-vide');
-    const barre = document.getElementById('barre');
-    const barreCompte = document.getElementById('barre-compte');
-    const barreBouton = document.getElementById('barre-bouton');
-    const annonce = document.getElementById('annonce');
-
-    // Le chemin du schéma vient du build : le script ne fabrique aucune URL,
-    // il ne peut donc pas pointer vers un fichier qui n'existe pas.
-    const schemas = new Map<string, string>();
-    document.querySelectorAll('#schemas [data-accord]').forEach((el) => {
-      const n = el as HTMLElement;
-      if (n.dataset.accord && n.dataset.schema) schemas.set(n.dataset.accord, n.dataset.schema);
-    });
-
-    type Morceau = {
-      el: HTMLElement;
-      titre: string;
-      href: string;
-      accords: Set<string>;
-      etat: HTMLElement | null;
-      pastilles: HTMLElement[];
-    };
-
-    const morceaux: Morceau[] = [...catalogue.querySelectorAll('.morceau')].map((li) => ({
-      el: li as HTMLElement,
-      titre: li.querySelector('.morceau-titre a')?.textContent?.trim() ?? '',
-      href: li.querySelector('.morceau-titre a')?.getAttribute('href') ?? '#',
-      accords: new Set(((li as HTMLElement).dataset.accords ?? '').split(' ').filter(Boolean)),
-      etat: li.querySelector('.morceau-etat'),
-      pastilles: [...li.querySelectorAll('.pastille')] as HTMLElement[],
-    }));
-
-    let filtre = 'tous';
-    const echapper = (s: string) =>
-      s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-    const lien = (m: Morceau) => `<li><a href="${echapper(m.href)}">${echapper(m.titre)}</a></li>`;
-    const pluriel = (n: number, mot: string) => `${n} ${mot}${n > 1 ? 'x' : ''}`;
-
-    const rendre = () => {
-      const connus = new Set(
-        [...grille.querySelectorAll('input:checked')].map((i) => (i as HTMLInputElement).value),
-      );
-
-      const jouables: Morceau[] = [];
-      const manquantPar = new Map<string, Morceau[]>();
-
-      for (const m of morceaux) {
-        const manquants = [...m.accords].filter((a) => !connus.has(a));
-        m.el.classList.toggle('est-jouable', connus.size > 0 && manquants.length === 0);
-        m.el.classList.toggle('est-proche', manquants.length === 1);
-
-        if (m.etat) {
-          if (connus.size === 0) {
-            m.etat.hidden = true;
-          } else {
-            m.etat.hidden = false;
-            m.etat.textContent =
-              manquants.length === 0
-                ? 'Vous savez le jouer'
-                : manquants.length === 1
-                  ? `Il ne vous manque que ${manquants[0]}`
-                  : `Il vous manque ${manquants.length} accords`;
-          }
-        }
-
-        if (manquants.length === 0 && connus.size > 0) jouables.push(m);
-        if (manquants.length === 1) {
-          const cle = manquants[0];
-          if (!manquantPar.has(cle)) manquantPar.set(cle, []);
-          manquantPar.get(cle)!.push(m);
-        }
-
-        for (const p of m.pastilles) {
-          const a = p.dataset.accord ?? '';
-          p.classList.toggle('est-connu', connus.has(a));
-          p.classList.toggle('est-manquant', connus.size > 0 && !connus.has(a) && manquants.length === 1);
-        }
-
-        const garde =
-          filtre === 'tous' ||
-          (filtre === 'jouables' && connus.size > 0 && manquants.length === 0) ||
-          (filtre === 'proches' && manquants.length === 1);
-        m.el.hidden = !garde;
-      }
-
-      if (elCatalogueVide) elCatalogueVide.hidden = morceaux.some((m) => !m.el.hidden);
-      if (elFiltres) elFiltres.hidden = false;
-
-      if (connus.size === 0) {
-        vide.hidden = false;
-        plein.hidden = true;
-        if (barre) barre.hidden = true;
-        if (annonce) annonce.textContent = '';
-        return;
-      }
-      vide.hidden = true;
-      plein.hidden = false;
-
-      // L'accord qui débloque le plus de morceaux à lui seul.
-      const meilleur = [...manquantPar.entries()].sort((a, b) => b[1].length - a[1].length)[0];
-
-      document.querySelectorAll('.cible-video').forEach((v) => ((v as HTMLElement).hidden = true));
-
-      if (meilleur) {
-        const [accord, debloques] = meilleur;
-        if (elAccord) elAccord.textContent = accord;
-        if (elGain) elGain.textContent = `Débloque ${pluriel(debloques.length, 'morceau')} d'un coup.`;
-
-        const video = document.querySelector(`.cible-video[data-accord="${CSS.escape(accord)}"]`);
-        if (video) (video as HTMLElement).hidden = false;
-
-        const schema = schemas.get(accord);
-        if (elSchema) {
-          if (schema) {
-            elSchema.src = schema;
-            elSchema.alt = `Schéma du doigté de l'accord ${accord} à la guitare`;
-            elSchema.hidden = false;
-          } else {
-            elSchema.hidden = true;
-          }
-        }
-
-        if (elDebloque) {
-          elDebloque.innerHTML =
-            `<h3>Ce que ${echapper(accord)} vous ouvre</h3><ul>${debloques.map(lien).join('')}</ul>`;
-        }
-      } else {
-        if (elAccord) elAccord.textContent = '—';
-        if (elGain) elGain.textContent = "Aucun morceau du catalogue n'est à un seul accord de vous.";
-        if (elSchema) elSchema.hidden = true;
-        if (elDebloque) {
-          elDebloque.innerHTML =
-            '<p class="carte-note">Cochez quelques accords de plus, ou parcourez le catalogue pour choisir votre prochain morceau.</p>';
-        }
-      }
-
-      if (elJouables) {
-        elJouables.innerHTML = jouables.length
-          ? `<h3>Vous pouvez déjà jouer ${pluriel(jouables.length, 'morceau')}</h3><ul>${jouables.map(lien).join('')}</ul>`
-          : '';
-      }
-
-      const resume = meilleur
-        ? `Prochain accord à apprendre : ${meilleur[0]}, il débloque ${pluriel(meilleur[1].length, 'morceau')}. ${jouables.length} déjà jouable${jouables.length > 1 ? 's' : ''}.`
-        : `Aucun morceau à un seul accord près. ${jouables.length} déjà jouable${jouables.length > 1 ? 's' : ''}.`;
-      if (annonce) annonce.textContent = resume;
-
-      if (barreCompte) {
-        const suite = meilleur ? ` — apprenez ${meilleur[0]}` : '';
-        barreCompte.textContent =
-          `${pluriel(connus.size, 'accord')} · ${jouables.length} jouable${jouables.length > 1 ? 's' : ''}${suite}`;
-      }
-    };
-
-    grille.addEventListener('change', rendre);
-
-    elFiltres?.addEventListener('click', (e) => {
-      const bouton = (e.target as HTMLElement).closest('.filtre') as HTMLElement | null;
-      if (!bouton) return;
-      filtre = bouton.dataset.filtre ?? 'tous';
-      elFiltres.querySelectorAll('.filtre').forEach((b) => b.classList.toggle('est-actif', b === bouton));
-      rendre();
-    });
-
-    barreBouton?.addEventListener('click', () => {
-      resultat.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    // La barre ne s'affiche que si des accords sont cochés ET que la carte
-    // résultat est sortie de l'écran : sinon elle doublonnerait l'information.
-    if (barre && 'IntersectionObserver' in window) {
-      const observateur = new IntersectionObserver(
-        ([entree]) => {
-          barre.hidden = entree.isIntersecting || !grille.querySelector('input:checked');
-        },
-        { threshold: 0 },
-      );
-      observateur.observe(resultat);
-    }
-
-    rendre();
-  }
-</script>

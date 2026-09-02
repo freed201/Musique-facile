@@ -22,7 +22,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const JOBS = [
   {
     instrument: 'ukulele',
-    keys: ['c', 'g', 'am', 'f', 'dm', 'd', 'g7', 'em', 'a7', 'c7', 'am7', 'a', 'bb', 'e7'],
+    keys: ['c', 'g', 'am', 'f', 'dm', 'd', 'g7', 'em', 'a7', 'c7', 'am7', 'a', 'bb', 'e7',
+      // Ajouts du 2026-09-02 pour l'outil ukulélé (positions standard, à valider).
+      'bm', 'fsus2'],
     dir: 'accords-ukulele',
   },
   {

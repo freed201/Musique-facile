@@ -1,0 +1,135 @@
+---
+/**
+ * Outil « Quel accord de ukulélé apprendre ensuite ? »
+ *
+ * Même interface que la version guitare (composant OutilAccords), mais
+ * l'histoire est inverse, et c'est tout l'intérêt.
+ *
+ * À la guitare, les quatre accords qu'on apprend en premier ne permettent de
+ * jouer AUCUN morceau du catalogue en entier. À l'ukulélé, les quatre plus
+ * courants — C, G, F, Am — en ouvrent déjà sept sur dix-sept. C'est mesuré,
+ * pas affirmé, et ça dit en un chiffre pourquoi l'ukulélé est la meilleure
+ * porte d'entrée vers la musique.
+ *
+ * D'OÙ VIENNENT LES MORCEAUX
+ * Il n'existe pas de recueil ukulélé équivalent au livre guitare. Les relevés
+ * viennent des articles où Fred les a déjà publiés, lus par
+ * scripts/extract-ukulele-songs.mjs. Chaque morceau renvoie vers le passage
+ * exact dont il vient. Les titres sur lesquels les deux articles se
+ * contredisent portent le statut « conflit » et restent hors de l'outil, comme
+ * les relevés douteux du livre côté guitare.
+ */
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import FooterModern from '../../components/FooterModern.astro';
+import BreadcrumbsSchema from '../../components/BreadcrumbsSchema.astro';
+import OutilAccords from '../../components/outils/OutilAccords.astro';
+import ukuleleSongs from '../../data/ukulele-songs.json';
+import chordVideos from '../../data/chord-videos.json';
+import diagrammesIndex from '../../data/chord-diagrams-index.json';
+import { classerAccords, jouablesAvec, cleDiagramme } from '../../utils/outil-accords';
+
+const canonicalURL = new URL('/outils/quel-accord-ukulele-apprendre/', Astro.site || 'https://musique-facile.fr').toString();
+const title = "Quel accord de ukulélé apprendre ensuite ? | Musique Facile";
+const description =
+  "Cochez les accords de ukulélé que vous connaissez : l'outil dit lequel apprendre ensuite. Avec les quatre plus courants, 7 chansons sur 17 sont jouables.";
+
+/** Un morceau sur lequel les articles se contredisent n'entre pas dans l'outil. */
+const morceaux = (ukuleleSongs.songs as any[])
+  .filter((s) => s.statut === 'ok' && s.accords?.length)
+  .map((s) => ({
+    titre: s.titre,
+    artiste: s.artiste,
+    accords: s.accords as string[],
+    lien: `/blog/${s.article}/#${s.ancre}`,
+    tempo: null,
+    difficulte: null,
+  }))
+  .sort((a, b) => a.accords.length - b.accords.length || a.titre.localeCompare(b.titre, 'fr'));
+
+const enConflit = (ukuleleSongs.songs as any[]).filter((s) => s.statut === 'conflit');
+const guides = (chordVideos.guides as any[]).filter((g) => g.instrument === 'ukulele');
+
+const classement = classerAccords(morceaux);
+const totalAccords = classement.length;
+const diagrammes = (diagrammesIndex.diagrammes as Record<string, Record<string, string>>).ukulele ?? {};
+const nbSchemas = classement.filter(([a]) => diagrammes[cleDiagramme(a)]).length;
+const avec4 = jouablesAvec(morceaux, classement, 4);
+const avec5 = jouablesAvec(morceaux, classement, 5);
+const quatrePremiers = classement.slice(0, 4).map(([c]) => c).join(', ');
+
+const breadcrumb = [
+  { name: 'Accueil', url: 'https://musique-facile.fr/' },
+  { name: 'Outils', url: canonicalURL },
+];
+
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Quel accord de ukulélé apprendre ensuite ?',
+  url: canonicalURL,
+  applicationCategory: 'EducationalApplication',
+  browserRequirements: 'Fonctionne dans tout navigateur web récent.',
+  operatingSystem: 'Tout',
+  inLanguage: 'fr-FR',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  description: `Outil gratuit : cochez les accords de ukulélé que vous savez poser, il calcule sur ${morceaux.length} chansons lequel apprendre ensuite et combien il en débloque. Avec les quatre accords les plus courants (${quatrePremiers}), ${avec4} chansons sont déjà jouables en entier.`,
+  featureList: [
+    `Recommandation de l'accord qui débloque le plus de chansons, sur un catalogue de ${morceaux.length} titres`,
+    'Liste des chansons jouables intégralement avec les accords déjà connus',
+    `Schéma de doigté pour ${nbSchemas} accords de ukulélé`,
+    'Filtre des chansons jouables ou accessibles à un seul accord près',
+  ],
+  creator: { '@type': 'Person', name: 'Fred Fieffé', url: 'https://musique-facile.fr/a-propos/' },
+  publisher: { '@type': 'Organization', name: 'Musique Facile', url: 'https://musique-facile.fr/' },
+};
+
+const faqs = [
+  {
+    question: "Combien d'accords faut-il pour jouer ses premières chansons au ukulélé ?",
+    answer: `Quatre suffisent. C'est mesuré sur ce catalogue de ${morceaux.length} chansons : avec ${quatrePremiers}, ${avec4} chansons sont jouables du début à la fin, et ${avec5} avec un cinquième accord. C'est là que l'ukulélé se distingue de la guitare — sur le catalogue guitare du site, les quatre accords les plus courants ne permettent de jouer aucun morceau en entier.`,
+  },
+  {
+    question: "D'où viennent les accords de ces chansons ?",
+    answer: `Ils sont repris des articles de Fred Fieffé où ces chansons sont déjà décortiquées, et chaque titre renvoie vers le passage exact dont il vient. Quand deux articles ne donnent pas les mêmes accords pour une chanson, elle est écartée de l'outil plutôt que publiée avec une version arbitraire : ${enConflit.length} titres sont dans ce cas.`,
+  },
+  {
+    question: 'Pourquoi le ukulélé est-il plus facile pour débuter que la guitare ?',
+    answer:
+      "Quatre cordes au lieu de six, en nylon plutôt qu'en acier, et des accords qui ne demandent souvent qu'un ou deux doigts — le do majeur n'en demande qu'un seul. Concrètement, sur les catalogues de ce site, quatre accords de ukulélé ouvrent plusieurs chansons entières là où quatre accords de guitare n'en ouvrent aucune.",
+  },
+];
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalURL}>
+  <Fragment slot="head">
+    <BreadcrumbsSchema items={breadcrumb} />
+    <script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
+  </Fragment>
+
+  <Header />
+
+  <OutilAccords
+    instrument="ukulele"
+    surtitre="Outil ukulélé"
+    titre="Quel accord de ukulélé apprendre ensuite&nbsp;?"
+    intro={`Cochez les accords que vous savez déjà poser. L'outil vous indique celui qui débloque le plus de chansons d'un coup, vous montre comment le poser, et liste celles que vous pouvez déjà jouer en entier. Bonne nouvelle&nbsp;: avec les quatre accords les plus courants (${quatrePremiers}), <strong>${avec4} chansons sur ${morceaux.length}</strong> sont déjà jouables du début à la fin.`}
+    morceaux={morceaux}
+    motMorceau="chanson"
+    guides={guides}
+    titreGuides="Les accords de ukulélé en vidéo"
+    introGuides="Si vous ne savez pas quoi cocher, commencez par là&nbsp;: le guide des vingt accords indispensables, puis sept morceaux à jouer presque tout de suite."
+    origine={[
+      `Les accords viennent des articles où Fred Fieffé décortique déjà ces chansons&nbsp;: chaque titre renvoie vers le passage exact dont il est tiré, vous pouvez donc tout vérifier.`,
+      enConflit.length
+        ? `Quand deux articles ne donnent pas les mêmes accords pour une chanson, elle est écartée de l'outil plutôt que publiée avec une version arbitraire. ${enConflit.length} titres sont aujourd'hui dans ce cas&nbsp;: ${enConflit.map((s) => s.titre).join(', ')}.`
+        : `Une chanson dont le relevé laisse un doute est écartée de l'outil plutôt que publiée avec une approximation.`,
+      `Les schémas de doigté sont ceux du catalogue de positions du site&nbsp;; un accord qui n'y figure pas s'affiche sans schéma plutôt qu'avec une position inventée.`,
+      `Le catalogue s'étoffe au fil des nouveaux tutoriels. Vous jouez de la guitare&nbsp;? <a href="/outils/quel-accord-apprendre/">Le même outil existe pour la guitare</a>.`,
+    ]}
+    faqs={faqs}
+  />
+
+  <FooterModern />
+</Layout>
