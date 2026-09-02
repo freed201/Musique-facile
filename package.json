@@ -27,7 +27,8 @@
     "build:prod": "astro build && npm run analyze:bundle",
     "analyze:bundle": "du -sh dist && echo '\n📦 Bundle size:' && find dist -name '*.js' -type f -exec du -h {} + | sort -rh | head -10",
     "ukulele:extract": "node scripts/extract-ukulele-songs.mjs",
-    "chords:check": "node scripts/check-chord-fingerings.mjs"
+    "chords:check": "node scripts/check-chord-fingerings.mjs",
+    "check:headers": "node scripts/check-security-headers.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",

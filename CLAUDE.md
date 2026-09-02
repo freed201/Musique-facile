@@ -33,7 +33,7 @@ Cinq hooks `PreToolUse` enregistrés dans `.claude/settings.json`. Trois **bloqu
 - **`.claude/hooks/check-no-secrets.sh`** (matcher `Bash`) : bloque `git commit`/`git add` qui exposeraient une clé Brevo (`xkeysib-…`), une affectation `BREVO_API_KEY=…`, ou un fichier `.env`.
 - **`.claude/hooks/check-protect-master.sh`** (matcher `Bash`) : bloque `git commit`/`git push` directs sur `master` (= prod Vercel) — toujours passer par une branche + PR.
 
-Deux **avertissent** sans bloquer (exit 0) : `check-csp-sync.sh` (édition de `vercel.json`/`src/utils/security.ts` — rappel de la source de vérité CSP) et `check-img-alt.sh` (`<img>` sans attribut `alt`).
+Deux **avertissent** sans bloquer (exit 0) : `check-csp-sync.sh` (édition de `vercel.json` — rappel de lancer `npm run check:headers` ; et alerte si une seconde source d'en-têtes réapparaît) et `check-img-alt.sh` (`<img>` sans attribut `alt`).
 
 ### Lois de crédibilité du contenu (DGCCRF) — non négociables
 
@@ -87,7 +87,7 @@ Tous en SSR (`prerender = false`), intégration **Brevo** par `fetch` direct sur
 
 ### Utils partagés (`src/utils/`)
 
-`security.ts` (en-têtes CSP/HSTS/etc.) appliqués via `middleware/security.ts` (`onRequest`) ; `videoSchema.ts` / `podcastSchema.ts` (génération JSON-LD). Note : les en-têtes de sécurité sont définis **à deux endroits** — `vercel.json` (au déploiement) et le middleware Astro — garder les deux cohérents.
+`videoSchema.ts` / `podcastSchema.ts` (génération JSON-LD), `external-link-rel.mjs` (règle de `rel` sur les liens sortants), `outil-accords.ts` (calculs de l'outil « Quel accord apprendre ensuite ? »). Les en-têtes de sécurité ne sont **plus** définis ici : `vercel.json > headers` en est la source unique depuis le 2026-09-02, gardée par `npm run check:headers` (voir `.claude/rules/coherence-en-tetes-securite.md`).
 
 ### Markdown : plugins remark custom (`src/remark-*.mjs`)
 

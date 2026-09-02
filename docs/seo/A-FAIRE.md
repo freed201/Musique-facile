@@ -107,10 +107,12 @@ d'un lien pertinent demande un jugement éditorial : je peux proposer une sélec
 - **Cinq composants morts** : `About.astro`, `Resultats.astro`, `Avantages.astro`,
   `StudentsStats.astro`, `SocialProof.astro` — plus importés nulle part. (`Temoignages.astro`,
   le sixième, a été supprimé au lot 2 : il fabriquait une date de `Review` au build.)
-- **`src/utils/security.ts` et son middleware ne sont jamais exécutés** : Astro ne charge un
-  middleware que depuis `src/middleware.ts`, qui n'existe pas. La CSP réellement appliquée est
-  celle de `vercel.json`. Décision à prendre — enregistrer le middleware et aligner les deux CSP,
-  ou supprimer le code mort. Voir `.claude/rules/coherence-en-tetes-securite.md`.
+- ~~**`src/utils/security.ts` et son middleware ne sont jamais exécutés**~~ — **réglé le
+  2026-09-02**. Le code mort est supprimé et `vercel.json` est la source unique, gardée par
+  `npm run check:headers`. La copie n'était pas seulement morte, elle était devenue dangereuse :
+  elle autorisait `'unsafe-eval'`, référençait encore ActiveCampaign, et ignorait
+  `youtube-nocookie.com` et `player.ausha.co` — l'activer aurait cassé les façades vidéo et le
+  podcast. Voir `.claude/rules/coherence-en-tetes-securite.md`.
 
 ---
 

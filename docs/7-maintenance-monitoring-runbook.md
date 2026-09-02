@@ -64,7 +64,7 @@ flowchart TD
 ## TODO / Recommandations
 - Documenter la configuration Netlify effective (build command / publish dir) si elle est definie dans Netlify UI.
 - Mettre en place un check automatique des liens brises (tool externe).
-- Clarifier l'usage de `src/utils/middleware/security.ts` (present mais non reference).
+- ~~Clarifier l'usage de `src/utils/middleware/security.ts` (present mais non reference).~~ Fait le 2026-09-02 : supprime, il n'a jamais ete execute.
 
 ## Routine d'entretien (suggestion)
 | Cadence | Taches |

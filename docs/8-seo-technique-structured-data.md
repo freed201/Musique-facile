@@ -63,7 +63,7 @@ flowchart LR
 - Meta/OG/canonical: `src/layouts/*.astro`
 - JSON-LD: `src/layouts/*.astro`, `src/pages/*.astro`, `src/components/FAQSchema.astro`
 - Robots/sitemap: `public/robots.txt`, `src/pages/sitemap.xml.ts`
-- Headers securite: `netlify.toml`, `public/_headers`, `src/utils/security.ts`
+- Headers securite: `vercel.json > headers` (source unique depuis le 2026-09-02 ; `netlify.toml` et `public/_headers` sont ignores par Vercel)
 
 ## Conventions & regles a respecter
 - Garder des URLs canoniques absolues.
@@ -84,7 +84,7 @@ flowchart LR
 ## TODO / Recommandations
 - Verifier si `public/sitemap.xml` doit rester ou etre supprime au profit de la route dynamique.
 - Ajouter hreflang si geo-ciblage multi-langue est prevu.
-- Aligner `src/utils/security.ts` avec la config de headers effective.
+- ~~Aligner `src/utils/security.ts` avec la config de headers effective.~~ Fait le 2026-09-02 : le fichier mort a ete supprime, `vercel.json` est la source unique.
 
 ## Voir aussi
 - ./1-architecture-technique-stack.md
