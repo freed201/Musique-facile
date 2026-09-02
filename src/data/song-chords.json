@@ -1,0 +1,655 @@
+{
+  "_comment": "Extrait du livre par scripts/extract-book-chords.mjs. Seuls les morceaux en statut « ok » ou « verifie » alimentent l'outil ; « a-verifier » signale un doute d'extraction à lever en regardant la page du livre. Les numéros de page du livre ne sont pas repris ici.",
+  "_generatedBy": "npm run chords:index",
+  "songs": [
+    {
+      "titre": "Clandestino",
+      "artiste": "Manu Chao",
+      "slug": "jouer-clandestino-guitare-tutoriel",
+      "accords": [
+        "Em",
+        "Am",
+        "B7"
+      ],
+      "tempo": 85,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Chasing Cars",
+      "artiste": "Snow Patrol",
+      "slug": "apprendre-chasing-cars-guitare",
+      "accords": [
+        "A",
+        "E",
+        "D",
+        "Dsus2"
+      ],
+      "tempo": 104,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Hey Ya!",
+      "artiste": "OutKast",
+      "slug": "jouer-hey-ya-outkast-guitare",
+      "accords": [
+        "G",
+        "C",
+        "D",
+        "E"
+      ],
+      "tempo": 80,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "J’veux du soleil",
+      "artiste": "Au P’tit Bonheur",
+      "slug": "tutoriel-jveux-du-soleil-chanson-francaise",
+      "accords": [
+        "Bm",
+        "F#",
+        "Em",
+        "Dm"
+      ],
+      "tempo": 108,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Machistador",
+      "artiste": "-M-",
+      "slug": "apprendre-machistador-guitare",
+      "accords": [
+        "Gm",
+        "Bb",
+        "B",
+        "C"
+      ],
+      "tempo": 110,
+      "difficulte": "5/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "One",
+      "artiste": "U2",
+      "slug": "apprendre-one-guitare",
+      "accords": [
+        "Am",
+        "Dsus2",
+        "G",
+        "C"
+      ],
+      "tempo": 90,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "So Lonely",
+      "artiste": "The Police",
+      "slug": "apprendre-so-lonely-guitare",
+      "accords": [
+        "G",
+        "D",
+        "Em",
+        "C"
+      ],
+      "tempo": null,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Stand By Me",
+      "artiste": "Ben E. King",
+      "slug": "apprendre-stand-by-me-guitare",
+      "accords": [
+        "G",
+        "Em",
+        "C",
+        "D"
+      ],
+      "tempo": 61,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Un autre monde",
+      "artiste": "Téléphone",
+      "slug": "apprendre-un-autre-monde-guitare",
+      "accords": [
+        "A",
+        "G",
+        "D",
+        "Bm"
+      ],
+      "tempo": 142,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Where Is My Mind?",
+      "artiste": "Pixies",
+      "slug": "apprendre-where-is-my-mind-guitare",
+      "accords": [
+        "A",
+        "Am",
+        "B",
+        "E"
+      ],
+      "tempo": 85,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Fields Of Gold",
+      "artiste": "Sting",
+      "slug": "jouer-fields-of-gold-sting",
+      "accords": [
+        "C",
+        "G",
+        "Am",
+        "Asus2",
+        "F"
+      ],
+      "tempo": 104,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Foule Sentimentale",
+      "artiste": "Alain Souchon",
+      "slug": "tutoriel-foule-sentimentale-chanson",
+      "accords": [
+        "Em",
+        "Am",
+        "D7",
+        "B7",
+        "C"
+      ],
+      "tempo": 55,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Hallelujah",
+      "artiste": "Jeff Buckley",
+      "slug": "jouer-hallelujah-jeff-buckley-guitare",
+      "accords": [
+        "C",
+        "Am",
+        "F",
+        "G",
+        "E7"
+      ],
+      "tempo": 70,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "L’Opportuniste",
+      "artiste": "Jacques Dutronc",
+      "slug": "jouer-lopportuniste-dutronc-guitare",
+      "accords": [
+        "G",
+        "C",
+        "Am",
+        "Em",
+        "Bm"
+      ],
+      "tempo": 94,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Mr. Jones",
+      "artiste": "Counting Crows",
+      "slug": "apprendre-mr-jones-guitare",
+      "accords": [
+        "Am",
+        "F",
+        "Dm",
+        "G",
+        "C"
+      ],
+      "tempo": 142,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Respire",
+      "artiste": "Mickey 3D",
+      "slug": "apprendre-respire-guitare",
+      "accords": [
+        "Am",
+        "Dm",
+        "G",
+        "E7",
+        "F"
+      ],
+      "tempo": 97,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Sweet Dreams (Are Made Of This)",
+      "artiste": "Marilyn Manson",
+      "slug": null,
+      "accords": [
+        "Am",
+        "F",
+        "E",
+        "Dm",
+        "D"
+      ],
+      "tempo": 93,
+      "difficulte": null,
+      "statut": "ok"
+    },
+    {
+      "titre": "The House Of The Rising Sun",
+      "artiste": "The Animals",
+      "slug": "tutoriel-guitare-house-of-the-rising-sun",
+      "accords": [
+        "Am",
+        "C",
+        "D",
+        "F",
+        "E"
+      ],
+      "tempo": 85,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Une belle histoire",
+      "artiste": "Michel Fugain et le Big Bazar",
+      "slug": "apprendre-une-belle-histoire-guitare",
+      "accords": [
+        "Am",
+        "Dm7",
+        "G7",
+        "Esus4",
+        "E7"
+      ],
+      "tempo": 85,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Wonderwall",
+      "artiste": "Oasis",
+      "slug": "apprendre-wonderwall-guitare",
+      "accords": [
+        "G",
+        "Em7",
+        "Dsus4",
+        "A7sus4",
+        "Cadd9"
+      ],
+      "tempo": 90,
+      "difficulte": "4/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Back To Black",
+      "artiste": "Amy Winehouse",
+      "slug": "apprendre-back-to-black-guitare",
+      "accords": [
+        "Dm",
+        "Gm",
+        "Bb",
+        "A",
+        "F",
+        "A7"
+      ],
+      "tempo": 123,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Ironic",
+      "artiste": "Alanis Morisette",
+      "slug": "apprendre-ironic-guitare",
+      "accords": [
+        "G",
+        "C",
+        "D/F#",
+        "D",
+        "Em7",
+        "Em"
+      ],
+      "tempo": null,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Lucky Man",
+      "artiste": "The Verve",
+      "slug": "apprendre-lucky-man-guitare",
+      "accords": [
+        "G",
+        "D",
+        "Dsus2",
+        "Asus2",
+        "Asus4",
+        "Em"
+      ],
+      "tempo": 156,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Partons vite",
+      "artiste": "Kaolin",
+      "slug": "apprendre-partons-vite-guitare",
+      "accords": [
+        "C",
+        "Em",
+        "Am",
+        "G",
+        "Dm",
+        "Fmaj7/C"
+      ],
+      "tempo": 98,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Perfect",
+      "artiste": "Ed Sheeran",
+      "slug": "apprendre-perfect-guitare",
+      "accords": [
+        "G",
+        "Em7",
+        "Cadd9",
+        "D",
+        "C",
+        "Em"
+      ],
+      "tempo": 95,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Redemption Song",
+      "artiste": "Bob Marley",
+      "slug": "apprendre-redemption-song-guitare",
+      "accords": [
+        "G",
+        "Em",
+        "C",
+        "C/B",
+        "Am",
+        "D"
+      ],
+      "tempo": 60,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "What’s Up",
+      "artiste": "4 Non Blondes",
+      "slug": "apprendre-whats-up-guitare",
+      "accords": [
+        "A",
+        "Bm",
+        "D",
+        "Am",
+        "G",
+        "C"
+      ],
+      "tempo": 64,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Where Did You Sleep Last Night?",
+      "artiste": "Nirvana",
+      "slug": "nirvana-where-did-you-sleep-guitare",
+      "accords": [
+        "E",
+        "E/B",
+        "A",
+        "G",
+        "B",
+        "B/G"
+      ],
+      "tempo": 109,
+      "difficulte": "4/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Riche",
+      "artiste": "Claudio Capéo",
+      "slug": "apprendre-riche-guitare",
+      "accords": [
+        "G",
+        "Am",
+        "C",
+        "D",
+        "Em",
+        "Bm/D",
+        "B7"
+      ],
+      "tempo": 165,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Smell Like Teen Spirit",
+      "artiste": "Nirvana",
+      "slug": "apprendre-smells-like-teen-spirit-guitare",
+      "accords": [
+        "E5",
+        "A5",
+        "G5",
+        "C5",
+        "F5",
+        "C",
+        "E"
+      ],
+      "tempo": 117,
+      "difficulte": "4/5",
+      "statut": "a-verifier",
+      "doute": "accord(s) peut-être amputé(s) par l'extraction : C, E"
+    },
+    {
+      "titre": "Across The Universe",
+      "artiste": "The Beatles",
+      "slug": "tutoriel-across-the-universe-pour-debutants",
+      "accords": [
+        "D",
+        "Bm",
+        "Em7",
+        "Gm",
+        "A7sus4",
+        "A",
+        "A7",
+        "G"
+      ],
+      "tempo": 76,
+      "difficulte": "4/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Everybody Hurts",
+      "artiste": "REM",
+      "slug": "tutoriel-everybody-hurts-facile",
+      "accords": [
+        "D",
+        "G",
+        "Em",
+        "A",
+        "F#",
+        "Bm",
+        "C",
+        "Am"
+      ],
+      "tempo": 65,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Hey Jude",
+      "artiste": "The Beatles",
+      "slug": "apprendre-hey-jude-guitare",
+      "accords": [
+        "C",
+        "G",
+        "G7",
+        "F",
+        "C7",
+        "Dm",
+        "Dm/C",
+        "G/B"
+      ],
+      "tempo": 74,
+      "difficulte": "5/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "La Seine",
+      "artiste": "Vanessa Paradis et -M-",
+      "slug": "jouer-la-seine-vanessa-m",
+      "accords": [
+        "Am",
+        "F",
+        "C",
+        "E7/B",
+        "A7",
+        "Dm",
+        "G",
+        "A"
+      ],
+      "tempo": 55,
+      "difficulte": "4/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Viva la vida",
+      "artiste": "Coldplay",
+      "slug": "apprendre-viva-la-vida-guitare",
+      "accords": [
+        "C",
+        "D7sus4",
+        "G",
+        "Em",
+        "D7",
+        "Emadd9",
+        "G/B",
+        "D5"
+      ],
+      "tempo": 70,
+      "difficulte": "2/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Wild World",
+      "artiste": "Cat Stevens",
+      "slug": "apprendre-wild-world-guitare",
+      "accords": [
+        "Am",
+        "G",
+        "C",
+        "F",
+        "Dm",
+        "E",
+        "G7",
+        "G6"
+      ],
+      "tempo": 75,
+      "difficulte": "4/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Can’t Help Falling In Love",
+      "artiste": "Elvis Presley",
+      "slug": "tuto-cant-help-falling-in-love-presley-guitare",
+      "accords": [
+        "C",
+        "G",
+        "Em",
+        "Am",
+        "Am/G",
+        "F",
+        "G7",
+        "B7",
+        "A7",
+        "Dm"
+      ],
+      "tempo": 100,
+      "difficulte": "3/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "More Than Words",
+      "artiste": "Extreme",
+      "slug": "tutoriel-more-than-words-guitare",
+      "accords": [
+        "G",
+        "Cadd9",
+        "Am7",
+        "C",
+        "D",
+        "Em",
+        "D/F#",
+        "D7",
+        "G7",
+        "Cm",
+        "Em7",
+        "Bm7"
+      ],
+      "tempo": 92,
+      "difficulte": "5/5",
+      "statut": "ok"
+    },
+    {
+      "titre": "Don’t Stop Me Now",
+      "artiste": "Queen",
+      "slug": "tutoriel-dont-stop-me-now-queen",
+      "accords": [
+        "F",
+        "Am",
+        "Dm",
+        "Gm",
+        "C7",
+        "F7",
+        "D7",
+        "C",
+        "G5",
+        "A5",
+        "B5",
+        "C5",
+        "Bb7sus4"
+      ],
+      "tempo": 150,
+      "difficulte": "5/5",
+      "statut": "a-verifier",
+      "doute": "accord(s) peut-être amputé(s) par l'extraction : C"
+    },
+    {
+      "titre": "Les Copains d’abord",
+      "artiste": "George Brassens",
+      "slug": "tutoriel-les-copains-dabord-guitare",
+      "accords": [
+        "F",
+        "G7",
+        "Bb",
+        "A",
+        "A7",
+        "Dm",
+        "C7",
+        "D",
+        "E7",
+        "G",
+        "F#",
+        "F#7",
+        "Bm"
+      ],
+      "tempo": 80,
+      "difficulte": "4/5",
+      "statut": "ok"
+    }
+  ]
+}

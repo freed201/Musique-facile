@@ -469,6 +469,12 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg-page: #0f172a;
+    /* --bg-alt n'était défini que pour le thème clair : toute section qui s'en
+       servait comme fond restait blanche en mode sombre, avec du texte clair
+       par-dessus. Trois composants compensaient par une surcharge locale, un
+       quatrième (la section « note de nos élèves » de l'accueil) ne le faisait
+       pas et devenait illisible — contraste mesuré 1,03:1. */
+    --bg-alt: #1e293b;
     --bg-card: #1e293b;
     --bg-elevated: #334155;
     --text-primary: #f1f5f9;
@@ -487,6 +493,10 @@
 /* Classe dark explicite */
 [data-theme="dark"] {
   --bg-page: #0f172a;
+  /* Même correction que dans le bloc « préférence système » ci-dessus :
+     sans cette ligne, le choix explicite du thème sombre laissait les fonds
+     --bg-alt en clair sous du texte clair. */
+  --bg-alt: #1e293b;
   --bg-card: #1e293b;
   --bg-elevated: #334155;
   --text-primary: #f1f5f9;

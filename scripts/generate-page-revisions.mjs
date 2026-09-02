@@ -41,6 +41,7 @@ const PAGES = {
   '/stage2026/': 'src/pages/stage2026.astro',
   '/5-accords-magiques/': 'src/pages/5-accords-magiques.astro',
   '/quel-instrument-choisir/': 'src/pages/quel-instrument-choisir.astro',
+  '/outils/quel-accord-apprendre/': 'src/pages/outils/quel-accord-apprendre.astro',
   '/liens/': 'src/pages/liens.astro',
   '/mentions-legales-cgv/': 'src/pages/mentions-legales-cgv.astro',
   '/politique-confidentialite/': 'src/pages/politique-confidentialite.astro',

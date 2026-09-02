@@ -1,0 +1,298 @@
+---
+/**
+ * Outil « Quel accord apprendre ensuite ? »
+ *
+ * Le visiteur coche les accords qu'il connaît ; l'outil lui indique le seul
+ * accord qui débloque le plus de morceaux du catalogue, et lui liste ceux qu'il
+ * sait déjà jouer en entier.
+ *
+ * POURQUOI CETTE QUESTION, ET PAS « QUE PUIS-JE JOUER ? »
+ * Mesuré sur le catalogue : avec les quatre accords que tout débutant apprend
+ * en premier, AUCUN morceau n'est jouable intégralement. Un outil qui promet
+ * « voici ce que tu peux jouer » afficherait donc une page vide et découragerait
+ * exactement celui qu'il devait aider. La question « que dois-je apprendre
+ * maintenant ? » transforme cette rareté en prochaine étape concrète.
+ *
+ * TOUT EST DANS LE HTML
+ * La liste complète des morceaux, leurs accords et le classement des accords
+ * les plus utiles sont rendus au build. Le JavaScript ne fait que filtrer et
+ * réordonner : sans lui, la page reste entièrement lisible et indexable.
+ */
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import FooterModern from '../../components/FooterModern.astro';
+import BreadcrumbsSchema from '../../components/BreadcrumbsSchema.astro';
+import data from '../../data/song-chords.json';
+
+const canonicalURL = new URL('/outils/quel-accord-apprendre/', Astro.site || 'https://musique-facile.fr').toString();
+const title = "Quel accord de guitare apprendre ensuite ? | Musique Facile";
+const description =
+  "Cochez les accords de guitare que vous connaissez : l'outil vous dit lequel apprendre ensuite et combien de morceaux il débloque, tutoriels à l'appui.";
+
+/**
+ * Seuls les morceaux relus entrent dans l'outil. « a-verifier » signale un
+ * doute d'extraction non levé (voir scripts/extract-book-chords.mjs) : mieux
+ * vaut un catalogue plus court qu'une réponse fausse sur un point que le
+ * visiteur peut vérifier lui-même, guitare en main.
+ */
+const morceaux = (data.songs as any[])
+  .filter((s) => s.statut !== 'a-verifier' && s.slug && s.accords?.length)
+  .sort((a, b) => a.accords.length - b.accords.length || a.titre.localeCompare(b.titre, 'fr'));
+
+/** Tous les accords du catalogue, du plus fréquent au plus rare. */
+const frequence = new Map<string, number>();
+for (const m of morceaux) {
+  for (const accord of m.accords) frequence.set(accord, (frequence.get(accord) ?? 0) + 1);
+}
+const accordsClasses = [...frequence.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+/** Les accords proposés au visiteur : ceux qui reviennent au moins deux fois. */
+const accordsCochables = accordsClasses.filter(([, n]) => n >= 2).map(([c]) => c);
+const accordsRares = accordsClasses.filter(([, n]) => n < 2).map(([c]) => c);
+
+const totalAccords = accordsClasses.length;
+const mediane = morceaux.length
+  ? morceaux[Math.floor(morceaux.length / 2)].accords.length
+  : 0;
+
+const breadcrumb = [
+  { name: 'Accueil', url: 'https://musique-facile.fr/' },
+  { name: 'Outils', url: 'https://musique-facile.fr/outils/quel-accord-apprendre/' },
+];
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalURL}>
+  <Fragment slot="head">
+    <BreadcrumbsSchema items={breadcrumb} />
+  </Fragment>
+
+  <Header />
+
+  <main class="outil">
+    <div class="container">
+      <header class="outil-tete">
+        <h1>Quel accord de guitare apprendre ensuite&nbsp;?</h1>
+        <p class="reponse-directe">
+          Cochez les accords que vous savez déjà poser&nbsp;: l'outil vous indique
+          celui qui débloque le plus de morceaux d'un coup, et ceux que vous
+          pouvez déjà jouer en entier. Il s'appuie sur <strong>{morceaux.length} morceaux</strong>
+          relevés dans le livre de Fred Fieffé, chacun avec son tutoriel.
+        </p>
+      </header>
+
+      <!-- Sélecteur. Sans JavaScript, les cases restent affichées et la liste
+           complète des morceaux, plus bas, reste consultable. -->
+      <section class="selecteur" aria-labelledby="titre-selecteur">
+        <h2 id="titre-selecteur">Les accords que je connais</h2>
+        <div class="accords-grille" id="accords-grille">
+          {accordsCochables.map((accord) => (
+            <label class="accord-case">
+              <input type="checkbox" name="accord" value={accord} />
+              <span>{accord}</span>
+            </label>
+          ))}
+        </div>
+        <p class="selecteur-aide">
+          {accordsRares.length > 0 && (
+            <>Les accords qui n'apparaissent que dans un seul morceau ne sont pas
+            proposés ici&nbsp;: {accordsRares.join(', ')}.</>
+          )}
+        </p>
+      </section>
+
+      <!-- Zone de résultat, remplie par le script. Elle porte un message par
+           défaut pour rester compréhensible sans JavaScript. -->
+      <section class="resultat" id="resultat" aria-live="polite">
+        <p class="resultat-vide">
+          Cochez au moins un accord ci-dessus pour obtenir une recommandation.
+          La liste complète des morceaux et de leurs accords se trouve juste en dessous.
+        </p>
+      </section>
+
+      <section aria-labelledby="titre-classement">
+        <h2 id="titre-classement">Les accords les plus rentables</h2>
+        <p>
+          Sur les {morceaux.length} morceaux du catalogue, {totalAccords} accords
+          différents sont utilisés, et un morceau en demande {mediane} en médiane.
+          Voici ceux qui reviennent le plus souvent&nbsp;: les apprendre en premier
+          ouvre le plus de portes.
+        </p>
+        <ol class="classement">
+          {accordsClasses.slice(0, 12).map(([accord, n]) => (
+            <li>
+              <span class="classement-accord">{accord}</span>
+              <span class="classement-detail">{n} morceau{n > 1 ? 'x' : ''}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section aria-labelledby="titre-catalogue">
+        <h2 id="titre-catalogue">Les {morceaux.length} morceaux et leurs accords</h2>
+        <p>
+          Classés du plus simple au plus exigeant. Chaque titre renvoie vers son
+          tutoriel&nbsp;: accords, rythmique et démonstration en vidéo.
+        </p>
+        <div class="table-enveloppe">
+          <table class="catalogue" id="catalogue">
+            <thead>
+              <tr>
+                <th scope="col">Morceau</th>
+                <th scope="col">Accords</th>
+                <th scope="col">Nb</th>
+                <th scope="col">Tempo</th>
+                <th scope="col">Niveau</th>
+              </tr>
+            </thead>
+            <tbody>
+              {morceaux.map((m) => (
+                <tr data-accords={m.accords.join(' ')}>
+                  <th scope="row">
+                    <a href={`/blog/${m.slug}/`}>{m.titre}</a>
+                    <span class="catalogue-artiste">{m.artiste}</span>
+                  </th>
+                  <td class="catalogue-accords">{m.accords.join(' · ')}</td>
+                  <td>{m.accords.length}</td>
+                  <td>{m.tempo ? `${m.tempo} BPM` : '—'}</td>
+                  <td>{m.difficulte ?? '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="titre-methode" class="methode">
+        <h2 id="titre-methode">D'où viennent ces données&nbsp;?</h2>
+        <p>
+          Les accords sont relevés dans le livre de Fred Fieffé, page par page,
+          et non estimés. Un morceau dont le relevé laisse un doute est écarté de
+          l'outil plutôt que d'être publié avec une approximation&nbsp;: vous
+          pouvez vérifier chaque ligne, guitare en main.
+        </p>
+        <p>
+          Le catalogue s'étoffe au fil des relectures et des nouveaux tutoriels.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <FooterModern />
+</Layout>
+
+<style>
+  .outil { padding: var(--space-10, 2.5rem) 0 var(--space-16, 4rem); }
+  .outil .container { max-width: 900px; margin: 0 auto; padding: 0 var(--space-4, 1rem); }
+  .outil-tete { margin-bottom: var(--space-10, 2.5rem); }
+  .outil h1 { font-family: var(--font-heading); font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: var(--space-4, 1rem); }
+  .reponse-directe { font-size: var(--text-lg, 1.125rem); line-height: 1.65; color: var(--text-secondary); }
+  .outil h2 { font-family: var(--font-heading); font-size: clamp(1.3rem, 3vw, 1.6rem); margin: var(--space-10, 2.5rem) 0 var(--space-3, .75rem); }
+
+  .accords-grille { display: flex; flex-wrap: wrap; gap: var(--space-2, .5rem); }
+  .accord-case { position: relative; }
+  .accord-case input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+  .accord-case span {
+    display: block; padding: .5rem .9rem; border: 2px solid var(--border-light, #e5e7eb);
+    border-radius: var(--radius-md, .5rem); font-weight: var(--font-semibold, 600);
+    font-variant-numeric: tabular-nums; transition: background .15s ease, border-color .15s ease;
+  }
+  .accord-case input:checked + span { background: var(--theme-current, #6c3fa0); border-color: var(--theme-current, #6c3fa0); color: #fff; }
+  .accord-case input:focus-visible + span { outline: 3px solid var(--theme-current, #6c3fa0); outline-offset: 2px; }
+  .selecteur-aide { margin-top: var(--space-3, .75rem); font-size: var(--text-sm, .875rem); color: var(--text-muted, #6b7280); }
+
+  .resultat { margin-top: var(--space-8, 2rem); padding: var(--space-5, 1.25rem); border-radius: var(--radius-lg, .75rem); background: var(--bg-alt, #f8f9fa); }
+  .resultat-vide { margin: 0; color: var(--text-muted, #6b7280); }
+  .resultat h3 { font-family: var(--font-heading); margin: 0 0 var(--space-2, .5rem); }
+  .resultat .accord-cible { font-size: 1.5rem; font-weight: 700; color: var(--theme-current, #6c3fa0); }
+  .resultat ul { margin: var(--space-3, .75rem) 0 0; padding-left: 1.2rem; }
+  .resultat li { margin-bottom: .3rem; }
+
+  .classement { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--space-2, .5rem); }
+  .classement li { display: flex; align-items: baseline; gap: .5rem; padding: .5rem .75rem; border: 1px solid var(--border-light, #e5e7eb); border-radius: var(--radius-md, .5rem); }
+  .classement-accord { font-weight: 700; }
+  .classement-detail { font-size: var(--text-sm, .875rem); color: var(--text-muted, #6b7280); }
+
+  .table-enveloppe { overflow-x: auto; }
+  .catalogue { width: 100%; border-collapse: collapse; font-size: var(--text-sm, .875rem); }
+  .catalogue th, .catalogue td { text-align: left; padding: .6rem .5rem; border-bottom: 1px solid var(--border-light, #e5e7eb); vertical-align: top; }
+  .catalogue thead th { font-size: var(--text-xs, .75rem); text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted, #6b7280); }
+  .catalogue tbody th { font-weight: var(--font-semibold, 600); }
+  .catalogue-artiste { display: block; font-weight: 400; font-size: var(--text-xs, .75rem); color: var(--text-muted, #6b7280); }
+  .catalogue-accords { font-variant-numeric: tabular-nums; }
+  .catalogue tr[hidden] { display: none; }
+
+  .methode { margin-top: var(--space-12, 3rem); font-size: var(--text-sm, .875rem); color: var(--text-secondary); }
+</style>
+
+<script>
+  // Le HTML rendu au build contient déjà tout : ce script ne fait que réagir
+  // aux cases cochées. Sans lui, la page reste complète et lisible.
+  const grille = document.getElementById('accords-grille');
+  const resultat = document.getElementById('resultat');
+  const table = document.getElementById('catalogue');
+  if (grille && resultat && table) {
+    const lignes = [...table.querySelectorAll('tbody tr')].map((tr) => ({
+      tr,
+      titre: tr.querySelector('a')?.textContent?.trim() ?? '',
+      href: tr.querySelector('a')?.getAttribute('href') ?? '#',
+      accords: new Set((tr.getAttribute('data-accords') ?? '').split(' ').filter(Boolean)),
+    }));
+
+    const rendre = () => {
+      const connus = new Set(
+        [...grille.querySelectorAll('input:checked')].map((i) => (i as HTMLInputElement).value),
+      );
+
+      if (connus.size === 0) {
+        resultat.innerHTML =
+          '<p class="resultat-vide">Cochez au moins un accord ci-dessus pour obtenir une recommandation. La liste complète des morceaux et de leurs accords se trouve juste en dessous.</p>';
+        lignes.forEach(({ tr }) => tr.removeAttribute('hidden'));
+        return;
+      }
+
+      const jouables = lignes.filter(({ accords }) => [...accords].every((a) => connus.has(a)));
+
+      // Pour chaque accord manquant, combien de morceaux il débloquerait à lui seul.
+      const gains = new Map<string, { titre: string; href: string }[]>();
+      for (const ligne of lignes) {
+        const manquants = [...ligne.accords].filter((a) => !connus.has(a));
+        if (manquants.length !== 1) continue;
+        const cle = manquants[0];
+        if (!gains.has(cle)) gains.set(cle, []);
+        gains.get(cle)!.push({ titre: ligne.titre, href: ligne.href });
+      }
+      const meilleur = [...gains.entries()].sort((a, b) => b[1].length - a[1].length)[0];
+
+      const bloc: string[] = [];
+      if (meilleur) {
+        const [accord, morceaux] = meilleur;
+        bloc.push(
+          `<h3>Apprenez <span class="accord-cible">${accord}</span></h3>`,
+          `<p>Il vous manque uniquement cet accord pour jouer ${morceaux.length} morceau${morceaux.length > 1 ? 'x' : ''} de plus :</p>`,
+          `<ul>${morceaux.map((m) => `<li><a href="${m.href}">${m.titre}</a></li>`).join('')}</ul>`,
+        );
+      } else {
+        bloc.push(
+          '<h3>Aucun morceau à un seul accord près</h3>',
+          "<p>Avec cette sélection, aucun morceau du catalogue n'est à un seul accord de vous. Cochez quelques accords de plus, ou parcourez la liste ci-dessous pour choisir votre prochain morceau.</p>",
+        );
+      }
+
+      if (jouables.length) {
+        bloc.push(
+          `<h3>Vous pouvez déjà jouer ${jouables.length} morceau${jouables.length > 1 ? 'x' : ''}</h3>`,
+          `<ul>${jouables.map((l) => `<li><a href="${l.href}">${l.titre}</a></li>`).join('')}</ul>`,
+        );
+      }
+
+      resultat.innerHTML = bloc.join('');
+      // Le tableau se réduit aux morceaux atteignables : jouables, ou à un accord près.
+      lignes.forEach((ligne) => {
+        const manquants = [...ligne.accords].filter((a) => !connus.has(a)).length;
+        ligne.tr.toggleAttribute('hidden', manquants > 1);
+      });
+    };
+
+    grille.addEventListener('change', rendre);
+  }
+</script>
