@@ -107,41 +107,79 @@ d'un lien pertinent demande un jugement éditorial : je peux proposer une sélec
 | ~~4~~ | ~~Vidéos YouTube~~ — **livré** (PR lot 4) | — |
 | ~~5~~ | ~~Maillage, réponses directes, `llms.txt`~~ — **livré** (PR lot 5) | — |
 
-## Écarts entre le `chordCount` des articles et le relevé du livre
+## `chordCount` des articles-morceau — analyse du 2026-09-02
 
-Relevé le 2026-09-02 par comparaison de `src/data/song-chords.json` avec le frontmatter des articles. **23 écarts sur 39 morceaux.**
+Trois nombres coexistent pour chaque morceau, et ils ne veulent pas dire la même
+chose :
 
-Un écart n'est pas automatiquement une erreur d'article : un tuto peut enseigner une version simplifiée, ou une autre tonalité, que l'arrangement du livre. **C'est à Fred de trancher, cas par cas.** Rien n'a été modifié dans les articles.
+- **`chordCount`** du frontmatter — ce que l'article *annonce* ;
+- **schémas** — le nombre de diagrammes d'accords réellement affichés ;
+- **livre** — le relevé de `src/data/song-chords.json`.
 
-Les deux premières lignes sont les seuls morceaux dont le relevé est vérifié par Fred sur le livre : pour celles-là, l'écart est un vrai sujet.
+**Un écart n'est pas automatiquement une erreur.** *Redemption Song* déclare 4
+accords, en montre 4, et le livre en compte 6 : l'article dit explicitement
+« quatre accords ouverts suffisent, la version complète ajoute trois
+enrichissements ». Son `chordCount` est juste — c'est celui de la version
+enseignée. Aligner mécaniquement sur le livre l'aurait rendu faux.
 
-| Morceau | Article | Livre | Statut du relevé | Accords relevés |
-|---|---:|---:|---|---|
-| [Don’t Stop Me Now](/blog/tutoriel-dont-stop-me-now-queen/) | 7 | 15 | verifie | F · Am · Dm · Gm · C7 · F7 · Bb · D7 · C · G5 · A5 · Bb5 · B5 · C5 · Bb7sus4 |
-| [Smell Like Teen Spirit](/blog/apprendre-smells-like-teen-spirit-guitare/) | 6 | 5 | verifie | E5 · A5 · G5 · C5 · F5 |
-| [More Than Words](/blog/tutoriel-more-than-words-guitare/) | — | 12 | ok | G · Cadd9 · Am7 · C · D · Em · D/F# · D7 · G7 · Cm · Em7 · Bm7 |
-| [Une belle histoire](/blog/apprendre-une-belle-histoire-guitare/) | 8 | 5 | ok | Am · Dm7 · G7 · Esus4 · E7 |
-| [Ironic](/blog/apprendre-ironic-guitare/) | 9 | 6 | ok | G · C · D/F# · D · Em7 · Em |
-| [What’s Up](/blog/apprendre-whats-up-guitare/) | 3 | 6 | ok | A · Bm · D · Am · G · C |
-| [Un autre monde](/blog/apprendre-un-autre-monde-guitare/) | 6 | 4 | ok | A · G · D · Bm |
-| [Where Is My Mind?](/blog/apprendre-where-is-my-mind-guitare/) | 6 | 4 | ok | A · Am · B · E |
-| [Wonderwall](/blog/apprendre-wonderwall-guitare/) | 7 | 5 | ok | G · Em7 · Dsus4 · A7sus4 · Cadd9 |
-| [Perfect](/blog/apprendre-perfect-guitare/) | 8 | 6 | ok | G · Em7 · Cadd9 · D · C · Em |
-| [Redemption Song](/blog/apprendre-redemption-song-guitare/) | 4 | 6 | ok | G · Em · C · C/B · Am · D |
-| [Chasing Cars](/blog/apprendre-chasing-cars-guitare/) | 5 | 4 | ok | A · E · D · Dsus2 |
-| [J’veux du soleil](/blog/tutoriel-jveux-du-soleil-chanson-francaise/) | 3 | 4 | ok | Bm · F# · Em · Dm |
-| [One](/blog/apprendre-one-guitare/) | 5 | 4 | ok | Am · Dsus2 · G · C |
-| [Fields Of Gold](/blog/jouer-fields-of-gold-sting/) | 6 | 5 | ok | C · G · Am · Asus2 · F |
-| [Hallelujah](/blog/jouer-hallelujah-jeff-buckley-guitare/) | 6 | 5 | ok | C · Am · F · G · E7 |
-| [Respire](/blog/apprendre-respire-guitare/) | 6 | 5 | ok | Am · Dm · G · E7 · F |
-| [Back To Black](/blog/apprendre-back-to-black-guitare/) | 7 | 6 | ok | Dm · Gm · Bb · A · F · A7 |
-| [Lucky Man](/blog/apprendre-lucky-man-guitare/) | 5 | 6 | ok | G · D · Dsus2 · Asus2 · Asus4 · Em |
-| [Partons vite](/blog/apprendre-partons-vite-guitare/) | 7 | 6 | ok | C · Em · Am · G · Dm · Fmaj7/C |
-| [Everybody Hurts](/blog/tutoriel-everybody-hurts-facile/) | 9 | 8 | ok | D · G · Em · A · F# · Bm · C · Am |
-| [Hey Jude](/blog/apprendre-hey-jude-guitare/) | 9 | 8 | ok | C · G · G7 · F · C7 · Dm · Dm/C · G/B |
-| [Viva la vida](/blog/apprendre-viva-la-vida-guitare/) | 9 | 8 | ok | C · D7sus4 · G · Em · D7 · Emadd9 · G/B · D5 |
+Le bon `chordCount` est **le nombre d'accords que l'article enseigne**, pas
+celui du livre. Et pour 21 des 23 morceaux, le relevé du livre est en statut
+« ok » (extraction PDF), non relu à la main : il ne fait pas autorité contre le
+texte d'un article.
 
-« — » = l'article ne déclare pas de `chordCount`.
+| Article | annoncé | schémas | livre | statut du relevé |
+|---|---:|---:|---:|---|
+| [apprendre-chasing-cars-guitare](/blog/apprendre-chasing-cars-guitare/) | 5 | 0 | 4 | ok |
+| [tutoriel-jveux-du-soleil-chanson-francaise](/blog/tutoriel-jveux-du-soleil-chanson-francaise/) | 3 | 3 | 4 | ok |
+| [apprendre-one-guitare](/blog/apprendre-one-guitare/) | 5 | 4 | 4 | ok |
+| [apprendre-un-autre-monde-guitare](/blog/apprendre-un-autre-monde-guitare/) | 6 | 6 | 4 | ok |
+| [apprendre-where-is-my-mind-guitare](/blog/apprendre-where-is-my-mind-guitare/) | 6 | 3 | 4 | ok |
+| [jouer-fields-of-gold-sting](/blog/jouer-fields-of-gold-sting/) | 6 | 5 | 5 | ok |
+| [jouer-hallelujah-jeff-buckley-guitare](/blog/jouer-hallelujah-jeff-buckley-guitare/) | 6 | 6 | 5 | ok |
+| [apprendre-respire-guitare](/blog/apprendre-respire-guitare/) | 6 | 6 | 5 | ok |
+| [apprendre-une-belle-histoire-guitare](/blog/apprendre-une-belle-histoire-guitare/) | 8 | 4 | 5 | ok |
+| [apprendre-wonderwall-guitare](/blog/apprendre-wonderwall-guitare/) | 7 | 5 | 5 | ok |
+| [apprendre-back-to-black-guitare](/blog/apprendre-back-to-black-guitare/) | 7 | 7 | 6 | ok |
+| [apprendre-ironic-guitare](/blog/apprendre-ironic-guitare/) | 9 | 4 | 6 | ok |
+| [apprendre-lucky-man-guitare](/blog/apprendre-lucky-man-guitare/) | 5 | 3 | 6 | ok |
+| [apprendre-partons-vite-guitare](/blog/apprendre-partons-vite-guitare/) | 7 | 6 | 6 | ok |
+| [apprendre-perfect-guitare](/blog/apprendre-perfect-guitare/) | 8 | 4 | 6 | ok |
+| [apprendre-redemption-song-guitare](/blog/apprendre-redemption-song-guitare/) | 4 | 4 | 6 | ok |
+| [apprendre-whats-up-guitare](/blog/apprendre-whats-up-guitare/) | 3 | 3 | 6 | ok |
+| [apprendre-smells-like-teen-spirit-guitare](/blog/apprendre-smells-like-teen-spirit-guitare/) | 5 | 5 | 5 | verifie |
+| [tutoriel-everybody-hurts-facile](/blog/tutoriel-everybody-hurts-facile/) | 9 | 7 | 8 | ok |
+| [apprendre-hey-jude-guitare](/blog/apprendre-hey-jude-guitare/) | 9 | 6 | 8 | ok |
+| [apprendre-viva-la-vida-guitare](/blog/apprendre-viva-la-vida-guitare/) | 9 | 4 | 8 | ok |
+| [tutoriel-more-than-words-guitare](/blog/tutoriel-more-than-words-guitare/) | — | 5 | 12 | ok |
+| [tutoriel-dont-stop-me-now-queen](/blog/tutoriel-dont-stop-me-now-queen/) | 7 | 6 | 15 | verifie |
+
+### Traité le 2026-09-02
+
+- **Smells Like Teen Spirit** — annonçait 6, en enseigne 5 (E5, A5, G5, C5 au
+  couplet, F5 au pont) et le relevé vérifié par Fred en donne 5. Corrigé à 5,
+  et ses 5 schémas ajoutés — l'article n'en affichait aucun.
+- **Wonderwall** — `chordCount: 7` est juste (5 formes + 2 basses descendantes,
+  G/E et G/F#, que le texte nomme). Ses 5 formes principales ont maintenant
+  leur schéma ; les deux basses n'existent pas au catalogue.
+- **Chasing Cars** — `chordCount: 5` est juste (A, D, Dsus2, E, E/G#). Schémas
+  **volontairement non ajoutés** : l'article précise que le livre prend le A et
+  le Dsus2 en position haute (5e case) et le E/G# en 4e ; afficher les positions
+  ouvertes contredirait le texte. Il faudrait générer ces positions-là.
+
+### Reste à trancher, article par article
+
+Les vingt autres. Pour chacun, la question est la même : *combien d'accords cet
+article enseigne-t-il vraiment ?* Les cas les plus nets :
+
+- **Viva la Vida** — annonce 9, montre 4, le texte dit 4. Le livre en compte 8.
+- **Ironic** — annonce 9, montre 4. Le livre en compte 6.
+- **Perfect** — annonce 8, montre 4, le texte dit 4 et 8 à deux endroits.
+- **More Than Words** — **aucun `chordCount`**, le texte dit 12, le livre 12.
+- **Don't Stop Me Now** — annonce 7, le relevé vérifié par Fred en donne 15.
+
+Un outil manque ici : rien ne contrôle que `chordCount`, le nombre de schémas et
+le nombre d'accords cités dans le texte se répondent. C'est ce désaccord
+silencieux qui a laissé ces vingt-trois écarts s'installer.
 
 ## Diagrammes d'accords — deux points ouverts
 

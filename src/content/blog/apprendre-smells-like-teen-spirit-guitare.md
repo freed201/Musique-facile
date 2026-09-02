@@ -6,7 +6,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-09-02"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-smells-like-teen-spirit-guitare.webp"
@@ -26,7 +26,7 @@ songInfo:
   inBook: true
   bookPage: 100
   tempo: 117
-  chordCount: 6
+  chordCount: 5
   key: ""
   difficulty: "4/5"
 videos:
@@ -59,6 +59,17 @@ En 1991, « Smells Like Teen Spirit » fait basculer le rock. Sur l'album *Never
 ## Quels accords pour Smells Like Teen Spirit ? (4 power chords, une seule forme)
 
 **Pose un capo en case 1 et joue quatre power chords : E5, A5, G5 et C5.** Ils sonnent alors F5, Bb5, Ab5 et Db5, c'est-à-dire exactement la tonalité du disque.
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-e5.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi puissance (E5) à la guitare : index sur la 2e case de la corde La, majeur sur la 2e case de la corde Ré, corde Mi grave à vide, cordes Sol, Si et Mi aiguë étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a5.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La puissance (A5) à la guitare : index sur la 2e case de la corde Ré, majeur sur la 2e case de la corde Sol, corde La à vide, cordes Mi grave, Si et Mi aiguë étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g5.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol puissance (G5) à la guitare : index sur la 3e case de la corde Mi grave, annulaire sur la 5e case de la corde La, auriculaire sur la 5e case de la corde Ré, cordes Sol, Si et Mi aiguë étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-c5.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do puissance (C5) à la guitare : index sur la 3e case de la corde La, annulaire sur la 5e case de la corde Ré, auriculaire sur la 5e case de la corde Sol, cordes Mi grave, Si et Mi aiguë étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-f5.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Fa puissance (F5) à la guitare : index sur la 1re case de la corde Mi grave, annulaire sur la 3e case de la corde La, auriculaire sur la 3e case de la corde Ré, cordes Sol, Si et Mi aiguë étouffées" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 5 power chords de Smells Like Teen Spirit, capo en case 1 : E5, A5, G5, C5 et F5. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
 
 - **Couplet et refrain** : E5 – A5 – G5 – C5, en boucle
 - **Pont** : E5 – F5 – E5 – A5 – G5

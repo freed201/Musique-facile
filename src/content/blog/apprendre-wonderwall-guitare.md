@@ -6,7 +6,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-09-02"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-wonderwall-guitare.webp"
@@ -59,6 +59,17 @@ faqs:
 ## Quels accords pour Wonderwall ? (et le secret des doigts qui ne bougent pas)
 
 **Place ton capo à la case 2, puis joue ces formes : Em7, G, Dsus4, Cadd9 et A7sus4**, auxquelles s'ajoutent deux basses descendantes, G/E et G/F#.
+
+<figure class="chord-chart" style="margin:1.75rem 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <img src="/images/blog/accords-guitare/accord-guitare-em7.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Mi mineur 7 (Em7) à la guitare : majeur sur la 2e case de la corde La, toutes les autres cordes à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-g.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Sol majeur (G) à la guitare : index sur la 2e case de la corde La, majeur sur la 3e case de la corde Mi grave, annulaire sur la 3e case de la corde Mi aiguë, cordes Ré, Sol et Si à vide" />
+    <img src="/images/blog/accords-guitare/accord-guitare-dsus4.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Ré suspendu 4 (Dsus4) à la guitare : index sur la 2e case de la corde Sol, annulaire sur la 3e case de la corde Si, auriculaire sur la 3e case de la corde Mi aiguë, corde Ré à vide, cordes Mi grave et La étouffées" />
+    <img src="/images/blog/accords-guitare/accord-guitare-cadd9.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord Do ajouté 9 (Cadd9) à la guitare : index sur la 2e case de la corde Ré, majeur sur la 3e case de la corde La, annulaire sur la 3e case de la corde Si, cordes Sol et Mi aiguë à vide, corde Mi grave étouffée" />
+    <img src="/images/blog/accords-guitare/accord-guitare-a7sus4.svg" width="150" height="164" loading="lazy" decoding="async" alt="Diagramme de l'accord La 7 suspendu 4 (A7sus4) à la guitare : majeur sur la 2e case de la corde Ré, annulaire sur la 3e case de la corde Si, auriculaire sur la 3e case de la corde Mi aiguë, cordes La et Sol à vide, corde Mi grave étouffée" />
+  </div>
+  <figcaption style="text-align:center;font-size:0.9rem;color:#777;margin-top:0.6rem;">Les 5 formes de Wonderwall, à jouer capo en case 2 : Em7, G, Dsus4, Cadd9 et A7sus4. Les chiffres indiquent le doigt à utiliser : 1 = index, 2 = majeur, 3 = annulaire, 4 = auriculaire.</figcaption>
+</figure>
 
 - **Couplet** : Em7 – G, en boucle
 - **Pré-refrain** : Cadd9 – Dsus4 – Em7, puis Cadd9 – Dsus4 – G – G/F#
