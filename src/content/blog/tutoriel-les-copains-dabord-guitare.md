@@ -8,13 +8,13 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-09-02"
 introduction: "Les Copains d'Abord de Georges Brassens se joue avec 13 accords, difficulté 4/5 — un vrai défi de mémoire et d'aisance, à un tempo pourtant modéré. Écrite en 1964 pour le film d'Yves Robert « Les Copains », cette chanson est devenue l'hymne non-officiel de l'amitié à la française. Découvre son histoire et comment l'aborder à la guitare."
 
 songInfo:
   inBook: true
   bookPage: 38
-  chordCount: 13
+  chordCount: 8
   difficulty: "4/5"
 
 videos:

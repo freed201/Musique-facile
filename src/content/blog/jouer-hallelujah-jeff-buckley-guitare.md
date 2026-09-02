@@ -8,14 +8,14 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-09-02"
 introduction: "Hallelujah de Jeff Buckley se joue avec 5 accords (C, Am, F, G, E7) et un capo en case 1, en arpèges sur un tempo lent de 70 BPM. Difficulté 3/5 : les formes sont simples, le vrai travail porte sur la régularité du picking et sur la longueur du morceau, qui enchaîne plusieurs couplets."
 
 songInfo:
   inBook: true
   bookPage: 24
   tempo: 70
-  chordCount: 6
+  chordCount: 5
   difficulty: "3/5"
 
 videos:

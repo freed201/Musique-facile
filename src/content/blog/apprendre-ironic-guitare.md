@@ -6,7 +6,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-09-02"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-ironic-guitare.webp"
@@ -26,7 +26,7 @@ songInfo:
   inBook: true
   bookPage: 45
   tempo: 85
-  chordCount: 9
+  chordCount: 8
   key: ""
   difficulty: "3/5"
 videos:

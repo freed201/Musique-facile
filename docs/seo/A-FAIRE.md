@@ -181,20 +181,47 @@ texte d'un article.
   le Dsus2 en position haute (5e case) et le E/G# en 4e ; afficher les positions
   ouvertes contredirait le texte. Il faudrait générer ces positions-là.
 
-### Reste à trancher, article par article
+### Tranché le 2026-09-02
 
-Les vingt autres. Pour chacun, la question est la même : *combien d'accords cet
-article enseigne-t-il vraiment ?* Les cas les plus nets :
+Règle retenue : **`chordCount` = le nombre d'accords que la phrase de l'article
+annonce elle-même**, dans sa section « Quels accords… ? ». C'est la promesse
+faite au lecteur, et c'est ce que le titre et la description reprennent. Le
+relevé du livre ne fait pas autorité contre elle : un tuto enseigne souvent une
+version simplifiée, et pour 21 des 23 morceaux ce relevé n'est même pas relu.
 
-- **Viva la Vida** — annonce 9, montre 4, le texte dit 4. Le livre en compte 8.
-- **Ironic** — annonce 9, montre 4. Le livre en compte 6.
-- **Perfect** — annonce 8, montre 4, le texte dit 4 et 8 à deux endroits.
-- **More Than Words** — **aucun `chordCount`**, le texte dit 12, le livre 12.
-- **Don't Stop Me Now** — annonce 7, le relevé vérifié par Fred en donne 15.
+Onze articles corrigés :
 
-Un outil manque ici : rien ne contrôle que `chordCount`, le nombre de schémas et
-le nombre d'accords cités dans le texte se répondent. C'est ce désaccord
-silencieux qui a laissé ces vingt-trois écarts s'installer.
+| Article | avant | après | ce que dit son texte |
+|---|---:|---:|---|
+| J'veux du soleil | 3 | 4 | « Quatre accords : Bm, F#, Em et Dm » |
+| Hallelujah | 6 | 5 | « Cinq accords : C, Am, F, G et E7 » |
+| Ironic | 9 | 8 | « huit couleurs d'accords » |
+| Lucky Man | 5 | 6 | « Six accords : G, D, Dsus2, Asus2, Asus4 et Em » |
+| Partons vite | 7 | 6 | « Six accords : C, Em, Am, G, Dm et FMaj7/C » |
+| Viva la Vida | 9 | 4 | « Une boucle de 4 accords », sur tout le morceau |
+| More Than Words | absent | 12 | « Douze accords, sans capo » |
+| Smells Like Teen Spirit | 6 | 5 | 4 power chords + F5 au pont |
+| Machistador | 4 | 3 | « Trois accords seulement : Gm, B et C » |
+| Wild World | 8 | 9 | « Neuf accords : Am, D/F#, G, C, F, Dm, E, G6 et G7 » |
+| Across the Universe | 8 | 5 | « Cinq accords : D, A, A7, G et Em7 » |
+| Les Copains d'abord | 13 | 8 | « Huit accords : D, E7, G, F#, F#7, A7, Bm et C7 » |
+
+Les autres étaient déjà justes malgré leur écart au livre — Redemption Song (4),
+Don't Stop Me Now (7), Hey Jude (9, version du livre), Perfect (8), What's Up
+(3), Everybody Hurts (9), Back to Black (7), Une belle histoire (8), Respire
+(6), Fields of Gold (6), One (5), Un autre monde (6), Where Is My Mind (6),
+Wonderwall (7), Chasing Cars (5).
+
+Quatre de ces corrections viennent d'articles **hors des 23** : le nouveau
+contrôle `W-ACCORDS` de `npm run blog:quality` les a trouvés seul, parce que
+leur `chordCount` collait au livre tout en contredisant leur propre texte.
+
+### Reste à faire sur les schémas
+
+**Chasing Cars** attend ses diagrammes : son texte précise que le livre prend le
+A et le Dsus2 en position haute (5e case) et le E/G# en 4e. Ces positions-là ne
+sont pas au catalogue — il faut les y ajouter avant d'illustrer l'article,
+sinon les schémas contrediraient le texte.
 
 ## Diagrammes d'accords — deux points ouverts
 

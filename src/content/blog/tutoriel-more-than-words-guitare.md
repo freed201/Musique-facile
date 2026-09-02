@@ -8,13 +8,14 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-09-02"
 introduction: "More Than Words d'Extreme se joue en accordage un demi-ton en dessous, avec fingerstyle et percussions sur la caisse, difficulté 5/5. Sortie en 1990 sur l'album Pornograffitti, cette ballade acoustique reste une référence du genre. Découvre son histoire et comment décomposer sa technique exigeante."
 
 songInfo:
   inBook: true
   bookPage: 94
   tempo: 92
+  chordCount: 12
   difficulty: "5/5"
 
 videos:
