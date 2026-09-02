@@ -106,3 +106,39 @@ d'un lien pertinent demande un jugement éditorial : je peux proposer une sélec
 | ~~3~~ | ~~Nettoyage on-page~~ — **livré** (PR lot 3) | — |
 | ~~4~~ | ~~Vidéos YouTube~~ — **livré** (PR lot 4) | — |
 | ~~5~~ | ~~Maillage, réponses directes, `llms.txt`~~ — **livré** (PR lot 5) | — |
+
+## Écarts entre le `chordCount` des articles et le relevé du livre
+
+Relevé le 2026-09-02 par comparaison de `src/data/song-chords.json` avec le frontmatter des articles. **23 écarts sur 39 morceaux.**
+
+Un écart n'est pas automatiquement une erreur d'article : un tuto peut enseigner une version simplifiée, ou une autre tonalité, que l'arrangement du livre. **C'est à Fred de trancher, cas par cas.** Rien n'a été modifié dans les articles.
+
+Les deux premières lignes sont les seuls morceaux dont le relevé est vérifié par Fred sur le livre : pour celles-là, l'écart est un vrai sujet.
+
+| Morceau | Article | Livre | Statut du relevé | Accords relevés |
+|---|---:|---:|---|---|
+| [Don’t Stop Me Now](/blog/tutoriel-dont-stop-me-now-queen/) | 7 | 15 | verifie | F · Am · Dm · Gm · C7 · F7 · Bb · D7 · C · G5 · A5 · Bb5 · B5 · C5 · Bb7sus4 |
+| [Smell Like Teen Spirit](/blog/apprendre-smells-like-teen-spirit-guitare/) | 6 | 5 | verifie | E5 · A5 · G5 · C5 · F5 |
+| [More Than Words](/blog/tutoriel-more-than-words-guitare/) | — | 12 | ok | G · Cadd9 · Am7 · C · D · Em · D/F# · D7 · G7 · Cm · Em7 · Bm7 |
+| [Une belle histoire](/blog/apprendre-une-belle-histoire-guitare/) | 8 | 5 | ok | Am · Dm7 · G7 · Esus4 · E7 |
+| [Ironic](/blog/apprendre-ironic-guitare/) | 9 | 6 | ok | G · C · D/F# · D · Em7 · Em |
+| [What’s Up](/blog/apprendre-whats-up-guitare/) | 3 | 6 | ok | A · Bm · D · Am · G · C |
+| [Un autre monde](/blog/apprendre-un-autre-monde-guitare/) | 6 | 4 | ok | A · G · D · Bm |
+| [Where Is My Mind?](/blog/apprendre-where-is-my-mind-guitare/) | 6 | 4 | ok | A · Am · B · E |
+| [Wonderwall](/blog/apprendre-wonderwall-guitare/) | 7 | 5 | ok | G · Em7 · Dsus4 · A7sus4 · Cadd9 |
+| [Perfect](/blog/apprendre-perfect-guitare/) | 8 | 6 | ok | G · Em7 · Cadd9 · D · C · Em |
+| [Redemption Song](/blog/apprendre-redemption-song-guitare/) | 4 | 6 | ok | G · Em · C · C/B · Am · D |
+| [Chasing Cars](/blog/apprendre-chasing-cars-guitare/) | 5 | 4 | ok | A · E · D · Dsus2 |
+| [J’veux du soleil](/blog/tutoriel-jveux-du-soleil-chanson-francaise/) | 3 | 4 | ok | Bm · F# · Em · Dm |
+| [One](/blog/apprendre-one-guitare/) | 5 | 4 | ok | Am · Dsus2 · G · C |
+| [Fields Of Gold](/blog/jouer-fields-of-gold-sting/) | 6 | 5 | ok | C · G · Am · Asus2 · F |
+| [Hallelujah](/blog/jouer-hallelujah-jeff-buckley-guitare/) | 6 | 5 | ok | C · Am · F · G · E7 |
+| [Respire](/blog/apprendre-respire-guitare/) | 6 | 5 | ok | Am · Dm · G · E7 · F |
+| [Back To Black](/blog/apprendre-back-to-black-guitare/) | 7 | 6 | ok | Dm · Gm · Bb · A · F · A7 |
+| [Lucky Man](/blog/apprendre-lucky-man-guitare/) | 5 | 6 | ok | G · D · Dsus2 · Asus2 · Asus4 · Em |
+| [Partons vite](/blog/apprendre-partons-vite-guitare/) | 7 | 6 | ok | C · Em · Am · G · Dm · Fmaj7/C |
+| [Everybody Hurts](/blog/tutoriel-everybody-hurts-facile/) | 9 | 8 | ok | D · G · Em · A · F# · Bm · C · Am |
+| [Hey Jude](/blog/apprendre-hey-jude-guitare/) | 9 | 8 | ok | C · G · G7 · F · C7 · Dm · Dm/C · G/B |
+| [Viva la vida](/blog/apprendre-viva-la-vida-guitare/) | 9 | 8 | ok | C · D7sus4 · G · Em · D7 · Emadd9 · G/B · D5 |
+
+« — » = l'article ne déclare pas de `chordCount`.

@@ -1,0 +1,111 @@
+---
+/**
+ * OutilAccordsCard — passerelle d'un article-morceau vers l'outil « Quel accord
+ * apprendre ensuite ? ».
+ *
+ * POURQUOI UN COMPOSANT, ET PAS UN LIEN DANS CHAQUE ARTICLE
+ * Les trente-neuf morceaux de l'outil ont chacun leur tutoriel. Coller la même
+ * phrase dans trente-neuf fichiers serait à la fois pénible à maintenir et
+ * visiblement fabriqué. Ici, un seul endroit décide, et le contenu affiché
+ * (nombre d'accords, liste des accords) vient du relevé du livre : il diffère
+ * réellement d'un article à l'autre.
+ *
+ * L'encart ne s'affiche que si le morceau est effectivement dans le catalogue
+ * de l'outil — donc relu. Un article dont le relevé est douteux n'y renvoie pas.
+ *
+ * Ce n'est pas un formulaire : le blog est déjà saturé en capture d'e-mails
+ * (voir CLAUDE.md), on n'en rajoute pas. C'est un lien interne, comme
+ * PillarLink ou RelatedArticles.
+ */
+import data from '../../data/song-chords.json';
+
+interface Props {
+  /** Slug de l'article en cours. */
+  slug: string;
+}
+
+const { slug } = Astro.props;
+
+const catalogue = (data.songs as any[]).filter(
+  (s) => s.statut !== 'a-verifier' && s.slug && s.accords?.length,
+);
+const morceau = catalogue.find((s) => s.slug === slug);
+---
+
+{morceau && (
+  <aside class="outil-accords theme-guitar" aria-labelledby="outil-accords-titre">
+    <p class="outil-accords__oeil" aria-hidden="true">Outil</p>
+    <h2 id="outil-accords-titre" class="outil-accords__titre">
+      Et une fois ces {morceau.accords.length} accords en main&nbsp;?
+    </h2>
+    <p class="outil-accords__accords">
+      {morceau.accords.map((a: string) => <span class="outil-accords__pastille">{a}</span>)}
+    </p>
+    <p class="outil-accords__texte">
+      Cochez les accords que vous savez poser&nbsp;: l'outil calcule, sur les
+      {' '}{catalogue.length} morceaux relevés dans le livre de Fred, lequel apprendre
+      ensuite pour en débloquer le plus d'un coup — et vous montre comment le poser.
+    </p>
+    <a class="outil-accords__lien" href="/outils/quel-accord-apprendre/">
+      Quel accord apprendre ensuite&nbsp;?
+    </a>
+  </aside>
+)}
+
+<style>
+  .outil-accords {
+    margin: var(--space-10, 2.5rem) auto;
+    max-width: 760px;
+    padding: var(--space-5, 1.25rem);
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-left: 4px solid var(--theme-current, #6c3fa0);
+    border-radius: var(--radius-lg, .75rem);
+  }
+  .outil-accords__oeil {
+    margin: 0 0 var(--space-2, .5rem);
+    font-size: var(--text-xs, .75rem);
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--theme-ink, #6c3fa0);
+  }
+  .outil-accords__titre {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg, 1.125rem);
+    margin: 0 0 var(--space-3, .75rem);
+  }
+  .outil-accords__accords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3rem;
+    margin: 0 0 var(--space-3, .75rem);
+  }
+  .outil-accords__pastille {
+    padding: .2rem .5rem;
+    border-radius: var(--radius-sm, .25rem);
+    background: var(--bg-page);
+    font-size: var(--text-xs, .75rem);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .outil-accords__texte {
+    margin: 0 0 var(--space-4, 1rem);
+    font-size: var(--text-sm, .875rem);
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+  .outil-accords__lien {
+    display: inline-block;
+    min-height: 2.75rem;
+    padding: .7rem 1.2rem;
+    border-radius: var(--radius-md, .5rem);
+    /* --theme-current avec du texte blanc ne donne que 2,8:1 : on l'assombrit,
+       comme sur la page de l'outil. */
+    background: color-mix(in srgb, var(--theme-current, #6c3fa0) 70%, #000);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .outil-accords__lien:hover { text-decoration: underline; }
+</style>

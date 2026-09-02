@@ -34,6 +34,7 @@ faqs:
 - **Majeurs** : son clair et ouvert, pour les morceaux entraînants
 - **Mineurs** : son plus sombre, pour les ballades
 - **La première étape** : lire un diagramme d'accord, expliqué plus bas
+- **Vous en connaissez déjà quelques-uns ?** L'outil [quel accord apprendre ensuite](/outils/quel-accord-apprendre/) vous dit lequel débloque le plus de morceaux
 
 ## Pourquoi apprendre les accords de guitare ?
 

@@ -19,6 +19,7 @@
     "check:seo": "node scripts/check-seo.mjs",
     "seo:revisions": "node scripts/generate-page-revisions.mjs",
     "videos:metadata": "node scripts/fetch-video-metadata.mjs",
+    "chords:index": "node scripts/extract-book-chords.mjs",
     "chords:generate": "node scripts/generate-chord-svgs.mjs",
     "lead-magnet:pdf": "node scripts/lead-magnet-to-pdf.mjs",
     "lead-magnet:build": "node scripts/lead-magnet-to-pdf.mjs content/lead-magnets/guitare-5-accords-magiques.md",
