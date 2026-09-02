@@ -1,7 +1,7 @@
 ---
 # Data SEO
 title: "Cours de Piano Débutant - Guide Complet"
-description: "Formation complète pour débutants au piano : apprenez les bases du clavier, des accords et techniques rythmiques jusqu'aux morceaux avancés. Découvrez 100+ vidéos et exercices pédagogiques."
+description: "Les bases du clavier au piano : découverte des notes, touches blanches et noires, premiers repères et exercices, module par module."
 ogImage: "/images/cours/piano-force-agilite/hero.webp"
 theme: "piano"
 lienAchat: "https://musique-facile.fr/paiement/piano-debutant/"

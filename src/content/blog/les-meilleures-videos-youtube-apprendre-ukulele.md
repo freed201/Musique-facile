@@ -1,6 +1,6 @@
 ---
 siloSlug: "debuter-ukulele-methode-simple-apprendre"
-title: "Les Meilleures Chaînes YouTube Françaises pour Apprendre le Ukulélé"
+title: "Les meilleures chaînes YouTube pour apprendre le ukulélé"
 prod: Y
 description: "Notre sélection des meilleures chaînes YouTube francophones pour apprendre le ukulélé, du débutant au niveau avancé"
 author: "Fred Fieffé"

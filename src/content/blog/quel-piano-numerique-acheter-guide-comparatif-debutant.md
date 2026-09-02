@@ -1,6 +1,6 @@
 ---
 siloSlug: "guide-complet-apprentissage-piano"
-title: "Quel piano numérique acheter ? Le guide comparatif 2026 pour débutants"
+title: "Quel piano numérique acheter ? Comparatif 2026 débutants"
 description: "Roland, Yamaha, Casio, Kawai... Les meilleurs pianos numériques passés au crible, du premier prix au haut de gamme. Nos recommandations honnêtes par budget."
 author: "Fred Fieffé"
 publisher: "Musique Facile"

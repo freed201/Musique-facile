@@ -1,7 +1,7 @@
 ---
 # Data SEO
 title: "Exercices pour la Maîtrise des Doigts au Piano"
-description: "Formation complète pour développer votre agilité et votre précision au piano grâce à des exercices progressifs. Découvrez des techniques adaptées à tous les niveaux."
+description: "Développer son agilité et sa précision au piano grâce à des exercices progressifs, adaptés du débutant au joueur confirmé."
 ogImage: "/images/cours/cours-exercices-techniques-piano/hero.webp"
 theme: "piano"
 lienAchat: "https://ecole.musique-facile.fr/exercices-maitrise-doigts-piano/buy"

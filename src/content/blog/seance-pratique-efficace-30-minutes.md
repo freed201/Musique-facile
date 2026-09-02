@@ -1,7 +1,7 @@
 ---
 siloSlug: "pourquoi-tu-stagnes-en-musique"
-title: "Comment Réussir une Séance de Pratique Musicale Efficace en 30 Minutes"
-description: "Méthode structurée en 4 étapes pour progresser en musique avec 30 minutes par jour. Découpe claire, objectifs précis et routine adaptable à tous les instruments."
+title: "Réussir une séance de pratique efficace en 30 minutes"
+description: "Méthode en 4 étapes pour progresser en musique avec 30 minutes par jour. Découpe claire, objectifs précis et routine adaptable à tous les instruments."
 introduction: "Oui, 30 minutes de pratique structurée suffisent pour progresser en musique, en 4 phases : échauffement ciblé (5 min), travail technique sur un point bloquant (10 min), application dans un morceau réel (10 min), plaisir musical (5 min). Cette méthode permet de progresser bien plus vite qu'une pratique désorganisée, même avec peu de temps."
 author: "Fred Fieffé"
 publisher: "Musique Facile"

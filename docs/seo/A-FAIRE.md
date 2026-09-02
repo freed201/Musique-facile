@@ -250,3 +250,29 @@ La correction probable est d'étouffer la corde grave — `[-1, 3, 3, 2, 1, 0]`
 donne bien Do Fa La Do Mi, basse do. **Je n'ai rien changé** : cette position
 vient du livre et de la relecture de Fred, c'est à lui de trancher. Le
 diagramme est publié tel quel sur `/blog/apprendre-partons-vite-guitare/`.
+
+## Titres et descriptions — dette soldée le 2026-09-02
+
+Les 46 défauts hérités (21 titres > 60 caractères, 25 descriptions > 160) sont
+corrigés et `scripts/seo-baseline.json` est **vide** : toute nouvelle dérive
+fait désormais échouer `npm run check:seo`, au lieu d'être tolérée.
+
+### Deux points repérés en chemin, hors périmètre
+
+**Doublon de métadonnées entre deux programmes piano.**
+`piano-facile-apprendre-debutant` et `piano-force-agilite` portaient exactement
+la même description ET portent toujours **le même titre** — « Cours de Piano
+Débutant - Guide Complet ». Ce sont pourtant deux programmes différents : le
+premier va jusqu'aux morceaux (Ode à la joie, Alléluia, 337 lignes), le second
+s'arrête aux bases du clavier (121 lignes). Leurs descriptions sont désormais
+distinctes ; **les titres restent à différencier**, ils ne dépassaient pas
+60 caractères et n'étaient donc pas dans les 46.
+
+À noter aussi : le slug `piano-force-agilite` ne correspond pas à son contenu
+(« Les Bases du Clavier »). Le renommer changerait l'URL — à trancher.
+
+**18 descriptions trop courtes** (< 120 caractères) restent en avertissement,
+dont plusieurs pages de livres qui affichent la description générique du site
+au lieu d'une phrase propre au livre. Exemple : *Les Plus Belles Comptines avec
+mon Ukulélé Volume 2* annonce « Apprenez la musique facilement avec nos
+formations en ligne ». C'est un manque à gagner sur des pages produit.

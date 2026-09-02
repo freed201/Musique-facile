@@ -1,7 +1,7 @@
 ---
 # Data SEO
 title: "Cours de Piano pour Guitaristes"
-description: "Formation pour guitaristes souhaitant apprendre le piano : découvrez les fondamentaux, maîtrisez les bases du clavier, et enrichissez vos compétences musicales avec des vidéos et exercices pratiques."
+description: "Le piano pour les guitaristes : les fondamentaux du clavier expliqués à partir de ce que vous savez déjà, avec vidéos et exercices pratiques."
 ogImage: "/images/cours/apprendre-piano-facile-guitaristes/hero.webp"
 theme: "guitar"
 lienAchat: "https://ecole.musique-facile.fr/piano-pour-guitaristes/buy"

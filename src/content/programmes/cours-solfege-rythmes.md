@@ -1,7 +1,7 @@
 ---
 # Data SEO
 title: "Solfège Partie 2 : Maîtrise des Rythmes"
-description: "Formation complète pour comprendre et maîtriser le rythme musical : figures rythmiques, valeurs des notes, silences, rythmes complexes et utilisation du métronome. Des dizaines de vidéos pour une progression assurée."
+description: "Comprendre le rythme musical : figures et valeurs de notes, silences, rythmes complexes et travail au métronome, en dizaines de vidéos."
 ogImage: "/images/cours/cours-solfege-rythmes/hero.webp"
 theme: "solfege"
 lienAchat: "https://ecole.musique-facile.fr/solfege-partie-2"

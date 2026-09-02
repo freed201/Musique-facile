@@ -1,7 +1,7 @@
 ---
 # Data SEO
-title: "Formation Complète de Guitare : L'Odyssée du Perfectionnement"
-description: "Découvrez une formation avancée pour perfectionner votre jeu de guitare : 52 semaines de contenu détaillé, des exercices pratiques et des techniques avancées pour tous les passionnés."
+title: "Guitare avancée : formation complète au perfectionnement"
+description: "Perfectionner son jeu de guitare : 52 semaines de contenu, exercices pratiques et techniques avancées, pour les guitaristes qui veulent passer un cap."
 ogImage: "/images/cours/maitrise-technique-guitare-avancee/hero.webp"
 theme: "guitar"
 lienAchat: "https://ecole.musique-facile.fr/guitare-odyssee-perfectionnement/buy  "

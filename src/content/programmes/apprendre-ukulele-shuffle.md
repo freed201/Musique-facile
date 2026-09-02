@@ -1,7 +1,7 @@
 ---
 # Data SEO
 title: "Cours Ukulélé Shuffle Blues"
-description: "Formation pour apprendre à jouer le shuffle blues à l’ukulélé : explorez les rythmes shuffle binaires et ternaires, maîtrisez la technique et perfectionnez votre jeu avec des vidéos et exercices pratiques."
+description: "Le shuffle blues à l’ukulélé : rythmes binaires et ternaires, technique de main droite et exercices progressifs, entièrement en vidéo."
 ogImage: "/images/cours/apprendre-ukulele-shuffle/hero.webp"
 theme: "ukulele"
 lienAchat: "https://ecole.musique-facile.fr/cours-ukulele-shuffle-blues/buy"
