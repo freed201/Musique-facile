@@ -1,18 +1,48 @@
-# Cohérence des en-têtes de sécurité — Musique Facile
+# En-têtes de sécurité — Musique Facile
 
-Les en-têtes de sécurité (CSP, HSTS, X-Frame-Options, Referrer-Policy, Permissions-Policy) sont définis à **deux endroits** dans le repo. Cette règle fixe la source de vérité — sinon les deux divergent silencieusement (c'est **déjà le cas**). BROUILLON à valider par Fred.
+## Une seule source : `vercel.json > headers`
 
-## Source de vérité : `vercel.json > headers`
-- En production (Vercel), les en-têtes appliqués à **toutes les réponses** viennent de `vercel.json > headers` (`source: "/(.*)"`). C'est la **seule** source réellement live.
-- Toute modification de CSP / sécurité se fait **ici en premier**.
+Les en-têtes appliqués à toutes les réponses (CSP, HSTS, X-Frame-Options,
+Referrer-Policy, Permissions-Policy, X-Content-Type-Options) sont déclarés dans
+`vercel.json`, bloc `source: "/(.*)"`. C'est la **seule** source, et elle est
+réellement servie — vérifiable d'un `curl -I https://musique-facile.fr/`.
 
-## ⚠️ Le middleware Astro n'est PAS enregistré (dette à trancher)
-- `src/utils/middleware/security.ts` exporte un `onRequest` qui applique `src/utils/security.ts`. MAIS Astro ne charge un middleware que depuis `src/middleware.ts` (ou `src/middleware/index.ts`). Ce fichier **n'existe pas** → le middleware n'est **jamais exécuté**, et la CSP de `security.ts` (qui diverge déjà de `vercel.json`) est **morte**.
-- **Décision à valider par Fred** : soit **(a)** enregistrer le middleware (`src/middleware.ts` ré-exportant `onRequest`) ET aligner sa CSP sur `vercel.json` ; soit **(b)** supprimer `security.ts` + le middleware mort et acter `vercel.json` comme source unique. Tant que ce n'est pas tranché, **ne pas se fier à `security.ts`**.
+Toute modification de la CSP se fait **là, et nulle part ailleurs**.
 
-## Règle pratique
-- Modifier la CSP → éditer `vercel.json`. Si l'option (a) est un jour retenue, répliquer **à l'identique** dans `security.ts`.
-- Ne jamais ajouter une source d'en-têtes via `public/_headers` : Vercel **ignore** ce format Netlify (cf. CLAUDE.md).
+## Le doublon a été supprimé le 2026-09-02
 
-## Garde-fou
-Le hook PreToolUse `.claude/hooks/check-csp-sync.sh` (matcher `Write|Edit`) **avertit** (exit 0, non bloquant) à chaque édition de `vercel.json` ou `src/utils/security.ts` : rappel de la source de vérité et de la 2e définition. La cohérence exacte des deux CSP reste une **revue humaine** (deux formats non comparables mécaniquement).
+`src/utils/security.ts` et `src/utils/middleware/security.ts` définissaient une
+seconde version de ces en-têtes. Elle n'a **jamais** été appliquée : Astro ne
+charge un middleware que depuis `src/middleware.ts` ou `src/middleware/index.ts`,
+et aucun des deux n'existait. Le middleware avait d'ailleurs un import cassé
+(`../utils/security` depuis `src/utils/middleware/` pointait vers
+`src/utils/utils/`) : il n'aurait même pas compilé.
+
+Les deux fichiers sont supprimés, et pas seulement parce qu'ils étaient morts.
+La copie avait divergé au point de devenir **dangereuse si on l'activait** :
+
+- elle autorisait `'unsafe-eval'`, absent de la CSP réelle ;
+- elle référençait encore `freed201.activehosted.com`, ActiveCampaign, abandonné
+  pour Brevo ;
+- il lui manquait `youtube-nocookie.com` et `player.ausha.co`, dont dépendent
+  aujourd'hui les façades vidéo et le podcast — les activer aurait cassé ces
+  pages.
+
+## Le garde-fou
+
+`npm run check:headers` (scripts/check-security-headers.mjs) vérifie que
+`vercel.json` déclare bien les six en-têtes, que la CSP conserve ses directives
+structurantes (`default-src`, `object-src`, `base-uri`, `form-action`,
+`frame-ancestors`), qu'elle n'a pas réintroduit `'unsafe-eval'`, et qu'elle
+autorise toujours les origines dont le site dépend. Avec `--prod`, il interroge
+en plus le site en ligne.
+
+Il échoue aussi si `src/middleware.ts`, `src/middleware/index.ts` ou
+`src/utils/security.ts` réapparaissent : **deux sources d'en-têtes finissent
+toujours par diverger**, c'est précisément ce qui s'est produit ici.
+
+Si la parité en développement local devient un besoin (aujourd'hui `astro dev`
+ne sert aucun de ces en-têtes), c'est une décision à prendre explicitement, pas
+un middleware à réintroduire au passage.
+
+Ne jamais ajouter `public/_headers` : Vercel **ignore** ce format Netlify.
