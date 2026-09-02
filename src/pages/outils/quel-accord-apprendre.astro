@@ -31,6 +31,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import FooterModern from '../../components/FooterModern.astro';
 import BreadcrumbsSchema from '../../components/BreadcrumbsSchema.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
 import VideoEmbed from '../../components/VideoEmbed.astro';
 import data from '../../data/song-chords.json';
 import chordVideos from '../../data/chord-videos.json';
@@ -136,11 +137,74 @@ const breadcrumb = [
   { name: 'Accueil', url: 'https://musique-facile.fr/' },
   { name: 'Outils', url: 'https://musique-facile.fr/outils/quel-accord-apprendre/' },
 ];
+
+/**
+ * Déclaré comme WebApplication, et non comme article.
+ *
+ * Sans ça, la page est lue comme un texte de plus sur les accords, alors que
+ * c'est un outil : c'est la seule chose qui la distingue des cent articles du
+ * blog aux yeux d'un moteur ou d'un LLM. Toutes les valeurs sont vraies et
+ * vérifiables sur la page — pas de note ni d'avis, l'outil n'en a aucun.
+ */
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Quel accord de guitare apprendre ensuite ?',
+  url: canonicalURL,
+  applicationCategory: 'EducationalApplication',
+  browserRequirements: 'Fonctionne dans tout navigateur web récent.',
+  operatingSystem: 'Tout',
+  inLanguage: 'fr-FR',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  description:
+    `Outil gratuit : cochez les accords de guitare que vous savez poser, il calcule sur ${morceaux.length} morceaux relevés dans le livre de Fred Fieffé lequel apprendre ensuite, combien de morceaux il débloque, et ceux que vous savez déjà jouer en entier.`,
+  featureList: [
+    `Recommandation de l'accord qui débloque le plus de morceaux, sur un catalogue de ${morceaux.length} titres`,
+    `Liste des morceaux jouables intégralement avec les accords déjà connus`,
+    `Schéma de doigté pour ${accordsAvecSchema.length} accords`,
+    `Tutoriel vidéo pour ${accordsAvecVideo.length} accords`,
+    'Filtre des morceaux jouables ou accessibles à un seul accord près',
+  ],
+  creator: {
+    '@type': 'Person',
+    name: 'Fred Fieffé',
+    url: 'https://musique-facile.fr/a-propos/',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Musique Facile',
+    url: 'https://musique-facile.fr/',
+  },
+};
+
+/**
+ * Questions réellement posées par l'outil lui-même. Les réponses reprennent des
+ * chiffres calculés sur le catalogue, pas des estimations.
+ */
+const faqs = [
+  {
+    question: "D'où viennent les accords de ces morceaux ?",
+    answer:
+      `Ils sont relevés un par un dans le livre de Fred Fieffé, page par page, et non estimés d'oreille ou repris d'une base tierce. ${morceaux.length} morceaux sont retenus : un relevé qui laisse un doute est écarté de l'outil plutôt que publié avec une approximation.`,
+  },
+  {
+    question: 'Pourquoi si peu de morceaux jouables au début ?',
+    answer:
+      `C'est mesuré sur le catalogue : avec les ${jouablesAvec(4) === 0 ? 'quatre premiers accords qu\'apprend un débutant, aucun morceau' : 'quatre premiers accords, très peu de morceaux'} n'est jouable du début à la fin. Il faut en général six accords pour en jouer ${jouablesAvec(6)} intégralement, et dix pour en jouer ${jouablesAvec(10)}. C'est justement pour ça que l'outil répond « quel accord apprendre ensuite » plutôt que « que peux-tu jouer ».`,
+  },
+  {
+    question: "Pourquoi certains accords n'ont-ils pas de schéma de doigté ?",
+    answer:
+      `Seules les positions du catalogue relu par Fred sont affichées, soit ${accordsAvecSchema.length} accords sur les ${totalAccords} du répertoire. Un accord absent de ce catalogue s'affiche sans schéma : un doigté inventé serait pire que pas de schéma du tout.`,
+  },
+];
 ---
 
 <Layout title={title} description={description} canonicalUrl={canonicalURL}>
   <Fragment slot="head">
     <BreadcrumbsSchema items={breadcrumb} />
+    <script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
   </Fragment>
 
   <Header />
@@ -343,6 +407,11 @@ const breadcrumb = [
           </div>
         </section>
       )}
+
+      <section class="etape" aria-labelledby="t-faq">
+        <h2 id="t-faq">Questions fréquentes</h2>
+        <FAQSchema faqs={faqs} showVisual={true} />
+      </section>
 
       <section class="etape methode" aria-labelledby="t-methode">
         <h2 id="t-methode">D'où viennent ces données&nbsp;?</h2>

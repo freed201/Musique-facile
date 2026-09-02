@@ -15,6 +15,7 @@ import { secureExternalLinks } from '../../utils/external-link-rel.mjs';
 import VideoEmbed from '../../components/VideoEmbed.astro';
 import BuyingGuideCard from '../../components/blog/BuyingGuideCard.astro';
 import InlineOptIn from '../../components/blog/InlineOptIn.astro';
+import OutilAccordsCard from '../../components/blog/OutilAccordsCard.astro';
 import { buildItemListSchema } from '../../utils/listItems';
 
 export async function getStaticPaths() {
@@ -457,6 +458,10 @@ if (entry.data.siloSlug && !entry.data.pillar) {
     {faqs && faqs.length > 0 && (
       <FAQSchema faqs={faqs} showVisual={true} />
     )}
+
+    <!-- Passerelle vers l'outil « Quel accord apprendre ensuite ? ».
+         Ne s'affiche que si ce morceau fait partie de son catalogue relu. -->
+    <OutilAccordsCard slug={entry.slug} />
 
     <!-- Section Articles Similaires (Intelligent) - En pleine largeur -->
     <RelatedArticles
