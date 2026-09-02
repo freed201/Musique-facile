@@ -9,14 +9,14 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-09-02"
 introduction: "Across the Universe des Beatles se joue avec 8 accords et un capo case 2, sur un tempo lent (76 BPM), difficulté 4/5. Cette œuvre inoubliable de 1969 allie la poésie introspective de John Lennon à une mélodie envoûtante. Découvrez son histoire et comment l'aborder à la guitare."
 
 songInfo:
   inBook: true
   bookPage: 6
   tempo: 76
-  chordCount: 8
+  chordCount: 5
   difficulty: "4/5"
 
 videos:

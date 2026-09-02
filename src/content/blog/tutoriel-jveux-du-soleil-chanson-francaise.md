@@ -8,14 +8,14 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-09-02"
 introduction: "J'veux du Soleil d'Au P'tit Bonheur se joue avec seulement 3 accords (Am, E, Dm), sans capo, sur un tempo entraînant (108 BPM). Sortie en single en 1991, cette chanson joyeuse et intemporelle reste un classique des feux de camp. Découvrez son histoire et apprenez à la jouer."
 
 songInfo:
   inBook: true
   bookPage: 34
   tempo: 108
-  chordCount: 3
+  chordCount: 4
   difficulty: "3/5"
 
 videos:

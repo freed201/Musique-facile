@@ -8,14 +8,14 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-09-02"
 introduction: "Avec 'Partons Vite', Kaolin nous offre un morceau poétique et mélodieux invitant à l'évasion, extrait de l'album 'Mélanger les couleurs'. Découvrez l'histoire de ce classique du rock français des années 2000 et apprenez à le jouer avec notre tutoriel accessible."
 
 songInfo:
   inBook: true
   bookPage: 56
   tempo: 98
-  chordCount: 7
+  chordCount: 6
   difficulty: "2/5"
 
 videos:

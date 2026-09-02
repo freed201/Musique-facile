@@ -178,6 +178,40 @@ async function checkArticle(slug, entry, corpus) {
     warnings.push('W-HTML-INLINE : <div> dans le markdown — utiliser les blocs `::: info|tip|warning`');
   }
 
+  /**
+   * Cohérence du nombre d'accords d'un article-morceau.
+   *
+   * Trois endroits annoncent ce nombre et rien ne les confrontait : le champ
+   * `songInfo.chordCount` du frontmatter, la phrase du corps (« Six accords :
+   * … ») et le nombre de schémas affichés. Vingt-trois articles avaient fini
+   * par diverger en silence — c'est ce qu'a révélé l'audit du 2026-09-02.
+   *
+   * Le nombre de schémas n'est pas comparé : un article peut légitimement ne
+   * pas dessiner tous les accords qu'il cite (basses descendantes, positions
+   * hautes absentes du catalogue). Ce qui doit s'accorder, c'est ce que
+   * l'article ANNONCE : son frontmatter et son texte.
+   */
+  const chordCount = data.songInfo?.chordCount;
+  if (chordCount !== undefined) {
+    const MOTS = { un: 1, une: 1, deux: 2, trois: 3, quatre: 4, cinq: 5, six: 6, sept: 7,
+                   huit: 8, neuf: 9, dix: 10, onze: 11, douze: 12, treize: 13, quatorze: 14, quinze: 15 };
+    // On ne lit que la section « Quels accords … ? », là où l'article répond.
+    const section = cleanBody.match(/^##\s*Quels accords[^\n]*$([\s\S]*?)(?=^##\s|$(?![\s\S]))/m);
+    if (section) {
+      const annonces = new Set();
+      const re = new RegExp(`\\b(\\d{1,2}|${Object.keys(MOTS).join('|')})\\s+(?:couleurs?\\s+d['’]\\s*)?accords?\\b`, 'gi');
+      for (const m of section[1].matchAll(re)) {
+        const v = m[1].toLowerCase();
+        annonces.add(v.match(/^\d+$/) ? Number(v) : MOTS[v]);
+      }
+      if (annonces.size && !annonces.has(chordCount)) {
+        warnings.push(
+          `W-ACCORDS : \`chordCount: ${chordCount}\` mais le texte annonce ${[...annonces].join(' ou ')} accord(s) — l'un des deux est faux`,
+        );
+      }
+    }
+  }
+
   const urlsAbsolues = cleanBody.match(/https?:\/\/(?:www\.)?musique-facile\.fr[^\s)"']*/g) || [];
   if (urlsAbsolues.length > 0) {
     warnings.push(`W-URL-ABSOLUE : ${urlsAbsolues.length} lien(s) interne(s) en URL absolue — utiliser des chemins relatifs`);
