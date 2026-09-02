@@ -91,7 +91,7 @@ const checkedOnLabel = checkedOnDate
                 <div class="testimonial-info">
                   <h3 class="testimonial-name">{testimonial.name}</h3>
                   <p class="testimonial-role">
-                    {INSTRUMENT_LABELS[testimonial.instrument]} · {formatTestimonialDate(testimonial.date)}
+                    {INSTRUMENT_LABELS[testimonial.instrument]} · {formatTestimonialDate(testimonial.date, testimonial.datePrecision)}
                     {testimonial.sourceUrl && (
                       <> · <a href={testimonial.sourceUrl} rel="noopener nofollow" target="_blank">{testimonial.sourceName ?? 'voir l\'avis'}</a></>
                     )}
