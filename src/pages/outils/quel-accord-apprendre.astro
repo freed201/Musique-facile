@@ -23,6 +23,7 @@ import Header from '../../components/Header.astro';
 import FooterModern from '../../components/FooterModern.astro';
 import BreadcrumbsSchema from '../../components/BreadcrumbsSchema.astro';
 import data from '../../data/song-chords.json';
+import chordVideos from '../../data/chord-videos.json';
 
 const canonicalURL = new URL('/outils/quel-accord-apprendre/', Astro.site || 'https://musique-facile.fr').toString();
 const title = "Quel accord de guitare apprendre ensuite ? | Musique Facile";
@@ -55,6 +56,32 @@ const mediane = morceaux.length
   ? morceaux[Math.floor(morceaux.length / 2)].accords.length
   : 0;
 
+/**
+ * Tutoriels vidéo par accord (Shorts de la chaîne).
+ *
+ * La série est programmée jusqu'au 19 octobre 2026 : une vidéo n'est proposée
+ * QUE si sa date de mise en ligne est passée, sinon le lien mènerait à une
+ * vidéo indisponible. Même règle que pour la publication des articles. Le site
+ * s'enrichit donc tout seul à mesure que la série sort, sans rien à modifier.
+ */
+const aujourdhui = new Date();
+const videosParAccord = new Map<string, { youtubeId: string; duree: string }>();
+for (const v of chordVideos.videos) {
+  if (v.instrument !== 'guitare') continue;
+  if (new Date(v.datePublication) > aujourdhui) continue;
+  videosParAccord.set(v.accord, { youtubeId: v.youtubeId, duree: v.duree });
+}
+
+/** « PT24S » → « 24 s », pour annoncer la durée sans jargon. */
+const dureeLisible = (iso: string) => {
+  const m = iso.match(/^PT(?:(\d+)M)?(?:(\d+)S)?$/);
+  if (!m) return null;
+  const [min, sec] = [Number(m[1] ?? 0), Number(m[2] ?? 0)];
+  return min ? `${min} min ${sec}s` : `${sec} s`;
+};
+
+const accordsAvecVideo = [...videosParAccord.keys()].sort();
+
 const breadcrumb = [
   { name: 'Accueil', url: 'https://musique-facile.fr/' },
   { name: 'Outils', url: 'https://musique-facile.fr/outils/quel-accord-apprendre/' },
@@ -86,7 +113,11 @@ const breadcrumb = [
         <h2 id="titre-selecteur">Les accords que je connais</h2>
         <div class="accords-grille" id="accords-grille">
           {accordsCochables.map((accord) => (
-            <label class="accord-case">
+            <label
+              class="accord-case"
+              data-video={videosParAccord.get(accord)?.youtubeId}
+              data-duree={dureeLisible(videosParAccord.get(accord)?.duree ?? '') ?? undefined}
+            >
               <input type="checkbox" name="accord" value={accord} />
               <span>{accord}</span>
             </label>
@@ -118,13 +149,33 @@ const breadcrumb = [
           ouvre le plus de portes.
         </p>
         <ol class="classement">
-          {accordsClasses.slice(0, 12).map(([accord, n]) => (
-            <li>
-              <span class="classement-accord">{accord}</span>
-              <span class="classement-detail">{n} morceau{n > 1 ? 'x' : ''}</span>
-            </li>
-          ))}
+          {accordsClasses.slice(0, 12).map(([accord, n]) => {
+            const video = videosParAccord.get(accord);
+            return (
+              <li>
+                <span class="classement-accord">{accord}</span>
+                <span class="classement-detail">{n} morceau{n > 1 ? 'x' : ''}</span>
+                {video && (
+                  <a
+                    class="classement-video"
+                    href={`https://www.youtube.com/shorts/${video.youtubeId}`}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Voir la position<span class="sr-only"> de l'accord {accord}</span>
+                    {dureeLisible(video.duree) && <> ({dureeLisible(video.duree)})</>}
+                  </a>
+                )}
+              </li>
+            );
+          })}
         </ol>
+        {accordsAvecVideo.length > 0 && (
+          <p class="classement-note">
+            {accordsAvecVideo.length} de ces accords ont leur tutoriel vidéo&nbsp;:
+            {' '}{accordsAvecVideo.join(', ')}. La série se complète semaine après semaine.
+          </p>
+        )}
       </section>
 
       <section aria-labelledby="titre-catalogue">
@@ -221,6 +272,19 @@ const breadcrumb = [
   .catalogue-accords { font-variant-numeric: tabular-nums; }
   .catalogue tr[hidden] { display: none; }
 
+  .classement-video, .resultat-video {
+    display: inline-block; font-size: var(--text-xs, .75rem);
+    color: var(--theme-current, #6c3fa0); text-decoration: underline; text-underline-offset: 2px;
+  }
+  .classement li { flex-wrap: wrap; }
+  .classement-video { flex-basis: 100%; }
+  .resultat-video { margin-left: .6rem; font-weight: 600; vertical-align: middle; }
+  .classement-note { margin-top: var(--space-3, .75rem); font-size: var(--text-sm, .875rem); color: var(--text-muted, #6b7280); }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+
   .methode { margin-top: var(--space-12, 3rem); font-size: var(--text-sm, .875rem); color: var(--text-secondary); }
 </style>
 
@@ -231,6 +295,24 @@ const breadcrumb = [
   const resultat = document.getElementById('resultat');
   const table = document.getElementById('catalogue');
   if (grille && resultat && table) {
+    // Les vidéos sont déjà dans le HTML, portées par les cases à cocher :
+    // le script les relit plutôt que de transporter un second jeu de données.
+    const videos = new Map<string, { id: string; duree: string | null }>();
+    grille.querySelectorAll('.accord-case').forEach((label) => {
+      const el = label as HTMLElement;
+      const value = el.querySelector('input')?.getAttribute('value');
+      if (value && el.dataset.video) {
+        videos.set(value, { id: el.dataset.video, duree: el.dataset.duree ?? null });
+      }
+    });
+
+    const lienVideo = (accord: string) => {
+      const v = videos.get(accord);
+      if (!v) return '';
+      const duree = v.duree ? ` (${v.duree})` : '';
+      return ` <a class="resultat-video" href="https://www.youtube.com/shorts/${v.id}" target="_blank" rel="noopener noreferrer">Voir comment le poser${duree}</a>`;
+    };
+
     const lignes = [...table.querySelectorAll('tbody tr')].map((tr) => ({
       tr,
       titre: tr.querySelector('a')?.textContent?.trim() ?? '',
@@ -267,7 +349,7 @@ const breadcrumb = [
       if (meilleur) {
         const [accord, morceaux] = meilleur;
         bloc.push(
-          `<h3>Apprenez <span class="accord-cible">${accord}</span></h3>`,
+          `<h3>Apprenez <span class="accord-cible">${accord}</span>${lienVideo(accord)}</h3>`,
           `<p>Il vous manque uniquement cet accord pour jouer ${morceaux.length} morceau${morceaux.length > 1 ? 'x' : ''} de plus :</p>`,
           `<ul>${morceaux.map((m) => `<li><a href="${m.href}">${m.titre}</a></li>`).join('')}</ul>`,
         );

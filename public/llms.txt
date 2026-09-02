@@ -89,7 +89,8 @@ développe méthode, matériel et FAQ.
 ## Outils
 - Quel accord de guitare apprendre ensuite ? — on coche les accords que l'on connaît,
   l'outil indique celui qui débloque le plus de morceaux du catalogue, avec le lien vers
-  chaque tutoriel : https://musique-facile.fr/outils/quel-accord-apprendre/
+  chaque tutoriel, et le Short qui montre comment poser l'accord :
+  https://musique-facile.fr/outils/quel-accord-apprendre/
 
 ## Suivre les publications
 - Flux RSS du blog (20 derniers articles) : https://musique-facile.fr/rss.xml

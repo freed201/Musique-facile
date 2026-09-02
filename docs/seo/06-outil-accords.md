@@ -82,6 +82,34 @@ $ contenu du HTML servi, JavaScript désactivé
 
 Le H1 est suivi d'une réponse directe de 45 mots, conforme à la règle du silo.
 
+## 4 bis. Les tutoriels vidéo par accord
+
+Fred a une série de Shorts « Accord X (nom français) à la guitare | Tuto facile », un par accord.
+Elle referme la boucle : l'outil ne se contente plus de dire *apprends Bm*, il montre comment.
+
+Recensée dans YouTube Studio (elle n'était pas trouvable publiquement, la plupart des vidéos
+étant **programmées**) : **13 accords guitare**, dont 6 déjà en ligne et 7 planifiés jusqu'au
+19 octobre 2026.
+
+**Une vidéo n'est proposée que si sa date de mise en ligne est passée.** C'est la même règle que
+pour la publication des articles, et elle a une conséquence agréable : la page s'enrichit toute
+seule à mesure que la série sort, sans rien à modifier. Aujourd'hui A, A7, Bm, C, C7 et Cmaj7 ;
+D arrive le 7 septembre, G le 12 octobre.
+
+Les liens sont **dans le HTML rendu** — portés par les cases à cocher en `data-video` et affichés
+dans le classement des accords les plus fréquents. Le script les relit depuis le DOM plutôt que
+d'embarquer un second jeu de données. Ce sont de simples liens vers YouTube : **rien n'est chargé
+depuis YouTube tant que le visiteur ne clique pas.**
+
+Rendu obtenu :
+
+```
+Apprenez Bm   Voir comment le poser (24 s) → youtube.com/shorts/oemCK1s-CYA
+Il vous manque uniquement cet accord pour jouer 3 morceaux de plus :
+  Un autre monde · L'Opportuniste · What's Up
+Vous pouvez déjà jouer 3 morceaux : So Lonely · Stand By Me · Mr. Jones
+```
+
 ## 5. Un bug d'affichage trouvé, et qui touchait l'accueil
 
 La zone de résultat s'affichait **en clair sur clair** en mode sombre. En cherchant pourquoi :

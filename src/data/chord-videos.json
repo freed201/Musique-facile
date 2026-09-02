@@ -1,0 +1,19 @@
+{
+  "_comment": "Shorts « Accord X à la guitare | Tuto facile » de la chaîne Musique Facile, relevés dans YouTube Studio le 2026-09-02. Une vidéo n'est affichée par l'outil QUE si sa datePublication est passée : la série est programmée jusqu'au 19 octobre 2026, et le site s'enrichit tout seul au fil des mises en ligne, sans intervention.",
+  "_source": "YouTube Studio, onglet Shorts, filtre titre « Accord »",
+  "videos": [
+    { "accord": "A", "instrument": "guitare", "youtubeId": "1Bwx2aOQQ-E", "datePublication": "2026-07-27", "duree": "PT23S" },
+    { "accord": "A7", "instrument": "guitare", "youtubeId": "7uAmCeuXX7A", "datePublication": "2026-08-03", "duree": "PT24S" },
+    { "accord": "Bm", "instrument": "guitare", "youtubeId": "oemCK1s-CYA", "datePublication": "2026-08-10", "duree": "PT24S" },
+    { "accord": "C", "instrument": "guitare", "youtubeId": "8ANFAEyFdZQ", "datePublication": "2026-08-17", "duree": "PT23S" },
+    { "accord": "C7", "instrument": "guitare", "youtubeId": "cD3Y3m5yN_A", "datePublication": "2026-08-24", "duree": "PT24S" },
+    { "accord": "Cmaj7", "instrument": "guitare", "youtubeId": "zWRIygL5Ww0", "datePublication": "2026-08-31", "duree": "PT25S" },
+    { "accord": "D", "instrument": "guitare", "youtubeId": "N9Y1wKktnTY", "datePublication": "2026-09-07", "duree": "PT23S" },
+    { "accord": "D7", "instrument": "guitare", "youtubeId": "95IW0hVAOqM", "datePublication": "2026-09-14", "duree": "PT23S" },
+    { "accord": "Dm", "instrument": "guitare", "youtubeId": "mlf_TNqhdOM", "datePublication": "2026-09-21", "duree": "PT23S" },
+    { "accord": "Em", "instrument": "guitare", "youtubeId": "hUXJtJDqQP4", "datePublication": "2026-09-28", "duree": "PT23S" },
+    { "accord": "F", "instrument": "guitare", "youtubeId": "Gylb_db9N68", "datePublication": "2026-10-05", "duree": "PT25S" },
+    { "accord": "G", "instrument": "guitare", "youtubeId": "72GmIy0u0-M", "datePublication": "2026-10-12", "duree": "PT23S" },
+    { "accord": "G7", "instrument": "guitare", "youtubeId": "UcSi2GFz2JM", "datePublication": "2026-10-19", "duree": "PT24S" }
+  ]
+}
