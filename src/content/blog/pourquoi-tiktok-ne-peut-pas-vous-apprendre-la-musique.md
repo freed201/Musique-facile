@@ -33,7 +33,7 @@ faqs:
 ---
 ## En bref
 
-Les vidéos TikTok qui promettent d'« apprendre la musique » reposent sur l'**imitation de gestes** (mémoire procédurale) : efficace chez l'enfant, insuffisant chez l'adulte, qui a besoin de **comprendre** (mémoire déclarative). Pour progresser durablement, il faut combiner les deux : faire *et* comprendre.
+Les vidéos TikTok qui promettent d'« apprendre la musique » reposent sur l'**imitation de gestes** ([mémoire procédurale](https://fr.wikipedia.org/wiki/M%C3%A9moire_proc%C3%A9durale)) : efficace chez l'enfant, insuffisant chez l'adulte, qui a besoin de **comprendre** (mémoire déclarative). Pour progresser durablement, il faut combiner les deux : faire *et* comprendre.
 
 - **Mémoire procédurale** : automatiser le geste par répétition
 - **Mémoire déclarative** : comprendre pourquoi ça marche — le point fort de l'adulte
