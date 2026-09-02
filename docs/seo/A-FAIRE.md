@@ -281,6 +281,47 @@ formations en ligne ». C'est un manque à gagner sur des pages produit.
 
 ---
 
+## Redirections — passe du 2026-09-02
+
+Diagnostic complet des 57 redirections internes, testées en direct sur le site.
+**Elles fonctionnent toutes.** Elles font deux sauts au lieu d'un
+(`/stage2025` → `/stage2025/` → `/stage2026/`, Vercel ajoutant le slash avant
+d'appliquer la redirection) : Google gère ça sans difficulté, ça ne vaut pas
+une restructuration. Les 146 « pages avec redirection » signalées par Search
+Console sont le fonctionnement normal, pas un défaut.
+
+Une seule était cassée, et elle l'est depuis longtemps :
+`/wp-content/uploads/[...slug]` → `/images/[...slug]`. Le motif n'est pas
+substitué dans la destination : toutes les anciennes URL d'images partaient
+vers l'URL littérale « /images/[...slug] », en 404. Et même substituée, la
+destination n'aurait pas existé — l'arborescence d'images WordPress n'a pas
+survécu à la refonte.
+
+Corrigé, avec les règles `/wp-content/` et `/wp-includes/` retirées : ces
+chemins ne contenaient que des assets, et rediriger une requête d'image vers
+une page HTML est lu par Google comme une soft-404, plus mauvais qu'une vraie
+404. Quatre articles dépubliés que Google garde en mémoire ont reçu une
+redirection vers leur équivalent vivant, et la variante en majuscule
+`/blog/Nous-on-sait-guitare-tuto` aussi.
+
+`npm run check:redirects` garde l'ensemble : destination existante, aucun motif
+littéral, aucune chaîne, aucune redirection masquant une page vivante.
+
+### Ce que le diagnostic a corrigé dans l'analyse précédente
+
+Les **522 pages « explorées, actuellement non indexées »** ne sont PAS un
+gisement, contrairement à ce que laissait croire le seul chiffre. En regardant
+les URL : une bonne moitié appartiennent à **`ecole.musique-facile.fr`** — la
+propriété Search Console est une propriété de domaine, elle englobe donc la
+plateforme de cours, dont les leçons sont derrière un accès élève et n'ont pas
+vocation à être indexées. Le reste est fait de variantes sans slash final, qui
+redirigent correctement, et d'entrées anciennes déjà résorbées.
+
+Le chiffre qui compte : **171 pages indexées pour 172 au sitemap**. Le site est
+indexé en quasi-totalité.
+
+---
+
 ## Points laissés ouverts au 2026-09-02 (arrêt des modifications)
 
 ### Contenu

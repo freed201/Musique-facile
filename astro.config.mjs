@@ -100,17 +100,39 @@ export default defineConfig({
     '/apprendre-a-jouer-nous-on-sait-de-pierre-garnier': '/blog/nous-on-sait-guitare-tuto/',
 
     // Archives & vestiges WordPress
+    //
+    // Règle : une URL de PAGE est redirigée vers son équivalent vivant ; une
+    // URL d'ASSET (image, script, feuille de style) est laissée en 404. Une
+    // image n'a pas d'équivalent en HTML, et rediriger une requête d'image vers
+    // une page est lu par Google comme une soft-404 — plus mauvais qu'une vraie
+    // 404, qui dit clairement « c'est parti ».
     '/category/[...slug]': '/blog/',
     '/tag/[...slug]': '/blog/',
     '/archive/[...slug]': '/blog/',
     '/page/[...slug]': '/blog/',
     '/feed': '/blog/',
     '/rss': '/blog/',
-    '/wp-content/uploads/[...slug]': '/images/[...slug]',
-    '/wp-content/[...slug]': '/blog/',
-    '/wp-includes/[...slug]': '/',
+    // /wp-content/ et /wp-includes/ ne contenaient que des assets. Leurs règles
+    // ont été retirées le 2026-09-02 : celle des uploads était cassée — le motif
+    // [...slug] n'est pas substitué dans la destination, si bien que
+    // /wp-content/uploads/2023/photo.jpg partait vers l'URL littérale
+    // « /images/[...slug] », en 404. Et même substituée, la destination
+    // n'existerait pas : l'arborescence d'images WordPress n'a pas survécu à la
+    // refonte (/images/2023/… et /images/2024/… sont en 404).
     '/wp-admin': '/',
     '/wp-login.php': '/',
+
+    // Articles dépubliés (prod: "N") que Google garde en mémoire : on les envoie
+    // vers l'article vivant le plus proche plutôt que de les laisser en 404.
+    '/blog/choisir-ukulele-2025': '/blog/quel-ukulele-acheter-guide-comparatif-debutant/',
+    '/blog/pourquoi-le-ukulele-est-ideal-pour-apprendre-la-musique': '/blog/debuter-ukulele-methode-simple-apprendre/',
+    '/blog/conseils-pour-debuter-la-guitare': '/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/',
+    '/blog/quel-instrument-de-musique-choisir-debutant': '/quel-instrument-choisir/',
+    // exemple-mise-en-forme était un article de démonstration : il n'a pas
+    // d'équivalent et n'a rien à faire dans l'index. Laissé en 404.
+
+    // Variante avec majuscule, crawlée par Google (les URL sont sensibles à la casse).
+    '/blog/Nous-on-sait-guitare-tuto': '/blog/nous-on-sait-guitare-tuto/',
   },
 
   // Optimisations d'images natives Astro
