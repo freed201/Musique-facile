@@ -278,3 +278,54 @@ dont plusieurs pages de livres qui affichent la description générique du site
 au lieu d'une phrase propre au livre. Exemple : *Les Plus Belles Comptines avec
 mon Ukulélé Volume 2* annonce « Apprenez la musique facilement avec nos
 formations en ligne ». C'est un manque à gagner sur des pages produit.
+
+---
+
+## Points laissés ouverts au 2026-09-02 (arrêt des modifications)
+
+### Contenu
+
+- **Chasing Cars n'a pas ses diagrammes.** Son texte précise que le livre prend
+  le A et le Dsus2 en **position haute (5e case)** et le E/G# en **4e**. Ces
+  positions ne sont pas au catalogue de doigtés : les ajouter d'abord, sinon
+  les schémas contrediraient l'article. C'est le seul des trois articles sans
+  schéma qui reste en l'état.
+
+- **Deux programmes piano partagent le même titre** — « Cours de Piano Débutant
+  - Guide Complet » : `piano-facile-apprendre-debutant` et
+  `piano-force-agilite`. Leurs descriptions ont été différenciées le 2026-09-02,
+  pas leurs titres (ils tenaient sous 60 caractères, donc hors du lot). Second
+  point sur le même fichier : le slug `piano-force-agilite` ne correspond pas à
+  son contenu, qui s'arrête aux bases du clavier. Le renommer changerait l'URL.
+
+- **18 descriptions sont trop courtes** (< 120 caractères), signalées en
+  avertissement par `npm run check:seo`. Plusieurs pages de livres affichent la
+  description générique du site au lieu d'une phrase sur le livre — *Les Plus
+  Belles Comptines avec mon Ukulélé Volume 2* annonce « Apprenez la musique
+  facilement avec nos formations en ligne ». C'est un manque à gagner sur des
+  pages produit.
+
+- **Trois chansons de l'outil ukulélé attendent un arbitrage** : *La Vie en
+  Rose*, *Riptide* et *Somewhere Over the Rainbow*, dont les deux articles
+  sources donnent des accords différents. Elles restent hors de l'outil tant que
+  ce n'est pas tranché (`src/data/ukulele-songs.json`, statut « conflit »).
+
+### Technique
+
+- **En développement local, aucun en-tête de sécurité n'est servi.** Ils
+  viennent de `vercel.json`, appliqué au déploiement ; `astro dev` n'en sert
+  aucun. Si la parité locale devient un besoin, c'est une décision à prendre
+  explicitement — surtout pas un middleware à réintroduire au passage, voir
+  `.claude/rules/coherence-en-tetes-securite.md`.
+
+- **La page `/outils/quel-accord-ukulele-apprendre/` n'a pas de `lastmod`** dans
+  le sitemap : c'est la seule des 172 URL dans ce cas. `page-revisions.json` est
+  généré depuis les dates git par `npm run seo:revisions`, qui n'a pas été
+  relancé depuis la création de la page. Sans conséquence pour l'indexation —
+  l'URL est bien présente — mais à régénérer au prochain lot.
+
+- **Le relevé du livre reste non vérifié pour 37 morceaux sur 39.** Seuls
+  *Smells Like Teen Spirit* et *Don't Stop Me Now* ont été relus par Fred. Les
+  autres portent le statut « ok » de l'extraction PDF. C'est ce qui limite
+  aujourd'hui la confiance qu'on peut accorder au catalogue de l'outil.
+
