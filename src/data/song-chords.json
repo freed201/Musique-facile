@@ -613,18 +613,20 @@
         "Gm",
         "C7",
         "F7",
+        "Bb",
         "D7",
         "C",
         "G5",
         "A5",
+        "Bb5",
         "B5",
         "C5",
         "Bb7sus4"
       ],
       "tempo": 150,
       "difficulte": "5/5",
-      "statut": "a-verifier",
-      "doute": "accord(s) peut-être amputé(s) par l'extraction : C"
+      "statut": "verifie",
+      "verifiePar": "Fred Fieffé, page 14 du livre (2026-09-02)"
     },
     {
       "titre": "Les Copains d’abord",
