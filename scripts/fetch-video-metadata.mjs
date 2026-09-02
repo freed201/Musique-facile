@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Relève les métadonnées réelles des vidéos YouTube citées dans le blog, et
- * télécharge leurs miniatures en WebP.
+ * Relève les métadonnées réelles des vidéos YouTube citées dans le blog et
+ * dans src/data/chord-videos.json (l'outil « Quel accord apprendre ensuite ? »),
+ * et télécharge leurs miniatures en WebP.
  *
  * POURQUOI
  * Le VideoObject des articles datait chaque vidéo du jour de publication de
@@ -25,6 +26,7 @@ import { join } from 'node:path';
 import sharp from 'sharp';
 
 const BLOG_DIR = 'src/content/blog';
+const TOOL_VIDEOS = 'src/data/chord-videos.json';
 const OUT_JSON = 'src/data/video-metadata.json';
 const THUMB_DIR = 'public/images/video-thumbs';
 const DELAY_MS = 350;
@@ -49,6 +51,23 @@ function collectIds() {
       if (!ids.has(m[1])) ids.set(m[1], title);
     }
   }
+
+  // Les vidéos de l'outil « Quel accord apprendre ensuite ? » ne sont citées
+  // dans aucun article : sans ça, sa façade n'aurait ni miniature ni durée.
+  // Les Shorts encore programmés sont ignorés — les relever renverrait
+  // « indisponible » et figerait cet état dans le fichier.
+  if (existsSync(TOOL_VIDEOS)) {
+    const tool = JSON.parse(readFileSync(TOOL_VIDEOS, 'utf8'));
+    const today = new Date().toISOString().slice(0, 10);
+    for (const v of tool.videos ?? []) {
+      if (v.datePublication > today) continue;
+      if (!ids.has(v.youtubeId)) ids.set(v.youtubeId, `Accord ${v.accord} à la guitare`);
+    }
+    for (const g of tool.guides ?? []) {
+      if (!ids.has(g.youtubeId)) ids.set(g.youtubeId, g.titre ?? null);
+    }
+  }
+
   return ids;
 }
 
