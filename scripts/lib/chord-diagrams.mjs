@@ -226,8 +226,12 @@ const GUITARE_CHORDS = {
   // Fred les a toutes relues une par une le 2026-09-02 : `source: 'standard'`
   // dit d'où vient la position, `validePar` dit qui l'a contrôlée. Il a corrigé
   // cinq doigtés — Bm7, Dsus4, Cadd9, G6 et Am/G — où les cases étaient bonnes
-  // mais la répartition des doigts mauvaise ; ces cinq-là portent la mention
-  // dans leur `validePar`.
+  // mais la répartition des doigts mauvaise, puis a reconfirmé les cinq schémas
+  // redessinés. Ces cinq-là portent la mention dans leur `validePar`.
+  //
+  // Pour Cadd9, Fred avait donné cinq caractères (X21X3) là où la guitare en
+  // compte six ; les cases ne laissaient qu'une lecture — le mi aigu, à vide,
+  // prend le X manquant — et il l'a confirmée sur le schéma redessiné.
   //
   // Deux accords sont volontairement absents : Bb7sus4 et B/G. Leur doigté
   // varie trop d'un arrangement à l'autre pour qu'on en affirme un.
@@ -238,7 +242,7 @@ const GUITARE_CHORDS = {
   c7:      { name: 'C7',      longName: 'Do 7',                 source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, 3, 2, 3, 1, 0], fingers: [0, 3, 2, 4, 1, 0] },
   am7:     { name: 'Am7',     longName: 'La mineur 7',          source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, 0, 2, 0, 1, 0], fingers: [0, 0, 2, 0, 1, 0] },
   dm7:     { name: 'Dm7',     longName: 'Ré mineur 7',          source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, -1, 0, 2, 1, 1], fingers: [0, 0, 0, 2, 1, 1] },
-  bm7:     { name: 'Bm7',     longName: 'Si mineur 7',          source: 'standard', validePar: 'Fred, 2026-09-02 — doigté corrigé par lui', frets: [-1, 2, 0, 2, 0, 2], fingers: [0, 1, 0, 2, 0, 3] },
+  bm7:     { name: 'Bm7',     longName: 'Si mineur 7',          source: 'standard', validePar: 'Fred, 2026-09-02 — doigté corrigé puis reconfirmé par lui', frets: [-1, 2, 0, 2, 0, 2], fingers: [0, 1, 0, 2, 0, 3] },
   f7:      { name: 'F7',      longName: 'Fa 7',                 source: 'standard', validePar: 'Fred, 2026-09-02', frets: [1, 3, 1, 2, 1, 1],  fingers: [1, 3, 1, 2, 1, 1], barre: { fret: 1, fromString: 0, toString: 5, finger: 1 } },
   cm:      { name: 'Cm',      longName: 'Do mineur (barré 3e case)', source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, 3, 5, 5, 4, 3], fingers: [0, 1, 3, 4, 2, 1], barre: { fret: 3, fromString: 1, toString: 5, finger: 1 } },
   b:       { name: 'B',       longName: 'Si majeur (barré 2e case)', source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, 2, 4, 4, 4, 2], fingers: [0, 1, 2, 3, 4, 1], barre: { fret: 2, fromString: 1, toString: 5, finger: 1 } },
@@ -246,21 +250,21 @@ const GUITARE_CHORDS = {
   fdiese7: { name: 'F#7',     longName: 'Fa dièse 7 (barré 2e case)', source: 'standard', validePar: 'Fred, 2026-09-02', frets: [2, 4, 2, 3, 2, 2], fingers: [1, 3, 1, 2, 1, 1], barre: { fret: 2, fromString: 0, toString: 5, finger: 1 } },
 
   dsus2:   { name: 'Dsus2',   longName: 'Ré suspendu 2',        source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, -1, 0, 2, 3, 0], fingers: [0, 0, 0, 1, 3, 0] },
-  dsus4:   { name: 'Dsus4',   longName: 'Ré suspendu 4',        source: 'standard', validePar: 'Fred, 2026-09-02 — doigté corrigé par lui', frets: [-1, -1, 0, 2, 3, 3], fingers: [0, 0, 0, 1, 3, 4] },
+  dsus4:   { name: 'Dsus4',   longName: 'Ré suspendu 4',        source: 'standard', validePar: 'Fred, 2026-09-02 — doigté corrigé puis reconfirmé par lui', frets: [-1, -1, 0, 2, 3, 3], fingers: [0, 0, 0, 1, 3, 4] },
   asus2:   { name: 'Asus2',   longName: 'La suspendu 2',        source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, 0, 2, 2, 0, 0], fingers: [0, 0, 1, 2, 0, 0] },
   asus4:   { name: 'Asus4',   longName: 'La suspendu 4',        source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, 0, 2, 2, 3, 0], fingers: [0, 0, 1, 2, 3, 0] },
   esus4:   { name: 'Esus4',   longName: 'Mi suspendu 4',        source: 'standard', validePar: 'Fred, 2026-09-02', frets: [0, 2, 2, 2, 0, 0], fingers: [0, 2, 3, 4, 0, 0] },
   a7sus4:  { name: 'A7sus4',  longName: 'La 7 suspendu 4',      source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, 0, 2, 0, 3, 3], fingers: [0, 0, 2, 0, 3, 4] },
   d7sus4:  { name: 'D7sus4',  longName: 'Ré 7 suspendu 4',      source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, -1, 0, 2, 1, 3], fingers: [0, 0, 0, 2, 1, 3] },
-  cadd9:   { name: 'Cadd9',   longName: 'Do ajouté 9',          source: 'standard', validePar: 'Fred, 2026-09-02 — doigté corrigé par lui', frets: [-1, 3, 2, 0, 3, 0], fingers: [0, 2, 1, 0, 3, 0] },
-  g6:      { name: 'G6',      longName: 'Sol 6',                source: 'standard', validePar: 'Fred, 2026-09-02 — doigté corrigé par lui', frets: [3, 2, 0, 0, 0, 0], fingers: [2, 1, 0, 0, 0, 0] },
+  cadd9:   { name: 'Cadd9',   longName: 'Do ajouté 9',          source: 'standard', validePar: 'Fred, 2026-09-02 — doigté corrigé puis reconfirmé par lui', frets: [-1, 3, 2, 0, 3, 0], fingers: [0, 2, 1, 0, 3, 0] },
+  g6:      { name: 'G6',      longName: 'Sol 6',                source: 'standard', validePar: 'Fred, 2026-09-02 — doigté corrigé puis reconfirmé par lui', frets: [3, 2, 0, 0, 0, 0], fingers: [2, 1, 0, 0, 0, 0] },
   emadd9:  { name: 'Emadd9',  longName: 'Mi mineur ajouté 9',   source: 'standard', validePar: 'Fred, 2026-09-02', frets: [0, 2, 2, 0, 0, 2], fingers: [0, 1, 2, 0, 0, 3] },
 
   'd-fdiese': { name: 'D/F#', longName: 'Ré basse fa dièse',    source: 'standard', validePar: 'Fred, 2026-09-02', frets: [2, 0, 0, 2, 3, 2], fingers: [1, 0, 0, 2, 4, 3] },
   'g-b':      { name: 'G/B',  longName: 'Sol basse si',         source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, 2, 0, 0, 0, 3], fingers: [0, 1, 0, 0, 0, 3] },
   'c-b':      { name: 'C/B',  longName: 'Do basse si',          source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, 2, 2, 0, 1, 0], fingers: [0, 2, 3, 0, 1, 0] },
   'e-b':      { name: 'E/B',  longName: 'Mi basse si',          source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, 2, 2, 1, 0, 0], fingers: [0, 2, 3, 1, 0, 0] },
-  'am-g':     { name: 'Am/G', longName: 'La mineur basse sol',  source: 'standard', validePar: 'Fred, 2026-09-02 — doigté corrigé par lui', frets: [3, 0, 2, 2, 1, 0], fingers: [4, 0, 2, 3, 1, 0] },
+  'am-g':     { name: 'Am/G', longName: 'La mineur basse sol',  source: 'standard', validePar: 'Fred, 2026-09-02 — doigté corrigé puis reconfirmé par lui', frets: [3, 0, 2, 2, 1, 0], fingers: [4, 0, 2, 3, 1, 0] },
   'dm-c':     { name: 'Dm/C', longName: 'Ré mineur basse do',   source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, 3, 0, 2, 3, 1], fingers: [0, 3, 0, 2, 4, 1] },
   'bm-d':     { name: 'Bm/D', longName: 'Si mineur basse ré',   source: 'standard', validePar: 'Fred, 2026-09-02', frets: [-1, -1, 0, 4, 3, 2], fingers: [0, 0, 0, 3, 2, 1] },
 
