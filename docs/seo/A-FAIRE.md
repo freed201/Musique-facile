@@ -48,9 +48,24 @@ affichés par Skilleos**. Contrairement aux avis, il n'y a pas d'incohérence ar
 restent invérifiables un par un, mais ne constituent pas un risque immédiat. Une coquille a été
 corrigée : `4.900+` → `4 900+` sur le cours ukulélé débutant.
 
-### 4. D'où vient « 95 % de satisfaction » ?
-Retiré au lot 1 (hero, témoignages, `/a-propos/`) faute de source. Si l'origine existe, il peut
-revenir.
+### 4. ~~D'où vient « 95 % de satisfaction » ?~~ — **retiré le 2026-09-02**
+
+Fred : « ne vient de rien (ou c'est peut-être une version 100 % des notes de Skilleos) ».
+La mention est supprimée de `About.astro` (deux endroits).
+
+**Pourquoi elle n'était pas convertible.** Une note moyenne de 4,7/5 et un taux
+de satisfaction sont deux mesures différentes : la moyenne ne dit pas quelle
+part des élèves est satisfaite. La version rigoureuse serait « X % des avis
+sont à 4 ou 5 sur 5 », qui demande la distribution complète des 929 notes.
+
+**Ce que dit l'échantillon.** Sur les 45 avis que Skilleos expose publiquement
+(3 par fiche, 15 fiches), 43 sont à 4/5 ou plus, soit 96 %. C'est troublant de
+proximité avec le 95 % annoncé — mais ces 45 avis sont ceux que Skilleos choisit
+d'afficher, vraisemblablement les meilleurs. L'échantillon est biaisé et ne
+justifie pas la publication.
+
+**Pour le republier**, il faudrait exporter depuis Skilleos la répartition des
+929 notes. Si tu l'obtiens, le chiffre redevient publiable, sourcé et daté.
 
 ### 5. Titles des articles morceau — arbitrage éditorial
 Une cinquantaine d'articles ont un `<title>` de 78 à 90 caractères, à cause de l'enrichissement
