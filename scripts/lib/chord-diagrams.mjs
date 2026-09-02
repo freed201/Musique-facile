@@ -117,10 +117,12 @@ const GUITARE_CHORDS = {
     frets:   [-1, -1, 3, 2, 1, 0],
     fingers: [0, 0, 3, 2, 1, 0],
   },
+  // Corrigé le 2026-09-02 par Fred : x33210. La corde de mi grave était notée
+  // à vide, ce qui donnait un mi à la basse — donc un Fmaj7/E, pas un Fmaj7/C.
   'fmaj7-c': {
     name: 'FMaj7/C',
     longName: 'Fa majeur septième, basse do',
-    frets:   [0, 3, 3, 2, 1, 0],
+    frets:   [-1, 3, 3, 2, 1, 0],
     fingers: [0, 3, 4, 2, 1, 0],
   },
   'e7-b': {
