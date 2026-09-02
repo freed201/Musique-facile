@@ -32,10 +32,29 @@ const JOBS = [
       // positions relevées dans le livre de Fred (barrés + accords à basse imposée)
       'bm', 'fmaj7', 'fmaj7-c', 'e7-b', 'fdiese-m', 'fdiese-sus4', 'gm', 'bb',
       'g-barre3', 'dm-barre5', 'a-barre5', 'a7-barre5', 'bbmaj7',
+      // Ajouts du 2026-09-02 : les accords du répertoire de l'outil « Quel
+      // accord apprendre ensuite ? » qui n'avaient aucun diagramme. Positions
+      // standard, en attente de validation par Fred (source: 'standard' dans
+      // scripts/lib/chord-diagrams.mjs).
+      'g7', 'em7', 'c7', 'am7', 'dm7', 'bm7', 'f7', 'cm', 'b', 'fdiese', 'fdiese7',
+      'dsus2', 'dsus4', 'asus2', 'asus4', 'esus4', 'a7sus4', 'd7sus4',
+      'cadd9', 'g6', 'emadd9',
+      'd-fdiese', 'g-b', 'c-b', 'e-b', 'am-g', 'dm-c', 'bm-d',
+      'e5', 'a5', 'd5', 'g5', 'c5', 'f5', 'b5', 'bb5',
     ],
     dir: 'accords-guitare',
   },
 ];
+
+/**
+ * Index des diagrammes réellement écrits, consommé par l'outil
+ * « Quel accord apprendre ensuite ? ».
+ *
+ * La page tenait auparavant sa propre liste d'accords codée en dur : à la
+ * première divergence, elle aurait pointé vers un SVG inexistant, ou ignoré un
+ * diagramme disponible. Ici, c'est le script qui déclare ce qu'il a produit.
+ */
+const index = {};
 
 for (const { instrument, keys, dir } of JOBS) {
   const outDir = path.resolve(__dirname, '..', 'public', 'images', 'blog', dir);
@@ -48,6 +67,24 @@ for (const { instrument, keys, dir } of JOBS) {
     }
     const file = path.join(outDir, `accord-${instrument}-${key}.svg`);
     writeFileSync(file, svg, 'utf8');
+    (index[instrument] ??= {})[key] = `/images/blog/${dir}/accord-${instrument}-${key}.svg`;
     console.log(`✓ ${path.relative(path.resolve(__dirname, '..'), file)}`);
   }
 }
+
+const indexFile = path.resolve(__dirname, '..', 'src', 'data', 'chord-diagrams-index.json');
+writeFileSync(
+  indexFile,
+  `${JSON.stringify(
+    {
+      _comment:
+        "Diagrammes d'accords réellement générés — ne pas éditer à la main. Écrit par scripts/generate-chord-svgs.mjs, lu par l'outil « Quel accord apprendre ensuite ? » pour ne proposer que des schémas qui existent.",
+      _generatedBy: 'npm run chords:generate',
+      diagrammes: index,
+    },
+    null,
+    2,
+  )}\n`,
+  'utf8',
+);
+console.log(`✓ ${path.relative(path.resolve(__dirname, '..'), indexFile)}`);

@@ -142,3 +142,31 @@ Les deux premières lignes sont les seuls morceaux dont le relevé est vérifié
 | [Viva la vida](/blog/apprendre-viva-la-vida-guitare/) | 9 | 8 | ok | C · D7sus4 · G · Em · D7 · Emadd9 · G/B · D5 |
 
 « — » = l'article ne déclare pas de `chordCount`.
+
+## Diagrammes d'accords — deux points ouverts
+
+### Valider les 36 doigtés ajoutés le 2026-09-02
+
+Ils comblent les accords du répertoire de l'outil qui n'avaient aucun schéma
+(18 accords couverts avant, 54 sur 56 après). Ce sont les positions standard,
+et chacune a été vérifiée par calcul : les notes produites par le doigté sont
+comparées à la formule de l'accord. Mais **Fred ne les a pas relues une par
+une**. Elles portent `source: 'standard'` dans `scripts/lib/chord-diagrams.mjs`
+— il suffit de passer une entrée à `'livre'` après relecture.
+
+Planche de contact des 36 : `seo-audit/captures/2026-09-02-planche-doigtes.html`.
+
+Deux accords restent volontairement sans schéma, leur doigté variant trop d'un
+arrangement à l'autre : **Bb7sus4** et **B/G**.
+
+### Une incohérence dans le catalogue existant : `fmaj7-c`
+
+`scripts/lib/chord-diagrams.mjs` décrit `Fmaj7/C` par `[0, 3, 3, 2, 1, 0]`,
+c'est-à-dire **corde de mi grave jouée à vide**. Les notes obtenues sont
+Mi Do Fa La Do Mi : la basse est un **mi**, pas un **do**. Ce doigté est donc
+un Fmaj7/E, ou bien c'est le nom qui est faux.
+
+La correction probable est d'étouffer la corde grave — `[-1, 3, 3, 2, 1, 0]`
+donne bien Do Fa La Do Mi, basse do. **Je n'ai rien changé** : cette position
+vient du livre et de la relecture de Fred, c'est à lui de trancher. Le
+diagramme est publié tel quel sur `/blog/apprendre-partons-vite-guitare/`.

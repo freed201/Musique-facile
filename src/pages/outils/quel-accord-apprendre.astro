@@ -35,6 +35,7 @@ import FAQSchema from '../../components/FAQSchema.astro';
 import VideoEmbed from '../../components/VideoEmbed.astro';
 import data from '../../data/song-chords.json';
 import chordVideos from '../../data/chord-videos.json';
+import diagrammesIndex from '../../data/chord-diagrams-index.json';
 
 const canonicalURL = new URL('/outils/quel-accord-apprendre/', Astro.site || 'https://musique-facile.fr').toString();
 const title = "Quel accord de guitare apprendre ensuite ? | Musique Facile";
@@ -91,22 +92,16 @@ for (const v of chordVideos.videos) {
 /**
  * Schéma de l'accord, quand il existe.
  *
- * Les SVG viennent de `npm run chords:generate`, dont les positions sont
- * celles du catalogue relu par Fred (scripts/lib/chord-diagrams.mjs). On ne
- * fabrique pas de schéma pour un accord absent de ce catalogue : un doigté
- * inventé serait pire que pas de schéma du tout. Les accords sans diagramme
- * s'affichent donc sans, et rien ne casse.
+ * La liste n'est plus tenue à la main ici : elle est lue dans l'index écrit par
+ * `npm run chords:generate`, qui déclare les SVG qu'il a réellement produits.
+ * La page ne peut donc plus pointer vers un fichier inexistant, ni ignorer un
+ * diagramme disponible. On ne fabrique jamais de schéma pour un accord absent
+ * du catalogue de doigtés : un doigté inventé serait pire que pas de schéma.
  */
-const DIAGRAMMES = new Set([
-  'em', 'g', 'd', 'c', 'am', 'f', 'b7', 'e7', 'd7', 'a7', 'bm', 'fmaj7',
-  'fmaj7-c', 'e7-b', 'fdiese-m', 'fdiese-sus4', 'gm', 'bb', 'bbmaj7', 'e', 'a', 'dm',
-]);
+const DIAGRAMMES: Record<string, string> = diagrammesIndex.diagrammes.guitare ?? {};
 const cleDiagramme = (accord: string) =>
   accord.toLowerCase().replace(/#/g, 'diese').replace(/\//g, '-');
-const diagrammePour = (accord: string) => {
-  const cle = cleDiagramme(accord);
-  return DIAGRAMMES.has(cle) ? `/images/blog/accords-guitare/accord-guitare-${cle}.svg` : null;
-};
+const diagrammePour = (accord: string) => DIAGRAMMES[cleDiagramme(accord)] ?? null;
 
 /**
  * Ce qu'on sait montrer de chaque accord du catalogue.
@@ -420,8 +415,10 @@ const faqs = [
           et non estimés. Un morceau dont le relevé laisse un doute est écarté de
           l'outil plutôt que d'être publié avec une approximation&nbsp;: vous
           pouvez vérifier chaque ligne, guitare en main. Les schémas de doigté
-          reprennent les positions de ce même livre&nbsp;; un accord absent du
-          catalogue s'affiche sans schéma plutôt qu'avec un doigté inventé.
+          reprennent les positions du livre pour les accords qui y figurent, et
+          les positions standard pour les autres&nbsp;; un accord dont le doigté
+          varierait trop d'un arrangement à l'autre s'affiche sans schéma plutôt
+          qu'avec une position inventée.
         </p>
         <p>Le catalogue s'étoffe au fil des relectures et des nouveaux tutoriels.</p>
       </section>
