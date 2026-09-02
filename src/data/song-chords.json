@@ -445,14 +445,12 @@
         "A5",
         "G5",
         "C5",
-        "F5",
-        "C",
-        "E"
+        "F5"
       ],
       "tempo": 117,
       "difficulte": "4/5",
-      "statut": "a-verifier",
-      "doute": "accord(s) peut-être amputé(s) par l'extraction : C, E"
+      "statut": "verifie",
+      "verifiePar": "Fred Fieffé, page 100 du livre (2026-09-02)"
     },
     {
       "titre": "Across The Universe",
