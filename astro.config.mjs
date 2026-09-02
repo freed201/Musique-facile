@@ -20,15 +20,14 @@ export default defineConfig({
           minifyJS: true
         }
       },
-      Image: {
-        sharp: {
-          // Compression WebP/AVIF
-          webp: { quality: 80 },
-          avif: { quality: 70 },
-          jpeg: { quality: 80 },
-          png: { compressionLevel: 9 }
-        }
-      },
+      // Image: false — DÉLIBÉRÉ, ne pas réactiver sans mesurer.
+      // sharp décodait puis ré-encodait les 511 images de la sortie (19 Mo)
+      // à chaque build : 76 s des 86 s de build, soit ~90 % du temps CPU
+      // facturé par Vercel — pour un gain de 14,8 Ko sur 3 fichiers (0,08 %).
+      // Les images du repo sont déjà optimisées en amont par
+      // `npm run optimize-images` (sharp, WebP, idempotent), qui est le bon
+      // endroit pour ça : une fois, à la création, pas à chaque déploiement.
+      Image: false,
       JavaScript: true,
       SVG: true,
       Logger: 1 // Affiche un résumé
