@@ -63,9 +63,18 @@ const bookSchema = {
     "url": buyLink
   }
 };
+/**
+ * Le nom d'un livre est un nom de produit : on ne le raccourcit pas pour tenir
+ * dans un titre. C'est le suffixe de marque qui saute quand la place manque —
+ * Google tronque autour de 60 caractères, et « | Musique Facile » est la partie
+ * la moins utile à quelqu'un qui cherche ce livre.
+ */
+const SUFFIXE = ' | Musique Facile';
+const titreSeo = title.length + SUFFIXE.length <= 60 ? `${title}${SUFFIXE}` : title;
+
 ---
 
-<Layout title={`${title} | Musique Facile`}>
+<Layout title={titreSeo}>
   <Header />
   
   <script type="application/ld+json" set:html={JSON.stringify(bookSchema)} />

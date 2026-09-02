@@ -1,7 +1,7 @@
 ---
 # Data SEO
 title: "Cours de Rythmique Ukulélé"
-description: "Formation complète pour maîtriser la rythmique à l'ukulélé : techniques fondamentales, variations avancées, et rythmes bonus pour impressionner et enrichir votre jeu."
+description: "Maîtriser la rythmique à l'ukulélé : techniques fondamentales, variations avancées et rythmes bonus, pour sortir du va-et-vient de départ."
 ogImage: "/images/cours/apprendre-la-rythmique-ukulele-facilement/hero.webp"
 theme: "ukulele"
 lienAchat: "https://ecole.musique-facile.fr/cours-rythmique-ukulele"

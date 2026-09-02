@@ -1,6 +1,6 @@
 ---
 pillar: true
-title: "Pourquoi tu Stagnes en Musique (et Comment Débloquer ta Progression)"
+title: "Pourquoi tu stagnes en musique, et comment repartir"
 description: "Tu pratiques régulièrement mais tu ne progresses plus ? Découvre les 7 causes cachées de la stagnation musicale et les solutions concrètes pour te débloquer."
 introduction: "Oui, stagner en musique est normal et même inévitable. Les phases de stagnation durent 2-6 semaines : c'est le signe que ton cerveau consolide les acquis avant le prochain bond de progression. Presque tous les musiciens adultes les traversent. Ce n'est pas un manque de talent, mais le résultat de 7 causes précises que tu peux corriger. Ce guide te montre lesquelles, et comment débloquer ta progression en 2-3 semaines."
 author: "Fred Fieffé"

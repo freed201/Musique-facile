@@ -1,7 +1,7 @@
 ---
 # Data SEO
 title: "Cours Jouer Shuffle Piano"
-description: "Formation pour apprendre à jouer le shuffle au piano : immersion dans le rythme shuffle, différenciation avec le swing, exercices progressifs et perfectionnement du groove shuffle."
+description: "Jouer le shuffle au piano : le rythme shuffle en immersion, sa différence avec le swing, et des exercices progressifs pour installer le groove."
 ogImage: "/images/cours/apprendre-piano-shuffle/hero.webp"
 theme: "piano"
 lienAchat: "https://ecole.musique-facile.fr/jouer-shuffle-piano/buy"

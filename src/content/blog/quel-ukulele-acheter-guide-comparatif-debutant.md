@@ -1,7 +1,7 @@
 ---
 siloSlug: "debuter-ukulele-methode-simple-apprendre"
-title: "Quel ukulélé acheter ? Le guide comparatif 2026 pour débutants"
-description: "Flight, Kala, Enya, Cascha... Les meilleurs ukulélés passés au crible, du premier prix au premium. Bois ou incassable ? Soprano ou concert ? Nos recommandations."
+title: "Quel ukulélé acheter ? Comparatif 2026 pour débutants"
+description: "Flight, Kala, Enya, Cascha... Les meilleurs ukulélés passés au crible, du premier prix au premium. Bois ou incassable ? Soprano ou concert ? Nos conseils."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"

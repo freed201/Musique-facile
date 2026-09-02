@@ -1,5 +1,5 @@
 ---
-title: "Pourquoi tu n'arrives pas à tenir le rythme avec un métronome"
+title: "Pourquoi tu n'arrives pas à tenir le rythme au métronome"
 description: "Le coupable de ton problème de rythme n'est ni le métronome ni tes oreilles. C'est ta main droite qui s'arrête sur les changements d'accord."
 author: "Fred Fieffé"
 ogImage: "/images/blog/pourquoi-tu-narrives-pas-tenir-rythme-metronome.webp"

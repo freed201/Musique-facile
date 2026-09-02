@@ -1,7 +1,7 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
 title: "15 Morceaux Faciles à la Guitare pour Débutants"
-description: "15 morceaux faciles à la guitare pour débutants, du plus simple au plus exigeant. Accords, tempo et tutoriel complet pour chaque chanson. Jouez dès cette semaine."
+description: "15 morceaux faciles à la guitare pour débutants, du plus simple au plus exigeant. Accords, tempo et tutoriel pour chaque chanson. Jouez dès cette semaine."
 ogImage: "/images/blog/accords-guitare-debutant-guide-ultime.webp"
 prod: Y
 multi: "Y"

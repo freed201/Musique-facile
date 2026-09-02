@@ -1,7 +1,7 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Quelle guitare folk acheter ? Le guide comparatif 2026 pour débutants"
-description: "Fender, Yamaha, Cort... Les meilleures guitares folk passées au crible, du premier prix au haut de gamme. Dreadnought ou parlor ? Nos recommandations par budget."
+title: "Quelle guitare folk acheter ? Comparatif 2026 débutants"
+description: "Fender, Yamaha, Cort... Les meilleures guitares folk passées au crible, du premier prix au haut de gamme. Dreadnought ou parlor ? Nos conseils par budget."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
