@@ -1,0 +1,331 @@
+{
+  "_comment": "Morceaux de ukulélé relevés dans les articles du blog par scripts/extract-ukulele-songs.mjs — ne pas éditer à la main. Les accords sont ceux publiés par Fred ; un morceau dont les deux articles donnent des accords différents porte statut « conflit » et reste hors de l'outil tant que Fred n'a pas tranché.",
+  "_generatedBy": "npm run ukulele:extract",
+  "songs": [
+    {
+      "titre": "Trois Petits Chats",
+      "artiste": "Comptine traditionnelle",
+      "accords": [
+        "C",
+        "G"
+      ],
+      "statut": "ok",
+      "article": "15-chansons-faciles-ukulele",
+      "ancre": "7-trois-petits-chats--comptine-traditionnelle",
+      "sources": 1
+    },
+    {
+      "titre": "Joyeux Anniversaire",
+      "artiste": null,
+      "accords": [
+        "C",
+        "G7",
+        "F"
+      ],
+      "statut": "ok",
+      "article": "15-chansons-faciles-ukulele",
+      "ancre": "10-joyeux-anniversaire",
+      "sources": 1
+    },
+    {
+      "titre": "Le Lion est mort ce soir",
+      "artiste": "Henri Salvador",
+      "accords": [
+        "C",
+        "F",
+        "G"
+      ],
+      "statut": "ok",
+      "article": "15-chansons-faciles-ukulele",
+      "ancre": "5-le-lion-est-mort-ce-soir--henri-salvador",
+      "sources": 1
+    },
+    {
+      "titre": "Three Little Birds",
+      "artiste": "Bob Marley",
+      "accords": [
+        "C",
+        "F",
+        "G"
+      ],
+      "statut": "ok",
+      "article": "debuter-ukulele-methode-simple-apprendre",
+      "ancre": "6-three-little-birds---bob-marley",
+      "sources": 1
+    },
+    {
+      "titre": "You Are My Sunshine",
+      "artiste": null,
+      "accords": [
+        "C",
+        "F",
+        "G"
+      ],
+      "statut": "ok",
+      "article": "debuter-ukulele-methode-simple-apprendre",
+      "ancre": "9-you-are-my-sunshine",
+      "sources": 1
+    },
+    {
+      "titre": "Chasing Cars",
+      "artiste": "Snow Patrol",
+      "accords": [
+        "D",
+        "A",
+        "Bm",
+        "G"
+      ],
+      "statut": "ok",
+      "article": "15-chansons-faciles-ukulele",
+      "ancre": "13-chasing-cars--snow-patrol",
+      "sources": 1
+    },
+    {
+      "titre": "Hey Soul Sister",
+      "artiste": "Train",
+      "accords": [
+        "C",
+        "G",
+        "Am",
+        "F"
+      ],
+      "statut": "ok",
+      "article": "debuter-ukulele-methode-simple-apprendre",
+      "ancre": "4-hey-soul-sister---train",
+      "sources": 1
+    },
+    {
+      "titre": "I'm Yours",
+      "artiste": "Jason Mraz",
+      "accords": [
+        "C",
+        "G",
+        "Am",
+        "F"
+      ],
+      "statut": "ok",
+      "article": "15-chansons-faciles-ukulele",
+      "ancre": "2-im-yours--jason-mraz",
+      "sources": 2
+    },
+    {
+      "titre": "Perfect",
+      "artiste": "Ed Sheeran",
+      "accords": [
+        "G",
+        "Em",
+        "C",
+        "D"
+      ],
+      "statut": "ok",
+      "article": "15-chansons-faciles-ukulele",
+      "ancre": "8-perfect--ed-sheeran",
+      "sources": 1
+    },
+    {
+      "titre": "Stand By Me",
+      "artiste": "Ben E. King",
+      "accords": [
+        "C",
+        "Am",
+        "F",
+        "G"
+      ],
+      "statut": "ok",
+      "article": "debuter-ukulele-methode-simple-apprendre",
+      "ancre": "10-stand-by-me---ben-e-king",
+      "sources": 1
+    },
+    {
+      "titre": "Wonderwall",
+      "artiste": "Oasis",
+      "accords": [
+        "Am7",
+        "G",
+        "C",
+        "Fsus2"
+      ],
+      "statut": "ok",
+      "article": "15-chansons-faciles-ukulele",
+      "ancre": "11-wonderwall--oasis",
+      "sources": 1
+    },
+    {
+      "titre": "Can't Help Falling in Love",
+      "artiste": "Elvis Presley",
+      "accords": [
+        "C",
+        "Em",
+        "Am",
+        "F",
+        "G"
+      ],
+      "statut": "ok",
+      "article": "debuter-ukulele-methode-simple-apprendre",
+      "ancre": "7-cant-help-falling-in-love---elvis-presley",
+      "sources": 1
+    },
+    {
+      "titre": "Count on Me",
+      "artiste": "Bruno Mars",
+      "accords": [
+        "C",
+        "Em",
+        "Am",
+        "F",
+        "G"
+      ],
+      "statut": "ok",
+      "article": "15-chansons-faciles-ukulele",
+      "ancre": "9-count-on-me--bruno-mars",
+      "sources": 2
+    },
+    {
+      "titre": "Hallelujah",
+      "artiste": "Jeff Buckley / Leonard Cohen",
+      "accords": [
+        "C",
+        "Am",
+        "F",
+        "G",
+        "E7"
+      ],
+      "statut": "ok",
+      "article": "15-chansons-faciles-ukulele",
+      "ancre": "6-hallelujah--jeff-buckley--leonard-cohen",
+      "sources": 1
+    },
+    {
+      "titre": "Let Her Go",
+      "artiste": "Passenger",
+      "accords": [
+        "C",
+        "G",
+        "Am",
+        "F",
+        "Em"
+      ],
+      "statut": "ok",
+      "article": "15-chansons-faciles-ukulele",
+      "ancre": "14-let-her-go--passenger",
+      "sources": 1
+    },
+    {
+      "titre": "La Mer",
+      "artiste": "Charles Trenet",
+      "accords": [
+        "C",
+        "G7",
+        "F",
+        "Am",
+        "Dm",
+        "E7"
+      ],
+      "statut": "ok",
+      "article": "15-chansons-faciles-ukulele",
+      "ancre": "15-la-mer--charles-trenet",
+      "sources": 1
+    },
+    {
+      "titre": "Over the Rainbow / What a Wonderful World",
+      "artiste": "medley",
+      "accords": [
+        "C",
+        "Em",
+        "F",
+        "Am",
+        "G",
+        "E7"
+      ],
+      "statut": "ok",
+      "article": "15-chansons-faciles-ukulele",
+      "ancre": "12-over-the-rainbow--what-a-wonderful-world--medley",
+      "sources": 1
+    },
+    {
+      "titre": "La Vie en Rose",
+      "artiste": "Édith Piaf",
+      "statut": "conflit",
+      "raison": "les deux articles ne donnent pas les mêmes accords",
+      "versions": [
+        {
+          "accords": [
+            "C",
+            "E7",
+            "Am",
+            "F",
+            "G"
+          ],
+          "article": "15-chansons-faciles-ukulele",
+          "ancre": "4-la-vie-en-rose--édith-piaf"
+        },
+        {
+          "accords": [
+            "C",
+            "G7",
+            "C7",
+            "F"
+          ],
+          "article": "debuter-ukulele-methode-simple-apprendre",
+          "ancre": "8-la-vie-en-rose---édith-piaf"
+        }
+      ]
+    },
+    {
+      "titre": "Riptide",
+      "artiste": "Vance Joy",
+      "statut": "conflit",
+      "raison": "les deux articles ne donnent pas les mêmes accords",
+      "versions": [
+        {
+          "accords": [
+            "Am",
+            "G",
+            "C",
+            "F"
+          ],
+          "article": "15-chansons-faciles-ukulele",
+          "ancre": "3-riptide--vance-joy"
+        },
+        {
+          "accords": [
+            "Am",
+            "G",
+            "C"
+          ],
+          "article": "debuter-ukulele-methode-simple-apprendre",
+          "ancre": "2-riptide---vance-joy"
+        }
+      ]
+    },
+    {
+      "titre": "Somewhere Over the Rainbow",
+      "artiste": "Israel Kamakawiwoʻole",
+      "statut": "conflit",
+      "raison": "les deux articles ne donnent pas les mêmes accords",
+      "versions": [
+        {
+          "accords": [
+            "C",
+            "G",
+            "Am",
+            "F"
+          ],
+          "article": "15-chansons-faciles-ukulele",
+          "ancre": "1-somewhere-over-the-rainbow--israel-kamakawiwoʻole"
+        },
+        {
+          "accords": [
+            "C",
+            "Em",
+            "F",
+            "E7",
+            "Am"
+          ],
+          "article": "debuter-ukulele-methode-simple-apprendre",
+          "ancre": "1-somewhere-over-the-rainbow---israel-kamakawiwoole"
+        }
+      ]
+    }
+  ]
+}
