@@ -210,18 +210,15 @@ const menuItems = [
     left: 0;
     right: 0;
     z-index: 1000;
-    background: linear-gradient(135deg,
-      rgba(108, 63, 160, 0.95) 0%,
-      rgba(90, 52, 136, 0.95) 100%
-    );
+    background: var(--header-bg);
     backdrop-filter: blur(20px) saturate(180%);
-    box-shadow: 0 4px 30px rgba(108, 63, 160, 0.1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+    transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s, transform 0.3s;
   }
 
   .header.scrolled {
-    background: rgba(108, 63, 160, 0.98);
-    box-shadow: 0 8px 32px rgba(108, 63, 160, 0.2);
+    background: var(--header-solid);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
   }
 
   /* Header transparent sur la homepage (avant scroll) */
@@ -232,10 +229,7 @@ const menuItems = [
   }
 
   .header.header--transparent.scrolled {
-    background: linear-gradient(135deg,
-      rgba(108, 63, 160, 0.95) 0%,
-      rgba(90, 52, 136, 0.95) 100%
-    );
+    background: var(--header-bg);
     backdrop-filter: blur(20px) saturate(180%);
     box-shadow: 0 8px 32px rgba(108, 63, 160, 0.2);
   }

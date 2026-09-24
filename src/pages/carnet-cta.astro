@@ -1,0 +1,298 @@
+---
+/**
+ * carnet-cta.astro — cinq façons d'inviter à ouvrir le carnet.
+ *
+ * URL : /carnet-cta/ — PAGE CACHÉE : noindex/nofollow, Disallow.
+ *
+ * Le bloc « Ouvrir le carnet de rentrée » est l'appel principal de la home :
+ * il doit donner envie de toucher. Cinq propositions, toutes en CSS (aucune
+ * bibliothèque), toutes coupées sous `prefers-reduced-motion`. Survolez-les.
+ *
+ *  1 · La page qui se tourne : le coin se soulève et découvre le jour 1.
+ *  2 · Le carnet à spirale : la reliure, et le carnet qui s'ouvre d'un cran.
+ *  3 · Les pages en éventail : trois jours empilés qui s'écartent.
+ *  4 · Le tampon : « JOUR 1 » vient s'apposer au survol.
+ *  5 · La carte qui sonne : les notes s'échappent, la corde vibre.
+ */
+import '@fontsource-variable/rubik/wght.css';
+import '@fontsource/square-peg/400.css';
+import '../styles/experience-fonts.css';
+import '../styles/experience-colors.css';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FooterModern from '../components/FooterModern.astro';
+import { paths } from '../data/home-v2';
+
+const LIEN = '/carnet/?instrument=guitar';
+const SOUS = 'Trente jours, une page par jour. Et chaque page se joue : on accorde, on gratte un accord, on tape le tempo.';
+const solutions = [
+  { id: 1, nom: 'La page qui se tourne', note: "Le coin se soulève vraiment, et découvre la page du dessous. L'effet le plus proche de l'objet." },
+  { id: 2, nom: 'Le carnet à spirale', note: "Une reliure, une couverture qui s'entrouvre d'un cran. Le plus « objet posé sur la table »." },
+  { id: 3, nom: 'Les pages en éventail', note: 'Trois jours empilés qui s\'écartent au survol : on voit tout de suite qu\'il y a plusieurs pages.' },
+  { id: 4, nom: 'Le tampon', note: 'Un formulaire de rentrée, et le tampon « JOUR 1 » qui tombe dessus. Le plus ludique.' },
+  { id: 5, nom: 'La carte qui sonne', note: 'Les notes s\'échappent et la corde vibre : le seul qui rappelle que ça fait du son.' },
+];
+---
+
+<Layout title="Cinq façons d'ouvrir le carnet" description="Cinq propositions animées pour l'appel principal de la page d'accueil." canonicalUrl="https://musique-facile.fr/carnet-cta/" robots="noindex, nofollow">
+  <Header />
+  <div class="cta xp">
+    <div class="container">
+      <p class="kicker">Étude · 6 septembre 2026</p>
+      <h1>Cinq façons d'ouvrir le carnet</h1>
+      <p class="lead">
+        Survolez chaque bloc, ou touchez-le sur téléphone. Tous mènent au carnet, tous s'effacent si le visiteur a
+        demandé moins d'animations. Choisissez l'instrument pour voir la couleur suivre.
+      </p>
+      <fieldset class="pick">
+        <legend>Instrument</legend>
+        <div class="pick__options">
+          {paths.map((p, i) => (
+            <label class="pick__opt"><input type="radio" name="instrument" value={p.id} checked={i === 0} /><span>{p.label}</span></label>
+          ))}
+        </div>
+      </fieldset>
+
+      <div class="grid">
+        {solutions.map((s) => (
+          <section class="case" aria-labelledby={`s${s.id}`}>
+            <h2 id={`s${s.id}`}>{s.id} · {s.nom}</h2>
+            <p class="why">{s.note}</p>
+
+            {s.id === 1 && (
+              <a class="c1" href={LIEN}>
+                <span class="c1__under" aria-hidden="true">
+                  <b>Jour 1</b>
+                  <i>Accorder la guitare</i>
+                </span>
+                <span class="c1__page">
+                  <span class="c1__fold" aria-hidden="true"></span>
+                  <span class="tag">gratuit, sans inscription</span>
+                  <span class="titre">Ouvrir le carnet de rentrée</span>
+                  <span class="sous">{SOUS}</span>
+                  <span class="go">Tourner la première page <b aria-hidden="true">→</b></span>
+                </span>
+              </a>
+            )}
+
+            {s.id === 2 && (
+              <a class="c2" href={LIEN}>
+                <span class="c2__spirale" aria-hidden="true">
+                  {Array.from({ length: 7 }).map(() => <i></i>)}
+                </span>
+                <span class="c2__couv">
+                  <span class="tag">gratuit, sans inscription</span>
+                  <span class="titre">Ouvrir le carnet de rentrée</span>
+                  <span class="sous">{SOUS}</span>
+                  <span class="go">Tourner la première page <b aria-hidden="true">→</b></span>
+                </span>
+              </a>
+            )}
+
+            {s.id === 3 && (
+              <a class="c3" href={LIEN}>
+                <span class="c3__pile" aria-hidden="true">
+                  <i style="--k: 3"><b>Jour 8</b><em>La rythmique</em></i>
+                  <i style="--k: 2"><b>Jour 3</b><em>Le premier accord</em></i>
+                  <i style="--k: 1"><b>Jour 1</b><em>Accorder</em></i>
+                </span>
+                <span class="c3__dessus">
+                  <span class="tag">gratuit, sans inscription</span>
+                  <span class="titre">Ouvrir le carnet de rentrée</span>
+                  <span class="sous">{SOUS}</span>
+                  <span class="go">Tourner la première page <b aria-hidden="true">→</b></span>
+                </span>
+              </a>
+            )}
+
+            {s.id === 4 && (
+              <a class="c4" href={LIEN}>
+                <span class="c4__tampon" aria-hidden="true">Jour 1</span>
+                <span class="tag">gratuit, sans inscription</span>
+                <span class="titre">Ouvrir le carnet de rentrée</span>
+                <span class="sous">{SOUS}</span>
+                <span class="c4__ligne" aria-hidden="true">
+                  <b>Nom</b><i></i>
+                </span>
+                <span class="go">Signer et commencer <b aria-hidden="true">→</b></span>
+              </a>
+            )}
+
+            {s.id === 5 && (
+              <a class="c5" href={LIEN}>
+                <span class="c5__notes" aria-hidden="true">
+                  <i style="--k: 0">♪</i><i style="--k: 1">♫</i><i style="--k: 2">♩</i><i style="--k: 3">♬</i><i style="--k: 4">♪</i>
+                </span>
+                <span class="c5__cordes" aria-hidden="true">
+                  <i style="--k: 0"></i><i style="--k: 1"></i><i style="--k: 2"></i><i style="--k: 3"></i><i style="--k: 4"></i><i style="--k: 5"></i>
+                </span>
+                <span class="tag">gratuit, sans inscription</span>
+                <span class="titre">Ouvrir le carnet de rentrée</span>
+                <span class="sous">{SOUS}</span>
+                <span class="go">Tourner la première page <b aria-hidden="true">→</b></span>
+              </a>
+            )}
+          </section>
+        ))}
+      </div>
+    </div>
+  </div>
+  <FooterModern />
+</Layout>
+
+<style>
+  .cta {
+    --paper: var(--xp-paper); --card: var(--xp-card); --ink: var(--xp-ink); --ink-2: var(--xp-ink-2); --line: var(--xp-line);
+    background: var(--paper); color: var(--ink); font-family: var(--xp-text); color-scheme: light;
+    padding: calc(80px + var(--space-8)) 0 var(--space-16);
+  }
+  .cta h1 { font-family: var(--xp-display); font-weight: 700; font-size: clamp(1.9rem, 4vw, 2.8rem); margin: 0 0 var(--space-3); color: var(--ink); }
+  .cta h2 { font-family: var(--xp-display); font-weight: 700; font-size: var(--text-lg); margin: 0 0 4px; color: var(--ink); }
+  .kicker { margin: 0 0 var(--space-2); font-family: var(--xp-display); font-weight: 600; font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.08em; color: var(--stage); }
+  .lead { max-width: 68ch; color: var(--ink-2); line-height: 1.6; margin: 0 0 var(--space-5); }
+  .why { margin: 0 0 var(--space-4); font-size: var(--text-sm); color: var(--ink-2); line-height: 1.5; }
+  .pick { border: 0; padding: 0; margin: 0 0 var(--space-8); }
+  .pick legend { font-family: var(--xp-voice); font-size: 1.9rem; color: var(--stage); margin-bottom: 4px; -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .pick__options { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pick__opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .pick__opt span { display: inline-block; padding: 8px 16px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); font-family: var(--xp-display); font-weight: 600; cursor: pointer; }
+  .pick__opt input:checked + span { background: var(--stage); border-color: var(--stage); color: var(--xp-label); }
+  .grid { display: grid; gap: var(--space-10); }
+  @media (min-width: 1000px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+  /* --- éléments communs aux cinq --- */
+  .cta a { text-decoration: none !important; color: inherit; display: block; }
+  .tag {
+    justify-self: start; align-self: start; display: inline-block;
+    padding: 2px 10px; border-radius: 3px; background: var(--stage); color: var(--xp-label);
+    font-family: var(--xp-voice); font-size: 1.5rem; line-height: 1.15; transform: rotate(-2deg);
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill;
+  }
+  .titre { display: block; font-family: var(--xp-voice); font-size: 2.9rem; line-height: 1; color: var(--stage); max-width: 15ch; -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .sous { display: block; font-size: var(--text-sm); line-height: 1.5; color: var(--ink-2); max-width: 42ch; }
+  .go { display: block; font-family: var(--xp-display); font-weight: 700; font-size: var(--text-sm); color: var(--ink); }
+  .go b { display: inline-block; transition: transform 0.25s var(--ease-out); }
+  .cta a:hover .go b { transform: translateX(6px); }
+  .lignes { background: repeating-linear-gradient(transparent 0 27px, rgba(35, 25, 61, 0.07) 27px 28px), var(--card); }
+
+  /* ===== 1 · la page qui se tourne ===== */
+  .c1 { position: relative; max-width: 30rem; }
+  .c1__under {
+    position: absolute; inset: 0; display: grid; align-content: end; gap: 2px;
+    padding: var(--space-5); border-radius: 6px; background: var(--xp-tint); border: 1px solid var(--line);
+  }
+  .c1__under b { font-family: var(--xp-voice); font-size: 1.7rem; color: var(--stage); -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .c1__under i { font-style: normal; font-size: var(--text-sm); color: var(--ink-2); }
+  .c1__page {
+    position: relative; display: grid; gap: 6px; padding: var(--space-5) var(--space-6) var(--space-5) var(--space-5);
+    border-radius: 6px; border: 1px solid var(--line); border-left: 6px solid var(--stage);
+    background: repeating-linear-gradient(transparent 0 27px, rgba(35, 25, 61, 0.07) 27px 28px), var(--card);
+    transform-origin: right center; transform: perspective(1400px) rotateY(0deg);
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.55s;
+    box-shadow: 0 14px 30px -24px rgba(35, 25, 61, 0.5);
+  }
+  .c1:hover .c1__page, .c1:focus-visible .c1__page { transform: perspective(1400px) rotateY(-24deg); box-shadow: -18px 20px 40px -22px rgba(35, 25, 61, 0.55); }
+  .c1__fold { position: absolute; top: 0; right: 0; width: 30px; height: 30px; background: linear-gradient(225deg, var(--xp-tint) 0 50%, transparent 50%); border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+  /* ===== 2 · le carnet à spirale ===== */
+  .c2 { position: relative; max-width: 30rem; display: grid; grid-template-columns: 26px 1fr; }
+  .c2__spirale { display: grid; gap: 10px; align-content: start; padding: 14px 0; }
+  .c2__spirale i { width: 26px; height: 10px; border-radius: 999px; background: linear-gradient(#c9c2b4, #8f887a); box-shadow: inset 0 -2px 0 rgba(255,255,255,0.5); }
+  .c2__couv {
+    display: grid; gap: 6px; padding: var(--space-5) var(--space-6);
+    border-radius: 0 10px 10px 0; border: 1px solid var(--line); border-left: 0;
+    background: repeating-linear-gradient(transparent 0 27px, rgba(35, 25, 61, 0.07) 27px 28px), var(--card);
+    transform-origin: left center; transform: perspective(1600px) rotateY(0deg);
+    transition: transform 0.5s cubic-bezier(0.34, 1.3, 0.64, 1), box-shadow 0.5s;
+    box-shadow: 0 14px 30px -24px rgba(35, 25, 61, 0.5);
+  }
+  .c2:hover .c2__couv, .c2:focus-visible .c2__couv { transform: perspective(1600px) rotateY(-14deg) translateZ(6px); box-shadow: 22px 22px 44px -26px rgba(35, 25, 61, 0.6); }
+
+  /* ===== 3 · les pages en éventail ===== */
+  .c3 { position: relative; max-width: 30rem; padding-top: 46px; }
+  .c3__pile { position: absolute; inset: 0; }
+  .c3__pile i {
+    position: absolute; left: 0; right: 0; top: 0; height: 100%;
+    display: grid; align-content: start; gap: 2px; padding: 10px var(--space-5);
+    border-radius: 8px; background: var(--xp-tint); border: 1px solid var(--line);
+    transform: translateY(calc(var(--k) * -7px)) rotate(0deg);
+    transition: transform 0.45s cubic-bezier(0.34, 1.25, 0.64, 1);
+  }
+  .c3__pile b { font-family: var(--xp-voice); font-size: 1.5rem; color: var(--stage); -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .c3__pile em { font-style: normal; font-size: var(--text-xs); color: var(--ink-2); }
+  .c3:hover .c3__pile i, .c3:focus-visible .c3__pile i {
+    transform: translateY(calc(var(--k) * -14px)) rotate(calc(var(--k) * -1.4deg)) translateX(calc(var(--k) * 12px));
+  }
+  .c3__dessus {
+    position: relative; display: grid; gap: 6px; padding: var(--space-5) var(--space-6);
+    border-radius: 8px; border: 1px solid var(--line); border-left: 6px solid var(--stage);
+    background: repeating-linear-gradient(transparent 0 27px, rgba(35, 25, 61, 0.07) 27px 28px), var(--card);
+    box-shadow: 0 14px 30px -24px rgba(35, 25, 61, 0.5);
+    transition: transform 0.45s cubic-bezier(0.34, 1.25, 0.64, 1);
+  }
+  .c3:hover .c3__dessus { transform: translateY(6px); }
+
+  /* ===== 4 · le tampon ===== */
+  .c4 {
+    position: relative; max-width: 30rem; display: grid; gap: 8px; padding: var(--space-5) var(--space-6);
+    border-radius: 6px; border: 1px solid var(--line); border-left: 6px solid var(--stage);
+    background: repeating-linear-gradient(transparent 0 27px, rgba(35, 25, 61, 0.07) 27px 28px), var(--card);
+    box-shadow: 0 14px 30px -24px rgba(35, 25, 61, 0.5); overflow: hidden;
+  }
+  .c4__ligne { display: flex; align-items: baseline; gap: 10px; }
+  .c4__ligne b { font-family: var(--xp-display); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-2); }
+  .c4__ligne i { flex: 1; height: 1px; background: var(--line); }
+  .c4__tampon {
+    position: absolute; right: 14px; bottom: 14px; z-index: 2;
+    padding: 6px 16px; border: 3px solid var(--stage); border-radius: 8px; color: var(--stage);
+    font-family: var(--xp-voice); font-size: 2.2rem; line-height: 1; text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.35);
+    transform: rotate(-14deg) scale(2.4); opacity: 0;
+    transition: transform 0.32s cubic-bezier(0.2, 0.9, 0.3, 1.5), opacity 0.2s;
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill;
+  }
+  .c4:hover .c4__tampon, .c4:focus-visible .c4__tampon { transform: rotate(-14deg) scale(1); opacity: 1; }
+
+  /* ===== 5 · la carte qui sonne ===== */
+  .c5 {
+    position: relative; max-width: 30rem; display: grid; gap: 6px; padding: var(--space-5) var(--space-6);
+    border-radius: 6px; border: 1px solid var(--line); border-left: 6px solid var(--stage);
+    background: repeating-linear-gradient(transparent 0 27px, rgba(35, 25, 61, 0.07) 27px 28px), var(--card);
+    box-shadow: 0 14px 30px -24px rgba(35, 25, 61, 0.5);
+    transition: transform 0.3s var(--ease-out);
+  }
+  .c5:hover { transform: translateY(-4px); }
+  .c5__cordes { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(6, 1fr); pointer-events: none; opacity: 0; transition: opacity 0.3s; }
+  .c5:hover .c5__cordes { opacity: 0.2; }
+  .c5__cordes i { justify-self: center; width: 1.5px; height: 100%; background: var(--ink); transform-origin: center; }
+  .c5:hover .c5__cordes i { animation: vibre 0.5s ease-out; animation-delay: calc(var(--k) * 45ms); }
+  @keyframes vibre { 0% { transform: translateX(0); } 20% { transform: translateX(2.5px); } 45% { transform: translateX(-2px); } 70% { transform: translateX(1.2px); } 100% { transform: translateX(0); } }
+  .c5__notes { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+  .c5__notes i {
+    position: absolute; left: calc(12% + var(--k) * 18%); bottom: 30%;
+    font-style: normal; font-size: 1.7rem; color: var(--stage); opacity: 0;
+  }
+  .c5:hover .c5__notes i { animation: envol 1.15s ease-out forwards; animation-delay: calc(var(--k) * 110ms); }
+  @keyframes envol {
+    0% { opacity: 0; transform: translate(0, 10px) rotate(0deg); }
+    15% { opacity: 1; }
+    100% { opacity: 0; transform: translate(calc(var(--k) * 6px - 12px), -90px) rotate(18deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .c1__page, .c2__couv, .c3__pile i, .c3__dessus, .c4__tampon, .c5, .go b { transition: none; }
+    .c5:hover .c5__cordes i, .c5:hover .c5__notes i { animation: none; }
+    .c4__tampon { opacity: 1; transform: rotate(-14deg) scale(1); }
+  }
+</style>
+
+<script>
+  /* La couleur suit l'instrument, comme sur la home. */
+  const peindre = () => {
+    const v = document.querySelector<HTMLInputElement>('input[name="instrument"]:checked')?.value ?? 'guitar';
+    document.body.classList.remove('theme-guitar', 'theme-piano', 'theme-ukulele', 'theme-solfege');
+    document.body.classList.add(`theme-${v}`);
+  };
+  document.querySelectorAll('input[name="instrument"]').forEach((r) => r.addEventListener('change', peindre));
+  peindre();
+</script>

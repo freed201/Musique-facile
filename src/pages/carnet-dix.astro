@@ -1,0 +1,780 @@
+---
+/**
+ * carnet-dix.astro — dix directions pour l'appel « le carnet de rentrée ».
+ *
+ * URL : /carnet-dix/ — PAGE CACHÉE : noindex/nofollow, Disallow dans robots.
+ *
+ * Retour de Fred (2026-09-06) : « j'aime pas le fond vert, j'ai pas le
+ * marqueur, tu dois être originale, repars de zéro ». Donc : aucune de ces
+ * dix propositions n'est un pavé rempli de la couleur de l'instrument. La
+ * couleur d'univers ne sert plus que d'encre : un tampon, un cachet, une
+ * note, un filet. Le fond reste le papier de la page.
+ *
+ * Chaque direction change DEUX choses à la fois, le texte et l'affichage :
+ * ce sont dix objets différents, pas dix habillages du même bloc.
+ *
+ *   1 · Le cachet          un tampon rond, le texte tourne autour
+ *   2 · La fiche d'emprunt  la carte cartonnée d'une bibliothèque
+ *   3 · Le billet           souche détachable et perforation
+ *   4 · L'affiche           du type énorme, aucun cadre
+ *   5 · L'éphéméride        la page du jour, qu'on arrache
+ *   6 · La carte postale    timbre dentelé et oblitération
+ *   7 · La une              manchette de journal, lettrine, colonnes
+ *   8 · La portée           cinq lignes qui traversent le bloc
+ *   9 · L'enveloppe         rabat et cachet de cire
+ *  10 · Les trente cases    le carnet réduit à sa grille
+ *
+ * Tout est en CSS (aucune bibliothèque), tout se coupe sous
+ * `prefers-reduced-motion`. BROUILLON à valider par Fred.
+ */
+import '@fontsource-variable/rubik/wght.css';
+import '@fontsource/square-peg/400.css';
+import '@fontsource-variable/fraunces/full.css';
+import '@fontsource/anton/400.css';
+import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource/space-mono/400.css';
+import '@fontsource/space-mono/700.css';
+import '@fontsource/courier-prime/400.css';
+import '@fontsource/courier-prime/700.css';
+import '@fontsource-variable/eb-garamond/wght.css';
+import '@fontsource-variable/eb-garamond/wght-italic.css';
+import '@fontsource/abril-fatface/400.css';
+import '../styles/experience-fonts.css';
+import '../styles/experience-colors.css';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FooterModern from '../components/FooterModern.astro';
+import { paths } from '../data/home-v2';
+
+const LIEN = '/carnet/?instrument=guitar';
+
+const directions = [
+  { id: 1, nom: 'Le cachet', note: "Le bloc est un tampon. Le texte tourne autour du cercle, le centre porte le jour 1. Rien d'autre sur la ligne : c'est un sceau posé sur la page." },
+  { id: 2, nom: "La fiche d'emprunt", note: 'La carte cartonnée glissée au dos des livres de bibliothèque, avec sa colonne de dates tamponnées. Machine à écrire, encre grasse, quatre jours listés.' },
+  { id: 3, nom: 'Le billet', note: "Un ticket à souche : perforation au milieu, talon vertical à droite, numéro de série. Au survol, le talon se détache d'un cran." },
+  { id: 4, nom: "L'affiche", note: "Aucun cadre, aucun fond : deux mots énormes posés sur le papier, dont un en contour vide qui se remplit au survol. Le parti pris le plus radical." },
+  { id: 5, nom: "L'éphéméride", note: "La page du jour d'un calendrier à effeuiller. Au survol elle se soulève et découvre le lendemain." },
+  { id: 6, nom: 'La carte postale', note: "Un mot de Fred à gauche, l'adresse et le timbre à droite. Au survol, le cachet d'oblitération tombe sur le timbre." },
+  { id: 7, nom: 'La une', note: "Une manchette de journal : filets doubles, titre en Abril, chapeau sur deux colonnes avec lettrine. Le plus adulte, le moins gadget." },
+  { id: 8, nom: 'La portée', note: 'Cinq lignes traversent toute la largeur, le titre est posé dessus, et quatre notes marquent les jours 1, 8, 15 et 30.' },
+  { id: 9, nom: "L'enveloppe", note: 'Un rabat triangulaire fermé par un cachet de cire. Au survol, le rabat bascule et découvre la première page.' },
+  { id: 10, nom: 'Les trente cases', note: "Le carnet réduit à sa grille : trente cases numérotées, une par jour. Au survol, la vague passe et la première case se coche." },
+];
+
+const jours = [
+  { j: '1', quoi: "Accorder l'instrument" },
+  { j: '3', quoi: 'Le premier accord' },
+  { j: '8', quoi: 'Le tempo dans le pied' },
+  { j: '30', quoi: 'Quatre accords, une chanson' },
+];
+---
+
+<Layout
+  title="Dix directions pour le carnet de rentrée"
+  description="Dix propositions de design pour l'appel principal de la page d'accueil."
+  canonicalUrl="https://musique-facile.fr/carnet-dix/"
+  robots="noindex, nofollow"
+>
+  <Header />
+
+  <div class="etude xp">
+    <header class="tete">
+      <div class="wrap">
+        <p class="kicker">Étude · 6 septembre 2026</p>
+        <h1>Dix façons d'inviter à ouvrir le carnet</h1>
+        <p class="lead">
+          Aucune n'est un pavé rempli de la couleur de l'instrument. La couleur ne sert plus que d'encre : un tampon, un
+          cachet, une note, un filet. Le texte change autant que la forme, parce qu'une affiche et une carte postale ne
+          se parlent pas pareil. Survolez chaque bloc.
+        </p>
+        <fieldset class="pick">
+          <legend>L'encre suit l'instrument</legend>
+          <div class="pick__options">
+            {paths.map((p, i) => (
+              <label class="pick__opt">
+                <input type="radio" id={`pick-${p.id}`} name="instrument" value={p.id} checked={i === 0} />
+                <span>{p.label}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+      </div>
+    </header>
+
+    {directions.map((d) => (
+      <section class="cas" aria-labelledby={`d${d.id}`}>
+        <div class="wrap">
+          <p class="cas__num">{String(d.id).padStart(2, '0')}</p>
+          <h2 id={`d${d.id}`}>{d.nom}</h2>
+          <p class="cas__note">{d.note}</p>
+        </div>
+
+        <div class="scene">
+          {d.id === 1 && (
+            <a class="d1" href={LIEN}>
+              <span class="d1__cachet" aria-hidden="true">
+                <svg viewBox="0 0 220 220" class="d1__svg">
+                  <defs>
+                    <path id="arc-cachet" d="M110,110 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0" />
+                  </defs>
+                  <circle class="d1__bord" cx="110" cy="110" r="104" />
+                  <circle class="d1__bord d1__bord--fin" cx="110" cy="110" r="97" />
+                  <g class="d1__mots">
+                    <text>
+                      <textPath href="#arc-cachet" startOffset="0">
+                        CARNET DE RENTRÉE · TRENTE JOURS · GRATUIT · MUSIQUE FACILE ·&nbsp;
+                      </textPath>
+                    </text>
+                  </g>
+                  <line class="d1__filet" x1="74" y1="74" x2="146" y2="74" />
+                  <line class="d1__filet" x1="74" y1="150" x2="146" y2="150" />
+                </svg>
+                <span class="d1__centre">
+                  <b>Jour 1</b>
+                  <i>on accorde</i>
+                </span>
+              </span>
+              <span class="d1__dessous">
+                <span class="d1__phrase">Une page par jour, et chaque page se joue.</span>
+                <span class="d1__go">Commencer aujourd'hui <b aria-hidden="true">→</b></span>
+              </span>
+            </a>
+          )}
+
+          {d.id === 2 && (
+            <a class="d2" href={LIEN}>
+              <span class="d2__entete">
+                <b>Musique Facile</b>
+                <i>Fiche d'emprunt n° 001</i>
+              </span>
+              <span class="d2__titre">Empruntez ce carnet.<br />Il ne se rend pas.</span>
+              <span class="d2__table">
+                <span class="d2__ligne d2__ligne--tete" aria-hidden="true">
+                  <em>Jour</em><em>Ce qu'on fait</em><em>Visa</em>
+                </span>
+                {jours.map((l, i) => (
+                  <span class="d2__ligne">
+                    <em>{l.j}</em>
+                    <em>{l.quoi}</em>
+                    <em class="d2__visa">{i === 0 && <b class="d2__tampon encre">reçu</b>}</em>
+                  </span>
+                ))}
+              </span>
+              <span class="d2__go">Prendre le carnet <b aria-hidden="true">→</b></span>
+            </a>
+          )}
+
+          {d.id === 3 && (
+            <a class="d3" href={LIEN}>
+              <span class="d3__corps">
+                <span class="d3__serie">Série R26 · n° 000001</span>
+                <span class="d3__titre">Un billet pour trente jours</span>
+                <span class="d3__sous">
+                  Une page par jour, à partir d'aujourd'hui. On accorde, on gratte, on tape le tempo, on lit ses
+                  premières notes.
+                </span>
+                <span class="d3__go">Composter et entrer <b aria-hidden="true">→</b></span>
+              </span>
+              <span class="d3__perfo" aria-hidden="true"></span>
+              <span class="d3__souche" aria-hidden="true">
+                <b>Admis</b>
+                <i>1 débutant</i>
+              </span>
+            </a>
+          )}
+
+          {d.id === 4 && (
+            <a class="d4" href={LIEN}>
+              <span class="d4__mot">Trente</span>
+              <span class="d4__mot d4__mot--creux" data-mot="jours">jours</span>
+              <span class="d4__bas">
+                <span class="d4__phrase">pour poser vos doigts au bon endroit.</span>
+                <span class="d4__go">Ouvrir le jour 1 <b aria-hidden="true">→</b></span>
+              </span>
+            </a>
+          )}
+
+          {d.id === 5 && (
+            <a class="d5" href={LIEN}>
+              <span class="d5__bloc">
+                <span class="d5__dessous" aria-hidden="true">
+                  <b>2</b><i>le premier accord</i>
+                </span>
+                <span class="d5__page">
+                  <span class="d5__mois">Septembre</span>
+                  <b class="d5__chiffre">1</b>
+                  <i class="d5__quoi">accorder l'instrument</i>
+                </span>
+              </span>
+              <span class="d5__texte">
+                <span class="d5__titre">Le meilleur jour pour commencer porte la date d'aujourd'hui.</span>
+                <span class="d5__go">Arracher la page du jour <b aria-hidden="true">→</b></span>
+              </span>
+            </a>
+          )}
+
+          {d.id === 6 && (
+            <a class="d6" href={LIEN}>
+              <span class="d6__mot">
+                <span class="d6__main">
+                  Chère personne qui hésite depuis dix ans, la guitare attend toujours dans son coin. Trente jours
+                  suffisent pour la première chanson. À demain.
+                </span>
+                <span class="d6__signe">Fred</span>
+              </span>
+              <span class="d6__droite">
+                <span class="d6__timbre" aria-hidden="true">
+                  <i>&#119070;</i>
+                  <em>Rentrée 2026</em>
+                </span>
+                <span class="d6__oblit encre" aria-hidden="true">
+                  <i>Musique Facile</i>
+                  <b>1<sup>er</sup> jour</b>
+                </span>
+                <span class="d6__adresse" aria-hidden="true">
+                  <i></i><i></i><i></i>
+                </span>
+                <span class="d6__go">Lire la suite <b aria-hidden="true">→</b></span>
+              </span>
+            </a>
+          )}
+
+          {d.id === 7 && (
+            <a class="d7" href={LIEN}>
+              <span class="d7__bandeau">
+                <i>Le journal de la rentrée</i>
+                <em>Numéro 1 · gratuit · sans inscription</em>
+              </span>
+              <span class="d7__titre">Un carnet de trente jours paraît aujourd'hui</span>
+              <span class="d7__chapo">
+                <span class="d7__col">
+                  Depuis quinze ans, Fred Fieffé apprend la musique à des adultes qui n'ont jamais lu une note. Il en a
+                  tiré trente pages, une par jour.
+                </span>
+                <span class="d7__col">
+                  Chacune se joue au lieu de se lire : on accorde, on gratte un accord, on tape le tempo. La trentième,
+                  c'est une chanson entière.
+                </span>
+              </span>
+              <span class="d7__go">Lire le premier jour <b aria-hidden="true">→</b></span>
+            </a>
+          )}
+
+          {d.id === 8 && (
+            <a class="d8" href={LIEN}>
+              <span class="d8__titre">Trente jours écrits pour vous</span>
+              <span class="d8__systeme">
+                <span class="d8__portee" aria-hidden="true"></span>
+                <span class="d8__cle" aria-hidden="true">&#119070;</span>
+                <span class="d8__notes" aria-hidden="true">
+                  <i style="--k: 0; --x: 14%; --b: -1px"><b></b><em>jour 1<br />accorder</em></i>
+                  <i style="--k: 1; --x: 38%; --b: 13px"><b></b><em>jour 8<br />le tempo</em></i>
+                  <i style="--k: 2; --x: 62%; --b: 27px"><b></b><em>jour 15<br />lire</em></i>
+                  <i style="--k: 3; --x: 86%; --b: 41px"><b></b><em>jour 30<br />jouer</em></i>
+                </span>
+              </span>
+              <span class="d8__go">Jouer la première mesure <b aria-hidden="true">→</b></span>
+            </a>
+          )}
+
+          {d.id === 9 && (
+            <a class="d9" href={LIEN}>
+              <span class="d9__env">
+                <span class="d9__carte" aria-hidden="true">
+                  <b>Jour 1</b>
+                  <i>Accorder l'instrument, et entendre la différence.</i>
+                </span>
+                <span class="d9__rabat" aria-hidden="true"></span>
+                <span class="d9__cire" aria-hidden="true">&#9835;</span>
+              </span>
+              <span class="d9__texte">
+                <span class="d9__titre">Il y a trente jours là-dedans.</span>
+                <span class="d9__sous">Une par page, et chaque page se joue.</span>
+                <span class="d9__go">Décacheter <b aria-hidden="true">→</b></span>
+              </span>
+            </a>
+          )}
+
+          {d.id === 10 && (
+            <a class="d10" href={LIEN}>
+              <span class="d10__gauche">
+                <span class="d10__titre">Trente cases.<br />Vous en cochez une par jour.</span>
+                <span class="d10__go">Cocher la première <b aria-hidden="true">→</b></span>
+              </span>
+              <span class="d10__grille" aria-hidden="true">
+                {Array.from({ length: 30 }).map((_, i) => (
+                  <i style={`--k: ${i}`}>{i + 1}</i>
+                ))}
+              </span>
+            </a>
+          )}
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <FooterModern />
+</Layout>
+
+<script>
+  /* L'encre suit l'instrument, comme sur la home. */
+  const peindre = () => {
+    const v = document.querySelector<HTMLInputElement>('input[name="instrument"]:checked')?.value ?? 'guitar';
+    document.body.classList.remove('theme-guitar', 'theme-piano', 'theme-ukulele', 'theme-solfege');
+    document.body.classList.add(`theme-${v}`);
+  };
+  document.querySelectorAll('input[name="instrument"]').forEach((r) => r.addEventListener('change', peindre));
+  peindre();
+</script>
+
+<style>
+  /* ===================================================================
+     Charpente de l'étude
+     =================================================================== */
+  .etude {
+    --paper: var(--xp-paper);
+    --card: var(--xp-card);
+    --ink: var(--xp-ink);
+    --ink-2: var(--xp-ink-2);
+    --line: var(--xp-line);
+    --encre: var(--stage);
+    --f-poster: 'Anton', Impact, sans-serif;
+    --f-grot: 'Archivo Variable', system-ui, sans-serif;
+    --f-mono: 'Space Mono', ui-monospace, monospace;
+    --f-type: 'Courier Prime', ui-monospace, monospace;
+    --f-serif: 'EB Garamond Variable', Georgia, serif;
+    --f-didone: 'Abril Fatface', Georgia, serif;
+    --f-main: var(--xp-voice);
+    --f-ui: var(--xp-text);
+
+    --erosion: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='e'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7 0.55' numOctaves='4' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='1.8' intercept='-0.16'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23e)'/%3E%3C/svg%3E");
+    --fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02 0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
+
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--f-ui);
+    color-scheme: light;
+    padding-top: calc(80px + var(--space-8));
+  }
+
+  .wrap { width: min(100% - var(--space-10), 68rem); margin-inline: auto; }
+
+  .tete { padding-bottom: var(--space-12); }
+  .etude h1 { font-family: var(--f-ui); font-weight: 700; font-size: clamp(1.9rem, 4vw, 2.8rem); margin: 0 0 var(--space-3); }
+  .kicker { margin: 0 0 var(--space-2); font-weight: 600; font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.1em; color: var(--encre); }
+  .lead { max-width: 62ch; color: var(--ink-2); line-height: 1.65; margin: 0 0 var(--space-6); }
+
+  .pick { border: 0; padding: 0; margin: 0; }
+  .pick legend { font-family: var(--f-main); font-size: 1.9rem; color: var(--encre); margin-bottom: 4px; -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .pick__options { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pick__opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .pick__opt span { display: inline-block; padding: 8px 16px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); font-weight: 600; cursor: pointer; }
+  .pick__opt input:checked + span { background: var(--encre); border-color: var(--encre); color: var(--xp-label); }
+
+  .cas { padding-block: var(--space-8) 0; border-top: 1px solid var(--line); }
+  .cas__num { margin: 0; font-family: var(--f-mono); font-size: var(--text-sm); color: var(--encre); letter-spacing: 0.1em; }
+  .etude h2 { font-family: var(--f-ui); font-weight: 700; font-size: var(--text-2xl); margin: 2px 0 6px; }
+  .cas__note { margin: 0 0 var(--space-8); max-width: 62ch; color: var(--ink-2); font-size: var(--text-sm); line-height: 1.6; }
+
+  /* La scène : ce que verrait un visiteur sur la home, seul sur sa ligne. */
+  .scene {
+    padding: clamp(var(--space-10), 7vw, var(--space-24)) var(--space-5);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    overflow-x: clip;
+  }
+
+  .etude a { text-decoration: none !important; color: inherit; }
+  .etude b, .etude i, .etude em { font-style: normal; }
+
+  /* Le lien final, commun : petit, ferme, avec sa flèche qui avance. */
+  .d1__go, .d2__go, .d3__go, .d4__go, .d5__go, .d6__go, .d7__go, .d8__go, .d9__go, .d10__go {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--f-grot); font-weight: 700; font-size: var(--text-sm);
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink);
+    border-bottom: 2px solid var(--encre); padding-bottom: 3px;
+    justify-self: start; width: max-content; max-width: 100%;
+  }
+  .etude a:hover [class$='__go'] { color: var(--encre); }
+  .etude [class$='__go'] b { display: inline-block; transition: transform var(--duration-base) var(--ease-out); }
+  .etude a:hover [class$='__go'] b { transform: translateX(6px); }
+
+  /* ===================================================================
+     01 · Le cachet
+     =================================================================== */
+  .d1 { display: grid; justify-items: center; gap: var(--space-8); text-align: center; }
+  .d1__cachet {
+    position: relative; display: grid; place-items: center;
+    width: min(78vw, 21rem); aspect-ratio: 1;
+    transform: rotate(-7deg);
+    transition: transform var(--duration-slow) var(--ease-out);
+  }
+  .d1:hover .d1__cachet { transform: rotate(-3deg) scale(1.03); }
+  .d1__svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.92; }
+  .d1__bord { fill: none; stroke: var(--encre); stroke-width: 5; }
+  .d1__bord--fin { stroke-width: 1.5; }
+  .d1__filet { stroke: var(--encre); stroke-width: 2.5; }
+  .d1__mots { transform-box: view-box; transform-origin: 50% 50%; animation: d1-tourne 40s linear infinite; }
+  .d1__mots text { fill: var(--encre); font-family: var(--f-grot); font-size: 11.5px; font-weight: 700; font-stretch: 84%; letter-spacing: 0.12em; }
+  .d1 .d1__go { justify-self: center; }
+  @keyframes d1-tourne { to { transform: rotate(360deg); } }
+  .d1:hover .d1__mots { animation-duration: 14s; }
+
+  .d1__centre { position: relative; display: grid; gap: 2px; padding-block: 4px; }
+  .d1__centre b {
+    font-family: var(--f-poster); font-size: clamp(2.2rem, 8vw, 3.4rem); line-height: 0.9;
+    text-transform: uppercase; letter-spacing: 0.05em; color: var(--encre);
+  }
+  .d1__centre i { font-family: var(--f-main); font-size: 1.7rem; line-height: 1; color: var(--encre); }
+
+  .d1__dessous { display: grid; justify-items: center; gap: var(--space-4); }
+  .d1__phrase { font-size: var(--text-lg); color: var(--ink-2); max-width: 32ch; }
+
+  /* ===================================================================
+     02 · La fiche d'emprunt
+     =================================================================== */
+  .d2 {
+    width: min(100%, 40rem);
+    display: grid; gap: var(--space-5);
+    padding: var(--space-6) var(--space-8) var(--space-8);
+    background: #f3ead6;
+    border: 1px solid rgba(35, 25, 61, 0.2);
+    border-radius: 2px;
+    box-shadow: 0 18px 34px -28px rgba(35, 25, 61, 0.7);
+    font-family: var(--f-type);
+    transform: rotate(-0.4deg);
+  }
+  .d2, .d3, .d6 { position: relative; }
+  .d2::after, .d3::after, .d6::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 4;
+    background-image: var(--fibre); background-size: 200px 200px;
+    mix-blend-mode: multiply; opacity: 0.05;
+  }
+
+  .d2__entete { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
+  .d2__entete b { font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; font-size: var(--text-sm); }
+  .d2__entete i { font-size: var(--text-xs); color: var(--ink-2); letter-spacing: 0.06em; }
+  .d2__titre { font-family: var(--f-type); font-weight: 700; font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; }
+  .d2__table { display: grid; gap: 0; }
+  .d2__ligne {
+    display: grid; grid-template-columns: 3.5rem 1fr 5.5rem; align-items: center; gap: var(--space-3);
+    padding: 10px 0; border-bottom: 1px solid rgba(35, 25, 61, 0.25); min-height: 46px;
+  }
+  .d2__ligne--tete em { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-2); }
+  .d2__ligne--tete { padding-bottom: 4px; }
+  .d2__ligne em { font-size: var(--text-sm); }
+  .d2__visa { position: relative; height: 100%; }
+  .encre {
+    -webkit-mask-image: var(--erosion);
+    mask-image: var(--erosion);
+    -webkit-mask-size: 140px 140px;
+    mask-size: 140px 140px;
+  }
+
+  .d2__tampon {
+    position: absolute; left: -6px; top: 50%;
+    padding: 3px 10px; border: 2px solid var(--encre); border-radius: 3px; color: var(--encre);
+    font-family: var(--f-grot); font-weight: 700; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.16em;
+    transform: translateY(-50%) rotate(-13deg) scale(2.6); opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.5), opacity 0.16s;
+  }
+  .d2:hover .d2__tampon { transform: translateY(-50%) rotate(-13deg) scale(1); opacity: 0.9; }
+
+  /* ===================================================================
+     03 · Le billet
+     =================================================================== */
+  .d3 {
+    --coupe: 9.5rem;
+    position: relative;
+    width: min(100%, 44rem);
+    display: grid; grid-template-columns: 1fr var(--coupe);
+    background: var(--card);
+    filter: drop-shadow(0 16px 22px rgba(35, 25, 61, 0.16));
+    -webkit-mask:
+      radial-gradient(circle 11px at calc(100% - var(--coupe)) 0, #0000 98%, #000),
+      radial-gradient(circle 11px at calc(100% - var(--coupe)) 100%, #0000 98%, #000);
+    -webkit-mask-composite: source-in;
+    mask:
+      radial-gradient(circle 11px at calc(100% - var(--coupe)) 0, #0000 98%, #000),
+      radial-gradient(circle 11px at calc(100% - var(--coupe)) 100%, #0000 98%, #000);
+    mask-composite: intersect;
+  }
+  .d3__corps { display: grid; gap: var(--space-3); padding: var(--space-8); align-content: center; }
+  .d3__serie { font-family: var(--f-mono); font-size: var(--text-xs); letter-spacing: 0.12em; color: var(--ink-2); text-transform: uppercase; }
+  .d3__titre { font-family: var(--f-grot); font-weight: 800; font-stretch: 82%; font-size: clamp(1.7rem, 5vw, 2.7rem); line-height: 1.02; text-transform: uppercase; letter-spacing: -0.01em; }
+  .d3__sous { font-size: var(--text-sm); line-height: 1.6; color: var(--ink-2); max-width: 34ch; }
+  .d3__corps .d3__go { justify-self: start; margin-top: var(--space-2); }
+  .d3__perfo {
+    position: absolute; top: 12px; bottom: 12px; right: var(--coupe); width: 2px;
+    background: repeating-linear-gradient(to bottom, rgba(35, 25, 61, 0.4) 0 7px, transparent 7px 14px);
+    transition: transform var(--duration-slow) var(--ease-out);
+  }
+  .d3__souche {
+    display: grid; place-content: center; gap: 10px; justify-items: center;
+    background: repeating-linear-gradient(-45deg, rgba(35, 25, 61, 0.035) 0 9px, transparent 9px 18px), var(--card);
+    border-left: 1px dashed transparent;
+    transition: transform var(--duration-slow) var(--ease-out);
+  }
+  .d3__souche b {
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    font-family: var(--f-grot); font-weight: 800; font-size: var(--text-xl); text-transform: uppercase; letter-spacing: 0.3em;
+    color: var(--encre);
+  }
+  .d3__souche i { writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--f-mono); font-size: var(--text-xs); letter-spacing: 0.16em; color: var(--ink-2); text-transform: uppercase; }
+  .d3:hover .d3__souche { transform: translateX(10px); }
+  .d3:hover .d3__perfo { transform: scaleX(2); }
+
+  /* ===================================================================
+     04 · L'affiche
+     =================================================================== */
+  .d4 { width: min(100%, 56rem); display: grid; justify-items: start; }
+  .d4__mot {
+    font-family: var(--f-poster); font-size: clamp(3.6rem, 16vw, 10.5rem); line-height: 0.92;
+    text-transform: uppercase; letter-spacing: -0.015em; color: var(--ink);
+  }
+  .d4__mot--creux {
+    position: relative; color: transparent;
+    -webkit-text-stroke: clamp(1.5px, 0.35vw, 3px) var(--ink);
+  }
+  .d4__mot--creux::before {
+    content: attr(data-mot); position: absolute; inset: 0;
+    color: var(--encre); -webkit-text-stroke: 0;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .d4:hover .d4__mot--creux::before { clip-path: inset(0 0 0 0); }
+  .d4__bas { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-4) var(--space-8); margin-top: var(--space-6); border-top: 2px solid var(--ink); padding-top: var(--space-4); width: 100%; }
+  .d4__phrase { font-family: var(--f-serif); font-style: italic; font-size: clamp(1.2rem, 3vw, 1.9rem); color: var(--ink); }
+  .d4__bas .d4__go { margin-left: auto; }
+
+  /* ===================================================================
+     05 · L'éphéméride
+     =================================================================== */
+  .d5 {
+    width: min(100%, 46rem);
+    display: grid; grid-template-columns: auto 1fr; gap: var(--space-10); align-items: center;
+  }
+  .d5__bloc { position: relative; width: 15rem; perspective: 1000px; }
+  .d5__dessous {
+    position: absolute; inset: 0; display: grid; place-content: end center; gap: 2px; text-align: center;
+    padding-bottom: var(--space-4);
+    background: #ece3d2; border: 1px solid var(--line); border-radius: 3px;
+  }
+  .d5__dessous b { font-family: var(--f-didone); font-size: 3.4rem; line-height: 1; color: var(--ink-2); }
+  .d5__dessous i { font-family: var(--f-mono); font-size: var(--text-xs); color: var(--ink-2); }
+  .d5__page {
+    position: relative; display: grid; justify-items: center; gap: 2px;
+    padding: var(--space-4) var(--space-5) var(--space-5);
+    background: var(--card); border: 1px solid var(--line); border-radius: 3px;
+    box-shadow: 0 14px 26px -22px rgba(35, 25, 61, 0.7);
+    transform-origin: top center; transform: rotateX(0deg);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s;
+  }
+  .d5:hover .d5__page { transform: rotateX(-58deg); box-shadow: 0 30px 40px -26px rgba(35, 25, 61, 0.55); }
+  .d5__mois { font-family: var(--f-grot); font-weight: 700; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.24em; color: var(--encre); border-bottom: 2px solid var(--encre); padding-bottom: 6px; width: 100%; text-align: center; }
+  .d5__chiffre { font-family: var(--f-didone); font-size: 9rem; line-height: 1.02; color: var(--ink); }
+  .d5__quoi { font-family: var(--f-main); font-size: 1.7rem; line-height: 1; color: var(--encre); text-align: center; }
+  .d5__texte { display: grid; gap: var(--space-5); justify-items: start; }
+  .d5__titre { font-family: var(--f-serif); font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; max-width: 18ch; }
+
+  /* ===================================================================
+     06 · La carte postale
+     =================================================================== */
+  .d6 {
+    width: min(100%, 46rem);
+    display: grid; grid-template-columns: 1fr 1fr;
+    background: #f7f1e2; border: 1px solid rgba(35, 25, 61, 0.18); border-radius: 2px;
+    box-shadow: 0 20px 36px -28px rgba(35, 25, 61, 0.7);
+    transform: rotate(0.5deg);
+  }
+  .d6__mot { padding: var(--space-8); display: grid; align-content: space-between; gap: var(--space-5); border-right: 1px solid rgba(35, 25, 61, 0.25); }
+  .d6__main { font-family: var(--f-main); font-size: 1.85rem; line-height: 1.35; color: var(--ink); -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .d6__signe { font-family: var(--f-main); font-size: 2.4rem; line-height: 1; color: var(--encre); justify-self: end; }
+  .d6__droite { position: relative; padding: var(--space-8); display: grid; align-content: space-between; gap: var(--space-8); }
+  .d6__timbre {
+    --r: 4.5px; --s: 12px;
+    justify-self: end; width: 6rem; height: 7.2rem;
+    display: grid; grid-template-rows: 1fr auto; align-items: center;
+    padding: 12px 6px 8px; text-align: center;
+    background: var(--tint); box-shadow: inset 0 0 0 2px rgba(35, 25, 61, 0.12);
+    -webkit-mask:
+      radial-gradient(var(--r) at 50% 0, #0000 98%, #000) 0 0 / var(--s) 100%,
+      radial-gradient(var(--r) at 50% 100%, #0000 98%, #000) 0 0 / var(--s) 100%,
+      radial-gradient(var(--r) at 0 50%, #0000 98%, #000) 0 0 / 100% var(--s),
+      radial-gradient(var(--r) at 100% 50%, #0000 98%, #000) 0 0 / 100% var(--s);
+    mask:
+      radial-gradient(var(--r) at 50% 0, #0000 98%, #000) 0 0 / var(--s) 100%,
+      radial-gradient(var(--r) at 50% 100%, #0000 98%, #000) 0 0 / var(--s) 100%,
+      radial-gradient(var(--r) at 0 50%, #0000 98%, #000) 0 0 / 100% var(--s),
+      radial-gradient(var(--r) at 100% 50%, #0000 98%, #000) 0 0 / 100% var(--s);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+  .d6__timbre i { display: block; width: 100%; font-size: 2.9rem; line-height: 1; color: var(--encre); text-align: center; }
+  .d6__timbre em { display: block; width: 100%; font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.04em; color: var(--ink-2); text-align: center; }
+  .d6__oblit {
+    position: absolute; top: calc(var(--space-8) + 3.6rem); right: calc(var(--space-8) + 4.4rem);
+    width: 6.2rem; height: 6.2rem; border-radius: 50%;
+    border: 2px solid var(--encre); color: var(--encre);
+    display: grid; place-content: center; gap: 2px; text-align: center;
+    transform: rotate(-16deg) scale(2.2); opacity: 0;
+    transition: transform 0.34s cubic-bezier(0.2, 0.9, 0.3, 1.5), opacity 0.18s;
+  }
+  .d6__oblit i { font-family: var(--f-grot); font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; }
+  .d6__oblit b { font-family: var(--f-grot); font-weight: 800; font-size: var(--text-base); }
+  .d6:hover .d6__oblit { transform: rotate(-16deg) scale(1); opacity: 0.78; }
+  .d6__adresse { display: grid; gap: var(--space-5); }
+  .d6__adresse i { height: 1px; background: rgba(35, 25, 61, 0.28); }
+  .d6__adresse i:nth-child(2) { width: 84%; }
+  .d6__adresse i:nth-child(3) { width: 62%; }
+
+  /* ===================================================================
+     07 · La une
+     =================================================================== */
+  .d7 {
+    width: min(100%, 50rem);
+    display: grid; gap: var(--space-5);
+    border-top: 5px solid var(--ink); border-bottom: 5px solid var(--ink);
+    padding-block: var(--space-6) var(--space-8);
+    position: relative;
+  }
+  .d7::before, .d7::after { content: ''; position: absolute; left: 0; right: 0; height: 1px; background: var(--ink); }
+  .d7::before { top: 4px; }
+  .d7::after { bottom: 4px; }
+  .d7__bandeau { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); flex-wrap: wrap; }
+  .d7__bandeau i { font-family: var(--f-didone); font-size: var(--text-lg); color: var(--encre); }
+  .d7__bandeau em { font-family: var(--f-grot); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-2); }
+  .d7__titre { font-family: var(--f-didone); font-size: clamp(2rem, 6vw, 4rem); line-height: 1.02; letter-spacing: -0.015em; text-wrap: balance; }
+  .d7__chapo { display: grid; gap: var(--space-6); font-family: var(--f-serif); font-size: var(--text-lg); line-height: 1.5; color: var(--ink); }
+  @media (min-width: 700px) { .d7__chapo { grid-template-columns: 1fr 1fr; gap: var(--space-8); } }
+  .d7__col:first-child::first-letter {
+    float: left; font-family: var(--f-didone); font-size: 3.6em; line-height: 0.78;
+    padding: 6px 10px 0 0; color: var(--encre);
+  }
+  .d7 .d7__go { justify-self: start; }
+
+  /* ===================================================================
+     08 · La portée
+     =================================================================== */
+  .d8 { width: min(100%, 52rem); display: grid; gap: var(--space-8); }
+  .d8__titre {
+    justify-self: start;
+    font-family: var(--f-serif); font-weight: 600; font-size: clamp(1.8rem, 5vw, 3.1rem); line-height: 1.05;
+  }
+  .d8__systeme { position: relative; height: 57px; margin-bottom: 6rem; }
+  .d8__portee {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(to bottom, rgba(35, 25, 61, 0.4) 0 1.5px, transparent 1.5px 14px);
+  }
+  .d8__cle { position: absolute; left: 4px; top: 50%; translate: 0 -50%; font-size: 5.4rem; line-height: 1; color: var(--encre); }
+  .d8__notes { position: absolute; inset: 0 0 0 4.6rem; }
+  .d8__notes i { position: absolute; left: var(--x); bottom: 0; }
+  .d8__notes b {
+    position: absolute; bottom: var(--b); left: 0;
+    width: 20px; height: 15px; border-radius: 50%; background: var(--encre);
+    transform: rotate(-22deg);
+    transition: transform 0.35s cubic-bezier(0.34, 1.3, 0.64, 1);
+  }
+  .d8__notes b::after { content: ''; position: absolute; right: 0; bottom: 7px; width: 2px; height: 44px; background: var(--encre); }
+  .d8__notes em {
+    position: absolute; top: 64px; left: 0; width: 7rem;
+    font-family: var(--f-mono); font-size: 10px; line-height: 1.6; letter-spacing: 0.06em; color: var(--ink-2); text-transform: uppercase;
+  }
+  .d8:hover .d8__notes b { transform: rotate(-22deg) translateY(-13px); transition-delay: calc(var(--k) * 70ms); }
+
+  /* ===================================================================
+     09 · L'enveloppe
+     =================================================================== */
+  .d9 { width: min(100%, 48rem); display: grid; grid-template-columns: auto 1fr; gap: var(--space-10); align-items: center; margin-top: 5.5rem; }
+  .d9__env { position: relative; width: 17rem; aspect-ratio: 3 / 2; perspective: 1000px; }
+  .d9__carte {
+    position: absolute; inset: 14% 9% 7%; z-index: 1;
+    display: grid; align-content: center; gap: 4px; padding: var(--space-4);
+    background: var(--card); border: 1px solid var(--line); border-radius: 2px;
+    transition: transform 0.55s cubic-bezier(0.34, 1.2, 0.64, 1);
+  }
+  .d9__carte b { font-family: var(--f-main); font-size: 1.9rem; line-height: 1; color: var(--encre); }
+  .d9__carte i { font-size: var(--text-xs); line-height: 1.45; color: var(--ink-2); }
+  .d9:hover .d9__carte { transform: translateY(-38px); z-index: 6; }
+  .d9__rabat {
+    position: absolute; top: 0; left: 0; right: 0; height: 78%;
+    background: #efe6d4; border: 1px solid rgba(35, 25, 61, 0.16);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center; transform: rotateX(0deg); z-index: 4;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s 0.3s;
+  }
+  .d9:hover .d9__rabat { z-index: 0; }
+  .d9:hover .d9__rabat { transform: rotateX(-158deg); }
+  .d9__cire {
+    position: absolute; top: 66%; left: 50%; z-index: 5;
+    width: 3.4rem; height: 3.4rem; border-radius: 50%;
+    display: grid; place-content: center;
+    background: var(--encre); color: var(--xp-label); font-size: 1.5rem;
+    box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.25);
+    transform: translate(-50%, -50%) scale(1); transform-origin: center;
+    transition: transform 0.4s var(--ease-out), opacity 0.4s;
+  }
+  .d9:hover .d9__cire { transform: translate(-50%, 6px) scale(0.7); opacity: 0; }
+  .d9__env::after {
+    content: ''; position: absolute; inset: 0; z-index: 3;
+    background: #f4ecda; border: 1px solid rgba(35, 25, 61, 0.16); border-radius: 2px;
+    clip-path: polygon(0 0, 50% 78%, 100% 0, 100% 100%, 0 100%);
+  }
+  .d9__texte { display: grid; gap: var(--space-4); justify-items: start; }
+  .d9__titre { font-family: var(--f-grot); font-weight: 800; font-stretch: 84%; font-size: clamp(1.6rem, 4.5vw, 2.6rem); line-height: 1.05; text-transform: uppercase; }
+  .d9__sous { color: var(--ink-2); max-width: 30ch; }
+
+  /* ===================================================================
+     10 · Les trente cases
+     =================================================================== */
+  .d10 { width: min(100%, 52rem); display: grid; grid-template-columns: 1fr auto; gap: var(--space-10); align-items: center; }
+  .d10__gauche { display: grid; gap: var(--space-5); justify-items: start; }
+  .d10__titre { font-family: var(--f-grot); font-weight: 800; font-stretch: 84%; font-size: clamp(1.6rem, 4.5vw, 2.5rem); line-height: 1.08; text-transform: uppercase; }
+  .d10__grille { display: grid; grid-template-columns: repeat(6, 3.1rem); gap: 8px; }
+  .d10__grille i {
+    aspect-ratio: 1; display: grid; place-content: center;
+    border: 1.5px solid rgba(35, 25, 61, 0.22); border-radius: 3px;
+    font-family: var(--f-mono); font-size: var(--text-xs); color: var(--ink-2);
+    transition: background-color 0.25s var(--ease-out), color 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+  }
+  .d10:hover .d10__grille i { background: var(--tint); border-color: transparent; transition-delay: calc(var(--k) * 16ms); }
+  .d10__grille i:first-child { position: relative; }
+  .d10__grille i:first-child::after {
+    content: '✓'; position: absolute; inset: 0; display: grid; place-content: center;
+    background: var(--encre); color: var(--xp-label); border-radius: 3px; font-size: 20px;
+    transform: scale(2.4) rotate(-12deg); opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.5), opacity 0.18s;
+  }
+  .d10:hover .d10__grille i:first-child::after { transform: scale(1) rotate(-8deg); opacity: 1; transition-delay: 0.42s; }
+
+  /* ===================================================================
+     Téléphone
+     =================================================================== */
+  @media (max-width: 780px) {
+    .d3 { --coupe: 4.4rem; }
+    .d3__corps { padding: var(--space-6); }
+    .d5, .d9, .d10 { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); justify-items: start; }
+    .d6 { grid-template-columns: minmax(0, 1fr); }
+    .d6__mot { border-right: 0; border-bottom: 1px solid rgba(35, 25, 61, 0.25); padding: var(--space-6); }
+    .d6__droite { padding: var(--space-6); }
+    .d2 { padding: var(--space-5); }
+    .d2__ligne { grid-template-columns: 2.5rem 1fr 4.5rem; }
+    .d8__notes { margin-left: 3rem; }
+    .d8__titre { margin-left: 3rem; }
+    .d8 .d8__go { margin-left: 3rem; }
+    .d8__cle { font-size: 4rem; }
+    .d10__grille { grid-template-columns: repeat(6, minmax(0, 1fr)); width: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .d1__mots { animation: none; }
+    .d1__cachet, .d2__tampon, .d3__souche, .d3__perfo, .d4__mot--creux::before, .d5__page,
+    .d6__oblit, .d8__notes b, .d9__carte, .d9__rabat, .d9__cire, .d10__grille i,
+    .d10__grille i:first-child::after, .etude [class$='__go'] b { transition: none; }
+    .d2__tampon, .d6__oblit { opacity: 0.9; transform: rotate(-13deg) scale(1) translateY(-50%); }
+    .d6__oblit { transform: rotate(-16deg) scale(1); }
+    .d10__grille i:first-child::after { opacity: 1; transform: scale(1) rotate(-8deg); }
+    .d4__mot--creux::before { clip-path: inset(0 0 0 0); }
+  }
+</style>

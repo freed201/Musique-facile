@@ -1,0 +1,175 @@
+---
+/**
+ * ProofWall.astro — avis d'élèves, en mur, sans carrousel.
+ * (Nielsen Norman : 1 % d'interaction au-delà de la première slide.)
+ * Source : src/data/testimonials.ts, avis relevés mot pour mot sur Skilleos,
+ * chacun avec le lien vers la fiche où il est consultable.
+ */
+import { testimonials, formatTestimonialDate } from '../../data/testimonials';
+import { rating, reviews, reviewsSource } from '../../data/proof';
+
+interface Props {
+  heading?: string;
+  limit?: number;
+  /** 'grid' : mosaïque ; 'row' : une seule ligne de trois. */
+  variant?: 'grid' | 'row';
+}
+
+const { heading = 'Ce que disent les élèves, mot pour mot', limit = 4, variant = 'grid' } = Astro.props;
+
+const LABELS = { guitar: 'Guitare', piano: 'Piano', ukulele: 'Ukulélé', solfege: 'Solfège' } as const;
+const shown = testimonials.slice(0, limit);
+
+const checkedOn = new Date(reviewsSource.checkedOn)
+  .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
+  .replace(/^1 /, '1er ');
+---
+
+<section class={`proof proof--${variant}`} aria-labelledby="proof-title">
+  <div class="container">
+    <div class="proof__head">
+      <h2 id="proof-title">{heading}</h2>
+      <p class="proof__rating">
+        <strong>{rating.display}</strong>
+        <span>
+          sur <a href={reviewsSource.url} rel="noopener nofollow" target="_blank">{reviews.display} {reviewsSource.label}</a>, relevé le {checkedOn}
+        </span>
+      </p>
+    </div>
+
+    <ul class="proof__list" role="list">
+      {shown.map((t) => (
+        <li class={`proof__item theme-${t.instrument}`}>
+          <blockquote>
+            <p>« {t.quote} »</p>
+            <footer>
+              <span class="proof__name">{t.name}</span>
+              <span class="proof__meta">
+                {LABELS[t.instrument]} · {formatTestimonialDate(t.date, t.datePrecision)}
+                {t.sourceUrl && (
+                  <> · <a href={t.sourceUrl} rel="noopener nofollow" target="_blank">{t.sourceName}</a></>
+                )}
+              </span>
+            </footer>
+          </blockquote>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .proof {
+    padding: var(--space-20) 0;
+  }
+
+  .proof__head {
+    display: grid;
+    gap: var(--space-4);
+    margin-bottom: var(--space-10);
+  }
+
+  .proof__head h2 {
+    font-size: var(--text-responsive-3xl);
+    letter-spacing: var(--tracking-tight);
+    text-wrap: balance;
+    max-width: 18ch;
+    margin: 0;
+  }
+
+  .proof__rating {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-3);
+    color: var(--text-secondary);
+  }
+
+  .proof__rating strong {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .proof__rating a {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .proof__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .proof__item blockquote {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-left: 4px solid var(--theme-current, var(--brand-500));
+  }
+
+  .proof__item p {
+    margin: 0;
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--text-primary);
+    text-wrap: pretty;
+  }
+
+  .proof__item footer {
+    display: grid;
+    gap: var(--space-1);
+    font-size: var(--text-sm);
+  }
+
+  .proof__name {
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+  }
+
+  .proof__meta {
+    color: var(--text-muted);
+  }
+
+  .proof__meta a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  @media (min-width: 640px) {
+    .proof__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .proof__head {
+      grid-template-columns: 1fr auto;
+      align-items: end;
+    }
+
+    .proof--row .proof__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .proof--grid .proof__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

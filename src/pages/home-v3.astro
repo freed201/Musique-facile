@@ -1,0 +1,652 @@
+---
+/**
+ * home-v3.astro — maquette « Scène » de la nouvelle page d'accueil.
+ *
+ * URL : /home-v3/ — PAGE CACHÉE : noindex/nofollow, absente du sitemap,
+ * Disallow dans public/robots.txt.
+ *
+ * Parti pris : la page EST le choix d'instrument. Le hero porte un sélecteur
+ * (quatre boutons radio, sans JavaScript : `:has()` en CSS) qui change la
+ * couleur d'accent et affiche le parcours correspondant, avec son prix et son
+ * premier résultat. Typographie très grande, encre sur blanc, une seule
+ * couleur d'accent à la fois. Un bandeau de vrais morceaux (tutos du blog)
+ * défile sous le hero.
+ */
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FooterModern from '../components/FooterModern.astro';
+import StickyCTAMobile from '../components/StickyCTAMobile.astro';
+import VideoFacade from '../components/home/VideoFacade.astro';
+import HowItWorks from '../components/home/HowItWorks.astro';
+import ProofWall from '../components/home/ProofWall.astro';
+import FredBlock from '../components/home/FredBlock.astro';
+import Guarantee from '../components/home/Guarantee.astro';
+import HomeFaq from '../components/home/HomeFaq.astro';
+import HomeSchemas from '../components/home/HomeSchemas.astro';
+import { paths, songs, differences, presentationVideo } from '../data/home-v2';
+import { rating, reviews, students } from '../data/proof';
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr').toString();
+const title = 'Apprendre la guitare, le piano ou le ukulélé | Musique Facile';
+const description =
+  'Cours vidéo de Fred Fieffé pour adultes débutants : guitare, piano, ukulélé, solfège. Un seul prof, un seul paiement, accès à vie, 15 jours remboursé.';
+const ogImage = 'https://musique-facile.fr/images/og-home.webp';
+
+// Le bandeau est doublé pour boucler sans couture.
+const marquee = [...songs, ...songs];
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  canonicalUrl={canonicalURL}
+  robots="noindex, nofollow"
+>
+  <Fragment slot="head">
+    <meta name="author" content="Fred Fieffé - Musique Facile" />
+    <HomeSchemas description={description} />
+  </Fragment>
+
+  <Header />
+
+  <div class="home-v3">
+    <!-- 1. Hero : la page est le sélecteur -->
+    <section class="stage" aria-labelledby="stage-title">
+      <div class="container">
+        <p class="stage__kicker">Musique Facile · cours de musique en ligne depuis 2015</p>
+        <h1 id="stage-title">
+          Apprendre la guitare, le piano ou le ukulélé, avec un prof, pas une appli.
+        </h1>
+        <p class="stage__lead">
+          Fred Fieffé filme chaque leçon lui-même. Vous achetez une formation une fois, vous la gardez à vie,
+          et vous jouez un premier morceau en quelques semaines. Choisissez par où commencer :
+        </p>
+
+        <form class="picker" aria-label="Choisissez votre instrument">
+          <div class="picker__options" role="radiogroup" aria-label="Instrument">
+            {paths.map((p, i) => (
+              <label class={`picker__opt theme-${p.id}`}>
+                <input type="radio" name="instrument" value={p.id} checked={i === 0} />
+                <span>{p.label}</span>
+              </label>
+            ))}
+          </div>
+        </form>
+
+        <div class="panels">
+          {paths.map((p) => (
+            <article class={`panel panel--${p.id} theme-${p.id}`} aria-label={`Parcours ${p.label}`}>
+              <div class="panel__copy">
+                <h2>{p.tagline}</h2>
+                <p class="panel__audience">{p.audience}</p>
+                <p class="panel__win">{p.firstWin}</p>
+                <dl class="panel__meta">
+                  <div><dt>Formation</dt><dd>{p.courseName}</dd></div>
+                  <div><dt>Leçons</dt><dd>{p.lessons}</dd></div>
+                  <div><dt>Durée</dt><dd>{p.duration}</dd></div>
+                  <div><dt>Élèves</dt><dd>{p.students}</dd></div>
+                </dl>
+                <div class="panel__actions">
+                  <a href={p.courseUrl} class="btn btn--primary">Commencer {p.complement} · {p.price}</a>
+                  <a href={p.url} class="panel__more">Tous les cours de {p.label.toLowerCase()}</a>
+                </div>
+                <p class="panel__proof">
+                  Paiement unique, accès à vie, remboursé sous 15 jours ·
+                  <a href={p.ratingSourceUrl} rel="noopener nofollow" target="_blank">{rating.display} sur {p.reviews}</a>
+                </p>
+              </div>
+              <div class="panel__media">
+                <img src={p.image} alt={p.imageAlt} width="768" height="512" loading="lazy" decoding="async" />
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Bandeau : de vrais morceaux, de vrais liens -->
+    <section class="songs" aria-labelledby="songs-title">
+      <div class="container">
+        <h2 id="songs-title" class="songs__title">Des morceaux qu'on apprend ici, tuto par tuto</h2>
+      </div>
+      <div class="marquee" data-marquee>
+        <ul class="marquee__track" role="list">
+          {marquee.map((s, i) => (
+            <li aria-hidden={i >= songs.length ? 'true' : undefined}>
+              <a href={s.url} tabindex={i >= songs.length ? -1 : undefined}>
+                <span class="marquee__song">{s.title}</span>
+                <span class="marquee__artist">{s.artist}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Comment ça se passe -->
+    <HowItWorks variant="ladder" heading="Votre premier mois, en trois temps" />
+
+    <!-- 4. Trois différences, en grand -->
+    <section class="claims" aria-labelledby="claims-title">
+      <div class="container">
+        <h2 id="claims-title" class="claims__title">Ce qui change, par rapport à une appli</h2>
+        <ol class="claims__list">
+          {differences.map((d) => (
+            <li class="claim">
+              <h3>{d.title}</h3>
+              <p>{d.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. Une leçon avant d'acheter -->
+    <section class="watch" id="video" aria-labelledby="watch-title">
+      <div class="container watch__inner">
+        <h2 id="watch-title">Écoutez Fred expliquer, avant de payer quoi que ce soit</h2>
+        <VideoFacade
+          videoId={presentationVideo.vimeoId}
+          poster={presentationVideo.poster}
+          title={presentationVideo.title}
+          caption="Présentation du Cours Guitare Débutant, la même que sur la fiche."
+        />
+      </div>
+    </section>
+
+    <!-- 6. Avis -->
+    <ProofWall variant="row" limit={3} heading="Ce que disent les élèves" />
+
+    <!-- 7. Fred -->
+    <FredBlock variant="portrait" />
+
+    <!-- 8. Garantie -->
+    <Guarantee variant="card" />
+
+    <!-- 9. FAQ -->
+    <HomeFaq columns />
+
+    <!-- 10. Dernier appel -->
+    <section class="final" aria-labelledby="final-title">
+      <div class="container final__inner">
+        <p class="final__figure">{students.display}</p>
+        <h2 id="final-title">élèves ont commencé exactement là où vous êtes</h2>
+        <p>Sans lire une note, sans abonnement, avec {rating.display} sur {reviews.display} avis pour se décider.</p>
+        <a href="#stage-title" class="btn btn--primary btn--lg">Choisir mon instrument</a>
+      </div>
+    </section>
+  </div>
+
+  <FooterModern />
+  <StickyCTAMobile ctaLink="/cours/" ctaText="Voir les formations" title="Un paiement, accès à vie" />
+</Layout>
+
+<style>
+  .home-v3 {
+    --home-accent: var(--brand-500);
+    --home-accent-ink: var(--brand-600);
+    --home-accent-soft: var(--brand-50);
+  }
+
+  /* L'accent suit l'instrument coché. Pas de JavaScript. */
+  .home-v3:has(input[value='guitar']:checked) {
+    --home-accent: var(--guitar-600);
+    --home-accent-ink: var(--guitar-800);
+    --home-accent-soft: var(--guitar-50);
+  }
+
+  .home-v3:has(input[value='piano']:checked) {
+    --home-accent: var(--piano-500);
+    --home-accent-ink: var(--piano-800);
+    --home-accent-soft: var(--piano-50);
+  }
+
+  .home-v3:has(input[value='ukulele']:checked) {
+    --home-accent: var(--ukulele-800);
+    --home-accent-ink: var(--ukulele-950);
+    --home-accent-soft: var(--ukulele-50);
+  }
+
+  .home-v3:has(input[value='solfege']:checked) {
+    --home-accent: var(--solfege-700);
+    --home-accent-ink: var(--solfege-900);
+    --home-accent-soft: var(--solfege-50);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) .home-v3 {
+      --home-accent-soft: var(--bg-elevated);
+    }
+  }
+
+  :global([data-theme='dark']) .home-v3 {
+    --home-accent-soft: var(--bg-elevated);
+  }
+
+  /* ---- boutons ---- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-full);
+    font-family: var(--font-heading);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-base);
+    text-decoration: none;
+    transition: transform var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .btn--primary {
+    background: var(--home-accent);
+    color: #fff;
+  }
+
+  .btn--primary:hover {
+    background: var(--home-accent-ink);
+    transform: translateY(-1px);
+  }
+
+  .btn--lg {
+    padding: var(--space-5) var(--space-10);
+    font-size: var(--text-lg);
+  }
+
+  .btn:focus-visible {
+    outline: 3px solid var(--home-accent);
+    outline-offset: 3px;
+  }
+
+  /* ---- hero ---- */
+  .stage {
+    padding: calc(80px + var(--space-12)) 0 var(--space-16);
+    background: var(--bg-page);
+  }
+
+  .stage__kicker {
+    margin: 0 0 var(--space-6);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--text-muted);
+  }
+
+  .stage h1 {
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    line-height: 0.98;
+    letter-spacing: var(--tracking-tight);
+    text-wrap: balance;
+    max-width: 16ch;
+    margin-bottom: var(--space-6);
+  }
+
+  .stage__lead {
+    font-size: var(--text-responsive-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+    max-width: 58ch;
+    text-wrap: pretty;
+    margin: 0 0 var(--space-8);
+  }
+
+  .picker__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-8);
+  }
+
+  .picker__opt {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .picker__opt input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+  }
+
+  .picker__opt span {
+    display: inline-block;
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--border-default);
+    font-family: var(--font-heading);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+    transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
+  }
+
+  .picker__opt input:checked + span {
+    background: var(--theme-surface, var(--brand-500));
+    border-color: var(--theme-surface, var(--brand-500));
+    color: #fff;
+  }
+
+  .picker__opt input:focus-visible + span {
+    outline: 3px solid var(--theme-current);
+    outline-offset: 3px;
+  }
+
+  /* Panneaux : tous dans le HTML, un seul visible. */
+  .panel {
+    display: none;
+    gap: var(--space-8);
+    padding: var(--space-8);
+    border-radius: var(--radius-2xl);
+    background: var(--home-accent-soft);
+  }
+
+  .home-v3:has(input[value='guitar']:checked) .panel--guitar,
+  .home-v3:has(input[value='piano']:checked) .panel--piano,
+  .home-v3:has(input[value='ukulele']:checked) .panel--ukulele,
+  .home-v3:has(input[value='solfege']:checked) .panel--solfege {
+    display: grid;
+  }
+
+  /* Navigateur sans :has() : on montre tout, l'un sous l'autre. */
+  @supports not selector(:has(*)) {
+    .panel {
+      display: grid;
+      margin-bottom: var(--space-4);
+    }
+  }
+
+  .panel h2 {
+    font-size: var(--text-responsive-2xl);
+    letter-spacing: var(--tracking-tight);
+    text-wrap: balance;
+    margin-bottom: var(--space-3);
+  }
+
+  .panel__audience {
+    color: var(--text-secondary);
+    margin: 0 0 var(--space-2);
+    text-wrap: pretty;
+  }
+
+  .panel__win {
+    margin: 0 0 var(--space-6);
+    font-weight: var(--font-medium);
+  }
+
+  .panel__meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin: 0 0 var(--space-6);
+  }
+
+  .panel__meta dt {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--text-muted);
+  }
+
+  .panel__meta dd {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: var(--font-semibold);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .panel__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .panel__more {
+    color: var(--text-primary);
+    font-weight: var(--font-medium);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .panel__proof {
+    margin: var(--space-5) 0 0;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .panel__proof a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .panel__media {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  .panel__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ---- bandeau morceaux ---- */
+  .songs {
+    padding: var(--space-12) 0;
+    border-top: 1px solid var(--border-default);
+    border-bottom: 1px solid var(--border-default);
+    overflow: hidden;
+  }
+
+  .songs__title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--text-muted);
+    margin-bottom: var(--space-6);
+  }
+
+  .marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  .marquee__track {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--space-10);
+    width: max-content;
+    animation: marquee 60s linear infinite;
+  }
+
+  .marquee:hover .marquee__track,
+  .marquee.is-paused .marquee__track {
+    animation-play-state: paused;
+  }
+
+  .marquee__track a {
+    display: grid;
+    text-decoration: none;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
+  .marquee__song {
+    font-family: var(--font-heading);
+    font-size: var(--text-responsive-2xl);
+    font-weight: var(--font-bold);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .marquee__artist {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .marquee__track a:hover .marquee__song {
+    color: var(--home-accent);
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      mask-image: none;
+      overflow-x: auto;
+    }
+
+    .marquee__track {
+      animation: none;
+    }
+  }
+
+  /* ---- claims ---- */
+  .claims {
+    padding: var(--space-20) 0;
+    background: var(--bg-alt);
+  }
+
+  .claims__title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--text-muted);
+    margin-bottom: var(--space-8);
+  }
+
+  .claims__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-10);
+  }
+
+  .claim h3 {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: var(--tracking-tight);
+    text-wrap: balance;
+    margin-bottom: var(--space-3);
+  }
+
+  .claim p {
+    margin: 0;
+    max-width: 60ch;
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    text-wrap: pretty;
+  }
+
+  /* ---- vidéo ---- */
+  .watch {
+    padding: var(--space-20) 0;
+  }
+
+  .watch__inner {
+    max-width: 960px;
+  }
+
+  .watch h2 {
+    font-size: var(--text-responsive-3xl);
+    letter-spacing: var(--tracking-tight);
+    text-wrap: balance;
+    max-width: 20ch;
+    margin-bottom: var(--space-8);
+  }
+
+  /* ---- final ---- */
+  .final {
+    padding: var(--space-24) 0;
+    background: var(--home-accent-soft);
+  }
+
+  .final__inner {
+    text-align: center;
+    max-width: 720px;
+  }
+
+  .final p.final__figure {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    font-weight: var(--font-bold);
+    line-height: 1;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--home-accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .final h2 {
+    font-size: var(--text-responsive-2xl);
+    letter-spacing: var(--tracking-tight);
+    text-wrap: balance;
+    margin: var(--space-2) 0 var(--space-4);
+  }
+
+  .final p {
+    color: var(--text-secondary);
+    font-size: var(--text-lg);
+    margin: 0 0 var(--space-8);
+  }
+
+  @media (min-width: 900px) {
+    .stage {
+      padding-top: calc(80px + var(--space-20));
+    }
+
+    .panel {
+      grid-template-columns: 7fr 5fr;
+      padding: var(--space-10);
+    }
+
+    .home-v3:has(input[value='guitar']:checked) .panel--guitar,
+    .home-v3:has(input[value='piano']:checked) .panel--piano,
+    .home-v3:has(input[value='ukulele']:checked) .panel--ukulele,
+    .home-v3:has(input[value='solfege']:checked) .panel--solfege {
+      grid-template-columns: 7fr 5fr;
+    }
+
+    .claims__list {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-8);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn,
+    .picker__opt span {
+      transition: none;
+    }
+
+    .btn--primary:hover {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  // Le bandeau ne tourne que lorsqu'il est à l'écran.
+  const marquee = document.querySelector<HTMLElement>('[data-marquee]');
+  if (marquee && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => marquee.classList.toggle('is-paused', !e.isIntersecting)),
+      { threshold: 0 },
+    );
+    io.observe(marquee);
+  }
+</script>

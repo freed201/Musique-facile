@@ -1,4 +1,5 @@
 ---
+import { classeUnivers } from '../utils/theme';
 // Charger les graisses réellement utilisées : sans le 600/700, le navigateur
 // synthétise un faux gras à partir du 400 sur tous les titres.
 import '@fontsource/poppins/400.css';
@@ -61,6 +62,9 @@ const schema = {
     ]
   }
 };
+
+/* L'univers de la page : le header en prend la couleur (voir src/utils/theme.ts). */
+const classeDUnivers = classeUnivers(undefined, Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -115,7 +119,7 @@ const schema = {
     <ExternalResources />
     <title>{title}</title>
   </head>
-  <body>
+  <body class={classeDUnivers}>
     <main>
       <slot />
     </main>

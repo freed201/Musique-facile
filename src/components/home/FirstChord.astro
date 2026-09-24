@@ -1,0 +1,950 @@
+---
+/**
+ * FirstChord.astro — l'instrument choisi, à l'échelle de l'écran, jouable.
+ *
+ * POURQUOI
+ * La promesse du site est « vous jouez quelque chose dès la première leçon ».
+ * Une capture d'écran l'affirme ; ce bloc le fait faire. Le visiteur gratte
+ * l'accord de Do (le premier accord du cours de guitare et du cours de
+ * ukulélé), joue do-mi-sol au piano (premières touches, chapitre 1), ou lit
+ * ses premières notes en clé de sol (solfège, chapitre 2). Rien à charger :
+ * le son est synthétisé dans le navigateur (Web Audio), cordes par
+ * Karplus-Strong, piano par addition d'harmoniques. C'est un son de
+ * démonstration, et la page le dit.
+ *
+ * Ce n'est pas un widget dans une carte : les cordes tiennent toute la
+ * hauteur du premier écran, s'illuminent quand on les pince, et le nom de la
+ * note s'envole du point touché. À l'arrivée, un frémissement des cordes
+ * (visuel seulement, le son exige un geste) invite à toucher. Le curseur est
+ * un médiator sur les cordes.
+ *
+ * Quatre variantes, une par instrument, taguées `data-for` : la page n'en
+ * affiche qu'une (mécanique `:has()` de home-v2). Les doigtés viennent du
+ * catalogue scripts/lib/chord-diagrams.mjs (C guitare x32010, C ukulélé 0003).
+ * Les couleurs se pilotent par variables : --fc-ink, --fc-line, --fc-accent,
+ * --fc-glow, --fc-muted, ce qui permet le fond sombre du hero.
+ *
+ * Accessibilité : chaque corde, touche et note est un bouton clavier
+ * (Entrée / Espace). Le bouton « Jouer » fait tout entendre sans geste précis.
+ * `touch-action: pan-y` : on gratte à l'horizontale, la page défile à la verticale.
+ */
+
+const fret = (open: number, f: number) => (f < 0 ? 0 : open * Math.pow(2, f / 12));
+const FINGERS: Record<number, string> = { 1: 'index', 2: 'majeur', 3: 'annulaire', 4: 'auriculaire' };
+
+interface Strings {
+  id: 'guitar' | 'ukulele';
+  label: string;
+  tuning: number[];
+  names: string[];
+  /** Nom de la note réellement jouée avec le doigté. */
+  played: string[];
+  frets: number[];
+  fingers: number[];
+  x: (i: number) => number;
+  widths: number[];
+}
+
+/* Géométrie verticale : viewBox 640 × 960, cordes de haut en bas. */
+const NUT = 120;
+const FRET_H = 180;
+const FRETS = 4;
+const BOTTOM = NUT + FRET_H * FRETS;
+
+const guitar: Strings = {
+  id: 'guitar',
+  label: 'guitare',
+  tuning: [82.41, 110, 146.83, 196, 246.94, 329.63],
+  names: ['Mi', 'La', 'Ré', 'Sol', 'Si', 'Mi'],
+  played: ['', 'do', 'mi', 'sol', 'do', 'mi'],
+  frets: [-1, 3, 2, 0, 1, 0],
+  fingers: [0, 3, 2, 0, 1, 0],
+  x: (i) => 170 + i * 60,
+  widths: [5, 4.4, 3.8, 3.2, 2.6, 2.2],
+};
+
+const ukulele: Strings = {
+  id: 'ukulele',
+  label: 'ukulélé',
+  tuning: [392, 261.63, 329.63, 440],
+  names: ['Sol', 'Do', 'Mi', 'La'],
+  played: ['sol', 'do', 'mi', 'do'],
+  frets: [0, 0, 0, 3],
+  fingers: [0, 0, 0, 3],
+  x: (i) => 200 + i * 80,
+  widths: [2.8, 3.4, 2.8, 2.4],
+};
+
+const fingering = (s: Strings) =>
+  s.frets
+    .map((f, i) => ({ f, d: s.fingers[i], n: s.names[i] }))
+    .filter((o) => o.f > 0)
+    .map((o) => `${FINGERS[o.d]} case ${o.f} sur la corde de ${o.n.toLowerCase()}`)
+    .join(', ');
+
+/* Piano : une octave, do 4 à do 5. viewBox 960 × 640. */
+const whites = [
+  { n: 'do', f: 261.63, finger: 1 },
+  { n: 'ré', f: 293.66 },
+  { n: 'mi', f: 329.63, finger: 3 },
+  { n: 'fa', f: 349.23 },
+  { n: 'sol', f: 392.0, finger: 5 },
+  { n: 'la', f: 440.0 },
+  { n: 'si', f: 493.88 },
+  { n: 'do', f: 523.25 },
+];
+const blacks = [
+  { after: 0, f: 277.18, n: 'do dièse' },
+  { after: 1, f: 311.13, n: 'ré dièse' },
+  { after: 3, f: 369.99, n: 'fa dièse' },
+  { after: 4, f: 415.3, n: 'sol dièse' },
+  { after: 5, f: 466.16, n: 'la dièse' },
+];
+const KEY_W = 120;
+
+/* Solfège : cinq premières notes en clé de sol. viewBox 960 × 520. */
+const staffLines = [140, 200, 260, 320, 380];
+const notes = [
+  { n: 'do', f: 261.63, y: 440, ledger: true },
+  { n: 'ré', f: 293.66, y: 410 },
+  { n: 'mi', f: 329.63, y: 380 },
+  { n: 'fa', f: 349.23, y: 350 },
+  { n: 'sol', f: 392.0, y: 320 },
+];
+---
+
+{
+  [guitar, ukulele].map((s) => (
+    <div class="fc fc--strings" data-for={s.id} data-fc="strings">
+      <svg
+        class="fc__svg"
+        viewBox="0 0 640 960"
+        preserveAspectRatio="xMidYMid meet"
+        role="group"
+        aria-label={`Diagramme de l'accord de Do majeur à la ${s.label}, jouable : ${fingering(s)}.`}
+      >
+        {Array.from({ length: FRETS }, (_, k) => (
+          <line x1="110" x2="530" y1={NUT + (k + 1) * FRET_H} y2={NUT + (k + 1) * FRET_H} class="fc__fret" />
+        ))}
+        <rect x="104" y={NUT - 7} width="432" height="12" rx="3" class="fc__nut" />
+
+        {s.frets.map((f, i) =>
+          f < 0 ? (
+            <g class="fc__mark" aria-hidden="true">
+              <line x1={s.x(i) - 11} y1="66" x2={s.x(i) + 11} y2="88" />
+              <line x1={s.x(i) + 11} y1="66" x2={s.x(i) - 11} y2="88" />
+            </g>
+          ) : f === 0 ? (
+            <circle cx={s.x(i)} cy="77" r="11" class="fc__mark" aria-hidden="true" />
+          ) : null,
+        )}
+
+        {s.tuning.map((open, i) => (
+          <g
+            class:list={['fc__string', { 'is-muted': s.frets[i] < 0 }]}
+            style={`--d: ${i * 70}ms`}
+            role="button"
+            tabindex="0"
+            aria-label={s.frets[i] < 0 ? `Corde de ${s.names[i].toLowerCase()}, étouffée` : `Corde de ${s.names[i].toLowerCase()}`}
+            data-freq={fret(open, s.frets[i]).toFixed(2)}
+            data-note={s.played[i]}
+            data-x={s.x(i)}
+          >
+            <rect x={s.x(i) - 30} y={NUT} width="60" height={BOTTOM - NUT} class="fc__hit" />
+            <line x1={s.x(i)} x2={s.x(i)} y1={NUT} y2={BOTTOM} class="fc__wire" style={`stroke-width:${s.widths[i]}`} />
+          </g>
+        ))}
+
+        {s.frets.map((f, i) =>
+          f > 0 ? (
+            <g class="fc__dot" style={`--d: ${400 + i * 120}ms`} aria-hidden="true">
+              <circle cx={s.x(i)} cy={NUT + (f - 0.5) * FRET_H} r="26" />
+              <text x={s.x(i)} y={NUT + (f - 0.5) * FRET_H + 10}>{s.fingers[i]}</text>
+            </g>
+          ) : null,
+        )}
+
+        {s.names.map((n, i) => (
+          <text x={s.x(i)} y="905" class="fc__label" aria-hidden="true">{n}</text>
+        ))}
+        <g class="fc__floats" aria-hidden="true" />
+      </svg>
+
+      <div class="fc__foot">
+        <p class="fc__what">
+          <strong>C</strong> Do majeur, {s.id === 'ukulele' ? 'un seul doigt' : 'trois doigts'} · le premier accord du cours
+        </p>
+        <button type="button" class="fc__play" data-play>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" /></svg>
+          Écouter l'accord
+        </button>
+        <p class="fc__hand">Grattez les cordes. Oui, ça fait du bruit, c'est le but.</p>
+        <p class="fc__hint">Son de synthèse, pour la démonstration.</p>
+      </div>
+    </div>
+  ))
+}
+
+<div class="fc fc--wide" data-for="piano" data-fc="piano">
+  <svg class="fc__svg" viewBox="0 0 960 640" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Clavier d'une octave, jouable, du do au do.">
+    {whites.map((k, i) => (
+      <g
+        class:list={['fc__key', { 'is-chord': k.finger }]}
+        style={`--d: ${i * 50}ms`}
+        role="button"
+        tabindex="0"
+        aria-label={`Touche ${k.n}`}
+        data-freq={k.f}
+        data-note={k.n}
+      >
+        <rect x={i * KEY_W + 2} y="0" width={KEY_W - 4} height="636" rx="10" class="fc__white" />
+        {k.finger && <text x={i * KEY_W + KEY_W / 2} y="540" class="fc__finger">{k.finger}</text>}
+        <text x={i * KEY_W + KEY_W / 2} y="600" class="fc__keyname">{k.n}</text>
+      </g>
+    ))}
+    {blacks.map((b) => (
+      <g class="fc__key fc__key--black" role="button" tabindex="0" aria-label={`Touche ${b.n}`} data-freq={b.f} data-note={b.n}>
+        <rect x={(b.after + 1) * KEY_W - 36} y="0" width="72" height="400" rx="8" class="fc__black" />
+      </g>
+    ))}
+    <g class="fc__floats" aria-hidden="true" />
+  </svg>
+  <div class="fc__foot">
+    <p class="fc__what"><strong>do mi sol</strong> l'accord de Do, main droite · les touches 1, 3, 5 de la première leçon</p>
+    <button type="button" class="fc__play" data-play>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" /></svg>
+      Écouter do mi sol
+    </button>
+    <p class="fc__hand">Appuyez sur les touches, ou glissez dessus, comme sur un vrai.</p>
+    <p class="fc__hint">Son de synthèse, pour la démonstration.</p>
+  </div>
+</div>
+
+<div class="fc fc--wide" data-for="solfege" data-fc="staff">
+  <svg class="fc__svg" viewBox="0 0 960 520" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Portée en clé de sol avec cinq notes, jouables, du do au sol.">
+    {staffLines.map((y) => <line x1="40" x2="920" y1={y} y2={y} class="fc__staff" />)}
+    <text x="52" y="386" class="fc__clef" aria-hidden="true">𝄞</text>
+    {notes.map((n, k) => {
+      const x = 300 + k * 140;
+      return (
+        <g class="fc__noteg" style={`--d: ${k * 90}ms`} role="button" tabindex="0" aria-label={`Note ${n.n}`} data-freq={n.f} data-note={n.n}>
+          <rect x={x - 60} y={n.y - 70} width="120" height="150" class="fc__hit" />
+          {n.ledger && <line x1={x - 44} x2={x + 44} y1={n.y} y2={n.y} class="fc__staff" />}
+          <ellipse cx={x} cy={n.y} rx="27" ry="19" transform={`rotate(-20 ${x} ${n.y})`} class="fc__notehead" />
+          <text x={x} y="505" class="fc__notename">{n.n}</text>
+        </g>
+      );
+    })}
+    <g class="fc__floats" aria-hidden="true" />
+  </svg>
+  <div class="fc__foot">
+    <p class="fc__what"><strong>do → sol</strong> en clé de sol · l'exercice du chapitre 2, celui où l'on commence à lire</p>
+    <button type="button" class="fc__play" data-play>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" /></svg>
+      Écouter do ré mi fa sol
+    </button>
+    <p class="fc__hand">Touchez une note : vous l'entendez, et son nom apparaît. Facile, non ?</p>
+    <p class="fc__hint">Son de synthèse, pour la démonstration.</p>
+  </div>
+</div>
+
+<style>
+  .fc {
+    /* Couleurs par défaut : encre sur papier. Le hero les inverse. */
+    --fc-ink: var(--hv-ink, #1b1533);
+    --fc-muted: var(--hv-ink-2, #524b6b);
+    --fc-line: var(--hv-line, rgba(27, 21, 51, 0.16));
+    --fc-accent: var(--hv-accent, #6c3fa0);
+    --fc-glow: var(--hv-accent, #6c3fa0);
+    --fc-white: #fff;
+    --fc-black: var(--hv-ink, #1b1533);
+    --fc-paper: var(--hv-card, #fbfaf7);
+    display: grid;
+    gap: var(--space-4);
+    justify-items: center;
+  }
+
+  .fc__svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    overflow: visible;
+  }
+
+  .fc--strings .fc__svg {
+    height: min(52vh, 760px);
+    width: auto;
+    max-width: 100%;
+    /* Un médiator en guise de curseur. */
+    cursor:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='32' viewBox='0 0 28 32'><path d='M14 1C6 1 1 6 1 12c0 8 8 17 13 19 5-2 13-11 13-19C27 6 22 1 14 1z' fill='%23f0eee9' stroke='%231b1533' stroke-width='2'/></svg>")
+        14 6,
+      pointer;
+  }
+
+  .fc--wide .fc__svg {
+    max-height: min(40vh, 560px);
+  }
+
+  @media (min-width: 900px) {
+    .fc--strings .fc__svg {
+      height: min(72vh, 760px);
+    }
+
+    .fc--wide .fc__svg {
+      max-height: min(60vh, 560px);
+    }
+  }
+
+  .fc__fret {
+    stroke: var(--fc-line);
+    stroke-width: 2;
+  }
+
+  .fc__nut {
+    fill: var(--fc-ink);
+  }
+
+  .fc__mark {
+    fill: none;
+    stroke: var(--fc-muted);
+    stroke-width: 3;
+    stroke-linecap: round;
+  }
+
+  .fc__hit {
+    fill: transparent;
+    cursor: inherit;
+  }
+
+  .fc__string,
+  .fc__key,
+  .fc__noteg {
+    outline: none;
+  }
+
+  .fc__wire {
+    stroke: var(--fc-ink);
+    stroke-linecap: round;
+    pointer-events: none;
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: stroke 0.25s ease-out, filter 0.25s ease-out;
+  }
+
+  .fc__string.is-muted .fc__wire {
+    stroke: var(--fc-muted);
+    opacity: 0.45;
+  }
+
+  .fc__string.is-on .fc__wire {
+    animation: fc-vibrate 0.42s ease-out;
+    stroke: var(--fc-accent);
+    filter: drop-shadow(0 0 6px var(--fc-glow)) drop-shadow(0 0 14px var(--fc-glow));
+    transition: none;
+  }
+
+  @keyframes fc-vibrate {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(6px); }
+    22% { transform: translateX(-5.5px); }
+    34% { transform: translateX(4.5px); }
+    46% { transform: translateX(-3.5px); }
+    58% { transform: translateX(2.5px); }
+    70% { transform: translateX(-1.6px); }
+    82% { transform: translateX(0.9px); }
+    100% { transform: translateX(0); }
+  }
+
+  .fc__dot circle {
+    fill: var(--fc-accent);
+    pointer-events: none;
+  }
+
+  .fc__dot text {
+    fill: var(--fc-accent-ink, #fff);
+    font-family: var(--hv-display, inherit);
+    font-weight: 700;
+    font-size: 30px;
+    text-anchor: middle;
+    pointer-events: none;
+  }
+
+  .fc__label,
+  .fc__keyname,
+  .fc__notename {
+    fill: var(--fc-muted);
+    font-family: var(--font-body, inherit);
+    font-size: 26px;
+    text-anchor: middle;
+    pointer-events: none;
+  }
+
+  .fc__label {
+    font-size: 28px;
+  }
+
+  /* Le nom de la note qui s'envole du point touché. */
+  .fc__floats :global(text) {
+    font-family: var(--hv-serif, Georgia, serif);
+    font-style: italic;
+    font-size: 54px;
+    fill: var(--fc-accent);
+    text-anchor: middle;
+    pointer-events: none;
+    animation: fc-float 1.1s ease-out forwards;
+  }
+
+  @keyframes fc-float {
+    from { opacity: 0; transform: translateY(10px); }
+    15% { opacity: 1; }
+    to { opacity: 0; transform: translateY(-90px); }
+  }
+
+  /* Entrée : les points se posent un à un. */
+  .fc__dot {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: fc-pop 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.3) both;
+    animation-delay: var(--d, 0ms);
+  }
+
+  @keyframes fc-pop {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  /* Piano */
+  .fc__key {
+    cursor: pointer;
+    outline: none;
+  }
+
+  .fc__white {
+    fill: var(--fc-white);
+    stroke: var(--fc-line);
+    stroke-width: 2;
+    transition: fill 0.2s ease-out;
+  }
+
+  .fc__key.is-chord .fc__white {
+    fill: color-mix(in srgb, var(--fc-accent) 16%, var(--fc-white));
+  }
+
+  .fc__black {
+    fill: var(--fc-black);
+    transition: fill 0.2s ease-out;
+  }
+
+  .fc__key.is-on .fc__white,
+  .fc__key.is-on .fc__black {
+    fill: var(--fc-accent);
+    transition: none;
+  }
+
+  .fc__key.is-on .fc__keyname,
+  .fc__key.is-on .fc__finger {
+    fill: #fff;
+  }
+
+  .fc__finger {
+    fill: var(--fc-accent);
+    font-family: var(--hv-display, inherit);
+    font-weight: 700;
+    font-size: 40px;
+    text-anchor: middle;
+    pointer-events: none;
+  }
+
+  /* Solfège */
+  .fc__staff {
+    stroke: var(--fc-ink);
+    stroke-width: 3;
+  }
+
+  .fc__clef {
+    font-family: 'Noto Music', 'Bravura', 'Apple Symbols', 'Segoe UI Symbol', serif;
+    font-size: 250px;
+    fill: var(--fc-ink);
+  }
+
+  .fc__noteg {
+    cursor: pointer;
+    outline: none;
+  }
+
+  .fc__notehead {
+    fill: var(--fc-paper);
+    stroke: var(--fc-ink);
+    stroke-width: 5;
+    transition: fill 0.2s ease-out, stroke 0.2s ease-out;
+  }
+
+  .fc__notename {
+    opacity: 0;
+    font-weight: 600;
+    font-size: 30px;
+    fill: var(--fc-accent);
+    transition: opacity 0.2s ease-out;
+  }
+
+  .fc__noteg.is-on .fc__notehead,
+  .fc__noteg.is-seen .fc__notehead {
+    fill: var(--fc-accent);
+    stroke: var(--fc-accent);
+  }
+
+  .fc__noteg.is-on .fc__notehead {
+    filter: drop-shadow(0 0 10px var(--fc-glow));
+  }
+
+  .fc__noteg.is-seen .fc__notename {
+    opacity: 1;
+  }
+
+  /* Focus clavier */
+  .fc__string:focus-visible .fc__wire,
+  .fc__key:focus-visible .fc__white,
+  .fc__key:focus-visible .fc__black,
+  .fc__noteg:focus-visible .fc__notehead {
+    stroke: var(--fc-accent);
+    stroke-width: 6;
+  }
+
+  /* Ligne de pied : ce que c'est, le bouton, la mention. */
+  .fc__foot {
+    display: grid;
+    gap: var(--space-2);
+    justify-items: center;
+    text-align: center;
+  }
+
+  .fc__what {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--fc-muted);
+  }
+
+  .fc__what strong {
+    font-family: var(--hv-display, inherit);
+    font-size: var(--text-xl);
+    color: var(--fc-ink);
+    margin-right: var(--space-2);
+    letter-spacing: -0.02em;
+  }
+
+  .fc__play {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    border: 0;
+    border-radius: var(--radius-full);
+    background: var(--fc-accent);
+    color: #fff;
+    font-family: var(--hv-display, inherit);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    cursor: pointer;
+    transition: transform var(--duration-fast, 150ms) ease-out;
+  }
+
+  .fc__play:hover {
+    transform: translateY(-1px);
+  }
+
+  .fc__play:focus-visible {
+    outline: 3px solid var(--fc-accent);
+    outline-offset: 3px;
+  }
+
+  .fc__hand {
+    margin: 0;
+    font-family: var(--fc-hand, var(--xp-voice, cursive));
+    font-variation-settings: var(--xp-voice-settings, normal);
+    font-weight: 700;
+    font-size: 1.74rem;
+    line-height: 1.1;
+    color: var(--fc-accent);
+    transform: rotate(-2deg);
+  }
+
+  .fc__hint {
+    margin: 0;
+    font-size: var(--text-xs);
+    color: var(--fc-muted);
+    opacity: 0.85;
+  }
+
+  /* Les notes qui s'envolent quand l'accord entier sonne. */
+  .fc__floats :global(.burst) {
+    font-family: var(--font-body, sans-serif);
+    font-style: normal;
+    font-size: 44px;
+    fill: var(--fc-accent);
+    animation: fc-burst 1.3s ease-out forwards;
+  }
+
+  @keyframes fc-burst {
+    from { opacity: 0; transform: translate(0, 10px) rotate(0deg); }
+    12% { opacity: 1; }
+    to { opacity: 0; transform: translate(var(--dx, 0px), -170px) rotate(var(--rot, 0deg)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fc__string.is-on .fc__wire,
+    .fc__dot,
+    .fc__floats :global(text) {
+      animation: none;
+    }
+
+    .fc__floats :global(text),
+    .fc__floats :global(.burst) {
+      opacity: 0;
+      animation: none;
+    }
+
+    .fc__play,
+    .fc__notehead,
+    .fc__notename,
+    .fc__white,
+    .fc__black,
+    .fc__wire {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  /* ---------- moteur audio ---------- */
+  let ctx: AudioContext | null = null;
+  let master: GainNode | null = null;
+
+  function audio() {
+    if (!ctx) {
+      ctx = new AudioContext();
+      master = ctx.createGain();
+      master.gain.value = 0.55;
+      const lp = ctx.createBiquadFilter();
+      lp.type = 'lowpass';
+      lp.frequency.value = 5200;
+      master.connect(lp).connect(ctx.destination);
+    }
+    if (ctx.state === 'suspended') void ctx.resume();
+    return { ctx, master: master! };
+  }
+
+  /* Corde pincée : Karplus-Strong, un tampon par hauteur, calculé une fois. */
+  const buffers = new Map<number, AudioBuffer>();
+  function pluckBuffer(freq: number) {
+    const { ctx } = audio();
+    const key = Math.round(freq * 10);
+    const hit = buffers.get(key);
+    if (hit) return hit;
+    const sr = ctx.sampleRate;
+    const period = Math.round(sr / freq);
+    const length = Math.floor(sr * 2.4);
+    const buffer = ctx.createBuffer(1, length, sr);
+    const out = buffer.getChannelData(0);
+    const ring = new Float32Array(period);
+    for (let i = 0; i < period; i++) ring[i] = Math.random() * 2 - 1;
+    for (let p = 0; p < 2; p++) for (let i = 0; i < period; i++) ring[i] = 0.5 * (ring[i] + ring[(i + 1) % period]);
+    const decay = Math.pow(0.12, 1 / (freq * 1.8));
+    let idx = 0;
+    for (let i = 0; i < length; i++) {
+      const cur = ring[idx];
+      const nxt = ring[(idx + 1) % period];
+      out[i] = cur;
+      ring[idx] = decay * 0.5 * (cur + nxt);
+      idx = (idx + 1) % period;
+    }
+    const tail = Math.floor(sr * 0.2);
+    for (let i = 0; i < tail; i++) out[length - 1 - i] *= i / tail;
+    buffers.set(key, buffer);
+    return buffer;
+  }
+
+  function pluck(freq: number, delay = 0, gain = 0.5) {
+    const { ctx, master } = audio();
+    const src = ctx.createBufferSource();
+    src.buffer = pluckBuffer(freq);
+    const g = ctx.createGain();
+    g.gain.value = gain;
+    src.connect(g).connect(master);
+    src.start(ctx.currentTime + delay);
+  }
+
+  /* Touche de piano : fondamentale et harmoniques, filtre qui se referme comme un marteau. */
+  function key(freq: number, delay = 0, dur = 1.9) {
+    const { ctx, master } = audio();
+    const t = ctx.currentTime + delay;
+    const env = ctx.createGain();
+    env.gain.setValueAtTime(0.0001, t);
+    env.gain.exponentialRampToValueAtTime(0.42, t + 0.006);
+    env.gain.exponentialRampToValueAtTime(0.11, t + 0.4);
+    env.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    const lp = ctx.createBiquadFilter();
+    lp.type = 'lowpass';
+    lp.frequency.setValueAtTime(freq * 9, t);
+    lp.frequency.exponentialRampToValueAtTime(freq * 2.2, t + 0.7);
+    env.connect(lp).connect(master);
+    const partials: [number, number, OscillatorType][] = [
+      [1, 1, 'triangle'],
+      [2, 0.32, 'sine'],
+      [3, 0.15, 'sine'],
+      [4, 0.07, 'sine'],
+      [6, 0.03, 'sine'],
+    ];
+    partials.forEach(([h, a, type]) => {
+      const o = ctx.createOscillator();
+      o.type = type;
+      o.frequency.value = freq * h;
+      const g = ctx.createGain();
+      g.gain.value = a;
+      o.connect(g).connect(env);
+      o.start(t);
+      o.stop(t + dur + 0.05);
+    });
+  }
+
+  /* ---------- retour visuel ---------- */
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const timers = new WeakMap<Element, number>();
+  function flash(el: Element, ms = 420, seen = false) {
+    el.classList.remove('is-on');
+    void (el as HTMLElement).getBoundingClientRect();
+    el.classList.add('is-on');
+    if (seen) el.classList.add('is-seen');
+    const prev = timers.get(el);
+    if (prev) window.clearTimeout(prev);
+    timers.set(el, window.setTimeout(() => el.classList.remove('is-on'), ms));
+  }
+
+  /* Le nom de la note s'envole du point touché. */
+  function float(svg: SVGSVGElement, x: number, y: number, name: string) {
+    if (!name || reduced) return;
+    const layer = svg.querySelector('.fc__floats');
+    if (!layer) return;
+    const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    t.setAttribute('x', String(x));
+    t.setAttribute('y', String(y));
+    t.textContent = name;
+    layer.appendChild(t);
+    window.setTimeout(() => t.remove(), 1200);
+  }
+
+  /* Une volée de notes quand l'accord entier sonne. */
+  const GLYPHS = ['♪', '♫', '♩', '♬'];
+  function burst(svg: SVGSVGElement, x: number, y: number, n = 9) {
+    if (reduced) return;
+    const layer = svg.querySelector('.fc__floats');
+    if (!layer) return;
+    for (let i = 0; i < n; i++) {
+      const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      t.setAttribute('class', 'burst');
+      t.setAttribute('x', String(x + (Math.random() - 0.5) * 260));
+      t.setAttribute('y', String(y + (Math.random() - 0.5) * 120));
+      t.style.setProperty('--dx', `${(Math.random() - 0.5) * 120}px`);
+      t.style.setProperty('--rot', `${(Math.random() - 0.5) * 50}deg`);
+      t.style.animationDelay = `${Math.random() * 180}ms`;
+      t.textContent = GLYPHS[i % GLYPHS.length];
+      layer.appendChild(t);
+      window.setTimeout(() => t.remove(), 1600);
+    }
+  }
+
+  function freqOf(el: Element) {
+    return Number((el as HTMLElement).dataset.freq || 0);
+  }
+  const noteOf = (el: Element) => (el as HTMLElement).dataset.note || '';
+
+  /* Coordonnées client → repère du viewBox (preserveAspectRatio meet). */
+  function toSvg(svg: SVGSVGElement, clientX: number, clientY: number) {
+    const pt = new DOMPoint(clientX, clientY);
+    const m = svg.getScreenCTM();
+    if (!m) return { x: 0, y: 0 };
+    const p = pt.matrixTransform(m.inverse());
+    return { x: p.x, y: p.y };
+  }
+
+  /* ---------- cordes : clic, ou glissé horizontal qui gratte ---------- */
+  document.querySelectorAll<HTMLElement>('[data-fc="strings"]').forEach((block) => {
+    const svg = block.querySelector<SVGSVGElement>('svg')!;
+    const strings = [...block.querySelectorAll<SVGGElement>('.fc__string')];
+    const xs = strings.map((s) => Number(s.dataset.x));
+
+    const play = (s: Element, delay = 0, y = 500) => {
+      const f = freqOf(s);
+      if (f > 0) pluck(f, delay);
+      window.setTimeout(() => {
+        flash(s);
+        float(svg, Number((s as HTMLElement).dataset.x), y, noteOf(s));
+      }, delay * 1000);
+    };
+
+    let down = false;
+    let lastX = 0;
+    svg.addEventListener('pointerdown', (e) => {
+      down = true;
+      const p = toSvg(svg, e.clientX, e.clientY);
+      lastX = p.x;
+      try {
+        svg.setPointerCapture(e.pointerId);
+      } catch {}
+      const hit = (e.target as Element).closest('.fc__string');
+      if (hit) play(hit, 0, p.y);
+    });
+    svg.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      const p = toSvg(svg, e.clientX, e.clientY);
+      const lo = Math.min(lastX, p.x);
+      const hi = Math.max(lastX, p.x);
+      xs.forEach((sx, i) => {
+        if (sx > lo && sx <= hi && sx !== lastX) play(strings[i], 0, p.y);
+      });
+      lastX = p.x;
+    });
+    const up = () => {
+      down = false;
+    };
+    svg.addEventListener('pointerup', up);
+    svg.addEventListener('pointercancel', up);
+
+    strings.forEach((s) => {
+      s.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          play(s);
+        }
+      });
+    });
+
+    block.querySelector('[data-play]')?.addEventListener('click', () => {
+      let n = 0;
+      strings.forEach((s) => {
+        if (freqOf(s) > 0) play(s, n++ * 0.045, 520);
+      });
+      window.setTimeout(() => burst(svg, 320, 420), 260);
+    });
+
+    /* Un vrai coup de médiator (quatre cordes d'affilée) mérite aussi sa volée. */
+    let recent: number[] = [];
+    svg.addEventListener('pointermove', () => {
+      if (!down) return;
+      const now = performance.now();
+      recent = recent.filter((t) => now - t < 450);
+    });
+    const origPlayCount = { n: 0 };
+    strings.forEach((s) => {
+      new MutationObserver(() => {
+        if (!s.classList.contains('is-on')) return;
+        const now = performance.now();
+        recent.push(now);
+        recent = recent.filter((t) => now - t < 450);
+        if (recent.length >= 4) {
+          recent = [];
+          burst(svg, 320, 420, 7);
+        }
+        origPlayCount.n++;
+      }).observe(s, { attributes: true, attributeFilter: ['class'] });
+    });
+
+    /* À l'arrivée : un frémissement, sans son, pour dire « touche-moi ». */
+    if (!reduced && block.offsetParent !== null) {
+      window.setTimeout(() => strings.forEach((s, i) => window.setTimeout(() => flash(s, 500), i * 70)), 900);
+    }
+  });
+
+  /* ---------- piano : clic, ou glissé sur les touches ---------- */
+  document.querySelectorAll<HTMLElement>('[data-fc="piano"]').forEach((block) => {
+    const svg = block.querySelector<SVGSVGElement>('svg')!;
+    const play = (k: Element, delay = 0) => {
+      key(freqOf(k), delay);
+      window.setTimeout(() => {
+        flash(k, 300);
+        const r = k.querySelector('rect')!;
+        float(svg, Number(r.getAttribute('x')) + Number(r.getAttribute('width')) / 2, 300, noteOf(k));
+      }, delay * 1000);
+    };
+    let down = false;
+    let last: Element | null = null;
+    const keyAt = (x: number, y: number) => document.elementFromPoint(x, y)?.closest('.fc__key') ?? null;
+
+    svg.addEventListener('pointerdown', (e) => {
+      down = true;
+      try {
+        svg.setPointerCapture(e.pointerId);
+      } catch {}
+      last = (e.target as Element).closest('.fc__key');
+      if (last) play(last);
+    });
+    svg.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      const k = keyAt(e.clientX, e.clientY);
+      if (k && k !== last) {
+        last = k;
+        play(k);
+      }
+    });
+    const up = () => {
+      down = false;
+      last = null;
+    };
+    svg.addEventListener('pointerup', up);
+    svg.addEventListener('pointercancel', up);
+
+    svg.querySelectorAll('.fc__key').forEach((k) => {
+      k.addEventListener('keydown', (e) => {
+        if ((e as KeyboardEvent).key === 'Enter' || (e as KeyboardEvent).key === ' ') {
+          e.preventDefault();
+          play(k);
+        }
+      });
+    });
+
+    block.querySelector('[data-play]')?.addEventListener('click', () => {
+      svg.querySelectorAll('.fc__key.is-chord').forEach((k, i) => play(k, i * 0.02));
+      window.setTimeout(() => burst(svg, 300, 240), 200);
+    });
+
+    if (!reduced && block.offsetParent !== null) {
+      const chord = [...svg.querySelectorAll('.fc__key.is-chord')];
+      window.setTimeout(() => chord.forEach((k, i) => window.setTimeout(() => flash(k, 320), i * 160)), 900);
+    }
+  });
+
+  /* ---------- solfège : une note à la fois, le nom apparaît ---------- */
+  document.querySelectorAll<HTMLElement>('[data-fc="staff"]').forEach((block) => {
+    const svg = block.querySelector<SVGSVGElement>('svg')!;
+    const notes = [...block.querySelectorAll<SVGGElement>('.fc__noteg')];
+    const play = (n: Element, delay = 0) => {
+      key(freqOf(n), delay, 1.4);
+      window.setTimeout(() => {
+        flash(n, 420, true);
+        const el = n.querySelector('ellipse')!;
+        float(svg, Number(el.getAttribute('cx')), Number(el.getAttribute('cy')) - 40, noteOf(n));
+      }, delay * 1000);
+    };
+    notes.forEach((n) => {
+      n.addEventListener('pointerdown', () => play(n));
+      n.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          play(n);
+        }
+      });
+    });
+    block.querySelector('[data-play]')?.addEventListener('click', () => {
+      notes.forEach((n, i) => play(n, i * 0.42));
+      window.setTimeout(() => burst(svg, 580, 300, 7), 1900);
+    });
+
+    if (!reduced && block.offsetParent !== null) {
+      window.setTimeout(() => notes.forEach((n, i) => window.setTimeout(() => flash(n, 360), i * 140)), 900);
+    }
+  });
+</script>

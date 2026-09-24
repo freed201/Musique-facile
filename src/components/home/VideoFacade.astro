@@ -1,0 +1,127 @@
+---
+/**
+ * VideoFacade.astro — façade vidéo Vimeo pour les maquettes d'accueil.
+ *
+ * Avant le clic : une image locale et un bouton. Aucune connexion vers Vimeo,
+ * le LCP reste sur une ressource du site. Au clic, l'iframe remplace la façade
+ * (même mécanique que la fiche cours). Jamais d'autoplay non demandé.
+ */
+interface Props {
+  videoId: string;
+  poster: string;
+  title: string;
+  /** Petite légende sous la vidéo (durée, contexte). */
+  caption?: string;
+  /** Proportions du cadre. */
+  ratio?: string;
+  class?: string;
+}
+
+const { videoId, poster, title, caption, ratio = '16 / 9', class: className = '' } = Astro.props;
+---
+
+<figure class={`facade-wrap ${className}`}>
+  <div class="facade" data-video-id={videoId} data-video-title={title} style={`--ratio: ${ratio}`}>
+    <img src={poster} alt="" width="1536" height="864" loading="lazy" decoding="async" />
+    <button type="button" class="facade__play" aria-label={`Lire la vidéo : ${title}`}>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M8 5.5v13l11-6.5z" />
+      </svg>
+      <span>Lire la vidéo</span>
+    </button>
+  </div>
+  {caption && <figcaption class="facade__caption">{caption}</figcaption>}
+</figure>
+
+<style>
+  .facade-wrap {
+    margin: 0;
+  }
+
+  .facade {
+    position: relative;
+    aspect-ratio: var(--ratio);
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    background: var(--gray-900);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .facade img,
+  .facade :global(iframe) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
+  }
+
+  .facade__play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5) var(--space-3) var(--space-4);
+    border: 0;
+    border-radius: var(--radius-full);
+    background: var(--surface-white);
+    color: var(--gray-900);
+    font-family: var(--font-heading);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-base);
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+
+  .facade__play:hover {
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+
+  .facade__play:focus-visible {
+    outline: 3px solid var(--brand-300);
+    outline-offset: 3px;
+  }
+
+  .facade.is-playing .facade__play {
+    display: none;
+  }
+
+  .facade__caption {
+    margin-top: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .facade__play {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.facade').forEach((facade) => {
+    const button = facade.querySelector<HTMLButtonElement>('.facade__play');
+    if (!button) return;
+    button.addEventListener('click', () => {
+      const id = facade.dataset.videoId;
+      if (!id) return;
+      const iframe = document.createElement('iframe');
+      iframe.src =
+        'https://player.vimeo.com/video/' +
+        encodeURIComponent(id) +
+        '?title=0&byline=0&portrait=0&badge=0&autoplay=1&dnt=1';
+      iframe.title = facade.dataset.videoTitle || 'Vidéo';
+      iframe.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media';
+      iframe.setAttribute('allowfullscreen', '');
+      facade.replaceChildren(iframe);
+      facade.classList.add('is-playing');
+      iframe.focus();
+    });
+  });
+</script>

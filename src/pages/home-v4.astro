@@ -1,0 +1,458 @@
+---
+/**
+ * home-v4.astro — maquette « Lettre » de la nouvelle page d'accueil.
+ *
+ * URL : /home-v4/ — PAGE CACHÉE : noindex/nofollow, absente du sitemap,
+ * Disallow dans public/robots.txt.
+ *
+ * Parti pris : une seule colonne, Fred écrit au visiteur. C'est le modèle de
+ * la page de vente longue (Pianoforall, seul concurrent en paiement unique,
+ * vit dessus depuis quinze ans), remis au propre : typographie de lecture,
+ * marges larges, faits en marge, aucune capitale hurlée. La page se lit comme
+ * une lettre et se termine par le choix de l'instrument.
+ */
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FooterModern from '../components/FooterModern.astro';
+import StickyCTAMobile from '../components/StickyCTAMobile.astro';
+import PathsBento from '../components/home/PathsBento.astro';
+import VideoFacade from '../components/home/VideoFacade.astro';
+import ProofWall from '../components/home/ProofWall.astro';
+import Guarantee from '../components/home/Guarantee.astro';
+import HomeFaq from '../components/home/HomeFaq.astro';
+import HomeSchemas from '../components/home/HomeSchemas.astro';
+import { fred, presentationVideo } from '../data/home-v2';
+import { rating, reviews, students, videos, reviewsSource } from '../data/proof';
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://musique-facile.fr').toString();
+const title = 'Apprendre la musique à l’âge adulte, en ligne | Musique Facile';
+const description =
+  'Guitare, piano, ukulélé ou solfège : les cours vidéo de Fred Fieffé pour adultes débutants. Un paiement, accès à vie, 15 jours remboursé. 4,7/5 sur 929 avis.';
+const ogImage = 'https://musique-facile.fr/images/og-home.webp';
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  canonicalUrl={canonicalURL}
+  robots="noindex, nofollow"
+>
+  <Fragment slot="head">
+    <meta name="author" content="Fred Fieffé - Musique Facile" />
+    <HomeSchemas description={description} />
+  </Fragment>
+
+  <Header />
+
+  <div class="home-v4">
+    <!-- 1. En-tête de lettre -->
+    <header class="lh" aria-labelledby="lh-title">
+      <div class="container lh__inner">
+        <p class="lh__kicker">Une lettre de Fred Fieffé, prof de musique en ligne depuis 2015</p>
+        <h1 id="lh-title">Vous n'avez jamais lu une note de musique. Dans trente jours, vous jouez un premier morceau.</h1>
+        <p class="lh__lead">
+          Musique Facile, ce sont mes cours vidéo de guitare, de piano, de ukulélé et de solfège, pour les adultes qui
+          débutent. Vous payez une formation une fois, vous la gardez à vie, et vous avez quinze jours pour changer
+          d'avis.
+        </p>
+        <div class="lh__byline">
+          <img src={fred.photo} alt="Fred Fieffé" width="64" height="64" fetchpriority="high" decoding="async" />
+          <p>
+            <strong>Fred Fieffé</strong><br />
+            Musicien depuis 40 ans · 15 ans d'enseignement · {students.display} élèves ·
+            <a href={reviewsSource.url} rel="noopener nofollow" target="_blank">{rating.display} sur {reviews.display} avis</a>
+          </p>
+        </div>
+        <a href="#parcours" class="btn btn--primary">Aller directement aux formations</a>
+      </div>
+    </header>
+
+    <!-- 2. La lettre -->
+    <article class="letter">
+      <div class="container letter__inner">
+        <div class="letter__body">
+          <p class="letter__opening">Bonjour,</p>
+          <p>
+            Si vous lisez cette page, il y a de bonnes chances que vous ayez déjà essayé. Une guitare reçue à Noël,
+            trois vidéos sur YouTube, un accord de fa impossible, et l'instrument qui finit derrière le canapé. Je vois
+            ça depuis quinze ans. Ce n'est presque jamais une question de talent.
+          </p>
+
+          <h2>Pourquoi ça coince, la plupart du temps ?</h2>
+          <p>
+            Chez les adultes qui abandonnent, je retrouve toujours les mêmes causes. Ils commencent par la théorie. Ils
+            sautent d'un tuto à l'autre, sans ordre. Et ils s'imposent des séances d'une heure qu'ils ne tiennent pas
+            deux semaines. Au bout d'un mois rien ne sonne, alors on se dit qu'on n'est pas fait pour ça.
+          </p>
+          <p>
+            Ce n'est pas vous, c'est la méthode. Ou plutôt l'absence de méthode.
+          </p>
+
+          <h2>Ce que je vous propose à la place</h2>
+          <p>
+            Une formation par instrument, que j'ai filmée moi-même, dans l'ordre où il faut apprendre. Des vidéos
+            courtes, une notion à la fois, un exercice à chaque étape, et un morceau à jouer bien avant de savoir lire
+            une portée. Quinze minutes par jour. À la guitare, mes élèves jouent leurs premiers morceaux en trente
+            jours ; au ukulélé, en trois semaines.
+          </p>
+          <p>
+            Je ne suis pas une appli. Vous m'entendrez sur chacune des {videos.display} vidéos, et si vous bloquez sur un
+            passage, vous m'écrivez. Le support par e-mail fait partie de la formation.
+          </p>
+
+          <figure class="letter__video">
+            <VideoFacade
+              videoId={presentationVideo.vimeoId}
+              poster={presentationVideo.poster}
+              title={presentationVideo.title}
+            />
+            <figcaption>Pour vous faire une idée du ton : la présentation du cours de guitare débutant.</figcaption>
+          </figure>
+
+          <h2>Ce que ça coûte, et ce que ça ne coûte pas</h2>
+          <p>
+            Une formation s'achète une fois : 79 € pour le ukulélé ou le solfège, 89 € pour la guitare, 299 € pour le
+            pack piano complet. Pas d'abonnement, pas de renouvellement. Vous gardez l'accès à vie, avec les mises à
+            jour. Et si dans les quinze jours vous vous rendez compte que ce n'est pas pour vous, vous m'écrivez et
+            vous êtes remboursé.
+          </p>
+          <p>
+            Ce que ça ne coûte pas : des heures. Quinze minutes par jour suffisent, et c'est même mieux que deux heures
+            le dimanche. J'ai écrit <a href="/blog/10-minutes-par-jour-valent-mieux-que-2-heures-dimanche/">un article
+            là-dessus</a> si vous voulez comprendre pourquoi.
+          </p>
+
+          <h2>Est-ce que c'est pour vous ?</h2>
+          <p>
+            Oui si vous débutez, ou si vous reprenez après des années. Oui si vous avez plus de cinquante ans : c'est le
+            cas d'une bonne partie de mes élèves, et ils avancent souvent plus vite que les jeunes, parce qu'ils ont
+            choisi d'être là. Non si vous cherchez un cours de perfectionnement pour musicien confirmé, ce n'est pas ce
+            que je fais de mieux.
+          </p>
+          <p>
+            Choisissez un instrument ci-dessous. Si vous hésitez, <a href="/quel-instrument-choisir/">un test de deux
+            minutes</a> vous oriente. On commence quand vous voulez, ce soir si vous voulez.
+          </p>
+          <p class="letter__sign">
+            À bientôt en cours,<br />
+            <strong>Fred</strong>
+          </p>
+        </div>
+
+        <aside class="letter__aside" aria-label="En chiffres">
+          <dl>
+            <div><dt>Note des élèves</dt><dd>{rating.display}</dd><dd class="small"><a href={reviewsSource.url} rel="noopener nofollow" target="_blank">{reviews.display} avis, Skilleos</a></dd></div>
+            <div><dt>Élèves formés</dt><dd>{students.display}</dd></div>
+            <div><dt>Vidéos de cours</dt><dd>{videos.display}</dd></div>
+            <div><dt>Prof</dt><dd>1</dd><dd class="small">le même sur les 4 instruments</dd></div>
+            <div><dt>Paiement</dt><dd>1 fois</dd><dd class="small">accès à vie, 15 jours remboursé</dd></div>
+          </dl>
+          <ul class="letter__creds" role="list">
+            {fred.credentials.map((c) => <li>{c}</li>)}
+          </ul>
+          <a href={fred.aboutUrl}>Mon parcours en détail</a>
+        </aside>
+      </div>
+    </article>
+
+    <!-- 3. Le choix -->
+    <PathsBento
+      variant="stack"
+      heading="Par où commencer ?"
+      intro="Quatre formations, filmées par moi. Chacune part de zéro. Vous en prenez une, vous la gardez."
+    />
+
+    <!-- 4. Avis -->
+    <ProofWall variant="row" limit={3} heading="Ce qu'en disent les élèves" />
+
+    <!-- 5. Garantie -->
+    <Guarantee variant="card" />
+
+    <!-- 6. FAQ -->
+    <HomeFaq heading="Ce qu'on me demande avant d'acheter" />
+
+    <!-- 7. Post-scriptum -->
+    <section class="ps" aria-labelledby="ps-title">
+      <div class="container ps__inner">
+        <h2 id="ps-title">P.-S.</h2>
+        <p>
+          La seule chose que je ne peux pas faire à votre place, c'est commencer. Quinze minutes ce soir, avec la
+          première vidéo, et vous saurez si ça vous parle. Le reste, on le fait ensemble.
+        </p>
+        <a href="/cours/" class="btn btn--primary btn--lg">Voir les formations</a>
+      </div>
+    </section>
+  </div>
+
+  <FooterModern />
+  <StickyCTAMobile ctaLink="/cours/" ctaText="Voir les formations" title="Un paiement, accès à vie" />
+</Layout>
+
+<style>
+  .home-v4 {
+    --home-accent: var(--brand-500);
+    --letter-measure: 66ch;
+  }
+
+  /* ---- boutons ---- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-md);
+    font-family: var(--font-heading);
+    font-weight: var(--font-semibold);
+    text-decoration: none;
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .btn--primary {
+    background: var(--text-primary);
+    color: var(--bg-page);
+  }
+
+  .btn--primary:hover {
+    background: var(--home-accent);
+    color: #fff;
+  }
+
+  .btn--lg {
+    padding: var(--space-5) var(--space-8);
+    font-size: var(--text-lg);
+  }
+
+  .btn:focus-visible {
+    outline: 3px solid var(--brand-300);
+    outline-offset: 3px;
+  }
+
+  /* ---- en-tête ---- */
+  .lh {
+    padding: calc(80px + var(--space-16)) 0 var(--space-12);
+    border-bottom: 1px solid var(--border-default);
+  }
+
+  .lh__inner {
+    max-width: 880px;
+  }
+
+  .lh__kicker {
+    margin: 0 0 var(--space-6);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--text-muted);
+  }
+
+  .lh h1 {
+    font-size: clamp(2.25rem, 5.2vw, 4rem);
+    line-height: 1.08;
+    letter-spacing: var(--tracking-tight);
+    text-wrap: balance;
+    margin-bottom: var(--space-6);
+  }
+
+  .lh__lead {
+    font-size: var(--text-responsive-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+    text-wrap: pretty;
+    max-width: var(--letter-measure);
+    margin: 0 0 var(--space-8);
+  }
+
+  .lh__byline {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .lh__byline img {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+  }
+
+  .lh__byline p {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  .lh__byline strong {
+    color: var(--text-primary);
+    font-size: var(--text-base);
+  }
+
+  .lh__byline a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* ---- lettre ---- */
+  .letter {
+    padding: var(--space-16) 0;
+  }
+
+  .letter__inner {
+    display: grid;
+    gap: var(--space-12);
+    max-width: 1120px;
+  }
+
+  .letter__body {
+    max-width: var(--letter-measure);
+    font-size: var(--text-responsive-base);
+    line-height: 1.7;
+  }
+
+  .letter__body p {
+    margin: 0 0 var(--space-5);
+    color: var(--text-primary);
+    text-wrap: pretty;
+  }
+
+  .letter__opening {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+  }
+
+  .letter__body h2 {
+    font-size: var(--text-responsive-2xl);
+    letter-spacing: var(--tracking-tight);
+    text-wrap: balance;
+    margin: var(--space-10) 0 var(--space-4);
+  }
+
+  .letter__body a {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--home-accent);
+  }
+
+  .letter__video {
+    margin: var(--space-8) 0;
+  }
+
+  .letter__video figcaption {
+    margin-top: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .letter__sign {
+    margin-top: var(--space-8);
+    font-size: var(--text-lg);
+  }
+
+  .letter__aside {
+    align-self: start;
+    padding: var(--space-6);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-xl);
+    background: var(--bg-card);
+  }
+
+  .letter__aside dl {
+    margin: 0 0 var(--space-6);
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .letter__aside dt {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--text-muted);
+  }
+
+  .letter__aside dd {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-primary);
+  }
+
+  .letter__aside dd.small {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--font-normal);
+    color: var(--text-secondary);
+  }
+
+  .letter__aside dd.small a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .letter__creds {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: var(--space-5) 0 0;
+    border-top: 1px solid var(--border-default);
+    display: grid;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .letter__aside > a {
+    color: var(--text-primary);
+    font-weight: var(--font-medium);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ---- P.-S. ---- */
+  .ps {
+    padding: var(--space-20) 0 var(--space-24);
+    border-top: 1px solid var(--border-default);
+  }
+
+  .ps__inner {
+    max-width: var(--letter-measure);
+  }
+
+  .ps h2 {
+    font-size: var(--text-responsive-2xl);
+    margin-bottom: var(--space-4);
+  }
+
+  .ps p {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--text-primary);
+    text-wrap: pretty;
+    margin: 0 0 var(--space-8);
+  }
+
+  @media (min-width: 960px) {
+    .letter__inner {
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: var(--space-16);
+    }
+
+    .letter__aside {
+      position: sticky;
+      top: calc(80px + var(--space-6));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn {
+      transition: none;
+    }
+  }
+</style>

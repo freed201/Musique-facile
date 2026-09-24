@@ -1,0 +1,136 @@
+---
+/**
+ * Guarantee.astro — la garantie 15 jours, formulée concrètement.
+ * Une garantie vague fait chuter la confiance (CXL) ; ici on dit comment
+ * elle se demande. Modèle : paiement unique, accès à vie, 15 jours remboursé.
+ */
+interface Props {
+  /** 'band' : bandeau pleine largeur ; 'card' : encart dans une colonne. */
+  variant?: 'band' | 'card';
+}
+
+const { variant = 'band' } = Astro.props;
+---
+
+<section class={`guarantee guarantee--${variant}`} aria-labelledby="guarantee-title">
+  <div class="container guarantee__inner">
+    <div class="guarantee__mark" aria-hidden="true">
+      <span class="guarantee__days">15</span>
+      <span class="guarantee__unit">jours</span>
+    </div>
+    <div class="guarantee__text">
+      <h2 id="guarantee-title">Quinze jours pour essayer, chez vous, sur votre instrument</h2>
+      <p>
+        Vous achetez, vous suivez les leçons. Si au bout de quinze jours la méthode ne vous convient pas,
+        vous écrivez depuis <a href="/contact/">la page contact</a> et vous êtes remboursé. Aucun abonnement ne se
+        déclenche derrière : une fois payée, la formation est à vous, avec ses mises à jour.
+      </p>
+      <ul class="guarantee__facts" role="list">
+        <li>Paiement unique</li>
+        <li>Accès à vie</li>
+        <li>Remboursé sous 15 jours si ça ne vous plaît pas</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .guarantee {
+    padding: var(--space-16) 0;
+  }
+
+  .guarantee--band {
+    background: var(--bg-alt);
+  }
+
+  .guarantee__inner {
+    display: grid;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .guarantee--card .guarantee__inner {
+    padding: var(--space-8);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-xl);
+    background: var(--bg-card);
+  }
+
+  .guarantee__mark {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 128px;
+    height: 128px;
+    border-radius: var(--radius-full);
+    border: 3px solid var(--text-primary);
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .guarantee__days {
+    font-size: var(--text-5xl);
+    font-weight: var(--font-bold);
+    letter-spacing: var(--tracking-tighter);
+  }
+
+  .guarantee__unit {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    margin-top: var(--space-1);
+  }
+
+  .guarantee__text h2 {
+    font-size: var(--text-responsive-2xl);
+    letter-spacing: var(--tracking-tight);
+    text-wrap: balance;
+    margin-bottom: var(--space-3);
+  }
+
+  .guarantee__text p {
+    max-width: 60ch;
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    text-wrap: pretty;
+    margin: 0 0 var(--space-5);
+  }
+
+  .guarantee__text a {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .guarantee__facts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+  }
+
+  .guarantee__facts li::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: var(--home-accent, var(--brand-500));
+    margin-right: var(--space-2);
+    vertical-align: middle;
+  }
+
+  @media (min-width: 768px) {
+    .guarantee__inner {
+      grid-template-columns: auto 1fr;
+      gap: var(--space-12);
+    }
+  }
+</style>

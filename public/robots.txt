@@ -8,6 +8,20 @@ Allow: /
 Disallow: /404.html
 Disallow: /merci-lead-magnet/
 Disallow: /preview-refonte/
+# Maquettes de la nouvelle page d'accueil, en test (septembre 2026)
+Disallow: /home-v2/
+Disallow: /home-v3/
+Disallow: /home-v4/
+Disallow: /carnet/
+Disallow: /home-v8/
+Disallow: /home-v6/
+Disallow: /on-discute/
+Disallow: /typo/
+Disallow: /etude-formations/
+Disallow: /etude-formations-2/
+Disallow: /carnet-cta/
+Disallow: /carnet-dix/
+Disallow: /carte-postale/
 Disallow: /maintenance/
 Disallow: /pack-vacances-ukulele/
 # Gabarits de rendu des PDF lead magnets (jamais liés)

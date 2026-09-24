@@ -1,0 +1,45 @@
+/**
+ * experience-colors.css — la couleur des maquettes d'accueil (V5, V6, V7).
+ *
+ * Retour de Fred (2026-09-05) : « le fond vert avec du jaune, c'est moche ».
+ * Il avait raison : un vert saturé, un jaune soleil et du crème, c'est un
+ * drapeau, pas un atelier. Nouvelle règle : une seule teinte par écran, celle
+ * de l'instrument, en deux tons.
+ *  - le ton profond (--xp-stage) : boutons, écriture à la main, étiquettes,
+ *    dernier écran ;
+ *  - le papier teinté (--xp-tint) : les grands fonds du premier écran.
+ * Plus deux neutres (papier et encre) et une étiquette crème (--xp-label)
+ * pour tout ce qui est posé sur un fond profond. Aucun jaune.
+ */
+
+:root {
+  --xp-paper: #f6f0e4;
+  --xp-card: #fffaf0;
+  --xp-label: #fff8e8;
+  --xp-ink: #23193d;
+  --xp-ink-2: #5a4f75;
+  --xp-line: rgba(35, 25, 61, 0.14);
+  /* Par défaut, le violet de la marque, assourdi. */
+  --xp-stage: #5b3f8f;
+  --xp-tint: #ebe4f3;
+}
+
+/* La teinte suit l'instrument : radios `#pick-*` (V5, V6) ou attribut (V7). */
+.xp:has(#pick-guitar:checked), .xp[data-instrument='guitar'] { --xp-stage: #2f5d3a; --xp-tint: #e3ebdc; }
+.xp:has(#pick-piano:checked), .xp[data-instrument='piano'] { --xp-stage: #2b5f66; --xp-tint: #dbe8e9; }
+.xp:has(#pick-ukulele:checked), .xp[data-instrument='ukulele'] { --xp-stage: #b4522a; --xp-tint: #f6e3d3; }
+.xp:has(#pick-solfege:checked), .xp[data-instrument='solfege'] { --xp-stage: #973b3b; --xp-tint: #f3dfdd; }
+
+/* Sur fond clair : étiquettes et boutons dans le ton profond, texte crème. */
+.xp {
+  --stage: var(--xp-stage);
+  --tint: var(--xp-tint);
+  --sun: var(--xp-stage);
+  --sun-ink: var(--xp-label);
+}
+
+/* Sur fond profond : l'inverse. */
+.xp .on-stage {
+  --sun: var(--xp-label);
+  --sun-ink: var(--xp-stage);
+}

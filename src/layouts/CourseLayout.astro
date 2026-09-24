@@ -1,4 +1,5 @@
 ---
+import { classeUnivers } from '../utils/theme';
 import Header from '../components/Header.astro';
 import ConsentManager from '../components/ConsentManager.astro';
 import FooterModern from '../components/FooterModern.astro';
@@ -174,6 +175,9 @@ const courseSchema = {
     : {})
 };
 
+
+/* L'univers de la page : le header en prend la couleur (voir src/utils/theme.ts). */
+const classeDUnivers = classeUnivers(theme, Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -217,7 +221,7 @@ const courseSchema = {
     <ExternalResources loadVideoScripts={true} />
     <title>{pageTitle}</title>
   </head>
-  <body>
+  <body class={classeDUnivers}>
     <div class={`theme-${theme}`}>
       <Header />
       <main>

@@ -32,17 +32,19 @@
      🎸 GUITARE (Vert Material)
      Base: #4CAF50 (WCAG AA gros texte: 3.0:1 — utiliser 600+ pour petit texte)
      ======================================== */
-  --guitar-50: #e8f5e9;
-  --guitar-100: #c8e6c9;
-  --guitar-200: #a5d6a7;
-  --guitar-300: #81c784;
-  --guitar-400: #66bb6a;
-  --guitar-500: #4CAF50;
-  --guitar-600: #43a047;
-  --guitar-700: #388e3c;
-  --guitar-800: #2e7d32;
-  --guitar-900: #1b5e20;
-  --guitar-950: #0d3011;
+  /* Vert canard, 2026-09-06 : l'ancien vert Material (#4CAF50) était criard et
+     daté. Celui-ci tire vers le sarcelle sans marcher sur le bleu du piano. */
+  --guitar-50: #e7f4ef;
+  --guitar-100: #c5e6d9;
+  --guitar-200: #9dd4c0;
+  --guitar-300: #6cbfa2;
+  --guitar-400: #45a888;
+  --guitar-500: #2b8f6f;
+  --guitar-600: #23765c;
+  --guitar-700: #1d614c;
+  --guitar-800: #17513f;
+  --guitar-900: #103b2e;
+  --guitar-950: #0a271e;
 
   /* ========================================
      🎹 PIANO (Teal — couleur des visuels Musique Facile)
@@ -310,6 +312,10 @@
   /* Rôles accessibles par défaut (violet de marque) — voir bloc ci-dessous */
   --theme-ink: var(--brand-600);
   --theme-surface: var(--brand-500);
+  /* Fond du header : violet de marque par défaut, couleur de l'univers sur les
+     pages qui en ont un (classe theme-* posée sur <body> par les layouts). */
+  --header-bg: linear-gradient(135deg, rgba(108, 63, 160, 0.95) 0%, rgba(90, 52, 136, 0.95) 100%);
+  --header-solid: #6C3FA0;
   --theme-deep: var(--brand-700);
   --theme-soft: var(--brand-50);
   --theme-line: var(--brand-200);
@@ -341,6 +347,8 @@
 }
 
 .theme-guitar {
+  --header-bg: linear-gradient(135deg, #23765c 0%, #1a5744 100%);
+  --header-solid: #23765c;
   --theme-current: var(--guitar-500);
   --theme-current-dark: var(--guitar-600);
   --theme-current-light: var(--guitar-400);
@@ -353,6 +361,8 @@
 }
 
 .theme-piano {
+  --header-bg: linear-gradient(135deg, #3a7b82 0%, #2a585d 100%);
+  --header-solid: #3a7b82;
   --theme-current: var(--piano-500);
   --theme-current-dark: var(--piano-600);
   --theme-current-light: var(--piano-400);
@@ -365,6 +375,8 @@
 }
 
 .theme-ukulele {
+  --header-bg: linear-gradient(135deg, #a34408 0%, #6f2f04 100%);
+  --header-solid: #a34408;
   --theme-current: var(--ukulele-500);
   --theme-current-dark: var(--ukulele-600);
   --theme-current-light: var(--ukulele-400);
@@ -379,6 +391,8 @@
 }
 
 .theme-solfege {
+  --header-bg: linear-gradient(135deg, #b71c1c 0%, #8e1f1f 100%);
+  --header-solid: #b71c1c;
   --theme-current: var(--solfege-500);
   --theme-current-dark: var(--solfege-600);
   --theme-current-light: var(--solfege-400);
@@ -403,6 +417,11 @@
   :root:not([data-theme="light"]).theme-solfege { --theme-ink: var(--solfege-200); --theme-soft: #2a1416; --theme-line: #5c2a2c; }
   :root:not([data-theme="light"]) .theme-main,
   :root:not([data-theme="light"]).theme-main { --theme-ink: var(--brand-300); --theme-soft: #1d1430; --theme-line: #3d2a5c; }
+
+  /* Défaut sombre : sans classe .theme-*, --theme-ink restait le violet foncé
+     (--brand-600) et devenait illisible sur le fond #0f172a — cas des pages
+     contact et quel-instrument-choisir, mesuré à 2,9:1. */
+  :root:not([data-theme="light"]) { --theme-ink: var(--brand-300); }
 }
 
 [data-theme="dark"] .theme-guitar  { --theme-ink: var(--guitar-300); --theme-soft: #16261a; --theme-line: #2f5a33; }
@@ -492,6 +511,7 @@
 
 /* Classe dark explicite */
 [data-theme="dark"] {
+  --theme-ink: var(--brand-300);
   --bg-page: #0f172a;
   /* Même correction que dans le bloc « préférence système » ci-dessus :
      sans cette ligne, le choix explicite du thème sombre laissait les fonds

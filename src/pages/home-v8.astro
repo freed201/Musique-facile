@@ -1,0 +1,1261 @@
+---
+/**
+ * home-v8.astro — la home, courte, qui envoie vers le carnet.
+ *
+ * URL : /home-v8/ — PAGE CACHÉE : noindex/nofollow, Disallow dans robots.txt.
+ *
+ * DÉCISION (Fred, 2026-09-05) : le carnet des 30 jours (/carnet/) est la plus
+ * belle chose du site, mais ce n'est pas une home. Une home a quatre métiers :
+ * dire ce qu'on est, orienter vers toutes les rubriques, rassurer, et servir
+ * tout le monde à chaque visite, y compris l'élève qui revient et les moteurs.
+ * Celle-ci les fait en une minute de lecture, et ouvre grand la porte du carnet.
+ *
+ * Premier écran : la couverture du carnet (identité, Fred, le choix de
+ * l'instrument, un accord à jouer). Puis la table des matières du site, le
+ * prix de l'instrument choisi, trois avis, et les notes. Rien d'autre.
+ * Mêmes polices et couleurs que le carnet (experience-fonts.css,
+ * experience-colors.css). Toute la page se recolore avec l'instrument choisi.
+ */
+import '@fontsource-variable/rubik/wght.css';
+import '@fontsource-variable/rubik/wght-italic.css';
+import '@fontsource/square-peg/400.css';
+import '@fontsource-variable/fraunces/wonk-italic.css';
+import '../styles/experience-fonts.css';
+import '../styles/experience-colors.css';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FooterModern from '../components/FooterModern.astro';
+import HomeSchemas from '../components/home/HomeSchemas.astro';
+import FirstChord from '../components/home/FirstChord.astro';
+import { getCollection } from 'astro:content';
+import { paths, reassurance, rentree, fred, screenCallouts } from '../data/home-v2';
+import { catalogue, RUNGS, type Rung } from '../data/catalogue';
+import { testimonials, formatTestimonialDate } from '../data/testimonials';
+import { rating, reviews, students, videos, reviewsSource } from '../data/proof';
+
+const title = 'Cours de guitare, piano, ukulélé et solfège en ligne | Musique Facile';
+const description =
+  'École de musique en ligne depuis 2015 : Fred Fieffé apprend la guitare, le piano, le ukulélé et le solfège aux adultes qui débutent. Un seul paiement, accès à vie. 4,7/5 sur 929 avis.';
+
+/* Les portes : un instrument, sa promesse, ses niveaux, son prix d'entrée.
+   Les nombres viennent des fiches (getCollection) et des niveaux de catalogue.ts.
+   La home annonce la couleur sans dérouler le catalogue : celui-ci vit sur les
+   pages instrument (/cours/cours-de-guitare/ et les trois autres). */
+const all = (await getCollection('courses', ({ data }) => data.affichage !== 'N')).map((c) => ({
+  theme: c.data.theme as 'guitar' | 'piano' | 'ukulele' | 'solfege',
+  rung: (catalogue[c.slug]?.rung ?? 2) as Rung,
+  price: Math.round(Number(c.data.hasCourseInstance.offers.price)),
+}));
+const GO: Record<string, string> = { guitar: 'la guitare', piano: 'le piano', ukulele: 'le ukulélé', solfege: 'le solfège' };
+const doors = paths.map((p) => {
+  const list = all.filter((c) => c.theme === p.id);
+  /* Le prix d'entrée d'un débutant : le cours débutant, ou le Pack s'il coûte
+     moins cher (c'est le cas du piano : 299 € seul, 99 € dans le Pack). */
+  const solo = p.priceValue;
+  const viaPack = p.offer.includes.length > 1 && p.offer.priceValue < solo;
+  return {
+    id: p.id,
+    label: p.label,
+    go: GO[p.id],
+    tagline: p.tagline,
+    audience: p.audience,
+    url: p.url,
+    cover: `/images/cours/${p.courseUrl.split('/').filter(Boolean).pop()}/hero.webp`,
+    total: list.length,
+    entry: viaPack ? `${p.offer.priceValue} € avec le Pack` : `${solo} €`,
+    levels: ([1, 2, 3] as Rung[]).map((r) => ({ label: RUNGS[r], n: list.filter((c) => c.rung === r).length })),
+  };
+});
+
+/* Le reste du site, en une ligne. */
+const elsewhere = [
+  { href: '/blog/', title: 'Le blog', text: 'une centaine de tutos et de guides, gratuits' },
+  { href: '/ressources-gratuites/', title: 'Ressources gratuites', text: 'fiches d’accords, guides PDF, outils' },
+  { href: '/quel-instrument-choisir/', title: 'Quel instrument choisir ?', text: 'un test de deux minutes' },
+  { href: '/offre/', title: 'L’offre de rentrée', text: `le Pack à 99 € jusqu'au ${rentree.offerEndsShort}` },
+  { href: fred.aboutUrl, title: 'Qui est Fred', text: 'musicien depuis 40 ans, prof en ligne depuis 2015' },
+  { href: '/faq/', title: 'Questions fréquentes', text: 'garantie, matériel, temps par jour' },
+  { href: '/contact/', title: 'Contact', text: 'Fred répond lui-même' },
+  { href: 'https://ecole.musique-facile.fr/login', title: 'Espace élève', text: 'vous avez déjà un cours' },
+];
+const LABELS = { guitar: 'Guitare', piano: 'Piano', ukulele: 'Ukulélé', solfege: 'Solfège' } as const;
+const quotes = testimonials.filter((t) => ['valerie-b-2025-09', 'cecile-l-2025-11', 'xavier-d-2025-09'].includes(t.id));
+---
+
+<Layout title={title} description={description} canonicalUrl="https://musique-facile.fr/home-v8/" robots="noindex, nofollow">
+  <Fragment slot="head">
+    <HomeSchemas description={description} withFaq={false} />
+  </Fragment>
+  <Header />
+
+  <div class="hm xp">
+    <!-- 1. La couverture : ce qu'on est, l'instrument, un accord -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="kicker"><span class="kicker__tag">{rentree.season}</span> École de musique en ligne depuis 2015</p>
+          <h1 id="hero-title">Une école de musique en ligne. <em>Un prof, quatre instruments, et on apprend en jouant.</em></h1>
+          <div class="who">
+            <img src={fred.photo} alt="Fred Fieffé, un ukulélé à la main" width="800" height="800" loading="eager" decoding="async" />
+            <p>
+              Fred Fieffé enseigne la guitare, le piano, le ukulélé et le solfège à des adultes qui débutent :
+              {students.display} élèves depuis 2015, <strong>{rating.display}</strong> sur
+              <a href={reviewsSource.url} rel="noopener nofollow" target="_blank">{reviews.display} avis</a>, {videos.display} vidéos.
+              Des cours qu'on achète une fois et qu'on garde à vie.
+            </p>
+          </div>
+
+          <fieldset class="pick">
+            <legend>Je commence par</legend>
+            <div class="pick__options">
+              {paths.map((p, i) => (
+                <label class="pick__opt">
+                  <input type="radio" name="instrument" id={`pick-${p.id}`} value={p.id} checked={i === 0} />
+                  <span>{p.label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <p class="hero__then">
+            {paths.map((p) => (
+              <span data-for={p.id}>
+                Vous savez déjà par quoi commencer ? <a href={p.offer.url}>Commencer {p.object} · {p.offer.price}</a>
+              </span>
+            ))}
+          </p>
+        </div>
+
+        <div class="hero__visual">
+          <FirstChord />
+        </div>
+      </div>
+    </section>
+
+    <!-- 1b. Le carnet, posé sur la page : seul sur sa ligne, un objet -->
+    <section class="pose" aria-label="Le carnet de rentrée">
+      {paths.map((p) => (
+        <div class="carnet3" data-for={p.id}>
+          <span class="carnet3__feuille carnet3__feuille--3" aria-hidden="true"></span>
+          <span class="carnet3__feuille carnet3__feuille--2" aria-hidden="true"></span>
+          <span class="carnet3__feuille carnet3__feuille--1" aria-hidden="true"></span>
+
+          <div class="carnet3__page">
+            <span class="carnet3__ruban" aria-hidden="true"></span>
+
+            <p class="carnet3__sur">{rentree.season} · gratuit, sans inscription</p>
+            <h2 class="carnet3__titre">Ouvrir le carnet <em>de rentrée</em></h2>
+            <p class="carnet3__sous">
+              Trente jours, une page par jour. On accorde, on gratte un accord, on tape le tempo, on lit ses premières
+              notes. Chaque page se joue.
+            </p>
+            <a class="carnet3__cta" href={`/carnet/?instrument=${p.id}`}>
+              Tourner la première page <b aria-hidden="true">→</b>
+            </a>
+            <span class="carnet3__tampon" aria-hidden="true">Jour 1</span>
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <!-- 2. Quatre portes : un instrument, ses niveaux, son prix d'entrée -->
+    <section class="doors" id="instruments" aria-labelledby="doors-title">
+      <div class="container">
+        <p class="kicker">Les cours</p>
+        <h2 id="doors-title">Quatre instruments, <em>du premier accord au perfectionnement</em></h2>
+        <p class="doors__lead">
+          Choisissez le vôtre : vous verrez toutes ses formations, de celle qui part de zéro à celle qui vous fera
+          progresser une fois lancé.
+        </p>
+        <ul class="doors__list" role="list">
+          {doors.map((d) => (
+            <li class={`door theme-${d.id}`}>
+              <a href={d.url}>
+                <span class="door__shot">
+                  <img src={d.cover} alt="" width="1344" height="896" loading="lazy" decoding="async" />
+                  <span class="door__name">{d.label}</span>
+                </span>
+                <span class="door__body">
+                  <span class="door__tagline">{d.tagline}</span>
+                  <span class="door__who">{d.audience}</span>
+                  <span class="door__levels">
+                    {d.levels.map((l) => (
+                      <span class:list={['lvl', { 'lvl--none': l.n === 0 }]}>
+                        <b>{l.label}</b>
+                        <i>{l.n > 0 ? `${l.n} formation${l.n > 1 ? 's' : ''}` : '—'}</i>
+                      </span>
+                    ))}
+                  </span>
+                  <span class="door__foot">
+                    <span class="door__count">{d.total} formations · pour débuter, {d.entry}</span>
+                    <span class="door__go">Voir {d.go} →</span>
+                  </span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p class="hand doors__hand">Vous hésitez entre deux ? <a href="/quel-instrument-choisir/">Deux minutes de test</a> vous orientent.</p>
+      </div>
+    </section>
+
+    <!-- 3. Ce que vous voyez pendant une leçon -->
+    <section class="ecran" aria-labelledby="ecran-title">
+      <div class="container ecran__grid">
+        {paths.map((p) => (
+          <figure class="shot" data-for={p.id}>
+            <div class="shot__frame">
+              <img src={p.image} alt={p.imageAlt} width="1824" height="1042" loading="lazy" decoding="async" />
+              {screenCallouts[p.id].map((c, i) => (
+                <span class="shot__pin" style={`--x: ${c.x}%; --y: ${c.y}%`} aria-hidden="true">{i + 1}</span>
+              ))}
+            </div>
+            <figcaption>Extrait réel · {p.courseName}</figcaption>
+          </figure>
+        ))}
+        <div>
+          <p class="kicker">Pendant une leçon</p>
+          <h2 id="ecran-title">Ce que vous voyez <em>à l'écran</em></h2>
+          {paths.map((p) => (
+            <ol class="pins" data-for={p.id}>
+              {screenCallouts[p.id].map((c, i) => (
+                <li>
+                  <span class="pins__n">{i + 1}</span>
+                  <div>
+                    <h3>{c.title}</h3>
+                    <p>{c.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          ))}
+          <p class="hand">Quinze minutes par jour, une notion par leçon, et on revient en arrière autant de fois qu'on veut.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Le prix de l'instrument choisi -->
+    <section class="price" id="prix" aria-labelledby="price-title">
+      <div class="container price__grid">
+        <div>
+          <p class="kicker">Ce que ça coûte</p>
+          <h2 id="price-title">Une fois. <em>Pas tous les mois.</em></h2>
+          <p class="price__lead">
+            Vous achetez, vous suivez les leçons, vous gardez l'accès à vie. Si ça ne vous convient pas dans les
+            quinze jours, un message depuis <a href="/contact/">la page contact</a> suffit : vous êtes remboursé.
+          </p>
+          <ul class="assure" role="list">
+            {reassurance.map((r, i) => (
+              <li>{r.label}<sup><a href={`#note-${i + 1}`} aria-label={`Note ${i + 1}`}>{i + 1}</a></sup></li>
+            ))}
+          </ul>
+        </div>
+        {paths.map((p) => (
+          <div class="ticket" data-for={p.id}>
+            <p class="ticket__name">{p.offer.name}</p>
+            <p class="ticket__price"><strong>{p.offer.price}</strong> <span>une fois, accès à vie</span></p>
+            <ul class="ticket__list" role="list">
+              {p.offer.includes.map((i) => <li>{i.title}{p.offer.includes.length > 1 && <em> · {i.price} seul</em>}</li>)}
+            </ul>
+            {p.offer.includes.length > 1 && (
+              <p class="ticket__terms">
+                {rentree.offerLabel} jusqu'au {rentree.offerEndsLabel} · pour {p.offer.separately} de formations prises séparément<sup><a href="#note-5" aria-label="Note 5">5</a></sup>
+              </p>
+            )}
+            {p.offer.note && <p class="ticket__terms">{p.offer.note}</p>}
+            <a href={p.offer.url} class="btn btn--stage">Commencer {p.object} · {p.offer.price}</a>
+            <p class="hand ticket__hesite">Vous hésitez ? <a href={`/on-discute/?instrument=${p.id}`}>On en discute deux minutes avec Fred.</a></p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 4. Trois avis, et Fred -->
+    <section class="proof" aria-labelledby="proof-title">
+      <div class="container">
+        <p class="kicker">Ils s'y sont mis</p>
+        <h2 id="proof-title">Des adultes qui ont commencé <em>exactement là où vous êtes</em></h2>
+        <p class="proof__rating">
+          <strong>{rating.display}</strong> sur <a href={reviewsSource.url} rel="noopener nofollow" target="_blank">{reviews.display} avis Skilleos</a>, recopiés mot pour mot.
+        </p>
+        <ul class="quotes" role="list">
+          {quotes.map((t) => (
+            <li class={`theme-${t.instrument}`}>
+              <p>« {t.quote} »</p>
+              <footer>{t.name} · {LABELS[t.instrument]} · {formatTestimonialDate(t.date, t.datePrecision)} · <a href={t.sourceUrl} rel="noopener nofollow" target="_blank">{t.sourceName}</a></footer>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. Le reste du site, en une ligne chacun -->
+    <section class="elsewhere" aria-labelledby="elsewhere-title">
+      <div class="container">
+        <p class="kicker">Aussi sur le site</p>
+        <h2 id="elsewhere-title" class="visually-hidden">Les autres pages</h2>
+        <ul class="elsewhere__list" role="list">
+          {elsewhere.map((d) => (
+            <li>
+              <a href={d.href} rel={d.href.startsWith('http') ? 'noopener' : undefined}>{d.title}</a>
+              <span>{d.text}</span>
+            </li>
+          ))}
+          <li><a href="/carnet/">Le carnet de rentrée</a><span>trente jours, une page par jour, et chaque page se joue</span></li>
+          <li><a href="/on-discute/">On discute ?</a><span>trois questions à Fred, pour ceux qui hésitent</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="notes container" aria-label="Notes et sources">
+      <ol>
+        {reassurance.map((r, i) => (
+          <li id={`note-${i + 1}`}>{r.note} <a href={r.href}>Voir {r.linkLabel}</a>.</li>
+        ))}
+        <li id="note-5">Somme des prix de chaque formation prise seule, tels qu'affichés sur les fiches cours le 4 septembre 2026. Ce n'est pas un ancien prix du Pack.</li>
+        <li>Le son de l'accord est synthétisé dans le navigateur, pour la démonstration.</li>
+      </ol>
+    </section>
+  </div>
+
+  <FooterModern />
+</Layout>
+
+<style>
+  .hm {
+    --display: var(--xp-display);
+    --hand: var(--xp-voice);
+    --paper: var(--xp-paper);
+    --card: var(--xp-card);
+    --ink: var(--xp-ink);
+    --ink-2: var(--xp-ink-2);
+    --line: var(--xp-line);
+    --hv-ink: var(--ink);
+    --hv-ink-2: var(--ink-2);
+    --hv-card: var(--card);
+    --hv-line: var(--line);
+    --hv-accent: var(--stage);
+    --hv-accent-ink: var(--stage);
+    --hv-display: var(--display);
+    --hv-serif: var(--display);
+    --hv-hand: var(--hand);
+    --hv-header: 80px;
+    color-scheme: light;
+    --bg-page: var(--paper);
+    --bg-alt: var(--paper);
+    --bg-card: var(--card);
+    --bg-elevated: var(--card);
+    --text-primary: var(--ink);
+    --text-secondary: var(--ink-2);
+    --text-muted: var(--ink-2);
+    --border-default: var(--line);
+    --surface-white: var(--card);
+    --surface-light: var(--paper);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--xp-text);
+  }
+
+  @media (max-width: 768px) {
+    .hm {
+      --hv-header: 70px;
+    }
+  }
+
+  .hm:has(#pick-guitar:checked) :global([data-for]:not([data-for='guitar'])),
+  .hm:has(#pick-piano:checked) :global([data-for]:not([data-for='piano'])),
+  .hm:has(#pick-ukulele:checked) :global([data-for]:not([data-for='ukulele'])),
+  .hm:has(#pick-solfege:checked) :global([data-for]:not([data-for='solfege'])) {
+    display: none !important;
+  }
+
+  @supports not selector(:has(*)) {
+    .hm :global([data-for]:not([data-for='guitar'])) {
+      display: none !important;
+    }
+  }
+
+  .hm [id] {
+    scroll-margin-top: calc(var(--hv-header) + var(--space-4));
+  }
+
+  .hm h1,
+  .hm h2 {
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  .hm h1 em,
+  .hm h2 em {
+    color: var(--stage);
+  }
+
+  .hm p {
+    text-wrap: pretty;
+  }
+
+  .hm a:not(.btn) {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .kicker {
+    margin: 0 0 var(--space-3);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--stage);
+  }
+
+  .kicker__tag {
+    padding: 3px 10px;
+    border-radius: 3px;
+    background: var(--stage);
+    color: var(--xp-label);
+    font-family: var(--hand);
+    font-weight: 400;
+    font-size: 1.86rem;
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: none;
+    transform: rotate(-2deg);
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+  }
+
+  .hand {
+    font-family: var(--hand);
+    font-weight: 400;
+    font-size: 2.34rem;
+    line-height: 1.15;
+    color: var(--stage);
+    margin: 0;
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-md);
+    font-family: var(--display);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .btn--stage {
+    background: var(--stage);
+    color: var(--xp-label);
+    box-shadow: 0 6px 0 -2px rgba(35, 25, 61, 0.18);
+  }
+
+  .btn--ghost {
+    color: var(--ink);
+    border: 1.5px solid var(--line);
+    background: var(--card);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn:focus-visible {
+    outline: 3px solid var(--stage);
+    outline-offset: 3px;
+  }
+
+  /* ---------- 1. couverture ---------- */
+  .hero {
+    padding: calc(var(--hv-header) + var(--space-8)) 0 var(--space-10);
+    background: var(--tint);
+    transition: background-color 0.5s var(--ease-out);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 4.6vw, 3.8rem);
+    line-height: 1.02;
+    margin: 0 0 var(--space-5);
+  }
+
+  .who {
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    gap: var(--space-4);
+    align-items: center;
+    margin: 0 0 var(--space-5);
+  }
+
+  .who img {
+    width: 84px;
+    height: 84px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--card);
+    box-shadow: 0 8px 20px -10px rgba(35, 25, 61, 0.5);
+    transform: rotate(-4deg);
+  }
+
+  .who p {
+    margin: 0;
+    line-height: var(--leading-relaxed);
+    color: var(--ink-2);
+    max-width: 60ch;
+  }
+
+  .who strong {
+    color: var(--ink);
+  }
+
+  .pick {
+    border: 0;
+    padding: 0;
+    margin: 0 0 var(--space-5);
+    min-width: 0;
+  }
+
+  .pick legend {
+    font-family: var(--hand);
+    font-size: 2.1rem;
+    color: var(--stage);
+    margin-bottom: var(--space-2);
+    padding: 0;
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+  }
+
+  .pick__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .pick__opt input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+
+  .pick__opt span {
+    display: inline-block;
+    padding: var(--space-3) var(--space-5);
+    border-radius: 4px;
+    border: 1.5px solid var(--line);
+    background: var(--card);
+    font-family: var(--hand);
+    font-size: 2.04rem;
+    line-height: 1;
+    cursor: pointer;
+    transform: rotate(-1deg);
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+  }
+
+  .pick__opt:nth-child(even) span {
+    transform: rotate(1.5deg);
+  }
+
+  .pick__opt input:checked + span {
+    background: var(--stage);
+    border-color: var(--stage);
+    color: var(--xp-label);
+  }
+
+  .pick__opt input:focus-visible + span {
+    outline: 3px solid var(--stage);
+    outline-offset: 2px;
+  }
+
+  /* Le carnet posé sur la page : un objet, seul sur sa ligne. Trois feuilles
+     dépassent derrière, un ruban marque-page pend en haut, le tampon est en
+     biais. Au survol, le carnet se redresse et les feuilles s'écartent. */
+  .pose {
+    padding: clamp(var(--space-10), 6vw, var(--space-16)) var(--space-5);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    overflow-x: clip;
+  }
+
+  .carnet3 {
+    position: relative;
+    width: min(100%, 60rem);
+  }
+
+  /* Les feuilles du dessous. */
+  .carnet3__feuille {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    background: var(--card);
+    border: 1px solid var(--line);
+    transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+  }
+
+  .carnet3__feuille--1 { transform: rotate(1.2deg) translate(6px, 6px); }
+  .carnet3__feuille--2 { transform: rotate(2.4deg) translate(12px, 12px); opacity: 0.75; }
+  .carnet3__feuille--3 { transform: rotate(3.6deg) translate(18px, 18px); opacity: 0.5; }
+
+  .carnet3:hover .carnet3__feuille--1 { transform: rotate(2deg) translate(10px, 10px); }
+  .carnet3:hover .carnet3__feuille--2 { transform: rotate(4deg) translate(20px, 20px); }
+  .carnet3:hover .carnet3__feuille--3 { transform: rotate(6deg) translate(30px, 30px); }
+
+  .carnet3__page {
+    position: relative;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+    padding: clamp(var(--space-8), 4vw, var(--space-12));
+    border-radius: var(--radius-lg);
+    background: var(--stage);
+    color: var(--xp-label);
+    box-shadow: 0 30px 60px -34px rgba(35, 25, 61, 0.65);
+    transform: rotate(-0.8deg);
+    transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1), box-shadow 0.4s var(--ease-out), background-color 0.5s var(--ease-out);
+  }
+
+  .carnet3:hover .carnet3__page {
+    transform: rotate(0deg) translateY(-6px);
+    box-shadow: 0 42px 70px -34px rgba(35, 25, 61, 0.7);
+  }
+
+  /* Le marque-page qui pend. */
+  .carnet3__ruban {
+    position: absolute;
+    top: -18px;
+    right: clamp(var(--space-8), 8%, var(--space-16));
+    width: 34px;
+    height: 108px;
+    background: var(--xp-label);
+    box-shadow: 0 6px 14px -8px rgba(35, 25, 61, 0.7);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+    transition: height 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+  }
+
+  .carnet3:hover .carnet3__ruban {
+    height: 132px;
+  }
+
+  .carnet3__sur {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    text-indent: 0.24em;
+    color: rgba(255, 248, 232, 0.88);
+  }
+
+  .hm .carnet3__titre {
+    margin: 0;
+    font-family: var(--hand);
+    font-weight: 400;
+    font-size: clamp(2.8rem, 6.5vw, 5rem);
+    line-height: 0.9;
+    color: var(--xp-label);
+    max-width: 18ch;
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+  }
+
+  .hm .carnet3__titre em {
+    font-family: 'Fraunces Variable', Georgia, serif;
+    font-variation-settings: 'SOFT' 100, 'WONK' 1;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 0.62em;
+    color: var(--xp-label);
+    -webkit-text-stroke: 0;
+    display: block;
+    margin-top: 0.12em;
+  }
+
+  .hm .carnet3__sous {
+    margin: 0;
+    font-size: var(--text-lg);
+    line-height: 1.55;
+    color: rgba(255, 248, 232, 0.82);
+    max-width: 52ch;
+  }
+
+  .hm .carnet3__cta {
+    justify-self: start;
+    width: max-content;
+    max-width: 100%;
+    margin-top: var(--space-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: var(--space-4) var(--space-8);
+    border: 2px solid var(--xp-label);
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px var(--stage), 0 0 0 4px rgba(255, 248, 232, 0.4);
+    color: var(--xp-label);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: var(--text-base);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    transition: background-color 0.25s var(--ease-out), color 0.25s var(--ease-out);
+  }
+
+  .hm .carnet3__cta b {
+    display: inline-block;
+    transition: transform 0.25s var(--ease-out);
+  }
+
+  .hm .carnet3__cta:hover,
+  .hm .carnet3__cta:focus-visible {
+    background: var(--xp-label);
+    color: var(--stage);
+    outline: none;
+  }
+
+  .hm .carnet3__cta:hover b {
+    transform: translateX(6px);
+  }
+
+  /* Le tampon, en biais. */
+  .carnet3__tampon {
+    position: absolute;
+    right: clamp(var(--space-5), 5%, var(--space-10));
+    bottom: clamp(var(--space-6), 6%, var(--space-10));
+    padding: 10px 18px 8px;
+    border: 3px solid rgba(255, 248, 232, 0.8);
+    box-shadow: inset 0 0 0 2px var(--stage), inset 0 0 0 4px rgba(255, 248, 232, 0.8);
+    border-radius: 6px;
+    color: rgba(255, 248, 232, 0.8);
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-indent: 0.16em;
+    text-transform: uppercase;
+    transform: rotate(-12deg);
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.6);
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+  }
+
+  /* Au survol, le tampon retape : il remonte et se recolle d'un coup sec. */
+  .carnet3:hover .carnet3__tampon {
+    transform: rotate(-12deg) scale(1.14) translateY(-4px);
+  }
+
+  @media (max-width: 640px) {
+    .hm .carnet3__sous { font-size: var(--text-base); }
+    .carnet3__sur { letter-spacing: 0.14em; text-indent: 0.14em; padding-right: 3.5rem; }
+    .hm .carnet3__cta { width: auto; padding-inline: var(--space-5); }
+
+    .carnet3__feuille--1 { transform: rotate(0.8deg) translate(4px, 5px); }
+    .carnet3__feuille--2 { transform: rotate(1.6deg) translate(8px, 10px); }
+    .carnet3__feuille--3 { transform: rotate(2.4deg) translate(12px, 15px); }
+
+    .carnet3__tampon {
+      position: static;
+      justify-self: start;
+      transform: rotate(-6deg);
+      margin-top: var(--space-2);
+    }
+
+    .carnet3:hover .carnet3__tampon { transform: rotate(-6deg); }
+  }
+
+  .hero__then {
+    margin: var(--space-5) 0 0;
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .hero__then a {
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .hero__visual :global(.fc) {
+    --fc-accent: var(--stage);
+    --fc-accent-ink: var(--xp-label);
+    --fc-glow: var(--stage);
+    --fc-paper: var(--tint);
+  }
+
+  .hero__visual :global(.fc--strings .fc__svg) {
+    height: min(56vh, 520px);
+  }
+
+  .hero__visual :global(.fc--wide .fc__svg) {
+    max-height: min(42vh, 400px);
+  }
+
+  .hero__visual :global(.fc__play) {
+    background: var(--stage);
+    color: var(--xp-label);
+  }
+
+
+
+  /* ---------- 2. les portes ---------- */
+  .doors { padding: var(--space-16) 0; }
+
+  .doors h2,
+  .ecran h2,
+  .price h2,
+  .proof h2 { font-size: var(--text-responsive-2xl); margin: 0 0 var(--space-3); }
+
+  .doors__lead { max-width: 62ch; color: var(--ink-2); line-height: var(--leading-relaxed); margin: 0 0 var(--space-8); }
+
+  .doors__list { list-style: none; margin: 0 0 var(--space-6); padding: 0; display: grid; gap: var(--space-5); }
+
+  .door a {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--line);
+    text-decoration: none !important;
+    color: inherit;
+    box-shadow: 0 20px 40px -32px rgba(35, 25, 61, 0.55);
+    transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  .door a:hover { transform: translateY(-4px); box-shadow: 0 28px 50px -30px rgba(35, 25, 61, 0.6); }
+  .door a:focus-visible { outline: 3px solid var(--theme-current); outline-offset: 3px; }
+
+  .door__shot { position: relative; display: block; aspect-ratio: 16 / 9; background: var(--ink); }
+  .door__shot img { width: 100%; height: 100% !important; object-fit: cover; display: block; }
+  .door__shot::after { content: ''; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.6)); }
+
+  .door__name {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: var(--space-3) var(--space-5);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    line-height: 1;
+    color: #fff;
+  }
+
+  .door__body { display: grid; gap: var(--space-3); align-content: start; padding: var(--space-5); border-top: 4px solid var(--theme-current); }
+  .door__tagline { font-family: var(--display); font-weight: 700; font-size: var(--text-lg); line-height: 1.2; }
+  .door__who { font-size: var(--text-sm); color: var(--ink-2); line-height: 1.5; }
+
+  .door__levels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border-radius: var(--radius-md); overflow: hidden; background: var(--line); }
+  .lvl { display: grid; gap: 3px; padding: var(--space-3) var(--space-2); background: var(--tint); text-align: center; }
+  .lvl b { font-family: var(--display); font-weight: 600; font-size: var(--text-xs); color: var(--ink); }
+  .lvl i { font-style: normal; font-family: var(--hand); font-size: 1.68rem; line-height: 1; color: var(--stage); -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .lvl--none { background: var(--paper); }
+  .lvl--none b, .lvl--none i { color: var(--ink-2); opacity: 0.55; }
+
+  .door__foot { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-3); padding-top: var(--space-3); border-top: 1px solid var(--line); }
+  .door__count { font-size: var(--text-sm); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .door__go { font-family: var(--display); font-weight: 700; color: var(--theme-ink, var(--stage)); }
+
+  .doors__hand { margin: 0; }
+  .doors__hand a { text-decoration: underline; text-underline-offset: 4px; }
+
+  /* ---------- 3. l'écran ---------- */
+  .ecran {
+    padding: var(--space-12) 0 var(--space-16);
+  }
+
+  .ecran__grid {
+    display: grid;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .shot {
+    margin: 0;
+  }
+
+  .shot__frame {
+    position: relative;
+    aspect-ratio: 1824 / 1042;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 30px 60px -30px rgba(35, 25, 61, 0.6);
+  }
+
+  .shot__frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .shot__pin {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: 32px;
+    height: 32px;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--stage);
+    color: var(--xp-label);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: var(--text-sm);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4);
+  }
+
+  .shot figcaption {
+    margin-top: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .pins {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .pins li {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: var(--space-3);
+    align-items: start;
+  }
+
+  .pins__n {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--stage);
+    color: var(--xp-label);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: var(--text-sm);
+  }
+
+  .pins h3 {
+    margin: 4px 0 2px;
+    font-size: var(--text-lg);
+    color: var(--ink);
+  }
+
+  .pins p {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+
+  /* ---------- 5. aussi sur le site ---------- */
+  .elsewhere {
+    padding: var(--space-10) 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .elsewhere__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2) var(--space-8);
+  }
+
+  .elsewhere__list li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: var(--space-2) 0;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .elsewhere__list a {
+    font-family: var(--display);
+    font-weight: 600;
+  }
+
+  .elsewhere__list span {
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  /* ---------- 3. prix ---------- */
+  .price {
+    padding: var(--space-16) 0;
+    background: var(--tint);
+    transition: background-color 0.5s var(--ease-out);
+  }
+
+  .price__grid {
+    display: grid;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  .price__lead {
+    color: var(--ink-2);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 var(--space-5);
+    max-width: 56ch;
+  }
+
+  .assure {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+    font-family: var(--hand);
+    font-size: 2.1rem;
+    color: var(--ink-2);
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+  }
+
+  .hm sup a {
+    text-decoration: none;
+    color: var(--stage);
+    font-size: 0.7em;
+  }
+
+  .ticket {
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    background: var(--card);
+    border: 2px dashed var(--line);
+  }
+
+  .ticket__name {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: var(--text-2xl);
+  }
+
+  .ticket__price {
+    margin: 0 0 var(--space-3);
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+
+  .ticket__price strong {
+    font-family: var(--display);
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  .ticket__price span {
+    font-family: var(--hand);
+    font-size: 2.1rem;
+    color: var(--stage);
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+  }
+
+  .ticket__list {
+    list-style: none;
+    margin: 0 0 var(--space-3);
+    padding: 0;
+    display: grid;
+    gap: 4px;
+    font-family: var(--display);
+    font-weight: 600;
+  }
+
+  .ticket__list em {
+    font-style: normal;
+    font-weight: 400;
+    font-family: var(--xp-text);
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .ticket__terms {
+    margin: 0 0 var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .ticket__hesite {
+    margin-top: var(--space-4);
+    font-size: 2.1rem;
+  }
+
+  /* ---------- 4. preuve ---------- */
+  .proof {
+    padding: var(--space-16) 0 var(--space-10);
+  }
+
+  .proof__rating {
+    margin: 0 0 var(--space-6);
+    color: var(--ink-2);
+  }
+
+  .proof__rating strong {
+    font-family: var(--display);
+    font-size: var(--text-2xl);
+    color: var(--ink);
+  }
+
+  .quotes {
+    list-style: none;
+    margin: 0 0 var(--space-6);
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .quotes li {
+    padding: var(--space-4) var(--space-5);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--theme-current, var(--stage));
+    border-radius: var(--radius-lg);
+  }
+
+  .quotes p {
+    margin: 0 0 var(--space-2);
+    line-height: var(--leading-relaxed);
+  }
+
+  .quotes footer {
+    font-size: var(--text-xs);
+    color: var(--ink-2);
+  }
+
+  .notes {
+    padding: 0 var(--space-4) var(--space-12);
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .notes ol {
+    margin: 0;
+    padding-left: var(--space-5);
+    display: grid;
+    gap: var(--space-2);
+    max-width: 80ch;
+  }
+
+  @media (min-width: 900px) {
+    .hero__grid {
+      grid-template-columns: 6fr 5fr;
+      gap: var(--space-12);
+    }
+
+    .doors__list {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+    }
+
+
+    .ecran__grid {
+      grid-template-columns: 7fr 5fr;
+      gap: var(--space-12);
+    }
+
+    .elsewhere__list {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .price__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-12);
+    }
+
+    .quotes {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 899px) {
+    .rungs__list {
+      flex-direction: column;
+      overflow: visible;
+    }
+
+    .rungs__list::before {
+      display: none;
+    }
+
+    .rung {
+      flex-basis: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero,
+    .price,
+    .btn,
+    .carnet3__page,
+    .carnet3__feuille,
+    .carnet3__ruban,
+    .carnet3__tampon,
+    .carnet3__cta,
+    .carnet3__cta b,
+    .door a {
+      transition: none;
+    }
+
+    .carnet3:hover .carnet3__page {
+      transform: rotate(-0.8deg);
+    }
+
+    .carnet3:hover .carnet3__tampon {
+      transform: rotate(-12deg);
+    }
+  }
+</style>
+
+<script>
+  /* Le header prend la couleur de l'univers : on la pose sur <body>, qui est
+     son parent (voir src/utils/theme.ts pour les pages statiques). */
+  const univers = () => document.querySelector<HTMLInputElement>('input[name="instrument"]:checked')?.value ?? 'guitar';
+  const peindre = () => {
+    document.body.classList.remove('theme-guitar', 'theme-piano', 'theme-ukulele', 'theme-solfege');
+    document.body.classList.add(`theme-${univers()}`);
+  };
+  document.querySelectorAll('input[name="instrument"]').forEach((r) => r.addEventListener('change', peindre));
+  peindre();
+</script>

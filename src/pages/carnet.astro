@@ -1,0 +1,2378 @@
+---
+/**
+ * carnet.astro — « Le Carnet des 30 jours », la page de la rentrée.
+ *
+ * URL : /carnet/ — PAGE CACHÉE pour l'instant : noindex/nofollow, Disallow.
+ * Décision de Fred (2026-09-05) : ce n'est pas la home, c'est la première pièce
+ * où l'on entre. La home (/home-v8/) y envoie ; `?instrument=` pré-règle le choix.
+ *
+ * L'IDÉE
+ * Ce n'est pas une page qui présente le cours, c'est le cours qui commence.
+ * Un carnet, une page par jour, et chaque page se joue : le jour 1 on accorde
+ * l'instrument (ou on trouve le do, ou on lit sa première note), le jour 3
+ * on gratte son premier accord, le jour 8 on tape la rythmique sur le tempo,
+ * le jour 30 on enchaîne les quatre accords qui font des centaines de
+ * chansons. Le prix et le prof sont deux pages du carnet, pas un bloc de vente.
+ *
+ * Tout ce que le visiteur fait ici correspond à un chapitre réel du cours
+ * (timeline des fiches, src/data/home-v2.ts). Les sons sont synthétisés dans
+ * le navigateur (synth.ts) et annoncés comme tels.
+ *
+ * Références étudiées : Chrome Music Lab (apprendre en manipulant), Ableton
+ * Learning Music (chaque notion est un jouet), et les carnets ludo-pédagogiques
+ * de la formation d'adultes (une page, une activité, une trace).
+ */
+import '@fontsource-variable/rubik/wght.css';
+import '@fontsource-variable/rubik/wght-italic.css';
+import '@fontsource/square-peg/400.css';
+import '../styles/experience-colors.css';
+import '../styles/experience-fonts.css';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FooterModern from '../components/FooterModern.astro';
+import FirstChord from '../components/home/FirstChord.astro';
+import { paths, journey, reassurance, rentree, fred } from '../data/home-v2';
+import { testimonials, formatTestimonialDate } from '../data/testimonials';
+import { rating, reviews, students, reviewsSource } from '../data/proof';
+
+const title = 'Le carnet des 30 jours | Musique Facile';
+const description =
+  'Trente jours, un carnet, et vous jouez : accorder, premier accord, rythmique, premier morceau. Chaque page se joue dans le navigateur.';
+
+const tuning = {
+  guitar: [
+    { n: 'Mi', f: 82.41 },
+    { n: 'La', f: 110 },
+    { n: 'Ré', f: 146.83 },
+    { n: 'Sol', f: 196 },
+    { n: 'Si', f: 246.94 },
+    { n: 'Mi', f: 329.63 },
+  ],
+  ukulele: [
+    { n: 'Sol', f: 392 },
+    { n: 'Do', f: 261.63 },
+    { n: 'Mi', f: 329.63 },
+    { n: 'La', f: 440 },
+  ],
+};
+
+/* Clavier deux octaves pour « trouver le do » : le do est à gauche du groupe de deux noires. */
+const WHITE = ['do', 'ré', 'mi', 'fa', 'sol', 'la', 'si'];
+const whites2 = Array.from({ length: 14 }, (_, i) => ({ n: WHITE[i % 7], f: 261.63 * Math.pow(2, [0, 2, 4, 5, 7, 9, 11][i % 7] / 12) * (i >= 7 ? 2 : 1) }));
+const blackAfter = [0, 1, 3, 4, 5, 7, 8, 10, 11, 12];
+
+const quotes = testimonials.filter((t) => ['valerie-b-2025-09', 'cecile-l-2025-11', 'jean-pierre-g-2025-09'].includes(t.id));
+const LABELS = { guitar: 'Guitare', piano: 'Piano', ukulele: 'Ukulélé', solfege: 'Solfège' } as const;
+/* Jour 15 : Au clair de la lune (domaine public), en do majeur. Durées en temps, noire = 1. */
+type N = [string, number];
+const A: N[] = [['do4', 1], ['do4', 1], ['do4', 1], ['re4', 1], ['mi4', 2], ['re4', 2], ['do4', 1], ['mi4', 1], ['re4', 1], ['re4', 1], ['do4', 4]];
+const C: N[] = [['re4', 1], ['re4', 1], ['re4', 1], ['re4', 1], ['la3', 2], ['la3', 2], ['re4', 1], ['do4', 1], ['si3', 1], ['la3', 1], ['sol3', 4]];
+const phrases = [
+  { words: 'Au clair de la lune, mon ami Pierrot', notes: A },
+  { words: 'Prête-moi ta plume pour écrire un mot', notes: A },
+  { words: 'Ma chandelle est morte, je n’ai plus de feu', notes: C },
+  { words: 'Ouvre-moi ta porte, pour l’amour de Dieu', notes: A },
+];
+const LANES = ['sol3', 'la3', 'si3', 'do4', 're4', 'mi4'];
+const LANE_NAME: Record<string, string> = { sol3: 'sol', la3: 'la', si3: 'si', do4: 'do', re4: 'ré', mi4: 'mi' };
+const FREQ: Record<string, number> = { sol3: 196, la3: 220, si3: 246.94, do4: 261.63, re4: 293.66, mi4: 329.63 };
+const BEAT = 84;
+const totalNotes = phrases.reduce((n, ph) => n + ph.notes.length, 0);
+
+const tabs = [
+  ['couverture', 'Couverture'],
+  ['maintenant', 'Maintenant'],
+  ['jour-1', 'Jour 1'],
+  ['jour-3', 'Jour 3'],
+  ['jour-8', 'Jour 8'],
+  ['jour-15', 'Jour 15'],
+  ['jour-30', 'Jour 30'],
+  ['prix', 'Le prix'],
+  ['fred', 'Fred'],
+];
+---
+
+<Layout title={title} description={description} canonicalUrl="https://musique-facile.fr/carnet/" robots="noindex, nofollow">
+  <Header />
+
+  <div class="cn xp">
+    <nav class="tabs" aria-label="Pages du carnet">
+      {tabs.map(([id, label]) => <a href={`#${id}`} data-tab={id}>{label}</a>)}
+    </nav>
+    <button type="button" class="sound" data-sound-toggle aria-pressed="true">Son activé</button>
+    <p class="brandline" aria-hidden="true">Musique Facile · école de musique en ligne · {rentree.season}</p>
+
+    <!-- Couverture : ce qu'on est, puis le jeu -->
+    <section class="page page--cover" id="couverture" aria-labelledby="cover-title">
+      <div class="cover">
+        <p class="cover__season">{rentree.season}</p>
+        <div class="cover__label">
+          <p class="cover__kicker">Musique Facile · école de musique en ligne depuis 2015</p>
+          <h1 id="cover-title">Une école de musique en ligne. <em>Un prof, quatre instruments, et on apprend en jouant.</em></h1>
+          <div class="cover__id">
+            <img src={fred.photo} alt="Fred Fieffé, un ukulélé à la main" width="800" height="800" loading="eager" decoding="async" />
+            <p>
+              Fred Fieffé enseigne la guitare, le piano, le ukulélé et le solfège à des adultes qui débutent :
+              {students.display} élèves depuis 2015, <strong>{rating.display}</strong> sur
+              <a href={reviewsSource.url} rel="noopener nofollow" target="_blank">{reviews.display} avis</a>. Des cours
+              vidéo qu'on achète une fois et qu'on garde à vie, avec le même prof du premier accord au dernier morceau.
+            </p>
+          </div>
+          <p class="hand">Et chez nous, on apprend en jouant. La preuve : choisissez, puis tournez la page.</p>
+          <fieldset class="pick">
+            <legend>Mon instrument</legend>
+            <div class="pick__options">
+              {paths.map((p, i) => (
+                <label class={`pick__opt theme-${p.id}`}>
+                  <input type="radio" name="instrument" id={`pick-${p.id}`} value={p.id} checked={i === 0} />
+                  <span>{p.label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <p class="cover__progress" data-progress hidden></p>
+          <a href="#maintenant" class="btn btn--sun">Ouvrir le carnet</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Maintenant : le bloc rentrée, énorme -->
+    <section class="page page--now" id="maintenant" aria-labelledby="now-title">
+      <div class="now">
+        <p class="cover__kicker">{rentree.season} · page 1</p>
+        <h2 id="now-title">Le meilleur moment pour commencer la musique, <em>c'est maintenant.</em></h2>
+        <p class="now__why" data-now-why>
+          Trente jours de quinze minutes, dans l'ordre du cours, et le premier morceau arrive. Le calendrier ci-dessous
+          part d'aujourd'hui.
+        </p>
+        <ol class="cal30" data-cal aria-label="Vos trente premiers jours"></ol>
+        <div class="now__foot">
+          <button type="button" class="btn btn--sun" data-check-day1>Cocher le jour 1</button>
+          <span class="stamp stamp--inline" data-stamp hidden>Jour 1 coché</span>
+          <p class="now__terms">
+            Vacances de la Toussaint : {rentree.toussaintLabel}<sup><a href="#note-6" aria-label="Note 6">6</a></sup>.
+            {paths.map((p) => (
+              <span data-for={p.id}>
+                {p.offer.includes.length > 1
+                  ? ` ${rentree.offerLabel} : le ${p.offer.name} à ${p.offer.price}, jusqu'au ${rentree.offerEndsLabel}.`
+                  : ` Le cours ${p.offer.name} : ${p.offer.price}, une fois.`}
+              </span>
+            ))}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Jour 1 -->
+    <section class="page" id="jour-1" aria-labelledby="j1-title">
+      <div class="sheet">
+        <span class="sheet__tab">Jour 1</span>
+        <span class="stamp" data-stamp hidden>Fait !</span>
+        <header class="sheet__head">
+          <span class="day">Jour 1</span>
+          <h2 id="j1-title">
+            <span data-for="guitar">Accorder la guitare</span>
+            <span data-for="ukulele">Accorder le ukulélé</span>
+            <span data-for="piano">Trouver le do</span>
+            <span data-for="solfege">Lire sa première note</span>
+          </h2>
+          <p class="hand">C'est la toute première leçon. Personne ne saute cette page.</p>
+        </header>
+
+        <div class="sheet__grid">
+          <div class="sheet__game">
+            {(['guitar', 'ukulele'] as const).map((id) => (
+              <div class="game tune" data-game="tune" data-for={id}>
+                <p class="game__how">
+                  Chaque corde est un peu fausse. Écoutez-la, comparez à la note juste, montez ou descendez. Avec
+                  l'aiguille pour commencer ; à l'oreille quand vous vous sentez prêt.
+                </p>
+                <div class="tune__mode" role="group" aria-label="Mode d'accordage">
+                  <button type="button" class="is-on" data-mode="needle" aria-pressed="true">Avec l'aiguille</button>
+                  <button type="button" data-mode="ear" aria-pressed="false">À l'oreille</button>
+                </div>
+                {tuning[id].map((s) => (
+                  <div class="tune__row" data-target={s.f}>
+                    <span class="tune__name">{s.n}</span>
+                    <div class="tune__meter" aria-hidden="true"><i class="tune__needle"></i></div>
+                    <div class="tune__btns">
+                      <button type="button" data-peg="-1" aria-label={`Baisser la corde de ${s.n}`}>▼</button>
+                      <button type="button" data-play aria-label={`Écouter la corde de ${s.n}`}>▶ corde</button>
+                      <button type="button" data-ref aria-label={`Écouter la note juste de ${s.n}`}>◎ juste</button>
+                      <button type="button" data-peg="1" aria-label={`Monter la corde de ${s.n}`}>▲</button>
+                    </div>
+                    <span class="tune__ok" aria-live="polite"></span>
+                  </div>
+                ))}
+                <div class="tune__actions">
+                  <button type="button" class="btn btn--ink" data-verify hidden>Vérifier</button>
+                </div>
+                <p class="game__result" data-result aria-live="polite"></p>
+                <div class="tune__diff" data-diff hidden>
+                  <p class="hand">Écoutez la différence :</p>
+                  <button type="button" data-before>▶ Avant, désaccordée</button>
+                  <button type="button" data-after>▶ Après, accordée</button>
+                </div>
+              </div>
+            ))}
+
+            <div class="game finddo" data-game="finddo" data-for="piano">
+              <p class="game__how">
+                Aucune touche n'est marquée. Trouvez un <strong>do</strong>. Indice : il est juste à gauche d'un groupe
+                de <em>deux</em> touches noires.
+              </p>
+              <svg class="kb" viewBox="0 0 980 260" role="group" aria-label="Clavier de deux octaves, sans étiquettes">
+                {whites2.map((k, i) => (
+                  <g class="kb__key" role="button" tabindex="0" aria-label="Touche blanche" data-freq={k.f} data-name={k.n} data-target={k.n === 'do' ? '1' : undefined}>
+                    <rect x={i * 70 + 1} y="0" width="68" height="256" rx="6" class="kb__white" />
+                  </g>
+                ))}
+                {blackAfter.map((a) => (
+                  <g class="kb__key kb__key--black" role="button" tabindex="0" aria-label="Touche noire" data-freq={whites2[a].f * Math.pow(2, 1 / 12)} data-name="noire">
+                    <rect x={(a + 1) * 70 - 22} y="0" width="44" height="160" rx="5" class="kb__black" />
+                  </g>
+                ))}
+              </svg>
+              <p class="game__result" data-result aria-live="polite"></p>
+            </div>
+
+            <div class="game readnote" data-game="readnote" data-for="solfege">
+              <p class="game__how">
+                Une note est posée sur la portée. Laquelle est-ce ? Cinq essais, et vous verrez : ça vient très vite.
+              </p>
+              <svg class="staff" viewBox="0 0 520 220" role="img" aria-label="Portée en clé de sol avec une note à lire">
+                {[70, 90, 110, 130, 150].map((y) => <line x1="20" x2="500" y1={y} y2={y} />)}
+                <text x="28" y="152" class="staff__clef">𝄞</text>
+                <line class="staff__ledger" x1="282" x2="318" y1="170" y2="170" />
+                <ellipse class="staff__note" cx="300" cy="170" rx="12" ry="8.5" transform="rotate(-20 300 170)" />
+              </svg>
+              <div class="readnote__btns">
+                {['do', 'ré', 'mi', 'fa', 'sol'].map((n) => <button type="button" data-answer={n}>{n}</button>)}
+              </div>
+              <p class="game__result" data-result aria-live="polite"></p>
+            </div>
+          </div>
+
+          {paths.map((p) => (
+            <figure class="polaroid" data-for={p.id}>
+              <img src={journey[0].byInstrument[p.id].image} alt={journey[0].byInstrument[p.id].imageAlt} width="1824" height="1042" loading="lazy" decoding="async" />
+              <figcaption>Chapitre 1 du cours, tel qu'il s'affiche : {journey[0].byInstrument[p.id].title.toLowerCase()}.</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Jour 3 -->
+    <section class="page" id="jour-3" aria-labelledby="j3-title">
+      <div class="sheet">
+        <span class="sheet__tab">Jour 3</span>
+        <span class="stamp" data-stamp hidden>Fait !</span>
+        <header class="sheet__head">
+          <span class="day">Jour 3</span>
+          <h2 id="j3-title">
+            <span data-for="guitar">Le premier accord, et déjà un son</span>
+            <span data-for="ukulele">Un doigt, et déjà un accord</span>
+            <span data-for="piano">Trois touches, et déjà un accord</span>
+            <span data-for="solfege">Cinq notes, et déjà une phrase</span>
+          </h2>
+          <p class="hand">Le jour où la plupart des gens comprennent qu'ils vont y arriver.</p>
+        </header>
+        <div class="sheet__chord">
+          <FirstChord />
+        </div>
+      </div>
+    </section>
+
+    <!-- Jour 8 -->
+    <section class="page" id="jour-8" aria-labelledby="j8-title">
+      <div class="sheet">
+        <span class="sheet__tab">Jour 8</span>
+        <span class="stamp" data-stamp hidden>Fait !</span>
+        <header class="sheet__head">
+          <span class="day">Jour 8</span>
+          <h2 id="j8-title">La rythmique : tenir le tempo</h2>
+          <p class="hand">Coup vers le bas, coup vers le haut. Le secret, c'est la régularité, pas la vitesse.</p>
+        </header>
+        <div class="sheet__grid">
+          <div class="game beat" data-game="beat">
+            <p class="game__how">
+              Lancez le métronome, écoutez deux mesures, puis tapez sur le gros bouton (ou la barre d'espace) à chaque
+              temps. Huit temps, on compte les bons.
+            </p>
+            <div class="beat__dots" aria-hidden="true">
+              {[0, 1, 2, 3].map(() => <i></i>)}
+            </div>
+            <p class="beat__arrows" aria-hidden="true">↓ ↓ ↑ ↓ ↑ ↓ ↓ ↑</p>
+            <div class="beat__ctl">
+              <button type="button" class="btn btn--ink" data-start>Lancer le métronome</button>
+              <button type="button" class="beat__tap" data-tap aria-label="Taper le temps">TAP</button>
+            </div>
+            <p class="game__result" data-result aria-live="polite"></p>
+          </div>
+          {paths.map((p) => (
+            <figure class="polaroid" data-for={p.id}>
+              <img src={journey[1].byInstrument[p.id].image} alt={journey[1].byInstrument[p.id].imageAlt} width="1824" height="1042" loading="lazy" decoding="async" />
+              <figcaption>Chapitre 2 : {journey[1].byInstrument[p.id].title.toLowerCase()}.</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Jour 15 : la partition qui se joue en défilant -->
+    <section class="page page--roll" id="jour-15" aria-labelledby="j15-title">
+      <div class="sheet sheet--slim">
+        <span class="sheet__tab">Jour 15</span>
+        <span class="stamp" data-stamp hidden>Fait !</span>
+        <header class="sheet__head">
+          <span class="day">Jour 15</span>
+          <h2 id="j15-title">Votre premier morceau, <em>en défilant</em></h2>
+          <p class="hand">Une ligne reste fixe à l'écran. Chaque note qui la croise sonne. Descendez doucement : c'est vous qui jouez.</p>
+          <p class="roll__count"><strong data-count>0</strong> / {totalNotes} notes · <em>Au clair de la lune</em>, chanson traditionnelle<sup><a href="#note-7" aria-label="Note 7">7</a></sup></p>
+        </header>
+      </div>
+
+      <div class="roll" data-roll>
+        <div class="roll__playhead" data-playhead aria-hidden="true"><span>maintenant</span></div>
+        <div class="roll__lanes" aria-hidden="true">
+          {LANES.map((l) => <span class="roll__lane"><b>{LANE_NAME[l]}</b></span>)}
+        </div>
+        {phrases.map((ph, pi) => (
+          <div class="roll__phrase" aria-label={`Phrase ${pi + 1} : ${ph.words}`}>
+            <p class="roll__words">{ph.words}</p>
+            {ph.notes.map(([n, d]) => (
+              <div class="roll__row" style={`height: ${d * BEAT}px`}>
+                <button type="button" class="roll__note" style={`--lane: ${LANES.indexOf(n)}; --dur: ${d}`} data-note data-freq={FREQ[n]} data-name={LANE_NAME[n]} aria-label={`Note ${LANE_NAME[n]}`}>
+                  <span>{LANE_NAME[n]}</span>
+                </button>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <div class="sheet sheet--slim">
+        <p class="hand">Vous venez de jouer Au clair de la lune. Sans partition, sans solfège.</p>
+        <div class="replay" data-replay hidden>
+          <p class="game__how">Et voilà comment vous l'avez joué, exactement à votre rythme :</p>
+          <div class="replay__strip" data-strip aria-hidden="true"></div>
+          <button type="button" class="btn btn--ink" data-replay-btn>Réécouter ma version</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Jour 30 -->
+    <section class="page" id="jour-30" aria-labelledby="j30-title">
+      <div class="sheet">
+        <span class="sheet__tab">Jour 30</span>
+        <span class="stamp" data-stamp hidden>Fait !</span>
+        <header class="sheet__head">
+          <span class="day">Jour 30</span>
+          <h2 id="j30-title">Quatre accords, des centaines de chansons</h2>
+          <p class="hand">C, G, Am, F. Enchaînez-les dans l'ordre, et écoutez ce que ça donne.</p>
+        </header>
+        <div class="sheet__grid">
+          <div class="game chords" data-game="chords">
+            <p class="game__how">
+              Suivez la suite affichée. Chaque bouton joue l'accord avec le son de votre instrument. Quatre dans
+              l'ordre, et c'est un morceau.
+            </p>
+            <p class="chords__seq" aria-live="polite">
+              {['C', 'G', 'Am', 'F'].map((c, i) => <span data-seq={i}>{c}</span>)}
+            </p>
+            <div class="chords__btns">
+              {['C', 'G', 'Am', 'F'].map((c) => <button type="button" data-chord={c}>{c}</button>)}
+            </div>
+            <p class="game__result" data-result aria-live="polite"></p>
+          </div>
+          {paths.map((p) => (
+            <figure class="polaroid" data-for={p.id}>
+              <img src={journey[3].byInstrument[p.id].image} alt={journey[3].byInstrument[p.id].imageAlt} width="1824" height="1042" loading="lazy" decoding="async" />
+              <figcaption>Chapitre 4 : {journey[3].byInstrument[p.id].title.toLowerCase()}.</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Le prix -->
+    <section class="page" id="prix" aria-labelledby="prix-title">
+      <div class="sheet">
+        <span class="sheet__tab">Le prix</span>
+        <header class="sheet__head">
+          <span class="day">Page 31</span>
+          <h2 id="prix-title">Ce carnet, c'est le cours. <em>Et il s'achète une fois.</em></h2>
+          <p class="hand">Pas d'abonnement, rien à résilier, l'accès n'expire pas.</p>
+        </header>
+        {paths.map((p) => (
+          <div class="ticket" data-for={p.id}>
+            <div class="ticket__main">
+              <p class="ticket__name">{p.offer.name}</p>
+              <p class="ticket__price"><strong>{p.offer.price}</strong> <span>une fois</span></p>
+              <ul class="ticket__list" role="list">
+                {p.offer.includes.map((i) => <li>{i.title}{p.offer.includes.length > 1 && <em> · {i.price} seul</em>}</li>)}
+              </ul>
+              {p.offer.includes.length > 1 && (
+                <p class="ticket__terms">
+                  {rentree.offerLabel} jusqu'au {rentree.offerEndsLabel} · pour {p.offer.separately} de formations prises
+                  séparément<sup><a href="#note-5" aria-label="Note 5">5</a></sup>
+                </p>
+              )}
+              {p.offer.note && <p class="ticket__terms">{p.offer.note}</p>}
+              <a href={p.offer.url} class="btn btn--sun">Commencer {p.object} · {p.offer.price}</a>
+              <p class="hand ticket__hesite">
+                Vous hésitez encore ? <a href={`/on-discute/?instrument=${p.id}`}>On en discute deux minutes avec Fred.</a>
+              </p>
+            </div>
+            <ul class="ticket__assure" role="list">
+              {reassurance.map((r, i) => (
+                <li>
+                  {r.label}<sup><a href={`#note-${i + 1}`} aria-label={`Note ${i + 1}`}>{i + 1}</a></sup>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Fred -->
+    <section class="page" id="fred" aria-labelledby="fred-title">
+      <div class="sheet">
+        <span class="sheet__tab">Fred</span>
+        <header class="sheet__head">
+          <span class="day">Dernière page</span>
+          <h2 id="fred-title">Je m'appelle Fred. <em>C'est moi sur chaque leçon.</em></h2>
+        </header>
+        <div class="sheet__grid sheet__grid--fred">
+          <figure class="polaroid polaroid--fred">
+            <img src={fred.photo} alt="Fred Fieffé, souriant, un ukulélé à la main" width="800" height="800" loading="lazy" decoding="async" />
+            <figcaption>Fred Fieffé, musicien depuis plus de 40 ans, prof en ligne depuis 2015.</figcaption>
+          </figure>
+          <div>
+            <p class="fred__text">
+              Je joue depuis plus de quarante ans et j'enseigne en ligne depuis 2015. Ce que j'ai appris en
+              {students.display} élèves tient en une phrase : un adulte qui débute n'a pas besoin de théorie, il a besoin
+              de jouer quelque chose dès la première semaine. Ce carnet, c'est ça.
+            </p>
+            <ul class="notes-wall" role="list">
+              {quotes.map((t) => (
+                <li class={`sticky theme-${t.instrument}`}>
+                  <p>« {t.quote} »</p>
+                  <footer>{t.name} · {LABELS[t.instrument]} · {formatTestimonialDate(t.date, t.datePrecision)} · <a href={t.sourceUrl} rel="noopener nofollow" target="_blank">{t.sourceName}</a></footer>
+                </li>
+              ))}
+            </ul>
+            <p class="fred__links">
+              <a href={fred.aboutUrl}>Mon parcours</a> · <a href="/faq/">Les questions fréquentes</a> · <a href="/contact/">M'écrire</a> ·
+              <a href="#couverture">Reprendre au jour 1</a>
+            </p>
+          </div>
+        </div>
+        <ol class="notes" aria-label="Notes et sources">
+          {reassurance.map((r, i) => (
+            <li id={`note-${i + 1}`}>{r.note} <a href={r.href}>Voir {r.linkLabel}</a>.</li>
+          ))}
+          <li id="note-5">Somme des prix de chaque formation prise seule, tels qu'affichés sur les fiches cours le 4 septembre 2026. Ce n'est pas un ancien prix du Pack.</li>
+          <li id="note-6">{rentree.source} Vacances de la Toussaint {rentree.toussaintRange}, toutes zones.</li>
+          <li id="note-7">« Au clair de la lune » est une chanson traditionnelle du XVIIIe siècle, dans le domaine public.</li>
+          <li>Les sons de ce carnet sont synthétisés dans le navigateur, pour la démonstration. Les vraies leçons sont en vidéo, avec un vrai instrument.</li>
+        </ol>
+      </div>
+    </section>
+  </div>
+
+  <FooterModern />
+</Layout>
+
+<style>
+  :global(html) {
+    scroll-snap-type: y proximity;
+  }
+
+  .cn {
+    --display: var(--xp-display);
+    --serif: var(--xp-display);
+    --hand: var(--xp-voice);
+    --paper: #f3ecdd;
+    --sheet: #fffaf0;
+    --ink: #23193d;
+    --ink-2: #5a4f75;
+    --line: rgba(35, 25, 61, 0.14);
+    --rule: rgba(35, 25, 61, 0.1);
+    --margin: rgba(214, 72, 72, 0.45);
+    --hv-ink: var(--ink);
+    --hv-ink-2: var(--ink-2);
+    --hv-card: var(--sheet);
+    --hv-line: var(--line);
+    --hv-accent: var(--stage);
+    --hv-accent-ink: var(--stage);
+    --hv-display: var(--display);
+    --hv-serif: var(--serif);
+    --hv-hand: var(--hand);
+    color-scheme: light;
+    --bg-page: var(--paper);
+    --bg-alt: var(--paper);
+    --bg-card: var(--sheet);
+    --bg-elevated: var(--sheet);
+    --text-primary: var(--ink);
+    --text-secondary: var(--ink-2);
+    --text-muted: var(--ink-2);
+    --border-default: var(--line);
+    --surface-white: var(--sheet);
+    --surface-light: var(--paper);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--xp-text);
+    position: relative;
+  }
+
+  /* La voix à la main : Shantell Sans, réglée en informel. */
+  .cn .hand, .cn .cover__season, .cn .tabs a, .cn .sheet__tab, .cn .day, .cn .pick legend, .cn .pick__opt span,
+  .cn .game__result, .cn .tune__ok, .cn .polaroid figcaption, .cn .ticket__price span, .cn .ticket__assure, .cn .sticky,
+  .cn .stamp {
+    font-variation-settings: var(--xp-voice-settings);
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+    font-weight: 400;
+  }
+
+
+
+  .cn:has(#pick-guitar:checked) :global([data-for]:not([data-for='guitar'])),
+  .cn:has(#pick-piano:checked) :global([data-for]:not([data-for='piano'])),
+  .cn:has(#pick-ukulele:checked) :global([data-for]:not([data-for='ukulele'])),
+  .cn:has(#pick-solfege:checked) :global([data-for]:not([data-for='solfege'])) {
+    display: none !important;
+  }
+
+  @supports not selector(:has(*)) {
+    .cn :global([data-for]:not([data-for='guitar'])) {
+      display: none !important;
+    }
+  }
+
+  .cn h1,
+  .cn h2 {
+    font-family: var(--display);
+    font-variation-settings: var(--xp-display-settings);
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+
+  .cn h1 em,
+  .cn h2 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--stage);
+  }
+
+  .cn p {
+    text-wrap: pretty;
+  }
+
+  .cn a:not(.btn) {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .hand {
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 2.58rem;
+    line-height: 1.1;
+    color: var(--stage);
+    margin: 0;
+    transform: rotate(-1.5deg);
+    transform-origin: left;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-md);
+    font-family: var(--display);
+    font-weight: 600;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+    transition: transform var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .btn--sun {
+    background: var(--sun);
+    color: var(--sun-ink);
+    box-shadow: 0 6px 0 -2px rgba(35, 25, 61, 0.18);
+  }
+
+  .btn--ink {
+    background: var(--ink);
+    color: var(--sheet);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn:focus-visible {
+    outline: 3px solid var(--stage);
+    outline-offset: 3px;
+  }
+
+  /* ---------- onglets et son ---------- */
+  .tabs {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: var(--z-sticky);
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tabs a {
+    writing-mode: vertical-rl;
+    padding: var(--space-3) 6px;
+    background: var(--sheet);
+    border: 1px solid var(--line);
+    border-right: 0;
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 1.74rem;
+    text-decoration: none;
+    color: var(--ink-2);
+    transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+  }
+
+  .tabs a.is-active {
+    background: var(--sun);
+    color: var(--sun-ink);
+  }
+
+  .sound {
+    position: fixed;
+    left: var(--space-4);
+    bottom: var(--space-4);
+    z-index: var(--z-sticky);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--line);
+    background: var(--sheet);
+    color: var(--ink);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    cursor: pointer;
+  }
+
+  .sound[aria-pressed='false'] {
+    text-decoration: line-through;
+    color: var(--ink-2);
+  }
+
+  /* ---------- en-tête de cahier ---------- */
+  .brandline {
+    position: fixed;
+    top: calc(80px + 10px);
+    left: var(--space-4);
+    z-index: var(--z-sticky);
+    margin: 0;
+    padding: 4px 10px;
+    border-radius: 3px;
+    background: var(--sheet);
+    border: 1px solid var(--line);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+
+
+
+  /* ---------- pages ---------- */
+  .page {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    padding: calc(80px + 52px) var(--space-4) var(--space-10);
+    display: grid;
+    align-items: start;
+  }
+
+  .page--cover {
+    background: var(--tint);
+    transition: background-color 0.5s var(--ease-out);
+    align-items: center;
+  }
+
+  .cover {
+    max-width: 880px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .cover__season {
+    display: inline-block;
+    margin: 0 0 var(--space-4);
+    padding: 4px 12px;
+    border-radius: 3px;
+    background: var(--sun);
+    color: var(--sun-ink);
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 2.16rem;
+    transform: rotate(-3deg);
+  }
+
+  .cover__label {
+    background: var(--sheet);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    box-shadow: 0 30px 60px -30px rgba(35, 25, 61, 0.35);
+    border: 1px solid var(--line);
+    transform: rotate(-1deg);
+    position: relative;
+  }
+
+  .cover__label::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 40px;
+    width: 110px;
+    height: 28px;
+    background: rgba(255, 236, 200, 0.9);
+    transform: rotate(-6deg);
+  }
+
+  .cover__kicker {
+    margin: 0 0 var(--space-3);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--stage);
+  }
+
+  .cover h1 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1;
+    margin: 0 0 var(--space-4);
+    font-weight: 700;
+  }
+
+  .cover__id {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: var(--space-4);
+    align-items: center;
+    margin: 0 0 var(--space-5);
+  }
+
+  .cover__id img {
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--sheet);
+    box-shadow: 0 8px 20px -10px rgba(35, 25, 61, 0.5);
+    transform: rotate(-4deg);
+  }
+
+  .cover__id p {
+    margin: 0;
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--ink-2);
+    max-width: 62ch;
+  }
+
+  .cover__id strong {
+    color: var(--ink);
+  }
+
+  .cover .hand {
+    margin: 0 0 var(--space-5);
+  }
+
+  /* ---------- Maintenant ---------- */
+  .page--now {
+    background: var(--tint);
+    transition: background-color 0.5s var(--ease-out);
+    align-items: center;
+  }
+
+  .now {
+    position: relative;
+    max-width: 1040px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .now .cover__kicker {
+    color: var(--stage);
+  }
+
+  .now h2 {
+    font-size: clamp(2.4rem, 6.4vw, 5.4rem);
+    line-height: 0.98;
+    margin: 0 0 var(--space-5);
+    max-width: 14ch;
+  }
+
+  .now__why {
+    max-width: 62ch;
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--ink-2);
+    margin: 0 0 var(--space-6);
+  }
+
+  .cal30 {
+    list-style: none;
+    margin: 0 0 var(--space-6);
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+  }
+
+  .cal30 :global(li) {
+    min-width: 0;
+    aspect-ratio: 1;
+    display: grid;
+    align-content: space-between;
+    padding: 8px;
+    border-radius: 8px;
+    background: var(--sheet);
+    border: 1px solid var(--line);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+    position: relative;
+  }
+
+  .cal30 :global(li small) {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 1.15;
+    color: var(--ink-2);
+    overflow-wrap: anywhere;
+  }
+
+  .cal30 :global(li.is-first),
+  .cal30 :global(li.is-last) {
+    background: var(--stage);
+    color: var(--xp-label);
+    border-color: var(--stage);
+  }
+
+  .cal30 :global(li.is-first small),
+  .cal30 :global(li.is-last small) {
+    color: rgba(255, 248, 232, 0.85);
+  }
+
+  .cal30 :global(li.is-holiday) {
+    border-style: dashed;
+    border-color: var(--stage);
+  }
+
+  .cal30 :global(li b) {
+    display: block;
+    font-family: var(--hand);
+    font-weight: 400;
+    font-size: 1.38rem;
+    line-height: 1;
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+  }
+
+  .cal30 :global(li.is-checked::after) {
+    content: '✓';
+    position: absolute;
+    right: 8px;
+    top: 4px;
+    font-family: var(--hand);
+    font-size: 1.92rem;
+    color: currentColor;
+  }
+
+  .now__foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .stamp--inline {
+    position: static;
+    animation-name: stamp-in-inline;
+    transform: rotate(-4deg);
+    font-size: 2.16rem;
+  }
+
+  @keyframes stamp-in-inline {
+    from { transform: rotate(-4deg) scale(2); opacity: 0; }
+    to { transform: rotate(-4deg) scale(1); opacity: 1; }
+  }
+
+  .now__terms {
+    flex-basis: 100%;
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .now__terms sup a {
+    text-decoration: none;
+    color: var(--stage);
+  }
+
+  .cover__lead {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--ink-2);
+    margin: 0 0 var(--space-5);
+    max-width: 60ch;
+  }
+
+  .pick {
+    border: 0;
+    padding: 0;
+    margin: 0 0 var(--space-5);
+    min-width: 0;
+  }
+
+  .pick legend {
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 2.16rem;
+    color: var(--stage);
+    margin-bottom: var(--space-2);
+    padding: 0;
+  }
+
+  .pick__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .pick__opt input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+
+  .pick__opt span {
+    display: inline-block;
+    padding: var(--space-3) var(--space-5);
+    border-radius: 4px;
+    border: 1.5px solid var(--line);
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 2.1rem;
+    line-height: 1;
+    cursor: pointer;
+    transform: rotate(-1deg);
+  }
+
+  .pick__opt:nth-child(even) span {
+    transform: rotate(1.5deg);
+  }
+
+  .pick__opt input:checked + span {
+    background: var(--sun);
+    border-color: var(--sun);
+    color: var(--sun-ink);
+  }
+
+  .pick__opt input:focus-visible + span {
+    outline: 3px solid var(--stage);
+    outline-offset: 2px;
+  }
+
+  .cover__proof {
+    margin: var(--space-5) 0 0;
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .cover__proof strong {
+    color: var(--ink);
+    font-family: var(--display);
+  }
+
+  /* ---------- la feuille ---------- */
+  .sheet {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    background:
+      linear-gradient(90deg, transparent 56px, var(--margin) 56px, var(--margin) 58px, transparent 58px),
+      repeating-linear-gradient(transparent 0 31px, var(--rule) 31px 32px),
+      var(--sheet);
+    border-radius: 6px;
+    padding: var(--space-8) var(--space-6) var(--space-8) 76px;
+    box-shadow: 0 30px 60px -30px rgba(35, 25, 61, 0.35), 0 1px 0 rgba(35, 25, 61, 0.08);
+  }
+
+  .sheet__tab {
+    position: absolute;
+    top: 28px;
+    right: -34px;
+    writing-mode: vertical-rl;
+    padding: var(--space-3) 6px;
+    background: var(--sun);
+    color: var(--sun-ink);
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 1.8rem;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 2px 2px 0 rgba(35, 25, 61, 0.12);
+  }
+
+  .sheet__head {
+    margin-bottom: var(--space-6);
+  }
+
+  /* Le tampon « Fait ! » : posé quand la page est jouée, gardé d'une visite à l'autre. */
+  .stamp {
+    position: absolute;
+    top: 22px;
+    right: 64px;
+    padding: 4px 14px;
+    border: 3px solid var(--stage);
+    border-radius: 8px;
+    color: var(--stage);
+    background: rgba(255, 255, 255, 0.55);
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 2.88rem;
+    line-height: 1.1;
+    transform: rotate(9deg);
+    animation: stamp-in 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.5) both;
+    z-index: 2;
+  }
+
+  @keyframes stamp-in {
+    from { transform: rotate(9deg) scale(2.2); opacity: 0; }
+    to { transform: rotate(9deg) scale(1); opacity: 1; }
+  }
+
+  .tabs a.is-done::after {
+    content: ' ✓';
+    color: var(--stage);
+  }
+
+  .cover__progress {
+    margin: 0 0 var(--space-4);
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 2.16rem;
+    color: var(--stage);
+  }
+
+  .day {
+    display: inline-block;
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 2.04rem;
+    color: var(--ink-2);
+    margin-bottom: var(--space-2);
+  }
+
+  .sheet h2 {
+    font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+    line-height: 1.05;
+    margin: 0 0 var(--space-3);
+    font-weight: 700;
+  }
+
+  .sheet__grid {
+    display: grid;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  .sheet__chord {
+    max-width: 720px;
+  }
+
+  .sheet__chord :global(.fc--strings .fc__svg) {
+    height: min(50vh, 480px);
+  }
+
+  .sheet__chord :global(.fc--wide .fc__svg) {
+    max-height: min(40vh, 380px);
+  }
+
+  .game__how {
+    margin: 0 0 var(--space-5);
+    color: var(--ink-2);
+    line-height: var(--leading-relaxed);
+  }
+
+  .game__result {
+    margin: var(--space-4) 0 0;
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 2.46rem;
+    line-height: 1.1;
+    color: var(--stage);
+    min-height: 1.6rem;
+  }
+
+  /* accorder */
+  .tune__mode {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: var(--radius-full);
+    background: var(--paper);
+    margin: 0 0 var(--space-4);
+  }
+
+  .tune__mode button {
+    padding: 6px 14px;
+    border: 0;
+    border-radius: var(--radius-full);
+    background: transparent;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+    cursor: pointer;
+  }
+
+  .tune__mode button.is-on {
+    background: var(--stage);
+    color: var(--xp-label);
+  }
+
+  .tune--ear .tune__meter,
+  .tune--ear .tune__ok {
+    visibility: hidden;
+  }
+
+  .tune__actions {
+    margin-top: var(--space-3);
+  }
+
+  .tune__diff[hidden],
+  .replay[hidden],
+  .btn[hidden] {
+    display: none;
+  }
+
+  .tune__diff {
+    margin-top: var(--space-3);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .tune__diff .hand {
+    flex-basis: 100%;
+    margin: 0;
+    font-size: 2.04rem;
+  }
+
+  .tune__diff button {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--line);
+    background: var(--sheet);
+    font-family: var(--display);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .tune__diff button:hover {
+    background: var(--stage);
+    color: var(--xp-label);
+  }
+
+  .tune__row {
+    display: grid;
+    grid-template-columns: 36px 1fr auto auto;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) 0;
+  }
+
+  .tune__name {
+    font-family: var(--display);
+    font-weight: 700;
+  }
+
+  .tune__meter {
+    position: relative;
+    height: 14px;
+    border-radius: 7px;
+    background: linear-gradient(90deg, rgba(214, 72, 72, 0.35), rgba(255, 207, 90, 0.7) 40%, #7fd08a 48% 52%, rgba(255, 207, 90, 0.7) 60%, rgba(214, 72, 72, 0.35));
+  }
+
+  .tune__needle {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 4px;
+    height: 24px;
+    margin-left: -2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: left 0.15s var(--ease-out);
+  }
+
+  .tune__btns {
+    display: flex;
+    gap: 4px;
+  }
+
+  .tune__btns button {
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+    background: var(--sheet);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    cursor: pointer;
+  }
+
+  .tune__btns button:hover {
+    background: var(--sun);
+  }
+
+  .tune__ok {
+    font-family: var(--hand);
+    color: var(--stage);
+    min-width: 64px;
+  }
+
+  .tune__row.is-ok .tune__needle {
+    background: var(--stage);
+  }
+
+  /* trouver le do */
+  .kb {
+    width: 100%;
+    max-width: 720px;
+    display: block;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .kb__key {
+    cursor: pointer;
+    outline: none;
+  }
+
+  .kb__white {
+    fill: #fff;
+    stroke: var(--line);
+    stroke-width: 2;
+  }
+
+  .kb__black {
+    fill: var(--ink);
+  }
+
+  .kb__key.is-yes .kb__white {
+    fill: color-mix(in srgb, var(--stage) 45%, #fff);
+  }
+
+  .kb__key.is-no .kb__white {
+    fill: #f2b8b8;
+  }
+
+  .kb__key.is-no .kb__black {
+    fill: #a04040;
+  }
+
+  /* lire une note */
+  .staff {
+    width: 100%;
+    max-width: 520px;
+    display: block;
+  }
+
+  .staff line {
+    stroke: var(--ink);
+    stroke-width: 1.6;
+  }
+
+  .staff__clef {
+    font-family: 'Noto Music', 'Bravura', 'Apple Symbols', 'Segoe UI Symbol', serif;
+    font-size: 104px;
+    fill: var(--ink);
+  }
+
+  .staff__note {
+    fill: var(--stage);
+  }
+
+  .readnote__btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+
+  .readnote__btns button,
+  .chords__btns button {
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--line);
+    background: var(--sheet);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    cursor: pointer;
+    transition: transform var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .readnote__btns button:hover,
+  .chords__btns button:hover {
+    background: var(--sun);
+    transform: translateY(-2px);
+  }
+
+  /* rythmique */
+  .beat__dots {
+    display: flex;
+    gap: var(--space-4);
+    margin: var(--space-4) 0;
+  }
+
+  .beat__dots i {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
+    transition: background-color 0.05s;
+  }
+
+  .beat__dots i.is-on {
+    background: var(--sun);
+  }
+
+  .beat__dots i.is-strong.is-on {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .beat__arrows {
+    font-family: var(--display);
+    font-size: 2rem;
+    letter-spacing: 0.3em;
+    margin: 0 0 var(--space-4);
+    color: var(--ink-2);
+  }
+
+  .beat__ctl {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  .beat__tap {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 0;
+    background: var(--sun);
+    color: var(--sun-ink);
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 1.6rem;
+    box-shadow: 0 10px 0 -3px rgba(35, 25, 61, 0.25);
+    cursor: pointer;
+    transition: transform 0.05s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .beat__tap:active,
+  .beat__tap.is-hit {
+    transform: scale(0.94);
+  }
+
+  /* accords */
+  .chords__seq {
+    display: flex;
+    gap: var(--space-3);
+    margin: 0 0 var(--space-4);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.6rem;
+  }
+
+  .chords__seq span {
+    padding: 4px 14px;
+    border-radius: 4px;
+    border: 1.5px dashed var(--line);
+    color: var(--ink-2);
+  }
+
+  .chords__seq span.is-next {
+    background: var(--sun);
+    border-style: solid;
+    border-color: var(--sun);
+    color: var(--sun-ink);
+  }
+
+  .chords__seq span.is-done {
+    background: var(--stage);
+    border-color: var(--stage);
+    color: #fff;
+  }
+
+  .chords__btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .chords__btns button {
+    min-width: 92px;
+    font-size: 1.5rem;
+  }
+
+  /* ---------- Jour 15 : la partition ---------- */
+  .page--roll {
+    display: block;
+  }
+
+  .sheet--slim {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-6);
+  }
+
+  .roll__count {
+    margin: var(--space-3) 0 0;
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .roll__count strong {
+    font-family: var(--display);
+    font-size: var(--text-lg);
+    color: var(--ink);
+  }
+
+  .roll {
+    position: relative;
+    max-width: 1100px;
+    margin: var(--space-6) auto;
+    padding: var(--space-8) 0 var(--space-6);
+  }
+
+  .roll__lanes {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    pointer-events: none;
+  }
+
+  .roll__lane {
+    border-left: 1px solid var(--line);
+    position: relative;
+  }
+
+  .roll__lane:last-child {
+    border-right: 1px solid var(--line);
+  }
+
+  .roll__lane b {
+    position: sticky;
+    top: calc(80px + var(--space-6));
+    display: inline-block;
+    margin: var(--space-2) 0 0 var(--space-2);
+    font-family: var(--hand);
+    font-weight: 400;
+    font-size: 1.92rem;
+    color: var(--ink-2);
+    opacity: 0.75;
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+  }
+
+  .roll__playhead {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 62vh;
+    height: 3px;
+    background: var(--stage);
+    box-shadow: 0 0 0 1px rgba(35, 25, 61, 0.15), 0 0 18px color-mix(in srgb, var(--stage) 50%, transparent);
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .roll__playhead.is-on {
+    opacity: 1;
+  }
+
+  .roll__playhead span {
+    position: absolute;
+    left: var(--space-4);
+    top: -30px;
+    padding: 2px 10px;
+    border-radius: 3px;
+    background: var(--stage);
+    color: var(--xp-label);
+    font-family: var(--hand);
+    font-size: 2.04rem;
+    line-height: 1.1;
+    transform: rotate(-2deg);
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+  }
+
+  .roll__phrase {
+    position: relative;
+  }
+
+  .roll__words {
+    position: sticky;
+    top: calc(80px + var(--space-6));
+    z-index: 2;
+    margin: 0 0 var(--space-4);
+    text-align: right;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: var(--text-lg);
+    color: var(--ink-2);
+    pointer-events: none;
+  }
+
+  .roll__row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .roll__note {
+    grid-column: calc(var(--lane) + 1);
+    align-self: start;
+    justify-self: center;
+    width: min(88%, 120px);
+    height: calc(var(--dur) * 84px - 10px);
+    min-height: 40px;
+    border: 0;
+    border-radius: 14px;
+    background: var(--stage);
+    color: var(--xp-label);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    cursor: pointer;
+    box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.18);
+    transition: background-color 0.15s, transform 0.15s, box-shadow 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .roll__note span {
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .roll__note.is-hit {
+    background: var(--xp-label);
+    color: var(--stage);
+    transform: scale(1.06);
+    box-shadow: 0 0 0 4px var(--stage), 0 0 30px color-mix(in srgb, var(--stage) 55%, transparent);
+  }
+
+  .roll__note.is-hit span,
+  .roll__note.is-seen span {
+    opacity: 1;
+  }
+
+  .roll__note.is-seen:not(.is-hit) {
+    background: color-mix(in srgb, var(--stage) 60%, var(--xp-label));
+  }
+
+  .roll__note:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  .replay__strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 0 0 var(--space-4);
+    max-width: 640px;
+  }
+
+  .replay__strip i {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--line);
+    transition: background-color 0.1s;
+  }
+
+  .replay__strip i.is-on {
+    background: var(--stage);
+    box-shadow: 0 0 10px var(--stage);
+  }
+
+  .ticket__hesite {
+    margin-top: var(--space-4);
+    font-size: 2.04rem;
+  }
+
+  /* la volée de notes, posée sur une feuille */
+  .burst-note {
+    position: absolute;
+    font-size: 2rem;
+    color: var(--stage);
+    pointer-events: none;
+    animation: burst-up 1.3s ease-out forwards;
+  }
+
+  @keyframes burst-up {
+    from { opacity: 0; transform: translate(0, 10px) rotate(0deg); }
+    12% { opacity: 1; }
+    to { opacity: 0; transform: translate(var(--dx, 0px), -160px) rotate(var(--rot, 0deg)); }
+  }
+
+  /* photos */
+  .polaroid {
+    margin: 0;
+    background: #fff;
+    padding: 10px 10px 14px;
+    box-shadow: 0 16px 40px -20px rgba(35, 25, 61, 0.5);
+    transform: rotate(1.5deg);
+    position: relative;
+    max-width: 460px;
+  }
+
+  .polaroid::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 90px;
+    height: 24px;
+    margin-left: -45px;
+    background: rgba(255, 236, 200, 0.85);
+    transform: rotate(-3deg);
+  }
+
+  .polaroid img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .polaroid figcaption {
+    margin-top: 10px;
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 1.92rem;
+    line-height: 1.15;
+    color: var(--ink-2);
+  }
+
+  .polaroid--fred {
+    transform: rotate(-2deg);
+    max-width: 380px;
+  }
+
+  /* ticket */
+  .ticket {
+    display: grid;
+    gap: var(--space-6);
+    padding: var(--space-6);
+    border: 2px dashed var(--line);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.5);
+    max-width: 900px;
+  }
+
+  .ticket__name {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: var(--text-2xl);
+  }
+
+  .ticket__price {
+    margin: 0 0 var(--space-3);
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+
+  .ticket__price strong {
+    font-family: var(--display);
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  .ticket__price span {
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 2.16rem;
+    color: var(--stage);
+  }
+
+  .ticket__list {
+    list-style: none;
+    margin: 0 0 var(--space-3);
+    padding: 0;
+    display: grid;
+    gap: 4px;
+    font-family: var(--display);
+    font-weight: 600;
+  }
+
+  .ticket__list em {
+    font-style: normal;
+    font-weight: 400;
+    font-family: var(--font-body);
+    color: var(--ink-2);
+    font-size: var(--text-sm);
+  }
+
+  .ticket__terms {
+    margin: 0 0 var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .ticket__assure {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 2.1rem;
+    color: var(--ink-2);
+    align-content: start;
+  }
+
+  .ticket sup a {
+    text-decoration: none;
+    color: var(--stage);
+    font-size: 0.7em;
+  }
+
+  /* Fred */
+  .fred__text {
+    margin: 0 0 var(--space-5);
+    line-height: var(--leading-relaxed);
+    color: var(--ink-2);
+    max-width: 60ch;
+  }
+
+  .notes-wall {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .sticky {
+    padding: var(--space-4);
+    background: #fff3d1;
+    box-shadow: 0 10px 24px -16px rgba(35, 25, 61, 0.5);
+    transform: rotate(-1deg);
+    font-family: var(--hand);
+    font-size: 2.04rem;
+    line-height: 1.2;
+  }
+
+  .sticky:nth-child(even) {
+    transform: rotate(1.2deg);
+    background: #fde8d2;
+  }
+
+  .sticky p {
+    margin: 0 0 var(--space-2);
+  }
+
+  .sticky footer {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: var(--text-xs);
+    color: var(--ink-2);
+  }
+
+  .fred__links {
+    font-size: var(--text-sm);
+  }
+
+  .notes {
+    margin: var(--space-8) 0 0;
+    padding-left: var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+    display: grid;
+    gap: var(--space-2);
+    max-width: 80ch;
+  }
+
+  @media (min-width: 900px) {
+    .tabs {
+      display: flex;
+    }
+
+    .cal30 {
+      grid-template-columns: repeat(10, 1fr);
+    }
+
+    .page {
+      padding-right: 56px;
+    }
+
+    .sheet__grid {
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--space-12);
+    }
+
+    .sheet__grid--fred {
+      grid-template-columns: 380px 1fr;
+    }
+
+    .ticket {
+      grid-template-columns: 1.4fr 1fr;
+    }
+
+    .notes-wall {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .page {
+      padding-top: calc(70px + var(--space-6));
+    }
+
+    .sheet {
+      padding-left: 28px;
+      background: repeating-linear-gradient(transparent 0 31px, var(--rule) 31px 32px), var(--sheet);
+    }
+
+    .sheet__tab,
+    .brandline {
+      display: none;
+    }
+
+    .tune__row {
+      grid-template-columns: 36px 1fr auto;
+      grid-template-areas: 'name meter ok' 'btns btns btns';
+      row-gap: var(--space-2);
+      padding: var(--space-3) 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .tune__name { grid-area: name; }
+    .tune__meter { grid-area: meter; }
+    .tune__ok { grid-area: ok; min-width: 0; }
+    .tune__btns { grid-area: btns; flex-wrap: wrap; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) {
+      scroll-snap-type: none;
+    }
+
+    .btn,
+    .tune__needle {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  /* Le header prend la couleur de l'univers : on la pose sur <body>, qui est
+     son parent (voir src/utils/theme.ts pour les pages statiques). */
+  const univers = () => document.querySelector<HTMLInputElement>('input[name="instrument"]:checked')?.value ?? 'guitar';
+  const peindre = () => {
+    document.body.classList.remove('theme-guitar', 'theme-piano', 'theme-ukulele', 'theme-solfege');
+    document.body.classList.add(`theme-${univers()}`);
+  };
+  document.querySelectorAll('input[name="instrument"]').forEach((r) => r.addEventListener('change', peindre));
+  peindre();
+
+  import { pluck, key, tone, tick, chord, audio } from '../components/home/synth';
+  import { rentree as rentreeData } from '../data/home-v2';
+
+  const root = document.querySelector<HTMLElement>('.cn')!;
+  /* Arrivée depuis la home avec un instrument déjà choisi. */
+  const preset = new URLSearchParams(location.search).get('instrument');
+  const presetInput = preset ? document.getElementById(`pick-${preset}`) : null;
+  if (presetInput instanceof HTMLInputElement) presetInput.checked = true;
+  const instrument = () =>
+    (document.querySelector<HTMLInputElement>('input[name="instrument"]:checked')?.value ?? 'guitar') as string;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- son : un seul interrupteur pour tout le carnet ---------- */
+  const soundBtn = document.querySelector<HTMLButtonElement>('[data-sound-toggle]');
+  soundBtn?.addEventListener('click', () => {
+    const on = soundBtn.getAttribute('aria-pressed') === 'true';
+    soundBtn.setAttribute('aria-pressed', String(!on));
+    soundBtn.textContent = on ? 'Son coupé' : 'Son activé';
+    document.documentElement.dataset.sound = on ? 'off' : 'on';
+    if (!on) audio();
+  });
+
+  /* ---------- onglets : celui de la page visible s'allume ---------- */
+  const tabLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-tab]')];
+  const pages = [...document.querySelectorAll<HTMLElement>('.page')];
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          tabLinks.forEach((a) => a.classList.toggle('is-active', a.dataset.tab === e.target.id));
+        });
+      },
+      { threshold: 0.5 },
+    ).observe(pages[0]);
+    pages.forEach((p) =>
+      new IntersectionObserver(
+        ([e]) => {
+          if (e.isIntersecting) tabLinks.forEach((a) => a.classList.toggle('is-active', a.dataset.tab === p.id));
+        },
+        { threshold: 0.5 },
+      ).observe(p),
+    );
+  }
+
+  /* ---------- progression : tampons et mémoire du carnet ---------- */
+  const KEY = 'mf-carnet-2026';
+  let doneSet = new Set<string>();
+  try {
+    doneSet = new Set(JSON.parse(localStorage.getItem(KEY) || '[]'));
+  } catch {}
+  const progress = root.querySelector<HTMLElement>('[data-progress]');
+  const showDone = (id: string) => {
+    root.querySelector<HTMLElement>(`#${id} [data-stamp]`)?.removeAttribute('hidden');
+    root.querySelector(`[data-tab="${id}"]`)?.classList.add('is-done');
+  };
+  const refreshProgress = () => {
+    if (!progress) return;
+    const all = ['maintenant', 'jour-1', 'jour-3', 'jour-8', 'jour-15', 'jour-30'];
+    const n = all.filter((d) => doneSet.has(d)).length;
+    progress.hidden = n === 0;
+    progress.textContent = n === all.length ? 'Toutes les pages sont jouées. On recommence, ou on passe au vrai instrument ?' : `Vous avez déjà joué ${n} page${n > 1 ? 's' : ''} sur ${all.length}. On reprend ?`;
+  };
+  const done = (id: string) => {
+    if (!doneSet.has(id)) {
+      doneSet.add(id);
+      try {
+        localStorage.setItem(KEY, JSON.stringify([...doneSet]));
+      } catch {}
+    }
+    showDone(id);
+    refreshProgress();
+  };
+  doneSet.forEach(showDone);
+  refreshProgress();
+  document.querySelector('#jour-3')?.addEventListener('click', (e) => {
+    if ((e.target as Element).closest('[data-play]')) done('jour-3');
+  });
+
+  /* Une volée de notes sur une feuille. */
+  const burst = (host: HTMLElement, n = 8) => {
+    if (reduced) return;
+    const r = host.getBoundingClientRect();
+    for (let i = 0; i < n; i++) {
+      const t = document.createElement('span');
+      t.className = 'burst-note';
+      t.textContent = ['♪', '♫', '♩', '♬'][i % 4];
+      t.style.left = `${20 + Math.random() * Math.max(60, r.width - 60)}px`;
+      t.style.top = `${r.height * 0.5 + (Math.random() - 0.5) * 80}px`;
+      t.style.setProperty('--dx', `${(Math.random() - 0.5) * 120}px`);
+      t.style.setProperty('--rot', `${(Math.random() - 0.5) * 50}deg`);
+      t.style.animationDelay = `${Math.random() * 180}ms`;
+      host.appendChild(t);
+      window.setTimeout(() => t.remove(), 1600);
+    }
+  };
+
+  /* ---------- Maintenant : le calendrier qui part d'aujourd'hui ---------- */
+  const cal = root.querySelector<HTMLElement>('[data-cal]');
+  if (cal) {
+    const today = new Date();
+    const fmt = (d: Date) => d.toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'short' });
+    const long = (d: Date) => d.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+    const toussaint = new Date(rentreeData.toussaintStart + 'T00:00:00');
+    const day30 = new Date(today);
+    day30.setDate(today.getDate() + 29);
+    const lastLabel: Record<string, string> = { guitar: 'premier morceau', ukulele: 'première chanson', piano: 'premiers morceaux', solfege: 'vous lisez' };
+    const draw = () => {
+      cal.innerHTML = '';
+      for (let i = 0; i < 30; i++) {
+        const d = new Date(today);
+        d.setDate(today.getDate() + i);
+        const li = document.createElement('li');
+        const holiday = d.toDateString() === toussaint.toDateString();
+        li.className = `${i === 0 ? 'is-first' : ''} ${i === 29 ? 'is-last' : ''} ${holiday ? 'is-holiday' : ''} ${i === 0 && doneSet.has('maintenant') ? 'is-checked' : ''}`;
+        li.innerHTML = `<span>${i + 1}</span>${i === 0 ? "<b>aujourd'hui</b>" : i === 29 ? `<b>${lastLabel[instrument()] ?? 'premier morceau'}</b>` : holiday ? '<b>Toussaint</b>' : ''}<small>${fmt(d)}</small>`;
+        cal.appendChild(li);
+      }
+      const why = root.querySelector<HTMLElement>('[data-now-why]');
+      if (why) {
+        const before = day30 < toussaint;
+        why.textContent = `Trente jours de quinze minutes, dans l'ordre du cours. Si vous commencez aujourd'hui, le jour 30 tombe le ${long(day30)}${before ? ', avant les vacances de la Toussaint' : ''}. Si vous attendez janvier, il tombe en février.`;
+      }
+    };
+    draw();
+    document.querySelectorAll<HTMLInputElement>('input[name="instrument"]').forEach((r) => r.addEventListener('change', draw));
+    root.querySelector('[data-check-day1]')?.addEventListener('click', () => {
+      done('maintenant');
+      cal.firstElementChild?.classList.add('is-checked');
+      root.querySelector<HTMLElement>('#maintenant [data-stamp]')?.removeAttribute('hidden');
+      burst(root.querySelector<HTMLElement>('.now')!);
+    });
+  }
+
+  const say = (el: Element, text: string) => {
+    const r = el.querySelector<HTMLElement>('[data-result]');
+    if (r) r.textContent = text;
+  };
+  const strumOrKey = (f: number, delay = 0) =>
+    instrument() === 'piano' || instrument() === 'solfege' ? key(f, delay) : pluck(f, delay);
+
+  /* ---------- Jour 1 : accorder, avec l'aiguille ou à l'oreille ---------- */
+  document.querySelectorAll<HTMLElement>('[data-game="tune"]').forEach((game) => {
+    const rows = [...game.querySelectorAll<HTMLElement>('.tune__row')];
+    const cents = new Map<HTMLElement, number>();
+    const initial = new Map<HTMLElement, number>();
+    let stop: () => void = () => {};
+    let ear = false;
+    let won = false;
+    const verify = game.querySelector<HTMLButtonElement>('[data-verify]')!;
+    const diff = game.querySelector<HTMLElement>('[data-diff]')!;
+    const target = (row: HTMLElement) => Number(row.dataset.target);
+    const freq = (row: HTMLElement, c = cents.get(row)!) => target(row) * Math.pow(2, c / 1200);
+    const tol = () => (ear ? 12 : 6);
+
+    const draw = (row: HTMLElement) => {
+      const v = cents.get(row)!;
+      row.querySelector<HTMLElement>('.tune__needle')!.style.left = `${50 + Math.max(-48, Math.min(48, v))}%`;
+      const ok = Math.abs(v) <= tol();
+      row.classList.toggle('is-ok', ok);
+      row.querySelector('.tune__ok')!.textContent = ok ? '✓ juste' : '';
+    };
+    const success = () => {
+      if (won) return;
+      won = true;
+      say(game, 'Accordée. Vous venez de faire ce que tous mes élèves font au jour 1.');
+      diff.hidden = false;
+      done('jour-1');
+      burst(game.closest<HTMLElement>('.sheet')!);
+    };
+    const check = () => {
+      if (ear) return;
+      if (rows.every((r) => Math.abs(cents.get(r)!) <= tol())) success();
+    };
+
+    rows.forEach((row) => {
+      const c = (Math.random() > 0.5 ? 1 : -1) * (18 + Math.round(Math.random() * 30));
+      cents.set(row, c);
+      initial.set(row, c);
+      draw(row);
+      row.querySelectorAll<HTMLButtonElement>('[data-peg]').forEach((b) =>
+        b.addEventListener('click', () => {
+          cents.set(row, cents.get(row)! + 7 * Number(b.dataset.peg));
+          draw(row);
+          stop();
+          stop = tone(freq(row));
+          window.setTimeout(stop, 700);
+          check();
+        }),
+      );
+      row.querySelector('[data-play]')?.addEventListener('click', () => {
+        stop();
+        stop = tone(freq(row));
+        window.setTimeout(stop, 1100);
+      });
+      row.querySelector('[data-ref]')?.addEventListener('click', () => {
+        stop();
+        stop = tone(target(row), 0.22);
+        window.setTimeout(stop, 1100);
+      });
+    });
+
+    game.querySelectorAll<HTMLButtonElement>('[data-mode]').forEach((b) =>
+      b.addEventListener('click', () => {
+        ear = b.dataset.mode === 'ear';
+        game.querySelectorAll('[data-mode]').forEach((x) => {
+          x.classList.toggle('is-on', x === b);
+          x.setAttribute('aria-pressed', String(x === b));
+        });
+        game.classList.toggle('tune--ear', ear);
+        verify.hidden = !ear;
+        say(game, ear ? "À l'oreille : écoutez la corde, écoutez la note juste, ajustez, puis vérifiez." : '');
+        rows.forEach(draw);
+      }),
+    );
+
+    verify.addEventListener('click', () => {
+      game.classList.remove('tune--ear');
+      rows.forEach(draw);
+      const good = rows.filter((r) => Math.abs(cents.get(r)!) <= tol()).length;
+      const worst = rows.reduce((m, r) => (Math.abs(cents.get(r)!) > Math.abs(m) ? cents.get(r)! : m), 0);
+      if (good === rows.length) success();
+      else say(game, `${good} corde${good > 1 ? 's' : ''} sur ${rows.length} dans le juste. La plus fausse est à ${Math.round(Math.abs(worst))} cents ${worst > 0 ? 'trop haut' : 'trop bas'}. Réajustez, puis vérifiez.`);
+      window.setTimeout(() => {
+        if (!won) game.classList.add('tune--ear');
+      }, 2500);
+    });
+
+    const strum = (map: Map<HTMLElement, number>) => rows.forEach((r, i) => pluck(freq(r, map.get(r)!), i * 0.05, 0.45));
+    game.querySelector('[data-before]')?.addEventListener('click', () => strum(initial));
+    game.querySelector('[data-after]')?.addEventListener('click', () => strum(new Map(rows.map((r) => [r, 0]))));
+  });
+
+  /* ---------- Jour 1 : trouver le do ---------- */
+  document.querySelectorAll<HTMLElement>('[data-game="finddo"]').forEach((game) => {
+    let found = 0;
+    game.querySelectorAll<SVGGElement>('.kb__key').forEach((k) => {
+      const go = () => {
+        key(Number(k.dataset.freq));
+        const yes = k.dataset.target === '1';
+        k.classList.add(yes ? 'is-yes' : 'is-no');
+        window.setTimeout(() => k.classList.remove('is-no'), 500);
+        if (yes) {
+          found++;
+          say(game, found === 1 ? 'Oui ! Juste à gauche des deux noires. Il y en a un autre, plus loin.' : 'Et de deux. Vous savez lire un clavier.');
+          if (found >= 2) done('jour-1');
+        } else {
+          say(game, k.dataset.name === 'noire' ? 'Une noire. Le do est une blanche.' : `Ça, c'est un ${k.dataset.name}. Cherchez le groupe de deux noires.`);
+        }
+      };
+      k.addEventListener('pointerdown', go);
+      k.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          go();
+        }
+      });
+    });
+  });
+
+  /* ---------- Jour 1 : lire une note ---------- */
+  document.querySelectorAll<HTMLElement>('[data-game="readnote"]').forEach((game) => {
+    const notes = [
+      { n: 'do', y: 170, f: 261.63, ledger: true },
+      { n: 'ré', y: 160, f: 293.66 },
+      { n: 'mi', y: 150, f: 329.63 },
+      { n: 'fa', y: 140, f: 349.23 },
+      { n: 'sol', y: 130, f: 392 },
+    ];
+    const head = game.querySelector<SVGEllipseElement>('.staff__note')!;
+    const ledger = game.querySelector<SVGLineElement>('.staff__ledger')!;
+    let current = notes[0];
+    let round = 0;
+    let good = 0;
+    const next = () => {
+      let pick = notes[Math.floor(Math.random() * notes.length)];
+      if (pick === current) pick = notes[(notes.indexOf(pick) + 1) % notes.length];
+      current = pick;
+      head.setAttribute('cy', String(pick.y));
+      head.setAttribute('transform', `rotate(-20 300 ${pick.y})`);
+      ledger.style.display = pick.ledger ? '' : 'none';
+    };
+    next();
+    game.querySelectorAll<HTMLButtonElement>('[data-answer]').forEach((b) =>
+      b.addEventListener('click', () => {
+        round++;
+        key(current.f);
+        if (b.dataset.answer === current.n) {
+          good++;
+          say(game, round >= 5 ? `${good} sur 5. ${good >= 4 ? 'Vous lisez déjà.' : 'Ça vient, on recommence.'}` : `Oui, ${current.n}.`);
+          if (round >= 5 && good >= 4) done('jour-1');
+        } else {
+          say(game, `Non, c'était ${current.n}. Écoutez-la.`);
+        }
+        if (round >= 5) {
+          round = 0;
+          good = 0;
+        }
+        window.setTimeout(next, 700);
+      }),
+    );
+  });
+
+  /* ---------- Jour 8 : tenir le tempo ---------- */
+  document.querySelectorAll<HTMLElement>('[data-game="beat"]').forEach((game) => {
+    const dots = [...game.querySelectorAll<HTMLElement>('.beat__dots i')];
+    const tap = game.querySelector<HTMLButtonElement>('[data-tap]')!;
+    const start = game.querySelector<HTMLButtonElement>('[data-start]')!;
+    const BPM = 80;
+    const beat = 60 / BPM;
+    let beats: number[] = [];
+    let running = false;
+    let hits = 0;
+    let taps = 0;
+    const run = () => {
+      if (running) return;
+      running = true;
+      hits = 0;
+      taps = 0;
+      const { ctx } = audio();
+      const t0 = ctx.currentTime + 0.3;
+      beats = [];
+      say(game, 'Écoutez deux mesures…');
+      for (let i = 0; i < 16; i++) {
+        const t = t0 + i * beat;
+        tick(t - ctx.currentTime, i % 4 === 0);
+        if (i >= 8) beats.push(performance.now() + (t - ctx.currentTime) * 1000);
+        window.setTimeout(() => {
+          dots.forEach((d, k) => {
+            d.classList.toggle('is-on', k === i % 4);
+            d.classList.toggle('is-strong', k === 0);
+          });
+          if (i === 8) say(game, 'À vous : tapez sur chaque temps.');
+        }, (t - ctx.currentTime) * 1000);
+      }
+      window.setTimeout(() => {
+        running = false;
+        dots.forEach((d) => d.classList.remove('is-on'));
+        say(game, hits >= 7 ? `${hits} sur 8 en place. Vous tenez le tempo.` : hits >= 5 ? `${hits} sur 8. Pas mal, on la refait ?` : `${hits} sur 8. Normal la première fois : écoutez, puis tapez.`);
+        if (hits >= 6) done('jour-8');
+      }, (t0 - ctx.currentTime + 16 * beat + 0.25) * 1000);
+    };
+    const onTap = () => {
+      if (!running) return;
+      taps++;
+      tap.classList.add('is-hit');
+      window.setTimeout(() => tap.classList.remove('is-hit'), 80);
+      const now = performance.now();
+      const i = beats.findIndex((b) => Math.abs(b - now) < 120);
+      if (i >= 0) {
+        hits++;
+        beats[i] = -1e9;
+      }
+    };
+    start.addEventListener('click', run);
+    tap.addEventListener('pointerdown', onTap);
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space' && running && game.offsetParent) {
+        e.preventDefault();
+        onTap();
+      }
+    });
+  });
+
+  /* ---------- Jour 30 : quatre accords ---------- */
+  document.querySelectorAll<HTMLElement>('[data-game="chords"]').forEach((game) => {
+    const seq = ['C', 'G', 'Am', 'F'];
+    const marks = [...game.querySelectorAll<HTMLElement>('[data-seq]')];
+    let pos = 0;
+    const draw = () => marks.forEach((m, i) => {
+      m.classList.toggle('is-next', i === pos);
+      m.classList.toggle('is-done', i < pos);
+    });
+    draw();
+    game.querySelectorAll<HTMLButtonElement>('[data-chord]').forEach((b) =>
+      b.addEventListener('click', () => {
+        const c = b.dataset.chord!;
+        chord(c, instrument());
+        if (c === seq[pos]) {
+          pos++;
+          if (pos === seq.length) {
+            say(game, 'Et voilà un morceau. Le vôtre, dans trente jours, avec un vrai instrument.');
+            done('jour-30');
+            pos = 0;
+            window.setTimeout(draw, 900);
+            marks.forEach((m) => m.classList.add('is-done'));
+            return;
+          }
+          say(game, pos === 1 ? 'C\'est parti.' : '');
+        } else {
+          say(game, `Presque : c'était ${seq[pos]}. Reprenez, c'est comme ça qu'on apprend.`);
+        }
+        draw();
+      }),
+    );
+  });
+
+  /* ---------- Jour 15 : la partition qui se joue en défilant ---------- */
+  const roll = root.querySelector<HTMLElement>('[data-roll]');
+  if (roll) {
+    const notes = [...roll.querySelectorAll<HTMLButtonElement>('[data-note]')];
+    const counter = root.querySelector<HTMLElement>('[data-count]')!;
+    const playhead = roll.querySelector<HTMLElement>('[data-playhead]')!;
+    const replay = root.querySelector<HTMLElement>('[data-replay]')!;
+    const strip = root.querySelector<HTMLElement>('[data-strip]')!;
+    const seen = new Set<Element>();
+    const played: { el: HTMLElement; t: number }[] = [];
+    const sound = (el: HTMLElement) => {
+      const f = Number(el.dataset.freq);
+      const dur = Number(getComputedStyle(el).getPropertyValue('--dur')) || 1;
+      const ins = instrument();
+      if (ins === 'guitar' || ins === 'ukulele') pluck(ins === 'ukulele' ? f * 2 : f, 0, 0.5);
+      else key(f, 0, 0.9 + dur * 0.5, 0.4);
+    };
+    const hit = (el: HTMLElement) => {
+      el.classList.remove('is-hit');
+      void el.offsetWidth;
+      el.classList.add('is-hit', 'is-seen');
+      window.setTimeout(() => el.classList.remove('is-hit'), 450);
+      sound(el);
+      played.push({ el, t: performance.now() });
+      if (played.length >= 8) replay.hidden = false;
+      if (!seen.has(el)) {
+        seen.add(el);
+        counter.textContent = String(seen.size);
+        if (seen.size >= 30) done('jour-15');
+      }
+    };
+    if ('IntersectionObserver' in window) {
+      const band = new IntersectionObserver((entries) => entries.forEach((e) => e.isIntersecting && hit(e.target as HTMLElement)), { rootMargin: '-60% 0px -35% 0px', threshold: 0 });
+      notes.forEach((n) => band.observe(n));
+      new IntersectionObserver(([e]) => playhead.classList.toggle('is-on', e.isIntersecting), { rootMargin: '-40% 0px -30% 0px' }).observe(roll);
+    }
+    notes.forEach((n) => n.addEventListener('click', () => hit(n)));
+    root.querySelector<HTMLButtonElement>('[data-replay-btn]')?.addEventListener('click', () => {
+      audio();
+      strip.innerHTML = played.map(() => '<i></i>').join('');
+      const dots = [...strip.children] as HTMLElement[];
+      let at = 0;
+      played.forEach((p, i) => {
+        if (i > 0) at += Math.min(1400, Math.max(120, p.t - played[i - 1].t));
+        window.setTimeout(() => {
+          sound(p.el);
+          dots[i].classList.add('is-on');
+          window.setTimeout(() => dots[i].classList.remove('is-on'), 260);
+        }, at);
+      });
+    });
+  }
+
+  if (reduced) root.dataset.reduced = 'true';
+  void strumOrKey;
+</script>

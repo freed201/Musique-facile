@@ -1,0 +1,1045 @@
+---
+/**
+ * home-v6.astro — « La Partition » : faites défiler, c'est vous qui jouez.
+ *
+ * URL : /home-v6/ — PAGE CACHÉE : noindex/nofollow, Disallow dans robots.txt.
+ *
+ * L'IDÉE
+ * La page est une partition qui se joue au défilement. Une ligne « maintenant »
+ * reste fixe à l'écran ; les notes descendent avec la page ; chaque note qui
+ * croise la ligne sonne et s'allume. Au bout de la page, le visiteur a joué
+ * « Au clair de la lune » en entier, sans partition, sans solfège, à son
+ * rythme. C'est la méthode, vécue avant d'être expliquée : on joue d'abord,
+ * on comprend en jouant.
+ *
+ * Entre les phrases du morceau, les chapitres de la page (qui est Fred, les
+ * 30 jours, l'écran du cours, l'offre). Le timbre suit l'instrument choisi.
+ * Mélodie du domaine public (chanson traditionnelle, XVIIIe siècle). Sons
+ * synthétisés dans le navigateur (synth.ts).
+ *
+ * Références : Jazz.Computer (un morceau dont le défilement pilote la
+ * progression), Chrome Music Lab, les « falling notes » des applis de piano.
+ */
+import '@fontsource-variable/rubik/wght.css';
+import '@fontsource-variable/rubik/wght-italic.css';
+import '@fontsource/square-peg/400.css';
+import '../styles/experience-colors.css';
+import '../styles/experience-fonts.css';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FooterModern from '../components/FooterModern.astro';
+import { paths, journey, reassurance, rentree, fred } from '../data/home-v2';
+import { testimonials, formatTestimonialDate } from '../data/testimonials';
+import { rating, reviews, students, reviewsSource } from '../data/proof';
+
+const title = 'La partition qui se joue en défilant | Musique Facile';
+const description = 'Faites défiler : chaque note que vous croisez sonne. En bas de page, vous aurez joué un morceau. C’est comme ça qu’on apprend ici.';
+
+/* Au clair de la lune, en do majeur. Durées en temps (noire = 1). */
+type N = [string, number];
+const A: N[] = [['do4', 1], ['do4', 1], ['do4', 1], ['re4', 1], ['mi4', 2], ['re4', 2], ['do4', 1], ['mi4', 1], ['re4', 1], ['re4', 1], ['do4', 4]];
+const C: N[] = [['re4', 1], ['re4', 1], ['re4', 1], ['re4', 1], ['la3', 2], ['la3', 2], ['re4', 1], ['do4', 1], ['si3', 1], ['la3', 1], ['sol3', 4]];
+const phrases: { words: string; notes: N[] }[] = [
+  { words: 'Au clair de la lune, mon ami Pierrot', notes: A },
+  { words: 'Prête-moi ta plume pour écrire un mot', notes: A },
+  { words: 'Ma chandelle est morte, je n’ai plus de feu', notes: C },
+  { words: 'Ouvre-moi ta porte, pour l’amour de Dieu', notes: A },
+];
+const LANES = ['sol3', 'la3', 'si3', 'do4', 're4', 'mi4'];
+const LANE_NAME: Record<string, string> = { sol3: 'sol', la3: 'la', si3: 'si', do4: 'do', re4: 'ré', mi4: 'mi' };
+const FREQ: Record<string, number> = { sol3: 196, la3: 220, si3: 246.94, do4: 261.63, re4: 293.66, mi4: 329.63 };
+const BEAT = 88; // pixels par temps
+const total = phrases.reduce((s, p) => s + p.notes.length, 0);
+
+const quotes = testimonials.filter((t) => ['valerie-b-2025-09', 'xavier-d-2025-09', 'jean-pierre-g-2025-09'].includes(t.id));
+const LABELS = { guitar: 'Guitare', piano: 'Piano', ukulele: 'Ukulélé', solfege: 'Solfège' } as const;
+---
+
+<Layout title={title} description={description} canonicalUrl="https://musique-facile.fr/home-v6/" robots="noindex, nofollow">
+  <Header />
+
+  <div class="pr xp" data-total={total}>
+    <!-- Le pupitre : instrument, son, compteur -->
+    <div class="deck" role="region" aria-label="Réglages de la partition">
+      <div class="container deck__inner">
+        <fieldset class="pick">
+          <legend>Je joue avec</legend>
+          <div class="pick__options">
+            {paths.map((p, i) => (
+              <label class={`pick__opt theme-${p.id}`}>
+                <input type="radio" name="instrument" id={`pick-${p.id}`} value={p.id} checked={i === 0} />
+                <span>{p.label}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <p class="deck__count" aria-live="polite"><strong data-count>0</strong> / {total} notes · <em>Au clair de la lune</em></p>
+        <button type="button" class="deck__sound" data-sound-toggle aria-pressed="true">Son activé</button>
+      </div>
+    </div>
+
+    <!-- Ouverture -->
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="container">
+        <p class="kicker">{rentree.season} · École de musique en ligne</p>
+        <h1 id="intro-title">Faites défiler. <em>C'est vous qui jouez.</em></h1>
+        <p class="intro__lead">
+          Plus bas, une ligne reste fixe à l'écran. Chaque note qui la croise sonne. Allez à votre rythme, revenez en
+          arrière si vous voulez. En bas de la page, vous aurez joué un morceau en entier, sans partition et sans
+          solfège. C'est exactement comme ça qu'on apprend chez Fred Fieffé : on joue d'abord, on comprend en jouant.
+        </p>
+        <p class="hand">Mettez le son. Puis descendez, doucement. ↓</p>
+        <p class="intro__proof">
+          <strong>{rating.display}</strong> sur <a href={reviewsSource.url} rel="noopener nofollow" target="_blank">{reviews.display} avis</a> ·
+          <strong>{students.display}</strong> élèves depuis 2015
+        </p>
+      </div>
+    </section>
+
+    <!-- La partition -->
+    <div class="roll" data-roll>
+      <div class="playhead" data-playhead aria-hidden="true"><span>maintenant</span></div>
+      <div class="lanes" aria-hidden="true">
+        {LANES.map((l) => <span class="lane"><b>{LANE_NAME[l]}</b></span>)}
+      </div>
+
+      {phrases.map((ph, pi) => (
+        <>
+          <div class="phrase" aria-label={`Phrase ${pi + 1} : ${ph.words}`}>
+            <p class="phrase__words">{ph.words}</p>
+            {ph.notes.map(([n, d]) => (
+              <div class="beat" style={`height: ${d * BEAT}px`}>
+                <button
+                  type="button"
+                  class="note"
+                  style={`--lane: ${LANES.indexOf(n)}; --dur: ${d}`}
+                  data-note
+                  data-freq={FREQ[n]}
+                  data-name={LANE_NAME[n]}
+                  aria-label={`Note ${LANE_NAME[n]}`}
+                >
+                  <span>{LANE_NAME[n]}</span>
+                </button>
+              </div>
+            ))}
+          </div>
+
+          {pi === 0 && (
+            <section class="chapter" aria-labelledby="ch1">
+              <p class="kicker">Première phrase jouée</p>
+              <h2 id="ch1">Vous voyez ? <em>Vous jouez déjà.</em></h2>
+              <p>
+                Vous n'avez rien appris, vous avez joué. C'est le principe de tous mes cours : l'adulte qui débute n'a
+                pas besoin de théorie, il a besoin de jouer quelque chose dès la première semaine. La théorie vient
+                ensuite, quand elle sert à quelque chose.
+              </p>
+              <figure class="who">
+                <img src={fred.photo} alt="Fred Fieffé, un ukulélé à la main" width="800" height="800" loading="lazy" decoding="async" />
+                <figcaption>Fred Fieffé. Musicien depuis plus de 40 ans, prof en ligne depuis 2015, {students.display} élèves.</figcaption>
+              </figure>
+              <p class="hand">Continuez, la deuxième phrase est la même. Vous allez la reconnaître.</p>
+            </section>
+          )}
+
+          {pi === 1 && (
+            <section class="chapter" aria-labelledby="ch2">
+              <p class="kicker">Deuxième phrase, déjà plus facile</p>
+              <h2 id="ch2">Trente jours, <em>à quinze minutes par jour</em></h2>
+              <p>Voilà ce que fait un élève pendant son premier mois, dans l'ordre du cours :</p>
+              {paths.map((p) => (
+                <ol class="days" data-for={p.id}>
+                  {journey.map((s) => (
+                    <li>
+                      <span class="days__when">{s.marker}</span>
+                      <span>{s.byInstrument[p.id].title}</span>
+                    </li>
+                  ))}
+                </ol>
+              ))}
+              {paths.map((p) => (
+                <p class="chapter__promise" data-for={p.id}>{p.promise}</p>
+              ))}
+              <p class="hand">La troisième phrase change. Écoutez la différence.</p>
+            </section>
+          )}
+
+          {pi === 2 && (
+            <section class="chapter" aria-labelledby="ch3">
+              <p class="kicker">La phrase qui change</p>
+              <h2 id="ch3">Ce que vous voyez <em>pendant une leçon</em></h2>
+              <p>Fred en face de vous, le diagramme ou le clavier au même moment, et les mains en gros plan. Une vraie capture du cours :</p>
+              {paths.map((p) => (
+                <figure class="shot" data-for={p.id}>
+                  <img src={p.image} alt={p.imageAlt} width="1824" height="1042" loading="lazy" decoding="async" />
+                  <figcaption>Extrait réel · {p.courseName}</figcaption>
+                </figure>
+              ))}
+              <p class="hand">Dernière phrase. Vous la connaissez déjà.</p>
+            </section>
+          )}
+        </>
+      ))}
+    </div>
+
+    <!-- Fin du morceau -->
+    <section class="outro" aria-labelledby="outro-title">
+      <div class="container">
+        <p class="kicker">Fin du morceau</p>
+        <h2 id="outro-title">Vous venez de jouer <em>Au clair de la lune.</em></h2>
+        <p class="outro__lead">
+          Sans partition, sans solfège, à votre rythme. Avec un vrai instrument, c'est pareil : une note après l'autre,
+          quinze minutes par jour, et au bout de trente jours, un morceau qui tient debout.
+        </p>
+
+        <div class="replay" data-replay hidden>
+          <p class="hand">Et voilà comment vous l'avez joué, exactement à votre rythme :</p>
+          <div class="replay__strip" data-strip aria-hidden="true"></div>
+          <button type="button" class="btn" data-replay-btn>Réécouter ma version</button>
+        </div>
+
+        {paths.map((p) => (
+          <div class="offer" data-for={p.id}>
+            <div>
+              <p class="offer__name">{p.offer.name}</p>
+              <p class="offer__price"><strong>{p.offer.price}</strong> une fois, accès à vie</p>
+              <ul class="offer__list" role="list">
+                {p.offer.includes.map((i) => <li>{i.title}{p.offer.includes.length > 1 && <em> · {i.price} seul</em>}</li>)}
+              </ul>
+              {p.offer.includes.length > 1 && (
+                <p class="offer__terms">
+                  {rentree.offerLabel} jusqu'au {rentree.offerEndsLabel} · pour {p.offer.separately} de formations prises séparément<sup><a href="#note-5" aria-label="Note 5">5</a></sup>
+                </p>
+              )}
+              {p.offer.note && <p class="offer__terms">{p.offer.note}</p>}
+            </div>
+            <div class="offer__cta">
+              <a href={p.offer.url} class="btn">Commencer {p.object} · {p.offer.price}</a>
+              <ul class="offer__assure" role="list">
+                {reassurance.map((r, i) => (
+                  <li>{r.label}<sup><a href={`#note-${i + 1}`} aria-label={`Note ${i + 1}`}>{i + 1}</a></sup></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+
+        <ul class="quotes" role="list">
+          {quotes.map((t) => (
+            <li class={`quote theme-${t.instrument}`}>
+              <p>« {t.quote} »</p>
+              <footer>{t.name} · {LABELS[t.instrument]} · {formatTestimonialDate(t.date, t.datePrecision)} · <a href={t.sourceUrl} rel="noopener nofollow" target="_blank">{t.sourceName}</a></footer>
+            </li>
+          ))}
+        </ul>
+
+        <p class="outro__links">
+          <a href="#intro-title">Rejouer depuis le début</a> · <a href={fred.aboutUrl}>Qui est Fred</a> · <a href="/faq/">Questions fréquentes</a>
+        </p>
+
+        <ol class="notes" aria-label="Notes et sources">
+          {reassurance.map((r, i) => (
+            <li id={`note-${i + 1}`}>{r.note} <a href={r.href}>Voir {r.linkLabel}</a>.</li>
+          ))}
+          <li id="note-5">Somme des prix de chaque formation prise seule, tels qu'affichés sur les fiches cours le 4 septembre 2026. Ce n'est pas un ancien prix du Pack.</li>
+          <li>« Au clair de la lune » est une chanson traditionnelle du XVIIIe siècle, dans le domaine public. Les sons sont synthétisés dans le navigateur, pour la démonstration.</li>
+        </ol>
+      </div>
+    </section>
+  </div>
+
+  <FooterModern />
+</Layout>
+
+<style>
+  .pr {
+    --display: var(--xp-display);
+    --serif: var(--xp-display);
+    --hand: var(--xp-voice);
+    --paper: #f6f0e4;
+    --card: #fffaf0;
+    --ink: #23193d;
+    --ink-2: #5a4f75;
+    --line: rgba(35, 25, 61, 0.14);
+    --hv-header: 80px;
+    --deck-h: 64px;
+    color-scheme: light;
+    --bg-page: var(--paper);
+    --bg-alt: var(--paper);
+    --bg-card: var(--card);
+    --bg-elevated: var(--card);
+    --text-primary: var(--ink);
+    --text-secondary: var(--ink-2);
+    --text-muted: var(--ink-2);
+    --border-default: var(--line);
+    --surface-white: var(--card);
+    --surface-light: var(--paper);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--xp-text);
+  }
+
+  .pr .hand, .pr .pick legend, .pr .lane b, .pr .playhead span, .pr .days__when, .pr .offer__assure {
+    font-variation-settings: var(--xp-voice-settings);
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+    font-weight: 400;
+  }
+
+
+  .pr:has(#pick-guitar:checked) [data-for]:not([data-for='guitar']),
+  .pr:has(#pick-piano:checked) [data-for]:not([data-for='piano']),
+  .pr:has(#pick-ukulele:checked) [data-for]:not([data-for='ukulele']),
+  .pr:has(#pick-solfege:checked) [data-for]:not([data-for='solfege']) {
+    display: none !important;
+  }
+
+  @media (max-width: 768px) {
+    .pr {
+      --hv-header: 70px;
+      --deck-h: 96px;
+    }
+  }
+
+  .pr h1,
+  .pr h2 {
+    font-family: var(--display);
+    font-variation-settings: var(--xp-display-settings);
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .pr h1 em,
+  .pr h2 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--stage);
+  }
+
+  .pr p {
+    text-wrap: pretty;
+  }
+
+  .pr a:not(.btn) {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .kicker {
+    margin: 0 0 var(--space-3);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--stage);
+  }
+
+  .hand {
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 1.9rem;
+    line-height: 1.1;
+    color: var(--stage);
+    margin: var(--space-5) 0 0;
+    transform: rotate(-1.5deg);
+    transform-origin: left;
+  }
+
+  .btn {
+    display: inline-flex;
+    justify-content: center;
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-md);
+    background: var(--sun);
+    color: var(--sun-ink);
+    font-family: var(--display);
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 0 -2px rgba(35, 25, 61, 0.18);
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  /* ---------- pupitre ---------- */
+  .deck {
+    position: sticky;
+    top: var(--hv-header);
+    z-index: var(--z-sticky);
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .deck__inner {
+    min-height: var(--deck-h);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-6);
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-2);
+  }
+
+  .pick {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .pick legend {
+    float: left;
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--stage);
+    padding: 0;
+  }
+
+  .pick__options {
+    display: flex;
+    gap: 4px;
+  }
+
+  .pick__opt input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+
+  .pick__opt span {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+    cursor: pointer;
+  }
+
+  .pick__opt input:checked + span {
+    background: var(--stage);
+    color: #fff;
+  }
+
+  .pick__opt input:focus-visible + span {
+    outline: 3px solid var(--stage);
+    outline-offset: 2px;
+  }
+
+  .deck__count {
+    margin: 0;
+    margin-left: auto;
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .deck__count strong {
+    font-family: var(--display);
+    font-size: var(--text-lg);
+    color: var(--ink);
+  }
+
+  .deck__count em {
+    font-family: var(--serif);
+  }
+
+  .deck__sound {
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--line);
+    background: var(--card);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    cursor: pointer;
+  }
+
+  .deck__sound[aria-pressed='false'] {
+    text-decoration: line-through;
+    color: var(--ink-2);
+  }
+
+  /* ---------- ouverture ---------- */
+  .intro {
+    padding: calc(var(--hv-header) + var(--space-12)) 0 var(--space-12);
+    background: var(--tint);
+    color: var(--ink);
+    transition: background-color 0.5s var(--ease-out);
+  }
+
+  .intro .kicker,
+  .intro .hand {
+    color: var(--stage);
+  }
+
+  .intro h1 {
+    color: var(--ink);
+    font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+    line-height: 1;
+    margin: 0 0 var(--space-5);
+    max-width: 14ch;
+  }
+
+  .intro h1 em {
+    color: var(--stage);
+  }
+
+  .intro__lead {
+    max-width: 60ch;
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--ink-2);
+    margin: 0;
+  }
+
+  .intro__proof {
+    margin: var(--space-6) 0 0;
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .intro__proof strong {
+    font-family: var(--display);
+    color: var(--ink);
+  }
+
+  /* ---------- la partition ---------- */
+  .roll {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--space-16) var(--space-4) var(--space-12);
+  }
+
+  .lanes {
+    position: absolute;
+    inset: 0 var(--space-4);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    pointer-events: none;
+  }
+
+  .lane {
+    border-left: 1px solid var(--line);
+    position: relative;
+  }
+
+  .lane:last-child {
+    border-right: 1px solid var(--line);
+  }
+
+  .lane b {
+    position: sticky;
+    top: calc(var(--hv-header) + var(--deck-h) + var(--space-3));
+    display: inline-block;
+    margin: var(--space-2) 0 0 var(--space-2);
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 1.45rem;
+    color: var(--ink-2);
+    opacity: 0.7;
+  }
+
+  .playhead {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 62vh;
+    height: 3px;
+    background: var(--stage);
+    box-shadow: 0 0 0 1px rgba(35, 25, 61, 0.15), 0 0 18px color-mix(in srgb, var(--stage) 50%, transparent);
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .playhead.is-on {
+    opacity: 1;
+  }
+
+  .playhead span {
+    position: absolute;
+    right: var(--space-4);
+    top: -30px;
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--sun-ink);
+    background: var(--sun);
+    padding: 2px 10px;
+    border-radius: 3px;
+    transform: rotate(-2deg);
+  }
+
+  .phrase {
+    position: relative;
+  }
+
+  .phrase__words {
+    position: sticky;
+    top: calc(var(--hv-header) + var(--deck-h) + var(--space-3));
+    z-index: 2;
+    margin: 0 0 var(--space-4);
+    text-align: right;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: var(--text-xl);
+    color: var(--ink-2);
+    pointer-events: none;
+  }
+
+  .beat {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .note {
+    grid-column: calc(var(--lane) + 1);
+    align-self: start;
+    justify-self: center;
+    width: min(88%, 120px);
+    height: calc(var(--dur) * 88px - 10px);
+    min-height: 40px;
+    border: 0;
+    border-radius: 14px;
+    background: var(--stage);
+    color: #fff;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    cursor: pointer;
+    box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.18);
+    transition: background-color 0.15s, transform 0.15s, box-shadow 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .note span {
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .note.is-hit {
+    background: var(--xp-label);
+    color: var(--stage);
+    transform: scale(1.06);
+    box-shadow: 0 0 0 4px var(--stage), 0 0 30px color-mix(in srgb, var(--stage) 55%, transparent);
+  }
+
+  .note.is-hit span,
+  .note.is-seen span {
+    opacity: 1;
+  }
+
+  .note.is-seen:not(.is-hit) {
+    background: color-mix(in srgb, var(--stage) 60%, var(--xp-label));
+  }
+
+  .note:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  /* ---------- chapitres, posés sur la partition ---------- */
+  .chapter {
+    position: relative;
+    z-index: 1;
+    margin: var(--space-10) 0;
+    padding: var(--space-8);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 30px 60px -40px rgba(35, 25, 61, 0.5);
+    max-width: 720px;
+  }
+
+  .chapter:nth-of-type(even) {
+    margin-left: auto;
+  }
+
+  .chapter h2 {
+    font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+    line-height: 1.05;
+    margin: 0 0 var(--space-4);
+  }
+
+  .chapter p {
+    color: var(--ink-2);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 var(--space-4);
+  }
+
+  .who {
+    margin: var(--space-5) 0;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  .who img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    transform: rotate(-3deg);
+  }
+
+  .who figcaption {
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .days {
+    list-style: none;
+    margin: 0 0 var(--space-4);
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .days li {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: var(--space-3);
+    align-items: baseline;
+    font-family: var(--display);
+    font-weight: 600;
+  }
+
+  .days__when {
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 1.45rem;
+    color: var(--sun-ink);
+    background: var(--sun);
+    padding: 2px 8px;
+    border-radius: 3px;
+    transform: rotate(-2deg);
+    justify-self: start;
+  }
+
+  .chapter__promise {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: var(--text-xl);
+    color: var(--ink) !important;
+  }
+
+  .shot {
+    margin: var(--space-4) 0;
+  }
+
+  .shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+  }
+
+  .shot figcaption {
+    margin-top: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  /* ---------- fin ---------- */
+  .outro {
+    --sun: var(--xp-label);
+    --sun-ink: var(--xp-stage);
+    padding: var(--space-16) 0 var(--space-12);
+    background: var(--stage);
+    color: var(--paper);
+    transition: background-color 0.5s var(--ease-out);
+  }
+
+  .outro .kicker {
+    color: var(--sun);
+  }
+
+  .outro h2 {
+    color: var(--paper);
+    font-size: clamp(2rem, 4.6vw, 3.6rem);
+    line-height: 1;
+    margin: 0 0 var(--space-5);
+    max-width: 16ch;
+  }
+
+  .outro h2 em {
+    color: var(--sun);
+  }
+
+  .outro__lead {
+    max-width: 60ch;
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: rgba(246, 240, 228, 0.88);
+    margin: 0 0 var(--space-8);
+  }
+
+  .replay {
+    margin: 0 0 var(--space-8);
+  }
+
+  .replay .hand {
+    color: var(--sun);
+    margin-top: 0;
+  }
+
+  .replay__strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: var(--space-3) 0 var(--space-4);
+    max-width: 640px;
+  }
+
+  .replay__strip i {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(246, 240, 228, 0.3);
+    transition: background-color 0.1s;
+  }
+
+  .replay__strip i.is-on {
+    background: var(--xp-label);
+    box-shadow: 0 0 12px var(--xp-label);
+  }
+
+  .offer {
+    display: grid;
+    gap: var(--space-6);
+    padding: var(--space-6);
+    background: var(--card);
+    color: var(--ink);
+    border-radius: var(--radius-2xl);
+    max-width: 900px;
+    margin-bottom: var(--space-8);
+  }
+
+  .offer__name {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: var(--text-2xl);
+  }
+
+  .offer__price {
+    margin: 0 0 var(--space-3);
+    color: var(--ink-2);
+  }
+
+  .offer__price strong {
+    font-family: var(--display);
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--ink);
+    margin-right: var(--space-2);
+  }
+
+  .offer__list {
+    list-style: none;
+    margin: 0 0 var(--space-3);
+    padding: 0;
+    display: grid;
+    gap: 4px;
+    font-family: var(--display);
+    font-weight: 600;
+  }
+
+  .offer__list em {
+    font-style: normal;
+    font-weight: 400;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .offer__terms {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .offer__cta {
+    display: grid;
+    gap: var(--space-4);
+    align-content: start;
+  }
+
+  .offer__assure {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 4px;
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 1.45rem;
+    color: var(--ink-2);
+  }
+
+  .offer sup a {
+    text-decoration: none;
+    color: var(--stage);
+    font-size: 0.7em;
+  }
+
+  .quotes {
+    list-style: none;
+    margin: 0 0 var(--space-8);
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .quote {
+    padding: var(--space-4);
+    background: rgba(246, 240, 228, 0.12);
+    border-left: 3px solid var(--sun);
+    border-radius: var(--radius-md);
+  }
+
+  .quote p {
+    margin: 0 0 var(--space-2);
+  }
+
+  .quote footer {
+    font-size: var(--text-xs);
+    color: rgba(246, 240, 228, 0.8);
+  }
+
+  .outro__links {
+    font-size: var(--text-sm);
+    margin: 0 0 var(--space-8);
+  }
+
+  .notes {
+    margin: 0;
+    padding-left: var(--space-5);
+    font-size: var(--text-sm);
+    color: rgba(246, 240, 228, 0.8);
+    display: grid;
+    gap: var(--space-2);
+    max-width: 80ch;
+  }
+
+  @media (min-width: 900px) {
+    .offer {
+      grid-template-columns: 1.3fr 1fr;
+    }
+
+    .quotes {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .note,
+    .note span,
+    .btn,
+    .playhead {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import { pluck, key, audio } from '../components/home/synth';
+
+  const root = document.querySelector<HTMLElement>('.pr')!;
+  const notes = [...root.querySelectorAll<HTMLButtonElement>('[data-note]')];
+  const counter = root.querySelector<HTMLElement>('[data-count]')!;
+  const playhead = root.querySelector<HTMLElement>('[data-playhead]')!;
+  const roll = root.querySelector<HTMLElement>('[data-roll]')!;
+  const instrument = () => document.querySelector<HTMLInputElement>('input[name="instrument"]:checked')?.value ?? 'guitar';
+  const seen = new Set<Element>();
+  /* Ce que le visiteur a réellement joué, avec ses temps : sa version. */
+  const played: { el: HTMLElement; t: number }[] = [];
+  const replay = root.querySelector<HTMLElement>('[data-replay]')!;
+  const strip = root.querySelector<HTMLElement>('[data-strip]')!;
+
+  const soundBtn = root.querySelector<HTMLButtonElement>('[data-sound-toggle]');
+  soundBtn?.addEventListener('click', () => {
+    const on = soundBtn.getAttribute('aria-pressed') === 'true';
+    soundBtn.setAttribute('aria-pressed', String(!on));
+    soundBtn.textContent = on ? 'Son coupé' : 'Son activé';
+    document.documentElement.dataset.sound = on ? 'off' : 'on';
+    if (!on) audio();
+  });
+  // Le premier geste sur la page débloque l'audio (règle des navigateurs).
+  const unlock = () => {
+    audio();
+    window.removeEventListener('pointerdown', unlock);
+    window.removeEventListener('keydown', unlock);
+  };
+  window.addEventListener('pointerdown', unlock);
+  window.addEventListener('keydown', unlock);
+
+  const sound = (el: HTMLElement) => {
+    const f = Number(el.dataset.freq);
+    const dur = Number(getComputedStyle(el).getPropertyValue('--dur')) || 1;
+    if (instrument() === 'guitar' || instrument() === 'ukulele') pluck(instrument() === 'ukulele' ? f * 2 : f, 0, 0.5);
+    else key(f, 0, 0.9 + dur * 0.5, 0.4);
+  };
+
+  const hit = (el: HTMLElement) => {
+    el.classList.remove('is-hit');
+    void el.offsetWidth;
+    el.classList.add('is-hit');
+    el.classList.add('is-seen');
+    window.setTimeout(() => el.classList.remove('is-hit'), 450);
+    sound(el);
+    played.push({ el, t: performance.now() });
+    if (played.length >= 8) replay.hidden = false;
+    if (!seen.has(el)) {
+      seen.add(el);
+      counter.textContent = String(seen.size);
+    }
+  };
+
+  /* Une bande fine autour de la ligne « maintenant » : la note qui y entre sonne. */
+  if ('IntersectionObserver' in window) {
+    const band = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && hit(e.target as HTMLElement)),
+      { rootMargin: '-60% 0px -35% 0px', threshold: 0 },
+    );
+    notes.forEach((n) => band.observe(n));
+    new IntersectionObserver(([e]) => playhead.classList.toggle('is-on', e.isIntersecting), { rootMargin: '-40% 0px -30% 0px' }).observe(roll);
+  }
+
+  // Réécouter sa version : les mêmes notes, avec les mêmes silences (plafonnés à 1,4 s).
+  root.querySelector<HTMLButtonElement>('[data-replay-btn]')?.addEventListener('click', () => {
+    audio();
+    strip.innerHTML = played.map(() => '<i></i>').join('');
+    const dots = [...strip.children] as HTMLElement[];
+    let at = 0;
+    played.forEach((p, i) => {
+      if (i > 0) at += Math.min(1400, Math.max(120, p.t - played[i - 1].t));
+      window.setTimeout(() => {
+        sound(p.el);
+        dots[i].classList.add('is-on');
+        window.setTimeout(() => dots[i].classList.remove('is-on'), 260);
+      }, at);
+    });
+  });
+
+  // On peut aussi cliquer une note, pour l'entendre encore.
+  notes.forEach((n) => n.addEventListener('click', () => hit(n)));
+</script>

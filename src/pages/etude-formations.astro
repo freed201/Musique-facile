@@ -1,0 +1,594 @@
+---
+/**
+ * etude-formations.astro — quatre façons d'afficher les 18 formations, et
+ * une proposition de hero, côte à côte, avec les vraies fiches.
+ *
+ * URL : /etude-formations/ — PAGE CACHÉE : noindex/nofollow, Disallow.
+ *
+ * Demande de Fred (2026-09-05) : « la partie formations n'est pas bien,
+ * cherche une solution et présente-m'en quatre ». Recherche : les cartes de
+ * métro de cursus (Grainger Engineering, Illinois : une ligne par filière, une
+ * station par cours, les correspondances montrent les cours partagés), les
+ * grilles de niveaux des écoles de langues (le cadre européen A1 → C2, où l'on
+ * se situe avant de choisir), le questionnaire d'entrée de Fender Play
+ * (instrument, style, niveau → un chemin), l'échelle de grades de JustinGuitar.
+ *
+ *  A · Le plan de métro : une ligne par instrument, une station par cours,
+ *      des correspondances entre lignes. Le catalogue en une image.
+ *  B · Le tableau : tout en colonnes, dense, trié par instrument et niveau.
+ *      Le plus pratique pour comparer.
+ *  C · Le conseiller : instrument + niveau → un seul cours recommandé, puis
+ *      la suite. Le moins de place, le plus guidé.
+ *  D · La grille de l'école : instruments en lignes, niveaux en colonnes,
+ *      18 pastilles sur un écran. La carte de l'école.
+ *
+ * Les deux boutons du haut (instrument, niveau) agissent sur les quatre.
+ */
+import '@fontsource-variable/rubik/wght.css';
+import '@fontsource-variable/rubik/wght-italic.css';
+import '@fontsource/square-peg/400.css';
+import '../styles/experience-fonts.css';
+import '../styles/experience-colors.css';
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FooterModern from '../components/FooterModern.astro';
+import FirstChord from '../components/home/FirstChord.astro';
+import { paths, rentree, fred } from '../data/home-v2';
+import { catalogue, packOf, RUNGS, humanDuration, pickStats, type Rung } from '../data/catalogue';
+import { rating, reviews, students, reviewsSource } from '../data/proof';
+
+const courses = (await getCollection('courses', ({ data }) => data.affichage !== 'N'))
+  .map((c) => {
+    const meta = catalogue[c.slug];
+    const stats = pickStats(c.data.hero.stats);
+    const theme = c.data.theme as 'guitar' | 'piano' | 'ukulele' | 'solfege';
+    return {
+      slug: c.slug,
+      theme,
+      rung: (meta?.rung ?? 2) as Rung,
+      short: meta?.short ?? c.data.title,
+      who: meta?.who ?? c.data.description,
+      learn: c.data.timeline.slice(0, 3).map((t) => t.title),
+      lessons: stats.lessons,
+      students: stats.students,
+      duration: humanDuration(c.data.hasCourseInstance.duration),
+      price: `${Math.round(Number(c.data.hasCourseInstance.offers.price))} €`,
+      url: `/cours/${c.slug}/`,
+      inPack: (packOf[theme] ?? []).includes(c.slug),
+      classement: c.data.classement,
+    };
+  })
+  .sort((a, b) => a.rung - b.rung || a.classement - b.classement);
+
+const THEMES = ['guitar', 'piano', 'ukulele', 'solfege'] as const;
+const LABEL: Record<string, string> = { guitar: 'Guitare', piano: 'Piano', ukulele: 'Ukulélé', solfege: 'Solfège' };
+const COLOR: Record<string, string> = { guitar: '#2f5d3a', piano: '#2b5f66', ukulele: '#b4522a', solfege: '#973b3b' };
+const byTheme = (t: string) => courses.filter((c) => c.theme === t);
+const packName = (t: string) => paths.find((p) => p.id === t)?.offer.name ?? '';
+const attrs = (c: (typeof courses)[number]) => ({
+  'data-course': c.slug,
+  'data-title': c.short,
+  'data-who': c.who,
+  'data-learn': c.learn.join('|'),
+  'data-meta': [c.lessons, c.duration, c.students].filter(Boolean).join(' · '),
+  'data-price': c.price,
+  'data-url': c.url,
+  'data-pack': c.inPack ? packName(c.theme) : '',
+  'data-level': RUNGS[c.rung],
+});
+
+/* A · le plan de métro : positions des stations. */
+const W = 1240;
+const LINE_Y: Record<string, number> = { guitar: 90, piano: 190, ukulele: 290, solfege: 390 };
+const X1 = 150;
+const X2 = [330, 850];
+const X3 = 1010;
+function stationX(theme: string, c: (typeof courses)[number]) {
+  const same = byTheme(theme).filter((x) => x.rung === c.rung);
+  const k = same.indexOf(c);
+  if (c.rung === 1) return X1 + k * 100;
+  if (c.rung === 3) return X3 + k * 110;
+  const n = same.length;
+  return n === 1 ? (X2[0] + X2[1]) / 2 : X2[0] + (k * (X2[1] - X2[0])) / (n - 1);
+}
+/* Correspondances : un cours qui sert deux lignes. */
+const transfers = [
+  { slug: 'apprendre-piano-facile-guitaristes', from: 'guitar', to: 'piano' },
+  { slug: 'lecture-de-notes-niveau-debutant', from: 'solfege', to: 'piano' },
+];
+---
+
+<Layout title="Étude : afficher les formations | Musique Facile" description="Quatre façons d'afficher les 18 formations, et une proposition de hero." canonicalUrl="https://musique-facile.fr/etude-formations/" robots="noindex, nofollow">
+  <Header />
+  <div class="ef xp">
+    <div class="container ef__head">
+      <p class="kicker">Étude · 5 septembre 2026</p>
+      <h1>Afficher dix-huit formations, <em>quatre façons</em></h1>
+      <p class="ef__lead">
+        Les deux réglages ci-dessous agissent sur les quatre solutions. Toutes lisent les vraies fiches : leçons,
+        durée, élèves, prix. Le niveau de chaque cours, son titre court et le « pour qui » sont un brouillon à
+        valider.
+      </p>
+      <div class="ef__controls">
+        <fieldset class="pick">
+          <legend>Instrument</legend>
+          <div class="pick__options">
+            {paths.map((p, i) => (
+              <label class="pick__opt"><input type="radio" name="instrument" id={`pick-${p.id}`} value={p.id} checked={i === 0} /><span>{p.label}</span></label>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset class="pick">
+          <legend>Où en êtes-vous ?</legend>
+          <div class="pick__options">
+            {([1, 2, 3] as Rung[]).map((r) => (
+              <label class="pick__opt"><input type="radio" name="start" id={`start-${r}`} value={r} checked={r === 1} /><span>{RUNGS[r]}</span></label>
+            ))}
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <!-- ===================== Hero, proposition ===================== -->
+    <section class="sol sol--hero" aria-labelledby="h-hero">
+      <div class="container">
+        <p class="sol__tag">Hero · proposition</p>
+        <h2 id="h-hero" class="sol__title">Une promesse, un visage, et le choix en grand</h2>
+        <p class="sol__why">
+          Le hero actuel commence par une définition et un paragraphe. Ici : la promesse d'abord, l'identité en
+          une ligne, Fred plus présent, et le choix de l'instrument comme geste principal, avec le nombre de
+          formations et le prix d'entrée. L'accord jouable reste à droite.
+        </p>
+      </div>
+      <div class="hero">
+        <div class="container hero__grid">
+          <div>
+            <p class="kicker"><span class="kicker__tag">{rentree.season}</span> Musique Facile · école de musique en ligne depuis 2015</p>
+            <h3 class="hero__h1">Apprenez la musique <em>en jouant.</em></h3>
+            <div class="hero__who">
+              <img src={fred.photo} alt="Fred Fieffé, un ukulélé à la main" width="800" height="800" loading="lazy" decoding="async" />
+              <p>
+                Un prof, Fred Fieffé, {students.display} élèves, <strong>{rating.display}</strong> sur
+                <a href={reviewsSource.url} rel="noopener nofollow" target="_blank">{reviews.display} avis</a>. Des cours vidéo
+                qu'on achète une fois et qu'on garde à vie. Quinze minutes par jour, et on joue dès la première leçon.
+              </p>
+            </div>
+            <p class="hand">Par quoi on commence ?</p>
+            <div class="tiles">
+              {paths.map((p) => {
+                const list = byTheme(p.id);
+                const min = Math.min(...list.map((c) => Number(c.price.replace(/\D/g, ''))));
+                return (
+                  <label class={`tile theme-${p.id}`}>
+                    <input type="radio" name="instrument-hero" value={p.id} data-mirror={p.id} checked={p.id === 'guitar'} />
+                    <span class="tile__name">{p.label}</span>
+                    <span class="tile__meta">{list.length} formations · dès {min} €</span>
+                    <span class="tile__win">{p.firstWin}</span>
+                  </label>
+                );
+              })}
+            </div>
+            <div class="hero__actions">
+              {paths.map((p) => <a data-for={p.id} href={`/carnet/?instrument=${p.id}`} class="btn btn--stage">Ouvrir le carnet de rentrée</a>)}
+              {paths.map((p) => <a data-for={p.id} href={p.offer.url} class="btn btn--ghost">Commencer {p.object} · {p.offer.price}</a>)}
+            </div>
+          </div>
+          <div class="hero__visual"><FirstChord /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== A · le plan de métro ===================== -->
+    <section class="sol" aria-labelledby="h-a">
+      <div class="container">
+        <p class="sol__tag">A · Le plan de métro</p>
+        <h2 id="h-a" class="sol__title">Une ligne par instrument, une station par cours</h2>
+        <p class="sol__why">
+          Le catalogue entier en une image, comme les plans de cursus des universités américaines : on lit d'un coup où
+          l'on monte, où l'on va, et les correspondances, ces cours qui servent deux lignes (le piano pour
+          guitaristes, la lecture de notes). Cliquez une station.
+        </p>
+        <div class="metro-wrap">
+          <svg class="metro" viewBox={`0 0 ${W} 460`} role="group" aria-label="Plan des formations">
+            <text x={X1} y="34" class="metro__col">{RUNGS[1]}</text>
+            <text x={(X2[0] + X2[1]) / 2} y="34" class="metro__col">{RUNGS[2]}</text>
+            <text x={X3 + 40} y="34" class="metro__col">{RUNGS[3]}</text>
+            <line x1={X2[0] - 60} x2={X2[0] - 60} y1="50" y2="440" class="metro__sep" />
+            <line x1={X3 - 70} x2={X3 - 70} y1="50" y2="440" class="metro__sep" />
+            {transfers.map((t) => {
+              const c = courses.find((x) => x.slug === t.slug)!;
+              const x = stationX(c.theme, c);
+              return <path d={`M ${x} ${LINE_Y[t.from]} C ${x + 60} ${LINE_Y[t.from]}, ${x + 60} ${LINE_Y[t.to]}, ${x} ${LINE_Y[t.to]}`} class="metro__transfer" style={`stroke: ${COLOR[t.to]}`} />;
+            })}
+            {THEMES.map((t) => (
+              <g class="metro__line" data-line={t} style={`--c: ${COLOR[t]}`}>
+                <line x1="40" x2={W - 40} y1={LINE_Y[t]} y2={LINE_Y[t]} />
+                <text x="40" y={LINE_Y[t] - 16} class="metro__name">{LABEL[t]}</text>
+                {byTheme(t).map((c, i) => {
+                  const x = stationX(t, c);
+                  const above = i % 2 === 1;
+                  return (
+                    <g class="station" data-rung={c.rung} role="button" tabindex="0" aria-label={`${c.short}, ${RUNGS[c.rung]}, ${c.price}`} {...attrs(c)}>
+                      <circle cx={x} cy={LINE_Y[t]} r={c.rung === 1 ? 13 : 10} />
+                      {c.inPack && <circle cx={x} cy={LINE_Y[t]} r="18" class="station__pack" />}
+                      <text x={x} y={LINE_Y[t] + (above ? -26 : 34)} class="station__label">{c.short}</text>
+                      <text x={x} y={LINE_Y[t] + (above ? -42 : 50)} class="station__price">{c.price}</text>
+                    </g>
+                  );
+                })}
+              </g>
+            ))}
+            <g class="metro__legend" transform={`translate(40, 440)`}>
+              <circle cx="8" cy="0" r="8" class="legend__pack" /><text x="24" y="4">compris dans le Pack</text>
+              <path d="M 200 -8 C 220 -8, 220 8, 240 8" class="metro__transfer" style="stroke: #5a4f75" /><text x="252" y="4">correspondance : un cours qui sert deux instruments</text>
+            </g>
+          </svg>
+        </div>
+        <aside class="detail" data-detail hidden></aside>
+      </div>
+    </section>
+
+    <!-- ===================== B · le tableau ===================== -->
+    <section class="sol" aria-labelledby="h-b">
+      <div class="container">
+        <p class="sol__tag">B · Le tableau</p>
+        <h2 id="h-b" class="sol__title">Tout, en colonnes, pour comparer</h2>
+        <p class="sol__why">
+          Le plus dense et le plus honnête : dix-huit lignes, sept colonnes, on trie par instrument et par niveau, on
+          compare les prix d'un coup d'œil. C'est ce que fait un adulte qui hésite entre deux cours. L'instrument
+          choisi passe en premier, le niveau choisi reste net.
+        </p>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead>
+              <tr><th>Cours</th><th>Niveau</th><th>Leçons</th><th>Durée</th><th>Élèves</th><th>Prix</th><th>Pack</th></tr>
+            </thead>
+            {THEMES.map((t) => (
+              <tbody data-theme={t} style={`--c: ${COLOR[t]}`}>
+                <tr class="tbl__group"><th colspan="7">{LABEL[t]} · {byTheme(t).length} formations</th></tr>
+                {byTheme(t).map((c) => (
+                  <tr data-rung={c.rung}>
+                    <td class="tbl__course"><a href={c.url}>{c.short}</a><small>{c.who}</small></td>
+                    <td><span class="chip">{RUNGS[c.rung]}</span></td>
+                    <td>{c.lessons}</td>
+                    <td>{c.duration}</td>
+                    <td>{c.students}</td>
+                    <td class="tbl__price">{c.price}</td>
+                    <td>{c.inPack ? '✓' : ''}</td>
+                  </tr>
+                ))}
+              </tbody>
+            ))}
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== C · le conseiller ===================== -->
+    <section class="sol" aria-labelledby="h-c">
+      <div class="container">
+        <p class="sol__tag">C · Le conseiller</p>
+        <h2 id="h-c" class="sol__title">Un seul cours à la fois, celui qu'il vous faut</h2>
+        <p class="sol__why">
+          Le modèle du questionnaire d'entrée (Fender Play, MasterClass) : instrument et niveau donnent une
+          recommandation, une seule, en grand, puis la suite du chemin. Le moins de place, le plus guidé. Le catalogue
+          complet reste derrière un « tout voir ».
+        </p>
+        {THEMES.map((t) =>
+          ([1, 2, 3] as Rung[]).map((r) => {
+            const list = byTheme(t);
+            const first = list.find((c) => c.rung === r) ?? list.find((c) => c.rung > r) ?? list[0];
+            const next = list.filter((c) => c !== first && c.rung >= first.rung).slice(0, 2);
+            const rest = list.filter((c) => c !== first && !next.includes(c));
+            return (
+              <div class="advice" data-for={t} data-start-for={r}>
+                <div class="advice__grid">
+                  <article class="advice__main">
+                    <p class="hand">Votre premier cours</p>
+                    <span class="chip">{RUNGS[first.rung]}</span>
+                    <h3>{first.short}</h3>
+                    <p class="advice__who">{first.who}</p>
+                    <p class="advice__learn-title">Vous apprenez</p>
+                    <ul>{first.learn.map((l) => <li>{l}</li>)}</ul>
+                    <p class="advice__meta">{[first.lessons, first.duration, first.students].filter(Boolean).join(' · ')}</p>
+                    <p class="advice__price"><strong>{first.price}</strong>{first.inPack && <span class="hand-inline">dans le {packName(t)}</span>}</p>
+                    <a href={first.url} class="btn btn--stage">Voir le cours</a>
+                  </article>
+                  <div class="advice__side">
+                    {next.length > 0 && (
+                      <>
+                        <p class="hand">Ensuite</p>
+                        {next.map((c) => (
+                          <a href={c.url} class="advice__next">
+                            <span class="chip">{RUNGS[c.rung]}</span>
+                            <span class="advice__next-title">{c.short}</span>
+                            <span class="advice__next-meta">{c.lessons} · {c.price}</span>
+                          </a>
+                        ))}
+                      </>
+                    )}
+                    {rest.length > 0 && (
+                      <details class="advice__rest">
+                        <summary>Tout voir ({list.length} formations {LABEL[t].toLowerCase()})</summary>
+                        <ul>{rest.map((c) => <li><a href={c.url}>{c.short}</a> · {RUNGS[c.rung]} · {c.price}</li>)}</ul>
+                      </details>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          }),
+        )}
+      </div>
+    </section>
+
+    <!-- ===================== D · la grille de l'école ===================== -->
+    <section class="sol" aria-labelledby="h-d">
+      <div class="container">
+        <p class="sol__tag">D · La grille de l'école</p>
+        <h2 id="h-d" class="sol__title">Instruments en lignes, niveaux en colonnes</h2>
+        <p class="sol__why">
+          La grille des écoles de langues (A1 à C2) appliquée à la musique : on se situe sur une case, on voit ce
+          qu'il y a avant et après. Dix-huit pastilles, un écran, la carte de l'école. Cliquez une pastille.
+        </p>
+        <div class="grid-wrap">
+          <div class="school" role="table" aria-label="Les formations par instrument et par niveau">
+            <div class="school__corner" role="columnheader"></div>
+            {([1, 2, 3] as Rung[]).map((r) => <div class="school__col" role="columnheader" data-col={r}>{RUNGS[r]}</div>)}
+            {THEMES.map((t) => (
+              <>
+                <div class="school__row" role="rowheader" data-theme={t} style={`--c: ${COLOR[t]}`}>{LABEL[t]}<small>{byTheme(t).length} formations</small></div>
+                {([1, 2, 3] as Rung[]).map((r) => (
+                  <div class="school__cell" role="cell" data-theme={t} data-col={r} style={`--c: ${COLOR[t]}`}>
+                    {byTheme(t).filter((c) => c.rung === r).map((c) => (
+                      <button type="button" class="pill" {...attrs(c)}>
+                        <span>{c.short}</span><b>{c.price}</b>{c.inPack && <i title="dans le Pack">✓</i>}
+                      </button>
+                    ))}
+                  </div>
+                ))}
+              </>
+            ))}
+          </div>
+        </div>
+        <aside class="detail" data-detail hidden></aside>
+      </div>
+    </section>
+  </div>
+  <FooterModern />
+</Layout>
+
+<style>
+  .ef {
+    --display: var(--xp-display);
+    --hand: var(--xp-voice);
+    --paper: var(--xp-paper);
+    --card: var(--xp-card);
+    --ink: var(--xp-ink);
+    --ink-2: var(--xp-ink-2);
+    --line: var(--xp-line);
+    --hv-ink: var(--ink);
+    --hv-ink-2: var(--ink-2);
+    --hv-card: var(--card);
+    --hv-line: var(--line);
+    --hv-accent: var(--stage);
+    --hv-accent-ink: var(--stage);
+    --hv-display: var(--display);
+    --hv-serif: var(--display);
+    --hv-hand: var(--hand);
+    color-scheme: light;
+    --bg-page: var(--paper);
+    --text-primary: var(--ink);
+    --text-secondary: var(--ink-2);
+    --border-default: var(--line);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--xp-text);
+    padding-top: calc(80px + var(--space-8));
+    padding-bottom: var(--space-12);
+  }
+
+  .ef h1, .ef h2, .ef h3 { color: var(--ink); text-wrap: balance; }
+  .ef h1 em, .ef h2 em, .ef h3 em { color: var(--stage); }
+  .ef p { text-wrap: pretty; }
+  .ef a:not(.btn) { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+  .ef:has(#pick-guitar:checked) :global([data-for]:not([data-for='guitar'])),
+  .ef:has(#pick-piano:checked) :global([data-for]:not([data-for='piano'])),
+  .ef:has(#pick-ukulele:checked) :global([data-for]:not([data-for='ukulele'])),
+  .ef:has(#pick-solfege:checked) :global([data-for]:not([data-for='solfege'])) { display: none !important; }
+  .ef:has(#start-1:checked) [data-start-for]:not([data-start-for='1']),
+  .ef:has(#start-2:checked) [data-start-for]:not([data-start-for='2']),
+  .ef:has(#start-3:checked) [data-start-for]:not([data-start-for='3']) { display: none !important; }
+
+  .ef__head { margin-bottom: var(--space-8); }
+  .ef h1 { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 var(--space-3); }
+  .ef__lead { max-width: 70ch; color: var(--ink-2); line-height: 1.6; margin: 0 0 var(--space-5); }
+  .ef__controls { display: flex; flex-wrap: wrap; gap: var(--space-8); position: sticky; top: 80px; z-index: 5; background: var(--paper); padding: var(--space-3) 0; border-bottom: 1px solid var(--line); }
+
+  .kicker { margin: 0 0 var(--space-3); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); font-family: var(--display); font-weight: 600; font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.08em; color: var(--stage); }
+  .kicker__tag { padding: 3px 10px; border-radius: 3px; background: var(--stage); color: var(--xp-label); font-family: var(--hand); font-weight: 400; font-size: 1.55rem; line-height: 1; letter-spacing: 0; text-transform: none; transform: rotate(-2deg); -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .hand, .hand-inline { font-family: var(--hand); font-weight: 400; font-size: 1.95rem; line-height: 1.15; color: var(--stage); margin: 0; -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .hand-inline { font-size: 1.6rem; margin-left: var(--space-2); }
+
+  .pick { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .pick legend { font-family: var(--hand); font-size: 1.6rem; color: var(--stage); margin-bottom: 4px; padding: 0; -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .pick__options { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pick__opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .pick__opt span { display: inline-block; padding: 8px 14px; border-radius: var(--radius-full); border: 1.5px solid var(--line); background: var(--card); font-family: var(--display); font-weight: 600; font-size: var(--text-sm); cursor: pointer; }
+  .pick__opt input:checked + span { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: var(--space-4) var(--space-6); border-radius: var(--radius-md); font-family: var(--display); font-weight: 600; text-decoration: none; }
+  .btn--stage { background: var(--stage); color: var(--xp-label); box-shadow: 0 6px 0 -2px rgba(35, 25, 61, 0.18); }
+  .btn--ghost { color: var(--ink); border: 1.5px solid var(--line); background: var(--card); }
+  .chip { display: inline-block; padding: 2px 10px; border-radius: 3px; background: var(--tint); color: var(--stage); font-family: var(--hand); font-size: 1.3rem; line-height: 1.1; white-space: nowrap; -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+
+  .sol { padding: var(--space-12) 0; border-top: 1px solid var(--line); }
+  .sol__tag { margin: 0 0 var(--space-2); font-family: var(--hand); font-size: 1.9rem; color: var(--stage); -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .sol__title { font-size: clamp(1.6rem, 3vw, 2.4rem); margin: 0 0 var(--space-3); }
+  .sol__why { max-width: 72ch; color: var(--ink-2); line-height: 1.6; margin: 0 0 var(--space-6); }
+
+  /* ---------- hero, proposition ---------- */
+  .sol--hero .hero { background: var(--tint); padding: var(--space-10) 0; border-radius: var(--radius-2xl); transition: background-color 0.5s; }
+  .hero__grid { display: grid; gap: var(--space-8); align-items: center; }
+  .hero__h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1; margin: 0 0 var(--space-5); }
+  .hero__who { display: grid; grid-template-columns: 112px 1fr; gap: var(--space-4); align-items: center; margin: 0 0 var(--space-5); }
+  .hero__who img { width: 112px; height: 112px; object-fit: cover; border-radius: var(--radius-lg); transform: rotate(-3deg); box-shadow: 0 10px 24px -12px rgba(35, 25, 61, 0.5); border: 3px solid var(--card); }
+  .hero__who p { margin: 0; color: var(--ink-2); line-height: 1.6; max-width: 56ch; }
+  .hero__who strong { color: var(--ink); }
+  .tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2); margin: var(--space-3) 0 var(--space-5); }
+  .tile { position: relative; display: grid; gap: 2px; padding: var(--space-4); border-radius: var(--radius-lg); background: var(--card); border: 1.5px solid var(--line); border-left: 5px solid var(--theme-current); cursor: pointer; }
+  .tile input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .tile:has(input:checked) { background: var(--theme-current); color: #fff; border-color: var(--theme-current); }
+  .tile__name { font-family: var(--display); font-weight: 700; font-size: var(--text-xl); }
+  .tile__meta { font-size: var(--text-sm); opacity: 0.85; }
+  .tile__win { font-family: var(--hand); font-size: 1.3rem; line-height: 1.1; margin-top: 4px; -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .hero__visual :global(.fc) { --fc-accent: var(--stage); --fc-accent-ink: var(--xp-label); --fc-glow: var(--stage); --fc-paper: var(--tint); }
+  .hero__visual :global(.fc--strings .fc__svg) { height: min(52vh, 480px); }
+  .hero__visual :global(.fc--wide .fc__svg) { max-height: min(40vh, 380px); }
+  .hero__visual :global(.fc__play) { background: var(--stage); color: var(--xp-label); }
+
+  /* ---------- A · métro ---------- */
+  .metro-wrap { overflow-x: auto; padding: var(--space-4) 0; }
+  .metro { width: 100%; min-width: 900px; display: block; }
+  .metro__col { font-family: var(--display); font-weight: 700; font-size: 20px; fill: var(--ink); text-anchor: middle; }
+  .metro__sep { stroke: var(--line); stroke-dasharray: 4 6; }
+  .metro__line line { stroke: var(--c); stroke-width: 8; stroke-linecap: round; }
+  .metro__name { font-family: var(--display); font-weight: 700; font-size: 16px; fill: var(--c); }
+  .metro__line { transition: opacity 0.25s; }
+  .ef:has(#pick-guitar:checked) .metro__line:not([data-line='guitar']),
+  .ef:has(#pick-piano:checked) .metro__line:not([data-line='piano']),
+  .ef:has(#pick-ukulele:checked) .metro__line:not([data-line='ukulele']),
+  .ef:has(#pick-solfege:checked) .metro__line:not([data-line='solfege']) { opacity: 0.35; }
+  .station { cursor: pointer; outline: none; transition: opacity 0.25s; }
+  .station circle { fill: var(--card); stroke: var(--c); stroke-width: 5; }
+  .station__pack { fill: none; stroke: var(--c); stroke-width: 2; stroke-dasharray: 3 3; }
+  .station__label { font-family: var(--display); font-weight: 600; font-size: 14px; fill: var(--ink); text-anchor: middle; }
+  .station__price { font-family: var(--hand); font-size: 17px; fill: var(--c); text-anchor: middle; }
+  .station:hover circle:first-child, .station:focus-visible circle:first-child { fill: var(--c); }
+  .ef:has(#start-1:checked) .station:not([data-rung='1']),
+  .ef:has(#start-2:checked) .station:not([data-rung='2']),
+  .ef:has(#start-3:checked) .station:not([data-rung='3']) { opacity: 0.45; }
+  .metro__transfer { fill: none; stroke-width: 4; stroke-dasharray: 6 5; opacity: 0.8; }
+  .metro__legend text { font-size: 13px; fill: var(--ink-2); }
+  .legend__pack { fill: none; stroke: var(--ink-2); stroke-width: 2; stroke-dasharray: 3 3; }
+
+  /* fiche de détail (A et D) */
+  .detail { margin-top: var(--space-4); padding: var(--space-5) var(--space-6); border-radius: var(--radius-lg); background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--stage); display: grid; gap: var(--space-2); }
+  .detail[hidden] { display: none; }
+  .detail :global(h3) { margin: 0; font-size: var(--text-xl); }
+  .detail :global(p) { margin: 0; color: var(--ink-2); }
+  .detail :global(ul) { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: var(--text-sm); }
+  .detail :global(.detail__price) { font-family: var(--display); font-size: var(--text-2xl); font-weight: 700; color: var(--ink); }
+  .detail :global(.detail__row) { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+  .detail :global(.btn) { display: inline-flex; padding: var(--space-3) var(--space-5); border-radius: var(--radius-md); background: var(--stage); color: var(--xp-label); font-family: var(--display); font-weight: 600; text-decoration: none; }
+  .detail :global(.chip) { display: inline-block; padding: 2px 10px; border-radius: 3px; background: var(--tint); color: var(--stage); font-family: var(--hand); font-size: 1.3rem; line-height: 1.1; }
+  .detail :global(.hand-inline) { font-family: var(--hand); font-size: 1.6rem; color: var(--stage); }
+
+  /* ---------- B · tableau ---------- */
+  .table-wrap { overflow-x: auto; }
+  .tbl { width: 100%; min-width: 760px; border-collapse: collapse; font-size: var(--text-sm); }
+  .tbl thead th { text-align: left; padding: 8px 12px; font-family: var(--display); font-weight: 600; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); border-bottom: 2px solid var(--ink); }
+  .tbl__group th { text-align: left; padding: 14px 12px 6px; font-family: var(--display); font-weight: 700; font-size: var(--text-base); color: var(--c); border-bottom: 2px solid var(--c); }
+  .tbl td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .tbl__course a { font-family: var(--display); font-weight: 600; text-decoration: none; }
+  .tbl__course small { display: block; color: var(--ink-2); font-size: var(--text-xs); margin-top: 2px; max-width: 34ch; }
+  .tbl__price { font-family: var(--display); font-weight: 700; font-size: var(--text-base); white-space: nowrap; }
+  .tbl tbody { transition: opacity 0.25s; }
+  .ef:has(#pick-guitar:checked) .tbl tbody:not([data-theme='guitar']),
+  .ef:has(#pick-piano:checked) .tbl tbody:not([data-theme='piano']),
+  .ef:has(#pick-ukulele:checked) .tbl tbody:not([data-theme='ukulele']),
+  .ef:has(#pick-solfege:checked) .tbl tbody:not([data-theme='solfege']) { opacity: 0.5; }
+  .ef:has(#start-1:checked) .tbl tr[data-rung]:not([data-rung='1']),
+  .ef:has(#start-2:checked) .tbl tr[data-rung]:not([data-rung='2']),
+  .ef:has(#start-3:checked) .tbl tr[data-rung]:not([data-rung='3']) { color: var(--ink-2); }
+  .ef:has(#start-1:checked) .tbl tr[data-rung='1'],
+  .ef:has(#start-2:checked) .tbl tr[data-rung='2'],
+  .ef:has(#start-3:checked) .tbl tr[data-rung='3'] { background: var(--tint); }
+
+  /* ---------- C · conseiller ---------- */
+  .advice__grid { display: grid; gap: var(--space-6); align-items: start; }
+  .advice__main { display: grid; gap: var(--space-2); padding: var(--space-6); border-radius: var(--radius-xl); background: var(--card); border: 1px solid var(--line); border-top: 5px solid var(--stage); }
+  .advice__main .chip { justify-self: start; }
+  .advice__main h3 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  .advice__who { margin: 0; color: var(--ink-2); line-height: 1.5; }
+  .advice__learn-title { margin: var(--space-2) 0 0; font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-2); }
+  .advice__main ul { margin: 0; padding-left: 18px; color: var(--ink-2); }
+  .advice__meta { margin: 0; font-size: var(--text-sm); color: var(--ink-2); }
+  .advice__price { margin: var(--space-2) 0; display: flex; align-items: baseline; }
+  .advice__price strong { font-family: var(--display); font-size: 2.4rem; }
+  .advice__main .btn { justify-self: start; }
+  .advice__side { display: grid; gap: var(--space-3); align-content: start; }
+  .advice__next { display: grid; gap: 4px; padding: var(--space-4); border-radius: var(--radius-lg); background: var(--card); border: 1px solid var(--line); text-decoration: none !important; }
+  .advice__next .chip { justify-self: start; }
+  .advice__next-title { font-family: var(--display); font-weight: 700; }
+  .advice__next-meta { font-size: var(--text-sm); color: var(--ink-2); }
+  .advice__rest summary { cursor: pointer; font-family: var(--display); font-weight: 600; }
+  .advice__rest ul { margin: var(--space-2) 0 0; padding-left: 18px; font-size: var(--text-sm); color: var(--ink-2); display: grid; gap: 4px; }
+
+  /* ---------- D · grille ---------- */
+  .grid-wrap { overflow-x: auto; }
+  .school { display: grid; grid-template-columns: 150px repeat(3, 1fr); min-width: 820px; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--card); }
+  .school__corner, .school__col, .school__row, .school__cell { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); }
+  .school__col { font-family: var(--display); font-weight: 700; text-align: center; background: var(--paper); }
+  .school__row { font-family: var(--display); font-weight: 700; color: var(--c); display: grid; align-content: center; }
+  .school__row small { font-family: var(--xp-text); font-weight: 400; font-size: var(--text-xs); color: var(--ink-2); }
+  .school__cell { display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; min-height: 64px; }
+  .ef:has(#start-1:checked) [data-col='1'], .ef:has(#start-2:checked) [data-col='2'], .ef:has(#start-3:checked) [data-col='3'] { background: var(--tint); }
+  .ef:has(#pick-guitar:checked) [data-theme='guitar'], .ef:has(#pick-piano:checked) [data-theme='piano'],
+  .ef:has(#pick-ukulele:checked) [data-theme='ukulele'], .ef:has(#pick-solfege:checked) [data-theme='solfege'] { box-shadow: inset 4px 0 0 var(--c); }
+  .pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: var(--radius-full); border: 1.5px solid var(--c); background: var(--card); color: var(--ink); font-family: var(--display); font-weight: 600; font-size: var(--text-sm); cursor: pointer; }
+  .pill b { color: var(--c); }
+  .pill i { font-style: normal; color: var(--c); }
+  .pill:hover { background: var(--c); color: #fff; }
+  .pill:hover b, .pill:hover i { color: #fff; }
+
+  @media (min-width: 900px) {
+    .hero__grid { grid-template-columns: 6fr 5fr; gap: var(--space-12); }
+    .advice__grid { grid-template-columns: 1.3fr 1fr; }
+  }
+</style>
+
+<script>
+  /* Le hero, proposition : ses tuiles pilotent le même choix d'instrument. */
+  document.querySelectorAll<HTMLInputElement>('input[name="instrument-hero"]').forEach((t) =>
+    t.addEventListener('change', () => {
+      const real = document.getElementById(`pick-${t.value}`) as HTMLInputElement | null;
+      if (real) real.checked = true;
+    }),
+  );
+  document.querySelectorAll<HTMLInputElement>('input[name="instrument"]').forEach((r) =>
+    r.addEventListener('change', () => {
+      const mirror = document.querySelector<HTMLInputElement>(`input[name="instrument-hero"][value="${r.value}"]`);
+      if (mirror) mirror.checked = true;
+    }),
+  );
+
+  /* A et D : la fiche de détail d'une station ou d'une pastille. */
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+  document.querySelectorAll<HTMLElement>('[data-course]').forEach((el) => {
+    const show = () => {
+      const panel = el.closest('section')?.querySelector<HTMLElement>('[data-detail]');
+      if (!panel) return;
+      const d = el.dataset;
+      panel.innerHTML = `
+        <div class="detail__row"><span class="chip">${esc(d.level ?? '')}</span><h3>${esc(d.title ?? '')}</h3></div>
+        <p>${esc(d.who ?? '')}</p>
+        <p><strong>Vous apprenez :</strong></p>
+        <ul>${(d.learn ?? '').split('|').filter(Boolean).map((l) => `<li>${esc(l)}</li>`).join('')}</ul>
+        <p>${esc(d.meta ?? '')}</p>
+        <div class="detail__row"><span class="detail__price">${esc(d.price ?? '')}</span>${d.pack ? `<span class="hand-inline">dans le ${esc(d.pack)}</span>` : ''}<a class="btn btn--stage" href="${d.url}">Voir le cours</a></div>`;
+      panel.hidden = false;
+      panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    };
+    el.addEventListener('click', show);
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        show();
+      }
+    });
+  });
+</script>

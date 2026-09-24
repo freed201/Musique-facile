@@ -1,0 +1,106 @@
+---
+/**
+ * HomeSchemas.astro — JSON-LD des maquettes d'accueil.
+ * À poser dans <Fragment slot="head">.
+ *
+ * - EducationalOrganization + aggregateRating (avec l'URL source, vérifiable)
+ * - WebSite (le WebPage est déjà posé par Layout.astro)
+ * - Person (Fred Fieffé) — entité E-E-A-T, reliée à l'organisation
+ * - FAQPage — strictement le contenu affiché par HomeFaq
+ * - ItemList de Product — les offres réellement affichées (Pack à 99 € ou
+ *   cours seul), avec leur date de validité : le balisage doit décrire ce que
+ *   la page montre, pas autre chose.
+ */
+import { ratingValue, bestRating, reviews, reviewsSource } from '../../data/proof';
+import { paths, faq, fred, rentree } from '../../data/home-v2';
+
+interface Props {
+  description: string;
+  /** La page affiche-t-elle la FAQ (HomeFaq) ? Sinon, pas de FAQPage : rien de balisé qui ne soit visible. */
+  withFaq?: boolean;
+}
+
+const { description, withFaq = true } = Astro.props;
+const site = 'https://musique-facile.fr';
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalOrganization',
+  '@id': `${site}/#organization`,
+  name: 'Musique Facile',
+  url: site,
+  logo: `${site}/logo.webp`,
+  description,
+  foundingDate: '2015',
+  founder: { '@id': `${site}/#fred` },
+  sameAs: [...fred.sameAs, 'https://www.ukulele-facile.fr', 'https://kidetzic.fr'],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue,
+    bestRating,
+    reviewCount: reviews.display,
+    url: reviewsSource.url,
+  },
+};
+
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${site}/#fred`,
+  name: fred.name,
+  url: `${site}${fred.authorUrl}`,
+  image: `${site}${fred.photo}`,
+  jobTitle: 'Professeur de musique, auteur de méthodes',
+  worksFor: { '@id': `${site}/#organization` },
+  knowsAbout: ['Guitare', 'Piano', 'Ukulélé', 'Solfège', 'Pédagogie musicale pour adultes'],
+  sameAs: fred.sameAs,
+};
+
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Musique Facile',
+  url: site,
+  publisher: { '@id': `${site}/#organization` },
+};
+
+const faqPage = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+
+const offerList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Offres Musique Facile, rentrée 2026',
+  itemListElement: paths.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Product',
+      name: p.offer.name,
+      description: `${p.offer.includes.map((x) => x.title).join(', ')}. Accès à vie, un seul paiement.`,
+      brand: { '@id': `${site}/#organization` },
+      offers: {
+        '@type': 'Offer',
+        price: String(p.offer.priceValue),
+        priceCurrency: 'EUR',
+        availability: 'https://schema.org/InStock',
+        url: p.offer.url,
+        ...(p.offer.includes.length > 1 ? { priceValidUntil: rentree.offerEnds } : {}),
+      },
+    },
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(organization)} />
+<script type="application/ld+json" set:html={JSON.stringify(person)} />
+<script type="application/ld+json" set:html={JSON.stringify(website)} />
+{withFaq && <script type="application/ld+json" set:html={JSON.stringify(faqPage)} />}
+<script type="application/ld+json" set:html={JSON.stringify(offerList)} />

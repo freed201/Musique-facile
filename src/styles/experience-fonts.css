@@ -1,0 +1,84 @@
+/**
+ * experience-fonts.css — le système typographique des maquettes d'accueil
+ * (/home-v8/, /carnet/, /on-discute/, /offre/, et les anciennes maquettes).
+ *
+ * ÉTUDE DU 2026-09-05 (page de comparaison : /typo/)
+ * Les maquettes mélangeaient quatre familles (Bricolage Grotesque, Instrument
+ * Serif, Caveat, Inter) plus le Poppins du header : aucune cohérence, et
+ * Caveat, police « manuscrite » la plus utilisée du web, tirait le tout vers
+ * le gadget. Le duo Bricolage + Instrument Serif italique est par ailleurs
+ * devenu la signature des sites générés en 2024-2025.
+ *
+ * Critères : une voix chaude et adulte (pas enfantine), de la personnalité
+ * sans trucage, une lisibilité irréprochable en corps de texte pour un public
+ * de 40 à 70 ans, trois rôles maximum (titres, texte, annotation à la main),
+ * des polices variables pour animer sans charger dix fichiers, licence libre.
+ *
+ * Système retenu, « Atelier » :
+ *  - Titres : Fraunces (Undercase Type), serif « old style » inspiré de
+ *    Windsor et Cooper, avec ses axes Softness et Wonk. En version douce et
+ *    déhanchée, il a l'air dessiné à la main sans l'être : de l'art, pas du
+ *    conservatoire. Italique pour les mots qui portent l'émotion.
+ *  - Texte et interface : Figtree, géométrique amicale, très lisible petite,
+ *    chiffres tabulaires pour les prix.
+ *  - La voix à la main : Shantell Sans, la police de l'artiste Shantell
+ *    Martin (avec Arrowtype), au marqueur, avec ses axes d'informalité et de
+ *    rebond. C'est une écriture d'artiste, pas un effet « post-it ».
+ *
+ * Les deux autres systèmes de l'étude (« Rond » : Rubik seul + Shantell ;
+ * « Marqueur » : Shantell en titres + Figtree) restent visibles sur /typo/ et
+ * se basculent ici en changeant trois variables.
+ */
+
+:root {
+  /* Base B « Rond », choisie par Fred le 2026-09-05 : Rubik seul pour les titres
+     et le texte, Shantell Sans pour la main. Les quatre déclinaisons (B1 à B3,
+     D « folle ») sont sur /typo/ ; changer une variante = changer ces lignes. */
+  --xp-display: 'Rubik Variable', system-ui, sans-serif;
+  --xp-text: 'Rubik Variable', system-ui, sans-serif;
+  /* La main : Square Peg (choix de Fred, 2026-09-05), un stylo bille qui écrit
+     droit et vite. Trait épaissi d'un tiers de pixel par le navigateur pour
+     tenir sur les fonds colorés. */
+  --xp-voice: 'Square Peg', 'Segoe Print', cursive;
+  --xp-voice-stroke: 0.35px;
+
+  /* Réglages des axes variables. */
+  --xp-display-settings: normal;
+  --xp-voice-settings: normal;
+}
+
+/* Titres : doux, un peu de travers, serrés juste ce qu'il faut. */
+.xp-display,
+.xp h1,
+.xp h2,
+.xp h3 {
+  font-family: var(--xp-display);
+  font-variation-settings: var(--xp-display-settings);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-optical-sizing: auto;
+}
+
+.xp h1 em,
+.xp h2 em,
+.xp .xp-em {
+  font-family: var(--xp-display);
+  font-style: italic;
+  font-weight: 600;
+  font-variation-settings: var(--xp-display-settings);
+}
+
+/* La voix à la main. */
+.xp-voice {
+  font-family: var(--xp-voice);
+  font-variation-settings: var(--xp-voice-settings);
+  font-weight: 400;
+  -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+  paint-order: stroke fill;
+}
+
+/* Le texte. */
+.xp {
+  font-family: var(--xp-text);
+  font-variant-numeric: tabular-nums;
+}

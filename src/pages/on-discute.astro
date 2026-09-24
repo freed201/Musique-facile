@@ -1,0 +1,815 @@
+---
+/**
+ * on-discute.astro — « On discute ? » : une conversation avec Fred, pour l'hésitant.
+ *
+ * URL : /on-discute/ — PAGE CACHÉE pour l'instant : noindex/nofollow, Disallow.
+ * Décision de Fred (2026-09-05) : ce n'est pas la home, c'est le dernier coup de
+ * pouce, branché depuis la page « Le prix » du carnet, /offre/ et la FAQ.
+ * `?instrument=guitar|piano|ukulele|solfege` pré-règle l'instrument : Fred
+ * saute alors la première question.
+ *
+ * L'IDÉE
+ * Pas de sections, pas de blocs : Fred pose trois questions, comme au début
+ * d'un premier cours, et la page se construit à partir des réponses.
+ * L'instrument, le passé musical, le temps disponible ; puis on joue un
+ * accord ensemble ; puis Fred raconte les 30 premiers jours, dit le prix,
+ * répond aux questions qu'on lui pose avant d'acheter. Tout est dans sa voix.
+ * BROUILLON : chaque réplique est à relire et à valider par Fred, ce sont ses
+ * mots que le visiteur lira.
+ *
+ * Les réponses n'inventent rien : promesses, chapitres, prix, avis viennent
+ * de src/data/home-v2.ts et src/data/testimonials.ts. Sans JavaScript, la
+ * page renvoie vers la home classique.
+ *
+ * Références : le quiz d'orientation avant le catalogue (MasterClass, Loop),
+ * les onboardings conversationnels d'applications d'apprentissage, et
+ * surtout la première minute d'un vrai cours particulier.
+ */
+import '@fontsource-variable/rubik/wght.css';
+import '@fontsource-variable/rubik/wght-italic.css';
+import '@fontsource/square-peg/400.css';
+import '../styles/experience-colors.css';
+import '../styles/experience-fonts.css';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FooterModern from '../components/FooterModern.astro';
+import FirstChord from '../components/home/FirstChord.astro';
+import { reassurance, rentree, fred } from '../data/home-v2';
+import { rating, reviews, students, reviewsSource } from '../data/proof';
+
+const title = 'On discute ? Fred vous pose trois questions | Musique Facile';
+const description = 'Trois questions, un accord joué ensemble, et Fred vous dit ce que vous ferez les trente premiers jours. Une conversation, pas une page de vente.';
+---
+
+<Layout title={title} description={description} canonicalUrl="https://musique-facile.fr/on-discute/" robots="noindex, nofollow">
+  <Header />
+
+  <div class="ch xp" data-instrument="">
+    <div class="ch__top">
+      <div class="container ch__topin">
+        <p class="ch__kicker">{rentree.season} · École de musique en ligne · <strong>{rating.display}</strong> sur <a href={reviewsSource.url} rel="noopener nofollow" target="_blank">{reviews.display} avis</a> · {students.display} élèves</p>
+        <button type="button" class="ch__restart" data-restart hidden>Recommencer</button>
+      </div>
+    </div>
+
+    <main class="chat container" aria-live="polite">
+      <h1 class="ch__title">On discute ? <em>Trois questions, et on joue.</em></h1>
+      <div class="chat__log" data-log></div>
+      <div class="chat__choices" data-choices></div>
+      <noscript>
+        <p class="ch__noscript">
+          Cette page a besoin de JavaScript pour discuter. <a href="/home-v8/">Voir la page d'accueil</a>.
+        </p>
+      </noscript>
+    </main>
+
+    <!-- L'instrument jouable, prêt à être glissé dans la conversation -->
+    <div class="ch__holder" data-holder hidden>
+      <FirstChord />
+    </div>
+
+    <section class="ch__notes container" aria-label="Notes et sources" data-notes hidden>
+      <ol>
+        {reassurance.map((r, i) => (
+          <li id={`note-${i + 1}`}>{r.note} <a href={r.href}>Voir {r.linkLabel}</a>.</li>
+        ))}
+        <li id="note-5">Somme des prix de chaque formation prise seule, tels qu'affichés sur les fiches cours le 4 septembre 2026. Ce n'est pas un ancien prix du Pack.</li>
+        <li>Les sons de cette page sont synthétisés dans le navigateur, pour la démonstration.</li>
+      </ol>
+      <p><a href={fred.aboutUrl}>Qui est Fred</a> · <a href="/faq/">Toutes les questions</a> · <a href="/contact/">Écrire à Fred</a></p>
+    </section>
+  </div>
+
+  <FooterModern />
+</Layout>
+
+<style>
+  .ch {
+    --display: var(--xp-display);
+    --serif: var(--xp-display);
+    --hand: var(--xp-voice);
+    --paper: #f6f0e4;
+    --card: #fffaf0;
+    --ink: #23193d;
+    --ink-2: #5a4f75;
+    --line: rgba(35, 25, 61, 0.14);
+    --hv-ink: var(--ink);
+    --hv-ink-2: var(--ink-2);
+    --hv-card: var(--card);
+    --hv-line: var(--line);
+    --hv-accent: var(--stage);
+    --hv-accent-ink: var(--stage);
+    --hv-display: var(--display);
+    --hv-serif: var(--serif);
+    --hv-hand: var(--hand);
+    --hv-header: 80px;
+    color-scheme: light;
+    --bg-page: var(--paper);
+    --bg-alt: var(--paper);
+    --bg-card: var(--card);
+    --bg-elevated: var(--card);
+    --text-primary: var(--ink);
+    --text-secondary: var(--ink-2);
+    --text-muted: var(--ink-2);
+    --border-default: var(--line);
+    --surface-white: var(--card);
+    --surface-light: var(--paper);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--xp-text);
+    min-height: 100vh;
+    transition: background-color 0.6s var(--ease-out);
+  }
+
+  .ch[data-instrument] {
+    background: var(--tint);
+  }
+
+  .ch[data-instrument='guitar'] :global([data-for]:not([data-for='guitar'])),
+  .ch[data-instrument='piano'] :global([data-for]:not([data-for='piano'])),
+  .ch[data-instrument='ukulele'] :global([data-for]:not([data-for='ukulele'])),
+  .ch[data-instrument='solfege'] :global([data-for]:not([data-for='solfege'])) {
+    display: none !important;
+  }
+
+  @media (max-width: 768px) {
+    .ch {
+      --hv-header: 70px;
+    }
+  }
+
+  .ch a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .ch__top {
+    padding-top: calc(var(--hv-header) + var(--space-4));
+  }
+
+  .ch__topin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .ch__kicker {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .ch__kicker strong {
+    font-family: var(--display);
+    color: var(--ink);
+  }
+
+  .ch__restart {
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--line);
+    background: var(--card);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    cursor: pointer;
+  }
+
+  .chat {
+    max-width: 760px !important;
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-12);
+  }
+
+  .ch :global(.days__when),
+  .ch :global(.offer__price small),
+  .ch :global(.quotes li),
+  .ch :global(.plan__hand) {
+    font-variation-settings: var(--xp-voice-settings);
+    -webkit-text-stroke: var(--xp-voice-stroke) currentColor;
+    paint-order: stroke fill;
+    font-weight: 400;
+  }
+
+  .ch__title {
+    font-family: var(--display);
+    font-variation-settings: var(--xp-display-settings);
+    font-size: clamp(2rem, 4.4vw, 3.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--space-8);
+    font-weight: 700;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+
+  .ch__title em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--stage);
+  }
+
+  .chat__log {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  /* bulles */
+  .ch :global(.msg) {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: var(--space-3);
+    align-items: end;
+    animation: msg-in 0.35s var(--ease-out) both;
+  }
+
+  .ch :global(.msg--me) {
+    grid-template-columns: 1fr;
+    justify-items: end;
+  }
+
+  @keyframes msg-in {
+    from { opacity: 0; transform: translateY(10px); }
+  }
+
+  .ch :global(.msg__avatar) {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--card);
+    box-shadow: 0 4px 12px -6px rgba(35, 25, 61, 0.5);
+  }
+
+  .ch :global(.msg__body) {
+    max-width: 62ch;
+    padding: var(--space-4) var(--space-5);
+    border-radius: 22px 22px 22px 6px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    box-shadow: 0 10px 30px -24px rgba(35, 25, 61, 0.5);
+  }
+
+  .ch :global(.msg__body p) {
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  .ch :global(.msg__body p + p) {
+    margin-top: var(--space-3);
+  }
+
+  .ch :global(.msg--me .msg__body) {
+    background: var(--stage);
+    color: #fff;
+    border-color: var(--stage);
+    border-radius: 22px 22px 6px 22px;
+    font-family: var(--display);
+    font-weight: 600;
+  }
+
+  .ch :global(.msg--wide .msg__body) {
+    max-width: none;
+    width: 100%;
+  }
+
+  .ch :global(.typing) {
+    display: inline-flex;
+    gap: 5px;
+    padding: var(--space-2) 0;
+  }
+
+  .ch :global(.typing i) {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ink-2);
+    animation: blink 1s infinite;
+  }
+
+  .ch :global(.typing i:nth-child(2)) { animation-delay: 0.15s; }
+  .ch :global(.typing i:nth-child(3)) { animation-delay: 0.3s; }
+
+  @keyframes blink {
+    0%, 60%, 100% { opacity: 0.25; }
+    30% { opacity: 1; }
+  }
+
+  /* dans les bulles : listes, offre, avis */
+  .ch :global(.days) {
+    list-style: none;
+    margin: var(--space-3) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .ch :global(.days li) {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: var(--space-3);
+    align-items: baseline;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--text-base);
+  }
+
+  .ch :global(.days__when) {
+    justify-self: start;
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 1.92rem;
+    background: var(--sun);
+    color: var(--sun-ink);
+    padding: 2px 8px;
+    border-radius: 3px;
+    transform: rotate(-2deg);
+  }
+
+  .ch :global(.offer) {
+    margin-top: var(--space-3);
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .ch :global(.offer__price) {
+    font-family: var(--display);
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .ch :global(.offer__price small) {
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 2.16rem;
+    color: var(--stage);
+    margin-left: var(--space-2);
+  }
+
+  .ch :global(.offer ul) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 4px;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--text-base);
+  }
+
+  .ch :global(.offer ul em) {
+    font-style: normal;
+    font-weight: 400;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .ch :global(.offer__terms) {
+    font-size: var(--text-sm) !important;
+    color: var(--ink-2);
+  }
+
+  .ch :global(.btn) {
+    display: inline-flex;
+    justify-content: center;
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-md);
+    background: var(--sun);
+    color: var(--sun-ink);
+    font-family: var(--display);
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 0 -2px rgba(35, 25, 61, 0.18);
+    justify-self: start;
+  }
+
+  .ch :global(.quotes) {
+    list-style: none;
+    margin: var(--space-3) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .ch :global(.quotes li) {
+    padding: var(--space-3) var(--space-4);
+    background: #fff3d1;
+    border-radius: 4px;
+    font-family: var(--hand);
+    font-size: 1.98rem;
+    line-height: 1.2;
+    transform: rotate(-1deg);
+  }
+
+  .ch :global(.quotes li:nth-child(even)) {
+    transform: rotate(1deg);
+    background: #fde8d2;
+  }
+
+  .ch :global(.quotes small) {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: var(--text-xs);
+    color: var(--ink-2);
+    margin-top: 4px;
+  }
+
+  .ch :global(.plan) {
+    margin-top: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border: 2px dashed var(--stage);
+    border-radius: var(--radius-lg);
+    background: #fff;
+    transform: rotate(-0.6deg);
+  }
+
+  .ch :global(.plan__hand) {
+    margin: 0 0 var(--space-3);
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 2.46rem;
+    color: var(--stage);
+  }
+
+  .ch :global(.plan ul) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .ch :global(.plan li) {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: var(--space-3);
+    font-size: var(--text-base);
+    line-height: 1.4;
+  }
+
+  .ch :global(.plan b) {
+    font-family: var(--display);
+    font-variation-settings: var(--xp-display-settings);
+    color: var(--ink-2);
+  }
+
+  /* les réponses possibles */
+  .chat__choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: flex-end;
+    margin-top: var(--space-5);
+    min-height: 52px;
+  }
+
+  .chat__choices :global(button) {
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--stage);
+    background: transparent;
+    color: var(--stage);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--text-base);
+    cursor: pointer;
+    transition: transform var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+    animation: msg-in 0.35s var(--ease-out) both;
+  }
+
+  .chat__choices :global(button:hover) {
+    background: var(--stage);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .chat__choices :global(button:focus-visible) {
+    outline: 3px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  .ch__holder {
+    padding: 0 var(--space-4);
+  }
+
+  .ch__noscript {
+    padding: var(--space-4);
+    background: var(--card);
+    border-radius: var(--radius-md);
+  }
+
+  .ch__notes {
+    max-width: 760px !important;
+    padding-bottom: var(--space-12);
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  .ch__notes ol {
+    margin: 0 0 var(--space-4);
+    padding-left: var(--space-5);
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ch :global(.msg),
+    .chat__choices :global(button) {
+      animation: none;
+    }
+
+    .ch {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import { paths, journey, rentree, faq } from '../data/home-v2';
+  import { testimonials, formatTestimonialDate } from '../data/testimonials';
+
+  const root = document.querySelector<HTMLElement>('.ch')!;
+  const log = root.querySelector<HTMLElement>('[data-log]')!;
+  const choices = root.querySelector<HTMLElement>('[data-choices]')!;
+  const holder = root.querySelector<HTMLElement>('[data-holder]')!;
+  const restart = root.querySelector<HTMLButtonElement>('[data-restart]')!;
+  const notes = root.querySelector<HTMLElement>('[data-notes]')!;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const AVATAR = '/images/prof/fred.webp';
+  const LABELS: Record<string, string> = { guitar: 'Guitare', piano: 'Piano', ukulele: 'Ukulélé', solfege: 'Solfège' };
+
+  type Choice = { label: string; go: () => void };
+  const state: { instrument: string; time: string; asked: Set<string> } = { instrument: '', time: '', asked: new Set() };
+  const path = () => paths.find((p) => p.id === state.instrument) ?? paths[0];
+
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+  const wait = (ms: number) => new Promise((r) => window.setTimeout(r, reduced ? 0 : ms));
+  // On suit la conversation, pas le bas de la page : la dernière bulle et les réponses possibles.
+  const scrollDown = () => {
+    const target = choices.childElementCount ? choices : (log.lastElementChild as HTMLElement | null);
+    if (!target) return;
+    const top = target.getBoundingClientRect().bottom + window.scrollY - window.innerHeight + 96;
+    window.scrollTo({ top: Math.max(0, top), behavior: reduced ? 'auto' : 'smooth' });
+  };
+
+  async function fredSays(paragraphs: string[], opts: { html?: string; wide?: boolean } = {}) {
+    const typing = document.createElement('div');
+    typing.className = 'msg';
+    typing.innerHTML = `<img class="msg__avatar" src="${AVATAR}" alt="" width="52" height="52" /><div class="msg__body"><span class="typing"><i></i><i></i><i></i></span></div>`;
+    log.appendChild(typing);
+    scrollDown();
+    await wait(Math.min(1400, 350 + paragraphs.join(' ').length * 6));
+    typing.className = `msg${opts.wide ? ' msg--wide' : ''}`;
+    typing.querySelector('.msg__body')!.innerHTML = paragraphs.map((p) => `<p>${p}</p>`).join('') + (opts.html ?? '');
+    scrollDown();
+    return typing;
+  }
+
+  function meSays(text: string) {
+    const m = document.createElement('div');
+    m.className = 'msg msg--me';
+    m.innerHTML = `<div class="msg__body">${esc(text)}</div>`;
+    log.appendChild(m);
+    scrollDown();
+  }
+
+  function offer(list: Choice[]) {
+    choices.innerHTML = '';
+    list.forEach((c) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = c.label;
+      b.addEventListener('click', () => {
+        meSays(c.label);
+        choices.innerHTML = '';
+        c.go();
+      });
+      choices.appendChild(b);
+    });
+    scrollDown();
+  }
+
+  /* ---------- le déroulé ---------- */
+  /* Instrument déjà connu (lien depuis une page instrument) : on saute la première question. */
+  const preset = new URLSearchParams(location.search).get('instrument') ?? '';
+  const known = paths.some((p) => p.id === preset) ? preset : '';
+
+  async function s0() {
+    if (known) {
+      state.instrument = known;
+      root.dataset.instrument = known;
+      restart.hidden = false;
+      await fredSays([
+        `Bonjour. Moi c'est Fred. Vous regardez ${path().object}, on va en parler.`,
+        'Avant ça, deux questions. Une minute, pas plus.',
+      ]);
+      offer([{ label: "D'accord", go: s2 }]);
+      return;
+    }
+    await fredSays([
+      "Bonjour. Moi c'est Fred. Je donne des cours de guitare, de piano et de ukulélé en ligne depuis 2015, à des adultes qui débutent.",
+      "Avant de vous montrer quoi que ce soit, deux ou trois questions. Une minute, pas plus.",
+    ]);
+    offer([{ label: "D'accord", go: s1 }]);
+  }
+
+  async function s1() {
+    await fredSays(["Qu'est-ce qui vous fait envie ?"]);
+    const pickIt = (id: string) => async () => {
+      state.instrument = id;
+      root.dataset.instrument = id;
+      restart.hidden = false;
+      const p = path();
+      const lines: Record<string, string> = {
+        guitar: "La guitare. L'instrument qu'on sort en fin de soirée, celui sur lequel tout le monde a un jour voulu jouer trois accords.",
+        piano: "Le piano. Beaucoup de mes élèves ont peur du solfège avant de commencer. On ne commence pas par là : on joue dès la première leçon.",
+        ukulele: "Le ukulélé. Quatre cordes, des accords à un doigt, et l'instrument qui met le plus vite de bonne humeur.",
+        solfege: "Lire la musique. Ceux qui viennent me voir pour ça jouent souvent déjà un peu, et veulent enfin comprendre ce qu'ils lisent.",
+      };
+      await fredSays([lines[id], p.promise]);
+      s2();
+    };
+    offer([
+      { label: 'Guitare', go: pickIt('guitar') },
+      { label: 'Piano', go: pickIt('piano') },
+      { label: 'Ukulélé', go: pickIt('ukulele') },
+      { label: 'Lire la musique', go: pickIt('solfege') },
+      {
+        label: 'Je ne sais pas encore',
+        go: async () => {
+          await fredSays([
+            "Alors je vous propose le ukulélé : quatre cordes, des accords à un doigt, et la première chanson en trois semaines. C'est l'instrument avec lequel on s'y met le plus vite.",
+            'Mais si vous avez une guitare ou un clavier qui traîne à la maison, partez de là.',
+          ]);
+          offer([
+            { label: 'Va pour le ukulélé', go: pickIt('ukulele') },
+            { label: 'Plutôt la guitare', go: pickIt('guitar') },
+            { label: 'Plutôt le piano', go: pickIt('piano') },
+          ]);
+        },
+      },
+    ]);
+  }
+
+  async function s2() {
+    await fredSays(['Vous avez déjà essayé ?']);
+    const then = (line: string) => async () => {
+      await fredSays([line]);
+      s3();
+    };
+    offer([
+      { label: 'Jamais', go: then("Parfait. Tout part de zéro, y compris tenir l'instrument. Vous n'aurez rien à désapprendre.") },
+      { label: "Il y a longtemps, j'ai lâché", go: then("Comme beaucoup. Souvent parce que la méthode commençait par la théorie. Ici, on commence par un accord, et on joue.") },
+      { label: 'Je joue un peu', go: then("Alors vous irez vite sur les premiers chapitres, et le reste vous servira : la rythmique, les transitions, les arpèges.") },
+    ]);
+  }
+
+  async function s3() {
+    await fredSays(['Et honnêtement, combien de temps par jour ?']);
+    const then = (line: string) => async () => {
+      await fredSays([line]);
+      s4();
+    };
+    choices.addEventListener('click', (e) => {
+      const b = (e.target as Element).closest('button');
+      if (b) state.time = b.textContent?.trim() ?? '';
+    }, { once: true });
+    offer([
+      { label: 'Dix minutes', go: then("Dix minutes, c'est déjà une leçon. Mieux vaut dix minutes chaque jour que deux heures le dimanche. Et le cours ne bouge pas : vous y allez à votre rythme, l'accès n'expire jamais.") },
+      { label: 'Un quart d’heure', go: then("Quinze minutes par jour, c'est exactement le rythme pour lequel les cours sont faits. Une notion par leçon, un exercice, et on s'arrête.") },
+      { label: 'Une demi-heure ou plus', go: then("Alors gardez-en pour rejouer ce que vous savez déjà. C'est là qu'on progresse le plus, et c'est la partie la plus agréable.") },
+    ]);
+  }
+
+  async function s4() {
+    const p = path();
+    const what: Record<string, string> = {
+      guitar: "Bon. Avant de parler du reste : on joue ? Voici l'accord de Do, le premier du cours. Glissez sur les cordes.",
+      ukulele: "Bon. Avant de parler du reste : on joue ? L'accord de Do au ukulélé, c'est un seul doigt. Glissez sur les cordes.",
+      piano: "Bon. Avant de parler du reste : on joue ? Do, mi, sol : les trois touches de la première leçon. Appuyez.",
+      solfege: "Bon. Avant de parler du reste : on lit ? Cinq notes en clé de sol. Touchez-en une, vous l'entendez et son nom apparaît.",
+    };
+    const m = await fredSays([what[p.id]], { wide: true });
+    holder.hidden = false;
+    m.querySelector('.msg__body')!.appendChild(holder);
+    scrollDown();
+    offer([
+      {
+        label: "Je l'ai entendu !",
+        go: async () => {
+          await fredSays(["Vous voyez. Un accord, c'est ça. Le cours, c'est apprendre à le tenir proprement, puis à en enchaîner deux, puis à jouer un morceau."]);
+          s5();
+        },
+      },
+      {
+        label: "Je n'ai pas de son",
+        go: async () => {
+          await fredSays(['Pas grave, gardez ça pour ce soir. Dans le cours, de toute façon, le son vient de votre instrument, pas de votre navigateur.']);
+          s5();
+        },
+      },
+    ]);
+  }
+
+  async function s5() {
+    const p = path();
+    const list = `<ol class="days">${journey
+      .map((s) => `<li><span class="days__when">${esc(s.marker)}</span><span>${esc(s.byInstrument[p.id].title)}</span></li>`)
+      .join('')}</ol>`;
+    await fredSays(['Voilà ce qu\'on fait ensemble les trente premiers jours, à quinze minutes par jour, dans l\'ordre du cours :'], { html: list, wide: true });
+    await fredSays([`${p.lessons}, ${p.duration}, et c'est ma voix sur chaque leçon.`]);
+    offer([{ label: 'Et ça coûte combien ?', go: s6 }]);
+  }
+
+  async function s6() {
+    const p = path();
+    const o = p.offer;
+    const pack = o.includes.length > 1;
+    const html = `<div class="offer">
+      <p class="offer__price">${esc(o.price)}<small>une fois, accès à vie</small></p>
+      <ul>${o.includes.map((i) => `<li>${esc(i.title)}${pack ? `<em> · ${esc(i.price)} seul</em>` : ''}</li>`).join('')}</ul>
+      ${pack ? `<p class="offer__terms">${esc(rentree.offerLabel)} jusqu'au ${esc(rentree.offerEndsLabel)} · pour ${esc(o.separately ?? '')} de formations prises séparément<sup><a href="#note-5">5</a></sup> · 15 jours pour changer d'avis</p>` : `<p class="offer__terms">${esc(o.note ?? '')} 15 jours pour changer d'avis.</p>`}
+      <a class="btn" href="${o.url}">Commencer ${esc(p.object)} · ${esc(o.price)}</a>
+    </div>`;
+    notes.hidden = false;
+    await fredSays([pack ? `Le ${esc(o.name)}, ${esc(o.price)}, une fois. Pas d'abonnement, rien à résilier, et vous gardez tout à vie.` : `Le cours ${esc(o.name)}, ${esc(o.price)}, une fois. Pas d'abonnement, et vous le gardez à vie.`], { html, wide: true });
+    offer([
+      { label: "J'ai encore des questions", go: s7 },
+      { label: "C'est bon pour moi", go: s8 },
+    ]);
+  }
+
+  function s7() {
+    fredSays(['Allez-y, je réponds.']).then(() => {
+      const list: Choice[] = faq
+        .filter((f) => !state.asked.has(f.q))
+        .map((f) => ({
+          label: f.q,
+          go: async () => {
+            state.asked.add(f.q);
+            await fredSays([f.a]);
+            s7();
+          },
+        }));
+      list.push({ label: "C'est bon pour moi", go: s8 });
+      offer(list);
+    });
+  }
+
+  async function s8() {
+    const p = path();
+    const q = testimonials
+      .filter((t) => t.id !== 'gaetane-c-2025-10')
+      .sort((a, b) => (a.instrument === p.id ? -1 : 0) - (b.instrument === p.id ? -1 : 0))
+      .slice(0, 3);
+    const quotes = `<ul class="quotes">${q
+      .map((t) => `<li>« ${esc(t.quote)} »<small>${esc(t.name)} · ${esc(LABELS[t.instrument])} · ${esc(formatTestimonialDate(t.date, t.datePrecision))} · Skilleos</small></li>`)
+      .join('')}</ul>`;
+    const today = new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+    const plan = `<div class="plan">
+      <p class="plan__hand">Votre plan de rentrée</p>
+      <ul>
+        <li><b>Instrument</b><span>${esc(LABELS[p.id])}</span></li>
+        <li><b>Chaque jour</b><span>${esc(state.time || 'Un quart d’heure')}</span></li>
+        <li><b>Jour 1</b><span>${esc(journey[0].byInstrument[p.id].title)}</span></li>
+        <li><b>Jour 30</b><span>${esc(p.promise)}</span></li>
+        <li><b>Départ</b><span>aujourd'hui, ${esc(today)}</span></li>
+        <li><b>Prix</b><span>${esc(p.offer.name)}, ${esc(p.offer.price)}, une fois${p.offer.includes.length > 1 ? `, jusqu'au ${esc(rentree.offerEndsShort)}` : ''}</span></li>
+      </ul>
+    </div>`;
+    await fredSays(['Voilà votre plan. Faites-en une capture, collez-la sur le frigo.'], { html: plan, wide: true });
+    await fredSays(
+      ['Alors à tout de suite dans le cours. Si ça ne vous convient pas, quinze jours, un e-mail, et vous êtes remboursé.', "D'autres m'ont écrit ça, sur Skilleos, mot pour mot :"],
+      { html: quotes + `<p style="margin-top:16px"><a class="btn" href="${p.offer.url}">Commencer ${esc(p.object)} · ${esc(p.offer.price)}</a></p>`, wide: true },
+    );
+    notes.hidden = false;
+    offer([{ label: 'Recommencer la discussion', go: reset }]);
+  }
+
+  function reset() {
+    log.innerHTML = '';
+    choices.innerHTML = '';
+    state.instrument = '';
+    state.asked.clear();
+    root.dataset.instrument = '';
+    holder.hidden = true;
+    root.appendChild(holder);
+    restart.hidden = true;
+    notes.hidden = true;
+    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    s0();
+  }
+
+  restart.addEventListener('click', reset);
+  s0();
+</script>

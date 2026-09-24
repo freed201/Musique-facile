@@ -1,0 +1,450 @@
+---
+/**
+ * etude-formations-2.astro — quatre nouvelles façons d'afficher les 18
+ * formations : simple à lire, rapide, beau, et qui donne envie de cliquer.
+ *
+ * URL : /etude-formations-2/ — PAGE CACHÉE : noindex/nofollow, Disallow.
+ *
+ * Retour de Fred sur la première série : « pas foufou ; la grille de l'école
+ * est la plus claire, mais je ne veux pas forcément la grille ». Ce qui
+ * manquait : la chaleur et l'envie. Ce que la recherche ajoute : Udemy a
+ * mesuré +30 % d'inscriptions quand la vignette d'un cours passe à une image
+ * professionnelle, sans rien changer d'autre. Or chaque fiche a une vraie
+ * image du cours (l'écran de la première leçon). Les quatre solutions
+ * ci-dessous montrent donc les cours, au lieu de les lister.
+ *
+ *  E · La bibliothèque : trois étagères (les niveaux), des livres (les cours)
+ *      colorés par instrument. On tire un livre, on voit sa couverture.
+ *  F · Les rangées : trois rangées de vignettes réelles par niveau, comme une
+ *      vidéothèque. Le geste que tout le monde connaît.
+ *  G · La montée : pour l'instrument choisi, les cours en marches qui montent,
+ *      et « vous êtes ici » sur la marche de votre niveau.
+ *  H · La grille, en images : l'aperçu de la grille de l'école, mais chaque
+ *      case montre ses couvertures ; on ouvre une case, la ligne se déplie.
+ */
+import '@fontsource-variable/rubik/wght.css';
+import '@fontsource-variable/rubik/wght-italic.css';
+import '@fontsource/square-peg/400.css';
+import '../styles/experience-fonts.css';
+import '../styles/experience-colors.css';
+import { getCollection } from 'astro:content';
+import fs from 'node:fs';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FooterModern from '../components/FooterModern.astro';
+import { paths } from '../data/home-v2';
+import { catalogue, packOf, RUNGS, humanDuration, pickStats, type Rung } from '../data/catalogue';
+
+const courses = (await getCollection('courses', ({ data }) => data.affichage !== 'N'))
+  .map((c) => {
+    const meta = catalogue[c.slug];
+    const stats = pickStats(c.data.hero.stats);
+    const theme = c.data.theme as 'guitar' | 'piano' | 'ukulele' | 'solfege';
+    const screen = `/images/cours/${c.slug}/timeline-1.webp`;
+    const cover = fs.existsSync(`public${screen}`) ? screen : c.data.ogImage;
+    const lessonsN = Number((stats.lessons.match(/\d+/) ?? ['40'])[0]);
+    return {
+      slug: c.slug,
+      theme,
+      rung: (meta?.rung ?? 2) as Rung,
+      short: meta?.short ?? c.data.title,
+      who: meta?.who ?? c.data.description,
+      learn: c.data.timeline.slice(0, 3).map((t) => t.title),
+      lessons: stats.lessons,
+      lessonsN,
+      students: stats.students,
+      duration: humanDuration(c.data.hasCourseInstance.duration),
+      price: `${Math.round(Number(c.data.hasCourseInstance.offers.price))} €`,
+      url: `/cours/${c.slug}/`,
+      cover,
+      inPack: (packOf[theme] ?? []).includes(c.slug),
+      classement: c.data.classement,
+    };
+  })
+  .sort((a, b) => a.rung - b.rung || a.classement - b.classement);
+
+const THEMES = ['guitar', 'piano', 'ukulele', 'solfege'] as const;
+const LABEL: Record<string, string> = { guitar: 'Guitare', piano: 'Piano', ukulele: 'Ukulélé', solfege: 'Solfège' };
+const COLOR: Record<string, string> = { guitar: '#2f5d3a', piano: '#2b5f66', ukulele: '#b4522a', solfege: '#973b3b' };
+const byTheme = (t: string) => courses.filter((c) => c.theme === t);
+const byRung = (r: Rung) => courses.filter((c) => c.rung === r);
+const packName = (t: string) => paths.find((p) => p.id === t)?.offer.name ?? '';
+const attrs = (c: (typeof courses)[number]) => ({
+  'data-course': c.slug,
+  'data-theme': c.theme,
+  'data-rung': c.rung,
+  'data-title': c.short,
+  'data-who': c.who,
+  'data-learn': c.learn.join('|'),
+  'data-meta': [c.lessons, c.duration, c.students].filter(Boolean).join(' · '),
+  'data-price': c.price,
+  'data-url': c.url,
+  'data-cover': c.cover,
+  'data-instrument': LABEL[c.theme],
+  'data-pack': c.inPack ? packName(c.theme) : '',
+  'data-level': RUNGS[c.rung],
+});
+const spineWidth = (n: number) => Math.round(38 + Math.min(1, n / 160) * 52);
+---
+
+<Layout title="Étude 2 : afficher les formations | Musique Facile" description="Quatre nouvelles façons d'afficher les 18 formations, avec leurs vraies images." canonicalUrl="https://musique-facile.fr/etude-formations-2/" robots="noindex, nofollow">
+  <Header />
+  <div class="ef xp">
+    <div class="container ef__head">
+      <p class="kicker">Étude · seconde série · 5 septembre 2026</p>
+      <h1>Montrer les cours, <em>au lieu de les lister</em></h1>
+      <p class="ef__lead">
+        Quatre solutions, avec la vraie image de chaque cours, l'écran de sa première leçon. Les deux réglages
+        agissent sur les quatre. Cliquez un cours, partout : la fiche s'ouvre dessous.
+      </p>
+      <div class="ef__controls">
+        <fieldset class="pick">
+          <legend>Instrument</legend>
+          <div class="pick__options">
+            {paths.map((p, i) => (
+              <label class="pick__opt"><input type="radio" name="instrument" id={`pick-${p.id}`} value={p.id} checked={i === 0} /><span>{p.label}</span></label>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset class="pick">
+          <legend>Où en êtes-vous ?</legend>
+          <div class="pick__options">
+            {([1, 2, 3] as Rung[]).map((r) => (
+              <label class="pick__opt"><input type="radio" name="start" id={`start-${r}`} value={r} checked={r === 1} /><span>{RUNGS[r]}</span></label>
+            ))}
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <!-- ===================== E · la bibliothèque ===================== -->
+    <section class="sol" aria-labelledby="h-e">
+      <div class="container">
+        <p class="sol__tag">E · La bibliothèque</p>
+        <h2 id="h-e" class="sol__title">Trois étagères, dix-huit livres</h2>
+        <p class="sol__why">
+          Une école, ça a une bibliothèque. Une étagère par niveau, un livre par cours, la couleur de l'instrument sur
+          la tranche, l'épaisseur selon le nombre de leçons. On tire un livre pour voir sa couverture. Tout tient sur
+          un écran, et on a envie de toucher.
+        </p>
+        <div class="shelves">
+          {([1, 2, 3] as Rung[]).map((r) => (
+            <div class="shelf" data-shelf={r}>
+              <p class="shelf__label hand">{RUNGS[r]}</p>
+              <div class="shelf__books">
+                {byRung(r).map((c) => (
+                  <button type="button" class="book" style={`--c: ${COLOR[c.theme]}; --w: ${spineWidth(c.lessonsN)}px`} aria-label={`${c.short}, ${LABEL[c.theme]}, ${c.price}`} {...attrs(c)}>
+                    <span class="book__title">{c.short}</span>
+                    <span class="book__price">{c.price}</span>
+                  </button>
+                ))}
+              </div>
+              <div class="shelf__plank"></div>
+            </div>
+          ))}
+        </div>
+        <p class="legend">
+          {THEMES.map((t) => <span><i style={`background: ${COLOR[t]}`}></i>{LABEL[t]}</span>)}
+        </p>
+        <aside class="detail" data-detail hidden></aside>
+      </div>
+    </section>
+
+    <!-- ===================== F · les rangées ===================== -->
+    <section class="sol" aria-labelledby="h-f">
+      <div class="container">
+        <p class="sol__tag">F · Les rangées</p>
+        <h2 id="h-f" class="sol__title">Trois rangées de vraies images</h2>
+        <p class="sol__why">
+          Le geste que tout le monde connaît : des rangées de vignettes qui défilent, une rangée par niveau. Chaque
+          vignette est l'écran réel du cours, avec le titre, l'instrument et le prix posés dessus. L'instrument choisi
+          reste net, le niveau choisi passe en premier.
+        </p>
+        <div class="rows">
+          {([1, 2, 3] as Rung[]).map((r) => (
+            <div class="row" data-row={r}>
+              <p class="row__label"><span class="hand">{RUNGS[r]}</span> <small>{byRung(r).length} formations</small></p>
+              <div class="row__track">
+                {byRung(r).map((c) => (
+                  <button type="button" class="card" style={`--c: ${COLOR[c.theme]}`} aria-label={`${c.short}, ${LABEL[c.theme]}, ${c.price}`} {...attrs(c)}>
+                    <img src={c.cover} alt="" width="1824" height="1042" loading="lazy" decoding="async" />
+                    <span class="card__tag">{LABEL[c.theme]}</span>
+                    <span class="card__body">
+                      <span class="card__title">{c.short}</span>
+                      <span class="card__meta">{c.lessons} · {c.price}</span>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <aside class="detail" data-detail hidden></aside>
+      </div>
+    </section>
+
+    <!-- ===================== G · la montée ===================== -->
+    <section class="sol" aria-labelledby="h-g">
+      <div class="container">
+        <p class="sol__tag">G · La montée</p>
+        <h2 id="h-g" class="sol__title">Les marches de votre instrument</h2>
+        <p class="sol__why">
+          Pour l'instrument choisi, les cours en marches qui montent de gauche à droite, du premier accord au
+          perfectionnement. « Vous êtes ici » se pose sur la marche de votre niveau. On comprend le chemin sans lire,
+          et chaque marche est une porte.
+        </p>
+        {paths.map((p) => {
+          const list = byTheme(p.id);
+          return (
+            <div class="climb" data-for={p.id} style={`--n: ${list.length}; --c: ${COLOR[p.id]}`}>
+              {list.map((c, i) => (
+                <button type="button" class="step" style={`--i: ${i}`} aria-label={`${c.short}, ${RUNGS[c.rung]}, ${c.price}`} {...attrs(c)}>
+                  <span class="step__here hand">vous êtes ici</span>
+                  <img src={c.cover} alt="" width="1824" height="1042" loading="lazy" decoding="async" />
+                  <span class="step__title">{c.short}</span>
+                  <span class="step__meta">{RUNGS[c.rung]} · {c.price}</span>
+                </button>
+              ))}
+              <div class="climb__ground"></div>
+            </div>
+          );
+        })}
+        <aside class="detail" data-detail hidden></aside>
+      </div>
+    </section>
+
+    <!-- ===================== H · la grille, en images ===================== -->
+    <section class="sol" aria-labelledby="h-h">
+      <div class="container">
+        <p class="sol__tag">H · La grille, en images</p>
+        <h2 id="h-h" class="sol__title">L'aperçu de l'école, et ses couvertures</h2>
+        <p class="sol__why">
+          La grille qui vous parlait, sans les pastilles : chaque case montre les couvertures de ses cours, en
+          éventail. On ouvre une case, sa ligne se déplie avec les fiches. L'aperçu reste, et l'image donne envie.
+        </p>
+        <div class="grid-wrap">
+          <div class="school">
+            <div class="school__corner"></div>
+            {([1, 2, 3] as Rung[]).map((r) => <div class="school__col" data-col={r}>{RUNGS[r]}</div>)}
+            {THEMES.map((t) => (
+              <>
+                <div class="school__row" data-theme={t} style={`--c: ${COLOR[t]}`}>{LABEL[t]}<small>{byTheme(t).length} formations</small></div>
+                {([1, 2, 3] as Rung[]).map((r) => {
+                  const cell = byTheme(t).filter((c) => c.rung === r);
+                  return (
+                    <div class="school__cell" data-theme={t} data-col={r} style={`--c: ${COLOR[t]}`}>
+                      {cell.length > 0 && (
+                        <button type="button" class="fan" data-open={`${t}-${r}`} aria-label={`${LABEL[t]}, ${RUNGS[r]} : ${cell.length} formation${cell.length > 1 ? 's' : ''}`}>
+                          <span class="fan__stack">
+                            {cell.slice(0, 3).map((c, i) => <img src={c.cover} alt="" width="1824" height="1042" loading="lazy" decoding="async" style={`--k: ${i}`} />)}
+                          </span>
+                          <span class="fan__count">{cell.length} cours{cell.length > 1 ? '' : ''} · dès {Math.min(...cell.map((c) => Number(c.price.replace(/\D/g, ''))))} €</span>
+                        </button>
+                      )}
+                    </div>
+                  );
+                })}
+                <div class="school__drawer" data-drawer={t} hidden>
+                  {([1, 2, 3] as Rung[]).map((r) => (
+                    <div class="drawer" data-drawer-for={`${t}-${r}`} hidden>
+                      {byTheme(t).filter((c) => c.rung === r).map((c) => (
+                        <a href={c.url} class="dcard" style={`--c: ${COLOR[c.theme]}`}>
+                          <img src={c.cover} alt="" width="1824" height="1042" loading="lazy" decoding="async" />
+                          <span class="dcard__body">
+                            <span class="chip">{RUNGS[c.rung]}</span>
+                            <strong>{c.short}</strong>
+                            <span class="dcard__who">{c.who}</span>
+                            <span class="dcard__meta">{[c.lessons, c.duration, c.students].filter(Boolean).join(' · ')}</span>
+                            <span class="dcard__price">{c.price}{c.inPack && <em>dans le {packName(c.theme)}</em>}</span>
+                          </span>
+                        </a>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <FooterModern />
+</Layout>
+
+<style>
+  .ef { --display: var(--xp-display); --hand: var(--xp-voice); --paper: var(--xp-paper); --card: var(--xp-card); --ink: var(--xp-ink); --ink-2: var(--xp-ink-2); --line: var(--xp-line); color-scheme: light; --bg-page: var(--paper); --text-primary: var(--ink); --text-secondary: var(--ink-2); --border-default: var(--line); background: var(--paper); color: var(--ink); font-family: var(--xp-text); padding-top: calc(80px + var(--space-8)); padding-bottom: var(--space-12); }
+  .ef h1, .ef h2, .ef h3 { color: var(--ink); text-wrap: balance; }
+  .ef h1 em, .ef h2 em { color: var(--stage); }
+  .ef p { text-wrap: pretty; }
+  .ef a:not(.btn) { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  .ef:has(#pick-guitar:checked) :global([data-for]:not([data-for='guitar'])),
+  .ef:has(#pick-piano:checked) :global([data-for]:not([data-for='piano'])),
+  .ef:has(#pick-ukulele:checked) :global([data-for]:not([data-for='ukulele'])),
+  .ef:has(#pick-solfege:checked) :global([data-for]:not([data-for='solfege'])) { display: none !important; }
+
+  .ef__head { margin-bottom: var(--space-8); }
+  .ef h1 { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 var(--space-3); }
+  .ef__lead { max-width: 70ch; color: var(--ink-2); line-height: 1.6; margin: 0 0 var(--space-5); }
+  .ef__controls { display: flex; flex-wrap: wrap; gap: var(--space-8); position: sticky; top: 80px; z-index: 6; background: var(--paper); padding: var(--space-3) 0; border-bottom: 1px solid var(--line); }
+  .kicker { margin: 0 0 var(--space-3); font-family: var(--display); font-weight: 600; font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.08em; color: var(--stage); }
+  .hand { font-family: var(--hand); font-weight: 400; color: var(--stage); -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .pick { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .pick legend { font-family: var(--hand); font-size: 1.6rem; color: var(--stage); margin-bottom: 4px; padding: 0; -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .pick__options { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pick__opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .pick__opt span { display: inline-block; padding: 8px 14px; border-radius: var(--radius-full); border: 1.5px solid var(--line); background: var(--card); font-family: var(--display); font-weight: 600; font-size: var(--text-sm); cursor: pointer; }
+  .pick__opt input:checked + span { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .chip { display: inline-block; padding: 2px 10px; border-radius: 3px; background: var(--tint); color: var(--stage); font-family: var(--hand); font-size: 1.3rem; line-height: 1.1; white-space: nowrap; -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .sol { padding: var(--space-12) 0; border-top: 1px solid var(--line); }
+  .sol__tag { margin: 0 0 var(--space-2); font-family: var(--hand); font-size: 1.9rem; color: var(--stage); -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  .sol__title { font-size: clamp(1.6rem, 3vw, 2.4rem); margin: 0 0 var(--space-3); }
+  .sol__why { max-width: 72ch; color: var(--ink-2); line-height: 1.6; margin: 0 0 var(--space-6); }
+
+  /* estompage par instrument (E, F) et par niveau (E, F) */
+  .ef:has(#pick-guitar:checked) [data-theme]:not([data-theme='guitar']):is(.book, .card),
+  .ef:has(#pick-piano:checked) [data-theme]:not([data-theme='piano']):is(.book, .card),
+  .ef:has(#pick-ukulele:checked) [data-theme]:not([data-theme='ukulele']):is(.book, .card),
+  .ef:has(#pick-solfege:checked) [data-theme]:not([data-theme='solfege']):is(.book, .card) { opacity: 0.38; filter: saturate(0.4); }
+  .ef:has(#start-1:checked) [data-shelf='1'], .ef:has(#start-2:checked) [data-shelf='2'], .ef:has(#start-3:checked) [data-shelf='3'] { background: var(--tint); }
+  .ef:has(#start-1:checked) [data-row='1'], .ef:has(#start-2:checked) [data-row='2'], .ef:has(#start-3:checked) [data-row='3'] { order: -1; }
+
+  /* fiche de détail */
+  .detail { margin-top: var(--space-5); display: grid; grid-template-columns: 1fr; gap: var(--space-4); padding: var(--space-5); border-radius: var(--radius-lg); background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--stage); }
+  .detail[hidden] { display: none; }
+  .detail :global(img) { width: 100%; height: auto !important; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--radius-md); display: block; }
+  .detail :global(h3) { margin: 0; font-size: var(--text-xl); }
+  .detail :global(p) { margin: 0; color: var(--ink-2); }
+  .detail :global(ul) { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: var(--text-sm); }
+  .detail :global(.detail__body) { display: grid; gap: var(--space-2); align-content: start; }
+  .detail :global(.detail__row) { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+  .detail :global(.detail__price) { font-family: var(--display); font-size: var(--text-2xl); font-weight: 700; color: var(--ink); }
+  .detail :global(.btn) { display: inline-flex; padding: var(--space-3) var(--space-5); border-radius: var(--radius-md); background: var(--stage); color: var(--xp-label); font-family: var(--display); font-weight: 600; text-decoration: none; }
+  .detail :global(.chip) { display: inline-block; padding: 2px 10px; border-radius: 3px; background: var(--tint); color: var(--stage); font-family: var(--hand); font-size: 1.3rem; line-height: 1.1; }
+  .detail :global(.hand-inline) { font-family: var(--hand); font-size: 1.5rem; color: var(--stage); }
+  @media (min-width: 900px) { .detail { grid-template-columns: 320px 1fr; } }
+
+  /* ---------- E · bibliothèque ---------- */
+  .shelves { display: grid; gap: var(--space-3); }
+  .shelf { position: relative; padding: var(--space-3) var(--space-4) 0; border-radius: var(--radius-lg); transition: background-color 0.3s; }
+  .shelf__label { margin: 0 0 var(--space-2); font-size: 1.7rem; }
+  .shelf__books { display: flex; align-items: flex-end; gap: 6px; height: 190px; padding: 0 var(--space-2); overflow-x: auto; }
+  .book { position: relative; flex: 0 0 var(--w); width: var(--w); height: 172px; border: 0; border-radius: 4px 4px 2px 2px; background: var(--c); color: #fff; cursor: pointer; box-shadow: inset -4px 0 0 rgba(0, 0, 0, 0.18), inset 2px 0 0 rgba(255, 255, 255, 0.18), 0 2px 0 rgba(0, 0, 0, 0.15); transition: transform 0.2s, opacity 0.25s, filter 0.25s; display: grid; align-content: space-between; justify-items: center; padding: 10px 0 8px; }
+  .book:nth-child(3n) { height: 160px; }
+  .book:nth-child(5n) { height: 180px; }
+  .book:hover, .book:focus-visible { transform: translateY(-14px) rotate(-2deg); z-index: 2; outline: none; }
+  .book__title { writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--display); font-weight: 700; font-size: 13px; line-height: 1; white-space: nowrap; max-height: 120px; overflow: hidden; text-overflow: ellipsis; }
+  .book__price { font-family: var(--hand); font-size: 1.05rem; line-height: 1; -webkit-text-stroke: 0.3px currentColor; paint-order: stroke fill; }
+  .shelf__plank { height: 12px; border-radius: 3px; background: linear-gradient(#d9c7a5, #b99b6b); box-shadow: 0 8px 14px -8px rgba(35, 25, 61, 0.5); margin: 0 calc(-1 * var(--space-2)); }
+  .legend { display: flex; flex-wrap: wrap; gap: var(--space-4); margin: var(--space-3) 0 0; font-size: var(--text-sm); color: var(--ink-2); }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+
+  /* ---------- F · rangées ---------- */
+  .rows { display: flex; flex-direction: column; gap: var(--space-6); }
+  .row__label { margin: 0 0 var(--space-2); display: flex; align-items: baseline; gap: var(--space-3); }
+  .row__label .hand { font-size: 1.7rem; }
+  .row__label small { color: var(--ink-2); }
+  .row__track { display: flex; gap: var(--space-3); overflow-x: auto; scroll-snap-type: x proximity; padding: 6px 0 var(--space-3); scrollbar-width: thin; }
+  .card { position: relative; flex: 0 0 260px; scroll-snap-align: start; border: 0; padding: 0; border-radius: var(--radius-lg); overflow: hidden; background: #000; color: #fff; text-align: left; cursor: pointer; aspect-ratio: 16 / 10; transition: transform 0.2s, opacity 0.25s, filter 0.25s; box-shadow: 0 14px 30px -20px rgba(35, 25, 61, 0.7); }
+  .card img { position: absolute; inset: 0; width: 100%; height: 100% !important; object-fit: cover; }
+  .card:hover, .card:focus-visible { transform: translateY(-6px); outline: none; }
+  .card__tag { position: absolute; top: 10px; left: 10px; padding: 3px 9px; border-radius: 3px; background: var(--c); color: #fff; font-family: var(--display); font-weight: 600; font-size: 12px; }
+  .card__body { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 12px 12px; background: linear-gradient(transparent, rgba(0, 0, 0, 0.82)); display: grid; gap: 2px; }
+  .card__title { font-family: var(--display); font-weight: 700; font-size: var(--text-base); line-height: 1.15; }
+  .card__meta { font-size: 12px; opacity: 0.9; }
+
+  /* ---------- G · la montée ---------- */
+  .climb { position: relative; display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 10px; align-items: end; padding: 70px 0 0; min-height: 460px; }
+  .step { position: relative; display: grid; gap: 6px; padding: 10px; border: 0; border-radius: var(--radius-lg); background: var(--card); border-top: 4px solid var(--c); box-shadow: 0 16px 30px -22px rgba(35, 25, 61, 0.6); cursor: pointer; text-align: left; margin-bottom: calc(var(--i) * 44px); transition: transform 0.2s; }
+  .step:hover, .step:focus-visible { transform: translateY(-6px); outline: none; }
+  .step img { width: 100%; height: auto !important; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--radius-sm); display: block; }
+  .step__title { font-family: var(--display); font-weight: 700; font-size: var(--text-sm); line-height: 1.15; color: var(--ink); }
+  .step__meta { font-size: 12px; color: var(--ink-2); }
+  .step__here { position: absolute; top: -34px; left: 8px; font-size: 1.5rem; color: var(--c); display: none; white-space: nowrap; }
+  .ef:has(#start-1:checked) .step[data-rung='1']:nth-of-type(1) .step__here,
+  .ef:has(#start-2:checked) .step[data-rung='2'] .step__here,
+  .ef:has(#start-3:checked) .step[data-rung='3'] .step__here { display: block; }
+  .ef:has(#start-2:checked) .step[data-rung='2'] ~ .step[data-rung='2'] .step__here,
+  .ef:has(#start-3:checked) .step[data-rung='3'] ~ .step[data-rung='3'] .step__here { display: none; }
+  .climb__ground { position: absolute; left: 0; right: 0; bottom: -10px; height: 4px; background: var(--line); border-radius: 2px; }
+
+  /* ---------- H · grille en images ---------- */
+  .grid-wrap { overflow-x: auto; }
+  .school { display: grid; grid-template-columns: 150px repeat(3, 1fr); min-width: 820px; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--card); }
+  .school__corner, .school__col, .school__row, .school__cell { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); }
+  .school__col { font-family: var(--display); font-weight: 700; text-align: center; background: var(--paper); }
+  .school__row { font-family: var(--display); font-weight: 700; color: var(--c); display: grid; align-content: center; }
+  .school__row small { font-family: var(--xp-text); font-weight: 400; font-size: var(--text-xs); color: var(--ink-2); }
+  .school__cell { min-height: 110px; display: grid; align-content: center; }
+  .ef:has(#start-1:checked) [data-col='1'], .ef:has(#start-2:checked) [data-col='2'], .ef:has(#start-3:checked) [data-col='3'] { background: var(--tint); }
+  .ef:has(#pick-guitar:checked) .school [data-theme='guitar'], .ef:has(#pick-piano:checked) .school [data-theme='piano'],
+  .ef:has(#pick-ukulele:checked) .school [data-theme='ukulele'], .ef:has(#pick-solfege:checked) .school [data-theme='solfege'] { box-shadow: inset 4px 0 0 var(--c); }
+  .fan { display: grid; grid-template-columns: 120px 1fr; gap: var(--space-3); align-items: center; border: 0; background: transparent; padding: 0; cursor: pointer; text-align: left; }
+  .fan__stack { position: relative; height: 72px; }
+  .fan__stack img { position: absolute; left: calc(var(--k) * 16px); top: calc(var(--k) * 4px); width: 96px; height: 60px !important; object-fit: cover; border-radius: 6px; border: 2px solid var(--card); box-shadow: 0 6px 14px -8px rgba(35, 25, 61, 0.6); transform: rotate(calc(var(--k) * 3deg - 3deg)); transition: transform 0.2s; }
+  .fan:hover .fan__stack img { transform: rotate(calc(var(--k) * 6deg - 6deg)) translateY(-4px); }
+  .fan__count { font-family: var(--display); font-weight: 600; font-size: var(--text-sm); color: var(--c); text-decoration: underline; text-underline-offset: 3px; }
+  .fan[aria-expanded='true'] .fan__count::after { content: ' ▴'; }
+  .school__drawer { grid-column: 1 / -1; background: var(--paper); border-bottom: 1px solid var(--line); padding: var(--space-4); }
+  .school__drawer[hidden], .drawer[hidden] { display: none; }
+  .drawer { display: grid; gap: var(--space-3); }
+  .dcard { display: grid; grid-template-columns: 200px 1fr; gap: var(--space-4); align-items: center; padding: var(--space-3); border-radius: var(--radius-lg); background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--c); text-decoration: none !important; }
+  .dcard img { width: 100%; height: auto !important; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--radius-sm); }
+  .dcard__body { display: grid; gap: 4px; }
+  .dcard__body .chip { justify-self: start; }
+  .dcard strong { font-family: var(--display); font-size: var(--text-lg); }
+  .dcard__who { color: var(--ink-2); font-size: var(--text-sm); }
+  .dcard__meta { color: var(--ink-2); font-size: var(--text-xs); }
+  .dcard__price { font-family: var(--display); font-weight: 700; font-size: var(--text-xl); }
+  .dcard__price em { font-style: normal; font-family: var(--hand); font-weight: 400; font-size: 1.3rem; color: var(--c); margin-left: var(--space-2); -webkit-text-stroke: var(--xp-voice-stroke) currentColor; paint-order: stroke fill; }
+  @media (min-width: 900px) { .drawer { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 899px) { .climb { grid-template-columns: 1fr; padding-top: 40px; } .step { margin-bottom: 0; } .step__here { top: -30px; } }
+</style>
+
+<script>
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+  document.querySelectorAll<HTMLElement>('[data-course]').forEach((el) => {
+    const show = () => {
+      const panel = el.closest('section')?.querySelector<HTMLElement>('[data-detail]');
+      if (!panel) return;
+      const d = el.dataset;
+      panel.innerHTML = `
+        <img src="${d.cover}" alt="" width="1824" height="1042" />
+        <div class="detail__body">
+          <div class="detail__row"><span class="chip">${esc(d.level ?? '')}</span><span class="chip">${esc(d.instrument ?? '')}</span></div>
+          <h3>${esc(d.title ?? '')}</h3>
+          <p>${esc(d.who ?? '')}</p>
+          <p><strong>Vous apprenez :</strong></p>
+          <ul>${(d.learn ?? '').split('|').filter(Boolean).map((l) => `<li>${esc(l)}</li>`).join('')}</ul>
+          <p>${esc(d.meta ?? '')}</p>
+          <div class="detail__row"><span class="detail__price">${esc(d.price ?? '')}</span>${d.pack ? `<span class="hand-inline">dans le ${esc(d.pack)}</span>` : ''}<a class="btn" href="${d.url}">Voir le cours</a></div>
+        </div>`;
+      panel.hidden = false;
+      panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    };
+    el.addEventListener('click', show);
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        show();
+      }
+    });
+  });
+
+  /* H : ouvrir une case déplie la ligne. */
+  document.querySelectorAll<HTMLButtonElement>('[data-open]').forEach((b) =>
+    b.addEventListener('click', () => {
+      const key = b.dataset.open!;
+      const theme = key.split('-')[0];
+      const drawerRow = document.querySelector<HTMLElement>(`[data-drawer="${theme}"]`)!;
+      const already = b.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('[data-open]').forEach((x) => x.setAttribute('aria-expanded', 'false'));
+      document.querySelectorAll<HTMLElement>('[data-drawer], [data-drawer-for]').forEach((x) => (x.hidden = true));
+      if (already) return;
+      b.setAttribute('aria-expanded', 'true');
+      drawerRow.hidden = false;
+      const d = drawerRow.querySelector<HTMLElement>(`[data-drawer-for="${key}"]`);
+      if (d) d.hidden = false;
+    }),
+  );
+</script>

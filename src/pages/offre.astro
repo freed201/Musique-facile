@@ -1,2383 +1,1271 @@
 ---
+/**
+ * offre.astro — l'offre de rentrée : un Pack par instrument, 99 €, une fois.
+ *
+ * Refonte du 2026-09-04 dans les codes de la nouvelle home (/home-v2/) :
+ * hero encre, papier et encre ensuite, Bricolage Grotesque + Instrument Serif,
+ * accent par instrument, engagements sourcés en notes, avis recopiés mot pour
+ * mot avec leur source, calendrier réel. Les données (packs, prix, date de
+ * fin, FAQ) viennent de src/data/home-v2.ts : une seule source pour la home et
+ * cette page.
+ *
+ * Ce que la page ne fait plus (version précédente) : cadeau physique, « offre
+ * limitée » sans date, pourcentage d'économie, chiffres YouTube/TikTok non
+ * sourcés, témoignages inventés. Le « pris séparément » est la somme des prix
+ * des fiches cours, et la note 5 le précise.
+ */
+import '@fontsource-variable/rubik/wght.css';
+import '@fontsource-variable/rubik/wght-italic.css';
+import '@fontsource-variable/shantell-sans/full.css';
+import '../styles/experience-fonts.css';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import FooterModern from '../components/FooterModern.astro';
-import '../components/Tabs.ts';
-import { rating, reviews, reviewsSource } from '../data/proof';
+import HomeFaq from '../components/home/HomeFaq.astro';
+import { paths, pianoAdvancedOffer, offerFaq, reassurance, rentree, fred } from '../data/home-v2';
+import { testimonials, formatTestimonialDate } from '../data/testimonials';
+import { rating, reviews, students, videos, reviewsSource } from '../data/proof';
 
-// Construction de l'URL canonique
-const canonicalURL = new URL('/offre/', Astro.site || 'https://musique-facile.fr').toString();
+const site = 'https://musique-facile.fr';
+const canonicalURL = `${site}/offre/`;
+const title = 'Offre de rentrée : le Pack guitare, piano ou ukulélé à 99 € | Musique Facile';
+const description = `Jusqu'au ${rentree.offerEndsLabel} : un Pack par instrument à 99 €, deux ou trois formations complètes de Fred Fieffé, accès à vie, 15 jours remboursé.`;
+const ogImage = '/images/og-home.webp';
 
-// Métadonnées SEO optimisées
-const title = "Pack guitare, piano et ukulélé à 99 € | Musique Facile";
-const description = "Pack formation musicale à 99€ au lieu de 378€ : accès à vie aux cours de guitare, piano ou ukulélé + cadeau offert. Garantie 15 jours satisfait ou remboursé.";
-const ogImage = "/images/offre-hero.webp";
-const keywords = "formation musique en ligne, pack guitare 99 euros, cours piano débutant, apprendre ukulélé, formation musicale complète, cours musique pas cher, pack formation musique, apprendre musique en ligne";
-
-// Schema.org enrichis pour SEO
-//
-// Pas d'aggregateRating sur ces quatre Product : chacun portait « 4.7 sur 929
-// avis », c'est-à-dire les mêmes avis Skilleos revendiqués quatre fois, pour
-// quatre packs qui n'existent pas sur Skilleos. Les 929 avis notent le
-// catalogue de Fred dans son ensemble, pas un pack en particulier — ils restent
-// donc sur l'EducationalOrganization de la page d'accueil, avec leur source.
-// Même règle que pour les pages cours (docs/seo/02b-notes-cours-skilleos.md) :
-// sans note propre et vérifiable, on ne publie pas de note.
-const guitarPackSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Pack Guitare Complet - Formation en Ligne",
-  "description": "Formation complète guitare en ligne avec 3 cours progressifs : Débutant (89€), Guitare Odyssée (149€), Shuffle (29€) + sourdine guitare offerte. Accès à vie, 400+ vidéos, support inclus.",
-  "image": "https://musique-facile.fr/images/pack-guitare.webp",
-  "brand": {
-    "@type": "Brand",
-    "name": "Musique Facile"
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "99.00",
-    "priceCurrency": "EUR",
-    "priceValidUntil": "2026-12-31",
-    "availability": "https://schema.org/InStock",
-    "url": "https://ecole.musique-facile.fr/pack-guitare-cadeau",
-    "seller": {
-      "@type": "Organization",
-      "name": "Musique Facile"
-    },
-    "areaServed": "FR",
-    "hasMerchantReturnPolicy": {
-      "@type": "MerchantReturnPolicy",
-      "applicableCountry": "FR",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-      "merchantReturnDays": 14,
-      "returnMethod": "https://schema.org/ReturnByMail",
-      "returnFees": "https://schema.org/FreeReturn"
-    },
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "shippingRate": {
-        "@type": "MonetaryAmount",
-        "value": "0",
-        "currency": "EUR"
-      },
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "businessDays": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-        }
-      },
-      "shippingDestination": {
-        "@type": "DefinedRegion",
-        "addressCountry": "FR"
-      }
-    }
-  },
-  "category": "Online Course",
-  "educationalUse": "Self-guided learning",
-  "inLanguage": "fr-FR"
-};
-
-const ukulelePackSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Pack Ukulélé Complet - Formation en Ligne",
-  "description": "Formation complète ukulélé en ligne avec 3 cours : Débutant (79€), Rythmique (79€), Shuffle (29€) + sangle de cou offerte. Accès à vie, 300+ vidéos, idéal débutants.",
-  "image": "https://musique-facile.fr/images/pack-ukulele.webp",
-  "brand": {
-    "@type": "Brand",
-    "name": "Musique Facile"
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "99.00",
-    "priceCurrency": "EUR",
-    "priceValidUntil": "2026-12-31",
-    "availability": "https://schema.org/InStock",
-    "url": "https://ecole.musique-facile.fr/pack-ukulele",
-    "seller": {
-      "@type": "Organization",
-      "name": "Musique Facile"
-    },
-    "areaServed": "FR",
-    "hasMerchantReturnPolicy": {
-      "@type": "MerchantReturnPolicy",
-      "applicableCountry": "FR",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-      "merchantReturnDays": 14,
-      "returnMethod": "https://schema.org/ReturnByMail",
-      "returnFees": "https://schema.org/FreeReturn"
-    },
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "shippingRate": {
-        "@type": "MonetaryAmount",
-        "value": "0",
-        "currency": "EUR"
-      },
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "businessDays": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-        }
-      },
-      "shippingDestination": {
-        "@type": "DefinedRegion",
-        "addressCountry": "FR"
-      }
-    }
-  },
-  "category": "Online Course",
-  "educationalUse": "Self-guided learning",
-  "inLanguage": "fr-FR"
-};
-
-const pianoBeginnerSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Pack Piano Débutant - Formation en Ligne",
-  "description": "Formation complète piano débutant (299€) + Lecture de notes (79€) + clips pour partitions offerts. 350+ vidéos, accès à vie, méthode progressive pour grands débutants.",
-  "image": "https://musique-facile.fr/images/pack-piano-debutant.webp",
-  "brand": {
-    "@type": "Brand",
-    "name": "Musique Facile"
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "99.00",
-    "priceCurrency": "EUR",
-    "priceValidUntil": "2026-12-31",
-    "availability": "https://schema.org/InStock",
-    "url": "https://ecole.musique-facile.fr/pack-piano-debutant-cadeau",
-    "seller": {
-      "@type": "Organization",
-      "name": "Musique Facile"
-    },
-    "areaServed": "FR",
-    "hasMerchantReturnPolicy": {
-      "@type": "MerchantReturnPolicy",
-      "applicableCountry": "FR",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-      "merchantReturnDays": 14,
-      "returnMethod": "https://schema.org/ReturnByMail",
-      "returnFees": "https://schema.org/FreeReturn"
-    },
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "shippingRate": {
-        "@type": "MonetaryAmount",
-        "value": "0",
-        "currency": "EUR"
-      },
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "businessDays": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-        }
-      },
-      "shippingDestination": {
-        "@type": "DefinedRegion",
-        "addressCountry": "FR"
-      }
-    }
-  },
-  "category": "Online Course",
-  "educationalUse": "Self-guided learning",
-  "inLanguage": "fr-FR"
-};
-
-const pianoAdvancedSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Pack Piano Avancé - Formation en Ligne",
-  "description": "Formation complète piano avancé avec Piano Odyssée 52 semaines (149€), Cycle des Quintes (79€), Maîtrise des Accords (79€) + clips pour partitions offerts. Perfectionnement complet.",
-  "image": "https://musique-facile.fr/images/pack-piano-avance.webp",
-  "brand": {
-    "@type": "Brand",
-    "name": "Musique Facile"
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "99.00",
-    "priceCurrency": "EUR",
-    "priceValidUntil": "2026-12-31",
-    "availability": "https://schema.org/InStock",
-    "url": "https://ecole.musique-facile.fr/pack-avance-piano-cadeau",
-    "seller": {
-      "@type": "Organization",
-      "name": "Musique Facile"
-    },
-    "areaServed": "FR",
-    "hasMerchantReturnPolicy": {
-      "@type": "MerchantReturnPolicy",
-      "applicableCountry": "FR",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-      "merchantReturnDays": 14,
-      "returnMethod": "https://schema.org/ReturnByMail",
-      "returnFees": "https://schema.org/FreeReturn"
-    },
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "shippingRate": {
-        "@type": "MonetaryAmount",
-        "value": "0",
-        "currency": "EUR"
-      },
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "businessDays": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-        }
-      },
-      "shippingDestination": {
-        "@type": "DefinedRegion",
-        "addressCountry": "FR"
-      }
-    }
-  },
-  "category": "Online Course",
-  "educationalUse": "Self-guided learning",
-  "inLanguage": "fr-FR"
-};
-
-// Schema FAQ pour SEO
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Comment accéder aux cours après l'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Vous recevez vos accès par email dans les 24h. Connectez-vous sur notre plateforme et commencez immédiatement vos formations. L'accès est illimité et à vie."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quand vais-je recevoir mon cadeau physique ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les cadeaux (sourdine guitare, sangle ukulélé ou clips piano) sont expédiés sous 15 jours ouvrés en France métropolitaine par La Poste. Les formations vidéo sont disponibles immédiatement après l'achat."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Les packs sont-ils adaptés aux grands débutants ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, parfaitement ! Nos packs sont spécialement conçus pour les grands débutants. Vous apprenez étape par étape, sans aucun prérequis. Plus de 80 000 élèves ont déjà appris avec succès grâce à notre méthode progressive."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je vraiment me faire rembourser si je ne suis pas satisfait ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, absolument. Vous avez 15 jours pour tester la formation. Si vous n'êtes pas satisfait pour quelque raison que ce soit, nous vous remboursons intégralement, sans poser de question."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle est la différence entre les packs Guitare, Piano et Ukulélé ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Chaque pack contient 2 à 3 formations complètes spécifiques à l'instrument choisi. Le pack Guitare (267€ de valeur) inclut Débutant + Odyssée + Shuffle. Le pack Ukulélé (187€ de valeur) inclut Débutant + Rythmique + Shuffle. Les packs Piano (378€ ou 307€ de valeur) incluent soit formations débutant soit formations avancées. Tous les packs sont à 99€ et incluent un cadeau physique."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Y a-t-il un support si j'ai des questions pendant ma formation ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, un support par email est inclus dans tous nos packs. Contactez-nous à contact@musique-facile.fr, nous répondons sous 24h pour vous aider dans votre apprentissage."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Il n'y a pas d'essai gratuit ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Non, et c'est volontaire : plutôt qu'un accès limité, vous obtenez tout de suite la formation complète, à vie. Et vous êtes couvert par la garantie 15 jours satisfait ou remboursé — concrètement, c'est un essai sans aucun risque : vous testez l'intégralité du pack, et si ça ne vous convient pas, vous êtes remboursé sans avoir à vous justifier."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Combien de temps faut-il y consacrer chaque jour ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "15 minutes par jour suffisent pour progresser. La méthode est pensée pour les emplois du temps chargés : des leçons courtes, à votre rythme, accessibles à vie. Mieux vaut 15 minutes régulières que deux heures le dimanche."
-      }
-    }
-  ]
-};
-
-// Témoignages
-const testimonials = [
+const byId = Object.fromEntries(paths.map((p) => [p.id, p]));
+const packs = [
   {
-    name: "Sophie L.",
-    instrument: "guitare",
-    rating: 5,
-    text: "En 3 semaines, je jouais déjà mes premières chansons ! La méthode est vraiment progressive."
+    id: 'guitare',
+    theme: 'guitar',
+    object: 'la guitare',
+    level: 'Débutant',
+    offer: byId.guitar.offer,
+    audience: byId.guitar.audience,
+    firstWin: byId.guitar.firstWin,
+    image: byId.guitar.image,
+    imageAlt: byId.guitar.imageAlt,
   },
   {
-    name: "Marc D.",
-    instrument: "ukulélé",
-    rating: 5,
-    text: "L'ukulélé semblait compliqué, mais avec ce pack j'ai vite pris confiance. Mes enfants adorent !"
+    id: 'ukulele',
+    theme: 'ukulele',
+    object: 'le ukulélé',
+    level: 'Débutant',
+    offer: byId.ukulele.offer,
+    audience: byId.ukulele.audience,
+    firstWin: byId.ukulele.firstWin,
+    image: byId.ukulele.image,
+    imageAlt: byId.ukulele.imageAlt,
   },
   {
-    name: "Julie M.",
-    instrument: "guitare",
-    rating: 5,
-    text: "La Guitare Odyssée m'a fait découvrir des techniques que je n'aurais jamais imaginées."
+    id: 'piano-debutant',
+    theme: 'piano',
+    object: 'le piano',
+    level: 'Débutant',
+    offer: byId.piano.offer,
+    audience: byId.piano.audience,
+    firstWin: byId.piano.firstWin,
+    image: byId.piano.image,
+    imageAlt: byId.piano.imageAlt,
   },
   {
-    name: "Thomas R.",
-    instrument: "ukulélé",
-    rating: 5,
-    text: "Parfait pour débuter ! Les rythmiques sont bien expliquées et la sangle offerte est un vrai plus."
-  }
+    id: 'piano-avance',
+    theme: 'piano',
+    object: 'le piano',
+    level: 'Déjà pianiste',
+    offer: pianoAdvancedOffer,
+    audience: 'Vous jouez déjà, et vous voulez de la technique, de l’harmonie et un an de progression guidée.',
+    firstWin: 'Un plan sur 52 semaines, avec le cycle des quintes et les accords',
+    image: '/images/cours/maitrise-technique-piano-avancee/timeline-1.webp',
+    imageAlt: 'Écran du cours de piano avancé : Fred et un musicien invité au clavier, les mains filmées du dessus',
+  },
 ];
+const LABELS = { guitar: 'Guitare', piano: 'Piano', ukulele: 'Ukulélé', solfege: 'Solfège' } as const;
+const quotes = testimonials.filter((t) => t.id !== 'gaetane-c-2025-10');
+const checkedOn = new Date(reviewsSource.checkedOn)
+  .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
+  .replace(/^1 /, '1er ');
+
+const productList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Packs Musique Facile, offre de rentrée 2026',
+  itemListElement: packs.map((k, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Product',
+      name: k.offer.name,
+      description: `${k.offer.includes.map((x) => x.title).join(', ')}. Accès à vie, un seul paiement.`,
+      image: `${site}${k.image}`,
+      brand: { '@type': 'Brand', name: 'Musique Facile' },
+      offers: {
+        '@type': 'Offer',
+        price: String(k.offer.priceValue),
+        priceCurrency: 'EUR',
+        availability: 'https://schema.org/InStock',
+        url: k.offer.url,
+        priceValidUntil: rentree.offerEnds,
+        seller: { '@type': 'Organization', name: 'Musique Facile' },
+      },
+    },
+  })),
+};
+const faqPage = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: offerFaq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })),
+};
 ---
 
 <Layout
   title={title}
   description={description}
-  keywords={keywords}
   ogImage={ogImage}
   canonicalUrl={canonicalURL}
   robots="index, follow, max-snippet:-1, max-image-preview:large"
 >
   <Fragment slot="head">
-    <!-- Schema.org - Enrichis pour SEO -->
-    <script type="application/ld+json" set:html={JSON.stringify(guitarPackSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(ukulelePackSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(pianoBeginnerSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(pianoAdvancedSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-
-    <!-- Critical CSS inline -->
-    <style is:inline>
-      .hero { min-height: 100vh; display: flex; align-items: center; }
-      .cta-primary { background: var(--brand); color: white; padding: 1rem 2rem; border-radius: var(--radius-md); }
-    </style>
+    <script type="application/ld+json" set:html={JSON.stringify(productList)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqPage)} />
   </Fragment>
 
-    <header class="header-simple">
-      <div class="container">
-        <a href="/" class="logo">
-          <img src="/logo.webp" alt="Musique Facile" width="120" height="40" />
-        </a>
-        <a href="#acheter" class="header-cta">Je profite de l'offre</a>
+  <Header />
+
+  <div class="ov xp">
+    <!-- 1. Le prix, en grand -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow">{rentree.offerLabel} · jusqu'au {rentree.offerEndsLabel}</p>
+          <h1 id="hero-title">Quatre Packs, un prix. <em>Et rien à résilier.</em></h1>
+          <p class="hero__lead">
+          Guitare, ukulélé, piano débutant ou piano avancé : chaque Pack regroupe deux ou trois formations complètes de
+          Fred Fieffé, pour apprendre en jouant des morceaux. Vous payez une fois, vous gardez l'accès à vie. Si ça ne
+          vous convient pas, quinze jours pour changer d'avis, un e-mail suffit.
+        </p>
+          <div class="hero__actions">
+            <a href="#packs" class="btn btn--primary">Choisir mon Pack</a>
+            <a href="#parcours" class="btn btn--ghost">Comment ça se passe</a>
+          </div>
+          <p class="hero__proof">
+            <strong>{rating.display}</strong> sur
+            <a href={reviewsSource.url} rel="noopener nofollow" target="_blank">{reviews.display} avis vérifiés</a>
+            · <strong>{students.display}</strong> élèves depuis 2015
+          </p>
+        </div>
+        <p class="tag" aria-label="99 euros, en une fois">
+          <span class="tag__price">99 €</span>
+          <span class="tag__line">en une fois, accès à vie</span>
+          <span class="tag__line tag__line--small">
+            pour 187 à 378 € de formations prises séparément<sup><a href="#note-5" aria-label="Note 5">5</a></sup>
+          </span>
+        </p>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <!-- Hero Section -->
-      <section class="hero" id="hero">
-        <div class="hero-background">
-          <picture>
-            <source srcset="/images/hero-instruments.webp" type="image/webp" />
-            <img 
-              src="/images/hero-instruments.webp" 
-              alt="Guitare et ukulélé avec formations Musique Facile"
-              width="1200"
-              height="800"
-              loading="eager"
-            />
-          </picture>
-          <div class="hero-overlay"></div>
-        </div>
-        
-        <div class="container">
-          <div class="hero-content">
-            <div class="hero-badges">
-              <span class="urgency-badge">🔥 Offre limitée</span>
-              <span class="gift-badge">🎁 Cadeau physique offert</span>
-            </div>
-            
-            <h1>Formation Musique en Ligne à 99€ : Apprenez la Guitare, le Piano ou l'Ukulélé</h1>
-            
-            <div class="price-hero">
-              <div class="price-comparison">
-                <span class="old-price">Valeur jusqu'à 378€</span>
-                <span class="arrow">→</span>
-                <span class="new-price">99€</span>
-              </div>
-              <div class="savings-badge">
-                <span class="savings-text">Économisez jusqu'à 279€</span>
-                <span class="percentage">-74%</span>
-              </div>
-            </div>
-            
-            <p class="hero-subtitle">
-              Pack complet <strong>Guitare</strong>, <strong>Ukulélé</strong> ou <strong>Piano</strong> + <strong>cadeau physique offert</strong>
-            </p>
-            
-            <ul class="hero-benefits">
-              <li>✅ Parcours guidé pas à pas pour débutants</li>
-              <li>✅ Vos premiers morceaux en quelques semaines</li>
-              <li>✅ Accès illimité – apprenez à votre rythme</li>
-              <li>✅ Cadeau utile expédié chez vous (France)</li>
-            </ul>
-            
-            <a href="#acheter" class="cta-primary hero-cta" data-analytics="hero-cta">
-              Je découvre les packs – 99€
-              <span class="cta-arrow">↓</span>
-            </a>
-            
-            <p class="guarantee-text">
-              ✅ Garantie 15 jours – remboursé si vous n'êtes pas satisfait
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Preuve Sociale -->
-      <section class="social-proof" id="social-proof">
-        <div class="container">
-          <h2>Rejoignez plus de 80 000 élèves formés</h2>
-          
-          <div class="social-stats">
-            <div class="stat-item">
-              <div class="stat-number">80k+</div>
-              <div class="stat-label">élèves formés</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">15M+</div>
-              <div class="stat-label">vues YouTube</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">106k+</div>
-              <div class="stat-label">followers TikTok</div>
-            </div>
-          </div>
-          
-          <div class="social-logos">
-            <svg class="social-logo" viewBox="0 0 24 24" width="32" height="32">
-              <path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </svg>
-            <svg class="social-logo" viewBox="0 0 24 24" width="32" height="32">
-              <path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-            </svg>
-          </div>
-        </div>
-      </section>
-
-      <!-- Sélecteur d'instrument -->
-      <section class="parcours" id="parcours">
-        <div class="container">
-          <h2>Choisissez votre aventure musicale</h2>
-          <p class="section-subtitle">Deux parcours complets conçus pour vous faire progresser rapidement</p>
-          
-          <div class="tabs-container">
-            <div class="tabs-nav" role="tablist">
-              <button class="tab-button active" role="tab" aria-selected="true" aria-controls="guitare-panel" id="guitare-tab">
-                🎸 Pack Guitare
-              </button>
-              <button class="tab-button" role="tab" aria-selected="false" aria-controls="ukulele-panel" id="ukulele-tab">
-                🏝️ Pack Ukulélé
-              </button>
-              <button class="tab-button" role="tab" aria-selected="false" aria-controls="piano-debutant-panel" id="piano-debutant-tab">
-                🎹 Piano Débutant
-              </button>
-              <button class="tab-button" role="tab" aria-selected="false" aria-controls="piano-avance-panel" id="piano-avance-tab">
-                🎼 Piano Avancé
-              </button>
-            </div>
-            
-            <div class="tab-panels">
-              <div class="tab-panel active" role="tabpanel" id="guitare-panel" aria-labelledby="guitare-tab">
-                <div class="pack-content">
-                  <div class="pack-header">
-                    <h3>🎸 Votre parcours guitare complet</h3>
-                    <p>Trois formations progressives pour maîtriser la guitare de A à Z</p>
-                  </div>
-                  
-                  <div class="pack-items">
-                    <div class="pack-item">
-                      <h4>📚 Pack Débutant</h4>
-                      <p>Apprenez les bases : accords, rythmiques, premières chansons</p>
-                      <span class="value-badge">89€</span>
-                    </div>
-                    <div class="pack-item featured">
-                      <h4>🚀 Guitare Odyssée</h4>
-                      <p>Un an pour progresser et maîtriser votre instrument</p>
-                      <span class="value-badge">149€</span>
-                    </div>
-                    <div class="pack-item">
-                      <h4>🎵 Pack Shuffle</h4>
-                      <p>Maîtrisez les rythmes shuffle et blues</p>
-                      <span class="value-badge">29€</span>
-                    </div>
-                  </div>
-                  
-                  <div class="total-value">
-                    <span class="total-text">Valeur totale :</span>
-                    <span class="total-price">267€</span>
-                    <span class="arrow">→</span>
-                    <span class="promo-price">99€</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="tab-panel" role="tabpanel" id="ukulele-panel" aria-labelledby="ukulele-tab">
-                <div class="pack-content">
-                  <div class="pack-header">
-                    <h3>🏝️ Votre parcours ukulélé complet</h3>
-                    <p>Trois formations progressives pour maîtriser l'ukulélé facilement</p>
-                  </div>
-                  
-                  <div class="pack-items">
-                    <div class="pack-item">
-                      <h4>📚 Pack Débutant</h4>
-                      <p>Découvrez l'ukulélé de façon simple et amusante</p>
-                      <span class="value-badge">79€</span>
-                    </div>
-                    <div class="pack-item featured">
-                      <h4>🎶 Pack Rythmique</h4>
-                      <p>Maîtrisez les rythmiques et variations</p>
-                      <span class="value-badge">79€</span>
-                    </div>
-                    <div class="pack-item">
-                      <h4>🎵 Pack Shuffle</h4>
-                      <p>Apprenez les rythmes shuffle à l'ukulélé</p>
-                      <span class="value-badge">29€</span>
-                    </div>
-                  </div>
-                  
-                  <div class="total-value">
-                    <span class="total-text">Valeur totale :</span>
-                    <span class="total-price">187€</span>
-                    <span class="arrow">→</span>
-                    <span class="promo-price">99€</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Panel Piano Débutant -->
-              <div class="tab-panel" role="tabpanel" id="piano-debutant-panel" aria-labelledby="piano-debutant-tab">
-                <div class="pack-content">
-                  <div class="pack-header">
-                    <h3>🎹 Votre parcours piano débutant complet</h3>
-                    <p>Deux formations progressives pour débuter le piano facilement</p>
-                  </div>
-                  
-                  <div class="pack-items">
-                    <div class="pack-item featured">
-                      <h4>📚 Pack Débutant Piano</h4>
-                      <p>Formation complète pour débuter le piano : bases du clavier, accords, rythmes et premiers morceaux</p>
-                      <span class="value-badge">299€</span>
-                    </div>
-                    <div class="pack-item">
-                      <h4>🎼 Lecture de Notes Facile</h4>
-                      <p>Apprenez à lire les partitions facilement avec une méthode progressive et claire</p>
-                      <span class="value-badge">79€</span>
-                    </div>
-                  </div>
-                  
-                  <div class="total-value">
-                    <span class="total-text">Valeur totale :</span>
-                    <span class="total-price">378€</span>
-                    <span class="arrow">→</span>
-                    <span class="promo-price">99€</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Panel Piano Avancé -->
-              <div class="tab-panel" role="tabpanel" id="piano-avance-panel" aria-labelledby="piano-avance-tab">
-                <div class="pack-content">
-                  <div class="pack-header">
-                    <h3>🎼 Votre parcours piano avancé complet</h3>
-                    <p>Trois formations spécialisées pour perfectionner votre piano</p>
-                  </div>
-                  
-                  <div class="pack-items">
-                    <div class="pack-item featured">
-                      <h4>🚀 Piano Odyssée : 52 Semaines</h4>
-                      <p>Un an de perfectionnement avec techniques avancées, improvisation et expression musicale</p>
-                      <span class="value-badge">149€</span>
-                    </div>
-                    <div class="pack-item">
-                      <h4>🎵 Cycle des Quintes</h4>
-                      <p>Maîtrisez l'harmonie et la créativité musicale avec cet outil magique des musiciens</p>
-                      <span class="value-badge">79€</span>
-                    </div>
-                    <div class="pack-item">
-                      <h4>🎹 Maîtrise des Accords Piano</h4>
-                      <p>De l'initiation à l'expertise : construisez et utilisez tous les accords au piano</p>
-                      <span class="value-badge">79€</span>
-                    </div>
-                  </div>
-                  
-                  <div class="total-value">
-                    <span class="total-text">Valeur totale :</span>
-                    <span class="total-price">307€</span>
-                    <span class="arrow">→</span>
-                    <span class="promo-price">99€</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Bonus offerts -->
-      <section class="bonus" id="bonus">
-        <div class="container">
-          <div class="bonus-header">
-            <h2>🎁 Votre cadeau offert avec votre pack</h2>
-            <p class="bonus-subtitle">Un accessoire utile expédié directement chez vous</p>
-          </div>
-          
-          <div class="bonus-grid">
-            <div class="bonus-card">
-              <div class="bonus-image">
-                <img src="/images/sourdine.webp" alt="Sourdine guitare" width="300" height="200" loading="lazy" />
-                <div class="bonus-badge">🎁 Offert</div>
-              </div>
-              <div class="bonus-content">
-                <h3>🔇 Sourdine guitare</h3>
-                <p><strong>Jouez sans déranger personne</strong>, même tard le soir ! Idéal pour pratiquer en appartement ou quand la famille dort.</p>
-                
-                <div class="bonus-features">
-                  <div class="feature">
-                    <span class="feature-icon">🔉</span>
-                    <span class="feature-text">Réduit le volume de 80%</span>
-                  </div>
-                  <div class="feature">
-                    <span class="feature-icon">⚡</span>
-                    <span class="feature-text">Installation en 2 secondes</span>
-                  </div>
-                  <div class="feature">
-                    <span class="feature-icon">🏠</span>
-                    <span class="feature-text">Parfait pour l'appartement</span>
-                  </div>
-                </div>
-                
-                <div class="bonus-value">
-                  <span class="value-text">Valeur : 15€</span>
-                  <span class="free-text">OFFERT</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="bonus-card">
-              <div class="bonus-image">
-                <img src="/images/bonus-ukulele.webp" alt="Sangle pour ukulélé" width="300" height="200" loading="lazy" />
-                <div class="bonus-badge">🎁 Offert</div>
-              </div>
-              <div class="bonus-content">
-                <h3>🎸 Sangle pour ukulélé</h3>
-                <p><strong>Jouez debout en toute liberté</strong> ! Parfait pour animer vos soirées, jouer en extérieur ou simplement être plus à l'aise.</p>
-                
-                <div class="bonus-features">
-                  <div class="feature">
-                    <span class="feature-icon">🎯</span>
-                    <span class="feature-text">Confort optimal</span>
-                  </div>
-                  <div class="feature">
-                    <span class="feature-icon">📏</span>
-                    <span class="feature-text">Réglable et résistante</span>
-                  </div>
-                  <div class="feature">
-                    <span class="feature-icon">🎉</span>
-                    <span class="feature-text">Idéal pour les soirées</span>
-                  </div>
-                </div>
-                
-                <div class="bonus-value">
-                  <span class="value-text">Valeur : 12€</span>
-                  <span class="free-text">OFFERT</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="bonus-card">
-              <div class="bonus-image">
-                <img src="/images/bonus-piano.webp" alt="Clips pour partitions" width="300" height="200" loading="lazy" />
-                <div class="bonus-badge">🎁 Offert</div>
-              </div>
-              <div class="bonus-content">
-                <h3>🎼 Clips pour Partitions</h3>
-                <p><strong>Maintenez vos partitions ouvertes facilement</strong> ! Ces clips pratiques se fixent sur votre piano et maintiennent vos livres de musique dans la position parfaite.</p>
-                
-                <div class="bonus-features">
-                  <div class="feature">
-                    <span class="feature-icon">📖</span>
-                    <span class="feature-text">Maintient les partitions ouvertes</span>
-                  </div>
-                  <div class="feature">
-                    <span class="feature-icon">🔧</span>
-                    <span class="feature-text">Fixation facile sur le piano</span>
-                  </div>
-                  <div class="feature">
-                    <span class="feature-icon">📚</span>
-                    <span class="feature-text">Compatible tous livres</span>
-                  </div>
-                  <div class="feature">
-                    <span class="feature-icon">🎓</span>
-                    <span class="feature-text">Indispensable pour étudier</span>
-                  </div>
-                </div>
-                
-                <div class="bonus-value">
-                  <span class="value-text">Valeur : 10€</span>
-                  <span class="free-text">OFFERT</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="delivery-info">
-            <div class="delivery-card">
-              <div class="delivery-icon">📦</div>
-              <div class="delivery-text">
-                <h4>Livraison de votre cadeau</h4>
-                <p><strong>Expédition sous 15 jours ouvrés</strong> en France métropolitaine</p>
-                <p class="delivery-note">⚡ Les formations vidéo sont disponibles immédiatement après achat</p>
-                <p class="delivery-note">📸 Visuel non contractuel : le modèle livré peut légèrement varier</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Offre & Achat -->
-      <section class="acheter" id="acheter">
-        <div class="container">
-          <div class="offer-content">
-            <div class="offer-header">
-              <h2>🎯 Profitez de cette offre exceptionnelle</h2>
-              
-              <div class="mega-savings">
-                <div class="savings-visual">
-                  <span class="before-price">Valeur jusqu'à 378€</span>
-                  <span class="savings-arrow">→</span>
-                  <span class="after-price">99€ TTC</span>
-                </div>
-                <div class="savings-highlight">
-                  <span class="savings-amount">Vous économisez jusqu'à 279€</span>
-                  <span class="savings-percent">(-74%)</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="cta-buttons">
-              <a href="https://ecole.musique-facile.fr/pack-guitare-cadeau" class="cta-pack guitare" data-analytics="cta-guitare">
-                <div class="cta-content">
-                  <span class="cta-icon">🎸</span>
-                  <div class="cta-text">
-                    <span class="cta-title">Pack Guitare Complet</span>
-                    <span class="cta-subtitle">3 formations + sourdine offerte</span>
-                  </div>
-                  <span class="cta-price">99€</span>
-                </div>
+    <!-- 2. Les quatre Packs -->
+    <section class="packs" id="packs" aria-labelledby="packs-title">
+      <div class="container">
+        <p class="eyebrow">Quatre Packs, un prix</p>
+        <h2 id="packs-title">Lequel vous fait <em>envie</em> ?</h2>
+      </div>
+      <div class="container packs__grid">
+        {packs.map((k) => (
+          <article class={`pack theme-${k.theme}`} id={`pack-${k.id}`}>
+            <figure class="pack__shot taped">
+              <img src={k.image} alt={k.imageAlt} width="1824" height="1042" loading="lazy" decoding="async" />
+              <figcaption>{k.level}</figcaption>
+            </figure>
+            <div class="pack__body">
+              <h3>{k.offer.name}</h3>
+              <p class="pack__who">{k.audience}</p>
+              <ul class="pack__list" role="list">
+                {k.offer.includes.map((item) => (
+                  <li>
+                    <span>{item.title}</span>
+                    <span class="pack__each">{item.price} seul</span>
+                  </li>
+                ))}
+              </ul>
+              <p class="pack__price">
+                <strong>{k.offer.price}</strong>
+                <span>
+                  pour {k.offer.separately} pris séparément<sup><a href="#note-5" aria-label="Note 5">5</a></sup>
+                </span>
+              </p>
+              <a href={k.offer.url} class="btn btn--primary btn--wide" data-analytics={`cta-${k.id}`}>
+                Commencer {k.object} · {k.offer.price}
               </a>
-              
-              <a href="https://ecole.musique-facile.fr/pack-ukulele" class="cta-pack ukulele" data-analytics="cta-ukulele">
-                <div class="cta-content">
-                  <span class="cta-icon">🏝️</span>
-                  <div class="cta-text">
-                    <span class="cta-title">Pack Ukulélé Complet</span>
-                    <span class="cta-subtitle">3 formations + sangle offerte</span>
-                  </div>
-                  <span class="cta-price">99€</span>
-                </div>
-              </a>
-
-              <a href="https://ecole.musique-facile.fr/pack-piano-debutant-cadeau" class="cta-pack piano" data-analytics="cta-piano-debutant">
-                <div class="cta-content">
-                  <span class="cta-icon">🎹</span>
-                  <div class="cta-text">
-                    <span class="cta-title">Pack Piano Débutant</span>
-                    <span class="cta-subtitle">2 formations + clips offerts</span>
-                  </div>
-                  <span class="cta-price">99€</span>
-                </div>
-              </a>
-
-              <a href="https://ecole.musique-facile.fr/pack-avance-piano-cadeau" class="cta-pack piano" data-analytics="cta-piano-avance">
-                <div class="cta-content">
-                  <span class="cta-icon">🎼</span>
-                  <div class="cta-text">
-                    <span class="cta-title">Pack Piano Avancé</span>
-                    <span class="cta-subtitle">3 formations + clips offerts</span>
-                  </div>
-                  <span class="cta-price">99€</span>
-                </div>
-              </a>
+              <p class="pack__terms">
+                Paiement unique · accès à vie · 15 jours pour changer d'avis · jusqu'au {rentree.offerEndsShort}
+              </p>
             </div>
-            
-            <ul class="value-points">
-              <li>🎓 3 formations complètes et progressives</li>
-              <li>🔄 Mises à jour incluses à vie</li>
-              <li>♾️ Accès illimité – apprenez à votre rythme</li>
-              <li>🎁 Cadeau physique expédié chez vous (France)</li>
-              <li>📱 Compatible mobile, tablette, ordinateur</li>
-            </ul>
-            
-            <div class="guarantee-section">
-              <div class="guarantee-icon">🛡️</div>
-              <div class="guarantee-text">
-                <h4>Garantie satisfait ou remboursé</h4>
-                <p>Vous avez <strong>15 jours</strong>. Si vous n'êtes pas satisfait, nous vous remboursons intégralement.</p>
-              </div>
-            </div>
-          </div>
+          </article>
+        ))}
+      </div>
+      <div class="container">
+        <ul class="assure" role="list">
+          {reassurance.map((r, i) => (
+            <li>
+              <span>{r.label}</span>
+              <sup><a href={`#note-${i + 1}`} aria-label={`Note ${i + 1}`}>{i + 1}</a></sup>
+            </li>
+          ))}
+        </ul>
+        <p class="guarantee">
+          <strong>Quinze jours pour changer d'avis.</strong> Vous achetez, vous suivez les leçons. Si ça ne vous convient
+          pas, un message depuis <a href="/contact/">la page contact</a> suffit : vous êtes remboursé. Ensuite, l'accès
+          reste ouvert à vie, mises à jour comprises. Vous hésitez encore ?
+          <a href="/on-discute/">On en discute deux minutes avec Fred</a>. Le solfège n'a pas de Pack : le cours
+          <a href={byId.solfege.courseUrl}>Lire les Notes de Musique</a> coûte {byId.solfege.price}, et il est compris dans
+          le Pack Piano Débutant.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. Comment ça se passe -->
+    <section class="how" id="parcours" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">Après l'achat</p>
+        <h2 id="how-title">Comment <em>ça se passe</em></h2>
+        <ol class="how__list" role="list">
+          <li>
+            <span class="how__n">1</span>
+            <h3>Vos accès arrivent par e-mail</h3>
+            <p>Dans les 24 heures. Vous vous connectez sur la plateforme de l'école, et les formations du Pack sont là, toutes, tout de suite.</p>
+          </li>
+          <li>
+            <span class="how__n">2</span>
+            <h3>Vous suivez le parcours, dans l'ordre</h3>
+            <p>Des vidéos courtes, une notion à la fois, un exercice à chaque étape. Quinze minutes par jour suffisent, et vous revenez en arrière autant de fois que nécessaire.</p>
+          </li>
+          <li>
+            <span class="how__n">3</span>
+            <h3>Vous jouez un morceau en entier</h3>
+            <p>À la guitare, les premiers morceaux arrivent en 30 jours ; au ukulélé, en trois semaines ; au piano, vous jouez dès la première leçon. Ensuite vous enchaînez, sans abonnement à renouveler.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 4. Le public -->
+    <section class="public" aria-labelledby="public-title">
+      <div class="container">
+        <p class="eyebrow">Le public</p>
+        <h2 id="public-title">Des adultes qui ont commencé <em>exactement là où vous êtes</em></h2>
+        <p class="public__rating">
+          <strong>{rating.display}</strong> sur
+          <a href={reviewsSource.url} rel="noopener nofollow" target="_blank">{reviews.display} avis Skilleos</a>, relevé
+          le {checkedOn}. Recopiés mot pour mot.
+        </p>
+        <ul class="quotes" role="list">
+          {quotes.map((t) => (
+            <li class={`quote theme-${t.instrument}`}>
+              <blockquote cite={t.sourceUrl}>
+                <p>« {t.quote} »</p>
+                <footer>
+                  <strong>{t.name}</strong> · {LABELS[t.instrument]} · {formatTestimonialDate(t.date, t.datePrecision)}
+                  {t.sourceUrl && (
+                    <> · <a href={t.sourceUrl} rel="noopener nofollow" target="_blank">{t.sourceName}</a></>
+                  )}
+                </footer>
+              </blockquote>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. Le prof -->
+    <section class="prof" aria-labelledby="prof-title">
+      <div class="container prof__grid">
+        <figure class="prof__visual taped">
+          <img src={fred.photo} alt="Fred Fieffé, souriant, un ukulélé à la main, devant un feuillage" width="800" height="800" loading="lazy" decoding="async" />
+          <figcaption>Fred Fieffé</figcaption>
+        </figure>
+        <div>
+          <p class="eyebrow">Votre prof</p>
+          <h2 id="prof-title">Je m'appelle Fred. <em>Je serai votre seul prof.</em></h2>
+          <p>
+            Je joue depuis plus de quarante ans et j'enseigne en ligne depuis 2015. Sur les parcours débutant, c'est ma
+            voix sur chaque leçon, du premier accord au dernier morceau, sur {videos.display} vidéos. Ce que j'ai appris
+            en {students.display} élèves tient en une phrase : un adulte qui débute n'a pas besoin de théorie, il a
+            besoin de jouer quelque chose dès la première semaine.
+          </p>
+          <ul class="prof__creds" role="list">
+            {fred.credentials.map((c) => <li>{c}</li>)}
+          </ul>
+          <p class="prof__links">
+            <a href={fred.aboutUrl}>Mon parcours en détail</a>
+            <a href="/carnet/">Ouvrir le carnet de rentrée</a>
+          </p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Témoignages -->
-      <section class="temoignages" id="temoignages">
-        <div class="container">
-          <h2>⭐ Ce qu'en disent nos élèves</h2>
-          <p class="section-subtitle">Des milliers d'élèves ont déjà transformé leur passion en réalité</p>
-          
-          <div class="testimonials-grid">
-            {testimonials.map(testimonial => (
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <div class="stars">
-                    {Array.from({ length: testimonial.rating }).map(() => (
-                      <span class="star">⭐</span>
-                    ))}
-                  </div>
-                  <span class="instrument-tag">{testimonial.instrument}</span>
-                </div>
-                <p class="testimonial-text">"{testimonial.text}"</p>
-                <div class="testimonial-author">
-                  <strong>{testimonial.name}</strong>
-                </div>
-              </div>
+    <!-- 6. FAQ -->
+    <HomeFaq heading="Les questions qu'on me pose avant d'acheter" items={offerFaq} />
+
+    <!-- 7. Dernier appel, avec le calendrier réel -->
+    <section class="final" aria-labelledby="final-title">
+      <div class="container final__grid">
+        <div>
+          <p class="eyebrow">{rentree.season}</p>
+          <h2 id="final-title">{rentree.claim}<em>.</em></h2>
+          <div class="final__btns">
+            {packs.map((k) => (
+              <a href={k.offer.url} class={`btn btn--final theme-${k.theme}`} data-analytics={`final-cta-${k.id}`}>
+                {k.offer.name} · {k.offer.price}
+              </a>
             ))}
           </div>
+          <p class="final__terms">
+            {rentree.offerLabel} jusqu'au {rentree.offerEndsLabel} · paiement unique · accès à vie · 15 jours pour changer
+            d'avis
+          </p>
         </div>
-      </section>
-
-      <!-- À propos -->
-      <section class="instructeur" id="instructeur">
-        <div class="container">
-          <div class="instructor-content">
-            <div class="instructor-image">
-              <img src="/images/prof/fred.webp" alt="Fred Fieffé, professeur de musique" width="300" height="300" loading="lazy" />
-            </div>
-            <div class="instructor-text">
-              <h2>👨‍🏫 Votre instructeur : Fred Fieffé</h2>
-              <p><strong>15 ans d'expérience</strong> dans l'enseignement musical en ligne. J'ai déjà accompagné plus de <strong>80 000 élèves</strong> dans leur apprentissage musical.</p>
-              
-              <blockquote class="instructor-quote">
-                "Ma passion ? Rendre la musique accessible à tous, même aux grands débutants. Avec ma méthode, vous jouez vos premiers morceaux en quelques semaines, sans stress ni jargon compliqué."
-              </blockquote>
-              
-              <div class="instructor-credentials">
-                <div class="credential">
-                  <span class="credential-icon">🎓</span>
-                  <span>15 ans d'enseignement</span>
-                </div>
-                <div class="credential">
-                  <span class="credential-icon">👥</span>
-                  <span>80 000+ élèves formés</span>
-                </div>
-                <div class="credential">
-                  <span class="credential-icon">⭐</span>
-                  <span>Note moyenne {rating.display} — {reviews.display} {reviewsSource.label}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section class="faq" id="faq">
-        <div class="container">
-          <h2>❓ Questions fréquentes</h2>
-          <p class="section-subtitle">Toutes les réponses à vos questions</p>
-
-          <div class="faq-grid">
-            <div class="faq-item">
-              <h3>Comment accéder aux cours après l'achat ?</h3>
-              <div>
-                <p>Vous recevez vos accès par email dans les <strong>24h</strong>. Connectez-vous sur notre plateforme et commencez immédiatement vos formations.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <h3>Quand vais-je recevoir mon cadeau ?</h3>
-              <div>
-                <p>Les cadeaux (sourdine ou sangle) sont <strong>expédiés sous 15 jours ouvrés</strong> en France métropolitaine par La Poste. Les formations sont disponibles immédiatement.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <h3>Et si je débute complètement de zéro ?</h3>
-              <div>
-                <p><strong>Parfait !</strong> Nos packs sont spécialement conçus pour les grands débutants. Vous apprenez étape par étape, sans prérequis.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <h3>Puis-je vraiment me faire rembourser ?</h3>
-              <div>
-                <p>Oui, vous avez <strong>15 jours</strong> pour tester. Si vous n'êtes pas satisfait, nous vous remboursons intégralement, sans question.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <h3>Y a-t-il un support si j'ai des questions ?</h3>
-              <div>
-                <p>Bien sûr ! Contactez-nous à <strong>contact@musique-facile.fr</strong>, nous répondons sous 24h pour vous aider.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <h3>Puis-je avoir une facture ?</h3>
-              <div>
-                <p>Oui, une <strong>facture</strong> vous est automatiquement envoyée par email après votre achat.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <h3>Il n'y a pas d'essai gratuit ?</h3>
-              <div>
-                <p>Non, et c'est volontaire : vous obtenez tout de suite la <strong>formation complète, à vie</strong>. Et la <strong>garantie 15 jours satisfait ou remboursé</strong> en fait un essai sans aucun risque — vous testez tout, et si ça ne vous convient pas, vous êtes remboursé sans avoir à vous justifier.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <h3>Combien de temps par jour faut-il ?</h3>
-              <div>
-                <p><strong>15 minutes par jour suffisent.</strong> Des leçons courtes, à votre rythme, accessibles à vie. Mieux vaut 15 minutes régulières que deux heures le dimanche.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Dernier CTA -->
-      <section class="final-cta">
-        <div class="container">
-          <div class="final-content">
-            <h2>🚀 Prêt à commencer votre aventure musicale ?</h2>
-            <p>Rejoignez les <strong>80 000 élèves</strong> qui ont déjà transformé leur passion en réalité</p>
-            
-            <div class="final-cta-buttons">
-              <a href="https://ecole.musique-facile.fr/pack-guitare-cadeau" class="final-cta-btn guitare" data-analytics="final-cta-guitare">
-                🎸 Pack Guitare – 99€
-              </a>
-              <a href="https://ecole.musique-facile.fr/pack-ukulele" class="final-cta-btn ukulele" data-analytics="final-cta-ukulele">
-                🏝️ Pack Ukulélé – 99€
-              </a>
-              <a href="https://ecole.musique-facile.fr/pack-piano-debutant-cadeau" class="final-cta-btn piano" data-analytics="final-cta-piano-debutant">
-                🎹 Pack Piano Débutant – 99€
-              </a>
-              <a href="https://ecole.musique-facile.fr/pack-avance-piano-cadeau" class="final-cta-btn piano" data-analytics="final-cta-piano-avance">
-                🎼 Pack Piano Avancé – 99€
-              </a>
-            </div>
-            
-            <p class="final-guarantee">
-              ✅ <strong>Garantie 15 jours</strong> – Remboursé si vous n'êtes pas satisfait
-            </p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Bandeau sticky -->
-    <div class="sticky-banner" aria-live="polite">
-      <div class="sticky-content">
-        <span class="sticky-text">🔥 Offre limitée — Pack à 99€</span>
-        <div class="sticky-buttons">
-          <a href="https://ecole.musique-facile.fr/pack-guitare-cadeau" class="sticky-btn guitare" data-analytics="sticky-guitare">🎸 Guitare</a>
-          <a href="https://ecole.musique-facile.fr/pack-ukulele" class="sticky-btn ukulele" data-analytics="sticky-ukulele">🏝️ Ukulélé</a>
-          <a href="#acheter" class="sticky-btn piano" data-analytics="sticky-piano">🎹 Piano</a>
-        </div>
+        <ol class="cal" aria-label="Repères du programme">
+          <li>
+            <span class="cal__k">Aujourd'hui</span>
+            <span>Vos accès par e-mail, leçon 1 dans la foulée.</span>
+          </li>
+          <li>
+            <span class="cal__k">Jour 30</span>
+            <span>À la guitare, les premiers morceaux ; au ukulélé, les premières chansons ; au piano, une ballade en version simplifiée.</span>
+          </li>
+          <li>
+            <span class="cal__k">{rentree.toussaintLabel}</span>
+            <span>
+              Début des vacances de la Toussaint<sup><a href="#note-6" aria-label="Note 6">6</a></sup>
+            </span>
+          </li>
+        </ol>
       </div>
+    </section>
+
+    <!-- 8. Notes -->
+    <section class="notes" aria-label="Notes et sources">
+      <div class="container">
+        <ol>
+          {reassurance.map((r, i) => (
+            <li id={`note-${i + 1}`}>
+              {r.note} <a href={r.href}>Voir {r.linkLabel}</a>.
+            </li>
+          ))}
+          <li id="note-5">
+            Somme des prix de chaque formation prise seule, tels qu'affichés sur leurs fiches cours le 4 septembre 2026 :
+            187 € pour le Pack Ukulélé, 267 € pour le Pack Guitare, 307 € pour le Pack Piano Avancé, 378 € pour le Pack
+            Piano Débutant. Ce n'est pas un ancien prix du Pack. <a href="/cours/">Voir les fiches cours</a>.
+          </li>
+          <li id="note-6">{rentree.source} Vacances de la Toussaint {rentree.toussaintRange}, toutes zones.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Sur téléphone : le bouton suit -->
+    <div class="mcta" data-mcta>
+      <a href="#packs" class="mcta__btn">Choisir mon Pack · 99 €</a>
     </div>
+  </div>
 
-    <script is:inline>
-      (() => {
-        const selector = '[data-analytics]';
-        document.addEventListener('DOMContentLoaded', () => {
-          document.querySelectorAll(selector).forEach((element) => {
-            if (!(element instanceof HTMLAnchorElement)) return;
-            element.addEventListener('click', () => {
-              window.dataLayer = window.dataLayer || [];
-              window.dataLayer.push({
-                event: 'click_cta_course',
-                page_type: 'offer',
-                cta_label: element.getAttribute('data-analytics') || '',
-                cta_href: element.getAttribute('href') || ''
-              });
-            }, { passive: true });
-          });
-        });
-      })();
-    </script>
-
-    <FooterModern />
+  <FooterModern />
 </Layout>
 
+<script is:inline>
+  (() => {
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-analytics]').forEach((element) => {
+        if (!(element instanceof HTMLAnchorElement)) return;
+        element.addEventListener(
+          'click',
+          () => {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'click_cta_course',
+              page_type: 'offer',
+              cta_label: element.getAttribute('data-analytics') || '',
+              cta_href: element.getAttribute('href') || '',
+            });
+          },
+          { passive: true },
+        );
+      });
+    });
+  })();
+</script>
+
+<script>
+  // Bouton mobile : visible une fois le premier écran passé, caché devant les Packs et le dernier appel.
+  const mcta = document.querySelector<HTMLElement>('[data-mcta]');
+  const hero = document.querySelector('.hero');
+  const hide = [...document.querySelectorAll('#packs, .final')];
+  if (mcta && hero && 'IntersectionObserver' in window) {
+    let pastHero = false;
+    const onHide = new Set<Element>();
+    const update = () => mcta.classList.toggle('is-visible', pastHero && onHide.size === 0);
+    new IntersectionObserver(
+      ([e]) => {
+        pastHero = !e.isIntersecting && e.boundingClientRect.bottom < 0;
+        update();
+      },
+      { threshold: 0 },
+    ).observe(hero);
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => (e.isIntersecting ? onHide.add(e.target) : onHide.delete(e.target)));
+        update();
+      },
+      { threshold: 0.05 },
+    );
+    hide.forEach((el) => io.observe(el));
+  }
+</script>
+
 <style>
-  /* Variables CSS */
-  :root {
-    --brand: #6C3FA0;
-    --brand-contrast: #ffffff;
-    --bg: #ffffff;
-    --bg-light: #f8fafc;
-    --text: #1a202c;
-    --text-muted: #718096;
-    --success: #48bb78;
-    --warning: #ed8936;
-    --error: #e53e3e;
-    --radius-sm: 4px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --radius-full: 9999px;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    --transition: 250ms ease;
+  .ov {
+    --hv-header: 80px;
+    --ov-display: var(--xp-display);
+    --ov-serif: var(--xp-display);
+    --ov-paper: #f6f0e4;
+    --ov-paper-2: #ede4d3;
+    --ov-card: #fffaf0;
+    --ov-ink: #23193d;
+    --ov-ink-2: #5a4f75;
+    --ov-line: rgba(35, 25, 61, 0.16);
+    --ov-sun: #ffcf5a;
+    --ov-sun-ink: #3a2a00;
+    --ov-hand: var(--xp-voice);
+    --ov-stage: #6c3fa0;
+    --ov-accent: var(--brand-500);
+    --ov-accent-ink: var(--brand-600);
+    --ov-accent-line: #c9b3e6;
+    color-scheme: light;
+    --bg-page: var(--ov-paper);
+    --bg-alt: var(--ov-paper-2);
+    --bg-card: var(--ov-card);
+    --bg-elevated: var(--ov-card);
+    --text-primary: var(--ov-ink);
+    --text-secondary: var(--ov-ink-2);
+    --text-muted: var(--ov-ink-2);
+    --border-default: var(--ov-line);
+    --surface-white: var(--ov-card);
+    --surface-light: var(--ov-paper);
+    background: var(--ov-paper);
+    color: var(--ov-ink);
+    font-family: var(--xp-text);
   }
 
-  /* Reset et base */
-  * {
-    box-sizing: border-box;
+  .ov .tag__line, .ov .pack__shot figcaption {
+    font-variation-settings: var(--xp-voice-settings);
   }
 
-  body {
-    margin: 0;
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    line-height: 1.6;
-    color: var(--text);
+  @media (max-width: 768px) {
+    .ov {
+      --hv-header: 70px;
+    }
   }
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+  .ov [id] {
+    scroll-margin-top: calc(var(--hv-header) + var(--space-4));
   }
 
-  /* Header simple */
-  .header-simple {
-    background: white;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow);
+  .ov h1,
+  .ov h2,
+  .ov h3 {
+    font-family: var(--ov-display);
+    font-variation-settings: var(--xp-display-settings);
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    color: var(--ov-ink);
   }
 
-  .header-simple .container {
-    display: flex;
-    justify-content: space-between;
+  .ov h1 em,
+  .ov h2 em {
+    font-family: var(--ov-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ov-accent-ink);
+    letter-spacing: 0;
+  }
+
+  .ov p {
+    text-wrap: pretty;
+  }
+
+  .ov a:not(.btn, .mcta__btn) {
+    color: inherit;
+  }
+
+  .ov :global(.hfaq__head h2),
+  .ov :global(.hfaq summary) {
+    font-family: var(--ov-display);
+    letter-spacing: -0.02em;
+  }
+
+  .ov :global(.hfaq) {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  .eyebrow {
+    margin: 0 0 var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ov-accent-ink);
+  }
+
+  sup a {
+    text-decoration: none;
+    color: var(--ov-accent-ink);
+    font-size: 0.75em;
+  }
+
+  /* ---------- boutons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-md);
+    font-family: var(--ov-display);
+    font-weight: 600;
+    font-size: var(--text-base);
+    text-decoration: none;
+    font-variant-numeric: tabular-nums;
+    transition: transform var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .btn--primary {
+    background: var(--ov-sun);
+    color: var(--ov-sun-ink);
+    box-shadow: 0 6px 0 -2px rgba(35, 25, 61, 0.18);
+  }
+
+  .btn--primary:hover {
+    background: var(--ov-ink);
+    color: var(--ov-paper);
+    transform: translateY(-2px);
+  }
+
+  .btn--ghost {
+    color: var(--ov-ink);
+    border: 1px solid var(--ov-line);
+  }
+
+  .btn--wide {
+    width: 100%;
+  }
+
+  .btn:focus-visible {
+    outline: 3px solid var(--theme-current, var(--ov-accent));
+    outline-offset: 3px;
+  }
+
+  /* =========================================================
+     1. Hero encre
+     ========================================================= */
+  .hero {
+    padding: calc(var(--hv-header) + var(--space-10)) 0 var(--space-12);
+    background: var(--ov-stage);
+    color: var(--ov-paper);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-10);
     align-items: center;
   }
 
-  .logo img {
-    height: 40px;
-    width: auto;
-  }
-
-  .header-cta {
-    background: var(--brand);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all var(--transition);
-    box-shadow: var(--shadow);
-  }
-
-  .header-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  /* Hero */
-  .hero {
-    background: linear-gradient(135deg, var(--bg-light) 0%, #e6fffa 100%);
-    padding: 6rem 0 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-background {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .hero-background img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.1;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(108,63,160,0) 60%, rgba(108,63,160,0.08) 100%);
-    z-index: 1;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .hero-badges {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .urgency-badge, .gift-badge {
-    background: var(--brand);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-full);
-    font-size: 0.9rem;
-    font-weight: 600;
-    animation: pulse 2s infinite;
-  }
-
-  .gift-badge {
-    background: var(--warning);
-  }
-
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+  .hero .eyebrow {
+    color: rgba(246, 240, 228, 0.8);
   }
 
   .hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 2rem;
-    color: var(--text);
-    line-height: 1.2;
+    color: var(--ov-paper);
+    font-size: clamp(2.3rem, 4.4vw, 3.8rem);
+    line-height: 1.02;
+    margin: 0 0 var(--space-5);
     font-weight: 700;
   }
 
-  .price-hero {
-    margin-bottom: 2rem;
+  .hero h1 em {
+    color: var(--ov-sun);
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'><path d='M3 9 C 40 3, 70 12, 110 6 S 170 4, 197 8' fill='none' stroke='%23ffcf5a' stroke-width='3.5' stroke-linecap='round'/></svg>") no-repeat left 100% / 100% 0.32em;
+    padding-bottom: 0.08em;
   }
 
-  .price-comparison {
+  .hero__lead {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: rgba(246, 240, 228, 0.86);
+    max-width: 56ch;
+    margin: 0 0 var(--space-6);
+  }
+
+  .hero__actions {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
     flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
   }
 
-  .old-price {
-    font-size: 1.5rem;
-    color: var(--text-muted);
-    text-decoration: line-through;
-    opacity: 0.8;
+  .hero .btn--ghost {
+    color: var(--ov-paper);
+    border-color: rgba(246, 240, 228, 0.45);
   }
 
-  .arrow {
-    font-size: 2rem;
-    color: var(--brand);
-    font-weight: bold;
-  }
-
-  .new-price {
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--brand);
-    text-shadow: 0 2px 4px rgba(108, 63, 160, 0.3);
-  }
-
-  .savings-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, var(--success), #38a169);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius-full);
-    font-weight: 600;
-    box-shadow: var(--shadow-lg);
-    animation: pulse 3s infinite;
-  }
-
-  .percentage {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.25rem 0.5rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.9rem;
-    font-weight: 700;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-    margin-bottom: 2rem;
-    color: var(--text-muted);
-  }
-
-  .hero-benefits {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 3rem;
-    display: grid;
-    gap: 1rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-  }
-
-  .hero-benefits li {
-    background: white;
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    font-weight: 500;
-    box-shadow: var(--shadow);
-    border-left: 4px solid var(--brand);
-  }
-
-  .cta-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, var(--brand), #5a3488);
-    color: white;
-    padding: 1.25rem 2.5rem;
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.2rem;
-    transition: all var(--transition);
-    box-shadow: var(--shadow-lg);
-    margin-bottom: 1.5rem;
-  }
-
-  .cta-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .cta-arrow {
-    transition: transform var(--transition);
-  }
-
-  .cta-primary:hover .cta-arrow {
-    transform: translateY(3px);
-  }
-
-  .guarantee-text {
-    color: var(--success);
-    font-weight: 600;
+  .hero__proof {
     margin: 0;
+    font-size: var(--text-sm);
+    color: rgba(246, 240, 228, 0.86);
   }
 
-  /* Social Proof */
-  .social-proof {
-    background: white;
-    padding: 4rem 0;
-    text-align: center;
+  .hero__proof strong {
+    color: var(--ov-paper);
+    font-family: var(--ov-display);
   }
 
-  .social-proof h2 {
-    font-size: 2rem;
-    margin-bottom: 3rem;
-    color: var(--text);
+  .hero__proof a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
-  .social-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-bottom: 3rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .stat-item {
-    background: var(--bg-light);
-    padding: 2rem 1rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    transition: transform var(--transition);
-  }
-
-  .stat-item:hover {
-    transform: translateY(-5px);
-  }
-
-  .stat-number {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--brand);
-    margin-bottom: 0.5rem;
-  }
-
-  .stat-label {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-
-  .social-logos {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-  }
-
-  .social-logo {
-    color: var(--text-muted);
-    transition: color var(--transition);
-  }
-
-  .social-logo:hover {
-    color: var(--brand);
-  }
-
-  /* Parcours */
-  .parcours {
-    background: var(--bg-light);
-    padding: 6rem 0;
-  }
-
-  .parcours h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--text);
-  }
-
-  .section-subtitle {
-    text-align: center;
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    margin-bottom: 3rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .tabs-nav {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3rem;
-    background: white;
-    border-radius: var(--radius-lg);
-    padding: 0.5rem;
-    box-shadow: var(--shadow);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow-x: auto;
-    gap: 0.5rem;
-  }
-
-  .tab-button {
-    background: none;
-    border: none;
-    padding: 1rem 1.5rem;
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: all var(--transition);
-    color: var(--text-muted);
-    flex: 1;
-    min-width: 120px;
-    white-space: nowrap;
-  }
-
-  .tab-button.active {
-    background: var(--brand);
-    color: white;
-    box-shadow: var(--shadow);
-  }
-
-  .tab-panel {
-    display: none;
-  }
-
-  .tab-panel.active {
-    display: block;
-  }
-
-  .pack-content {
-    background: white;
-    border-radius: var(--radius-lg);
-    padding: 3rem;
-    box-shadow: var(--shadow-lg);
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .pack-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .pack-header h3 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: var(--text);
-  }
-
-  .pack-header p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-  }
-
-  .pack-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-  }
-
-  .pack-item {
-    background: var(--bg-light);
-    padding: 2rem;
-    border-radius: var(--radius-lg);
-    text-align: center;
-    position: relative;
-    transition: transform var(--transition);
-    border: 2px solid transparent;
-  }
-
-  .pack-item:hover {
-    transform: translateY(-5px);
-    border-color: var(--brand);
-  }
-
-  .pack-item.featured {
-    background: linear-gradient(135deg, var(--brand), #5a3488);
-    color: white;
-    transform: scale(1.05);
-  }
-
-  .pack-item.featured .value-badge {
-    background: white;
-    color: var(--brand);
-  }
-
-  .pack-item h4 {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-  }
-
-  .pack-item p {
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .value-badge {
-    background: var(--brand);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-full);
-    font-size: 1rem;
-    font-weight: 700;
-  }
-
-  .total-value {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    background: linear-gradient(135deg, #f0fff4, #e6fffa);
-    padding: 2rem;
-    border-radius: var(--radius-lg);
-    border: 2px solid var(--success);
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  .total-price {
-    color: var(--text-muted);
-    text-decoration: line-through;
-  }
-
-  .promo-price {
-    color: var(--brand);
-    font-size: 2rem;
-  }
-
-  /* Bonus */
-  .bonus {
-    background: white;
-    padding: 6rem 0;
-  }
-
-  .bonus-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-
-  .bonus-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--text);
-  }
-
-  .bonus-subtitle {
-    font-size: 1.2rem;
-    color: var(--text-muted);
+  /* L'étiquette : le prix, en très grand */
+  .tag {
     margin: 0;
-  }
-
-  .bonus-grid {
+    justify-self: center;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    margin-bottom: 4rem;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    justify-items: center;
+    text-align: center;
+    gap: var(--space-2);
+    padding: var(--space-10) var(--space-8);
+    background: var(--ov-sun);
+    color: var(--ov-sun-ink);
+    border-radius: var(--radius-2xl);
+    transform: rotate(-4deg);
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.5);
+    max-width: 420px;
+    width: 100%;
   }
 
-  .bonus-card {
-    background: var(--bg-light);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    transition: transform var(--transition);
-    border: 2px solid transparent;
+  .tag__price {
+    font-family: var(--ov-display);
+    font-weight: 700;
+    font-size: clamp(5rem, 11vw, 8.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+    color: var(--ov-ink);
   }
 
-  .bonus-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--brand);
+  .tag__line {
+    font-family: var(--ov-hand);
+    font-weight: 700;
+    font-size: 1.92rem;
+    line-height: 1;
+    color: var(--ov-sun-ink);
   }
 
-  .bonus-image {
-    position: relative;
-    height: 250px;
+  .tag__line--small {
+    font-family: var(--font-body);
+    font-weight: var(--font-normal);
+    font-size: var(--text-sm);
+    color: rgba(58, 42, 0, 0.75);
+  }
+
+  .tag sup a {
+    color: var(--ov-sun-ink);
+  }
+
+  /* =========================================================
+     2. Les Packs
+     ========================================================= */
+  .packs {
+    padding: var(--space-16) 0;
+  }
+
+  .packs h2,
+  .how h2,
+  .public h2,
+  .prof h2 {
+    font-size: var(--text-responsive-2xl);
+    margin: 0 0 var(--space-8);
+    font-weight: 700;
+  }
+
+  .packs__grid {
+    display: grid;
+    gap: var(--space-5);
+    margin-bottom: var(--space-8);
+  }
+
+  .pack {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    border-radius: var(--radius-2xl);
+    background: var(--ov-card);
+    border: 1px solid var(--ov-line);
+    border-top: 4px solid var(--theme-current, var(--ov-accent));
     overflow: hidden;
   }
 
-  .bonus-image img {
+  .pack__shot {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 16 / 7;
+    background: #000;
+  }
+
+  .pack__shot img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
 
-  .bonus-badge {
+  .pack__shot figcaption {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: var(--success);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-full);
+    left: var(--space-4);
+    top: var(--space-4);
+    padding: 4px 10px;
+    border-radius: 3px;
+    background: var(--ov-sun);
+    color: var(--ov-sun-ink);
+    font-family: var(--ov-hand);
     font-weight: 700;
-    font-size: 0.9rem;
-    box-shadow: var(--shadow);
+    font-size: var(--text-lg);
+    line-height: 1;
+    transform: rotate(-3deg);
+    z-index: 2;
   }
 
-  .bonus-content {
-    padding: 2rem;
+  .taped::before,
+  .taped::after {
+    content: '';
+    position: absolute;
+    width: 76px;
+    height: 22px;
+    background: rgba(255, 207, 90, 0.72);
+    box-shadow: 0 1px 2px rgba(35, 25, 61, 0.15);
+    z-index: 3;
   }
 
-  .bonus-content h3 {
-    margin-bottom: 1rem;
-    color: var(--text);
-    font-size: 1.5rem;
+  .taped::before {
+    top: -8px;
+    right: 22px;
+    transform: rotate(6deg);
   }
 
-  .bonus-content p {
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-    font-size: 1.1rem;
+  .taped::after {
+    bottom: -8px;
+    left: 22px;
+    transform: rotate(-5deg);
   }
 
-  .bonus-features {
+  .pack__body {
     display: grid;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    align-content: start;
+    gap: var(--space-3);
+    padding: var(--space-6);
   }
 
-  .feature {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: white;
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow);
-  }
-
-  .feature-icon {
-    font-size: 1.5rem;
-  }
-
-  .feature-text {
-    font-weight: 500;
-    color: var(--text);
-  }
-
-  .bonus-value {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow);
-  }
-
-  .value-text {
-    color: var(--text-muted);
-    text-decoration: line-through;
-  }
-
-  .free-text {
-    background: var(--success);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-full);
-    font-weight: 700;
-  }
-
-  .delivery-info {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .delivery-card {
-    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-    border: 2px solid #0ea5e9;
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    text-align: left;
-  }
-
-  .delivery-icon {
-    font-size: 3rem;
-    flex-shrink: 0;
-  }
-
-  .delivery-text h4 {
-    margin: 0 0 1rem;
-    color: var(--text);
-    font-size: 1.3rem;
-  }
-
-  .delivery-text p {
-    margin: 0 0 0.5rem;
-    color: var(--text);
-  }
-
-  .delivery-note {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    font-style: italic;
-  }
-
-  /* Acheter */
-  .acheter {
-    background: var(--bg-light);
-    padding: 6rem 0;
-  }
-
-  .offer-content {
-    text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .offer-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--text);
-  }
-
-  .mega-savings {
-    background: white;
-    padding: 3rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xl);
-    margin-bottom: 4rem;
-    border: 3px solid var(--brand);
-  }
-
-  .savings-visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .before-price {
-    font-size: 2rem;
-    color: var(--text);
-    text-decoration: line-through;
-    opacity: 0.7;
-  }
-
-  .savings-arrow {
-    font-size: 3rem;
-    color: var(--brand);
-    font-weight: bold;
-  }
-
-  .after-price {
-    font-size: 4rem;
-    font-weight: 900;
-    color: var(--brand);
-    text-shadow: 0 2px 4px rgba(108, 63, 160, 0.3);
-  }
-
-  .savings-highlight {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    background: linear-gradient(135deg, var(--success), #38a169);
-    color: white;
-    padding: 1.5rem 2rem;
-    border-radius: var(--radius-full);
-    font-size: 1.3rem;
-    font-weight: 700;
-    box-shadow: var(--shadow-lg);
-    animation: pulse 3s infinite;
-  }
-
-  .savings-percent {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-full);
-    font-size: 1.1rem;
-  }
-
-  .cta-buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-  }
-
-  .cta-pack {
-    background: white;
-    border: 3px solid var(--brand);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    text-decoration: none;
-    color: inherit;
-    transition: all var(--transition);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .cta-pack:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
-    background: var(--brand);
-    color: white;
-  }
-
-  .cta-content {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .cta-icon {
-    font-size: 3rem;
-    flex-shrink: 0;
-  }
-
-  .cta-text {
-    flex: 1;
-    text-align: left;
-  }
-
-  .cta-title {
-    display: block;
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .cta-subtitle {
-    display: block;
-    font-size: 1rem;
-    opacity: 0.8;
-  }
-
-  .cta-price {
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--brand);
-  }
-
-  .cta-pack:hover .cta-price {
-    color: white;
-  }
-
-  .value-points {
-    list-style: none;
-    padding: 0;
-    margin: 3rem 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .value-points li {
-    background: white;
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    font-weight: 500;
-    box-shadow: var(--shadow);
-    text-align: left;
-  }
-
-  .guarantee-section {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    background: linear-gradient(135deg, #f0fff4, #e6fffa);
-    padding: 2rem;
-    border-radius: var(--radius-lg);
-    border: 2px solid var(--success);
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .guarantee-icon {
-    font-size: 3rem;
-    flex-shrink: 0;
-  }
-
-  .guarantee-section h4 {
-    margin: 0 0 0.5rem;
-    color: var(--text);
-    font-size: 1.3rem;
-  }
-
-  .guarantee-section p {
+  .pack h3 {
     margin: 0;
-    color: var(--text);
+    font-size: var(--text-2xl);
+    font-weight: 700;
   }
 
-  /* Témoignages */
-  .temoignages {
-    background: white;
-    padding: 6rem 0;
+  .pack__who {
+    margin: 0;
+    color: var(--ov-ink-2);
+    line-height: var(--leading-relaxed);
   }
 
-  .temoignages h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--text);
+  .pack__list {
+    list-style: none;
+    margin: var(--space-2) 0;
+    padding: 0;
+    border-top: 1px solid var(--ov-line);
   }
 
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .testimonial-card {
-    background: var(--bg-light);
-    padding: 2rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    transition: transform var(--transition);
-  }
-
-  .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .testimonial-header {
+  .pack__list li {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--ov-line);
+    font-family: var(--ov-display);
+    font-weight: 600;
   }
 
-  .stars {
+  .pack__each {
+    font-family: var(--font-body);
+    font-weight: var(--font-normal);
+    font-size: var(--text-sm);
+    color: var(--ov-ink-2);
+    white-space: nowrap;
+  }
+
+  .pack__price {
+    margin: 0;
     display: flex;
-    gap: 0.25rem;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
   }
 
-  .star {
-    font-size: 1.2rem;
+  .pack__price strong {
+    font-family: var(--ov-display);
+    font-size: 2.6rem;
+    line-height: 1;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
   }
 
-  .instrument-tag {
-    background: var(--brand);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: var(--radius-full);
-    font-size: 0.8rem;
-    font-weight: 600;
+  .pack__price span {
+    font-size: var(--text-sm);
+    color: var(--ov-ink-2);
   }
 
-  .testimonial-text {
-    font-style: italic;
-    margin-bottom: 1rem;
-    line-height: 1.6;
-    color: var(--text);
+  .pack__terms {
+    margin: 0;
+    font-size: var(--text-xs);
+    color: var(--ov-ink-2);
   }
 
-  .testimonial-author {
-    font-weight: 600;
-    color: var(--brand);
-  }
-
-  /* Instructeur */
-  .instructeur {
-    background: var(--bg-light);
-    padding: 6rem 0;
-  }
-
-  .instructor-content {
+  .assure {
+    list-style: none;
+    margin: 0 0 var(--space-6);
+    padding: 0;
     display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 4rem;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
+    border: 1px solid var(--ov-line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
   }
 
-  .instructor-image img {
+  .assure li {
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--ov-line);
+    font-family: var(--ov-display);
+    font-weight: 600;
+    background: var(--ov-paper-2);
+  }
+
+  .assure li:last-child {
+    border-bottom: 0;
+  }
+
+  .guarantee {
+    max-width: 70ch;
+    margin: 0;
+    line-height: var(--leading-relaxed);
+    color: var(--ov-ink-2);
+  }
+
+  .guarantee strong {
+    color: var(--ov-ink);
+    font-family: var(--ov-display);
+  }
+
+  .guarantee a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* =========================================================
+     3. Comment ça se passe
+     ========================================================= */
+  .how {
+    padding: var(--space-16) 0;
+    background: var(--ov-paper-2);
+  }
+
+  .how__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .how__list li {
+    display: grid;
+    gap: var(--space-2);
+    align-content: start;
+  }
+
+  .how__n {
+    font-family: var(--ov-serif);
+    font-style: italic;
+    font-size: 3rem;
+    line-height: 0.9;
+    color: var(--ov-accent-ink);
+  }
+
+  .how h3 {
+    margin: 0;
+    font-size: var(--text-xl);
+  }
+
+  .how p {
+    margin: 0;
+    color: var(--ov-ink-2);
+    line-height: var(--leading-relaxed);
+  }
+
+  /* =========================================================
+     4. Le public
+     ========================================================= */
+  .public {
+    padding: var(--space-16) 0;
+  }
+
+  .public__rating {
+    margin: 0 0 var(--space-8);
+    color: var(--ov-ink-2);
+  }
+
+  .public__rating strong {
+    font-family: var(--ov-display);
+    font-size: var(--text-2xl);
+    color: var(--ov-ink);
+  }
+
+  .public__rating a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .quotes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .quote blockquote {
+    margin: 0;
+    height: 100%;
+    padding: var(--space-5);
+    border: 1px solid var(--ov-line);
+    border-left: 3px solid var(--theme-current, var(--ov-accent));
+    background: var(--ov-card);
+    border-radius: var(--radius-lg);
+  }
+
+  .quote p {
+    margin: 0 0 var(--space-3);
+    line-height: var(--leading-relaxed);
+  }
+
+  .quote footer {
+    font-size: var(--text-xs);
+    color: var(--ov-ink-2);
+  }
+
+  .quote footer a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* =========================================================
+     5. Le prof
+     ========================================================= */
+  .prof {
+    padding: var(--space-16) 0;
+    background: var(--ov-paper-2);
+  }
+
+  .prof__grid {
+    display: grid;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .prof__visual {
+    position: relative;
+    transform: rotate(-1.5deg);
+    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .prof__visual img {
+    display: block;
     width: 100%;
     height: auto;
-    border-radius: 50%;
-    box-shadow: var(--shadow-xl);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 30px 60px -30px rgba(27, 21, 51, 0.5);
   }
 
-  .instructor-text h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: var(--text);
+  .prof__visual figcaption {
+    margin-top: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--ov-ink-2);
   }
 
-  .instructor-text p {
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-    line-height: 1.7;
+  .prof p {
+    color: var(--ov-ink-2);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 var(--space-4);
+    max-width: 60ch;
   }
 
-  .instructor-quote {
-    background: white;
-    padding: 2rem;
-    border-radius: var(--radius-lg);
-    border-left: 4px solid var(--brand);
-    font-style: italic;
-    margin-bottom: 2rem;
-    box-shadow: var(--shadow);
-  }
-
-  .instructor-credentials {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-
-  .credential {
+  .prof__creds {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-6) 0;
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: white;
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow);
-    font-weight: 500;
+    flex-wrap: wrap;
+    gap: var(--space-2);
   }
 
-  .credential-icon {
-    font-size: 1.5rem;
+  .prof__creds li {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--ov-line);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
   }
 
-  /* FAQ */
-  .faq {
-    background: white;
-    padding: 6rem 0;
-  }
-
-  .faq h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--text);
-  }
-
-  .faq-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .faq-item {
-    background: var(--bg-light);
-    padding: 2rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    transition: transform var(--transition);
-  }
-
-  .faq-item:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .faq-item h3 {
-    margin-bottom: 1rem;
-    color: var(--brand);
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-
-  .faq-item p {
-    color: var(--text);
-    margin: 0;
-    line-height: 1.6;
-  }
-
-  /* Final CTA */
-  .final-cta {
-    background: linear-gradient(135deg, var(--brand), #5a3488);
-    color: white;
-    padding: 6rem 0;
-    text-align: center;
-  }
-
-  .final-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: white;
-  }
-
-  .final-content p {
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-    opacity: 0.9;
-  }
-
-  .final-cta-buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .final-cta-btn {
-    background: white;
-    color: var(--brand);
-    padding: 1.5rem 2rem;
-    border-radius: var(--radius-lg);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: all var(--transition);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .final-cta-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .final-guarantee {
-    font-size: 1.1rem;
-    font-weight: 600;
-    opacity: 0.9;
-    margin: 0;
-  }
-
-  /* Bandeau sticky */
-  .sticky-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: white;
-    border-top: 2px solid var(--brand);
-    padding: 1rem;
-    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
-    z-index: 50;
-  }
-
-  .sticky-content {
+  .prof__links {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .sticky-text {
-    font-weight: 600;
-    color: var(--text);
-    font-size: 1.1rem;
-  }
-
-  .sticky-buttons {
-    display: flex;
-    gap: 1rem;
+    gap: var(--space-5);
     flex-wrap: wrap;
   }
 
-  .sticky-btn {
-    background: var(--brand);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform var(--transition);
-    box-shadow: var(--shadow);
-    min-width: 70px;
-    text-align: center;
+  .prof__links a {
+    font-weight: var(--font-medium);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
-  .sticky-btn:hover {
-    transform: translateY(-2px);
+  /* =========================================================
+     7. Dernier appel
+     ========================================================= */
+  .final {
+    padding: var(--space-20) 0;
+    background: var(--ov-stage);
+    color: var(--ov-paper);
   }
 
-  .sticky-btn.piano {
-    background: #8b5cf6;
+  .final__grid {
+    display: grid;
+    gap: var(--space-10);
+    align-items: center;
   }
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero {
-      padding: 4rem 0 2rem;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-    }
-
-    .price-comparison {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .hero-benefits {
-      text-align: center;
-    }
-
-    .social-stats {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .tabs-nav {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .tab-button {
-      min-width: 100px;
-      padding: 0.75rem 1rem;
-      font-size: 0.9rem;
-    }
-
-    .pack-items {
-      grid-template-columns: 1fr;
-    }
-
-    .total-value {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .bonus-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .delivery-card {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .cta-buttons {
-      grid-template-columns: 1fr;
-    }
-
-    .cta-content {
-      flex-direction: column;
-      text-align: center;
-      gap: 1rem;
-    }
-
-    .value-points {
-      grid-template-columns: 1fr;
-    }
-
-    .testimonials-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .instructor-content {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-
-    .instructor-credentials {
-      grid-template-columns: 1fr;
-    }
-
-    .faq-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .final-cta-buttons {
-      grid-template-columns: 1fr;
-    }
-
-    .sticky-content {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .sticky-buttons {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .sticky-btn {
-      flex: 1;
-    }
-
-    /* Ajouter padding bottom pour le sticky banner */
-    main {
-      padding-bottom: 120px;
-    }
+  .final .eyebrow {
+    color: rgba(246, 240, 228, 0.8);
   }
 
-  @media (max-width: 480px) {
-    .hero-badges {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .mega-savings {
-      padding: 2rem;
-    }
-
-    .before-price, .after-price {
-      font-size: 1.5rem;
-    }
-
-    .after-price {
-      font-size: 2.5rem;
-    }
+  .final h2 {
+    color: var(--ov-paper);
+    font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+    line-height: 1;
+    margin: 0 0 var(--space-8);
+    font-weight: 700;
+    max-width: 14ch;
   }
 
-  /* Utilities */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
+  .final h2 em {
+    color: var(--ov-sun);
+  }
+
+  .final__btns {
+    display: grid;
+    gap: var(--space-2);
+    max-width: 420px;
+  }
+
+  .btn--final {
+    background: var(--ov-paper);
+    color: var(--ov-ink);
+    justify-content: space-between;
+    border-left: 5px solid var(--theme-current, var(--ov-accent));
+  }
+
+  .btn--final:hover {
+    background: var(--theme-current, var(--ov-accent));
+    color: #fff;
+  }
+
+  .final__terms {
+    margin: var(--space-5) 0 0;
+    font-size: var(--text-sm);
+    color: rgba(240, 238, 233, 0.7);
+  }
+
+  .cal {
+    list-style: none;
+    margin: 0;
     padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .cal li {
+    display: grid;
+    gap: var(--space-1);
+    padding: var(--space-4) 0 var(--space-4) var(--space-8);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    position: relative;
+  }
+
+  .cal li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: calc(var(--space-4) + 0.45em);
+    width: 14px;
+    height: 14px;
+    border-radius: var(--radius-full);
+    background: var(--ov-sun);
+  }
+
+  .cal__k {
+    font-family: var(--ov-display);
+    font-weight: 700;
+    font-size: var(--text-xl);
+  }
+
+  .cal li > span:not(.cal__k) {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .cal sup a {
+    color: var(--ov-sun);
+  }
+
+  /* =========================================================
+     8. Notes
+     ========================================================= */
+  .notes {
+    padding: var(--space-10) 0 calc(var(--space-10) + 72px);
+    font-size: var(--text-sm);
+    color: var(--ov-ink-2);
+  }
+
+  .notes ol {
+    margin: 0;
+    padding-left: var(--space-5);
+    display: grid;
+    gap: var(--space-2);
+    max-width: 80ch;
+  }
+
+  .notes a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .notes li:target {
+    color: var(--ov-ink);
+  }
+
+  /* ---------- bouton mobile ---------- */
+  .mcta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: var(--z-sticky);
+    padding: var(--space-3) var(--space-4) calc(var(--space-3) + env(safe-area-inset-bottom));
+    background: var(--ov-paper);
+    border-top: 1px solid var(--ov-line);
+    transform: translateY(110%);
+    transition: transform var(--duration-normal) var(--ease-out);
+  }
+
+  .mcta.is-visible {
+    transform: translateY(0);
+  }
+
+  .mcta__btn {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--ov-sun);
+    color: var(--ov-sun-ink);
+    font-family: var(--ov-display);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  /* =========================================================
+     Grand écran
+     ========================================================= */
+  @media (min-width: 900px) {
+    .hero__grid {
+      grid-template-columns: 7fr 5fr;
+      gap: var(--space-16);
+    }
+
+    .packs__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+    }
+
+    .assure {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .assure li {
+      border-bottom: 0;
+      border-right: 1px solid var(--ov-line);
+    }
+
+    .assure li:last-child {
+      border-right: 0;
+    }
+
+    .how__list {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-10);
+    }
+
+    .quotes {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .prof__grid {
+      grid-template-columns: 5fr 7fr;
+      gap: var(--space-16);
+    }
+
+    .final__grid {
+      grid-template-columns: 6fr 6fr;
+      gap: var(--space-16);
+    }
+
+    .mcta {
+      display: none;
+    }
+
+    .notes {
+      padding-bottom: var(--space-10);
+    }
+  }
+
+  .public,
+  .prof {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn,
+    .mcta {
+      transition: none;
+    }
+
+    .btn--primary:hover {
+      transform: none;
+    }
   }
 </style>
-
-<script>
-  // Tabs functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabPanels = document.querySelectorAll('.tab-panel');
-    
-    tabButtons.forEach((button, index) => {
-      button.addEventListener('click', () => {
-        // Remove active from all
-        tabButtons.forEach(btn => {
-          btn.classList.remove('active');
-          btn.setAttribute('aria-selected', 'false');
-        });
-        tabPanels.forEach(panel => panel.classList.remove('active'));
-        
-        // Add active to clicked
-        button.classList.add('active');
-        button.setAttribute('aria-selected', 'true');
-        tabPanels[index].classList.add('active');
-      });
-    });
-    
-    // Keyboard navigation
-    tabButtons.forEach((button, index) => {
-      button.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-          e.preventDefault();
-          const nextIndex = e.key === 'ArrowLeft' 
-            ? (index - 1 + tabButtons.length) % tabButtons.length
-            : (index + 1) % tabButtons.length;
-          tabButtons[nextIndex].click();
-          tabButtons[nextIndex].focus();
-        }
-      });
-    });
-    
-    // Prefetch purchase links on scroll
-    let prefetched = false;
-    window.addEventListener('scroll', () => {
-      if (!prefetched && window.scrollY > 500) {
-        const links = [
-          'https://ecole.musique-facile.fr/pack-guitare-cadeau',
-          'https://ecole.musique-facile.fr/pack-ukulele',
-          'https://ecole.musique-facile.fr/pack-piano-debutant-cadeau',
-          'https://ecole.musique-facile.fr/pack-avance-piano-cadeau'
-        ];
-        
-        links.forEach(href => {
-          const link = document.createElement('link');
-          link.rel = 'prefetch';
-          link.href = href;
-          document.head.appendChild(link);
-        });
-        
-        prefetched = true;
-      }
-    });
-  });
-</script>

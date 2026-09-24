@@ -1,0 +1,138 @@
+---
+/**
+ * FredBlock.astro — le prof, à la première personne (E-E-A-T).
+ * Un seul visage sur le site, une vraie photo, des faits vérifiables.
+ */
+import { fred } from '../../data/home-v2';
+import { students } from '../../data/proof';
+
+interface Props {
+  /** 'split' : photo à gauche, texte à droite ; 'portrait' : photo ronde en tête, texte centré. */
+  variant?: 'split' | 'portrait';
+  heading?: string;
+}
+
+const { variant = 'split', heading = 'Je m’appelle Fred, et je serai votre seul prof' } = Astro.props;
+---
+
+<section class={`fred fred--${variant}`} aria-labelledby="fred-title">
+  <div class="container fred__inner">
+    <div class="fred__media">
+      <img src={fred.photo} alt="Fred Fieffé, souriant, un ukulélé à la main" width="800" height="800" loading="lazy" decoding="async" />
+    </div>
+    <div class="fred__body">
+      <h2 id="fred-title">{heading}</h2>
+      <p>
+        Je joue depuis plus de quarante ans et j'enseigne en ligne depuis 2015. J'ai commencé par la guitare,
+        puis le piano, le ukulélé, et j'ai fini par écrire des méthodes pour Hal Leonard. Ce que j'ai appris en
+        {students.display} élèves tient en une phrase : un adulte qui débute n'a pas besoin de théorie, il a besoin
+        de jouer quelque chose dès la première semaine.
+      </p>
+      <p>
+        C'est comme ça que sont construites toutes mes formations. Vous m'entendrez sur chaque leçon, des
+        quatre instruments, du premier accord jusqu'au dernier morceau.
+      </p>
+      <ul class="fred__creds" role="list">
+        {fred.credentials.map((c) => <li>{c}</li>)}
+      </ul>
+      <p class="fred__links">
+        <a href={fred.aboutUrl}>Mon parcours en détail</a>
+        <a href={fred.authorUrl}>Mes articles</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .fred {
+    padding: var(--space-20) 0;
+  }
+
+  .fred__inner {
+    display: grid;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .fred__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-xl);
+  }
+
+  .fred--portrait .fred__inner {
+    justify-items: center;
+    text-align: center;
+    max-width: 720px;
+  }
+
+  .fred--portrait .fred__media {
+    width: 180px;
+  }
+
+  .fred--portrait .fred__media img {
+    border-radius: var(--radius-full);
+  }
+
+  .fred__body h2 {
+    font-size: var(--text-responsive-3xl);
+    letter-spacing: var(--tracking-tight);
+    text-wrap: balance;
+    margin-bottom: var(--space-5);
+  }
+
+  .fred__body p {
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    text-wrap: pretty;
+    margin: 0 0 var(--space-4);
+    max-width: 60ch;
+  }
+
+  .fred__creds {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-6) 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .fred--portrait .fred__creds {
+    justify-content: center;
+  }
+
+  .fred__creds li {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+  }
+
+  .fred__links {
+    display: flex;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  .fred--portrait .fred__links {
+    justify-content: center;
+  }
+
+  .fred__links a {
+    color: var(--text-primary);
+    font-weight: var(--font-medium);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (min-width: 900px) {
+    .fred--split .fred__inner {
+      grid-template-columns: 5fr 7fr;
+      gap: var(--space-16);
+    }
+  }
+</style>

@@ -1,0 +1,135 @@
+---
+/**
+ * HomeFaq.astro — questions fréquentes des maquettes d'accueil.
+ * Le contenu affiché est exactement celui du JSON-LD FAQPage (HomeSchemas),
+ * comme l'exige Google : rien de balisé qui ne soit visible.
+ */
+import { faq as defaultFaq } from '../../data/home-v2';
+
+interface Props {
+  heading?: string;
+  items?: { q: string; a: string }[];
+  /** Deux colonnes sur grand écran. */
+  columns?: boolean;
+}
+
+const {
+  heading = 'Les questions qu’on me pose avant d’acheter',
+  items = defaultFaq,
+  columns = false,
+} = Astro.props;
+---
+
+<section class:list={['hfaq', { 'hfaq--columns': columns }]} aria-labelledby="hfaq-title">
+  <div class="container">
+    <div class="hfaq__head">
+      <h2 id="hfaq-title">{heading}</h2>
+      <p>Réponses courtes. Pour le reste, <a href="/faq/">la FAQ complète</a> ou <a href="/contact/">un message</a>.</p>
+    </div>
+    <div class="hfaq__list">
+      {items.map((item) => (
+        <details class="hfaq__item">
+          <summary>
+            <span>{item.q}</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hfaq {
+    padding: var(--space-20) 0;
+  }
+
+  .hfaq__head {
+    max-width: 640px;
+    margin-bottom: var(--space-10);
+  }
+
+  .hfaq__head h2 {
+    font-size: var(--text-responsive-3xl);
+    letter-spacing: var(--tracking-tight);
+    text-wrap: balance;
+    margin-bottom: var(--space-3);
+  }
+
+  .hfaq__head p {
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .hfaq__head a {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .hfaq__list {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .hfaq--columns .hfaq__list {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-2) var(--space-8);
+    align-items: start;
+  }
+
+  .hfaq__item {
+    border-top: 1px solid var(--border-default);
+  }
+
+  .hfaq__item summary {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-5) 0;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+  }
+
+  .hfaq__item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .hfaq__item summary svg {
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+
+  .hfaq__item[open] summary svg {
+    transform: rotate(45deg);
+  }
+
+  .hfaq__item summary:focus-visible {
+    outline: 3px solid var(--brand-300);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+
+  .hfaq__item p {
+    margin: 0 0 var(--space-6);
+    max-width: 62ch;
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    text-wrap: pretty;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hfaq__item summary svg {
+      transition: none;
+    }
+  }
+</style>

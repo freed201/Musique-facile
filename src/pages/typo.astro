@@ -1,0 +1,714 @@
+---
+/**
+ * typo.astro — l'étude typographique des maquettes d'accueil, à l'écran.
+ *
+ * URL : /typo/ — PAGE CACHÉE : noindex/nofollow, Disallow dans robots.txt.
+ * Trois systèmes, les mêmes textes réels, côte à côte. Le système appliqué
+ * aux maquettes est le premier (« Atelier ») ; les deux autres se basculent
+ * en changeant trois variables dans src/styles/experience-fonts.css.
+ */
+import '@fontsource-variable/rubik/wght.css';
+import '@fontsource-variable/rubik/wght-italic.css';
+import '@fontsource-variable/shantell-sans/full.css';
+import '@fontsource/permanent-marker/400.css';
+import '@fontsource/kalam/700.css';
+import '@fontsource/rubik-vinyl/400.css';
+import '@fontsource/rubik-marker-hatch/400.css';
+import '@fontsource/rubik-doodle-shadow/400.css';
+import '@fontsource-variable/playpen-sans/wght.css';
+import '@fontsource/klee-one/600.css';
+import '@fontsource/nanum-pen-script/400.css';
+import '@fontsource/patrick-hand/400.css';
+import '@fontsource/reenie-beanie/400.css';
+import '@fontsource/shadows-into-light-two/400.css';
+import '@fontsource/handlee/400.css';
+import '@fontsource/lumanosimo/400.css';
+import '@fontsource/grape-nuts/400.css';
+import '@fontsource/gochi-hand/400.css';
+import '@fontsource/square-peg/400.css';
+import '@fontsource/mynerve/400.css';
+import '@fontsource/nothing-you-could-do/400.css';
+import '@fontsource/just-another-hand/400.css';
+import '@fontsource/the-girl-next-door/400.css';
+import '@fontsource/annie-use-your-telescope/400.css';
+import '@fontsource/waiting-for-the-sunrise/400.css';
+import '@fontsource/delicious-handrawn/400.css';
+import '@fontsource/zeyada/400.css';
+import '@fontsource/homemade-apple/400.css';
+import '@fontsource/give-you-glory/400.css';
+import '@fontsource/over-the-rainbow/400.css';
+import '@fontsource/sue-ellen-francisco/400.css';
+import '@fontsource/covered-by-your-grace/400.css';
+import '@fontsource/dawning-of-a-new-day/400.css';
+import '@fontsource/loved-by-the-king/400.css';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FooterModern from '../components/FooterModern.astro';
+
+/* Les vraies écritures : des polices dessinées d'après une main qui écrit, pas un feutre de dessin animé. */
+const hands = [
+  { name: 'Playpen Sans', family: "'Playpen Sans Variable'", weight: 600, size: 1, note: "Dessinée d'après de vraies écritures (TypeTogether, 2023). Chaque lettre existe en plusieurs versions et alterne toute seule : deux « e » de suite ne sont jamais identiques. La plus « vraiment écrite ».", feat: "'calt' 1" },
+  { name: 'Klee One', family: "'Klee One'", weight: 600, size: 1.05, note: "Une plume, une main posée. Écriture japonaise scolaire dans sa version latine : nette, adulte, très lisible.", feat: 'normal' },
+  { name: 'Nanum Pen Script', family: "'Nanum Pen Script'", weight: 400, size: 1.25, note: "Un stylo bille, vite. Le plus naturel des scripts coréens à latin, un peu penché, très vivant.", feat: 'normal' },
+  { name: 'Patrick Hand', family: "'Patrick Hand'", weight: 400, size: 1.1, note: "L'écriture du designer lui-même, en script (lettres détachées). Celle d'un prof au tableau. Très lisible.", feat: 'normal' },
+  { name: 'Shadows Into Light Two', family: "'Shadows Into Light Two'", weight: 400, size: 1.15, note: "Un stylo fin, appliqué. Ressemble à une vraie note dans la marge. Lisible mais fine sur fond coloré.", feat: 'normal' },
+  { name: 'Handlee', family: "'Handlee'", weight: 400, size: 1.05, note: "Une main qui prend son temps, lettres liées par endroits. Sage, chaleureuse, lisible petit.", feat: 'normal' },
+  { name: 'Reenie Beanie', family: "'Reenie Beanie'", weight: 400, size: 1.3, note: "Le stylo bille du carnet, vraiment. Authentique, un peu frêle : à réserver aux grandes tailles.", feat: 'normal' },
+  { name: 'Lumanosimo', family: "'Lumanosimo'", weight: 400, size: 1.15, note: "Une vraie cursive, lettres attachées, mais construite pour rester lisible. La plus « lettre manuscrite ».", feat: 'normal' },
+  { name: 'Grape Nuts', family: "'Grape Nuts'", weight: 400, size: 1.25, note: "Écriture rapide, un peu penchée, très humaine. Lisible en grand, moins en petit.", feat: 'normal' },
+  { name: 'Gochi Hand', family: "'Gochi Hand'", weight: 400, size: 1.1, note: "Un feutre énergique, mais des formes de vraie main. Entre Shantell et Permanent Marker.", feat: 'normal' },
+];
+
+/* Troisième planche : dans le genre de Reenie Beanie et Grape Nuts, le stylo qui écrit vraiment. `stroke` épaissit
+   le trait d'un cheveu, par le navigateur, sans changer la police : le test de lisibilité qui compte. */
+const hands2 = [
+  { name: 'Reenie Beanie, épaissie', family: "'Reenie Beanie'", weight: 400, size: 1.3, stroke: 0.55, note: "La même que plus haut, avec un trait épaissi de 0,55 px. L'authenticité reste, la lisibilité revient sur le vert." },
+  { name: 'Grape Nuts, épaissie', family: "'Grape Nuts'", weight: 400, size: 1.25, stroke: 0.45, note: "Idem pour Grape Nuts : le stylo qui va vite, un peu plus appuyé." },
+  { name: 'Square Peg', family: "'Square Peg'", weight: 400, size: 1.35, stroke: 0, note: "2022. Un stylo bille qui écrit droit et vite, lettres détachées. Naturelle et nettement plus lisible que Reenie Beanie." },
+  { name: 'Mynerve', family: "'Mynerve'", weight: 400, size: 1.2, stroke: 0, note: "2022. Une main rapide, un peu penchée, plus grasse que Grape Nuts. Le meilleur équilibre naturel / lisible de la série." },
+  { name: 'Nothing You Could Do', family: "'Nothing You Could Do'", weight: 400, size: 1.15, stroke: 0, note: "Le stylo bille classique, d'une main qui écrit tous les jours. Moyen-gras, très lisible." },
+  { name: 'The Girl Next Door', family: "'The Girl Next Door'", weight: 400, size: 1.15, stroke: 0, note: "Une écriture posée, ronde, un peu appliquée. Très lisible, chaleureuse." },
+  { name: 'Annie Use Your Telescope', family: "'Annie Use Your Telescope'", weight: 400, size: 1.3, stroke: 0, note: "Rapide, penchée, énergique. Proche de Grape Nuts, un peu plus nette." },
+  { name: 'Just Another Hand', family: "'Just Another Hand'", weight: 400, size: 1.45, stroke: 0, note: "Un feutre fin, haut et serré. Très lisible même petit, mais elle prend beaucoup de hauteur." },
+  { name: 'Delicious Handrawn', family: "'Delicious Handrawn'", weight: 400, size: 1.3, stroke: 0, note: "2022. Un stylo fin, joyeux, lettres irrégulières. Frêle en petit." },
+  { name: 'Waiting for the Sunrise', family: "'Waiting for the Sunrise'", weight: 400, size: 1.35, stroke: 0, note: "Un crayon à papier, écriture d'école, lettres détachées. Très naturelle, un peu pâle." },
+  { name: 'Covered By Your Grace', family: "'Covered By Your Grace'", weight: 400, size: 1.2, stroke: 0, note: "Un feutre fin qui appuie. Entre Reenie Beanie et Gochi Hand, plus lisible que les deux." },
+  { name: 'Zeyada', family: "'Zeyada'", weight: 400, size: 1.35, stroke: 0, note: "Un stylo très fin, léger, un peu penché. Belle en grand, difficile en petit." },
+  { name: 'Homemade Apple', family: "'Homemade Apple'", weight: 400, size: 1.1, stroke: 0, note: "Une vraie cursive attachée au stylo. Authentique, mais lente à lire." },
+  { name: 'Over the Rainbow', family: "'Over the Rainbow'", weight: 400, size: 1.25, stroke: 0, note: "Stylo bille, lettres détachées, un peu tremblées. Proche de Reenie Beanie, un peu plus lisible." },
+  { name: 'Give You Glory', family: "'Give You Glory'", weight: 400, size: 1.3, stroke: 0, note: "Un stylo fin, écriture haute et rapide. Naturelle, fine." },
+  { name: 'Sue Ellen Francisco', family: "'Sue Ellen Francisco'", weight: 400, size: 1.45, stroke: 0, note: "Haute, serrée, un peu penchée. Lisible en grand." },
+  { name: 'Dawning of a New Day', family: "'Dawning of a New Day'", weight: 400, size: 1.35, stroke: 0, note: "Cursive au stylo, lettres presque attachées. Plus lisible que Homemade Apple." },
+  { name: 'Loved by the King', family: "'Loved by the King'", weight: 400, size: 1.35, stroke: 0, note: "Stylo fin, lettres détachées, un peu enfantine. Lisible." },
+];
+
+const systems = [
+  {
+    id: 'b1',
+    name: 'B1 · Rond, écriture d’artiste',
+    pick: true,
+    why: 'Rubik en titres (gras) et en texte. La main : Shantell Sans, informelle et un peu rebondie. La base B telle quelle, réglée.',
+    display: "'Rubik Variable', system-ui, sans-serif",
+    displayWeight: 700,
+    displaySettings: 'normal',
+    text: "'Rubik Variable', system-ui, sans-serif",
+    voice: "'Shantell Sans Variable', cursive",
+    voiceSettings: "'INFM' 70, 'BNCE' 30",
+    voiceWeight: 700,
+  },
+  {
+    id: 'b2',
+    name: 'B2 · Rond, setlist',
+    pick: false,
+    why: 'Rubik plus lourd en titres (900, serré comme une affiche). La main : Permanent Marker, le feutre des setlists scotchées sur scène. Plus rock, plus direct.',
+    display: "'Rubik Variable', system-ui, sans-serif",
+    displayWeight: 900,
+    displaySettings: 'normal',
+    text: "'Rubik Variable', system-ui, sans-serif",
+    voice: "'Permanent Marker', cursive",
+    voiceSettings: 'normal',
+    voiceWeight: 400,
+  },
+  {
+    id: 'b3',
+    name: 'B3 · Rond, carnet',
+    pick: false,
+    why: 'Rubik plus léger en titres (600), italique pour l’émotion. La main : Kalam, un stylo qui écrit vite dans un carnet. Plus doux, plus intime.',
+    display: "'Rubik Variable', system-ui, sans-serif",
+    displayWeight: 600,
+    displaySettings: 'normal',
+    text: "'Rubik Variable', system-ui, sans-serif",
+    voice: "'Kalam', cursive",
+    voiceSettings: 'normal',
+    voiceWeight: 700,
+  },
+  {
+    id: 'd',
+    name: 'D · Folle, mais lisible',
+    pick: false,
+    why: 'Tout Rubik, jusque dans la folie : Rubik Vinyl en titres (les sillons d’un disque dans chaque lettre), Rubik en texte, Rubik Marker Hatch pour la main (feutre hachuré). Une seule famille, trois humeurs.',
+    display: "'Rubik Vinyl', 'Rubik Variable', sans-serif",
+    displayWeight: 400,
+    displaySettings: 'normal',
+    text: "'Rubik Variable', system-ui, sans-serif",
+    voice: "'Rubik Marker Hatch', cursive",
+    voiceSettings: 'normal',
+    voiceWeight: 400,
+  },
+];
+---
+---
+
+<Layout title="Étude typographique | Musique Facile" description="Trois systèmes typographiques pour les maquettes d'accueil, côte à côte." canonicalUrl="https://musique-facile.fr/typo/" robots="noindex, nofollow">
+  <Header />
+  <div class="ty">
+    <div class="container">
+      <p class="ty__kicker">Étude typographique · 5 septembre 2026</p>
+      <h1 class="ty__title">Quatre voix sur la base B</h1>
+      <p class="ty__lead">
+        Base retenue : Rubik (titres et texte), une seule famille aux angles arrondis. Ce qui change ci-dessous, c'est
+        surtout la main, celle qui écrit « Grattez les cordes… », et le poids des titres. La quatrième est la folle.
+        La première est appliquée partout ; les autres se basculent en trois variables.
+      </p>
+    </div>
+
+    <div class="container ty__grid">
+      {systems.map((s) => (
+        <section
+          class:list={['sys', { 'sys--pick': s.pick }]}
+          style={`--display: ${s.display}; --display-weight: ${s.displayWeight}; --display-settings: ${s.displaySettings}; --text: ${s.text}; --voice: ${s.voice}; --voice-settings: ${s.voiceSettings}; --voice-weight: ${s.voiceWeight}`}
+          aria-labelledby={`sys-${s.id}`}
+        >
+          <header class="sys__head">
+            <h2 id={`sys-${s.id}`}>{s.name}{s.pick && <span class="sys__pick">appliqué</span>}</h2>
+            <p>{s.why}</p>
+          </header>
+
+          <div class="sys__hero">
+            <p class="sys__season">Rentrée 2026</p>
+            <p class="sys__h1">Vous rêvez de jouer depuis des années. <em>Cette rentrée, on s'y met.</em></p>
+            <p class="sys__lead">
+              Fred Fieffé apprend aux adultes à jouer des morceaux, pas des gammes. Quinze minutes par jour, dans la
+              bonne humeur. Un seul paiement, l'accès à vie.
+            </p>
+            <p class="sys__hand">Grattez les cordes. Oui, ça fait du bruit, c'est le but.</p>
+            <p class="sys__hand sys__hand--2">Personne ne saute cette page.</p>
+            <p class="sys__btns"><span class="sys__btn">Commencer la guitare · 99 €</span><span class="sys__ghost">Voir les 30 premiers jours</span></p>
+          </div>
+
+          <div class="sys__paper">
+            <p class="sys__day">Jour 8</p>
+            <p class="sys__h2">La rythmique : <em>tenir le tempo</em></p>
+            <p class="sys__text">
+              Lancez le métronome, écoutez deux mesures, puis tapez sur le gros bouton à chaque temps. Huit temps, on
+              compte les bons. Coup vers le bas, coup vers le haut. Le secret, c'est la régularité, pas la vitesse.
+            </p>
+            <p class="sys__price"><strong>99 €</strong> <span class="sys__hand-inline">une fois, accès à vie</span></p>
+            <p class="sys__small">Paiement unique · accès à vie · 15 jours pour changer d'avis · jusqu'au 16 octobre</p>
+            <p class="sys__bubble">« Bonjour. Moi c'est Fred. Avant de vous montrer quoi que ce soit, deux ou trois questions. Une minute, pas plus. »</p>
+            <p class="sys__sticky">« Un grand bravo à Frédéric Fieffé pour la clarté de ses cours. On ne peut que bien progresser avec sa pédagogie, merci ! »</p>
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <section class="container hands" aria-labelledby="hands-title">
+      <p class="ty__kicker">Deuxième planche · la main, vraiment écrite</p>
+      <h2 id="hands-title" class="ty__title">Dix écritures qui ont l'air écrites</h2>
+      <p class="ty__lead">
+        Toutes sur la base Rubik. Ce sont des polices dessinées d'après une main qui écrit, pas des feutres de
+        dessin animé : la question est celle de la lisibilité, testée ici sur fond vert, en grand puis en petit, et sur
+        le papier du carnet.
+      </p>
+      <div class="hands__grid">
+        {hands.map((h) => (
+          <article class="hand" style={`--hand: ${h.family}; --hand-weight: ${h.weight}; --hand-size: ${h.size}; --hand-feat: ${h.feat}`}>
+            <header class="hand__head">
+              <h3>{h.name}</h3>
+              <p>{h.note}</p>
+            </header>
+            <div class="hand__green">
+              <p class="hand__big">Grattez les cordes. Oui, ça fait du bruit, c'est le but.</p>
+              <p class="hand__small">Personne ne saute cette page. Mettez le son, puis descendez doucement.</p>
+              <p class="hand__ui"><span class="hand__sticker">Rentrée 2026</span><span class="hand__sticker">Jour 8</span><span class="hand__sticker">Fait !</span></p>
+            </div>
+            <div class="hand__paper">
+              <p class="hand__price"><strong>99 €</strong> <span>une fois, accès à vie</span></p>
+              <p class="hand__sticky">« Un grand bravo à Frédéric Fieffé pour la clarté de ses cours. On ne peut que bien progresser avec sa pédagogie, merci ! »</p>
+              <p class="hand__caption">Chapitre 1 du cours, tel qu'il s'affiche : les bases essentielles.</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="container hands" aria-labelledby="hands2-title">
+      <p class="ty__kicker">Troisième planche · dans le genre de Reenie Beanie et Grape Nuts</p>
+      <h2 id="hands2-title" class="ty__title">Le stylo qui écrit vraiment, en plus lisible</h2>
+      <p class="ty__lead">
+        Les deux premières sont Reenie Beanie et Grape Nuts telles quelles, avec un trait épaissi d'un demi-pixel par le
+        navigateur : le naturel reste, la lisibilité change. Les seize autres sont des écritures au stylo, de la même
+        famille d'esprit, dont plusieurs dessinées en 2022.
+      </p>
+      <div class="hands__grid">
+        {hands2.map((h) => (
+          <article class="hand" style={`--hand: ${h.family}; --hand-weight: ${h.weight}; --hand-size: ${h.size}; --hand-feat: normal; --hand-stroke: ${h.stroke}px`}>
+            <header class="hand__head">
+              <h3>{h.name}</h3>
+              <p>{h.note}</p>
+            </header>
+            <div class="hand__green">
+              <p class="hand__big">Grattez les cordes. Oui, ça fait du bruit, c'est le but.</p>
+              <p class="hand__small">Personne ne saute cette page. Mettez le son, puis descendez doucement.</p>
+              <p class="hand__ui"><span class="hand__sticker">Rentrée 2026</span><span class="hand__sticker">Jour 8</span><span class="hand__sticker">Fait !</span></p>
+            </div>
+            <div class="hand__paper">
+              <p class="hand__price"><strong>99 €</strong> <span>une fois, accès à vie</span></p>
+              <p class="hand__sticky">« Un grand bravo à Frédéric Fieffé pour la clarté de ses cours. On ne peut que bien progresser avec sa pédagogie, merci ! »</p>
+              <p class="hand__caption">Chapitre 1 du cours, tel qu'il s'affiche : les bases essentielles.</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <div class="container ty__foot">
+      <p>
+        Poids : Rubik 35 Ko + 37 Ko italique ; Shantell Sans 174 Ko (tous ses axes) ; Permanent Marker 28 Ko ; Kalam
+        30 Ko ; Rubik Vinyl 60 Ko ; Rubik Marker Hatch 80 Ko environ. Toutes libres (SIL Open Font License).
+      </p>
+    </div>
+  </div>
+  <FooterModern />
+</Layout>
+
+<style>
+  .ty {
+    background: #f3ecdd;
+    color: #23193d;
+    padding: calc(80px + 32px) 0 64px;
+    font-family: 'Figtree Variable', system-ui, sans-serif;
+  }
+
+  .ty__kicker {
+    margin: 0 0 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #5a4f75;
+  }
+
+  .ty__title {
+    font-family: 'Rubik Variable', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0 0 12px;
+    color: #23193d;
+  }
+
+  .ty__lead {
+    max-width: 70ch;
+    color: #5a4f75;
+    line-height: 1.6;
+    margin: 0 0 12px;
+  }
+
+  .ty__before {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 32px;
+    font-size: 14px;
+    color: #5a4f75;
+  }
+
+  .ty__was {
+    padding: 4px 10px;
+    border: 1px dashed rgba(35, 25, 61, 0.3);
+    border-radius: 999px;
+    text-decoration: line-through;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .ty__was--bricolage { font-family: 'Bricolage Grotesque Variable', sans-serif; }
+  .ty__was--instrument { font-family: 'Instrument Serif', serif; font-style: italic; }
+  .ty__was--caveat { font-family: 'Caveat', cursive; font-size: 18px; }
+
+  .ty__grid {
+    display: grid;
+    gap: 24px;
+  }
+
+  @media (min-width: 900px) {
+    .ty__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .sys {
+    display: grid;
+    gap: 16px;
+    align-content: start;
+    font-family: var(--text);
+  }
+
+  .sys--pick .sys__head {
+    border-color: #ffcf5a;
+    background: #fff4c2;
+  }
+
+  .sys__head {
+    padding: 16px;
+    border: 1px solid rgba(35, 25, 61, 0.14);
+    border-radius: 12px;
+    background: #fffaf0;
+  }
+
+  .sys__head h2 {
+    margin: 0 0 6px;
+    font-family: var(--display);
+    font-variation-settings: var(--display-settings);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #23193d;
+  }
+
+  .sys__pick {
+    font-family: var(--voice);
+    font-variation-settings: var(--voice-settings);
+    font-size: 1rem;
+    background: #ffcf5a;
+    color: #3a2a00;
+    padding: 2px 8px;
+    border-radius: 3px;
+    transform: rotate(-3deg);
+  }
+
+  .sys__head p {
+    margin: 0;
+    font-size: 14px;
+    color: #5a4f75;
+    line-height: 1.5;
+  }
+
+  .sys__hero {
+    padding: 28px 24px;
+    border-radius: 16px;
+    background: #2e7d32;
+    color: #f6f0e4;
+  }
+
+  .sys__season {
+    display: inline-block;
+    margin: 0 0 12px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    background: #ffcf5a;
+    color: #3a2a00;
+    font-family: var(--voice);
+    font-variation-settings: var(--voice-settings);
+    font-weight: 700;
+    transform: rotate(-2deg);
+  }
+
+  .sys__h1 {
+    font-family: var(--display);
+    font-variation-settings: var(--display-settings);
+    font-weight: var(--display-weight);
+    font-size: clamp(1.9rem, 2.6vw, 2.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+
+  .sys__h1 em,
+  .sys__h2 em {
+    font-style: italic;
+    color: #ffcf5a;
+  }
+
+  .sys__h2 em {
+    color: #2e7d32;
+  }
+
+  .sys__lead {
+    margin: 0 0 14px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(246, 240, 228, 0.88);
+  }
+
+  .sys__hand--2 {
+    font-size: 1.1rem;
+    color: rgba(246, 240, 228, 0.9);
+    margin-top: -8px;
+  }
+
+  .sys__hand {
+    margin: 0 0 16px;
+    font-family: var(--voice);
+    font-variation-settings: var(--voice-settings);
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: #ffcf5a;
+    transform: rotate(-1.5deg);
+    transform-origin: left;
+  }
+
+  .sys__btns {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .sys__btn,
+  .sys__ghost {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .sys__btn {
+    background: #ffcf5a;
+    color: #3a2a00;
+    box-shadow: 0 6px 0 -2px rgba(35, 25, 61, 0.18);
+  }
+
+  .sys__ghost {
+    border: 1px solid rgba(246, 240, 228, 0.45);
+  }
+
+  .sys__paper {
+    padding: 24px;
+    border-radius: 12px;
+    background:
+      repeating-linear-gradient(transparent 0 31px, rgba(35, 25, 61, 0.1) 31px 32px),
+      #fffaf0;
+  }
+
+  .sys__day {
+    margin: 0 0 4px;
+    font-family: var(--voice);
+    font-variation-settings: var(--voice-settings);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #5a4f75;
+  }
+
+  .sys__h2 {
+    font-family: var(--display);
+    font-variation-settings: var(--display-settings);
+    font-weight: var(--display-weight);
+    font-size: 1.8rem;
+    line-height: 1.05;
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .sys__text {
+    margin: 0 0 16px;
+    line-height: 1.65;
+    color: #5a4f75;
+  }
+
+  .sys__price {
+    margin: 0 0 6px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .sys__price strong {
+    font-family: var(--display);
+    font-variation-settings: var(--display-settings);
+    font-weight: var(--display-weight);
+    font-size: 2.6rem;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sys__hand-inline {
+    font-family: var(--voice);
+    font-variation-settings: var(--voice-settings);
+    font-weight: var(--voice-weight);
+    font-size: 1.2rem;
+    color: #2e7d32;
+  }
+
+  .sys__small {
+    margin: 0 0 16px;
+    font-size: 12px;
+    color: #5a4f75;
+  }
+
+  .sys__bubble {
+    margin: 0 0 14px;
+    padding: 14px 16px;
+    border-radius: 18px 18px 18px 6px;
+    background: #fff;
+    border: 1px solid rgba(35, 25, 61, 0.14);
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .sys__sticky {
+    margin: 0;
+    padding: 12px 14px;
+    background: #fff4c2;
+    font-family: var(--voice);
+    font-variation-settings: var(--voice-settings);
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.25;
+    transform: rotate(-1deg);
+    box-shadow: 0 10px 24px -16px rgba(35, 25, 61, 0.5);
+  }
+
+  /* ---------- deuxième planche ---------- */
+  .hands {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(35, 25, 61, 0.14);
+  }
+
+  .hands__grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  @media (min-width: 900px) {
+    .hands__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .hand {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(35, 25, 61, 0.14);
+    background: #fffaf0;
+  }
+
+  .hand__head {
+    padding: 14px 18px;
+  }
+
+  .hand__head h3 {
+    margin: 0 0 4px;
+    font-family: 'Rubik Variable', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #23193d;
+  }
+
+  .hand__head p {
+    margin: 0;
+    font-size: 13px;
+    color: #5a4f75;
+    line-height: 1.45;
+  }
+
+  .hand__green {
+    padding: 18px;
+    background: #2e7d32;
+    color: #f6f0e4;
+  }
+
+  .hand__big,
+  .hand__small,
+  .hand__sticker,
+  .hand__price span,
+  .hand__sticky,
+  .hand__caption {
+    font-family: var(--hand);
+    font-weight: var(--hand-weight);
+    font-feature-settings: var(--hand-feat);
+    -webkit-text-stroke: var(--hand-stroke, 0) currentColor;
+    paint-order: stroke fill;
+  }
+
+  .hand__big {
+    margin: 0 0 8px;
+    font-size: calc(1.45rem * var(--hand-size));
+    line-height: 1.15;
+    color: #ffcf5a;
+    transform: rotate(-1.5deg);
+    transform-origin: left;
+  }
+
+  .hand__small {
+    margin: 0 0 12px;
+    font-size: calc(1rem * var(--hand-size));
+    line-height: 1.25;
+    color: rgba(246, 240, 228, 0.92);
+  }
+
+  .hand__ui {
+    margin: 0;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .hand__sticker {
+    padding: 3px 10px;
+    border-radius: 3px;
+    background: #ffcf5a;
+    color: #3a2a00;
+    font-size: calc(1.05rem * var(--hand-size));
+    line-height: 1.1;
+    transform: rotate(-2deg);
+  }
+
+  .hand__sticker:nth-child(2) {
+    transform: rotate(2deg);
+  }
+
+  .hand__sticker:nth-child(3) {
+    background: transparent;
+    color: #2e7d32;
+    border: 2px solid #2e7d32;
+    background: rgba(255, 255, 255, 0.7);
+    transform: rotate(6deg);
+  }
+
+  .hand__paper {
+    padding: 16px 18px;
+    background:
+      repeating-linear-gradient(transparent 0 31px, rgba(35, 25, 61, 0.1) 31px 32px),
+      #fffaf0;
+  }
+
+  .hand__price {
+    margin: 0 0 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .hand__price strong {
+    font-family: 'Rubik Variable', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    line-height: 1;
+    color: #23193d;
+  }
+
+  .hand__price span {
+    font-size: calc(1.1rem * var(--hand-size));
+    color: #2e7d32;
+  }
+
+  .hand__sticky {
+    margin: 0 0 10px;
+    padding: 10px 12px;
+    background: #fff4c2;
+    font-size: calc(0.98rem * var(--hand-size));
+    line-height: 1.25;
+    color: #23193d;
+    transform: rotate(-1deg);
+    box-shadow: 0 10px 24px -16px rgba(35, 25, 61, 0.5);
+  }
+
+  .hand__caption {
+    margin: 0;
+    font-size: calc(0.9rem * var(--hand-size));
+    color: #5a4f75;
+    line-height: 1.2;
+  }
+
+  .ty__foot {
+    margin-top: 32px;
+    font-size: 13px;
+    color: #5a4f75;
+  }
+</style>
