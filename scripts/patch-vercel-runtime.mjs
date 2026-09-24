@@ -1,18 +1,27 @@
 #!/usr/bin/env node
 /**
- * Postbuild : force le runtime Node.js des serverless functions Vercel à 20.x.
+ * Postbuild : force le runtime Node.js des serverless functions Vercel à 24.x.
  *
  * Raison : l'adapter @astrojs/vercel v7 (compatible Astro 4) sélectionne
- * nodejs18.x quand la version locale est > 20. Node 18 atteint son end-of-life
- * en avril 2025 ; on patche les .vc-config.json en post-build pour rester
- * sur Node 20 LTS (support jusqu'en avril 2026).
+ * nodejs18.x quand la version locale est plus récente, et il ne connaît pas
+ * les runtimes sortis après lui. On réécrit donc les .vc-config.json en
+ * post-build.
+ *
+ * Historique : nodejs18.x à l'origine, puis nodejs20.x, et nodejs24.x depuis
+ * le 2026-09-24. Vercel fait échouer les builds en Node 20 à partir du
+ * 1er octobre 2026 (fin de vie, plus de correctifs de sécurité).
+ *
+ * À retenir : la version de build, elle, vient de `engines.node` dans
+ * package.json, qui surcharge le réglage du tableau de bord Vercel. Les deux
+ * doivent être changés ensemble, sinon le build tourne sur une version et les
+ * fonctions sur une autre.
  *
  * Idempotent : peut être lancé plusieurs fois sans souci.
  */
 import { readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
-const TARGET_RUNTIME = 'nodejs20.x';
+const TARGET_RUNTIME = 'nodejs24.x';
 const FUNCTIONS_DIR = '.vercel/output/functions';
 
 function findVcConfigs(dir) {
