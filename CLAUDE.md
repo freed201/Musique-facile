@@ -23,7 +23,7 @@ npm run blog:analyze         # Diagnostic visibilité des articles blog → seo-
 npm run chords:generate      # Régénère les diagrammes d'accords SVG (public/images/blog/accords-*)
 ```
 
-Node ≥ 20 requis (`package.json`). Il n'y a **ni linter, ni suite de tests** dans ce repo — la validation se fait via `npm run build` (le build échoue si un schéma Zod de content collection est violé) et via revue manuelle / audits (voir `seo-audit/`, agents).
+Node 24 requis (`package.json`, `engines.node`). Il n'y a **ni linter, ni suite de tests** dans ce repo — la validation se fait via `npm run build` (le build échoue si un schéma Zod de content collection est violé) et via revue manuelle / audits (voir `seo-audit/`, agents).
 
 ## Garde-fous automatiques (à connaître AVANT d'éditer)
 
@@ -102,7 +102,8 @@ CSS **piloté par tokens**, mobile-first, aucune couleur/espacement en dur. `des
 
 ## Déploiement (Vercel) & Gotchas
 
-- **`scripts/patch-vercel-runtime.mjs` (postbuild, essentiel)** : l'adapter `@astrojs/vercel` v7 fige les functions sur `nodejs18.x` (EOL) ; ce patch réécrit les `.vc-config.json` en `nodejs20.x`. Il tourne automatiquement après `npm run build` — ne pas le retirer ni builder sans lui pour la prod.
+- **`scripts/patch-vercel-runtime.mjs` (postbuild, essentiel)** : l'adapter `@astrojs/vercel` v7 fige les functions sur `nodejs18.x` (EOL) ; ce patch réécrit les `.vc-config.json` en `nodejs24.x`. Il tourne automatiquement après `npm run build` — ne pas le retirer ni builder sans lui pour la prod.
+- **Version de Node du build** : elle vient de `engines.node` dans `package.json` (`24.x`), qui **surcharge** le réglage du tableau de bord Vercel. Changer l'un sans l'autre fait tourner le build et les functions sur deux versions différentes. Vercel fait échouer les builds en Node 20 depuis le 1er octobre 2026.
 - **Vercel ignore `public/_redirects` et `public/_headers`** (format Netlify). Les redirections vivent dans `astro.config.mjs > redirects` (chemins **internes**, traduits en 301 par l'adapter) et dans `vercel.json > redirects` (domaines satellites + destinations **externes**, qui ne marchent pas dans la config Astro). Les en-têtes (CSP, cache, sécurité) sont dans `vercel.json > headers`.
 - **Pas de rollupOptions custom** dans `astro.config.mjs` : un chunking `manualChunks: 'vendor'` cassait le bundle SSR Vercel (`ERR_MODULE_NOT_FOUND` au runtime). Laisser Vite gérer le chunking.
 - **Variables d'environnement** : copier `.env.example` → `.env`. Clés requises en prod : `BREVO_API_KEY`, `BREVO_LIST_GENERAL`, `BREVO_LIST_STAGE_2026`, `PUBLIC_GTM_ID`, `PUBLIC_SITE_URL` (cette dernière documentée mais le domaine reste en dur dans plusieurs endroits — dette connue).
