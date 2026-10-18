@@ -6,8 +6,8 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 ogImage: "/images/blog/15-chansons-faciles-ukulele.webp"
-datePublished: "2026-10-18"
-dateModified: "2026-10-18"
+datePublished: "2026-10-25"
+dateModified: "2026-10-25"
 
 tags: ["noël", "accords", "tablature", "débutant", "morceaux"]
 category: "tutoriel"
@@ -17,7 +17,7 @@ theme: "ukulele"
 
 introduction: "Trois chansons de Noël se jouent au ukulélé avec les mêmes trois accords : Do, Fa et Sol7. Do se fait avec un seul doigt. Et comme les trois mélodies sont dans le domaine public, cet article donne aussi la tablature de leur première phrase, note par note."
 conclusion: "Le ukulélé va vite : trois accords, dont un à un seul doigt, et des mélodies que tout le monde reconnaît à la première note. Commence par les accords de Vive le vent, ajoute la tablature quand ils passent sans réfléchir, et tu auras de quoi jouer le 24 décembre."
-prod: "N"
+prod: "Y"
 schemaType: "BlogPosting"
 faqs:
   - question: "Quels accords faut-il pour jouer des chansons de Noël au ukulélé ?"
