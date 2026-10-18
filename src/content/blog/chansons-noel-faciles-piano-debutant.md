@@ -17,7 +17,7 @@ theme: "piano"
 
 introduction: "Trois chansons de Noël suffisent pour jouer devant la famille le 24 décembre, et elles tiennent toutes les trois avec les mêmes trois accords : Do, Fa et Sol7. Vive le vent, Mon beau sapin et Douce nuit. Si tu t'y mets maintenant, tu as largement le temps."
 conclusion: "Ces trois morceaux partagent trois accords et une seule difficulté réelle : jouer lentement sans accélérer. Travaille-les dans l'ordre, mains séparées d'abord, et tu devrais avoir un petit répertoire de Noël d'ici la fin novembre. C'est souvent le moment où un débutant se rend compte qu'il joue vraiment."
-prod: "N"
+prod: "Y"
 schemaType: "BlogPosting"
 faqs:
   - question: "Quelle chanson de Noël est la plus facile à jouer au piano quand on débute ?"
