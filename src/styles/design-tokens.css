@@ -403,6 +403,11 @@
   :root:not([data-theme="light"]).theme-solfege { --theme-ink: var(--solfege-200); --theme-soft: #2a1416; --theme-line: #5c2a2c; }
   :root:not([data-theme="light"]) .theme-main,
   :root:not([data-theme="light"]).theme-main { --theme-ink: var(--brand-300); --theme-soft: #1d1430; --theme-line: #3d2a5c; }
+
+  /* Défaut sombre : sans classe .theme-*, --theme-ink restait le violet foncé
+     (--brand-600) et devenait illisible sur le fond #0f172a — cas des pages
+     contact et quel-instrument-choisir, mesuré à 2,9:1. */
+  :root:not([data-theme="light"]) { --theme-ink: var(--brand-300); }
 }
 
 [data-theme="dark"] .theme-guitar  { --theme-ink: var(--guitar-300); --theme-soft: #16261a; --theme-line: #2f5a33; }
@@ -492,6 +497,7 @@
 
 /* Classe dark explicite */
 [data-theme="dark"] {
+  --theme-ink: var(--brand-300);
   --bg-page: #0f172a;
   /* Même correction que dans le bloc « préférence système » ci-dessus :
      sans cette ligne, le choix explicite du thème sombre laissait les fonds
