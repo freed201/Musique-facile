@@ -7,7 +7,9 @@ price: "24,70 €"
 author: "Fred Fieffé"
 datePublished: "2024-01-15"
 dateModified: "2026-11-05"
-isbn: "979-8-9876543-2-1"
+# ISMN (979-0…, numéro des partitions musicales) donné par l'éditeur. Il
+# remplace le 2026-11-05 un « ISBN » 979-8-9876543-2-1 à la clé invalide.
+isbn: "9790052001186"
 pages: 108
 format: "21 x 29,7 cm - A4"
 language: "fr-FR"
@@ -23,8 +25,6 @@ features:
     text: "Accords et rythmes expliqués"
   - icon: "📱"
     text: "QR codes vers vidéos tutorielles"
-  - icon: "🔄"
-    text: "Mises à jour gratuites"
 
 # Les trois témoignages retirés le 2026-09-01 (Marie Dubois, Thomas Martin,
 # Julie Lefebvre) portaient exactement les noms du lot de contenu de démonstration

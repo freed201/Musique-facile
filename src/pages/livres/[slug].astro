@@ -34,6 +34,14 @@ const {
   preview
 } = book.data;
 
+// Le champ `isbn` peut contenir un ISBN, un ISMN (979-0…, partitions
+// musicales) ou un texte comme « Non spécifié ». Seul un numéro à 13 chiffres
+// est affiché et balisé, sous son vrai nom : schema.org n'a pas de propriété
+// ISMN, il passe donc par `identifier`.
+const bookNumber = (isbn ?? '').replace(/[^0-9]/g, '');
+const hasBookNumber = bookNumber.length === 13;
+const isIsmn = hasBookNumber && bookNumber.startsWith('9790');
+
 // Les chansons du livre « 40 chansons » : ce sont les articles du blog marqués
 // songInfo.inBook (cible des QR codes imprimés), triés par page. La liste est
 // calculée, pas recopiée : un sommaire saisi à la main avait dérivé jusqu'à
@@ -61,7 +69,8 @@ const bookSchema = {
     "@type": "Person",
     "name": author
   },
-  "isbn": isbn,
+  ...(hasBookNumber && !isIsmn ? { "isbn": isbn } : {}),
+  ...(isIsmn ? { "identifier": { "@type": "PropertyValue", "propertyID": "ISMN", "value": isbn } } : {}),
   "numberOfPages": pages,
   "inLanguage": language,
   "datePublished": datePublished,
@@ -123,9 +132,9 @@ const titreSeo = title.length + SUFFIXE.length <= 60 ? `${title}${SUFFIXE}` : ti
                 <span class="meta-label">Pages</span>
                 <span class="meta-value">{pages}</span>
               </div>
-              {isbn && (
+              {hasBookNumber && (
                 <div class="meta-item">
-                  <span class="meta-label">ISBN</span>
+                  <span class="meta-label">{isIsmn ? 'ISMN' : 'ISBN'}</span>
                   <span class="meta-value">{isbn}</span>
                 </div>
               )}
