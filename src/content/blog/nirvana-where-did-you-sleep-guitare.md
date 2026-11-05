@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-11-05"
 introduction: "Where Did You Sleep Last Night de Nirvana se joue avec 6 accords, en difficulté avancée : le vrai défi est la montée d'émotion, pas la technique. Immortalisée lors du MTV Unplugged de 1993, cette reprise d'un vieux blues folk a marqué toute une génération. Découvre son histoire et comment l'aborder à la guitare."
 
 songInfo:

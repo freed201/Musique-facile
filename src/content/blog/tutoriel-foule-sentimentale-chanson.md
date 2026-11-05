@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-11-05"
 introduction: "Foule Sentimentale d'Alain Souchon se joue avec 5 accords sur un tempo lent (55 BPM), difficulté 2/5. Sortie en 1993, cette critique poétique de la société de consommation est devenue un grand classique. Découvre son histoire et comment l'interpréter avec la juste sensibilité, pas à pas."
 
 songInfo:

@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-11-05"
 introduction: |
   Avec "So Lonely", The Police a su donner naissance à un titre où la fraîcheur du reggae rencontre l'énergie brute du rock, créant ainsi un morceau à la fois dansant et introspectif.  
   Plonge dans l’histoire fascinante de ce classique, apprends à le jouer pas à pas et découvre pourquoi cette chanson continue d’inspirer autant de guitaristes et de fans, tous styles confondus.

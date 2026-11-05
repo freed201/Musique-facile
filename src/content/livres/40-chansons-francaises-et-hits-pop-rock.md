@@ -6,7 +6,7 @@ coverImage: "/images/livres/CARMF2838.webp"
 price: "24,70 €"
 author: "Fred Fieffé"
 datePublished: "2024-01-15"
-dateModified: "2026-09-01"
+dateModified: "2026-11-05"
 isbn: "979-8-9876543-2-1"
 pages: 108
 format: "21 x 29,7 cm - A4"
@@ -37,19 +37,13 @@ testimonials: []
 # voir src/pages/livres/[slug].astro.
 tableOfContents: []
 
+# Trois bonus retirés le 2026-11-05 (pistes d'accompagnement à télécharger,
+# application mobile gratuite 6 mois, groupe Facebook privé) : ils n'existent
+# pas, confirmé par Fred. Ils venaient de l'import initial de février 2025.
 bonuses:
   - icon: "🎥"
     title: "Vidéos Tutorielles"
     description: "Accès à plus de 40 vidéos explicatives via QR codes"
-  - icon: "🎧"
-    title: "Backing Tracks"
-    description: "Téléchargement des pistes d'accompagnement pour s'entraîner"
-  - icon: "📱"
-    title: "Application Mobile"
-    description: "Accès gratuit à l'application compagnon pour 6 mois"
-  - icon: "👥"
-    title: "Groupe Privé"
-    description: "Accès au groupe Facebook privé pour échanger avec la communauté"
 
 buyLink: "https://c3po.link/QuXzSswZbp"
 preview: ""

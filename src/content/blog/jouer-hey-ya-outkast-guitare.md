@@ -6,7 +6,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-11-05"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/jouer-hey-ya-outkast-guitare.webp"

@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-11-05"
 introduction: "Fields of Gold de Sting se joue avec 6 accords et un capo case 2, en fingerpicking sur un tempo posé (104 BPM). Extraite de l'album 'Ten Summoner's Tales' (1993), cette ballade explore l'amour, la nostalgie et la beauté de la nature. Voici comment l'apprendre pas à pas."
 
 songInfo:
