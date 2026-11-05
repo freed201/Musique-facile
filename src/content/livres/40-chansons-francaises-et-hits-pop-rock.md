@@ -5,7 +5,8 @@ ogImage: "/images/livres/CARMF2838.webp"
 coverImage: "/images/livres/CARMF2838.webp"
 price: "24,70 €"
 author: "Fred Fieffé"
-datePublished: "2024-01-15"
+# Sortie en mars 2024 (Fred) ; jour exact inconnu, d'où la date au mois près (ISO 8601).
+datePublished: "2024-03"
 dateModified: "2026-11-05"
 # ISMN (979-0…, numéro des partitions musicales) donné par l'éditeur. Il
 # remplace le 2026-11-05 un « ISBN » 979-8-9876543-2-1 à la clé invalide.
