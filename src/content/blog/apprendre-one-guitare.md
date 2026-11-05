@@ -21,10 +21,11 @@ songInfo:
   difficulty: "2/5"
 
 videos:
-  - title: "Apprendre One de U2 - Débutants"
+  - title: "U2 - One à la guitare Tutoriel débutant simple"
     url: "https://youtu.be/31DeKCzhP1Y"
-  - title: "Apprendre One de U2 (Version Courte)"
-    url: "https://youtube.com/shorts/cmjGvbPOi9c"
+    type: "debutant"
+  - title: "One – U2 | guitare facile"
+    url: "https://www.youtube.com/shorts/cmjGvbPOi9c"
 
 conclusion: |
   En jouant "One" à ta façon, tu ne fais pas qu’apprendre une chanson : tu participes à un élan de solidarité musicale et tu portes en toi un message d’ouverture et d’humanité.  

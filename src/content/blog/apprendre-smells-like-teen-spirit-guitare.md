@@ -30,12 +30,14 @@ songInfo:
   key: ""
   difficulty: "4/5"
 videos:
-  - title: "Simplified Tutorial Version - 'Smells Like Teen Spirit'"
+  - title: "Smells Like Teen Spirit – Guitare: Tutoriel Débutant"
     url: "https://youtu.be/LQSVnCuHIDU"
-  - title: "Tutoriel Complet : Subtilités, Rythmique et Structure"
-    url: "https://youtube.com/shorts/3L5akqUu-sU"
-  - title: "Play Along : Joue avec Nirvana"
+    type: "debutant"
+  - title: "Smells Like Teen Spirit – Nirvana | guitare facile"
+    url: "https://www.youtube.com/shorts/3L5akqUu-sU"
+  - title: "Smells Like Teen Spirit - Guitare Play Along facile"
     url: "https://youtu.be/dxeyX9M7EHU"
+    type: "playalong"
 faqs:
   - question: "Quels sont les accords de Smells Like Teen Spirit ?"
     answer: "Le riff repose sur 4 power chords : F5, Bb5, Ab5 et Db5. Un power chord n'utilise que 2 ou 3 cordes et la même forme se déplace simplement le long du manche : tu apprends donc une seule position, puis tu la glisses. C'est ce qui rend ce riff mythique étonnamment accessible une fois la forme mémorisée."

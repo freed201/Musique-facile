@@ -19,12 +19,14 @@ songInfo:
   difficulty: "3/5"
 
 videos:
-  - title: "Tutoriel version simplifiée"
+  - title: "Fields of Gold à la guitare – tutoriel complet (Sting)"
     url: "https://youtu.be/0WmyK-gFgq4"
-  - title: "Tutoriel complet"
-    url: "N/A"
-  - title: "Play along"
+    type: "complet"
+  - title: "Fields of Gold – playalong guitare avec accords (Sting)"
     url: "https://youtu.be/Lw5W5L4eNOo"
+    type: "playalong"
+  - title: "Fields of Gold – Sting | guitare facile"
+    url: "https://www.youtube.com/shorts/hLDIJfvETzE"
 
 
 

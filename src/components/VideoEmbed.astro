@@ -26,13 +26,15 @@ interface Props {
   title: string;
   /** Transcription facultative, rendue dans un <details> présent dans le HTML. */
   transcript?: string;
-  /** Proportions du cadre. Les Shorts YouTube sont verticaux : '9 / 16'. */
+  /** Proportions du cadre. Par défaut 9 / 16 pour une URL `/shorts/`, 16 / 9 sinon. */
   ratio?: string;
   /** Sans marge ni légende, pour une façade posée dans une carte. */
   compact?: boolean;
 }
 
-const { url, title, transcript, ratio = '16 / 9', compact = false } = Astro.props;
+const { url, title, transcript, compact = false } = Astro.props;
+const ratio = Astro.props.ratio ?? (/youtube\.com\/shorts\//.test(url) ? '9 / 16' : '16 / 9');
+const isVertical = ratio.replace(/\s/g, '') === '9/16';
 
 export function extractYouTubeId(value: string): string | null {
   const m = value.match(
@@ -73,8 +75,8 @@ const embedUrl = videoId
           <img
             src={thumbnail}
             alt=""
-            width="480"
-            height="270"
+            width={isVertical ? 360 : 480}
+            height={isVertical ? 640 : 270}
             loading="lazy"
             decoding="async"
             class="video-embed__thumb"

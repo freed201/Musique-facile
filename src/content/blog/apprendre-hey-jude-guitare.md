@@ -30,12 +30,14 @@ songInfo:
   key: "F"
   difficulty: "5/5"
 videos:
-  - title: "Découvrir les Bases de 'Hey Jude'"
+  - title: "Hey Jude – Guitare | Tutoriel débutant simple"
     url: "https://youtu.be/2k72sN98kcg"
-  - title: "Découvrir les Bases - ShortTube"
-    url: "https://youtube.com/shorts/VAzOBATJK_c"
-  - title: "Play Along : Joue avec les Beatles"
+    type: "debutant"
+  - title: "Hey Jude - Tutoriel Guitare Facile pour Débutants | The Beatles Simplifié"
+    url: "https://www.youtube.com/shorts/VAzOBATJK_c"
+  - title: "Hey Jude – Guitare Play Along complet + accords"
     url: "https://youtu.be/ToaTKOuam9Y"
+    type: "playalong"
 faqs:
   - question: "Hey Jude est-elle vraiment jouable par un débutant ?"
     answer: "Oui, dans une version simplifiée en G (G, D, Em, C, A7, D7). Les couplets et le refrain utilisent des accords ouverts accessibles. Le seul morceau de bravoure, c'est l'endurance : la chanson dure plus de 7 minutes à cause de son long final. Mais comme ce final ne contient que 3 accords répétés, c'est plus une question de patience que de technique."

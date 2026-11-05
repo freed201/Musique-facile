@@ -30,12 +30,9 @@ songInfo:
   key: ""
   difficulty: "4/5"
 videos:
-  - title: "Tutoriel complet de Wonderwall"
+  - title: "Wonderwall à la guitare - Tutoriel débutant (capo 2)"
     url: "https://youtu.be/0OyUCudbWX4"
-  - title: "Tutoriel débutants : Simplifié"
-    url: "https://youtu.be/zOj6dWit57M"
-  - title: "Play Along : Joue avec Oasis"
-    url: "https://youtu.be/wr0sRkJK7xA"
+    type: "debutant"
 faqs:
   - question: "Faut-il vraiment un capo pour jouer Wonderwall ?"
     answer: "Oui, si tu veux retrouver la tonalité originale d'Oasis et chanter par-dessus sans forcer : place le capo à la case 2. Tu joues alors les formes Em7, G, Dsus4, A7sus4, Cadd9 comme à vide, mais ça sonne un ton plus haut. Sans capo, les accords restent jouables, mais tu seras décalé par rapport à l'enregistrement."

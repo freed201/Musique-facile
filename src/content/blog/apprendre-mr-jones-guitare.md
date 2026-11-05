@@ -19,14 +19,25 @@ songInfo:
   difficulty: "3/5"
 
 videos:
-  - title: "Tutoriel Simplifié de 'Mr Jones'"
+  - title: "Apprendre Mr Jones des Counting Crows à la Guitare Pour Débutants - Tutoriel Facile"
     url: "https://youtu.be/ntvBTSfdz7Y"
-  - title: "Tutoriel Complet : Toutes les subtilités"
+    type: "debutant"
+  - title: "Mr. Jones à la guitare – tutoriel complet (Counting Crows)"
     url: "https://youtu.be/jkFHCYOB5VI"
-  - title: "Play Along : Jouez 'Mr Jones' en rythme"
+    type: "complet"
+  - title: "Mr Jones – Play Along Guitare (morceau complet)"
     url: "https://youtu.be/17um-YC555U"
+    type: "playalong"
   - title: "Mr. Jones (Counting Crows) guitare – Tutoriel complet"
     url: "https://youtu.be/Z3zlcYuuvlo"
+    type: "complet"
+  - title: "Apprendre Mr Jones des Counting Crows à la Guitare - Tutoriel Complet + Astuces"
+    url: "https://youtu.be/KYn8rIZKfYo"
+    type: "complet"
+  - title: "Mr. Jones – Counting Crows | guitare facile"
+    url: "https://www.youtube.com/shorts/-FuyBaXha30"
+  - title: "Mr. Jones guitare – Play along facile débutant"
+    url: "https://www.youtube.com/shorts/lK0im4ff6Yw"
 
 
 

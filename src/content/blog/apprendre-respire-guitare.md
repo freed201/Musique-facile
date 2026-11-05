@@ -21,12 +21,15 @@ songInfo:
   difficulty: "2/5"
 
 videos:
-  - title: "Version simplifiée pour débutants"
+  - title: "Respire - Guitare Débutant | Tutoriel Mickey 3D"
     url: "https://youtu.be/110_Rskw4JM"
-  - title: "Tutoriel complet : Rythmique et structure"
+    type: "debutant"
+  - title: "Respire - Guitare | Tutoriel complet + astuces"
     url: "https://youtu.be/ugxpRYdsrD0"
-  - title: "Play Along : Joue avec Mickey 3D"
+    type: "complet"
+  - title: "Respire - Mickey 3D | Play Along Guitare facile (complet)"
     url: "https://youtu.be/D3I4Pw3CKHU"
+    type: "playalong"
 
 conclusion: |
   "Respire" est bien plus qu’une simple chanson : c’est un hymne, un cri du cœur qui résonne encore plus fort aujourd’hui face à l’urgence écologique.  

@@ -13,6 +13,7 @@ import PillarLink from '../../components/blog/PillarLink.astro';
 import ArticleCTA from '../../components/blog/ArticleCTA.astro';
 import { secureExternalLinks } from '../../utils/external-link-rel.mjs';
 import VideoEmbed from '../../components/VideoEmbed.astro';
+import BookVideos from '../../components/blog/BookVideos.astro';
 import BuyingGuideCard from '../../components/blog/BuyingGuideCard.astro';
 import InlineOptIn from '../../components/blog/InlineOptIn.astro';
 import OutilAccordsCard from '../../components/blog/OutilAccordsCard.astro';
@@ -59,6 +60,13 @@ const {
 } = entry.data;
 
 const { Content, headings } = await entry.render();
+
+// Les 40 tutos du livre sont la cible des QR codes imprimés : leurs vidéos ont
+// un bloc dédié, en haut de page (BookVideos). Les autres articles gardent la
+// section vidéo générique, après l'introduction.
+const isBookSong = Boolean(songInfo?.inBook);
+// « Hallelujah (Jeff Buckley) : Accords et Tab Guitare » → « Hallelujah »
+const songName = title.split(/\s+\(|\s+:/)[0].trim();
 
 // introduction/conclusion sont du Markdown inline (gras, liens) dans le frontmatter,
 // il faut le convertir en HTML avant affichage (sinon `**gras**` et `[texte](lien)` s'affichent littéralement)
@@ -274,6 +282,10 @@ if (entry.data.siloSlug && !entry.data.pillar) {
       </nav>
     )}
 
+    {isBookSong && videos && videos.length > 0 && (
+      <BookVideos videos={videos} song={songName} bookPage={songInfo?.bookPage} />
+    )}
+
   {songInfo && songInfo.inBook && (
   <div class="song-info">
     <div class="song-info-content">
@@ -339,7 +351,7 @@ if (entry.data.siloSlug && !entry.data.pillar) {
         <div class="article-intro" set:html={introductionHtml} />
 
 <!-- Vidéos : façade légère, l'iframe n'est chargée qu'au clic (VideoEmbed) -->
-{videos && videos.length > 0 && (
+{!isBookSong && videos && videos.length > 0 && (
   <section class="video-section">
     <div class="video-grid">
       {videos.map(video => (

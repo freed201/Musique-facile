@@ -1,0 +1,224 @@
+---
+/**
+ * BookVideos.astro — bloc vidéo des 40 tutos du livre « 40 chansons ».
+ *
+ * Ces articles sont la cible des QR codes imprimés dans le livre : le lecteur
+ * arrive sur mobile, livre en main, pour regarder les vidéos du morceau. Le
+ * bloc est donc placé juste sous le titre de l'article, annonce la page du
+ * livre, et range les vidéos dans l'ordre où on les travaille :
+ *
+ *   1. Débuter      (type: debutant)  — tuto pas à pas
+ *   2. Approfondir  (type: complet)   — tuto complet
+ *   3. Jouer avec moi (type: playalong) — morceau complet, accords à l'écran
+ *
+ * Les Shorts (URL `youtube.com/shorts/…`) sont regroupés à part : ils sont
+ * verticaux et ne s'alignent pas avec les vidéos 16:9.
+ *
+ * Les autres articles du blog gardent la section vidéo générique de
+ * src/pages/blog/[slug].astro.
+ */
+import VideoEmbed from '../VideoEmbed.astro';
+import videoMetadata from '../../data/video-metadata.json';
+import { extractYouTubeId } from '../VideoEmbed.astro';
+
+type Video = { title: string; url: string; type?: 'debutant' | 'complet' | 'playalong'; transcript?: string };
+
+interface Props {
+  videos: Video[];
+  /** Nom du morceau, sans l'artiste ni le reste du titre SEO. */
+  song: string;
+  bookPage?: number;
+}
+
+const { videos, song, bookPage } = Astro.props;
+
+const STEPS = {
+  debutant: { n: 1, label: 'Débuter' },
+  complet: { n: 2, label: 'Approfondir' },
+  playalong: { n: 3, label: 'Jouer avec moi' },
+} as const;
+
+// Même règle que VideoEmbed : une vidéo sans relevé valide n'est pas affichée.
+// La filtrer ici évite un bloc ou une rubrique vide.
+const playable = videos.filter((v) => {
+  const id = extractYouTubeId(v.url);
+  return Boolean(id && (videoMetadata.videos as Record<string, any>)[id]?.status === 'ok');
+});
+
+const isShort = (v: Video) => /youtube\.com\/shorts\//.test(v.url);
+const order = (v: Video) => (v.type ? STEPS[v.type].n : 4);
+const longs = playable.filter((v) => !isShort(v)).sort((a, b) => order(a) - order(b));
+const shorts = playable.filter(isShort);
+---
+
+{playable.length > 0 && (
+  <section class="book-videos" id="videos" aria-labelledby="book-videos-title">
+    <header class="book-videos__header">
+      {bookPage && <p class="book-videos__eyebrow">Ton livre, page {bookPage}</p>}
+      <h2 id="book-videos-title" class="book-videos__title">Les vidéos de {song}</h2>
+      {longs.length > 1 && (
+        <p class="book-videos__intro">Suis les étapes dans l'ordre : on pose les bases, on affine, puis tu joues le morceau en entier avec moi.</p>
+      )}
+    </header>
+
+    {longs.length > 0 && (
+      <ol class="book-videos__list">
+        {longs.map((video) => (
+          <li class="book-videos__item">
+            {video.type && (
+              <p class="book-videos__step">
+                <span class="book-videos__step-n" aria-hidden="true">{STEPS[video.type].n}</span>
+                <span><span class="sr-only">Étape {STEPS[video.type].n} : </span>{STEPS[video.type].label}</span>
+              </p>
+            )}
+            <VideoEmbed url={video.url} title={video.title} transcript={video.transcript} compact />
+            <p class="book-videos__caption">{video.title}</p>
+          </li>
+        ))}
+      </ol>
+    )}
+
+    {shorts.length > 0 && (
+      <div class="book-videos__shorts">
+        <h3 class="book-videos__subtitle">En format court</h3>
+        <ul class="book-videos__shorts-list">
+          {shorts.map((video) => (
+            <li class="book-videos__short">
+              <VideoEmbed url={video.url} title={video.title} compact />
+              <p class="book-videos__caption">{video.title}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </section>
+)}
+
+<style>
+  .book-videos {
+    max-width: 800px;
+    margin: var(--space-8) auto;
+    padding: var(--space-6);
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    scroll-margin-top: var(--space-24);
+  }
+
+  /* Sur mobile, le bloc prend toute la largeur : c'est l'écran des lecteurs
+     qui arrivent par QR code, chaque pixel de vidéo compte. */
+  @media (max-width: 640px) {
+    .book-videos {
+      margin: var(--space-6) 0;
+      padding: var(--space-5) var(--space-4);
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+    }
+  }
+
+  .book-videos__header {
+    margin-bottom: var(--space-6);
+  }
+
+  .book-videos__eyebrow {
+    display: inline-block;
+    margin: 0 0 var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    background: var(--theme-soft);
+    border: 1px solid var(--theme-line);
+    color: var(--theme-ink);
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .book-videos__title {
+    margin: 0;
+    font-size: var(--text-responsive-2xl);
+    line-height: 1.2;
+    color: var(--text-primary);
+  }
+
+  .book-videos__intro {
+    margin: var(--space-2) 0 0;
+    color: var(--text-secondary);
+    font-size: var(--text-base);
+  }
+
+  .book-videos__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  /* À partir de la tablette, deux colonnes ; la première vidéo (étape 1)
+     occupe toute la largeur, c'est par elle qu'on commence. */
+  @media (min-width: 720px) {
+    .book-videos__list {
+      grid-template-columns: 1fr 1fr;
+    }
+    .book-videos__item:first-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .book-videos__step {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin: 0 0 var(--space-2);
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .book-videos__step-n {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-full);
+    background: var(--theme-surface);
+    color: #fff;
+    font-size: var(--text-sm);
+  }
+
+  .book-videos__caption {
+    margin: var(--space-2) 0 0;
+    font-size: var(--text-sm);
+    line-height: 1.4;
+    color: var(--text-secondary);
+  }
+
+  .book-videos__shorts {
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--border-default);
+  }
+
+  .book-videos__subtitle {
+    margin: 0 0 var(--space-4);
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+  }
+
+  .book-videos__shorts-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
+    gap: var(--space-4);
+  }
+
+  /* Sur mobile, deux Shorts côte à côte qui se partagent la largeur. */
+  @media (max-width: 640px) {
+    .book-videos__shorts-list {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+  }
+</style>

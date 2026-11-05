@@ -28,12 +28,17 @@ songInfo:
   chordCount: 3
   difficulty: "2/5"
 videos:
-  - title: "Tutoriel simplifié : découverte pour débutants"
+  - title: "Clandestino guitare - Tutoriel débutant (3 accords)"
     url: "https://youtu.be/fcenZ4Zqj8M"
-  - title: "Tutoriel complet : exploration approfondie"
+    type: "debutant"
+  - title: "Clandestino guitare - Tutoriel complet + version facile"
     url: "https://youtu.be/R0U0blrNcaM"
-  - title: "Play Along : jouer en rythme avec Manu Chao"
+    type: "complet"
+  - title: "Clandestino – Guitare Play Along facile (3 accords)"
     url: "https://youtu.be/cajhPhZDRlU"
+    type: "playalong"
+  - title: "Clandestino – Manu Chao | guitare facile"
+    url: "https://www.youtube.com/shorts/HVW9f-NSA_w"
 faqs:
   - question: "Faut-il un capo pour jouer Clandestino ?"
     answer: "Le capo est recommandé en case 2 pour garder la couleur originale. Sans capo, tu peux jouer les mêmes formes d’accords en sonnant plus grave."

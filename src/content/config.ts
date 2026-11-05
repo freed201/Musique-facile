@@ -281,9 +281,14 @@ const blogCollection = defineCollection({
     // miniature ne se saisissent PAS ici : elles sont relevées sur YouTube par
     // `npm run videos:metadata` et stockées dans src/data/video-metadata.json,
     // pour qu'aucune de ces valeurs ne soit estimée à la main.
+    // Un Short se déclare par son URL `youtube.com/shorts/<id>` : le lecteur
+    // passe alors en 9:16 et la miniature relevée est la verticale.
     videos: z.array(z.object({
       title: z.string(),
       url: z.string(),
+      // Étape pédagogique, affichée dans le bloc vidéo des articles du livre
+      // (debutant → complet → playalong). Facultatif ailleurs.
+      type: z.enum(['debutant', 'complet', 'playalong']).optional(),
       // Transcription facultative. Rendue dans un <details> présent dans le
       // HTML : repliée à l'écran, mais lisible par un robot.
       transcript: z.string().optional()

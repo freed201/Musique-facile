@@ -19,12 +19,17 @@ songInfo:
   difficulty: "2/5"
 
 videos:
-  - title: "Maîtrise les Bases de 'Partons Vite'"
+  - title: "Partons Vite - Guitare débutant | Tuto Kaolin"
     url: "https://youtu.be/UQPtqVhPelk"
-  - title: "Explore les Rythmiques et Structures"
+    type: "debutant"
+  - title: "Partons Vite (Kaolin) : tuto guitare débutant"
     url: "https://youtu.be/ukcdAsdJwEI"
-  - title: "Joue Avec Moi - 'Partons Vite'"
+    type: "debutant"
+  - title: "Partons Vite – Kaolin | Play Along Guitare facile"
     url: "https://youtu.be/axscET_pADo"
+    type: "playalong"
+  - title: "Partons vite – Kaolin | guitare facile"
+    url: "https://www.youtube.com/shorts/mayjvR55sDM"
 
 
 

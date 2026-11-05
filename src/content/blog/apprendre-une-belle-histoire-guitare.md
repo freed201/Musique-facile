@@ -21,14 +21,15 @@ songInfo:
   difficulty: "2/5"
 
 videos:
-  - title: "Tutoriel simplifié pour débutants"
+  - title: "Une Belle Histoire guitare - Tutoriel Débutant"
     url: "https://youtu.be/DYAGYjbJBn0"
+    type: "debutant"
   - title: "Une Belle Histoire à la guitare – tutoriel complet (Michel Fugain)"
     url: "https://youtu.be/4Y0fh6FsW-A"
-  - title: "Tutoriel complet : Rythmique et structure"
-    url: "https://youtu.be/4Y0fh6FsW-A"
-  - title: "Play Along : Joue avec la chanson"
+    type: "complet"
+  - title: "Une Belle Histoire – playalong guitare avec accords (Michel Fugain)"
     url: "https://youtu.be/NVKwDXqEmmk"
+    type: "playalong"
 
 conclusion: |
   "Une Belle Histoire" de Michel Fugain incarne à merveille ce goût de la liberté, de la spontanéité et des petits bonheurs qui traversent la musique populaire française.  

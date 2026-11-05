@@ -19,12 +19,17 @@ songInfo:
   difficulty: "3/5"
 
 videos:
-  - title: "Tutoriel Simplifié : Les bases de 'L'opportuniste'"
+  - title: "L’Opportuniste – Guitare Tutoriel Débutant"
     url: "https://youtu.be/a_VoQaGba8k"
-  - title: "Tutoriel Complet : Rythmique et structure"
+    type: "debutant"
+  - title: "L’Opportuniste à la guitare – tutoriel complet (Jacques Dutronc)"
     url: "https://youtu.be/FJiiP7kNv2E"
-  - title: "Play Along : Jouez avec Jacques Dutronc"
+    type: "complet"
+  - title: "L'opportuniste – Guitare Play Along facile (complet)"
     url: "https://youtu.be/siU7HEfmGeg"
+    type: "playalong"
+  - title: "L’Opportuniste – Jacques Dutronc | guitare facile"
+    url: "https://www.youtube.com/shorts/r0XxpfOicgg"
 
 
 
