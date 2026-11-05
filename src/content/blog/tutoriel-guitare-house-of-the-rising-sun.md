@@ -20,12 +20,15 @@ songInfo:
   difficulty: "2/5"
 
 videos:
-  - title: "Maîtriser 'House of The Rising Sun' facilement"
+  - title: "House Of The Rising Sun guitare - Tutoriel débutant"
     url: "https://youtu.be/j0hXAUERApw"
-  - title: "Les secrets de 'House of The Rising Sun' à la guitare"
+    type: "debutant"
+  - title: "House of the Rising Sun à la guitare – tutoriel facile"
     url: "https://youtu.be/OPwxXfcsbUw"
-  - title: "Play Along : Jouez avec The Animals"
+    type: "debutant"
+  - title: "House of the Rising Sun guitare - Play Along facile"
     url: "https://youtu.be/pTxadAtw4qs"
+    type: "playalong"
 
 conclusion: |
   "House of The Rising Sun" n'est pas qu'un simple morceau à apprendre, c'est un véritable voyage musical et émotionnel.  

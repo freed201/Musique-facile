@@ -21,12 +21,17 @@ songInfo:
   difficulty: "2/5"
 
 videos:
-  - title: "Version Simplifiée Tutoriel"
+  - title: "Perfect – Guitare | Tutoriel débutant pas à pas"
     url: "https://youtu.be/Mq27EPbPNjg"
+    type: "debutant"
   - title: "Perfect - Guitare Play Along: Tuto complet pour jouer"
     url: "https://youtu.be/xAYuq6aZ87w"
-  - title: "Play Along"
+    type: "playalong"
+  - title: "Perfect – Guitare Play Along facile (morceau complet)"
     url: "https://youtu.be/h-XzF_ACcI4"
+    type: "playalong"
+  - title: "Perfect – Ed Sheeran | guitare facile"
+    url: "https://www.youtube.com/shorts/B3Y07H9DaAo"
 
 conclusion: |
   "Perfect" d’Ed Sheeran n’est pas seulement une chanson d’amour : c’est une déclaration musicale universelle, porteuse d’émotion et de simplicité.  

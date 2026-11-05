@@ -19,12 +19,12 @@ songInfo:
   difficulty: "2/5"
 
 videos:
-  - title: "Tutoriel Simplifié : Jouer 'Everybody Hurts'"
+  - title: "Everybody Hurts guitare – Tutoriel débutant simple"
     url: "https://youtu.be/XlQXn361fQw"
+    type: "debutant"
   - title: "Everybody Hurts – Guitare Play Along facile (complet)"
     url: "https://youtu.be/0l-5FzzEQcg"
-  - title: "Play-Along : Jouez 'Everybody Hurts' en direct"
-    url: "https://youtu.be/0l-5FzzEQcg"
+    type: "playalong"
 
 
 

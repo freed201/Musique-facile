@@ -30,12 +30,15 @@ songInfo:
   key: ""
   difficulty: "2/5"
 videos:
-  - title: "Commencer avec Stand by Me - Tutoriel simplifié"
+  - title: "Stand by Me – Guitare: Tutoriel simple débutant"
     url: "https://youtu.be/ogsj0mJV4DY"
-  - title: "Maîtriser Stand by Me - Tutoriel complet"
+    type: "debutant"
+  - title: "Stand by Me à la guitare – tutoriel complet et facile"
     url: "https://youtu.be/sMMcbuahiRE"
-  - title: "Play Along : Jouez avec moi - Stand by Me"
+    type: "complet"
+  - title: "Stand by Me guitare - Play Along facile (accords)"
     url: "https://youtu.be/BBxFpRZsAQ0"
+    type: "playalong"
 faqs:
   - question: "Quels sont les 4 accords de Stand by Me ?"
     answer: "Stand by Me se joue avec G, Em, C et D, dans cet ordre, en boucle sur tout le morceau. C'est la fameuse progression « doo-wop » des années 50 (I – vi – IV – V). Une fois la boucle apprise, tu peux jouer la chanson entière : il n'y a pas d'autre suite d'accords à mémoriser."

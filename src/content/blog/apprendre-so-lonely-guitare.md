@@ -21,12 +21,15 @@ songInfo:
   difficulty: "3/5"
 
 videos:
-  - title: "Découvrir 'So Lonely' - Version Simplifiée"
+  - title: "So Lonely - Guitare débutant | Tutoriel simple"
     url: "https://youtu.be/kDSkc157Lmw"
-  - title: "Maîtriser 'So Lonely' - Tutoriel Complet"
+    type: "debutant"
+  - title: "So Lonely à la guitare – tutoriel complet (The Police)"
     url: "https://youtu.be/zRKzBdzCCnA"
-  - title: "Play Along : Joue avec The Police"
+    type: "complet"
+  - title: "So Lonely - The Police Play Along guitare (capo 5)"
     url: "https://youtu.be/USZOBHQWq50"
+    type: "playalong"
 
 conclusion: |
   "So Lonely" de The Police demeure un classique intemporel, un voyage musical qui continue de captiver les générations.  

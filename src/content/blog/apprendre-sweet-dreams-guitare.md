@@ -19,8 +19,11 @@ songInfo:
   difficulty: "3/5"
 
 videos:
-  - title: "Version Simplifiée pour Débutants"
+  - title: "Sweet Dreams guitare - Tutoriel débutant simple"
     url: "https://youtu.be/7ya-PCIHPKk"
+    type: "debutant"
+  - title: "Sweet Dreams – Eurythmics | guitare facile"
+    url: "https://www.youtube.com/shorts/0XFfIkAqRKU"
 
 
 

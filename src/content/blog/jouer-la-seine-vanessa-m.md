@@ -19,12 +19,17 @@ songInfo:
   difficulty: "4/5"
 
 videos:
-  - title: "Tutoriel Simplifié : Jouer 'La Seine'"
+  - title: "La Seine à la guitare – tutoriel complet (Vanessa Paradis & -M-)"
     url: "https://youtu.be/2nKY4jvFu5k"
-  - title: "Version Complète : Explorer les subtilités"
+    type: "complet"
+  - title: "La Seine – Guitare: Tutoriel simple et complet"
     url: "https://youtu.be/9Qa54ZVAobk"
-  - title: "Play Along : Jouez avec les artistes"
+    type: "complet"
+  - title: "La Seine – Guitare Play Along - Vanessa Paradis & -M-"
     url: "https://youtu.be/pRBbKVaG2lE"
+    type: "playalong"
+  - title: "La Seine – Vanessa Paradis & -M- | guitare facile"
+    url: "https://www.youtube.com/shorts/cg2-8ZxefrY"
 
 
 

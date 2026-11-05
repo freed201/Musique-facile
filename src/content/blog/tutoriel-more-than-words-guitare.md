@@ -19,8 +19,9 @@ songInfo:
   difficulty: "5/5"
 
 videos:
-  - title: "More Than Words - Extreme (Official Video)"
+  - title: "More Than Words – playalong guitare avec accords (Extreme)"
     url: "https://youtu.be/IQDmUoKzZko"
+    type: "playalong"
 
 conclusion: |
   "More Than Words" d'Extreme, c'est bien plus qu'un simple morceau à jouer : c'est une déclaration universelle, une invitation à exprimer tes émotions par la musique et à explorer la magie de la guitare acoustique.

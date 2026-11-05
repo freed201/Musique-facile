@@ -34,6 +34,9 @@ const refetchAll = process.argv.includes('--all');
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+/** Vidéos déclarées par une URL `/shorts/` : leur miniature est verticale. */
+const shortIds = new Set();
+
 /** Tous les identifiants YouTube cités dans le frontmatter des articles. */
 function collectIds() {
   const ids = new Map(); // id → titre déclaré dans le frontmatter
@@ -49,6 +52,7 @@ function collectIds() {
       const before = block.slice(0, m.index);
       const title = before.match(/title:\s*"((?:[^"\\]|\\.)*)"\s*$/m)?.[1] ?? null;
       if (!ids.has(m[1])) ids.set(m[1], title);
+      if (m[0].includes('/shorts/')) shortIds.add(m[1]);
     }
   }
 
@@ -85,6 +89,9 @@ async function fetchMeta(id) {
   const res = await fetch(`https://www.youtube.com/watch?v=${id}`, {
     headers: { 'User-Agent': 'Mozilla/5.0 (compatible; musique-facile-build/1.0)' },
   });
+  // 429 (limitation de débit) et 5xx sont passagers : les noter « indisponible »
+  // figerait cet état, puisqu'une vidéo déjà connue n'est plus re-relevée.
+  if (res.status === 429 || res.status >= 500) return { status: 'reessayer', reason: `HTTP ${res.status}` };
   if (!res.ok) return { status: 'indisponible', reason: `HTTP ${res.status}` };
   const html = await res.text();
   if (/"status":"(ERROR|UNPLAYABLE|LOGIN_REQUIRED)"/.test(html)) {
@@ -106,6 +113,17 @@ async function fetchMeta(id) {
 async function fetchThumb(id) {
   const dest = join(THUMB_DIR, `${id}.webp`);
   if (existsSync(dest) && !refetchAll) return true;
+  // Un Short a une miniature verticale (oar2, 1080×1920). maxresdefault en
+  // est un recadrage 16:9, flou sur les côtés : inutilisable dans un cadre 9:16.
+  if (shortIds.has(id)) {
+    const res = await fetch(`https://img.youtube.com/vi/${id}/oar2.jpg`);
+    if (res.ok) {
+      const buf = Buffer.from(await res.arrayBuffer());
+      // 360 de large suffit : la carte d'un Short ne dépasse pas 220 px à l'écran.
+      await sharp(buf).resize(360, null, { withoutEnlargement: true }).webp({ quality: 72 }).toFile(dest);
+      return true;
+    }
+  }
   for (const quality of ['maxresdefault', 'hqdefault']) {
     const res = await fetch(`https://img.youtube.com/vi/${id}/${quality}.jpg`);
     if (!res.ok) continue;
@@ -131,6 +149,7 @@ const videos = { ...existing };
 let done = 0;
 let unavailable = 0;
 let skipped = 0;
+let retry = 0;
 
 for (const [id, declaredTitle] of ids) {
   if (videos[id] && !refetchAll) {
@@ -139,7 +158,10 @@ for (const [id, declaredTitle] of ids) {
   }
   try {
     const meta = await fetchMeta(id);
-    if (meta.status === 'ok') {
+    if (meta.status === 'reessayer') {
+      retry += 1;
+      console.warn(`  ↻ ${id} — ${meta.reason}, non enregistrée : relancer le script plus tard`);
+    } else if (meta.status === 'ok') {
       const hasThumb = await fetchThumb(id);
       videos[id] = { ...meta, thumbnail: hasThumb ? `/images/video-thumbs/${id}.webp` : null, declaredTitle };
       done += 1;
@@ -149,9 +171,9 @@ for (const [id, declaredTitle] of ids) {
       console.warn(`  ⚠ ${id} — ${meta.reason} (« ${declaredTitle ?? '?'} »)`);
     }
   } catch (error) {
-    videos[id] = { status: 'indisponible', reason: String(error), declaredTitle };
-    unavailable += 1;
-    console.warn(`  ⚠ ${id} — ${error}`);
+    // Erreur réseau : passagère par nature, rien n'est enregistré.
+    retry += 1;
+    console.warn(`  ↻ ${id} — ${error}, non enregistrée : relancer le script plus tard`);
   }
   await sleep(DELAY_MS);
 }
@@ -174,3 +196,7 @@ writeFileSync(
 console.log(
   `✓ ${OUT_JSON} — ${done} relevée(s), ${skipped} déjà connue(s), ${unavailable} indisponible(s).`,
 );
+if (retry) {
+  console.warn(`↻ ${retry} vidéo(s) non relevée(s) (erreur passagère) : relancer \`npm run videos:metadata\`.`);
+  process.exitCode = 1;
+}

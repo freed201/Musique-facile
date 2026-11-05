@@ -19,12 +19,17 @@ songInfo:
   difficulty: "3/5"
 
 videos:
-  - title: "Découvrir 'Hallelujah' pour Débutants"
+  - title: "Hallelujah guitare – Tutoriel débutant simple"
     url: "https://youtu.be/00vo_5ayyQM"
-  - title: "Tutoriel Complet : Maîtriser 'Hallelujah'"
+    type: "debutant"
+  - title: "Hallelujah à la guitare – tutoriel complet (Jeff Buckley)"
     url: "https://youtu.be/XjTbkEXzqHc"
-  - title: "Play Along : Jouez 'Hallelujah' avec Moi"
+    type: "complet"
+  - title: "Hallelujah – Guitare Play Along complet + accords"
     url: "https://youtu.be/9N77P4o_RlI"
+    type: "playalong"
+  - title: "Apprends 'Hallelujah' de Jeff Buckley à la Guitare - Tutoriel pour Débutants Facile !"
+    url: "https://www.youtube.com/shorts/V_opZvgUHBA"
 
 
 

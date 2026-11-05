@@ -19,12 +19,15 @@ songInfo:
   difficulty: "3/5"
 
 videos:
-  - title: "Tutoriel Simplifié : Découvrir 'J'veux du Soleil'"
+  - title: "J'veux du soleil guitare - Tutoriel débutant simple"
     url: "https://youtu.be/iWv5RgwglDA"
-  - title: "Tutoriel Complet : Approfondir le morceau"
+    type: "debutant"
+  - title: "J'veux du Soleil guitare - Tutoriel débutant simple"
     url: "https://youtu.be/kTSgGvu2WlQ"
-  - title: "Play Along : Jouez avec Au P'tit Bonheur"
+    type: "debutant"
+  - title: "J'veux du soleil - Guitare Play Along facile (complet)"
     url: "https://youtu.be/HnjPJ5cHGpc"
+    type: "playalong"
 
 
 

@@ -18,13 +18,6 @@ songInfo:
   chordCount: 9
   difficulty: "4/5"
 
-videos:
-  - title: "Tutoriel simplifié : Apprenez 'Wild World'"
-    url: "https://youtu.be/JomLddLcL2M"
-  - title: "Tutoriel avancé : Maîtriser les subtilités"
-    url: "https://youtu.be/f83evhPPaoQ"
-  - title: "Play Along : Joue avec Cat Stevens"
-    url: "https://youtu.be/u43nywi1Dlo"
 
 
 

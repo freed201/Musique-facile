@@ -19,12 +19,15 @@ songInfo:
   difficulty: "3/5"
 
 videos:
-  - title: "Version simplifiée pour débutants"
+  - title: "Un autre monde – Guitare | Tutoriel débutant"
     url: "https://youtu.be/eGJVTeHe58Q"
-  - title: "Subtilités, rythmiques, et structure"
+    type: "debutant"
+  - title: "Un Autre Monde à la guitare – tutoriel complet (Téléphone)"
     url: "https://youtu.be/To4IR_JOG4M"
-  - title: "Play Along"
+    type: "complet"
+  - title: "Un autre monde – Guitare Play Along facile (complet)"
     url: "https://youtu.be/s2Gcq8iox5s"
+    type: "playalong"
 
 
 

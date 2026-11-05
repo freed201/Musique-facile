@@ -19,14 +19,17 @@ songInfo:
   difficulty: "3/5"
 
 videos:
-  - title: "Vidéo officielle de 'Riche'"
+  - title: "Apprendre Riche de Claudio Capéo- à la Guitare Pour Débutants - Tutoriel Facile"
     url: "https://youtu.be/pplJ4vdt3kI"
+    type: "debutant"
   - title: "Riche – Claudio Capéo | Play Along Guitare facile"
     url: "https://youtu.be/EPlGAzAqPkc"
-  - title: "Tutoriel complet de 'Riche'"
+    type: "playalong"
+  - title: "Riche à la guitare – tutoriel complet (Claudio Capéo)"
     url: "https://youtu.be/McgAODD4svo"
-  - title: "Play Along : Joue avec Claudio Capéo"
-    url: "https://youtu.be/EPlGAzAqPkc"
+    type: "complet"
+  - title: "Riche – Claudio Capéo | guitare facile"
+    url: "https://www.youtube.com/shorts/bZTqR03qD_M"
 
 
 conclusion: |
