@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Wonderwall (Oasis) : Accords et Tablature Guitare"
+title: "Wonderwall (Oasis) : accords guitare et tuto vidéo"
 description: "Le tutoriel de référence pour jouer Wonderwall d'Oasis : capo case 2, 5 accords ouverts, la rythmique qui sonne et l'astuce des doigts ancrés. Pour débutants."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -27,8 +27,11 @@ songInfo:
   bookPage: 89
   tempo: 90
   chordCount: 7
-  key: ""
   difficulty: "4/5"
+  key: "F#m"
+  artist: "Oasis"
+  composers: ["Noel Gallagher"]
+  year: 1995
 videos:
   - title: "Wonderwall à la guitare - Tutoriel débutant (capo 2)"
     url: "https://youtu.be/0OyUCudbWX4"

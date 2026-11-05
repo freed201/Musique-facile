@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Chasing Cars (Snow Patrol) : Accords et Tablature Guitare"
+title: "Chasing Cars (Snow Patrol) : accords guitare et tutos vidéo"
 description: "Les 5 accords de Chasing Cars (A, D, Dsus2, E, E/G#), la grille du refrain et les arpèges. Une boucle courte sur tout le morceau, sans capo, à 104 BPM."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -27,8 +27,11 @@ songInfo:
   bookPage: 68
   tempo: 104
   chordCount: 5
-  key: ""
   difficulty: "3/5"
+  key: "A"
+  artist: "Snow Patrol"
+  composers: ["Gary Lightbody", "Nathan Connolly", "Jonny Quinn", "Paul Wilson", "Tom Simpson"]
+  year: 2006
 videos:
   - title: "Chasing Cars - Guitare Débutant | Tutoriel simple"
     url: "https://youtu.be/cMZxsloPy_Y"

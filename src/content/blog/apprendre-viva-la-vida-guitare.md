@@ -1,12 +1,12 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Viva La Vida (Coldplay) : Accords et Tablature Guitare"
+title: "Viva la Vida (Coldplay) : accords guitare et tutos vidéo"
 description: "Les 4 accords de Viva La Vida (C, D, G, Em) en diagrammes, le strumming qui imite les cordes et 3 vidéos. Une seule boucle facile, du début à la fin."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-09-02"
+dateModified: "2026-11-05"
 prod: Y
 schemaType: "BlogPosting"
 ogImage: "/images/blog/apprendre-viva-la-vida-guitare.webp"
@@ -27,8 +27,11 @@ songInfo:
   bookPage: 80
   tempo: 70
   chordCount: 4
-  key: ""
   difficulty: "2/5"
+  key: "Ab"
+  artist: "Coldplay"
+  composers: ["Guy Berryman", "Jonny Buckland", "Will Champion", "Chris Martin"]
+  year: 2008
 videos:
   - title: "Viva La Vida guitare - Tutoriel débutant simplifié"
     url: "https://youtu.be/H-3FzDGyLZA"
@@ -45,13 +48,13 @@ faqs:
   - question: "Quels accords pour jouer Viva La Vida à la guitare ?"
     answer: "Une boucle de 4 accords suffit : C, D, G et Em, répétée sur tout le morceau. C'est l'une des chansons les plus accessibles de Coldplay à la guitare, car la même grille sert pour l'intro, les couplets et le refrain. Une fois la boucle fluide, tu joues le titre entier."
   - question: "Pourquoi Viva La Vida n'a-t-elle pas de vraie partie de guitare à l'origine ?"
-    answer: "Parce que le riff principal du morceau (album de 2008 produit par Brian Eno) est joué par des cordes (violons), pas par une guitare. À la guitare, on recrée donc cette mélodie en grattant la boucle d'accords C-D-G-Em. C'est pour ça que le strumming doit rester régulier et « chantant » : il imite le mouvement des cordes."
+    answer: "Parce que le riff principal du morceau (album de 2008 coproduit notamment par Brian Eno et Markus Dravs) est joué par des cordes (violons), pas par une guitare. À la guitare, on recrée donc cette mélodie en grattant la boucle d'accords C-D-G-Em. C'est pour ça que le strumming doit rester régulier et « chantant » : il imite le mouvement des cordes."
   - question: "Comment rendre Viva La Vida épique avec seulement 4 accords ?"
     answer: "Tout est dans la régularité et la montée d'intensité. Garde un strumming constant et bien en place, puis gratte un peu plus fort et plus large sur le refrain pour créer l'effet « hymne ». L'astuce est de ne jamais casser le flux : c'est cette pulsation continue qui donne le côté grandiose."
   - question: "Que raconte Viva La Vida ?"
     answer: "Le titre vient d'un tableau de Frida Kahlo (« Vive la vie »). Les paroles racontent la chute d'un roi qui « régnait sur le monde » et a tout perdu. Connaître ce thème aide à jouer le morceau avec la bonne intention : une grandeur mélancolique, à la fois triomphale et nostalgique."
 ---
-Sortie en 2008 et produite par Brian Eno, « Viva La Vida » est l'un des plus grands succès de Coldplay. Son titre vient d'un tableau de Frida Kahlo (« Vive la vie »), et ses paroles racontent la chute d'un roi qui régnait sur le monde et a tout perdu. À la guitare, c'est un morceau étonnamment simple — à condition de comprendre une particularité : à l'origine, **ce n'est pas une chanson de guitare**.
+Sortie en 2008 et coproduite notamment par Brian Eno et Markus Dravs, « Viva La Vida » est l'un des plus grands succès de Coldplay. Son titre vient d'un tableau de Frida Kahlo (« Vive la vie »), et ses paroles racontent la chute d'un roi qui régnait sur le monde et a tout perdu. À la guitare, c'est un morceau étonnamment simple — à condition de comprendre une particularité : à l'origine, **ce n'est pas une chanson de guitare**.
 
 ## En bref
 

@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "La Seine (Vanessa Paradis & -M-) : Accords et Tab Guitare"
+title: "La Seine (Vanessa Paradis & -M-) : accords guitare et vidéos"
 prod: Y
 description: "Les 8 accords de La Seine (Am, F, C, E7/B…) en diagrammes, le capo case 5 et la grille complète du couplet au pont. Tempo 55 BPM, tutoriel pas à pas."
 ogImage: "/images/blog/jouer-la-seine-vanessa-m.webp"
@@ -17,6 +17,9 @@ songInfo:
   tempo: 55
   chordCount: 8
   difficulty: "4/5"
+  artist: "Vanessa Paradis et -M-"
+  composers: ["Matthieu Chedid"]
+  year: 2011
 
 videos:
   - title: "La Seine à la guitare – tutoriel complet (Vanessa Paradis & -M-)"

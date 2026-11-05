@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Across the Universe (Beatles) : Accords Guitare"
+title: "Across the Universe (Beatles) : accords guitare et vidéos"
 prod: Y
 description: "Across the Universe des Beatles : 8 accords avec capo case 2, ballade psychédélique 1969. Tutoriel guitare intermédiaires."
 ogImage: "/images/blog/tutoriel-across-the-universe-pour-debutants.webp"
@@ -18,6 +18,9 @@ songInfo:
   tempo: 76
   chordCount: 5
   difficulty: "4/5"
+  artist: "The Beatles"
+  composers: ["John Lennon", "Paul McCartney"]
+  year: 1969
 
 videos:
   - title: "Across The Universe guitare - Tutoriel débutant"

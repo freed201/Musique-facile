@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Back to Black (Amy Winehouse) : Accords et Tablature Guitare"
+title: "Back to Black (Amy Winehouse) : accords guitare et vidéos"
 description: "Les 7 accords de Back to Black (Dm, Gm, Bb, A…), la grille du couplet au pont et le groove soul retenu à 123 BPM. Tutoriel guitare pas à pas."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -27,8 +27,11 @@ songInfo:
   bookPage: 8
   tempo: 123
   chordCount: 7
-  key: "Dm"
   difficulty: "3/5"
+  key: "Dm"
+  artist: "Amy Winehouse"
+  composers: ["Amy Winehouse", "Mark Ronson"]
+  year: 2006
 videos:
   - title: "Back To Black d'Amy Winehouse à la Guitare - Tutoriel Débutant Simplifié"
     url: "https://youtu.be/AgwMY5q7sIs"

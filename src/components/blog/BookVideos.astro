@@ -57,13 +57,13 @@ const shorts = playable.filter(isShort);
       {bookPage && <p class="book-videos__eyebrow">Ton livre, page {bookPage}</p>}
       <h2 id="book-videos-title" class="book-videos__title">Les vidéos de {song}</h2>
       {longs.length > 1 && (
-        <p class="book-videos__intro">Suis les étapes dans l'ordre : on pose les bases, on affine, puis tu joues le morceau en entier avec moi.</p>
+        <p class="book-videos__intro">Commence par l'étape 1. Quand les changements d'accords passent sans que tu t'arrêtes, enchaîne avec la suite.</p>
       )}
     </header>
 
     {longs.length > 0 && (
       <ol class="book-videos__list">
-        {longs.map((video) => (
+        {longs.map((video, i) => (
           <li class="book-videos__item">
             {video.type && (
               <p class="book-videos__step">
@@ -71,7 +71,7 @@ const shorts = playable.filter(isShort);
                 <span><span class="sr-only">Étape {STEPS[video.type].n} : </span>{STEPS[video.type].label}</span>
               </p>
             )}
-            <VideoEmbed url={video.url} title={video.title} transcript={video.transcript} compact />
+            <VideoEmbed url={video.url} title={video.title} transcript={video.transcript} compact priority={i === 0} />
             <p class="book-videos__caption">{video.title}</p>
           </li>
         ))}
@@ -82,9 +82,9 @@ const shorts = playable.filter(isShort);
       <div class="book-videos__shorts">
         <h3 class="book-videos__subtitle">En format court</h3>
         <ul class="book-videos__shorts-list">
-          {shorts.map((video) => (
+          {shorts.map((video, i) => (
             <li class="book-videos__short">
-              <VideoEmbed url={video.url} title={video.title} compact />
+              <VideoEmbed url={video.url} title={video.title} compact priority={longs.length === 0 && i === 0} />
               <p class="book-videos__caption">{video.title}</p>
             </li>
           ))}

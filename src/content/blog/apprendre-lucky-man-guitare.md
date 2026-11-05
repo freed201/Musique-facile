@@ -1,8 +1,8 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Lucky Man (The Verve) : Accords et Tab Guitare"
+title: "Lucky Man (The Verve) : accords guitare et tutos vidéo"
 prod: Y
-description: "Lucky Man de The Verve à la guitare : 5 accords simples, rythmique Britpop, classique 1997. Tutoriel vidéo débutants."
+description: "Lucky Man de The Verve à la guitare : 5 accords sans capo, dont Dsus2 et Asus2, des arpèges sur les couplets et mes tutos vidéo pour débuter."
 ogImage: "/images/blog/apprendre-lucky-man-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -17,6 +17,9 @@ songInfo:
   tempo: 78
   chordCount: 6
   difficulty: "2/5"
+  artist: "The Verve"
+  composers: ["Richard Ashcroft"]
+  year: 1997
 
 videos:
   - title: "Lucky Man - Guitare Débutant | Tutoriel simplifié"

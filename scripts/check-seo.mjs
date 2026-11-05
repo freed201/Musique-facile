@@ -38,18 +38,10 @@ const TITLE_MAX = 60;
 const DESC_MIN = 120;
 const DESC_MAX = 160;
 
-/**
- * Exemptions de longueur de title, explicites et justifiées.
- *
- * Les articles « morceau » du blog portent un title enrichi par `songInfo`
- * (« … | 7 Accords | Difficulté 3/5 »), ce qui les pousse à 78-90 caractères.
- * C'est un choix éditorial assumé, pas un oubli : ils sont donc tolérés
- * jusqu'à SONG_TITLE_MAX au lieu d'être signalés en erreur. La décision de
- * raccourcir ou non ces titles est ouverte (docs/seo/A-FAIRE.md, point 5) —
- * le jour où elle est tranchée, cette exemption saute.
- */
-const SONG_TITLE_MAX = 90;
-const isSongArticle = (html) => /\|\s*\d+\s*Accords?\s*\|/i.test(html) || /\|\s*Difficulté\s/i.test(html);
+// Les articles « morceau » avaient une exemption jusqu'à 90 caractères : leur
+// title était enrichi par songInfo (« … | 7 Accords | Difficulté 3/5 »).
+// L'enrichissement a été retiré le 2026-11-05 (docs/seo/A-FAIRE.md, point 5) :
+// ils suivent désormais la règle commune.
 
 const errors = [];
 const warnings = [];
@@ -123,13 +115,13 @@ for (const file of files) {
   } else {
     const title = decode(titleMatch[1]).trim();
     const len = [...title].length;
-    const max = isSongArticle(title) ? SONG_TITLE_MAX : TITLE_MAX;
+    const max = TITLE_MAX;
     if (len > max) {
       add(
         errors,
         file,
         'title-trop-long',
-        `${len} caractères (max ${max})${max === SONG_TITLE_MAX ? ' — article morceau' : ''} : « ${title} »`,
+        `${len} caractères (max ${max}) : « ${title} »`,
       );
     }
   }

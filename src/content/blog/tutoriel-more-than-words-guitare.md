@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "More Than Words (Extreme) : Accords Guitare"
+title: "More Than Words (Extreme) : accords guitare et tuto vidéo"
 prod: Y
 description: "More Than Words d'Extreme à la guitare : ballade acoustique 1990, technique avancée, accordage spécial. Tutoriel confirmés."
 ogImage: "/images/blog/tutoriel-more-than-words-guitare.webp"
@@ -17,6 +17,9 @@ songInfo:
   tempo: 92
   chordCount: 12
   difficulty: "5/5"
+  artist: "Extreme"
+  composers: ["Nuno Bettencourt", "Gary Cherone"]
+  year: 1990
 
 videos:
   - title: "More Than Words – playalong guitare avec accords (Extreme)"

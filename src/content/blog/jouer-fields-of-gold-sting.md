@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Fields of Gold (Sting) : Accords et Tab Guitare"
+title: "Fields of Gold (Sting) : accords guitare et tutos vidéo"
 prod: Y
 description: "Fields of Gold de Sting à la guitare : 6 accords avec capo case 2, ballade folk-pop 1993, arpèges. Tutoriel intermédiaires."
 ogImage: "/images/blog/jouer-fields-of-gold-sting.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-11-05"
 introduction: "Fields of Gold de Sting se joue avec 6 accords et un capo case 2, en fingerpicking sur un tempo posé (104 BPM). Extraite de l'album 'Ten Summoner's Tales' (1993), cette ballade explore l'amour, la nostalgie et la beauté de la nature. Voici comment l'apprendre pas à pas."
 
 songInfo:
@@ -17,6 +17,9 @@ songInfo:
   tempo: 104
   chordCount: 6
   difficulty: "3/5"
+  artist: "Sting"
+  composers: ["Sting"]
+  year: 1993
 
 videos:
   - title: "Fields of Gold à la guitare – tutoriel complet (Sting)"
@@ -101,7 +104,7 @@ Lorsque l'on évoque Sting, on pense inévitablement à sa contribution inégal�
 
 "Fields of Gold" est bien plus qu'une simple chanson ; c'est une peinture musicale où les teintes dorées des champs d'orge prennent vie audacieusement. Inspiré par les paysages bucoliques entourant la maison de Sting en Angleterre, ce morceau invite à apprécier la beauté simple et éphémère de la nature et de notre passage dans le temps. La chanson, avec un tempo de 104 battements par minute, instaure une ambiance apaisante idéale pour le calme d'une soirée.
 
-L'œuvre se démarque par sa simplicité en apparence, mais ses paroles poignantes portent une profondeur qui touche l'âme. Sting lui-même a révélé qu'il considère "Fields of Gold" parmi ses compositions les plus précieuses, allant jusqu'à souhaiter que le morceau soit joué à son enterrement. C'est une chanson qui parle à tous, avec une universalité qui en fait un classique intemporel.
+L'œuvre se démarque par sa simplicité en apparence, mais ses paroles poignantes portent une profondeur qui touche l'âme. Sting lui-même a révélé qu'il considère "Fields of Gold" parmi ses compositions les plus précieuses. C'est une chanson qui parle à tous, avec une universalité qui en fait un classique intemporel.
 
 ## Comment analyser les paroles de "Fields of Gold" ?
 

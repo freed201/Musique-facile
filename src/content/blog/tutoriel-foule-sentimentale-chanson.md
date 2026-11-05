@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Foule Sentimentale (Souchon) : Accords et Tab Guitare"
+title: "Foule sentimentale (Souchon) : accords guitare et vidéos"
 prod: Y
 description: "Les 5 accords de Foule Sentimentale (Em, Am, D7, B7, C) en diagrammes et les 2 suites qui alternent dans le morceau. Sans capo, tempo lent à 55 BPM."
 ogImage: "/images/blog/tutoriel-foule-sentimentale-chanson.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-11-05"
 introduction: "Foule Sentimentale d'Alain Souchon se joue avec 5 accords sur un tempo lent (55 BPM), difficulté 2/5. Sortie en 1993, cette critique poétique de la société de consommation est devenue un grand classique. Découvre son histoire et comment l'interpréter avec la juste sensibilité, pas à pas."
 
 songInfo:
@@ -17,6 +17,9 @@ songInfo:
   tempo: 55
   chordCount: 5
   difficulty: "2/5"
+  artist: "Alain Souchon"
+  composers: ["Alain Souchon"]
+  year: 1993
 
 videos:
   - title: "Foule Sentimentale guitare - Tutoriel débutant simple"
@@ -102,7 +105,7 @@ Si Alain Souchon est aujourd'hui un monument de la chanson française, ses débu
 
 ### Distinctions et reconnaissance
 
-Sa carrière a été reconnue par plusieurs distinctions. Alain Souchon a remporté de nombreux prix, parmi lesquels la Victoire de la Musique de l'artiste interprète masculin de l'année. En 2010, il a reçu une Victoire d'honneur pour l'ensemble de sa carrière lors de la 25e cérémonie des Victoires de la Musique. Il est aussi Chevalier de l'Ordre des Arts et des Lettres.
+Sa carrière a été reconnue par plusieurs distinctions. Alain Souchon a remporté de nombreux prix, parmi lesquels la Victoire de la Musique de l'artiste interprète masculin de l'année. En 2005, pour les vingt ans des Victoires de la Musique, Foule sentimentale a reçu une Victoire spéciale. Il est aussi Chevalier de l'Ordre des Arts et des Lettres.
 
 ## Quel est le contexte de "Foule Sentimentale" ?
 

@@ -5,9 +5,12 @@ ogImage: "/images/livres/CARMF2838.webp"
 coverImage: "/images/livres/CARMF2838.webp"
 price: "24,70 €"
 author: "Fred Fieffé"
-datePublished: "2024-01-15"
-dateModified: "2026-09-01"
-isbn: "979-8-9876543-2-1"
+# Sortie en mars 2024 (Fred) ; jour exact inconnu, d'où la date au mois près (ISO 8601).
+datePublished: "2024-03"
+dateModified: "2026-11-05"
+# ISMN (979-0…, numéro des partitions musicales) donné par l'éditeur. Il
+# remplace le 2026-11-05 un « ISBN » 979-8-9876543-2-1 à la clé invalide.
+isbn: "9790052001186"
 pages: 108
 format: "21 x 29,7 cm - A4"
 language: "fr-FR"
@@ -23,53 +26,25 @@ features:
     text: "Accords et rythmes expliqués"
   - icon: "📱"
     text: "QR codes vers vidéos tutorielles"
-  - icon: "🔄"
-    text: "Mises à jour gratuites"
 
 # Les trois témoignages retirés le 2026-09-01 (Marie Dubois, Thomas Martin,
 # Julie Lefebvre) portaient exactement les noms du lot de contenu de démonstration
 # de la page d'accueil, confirmé fabriqué par Fred. Aucun avis réel disponible.
 testimonials: []
 
-tableOfContents:
-  - title: "Introduction et Bases"
-    items:
-      - "Comment utiliser ce livre"
-      - "Les bases de la guitare"
-      - "Accords essentiels"
-      - "Techniques de rythmique"
-  - title: "Chansons Niveau Débutant"
-    items:
-      - "Je l'aime à mourir - Francis Cabrel"
-      - "La Maison du Bonheur - Elie Semoun"
-      - "Wonderwall - Oasis"
-      - "Let It Be - The Beatles"
-  - title: "Chansons Niveau Intermédiaire"
-    items:
-      - "La Bohème - Charles Aznavour"
-      - "Hallelujah - Jeff Buckley"
-      - "Sweet Home Alabama - Lynyrd Skynyrd"
-      - "Hotel California - Eagles"
-  - title: "Chansons Niveau Avancé"
-    items:
-      - "Ne me quitte pas - Jacques Brel"
-      - "Stairway to Heaven - Led Zeppelin"
-      - "Asturias - Isaac Albéniz"
-      - "Classical Gas - Mason Williams"
+# Le sommaire saisi ici depuis février 2025 citait des morceaux absents du
+# livre (Je l'aime à mourir, Stairway to Heaven, Asturias…). La liste des
+# chansons est désormais calculée depuis les 40 articles songInfo.inBook :
+# voir src/pages/livres/[slug].astro.
+tableOfContents: []
 
+# Trois bonus retirés le 2026-11-05 (pistes d'accompagnement à télécharger,
+# application mobile gratuite 6 mois, groupe Facebook privé) : ils n'existent
+# pas, confirmé par Fred. Ils venaient de l'import initial de février 2025.
 bonuses:
   - icon: "🎥"
     title: "Vidéos Tutorielles"
     description: "Accès à plus de 40 vidéos explicatives via QR codes"
-  - icon: "🎧"
-    title: "Backing Tracks"
-    description: "Téléchargement des pistes d'accompagnement pour s'entraîner"
-  - icon: "📱"
-    title: "Application Mobile"
-    description: "Accès gratuit à l'application compagnon pour 6 mois"
-  - icon: "👥"
-    title: "Groupe Privé"
-    description: "Accès au groupe Facebook privé pour échanger avec la communauté"
 
 buyLink: "https://c3po.link/QuXzSswZbp"
 preview: ""

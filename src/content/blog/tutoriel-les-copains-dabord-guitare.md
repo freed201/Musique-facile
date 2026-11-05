@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Les Copains d'Abord (Brassens) : Accords Guitare"
+title: "Les Copains d'abord (Brassens) : accords guitare et vidéos"
 prod: Y
 description: "Les accords des Copains d'Abord (D, E7, G, F#, F#7, A7, Bm, C7) et la grille du couplet. Brassens à la guitare, sans capo, tempo 80 BPM."
 ogImage: "/images/blog/tutoriel-les-copains-dabord-guitare.webp"
@@ -16,6 +16,9 @@ songInfo:
   bookPage: 38
   chordCount: 8
   difficulty: "4/5"
+  artist: "Georges Brassens"
+  composers: ["Georges Brassens"]
+  year: 1964
 
 videos:
   - title: "Les Copains d’abord guitare – Tutoriel débutant"

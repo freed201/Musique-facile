@@ -34,6 +34,30 @@ const {
   preview
 } = book.data;
 
+// Le champ `isbn` peut contenir un ISBN, un ISMN (979-0…, partitions
+// musicales) ou un texte comme « Non spécifié ». Seul un numéro à 13 chiffres
+// est affiché et balisé, sous son vrai nom : schema.org n'a pas de propriété
+// ISMN, il passe donc par `identifier`.
+const bookNumber = (isbn ?? '').replace(/[^0-9]/g, '');
+const hasBookNumber = bookNumber.length === 13;
+const isIsmn = hasBookNumber && bookNumber.startsWith('9790');
+
+// Les chansons du livre « 40 chansons » : ce sont les articles du blog marqués
+// songInfo.inBook (cible des QR codes imprimés), triés par page. La liste est
+// calculée, pas recopiée : un sommaire saisi à la main avait dérivé jusqu'à
+// citer des morceaux absents du livre.
+const today = new Date();
+const bookSongs = book.slug === '40-chansons-francaises-et-hits-pop-rock'
+  ? (await getCollection('blog'))
+      .filter((p) => p.data.songInfo?.inBook && p.data.prod === 'Y' && new Date(p.data.datePublished) <= today)
+      .sort((a, b) => (a.data.songInfo?.bookPage ?? 0) - (b.data.songInfo?.bookPage ?? 0))
+      .map((p) => ({
+        slug: p.slug,
+        name: p.data.title.split(/\s+:/)[0].trim(),
+        page: p.data.songInfo?.bookPage,
+      }))
+  : [];
+
 // Construction du schema.org pour le livre
 const bookSchema = {
   "@context": "https://schema.org",
@@ -45,7 +69,8 @@ const bookSchema = {
     "@type": "Person",
     "name": author
   },
-  "isbn": isbn,
+  ...(hasBookNumber && !isIsmn ? { "isbn": isbn } : {}),
+  ...(isIsmn ? { "identifier": { "@type": "PropertyValue", "propertyID": "ISMN", "value": isbn } } : {}),
   "numberOfPages": pages,
   "inLanguage": language,
   "datePublished": datePublished,
@@ -107,9 +132,9 @@ const titreSeo = title.length + SUFFIXE.length <= 60 ? `${title}${SUFFIXE}` : ti
                 <span class="meta-label">Pages</span>
                 <span class="meta-value">{pages}</span>
               </div>
-              {isbn && (
+              {hasBookNumber && (
                 <div class="meta-item">
-                  <span class="meta-label">ISBN</span>
+                  <span class="meta-label">{isIsmn ? 'ISMN' : 'ISBN'}</span>
                   <span class="meta-value">{isbn}</span>
                 </div>
               )}
@@ -143,6 +168,22 @@ const titreSeo = title.length + SUFFIXE.length <= 60 ? `${title}${SUFFIXE}` : ti
       <div class="container">
         <div class="content-grid">
           <div class="main-content">
+            {bookSongs.length > 0 && (
+              <div class="table-of-contents">
+                <h2>Les {bookSongs.length} chansons du livre</h2>
+                <p class="toc-intro">Chaque chanson a sa page sur le site, avec les accords et les vidéos du QR code.</p>
+                <ol class="book-songs">
+                  {bookSongs.map((song) => (
+                    <li>
+                      <a href={`/blog/${song.slug}/`}>{song.name}</a>
+                      {song.page && <span class="book-songs__page">p. {song.page}</span>}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+
+            {tableOfContents.length > 0 && (
             <div class="table-of-contents">
               <h2>Contenu du livre</h2>
               {tableOfContents.map(section => (
@@ -156,6 +197,7 @@ const titreSeo = title.length + SUFFIXE.length <= 60 ? `${title}${SUFFIXE}` : ti
                 </div>
               ))}
             </div>
+            )}
 
             {bonuses && (
               <div class="bonuses">
@@ -444,6 +486,40 @@ const titreSeo = title.length + SUFFIXE.length <= 60 ? `${title}${SUFFIXE}` : ti
     padding: 0.5rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     color: var(--color-dark);
+  }
+
+  .toc-intro {
+    margin: -1rem 0 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .book-songs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    columns: 2 18rem;
+    column-gap: 2rem;
+  }
+
+  .book-songs li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-default);
+    break-inside: avoid;
+  }
+
+  .book-songs a {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .book-songs__page {
+    flex-shrink: 0;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
   }
 
   .bonuses {

@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Machistador (-M-) : Accords et Tab Guitare"
+title: "Machistador (-M-) : accords guitare et tutos vidéo"
 prod: Y
 description: "Machistador de -M- à la guitare : groove funky, rythmique énergique, 4 accords en barré. Tutoriel guitaristes intermédiaires."
 ogImage: "/images/blog/apprendre-machistador-guitare.webp"
@@ -8,8 +8,8 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-09-02"
-introduction: "Avec 'Machistador', Matthieu Chedid alias -M- nous offre une explosion de funk et d'énergie pure, tirée de l'album culte 'Je dis aime' (1999). Découvrez l'histoire de ce morceau emblématique du rock français et apprenez à le jouer avec notre tutoriel adapté aux guitaristes intermédiaires."
+dateModified: "2026-11-05"
+introduction: "Avec 'Machistador', Matthieu Chedid alias -M- nous offre une explosion de funk et d'énergie pure, tirée de son premier album, 'Le Baptême', et sortie en single en 1998. Découvrez l'histoire de ce morceau emblématique du rock français et apprenez à le jouer avec notre tutoriel adapté aux guitaristes intermédiaires."
 
 songInfo:
   inBook: true
@@ -17,6 +17,7 @@ songInfo:
   tempo: 110
   chordCount: 3
   difficulty: "5/5"
+  artist: "-M-"
 
 videos:
   - title: "Machistador -M- Guitare Tutoriel Débutant (capo 3)"
@@ -52,7 +53,7 @@ faqs:
   - question: "Machistador de -M- est-elle difficile à la guitare ?"
     answer: "Oui, c'est un morceau exigeant (difficulté 5/5). Il ne demande que 4 accords, mais ce sont des accords en barré, et surtout il faut maîtriser un groove funky précis à 110 BPM. C'est davantage un défi de rythmique et de feeling que de nombre d'accords. Des versions simplifiées existent pour se familiariser avant de viser l'original."
   - question: "Faut-il un capo pour jouer Machistador ?"
-    answer: "Non, pas de capo. En revanche, une bonne maîtrise des barrés est indispensable pour capturer l'énergie funk du morceau de Matthieu Chedid (album Je dis aime, 1999). Concentre-toi sur la main droite et le groove : c'est lui qui fait toute la vie de ce titre."
+    answer: "Non, pas de capo. En revanche, une bonne maîtrise des barrés est indispensable pour capturer l'énergie funk du morceau de Matthieu Chedid (single de 1998, extrait de l'album Le Baptême). Concentre-toi sur la main droite et le groove : c'est lui qui fait toute la vie de ce titre."
   - question: "Pourquoi Machistador est-elle un bon morceau pour travailler le funk ?"
     answer: "Parce que tout y repose sur la rythmique : des accords en barré joués de façon sèche et syncopée, avec beaucoup de groove. C'est un excellent terrain pour travailler la précision de la main droite et le placement rythmique, deux compétences clés du jeu funky qui te serviront sur de nombreux autres morceaux."
 ---
@@ -86,9 +87,9 @@ Sur le papier, c'est le morceau le plus simple du répertoire de -M-. En pratiqu
 
 ## Quelle est l'aventure musicale de "Machistador" ?
 
-**Titre et album** : "Machistador" est l'une des pistes emblématiques de *Je dis aime*, un album qui a marqué un tournant dans la carrière de -M-. Ce projet met en avant le style unique de l'artiste, mêlant différentes influences musicales pour créer un son à la fois novateur et intemporel. 
+**Titre et album** : "Machistador" vient de *Le Baptême*, le premier album de -M-. C'est avec ce single, sorti quelques mois après le disque, que le public a commencé à le remarquer. Ce projet met en avant le style unique de l'artiste, mêlant différentes influences musicales pour créer un son à la fois novateur et intemporel. 
 
-**Date de sortie** : L'album est sorti en 1999, une époque où la scène musicale française était en pleine effervescence, avec de nombreux artistes expérimentant de nouveaux styles.
+**Date de sortie** : le single est sorti en 1998, une époque où la scène musicale française était en pleine effervescence, avec de nombreux artistes expérimentant de nouveaux styles.
 
 **Contexte historique et artistique** : "Machistador" est né dans une période de renaissance musicale française, influencée par le funk, le rock et des sonorités pop. Matthieu Chedid, connu pour ses performances scéniques électrisantes, s'inspire des grands noms du funk pour composer un morceau qui se distingue par sa rythmique enlevée et son groove irrésistible.
 

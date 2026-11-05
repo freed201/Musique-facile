@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Une Belle Histoire (Fugain) : Accords Guitare"
+title: "Une belle histoire (Fugain) : accords guitare et vidéos"
 prod: Y
 description: "Les 8 accords d'Une Belle Histoire (Am, Dm7, G7, CMaj7, FMaj7, Esus4, E7, E) et la grille complète. Fugain à la guitare, sans capo, tempo 85 BPM."
 ogImage: "/images/blog/apprendre-une-belle-histoire-guitare.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-11-05"
 introduction: |
   Avec "Une Belle Histoire", Michel Fugain a capturé l’esprit de liberté, de rencontre et de voyage qui traverse toute la chanson française des années 70.  
   Découvre l’histoire de ce morceau emblématique, apprends à le jouer à la guitare, et laisse-toi emporter par la poésie et la fraîcheur qui font de cette chanson un classique intergénérationnel.
@@ -19,6 +19,9 @@ songInfo:
   tempo: 85
   chordCount: 8
   difficulty: "2/5"
+  artist: "Michel Fugain et le Big Bazar"
+  composers: ["Pierre Delanoë", "Michel Fugain"]
+  year: 1972
 
 videos:
   - title: "Une Belle Histoire guitare - Tutoriel Débutant"
@@ -97,7 +100,7 @@ L'Esus4 qui précède le E7 crée la petite tension avant le retour au Am : joue
 
 ## Qui est Michel Fugain ? Un voyage musical avec "Une Belle Histoire"
 
-Sortie en 1972 sur l’album "Fugain et le Big Bazar", "Une Belle Histoire" est rapidement devenue l’une des chansons les plus populaires et les plus appréciées de la variété française.  
+Sortie en 1972 sur l’album "Fugain et le Big Bazar", "Une Belle Histoire" a été écrite par Pierre Delanoë sur une musique de Michel Fugain. Elle est rapidement devenue l’une des chansons les plus populaires et les plus appréciées de la variété française.  
 Avec son tempo doux (85 BPM), son refrain entêtant et ses paroles empreintes de poésie, ce titre transporte instantanément dans une époque d’insouciance et de liberté, celle des routes ouvertes, des rencontres impromptues et des voyages sans lendemain.
 
 La chanson utilise huit accords variés, parmi lesquels des accords de septième majeurs et mineurs, ce qui offre une belle richesse harmonique tout en restant abordable pour un niveau intermédiaire à la guitare.  

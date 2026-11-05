@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Sweet Dreams (Eurythmics) : Accords et Tab Guitare"
+title: "Sweet Dreams (Eurythmics) : accords guitare et tutos vidéo"
 prod: Y
 description: "Les 5 accords de Sweet Dreams (Am, F, E, Dm, D) et la boucle qui tourne du début à la fin, sans capo. Recréer le riff synthé à la guitare, à 93 BPM."
 ogImage: "/images/blog/apprendre-sweet-dreams-guitare.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-11-05"
 introduction: "Plongez dans l'univers électronique et révolutionnaire de 'Sweet Dreams (Are Made of This)', l'un des morceaux les plus emblématiques des années 80 créé par Eurythmics. Découvrez comment adapter ce classique synth-pop de 1983 à la guitare avec notre tutoriel détaillé."
 
 songInfo:
@@ -17,6 +17,9 @@ songInfo:
   tempo: 93
   chordCount: 5
   difficulty: "3/5"
+  artist: "Eurythmics"
+  composers: ["Annie Lennox", "David A. Stewart"]
+  year: 1983
 
 videos:
   - title: "Sweet Dreams guitare - Tutoriel débutant simple"
@@ -95,7 +98,7 @@ Formé en 1980, Eurythmics est le fruit de la collaboration entre Annie Lennox, 
 Saviez-vous qu'Eurythmics a enregistré "Sweet Dreams" dans un minuscule studio à Londres avec des moyens limités ? Malgré une production modeste, le morceau a rapidement capté l'attention du public grâce à son rythme envoûtant et ses paroles intrigantes. Le duo a également collaboré avec d'autres géants de la musique tels que Aretha Franklin, témoignant de leur ouverture musicale et de leur influence indéniable.
 
 ### Distinctions Mémorables
-Au cours de leur carrière, Eurythmics a décroché plusieurs distinctions, dont le BRIT Award de la meilleure performance britannique. Leur contribution à la musique a été telle qu'ils ont été intronisés au UK Music Hall of Fame en 2005.
+En 1999, le duo a reçu le BRIT Award de la contribution exceptionnelle à la musique (Outstanding Contribution to Music). Leur contribution à la musique a été telle qu'ils ont été intronisés au UK Music Hall of Fame en 2005.
 
 ## Quel est le contexte de "Sweet Dreams (Are Made of This)" ?
 

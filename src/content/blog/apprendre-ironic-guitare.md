@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Ironic (Alanis Morissette) : Accords et Tablature Guitare"
+title: "Ironic (Alanis Morissette) : accords guitare et tuto vidéo"
 description: "Les accords d'Ironic (CMaj7, D6(11), D/F#, G, Em7…), le capo case 4 et la grille du couplet au refrain. Le tube 90s d'Alanis Morissette, à 85 BPM."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -27,8 +27,11 @@ songInfo:
   bookPage: 45
   tempo: 85
   chordCount: 8
-  key: ""
   difficulty: "3/5"
+  key: "B"
+  artist: "Alanis Morissette"
+  composers: ["Alanis Morissette", "Glen Ballard"]
+  year: 1995
 videos:
   - title: "Ironic - Guitare Tutoriel Débutant (Capo 4, 9 accords)"
     url: "https://youtu.be/rW9bodiGcig"

@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "House of The Rising Sun : Accords et Tab Guitare"
+title: "House of the Rising Sun : accords guitare et tutos vidéo"
 prod: Y
 description: "Les 5 accords de House of The Rising Sun (Am, C, D, F, E) en diagrammes, la grille complète et l'arpège en 6/8. Sans capo, tempo 85 BPM."
 ogImage: "/images/blog/tutoriel-guitare-house-of-the-rising-sun.webp"
@@ -16,8 +16,11 @@ songInfo:
   bookPage: 32
   tempo: 85
   chordCount: 5
-  key: "Am"
   difficulty: "2/5"
+  key: "Am"
+  artist: "The Animals"
+  composers: ["Traditionnel"]
+  year: 1964
 
 videos:
   - title: "House Of The Rising Sun guitare - Tutoriel débutant"

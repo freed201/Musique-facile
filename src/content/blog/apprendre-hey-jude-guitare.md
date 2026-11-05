@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Hey Jude (The Beatles) : Accords et Tab Guitare"
+title: "Hey Jude (The Beatles) : accords guitare et tutos vidéo"
 description: "Hey Jude des Beatles à la guitare : la grille du couplet, le pré-refrain en A7-D7 et surtout le mythique « na na na » final. Tutoriel pas à pas pour débutants."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -27,8 +27,11 @@ songInfo:
   bookPage: 30
   tempo: 74
   chordCount: 9
-  key: "F"
   difficulty: "5/5"
+  key: "F"
+  artist: "The Beatles"
+  composers: ["John Lennon", "Paul McCartney"]
+  year: 1968
 videos:
   - title: "Hey Jude – Guitare | Tutoriel débutant simple"
     url: "https://youtu.be/2k72sN98kcg"

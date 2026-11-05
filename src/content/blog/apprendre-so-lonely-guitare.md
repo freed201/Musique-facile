@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "So Lonely (The Police) : Accords et Tab Guitare"
+title: "So Lonely (The Police) : accords guitare et tutos vidéo"
 prod: Y
 description: "Les 4 accords de So Lonely (G, D, Em, C) en diagrammes, le capo case 5 et la grille. The Police à la guitare, tempo 80 BPM, fusion rock-reggae."
 ogImage: "/images/blog/apprendre-so-lonely-guitare.webp"
@@ -8,7 +8,7 @@ author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
-dateModified: "2026-07-29"
+dateModified: "2026-11-05"
 introduction: |
   Avec "So Lonely", The Police a su donner naissance à un titre où la fraîcheur du reggae rencontre l'énergie brute du rock, créant ainsi un morceau à la fois dansant et introspectif.  
   Plonge dans l’histoire fascinante de ce classique, apprends à le jouer pas à pas et découvre pourquoi cette chanson continue d’inspirer autant de guitaristes et de fans, tous styles confondus.
@@ -19,6 +19,10 @@ songInfo:
   tempo: 80
   chordCount: 4
   difficulty: "3/5"
+  key: "C"
+  artist: "The Police"
+  composers: ["Sting"]
+  year: 1978
 
 videos:
   - title: "So Lonely - Guitare débutant | Tutoriel simple"
@@ -100,7 +104,7 @@ Le groupe, formé à Londres à la fin des années 70, se compose de trois music
 Dans une époque dominée par le punk et la new wave, The Police se démarque rapidement grâce à son identité musicale hybride, mêlant avec audace le rythme chaloupé du reggae à la puissance directe du rock britannique.  
 Leur premier opus pose les bases d’un son neuf, aventureux, reflet d’une génération à la recherche d’authenticité et de nouveaux repères.
 
-> **Anecdote.** Sting s’est ouvertement inspiré de "No Woman No Cry" de Bob Marley pour composer la ligne de basse et le groove du morceau, confiant que cette influence reggae était une véritable révélation pour lui à l’époque.
+> **Anecdote.** Sting a reconnu avoir repris pour le refrain la grille de "No Woman No Cry" de Bob Marley. À l’époque, le reggae marquait tout le son de The Police.
 
 **Inspiration et influences :**  
 "So Lonely" tire sa force de cette double influence. En puisant dans l’héritage de Bob Marley et en l’associant à l’énergie nerveuse du rock, The Police invente une manière très personnelle de raconter la solitude, à la fois légère en apparence, mais profondément sincère.
