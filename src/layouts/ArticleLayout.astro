@@ -618,17 +618,23 @@ const howToSchema = songInfo ? {
     color: var(--color-dark);
   }
 
+  /* La section n'est rendue que si l'article déclare des vidéos
+     (src/pages/blog/[slug].astro) : aucune condition CSS à ajouter ici.
+     Un ancien `display: none` + `:has(.video-item)` a masqué toutes les
+     vidéos du blog quand VideoEmbed a remplacé les .video-item (#59). */
+  /* Fond toujours sombre : --gray-* ne s'inversent pas en mode sombre,
+     contrairement à --color-dark qui y devient clair. */
   .video-section {
-    display: none; /* Caché par défaut */
     padding: 4rem 0;
-    background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
     color: white;
     margin: 4rem 0;
   }
 
-  /* Afficher la section vidéo uniquement si elle contient des vidéos */
-  .video-section:has(.video-item) {
-    display: block;
+  /* La légende de VideoEmbed est pensée pour un fond clair (--text-secondary) :
+     illisible ici sans cette surcharge. */
+  .video-section .video-grid .video-embed__caption {
+    color: var(--gray-300);
   }
 
   .video-grid {
@@ -638,26 +644,6 @@ const howToSchema = songInfo ? {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
-  }
-
-  .video-item {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-  }
-
-  .video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-  }
-
-  .video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
   }
 
   .podcast-section {

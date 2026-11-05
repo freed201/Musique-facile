@@ -23,14 +23,17 @@ songInfo:
   difficulty: "3/5"
 
 videos:
-  - title: "Découverte de 'I Can't Help Falling in Love'"
-    url: "https://www.youtube.com/watch?v=lq9gMSX-lE0"
-  - title: "Play Along : Joue avec Elvis Presley"
-    url: "https://www.youtube.com/watch?v=rZuI7dVuC0E"
+  - title: "Can't Help Falling in Love – Guitare - Tutoriel Débutant"
+    url: "https://youtu.be/lq9gMSX-lE0"
+    type: "debutant"
+  - title: "Can't Help Falling in Love guitare - Play Along facile"
+    url: "https://youtu.be/rZuI7dVuC0E"
+    type: "playalong"
   - title: "Can’t Help Falling in Love à la guitare – tutoriel complet"
     url: "https://youtu.be/_y6QslDx2Uw"
-  - title: "Tutoriel avancé : Maîtrise complète"
-    url: "https://www.youtube.com/watch?v=_y6QslDx2Uw"
+    type: "complet"
+  - title: "Can’t Help Falling in Love – Elvis Presley | guitare facile"
+    url: "https://www.youtube.com/shorts/idJT93pMTh0"
 
 conclusion: |
   "I Can't Help Falling in Love with You" fait partie de ces titres qui traversent les âges sans perdre une once de magie.  

@@ -21,14 +21,15 @@ songInfo:
   difficulty: "3/5"
 
 videos:
-  - title: "Découverte de 'Where Is My Mind'"
+  - title: "Where Is My Mind – Guitare Tutoriel Débutant (Pixies)"
     url: "https://youtu.be/JomLddLcL2M"
-  - title: "Play Along : Joue avec les Pixies"
+    type: "debutant"
+  - title: "Where Is My Mind – Play Along Guitare (complet)"
     url: "https://youtu.be/f83evhPPaoQ"
+    type: "playalong"
   - title: "Where Is My Mind (Pixies) : tuto guitare débutant"
     url: "https://youtu.be/u43nywi1Dlo"
-  - title: "Tutoriel avancé : Maîtrise complète"
-    url: "https://youtu.be/u43nywi1Dlo"
+    type: "debutant"
 
 conclusion: |
   "Where Is My Mind" reste un pilier du rock alternatif, à la fois mystérieux, inspirant et hypnotique.  

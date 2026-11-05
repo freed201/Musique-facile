@@ -18,14 +18,15 @@ songInfo:
   difficulty: "4/5"
 
 videos:
-  - title: "Tutoriel Simplifié : Débutants - 'Les Copains d’Abord'"
-    url: "https://youtu.be/VqGD0NHeGNE"
   - title: "Les Copains d’abord guitare – Tutoriel débutant"
     url: "https://youtu.be/VqGD0NHeGNE"
-  - title: "Tutoriel Complet : Tous les accords en détail"
+    type: "debutant"
+  - title: "Les Copains d’abord à la guitare – tutoriel complet (Brassens)"
     url: "https://youtu.be/KFpcmLv-vu4"
-  - title: "Play Along : Jouez en temps réel"
+    type: "complet"
+  - title: "Les copains d’abord – Guitare Play Along complet + accords"
     url: "https://youtu.be/xQrS__o0yFc"
+    type: "playalong"
 
 conclusion: |
   En apprenant "Les Copains d’Abord", tu fais bien plus que progresser techniquement : tu entres dans l'univers chaleureux de Brassens, où chaque accord est un sourire, chaque mot une poignée de main.

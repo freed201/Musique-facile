@@ -18,12 +18,17 @@ songInfo:
   difficulty: "4/5"
 
 videos:
-  - title: "Tutoriel version simplifiée"
+  - title: "Where Did You Sleep Last Night - Guitare | Tutoriel débutant"
     url: "https://youtu.be/lPt9RalzHDw"
-  - title: "Tutoriel complet"
+    type: "debutant"
+  - title: "Where Did You Sleep Last Night à la guitare – tutoriel Nirvana"
     url: "https://youtu.be/zRQsxjbwEog"
-  - title: "Play along avec indications"
+    type: "complet"
+  - title: "Where Did You Sleep Last Night – Guitare Play Along"
     url: "https://youtu.be/gZHUp6K12yU"
+    type: "playalong"
+  - title: "Where Did You Sleep Last Night – Nirvana | guitare facile"
+    url: "https://www.youtube.com/shorts/0BeBREHix3w"
 
 conclusion: |
   "Where Did You Sleep Last Night" n'est pas qu'une simple chanson à jouer : c'est un voyage au cœur du grunge et de l'émotion brute, sublimé par Kurt Cobain et Nirvana.

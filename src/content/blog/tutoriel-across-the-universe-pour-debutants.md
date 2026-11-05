@@ -20,10 +20,11 @@ songInfo:
   difficulty: "4/5"
 
 videos:
-  - title: "Tutoriel Simplifié : Découvrir 'Across The Universe'"
-    url: "https://youtu.be/oGzzFOOdvFs"
   - title: "Across The Universe guitare - Tutoriel débutant"
     url: "https://youtu.be/oGzzFOOdvFs"
+    type: "debutant"
+  - title: "Across the Universe – The Beatles | guitare facile"
+    url: "https://www.youtube.com/shorts/sZ90cR1Upok"
 
 
 

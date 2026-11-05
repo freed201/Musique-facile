@@ -19,10 +19,11 @@ songInfo:
   difficulty: "5/5"
 
 videos:
-  - title: "Machistador - Simplified Version Tutorial"
+  - title: "Machistador -M- Guitare Tutoriel Débutant (capo 3)"
     url: "https://youtu.be/uWwVuOEe1_A"
-  - title: "Machistador - Youtube Shorts Performance"
-    url: "https://youtube.com/shorts/6jEfmITRtIw"
+    type: "debutant"
+  - title: "Machistador – -M- | guitare facile"
+    url: "https://www.youtube.com/shorts/6jEfmITRtIw"
 
 
 

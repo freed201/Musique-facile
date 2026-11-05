@@ -19,10 +19,11 @@ songInfo:
   difficulty: "5/5"
 
 videos:
-  - title: "Queen - Don't Stop Me Now (Live Performance)"
-    url: "https://youtu.be/j_pWtOlMJo0"
   - title: "Don't Stop Me Now guitare - Tutoriel débutant"
     url: "https://youtu.be/j_pWtOlMJo0"
+    type: "debutant"
+  - title: "Don't Stop Me Now – Queen | guitare facile"
+    url: "https://www.youtube.com/shorts/MZ7HW2rm81k"
 
 
 

@@ -19,14 +19,17 @@ songInfo:
   difficulty: "2/5"
 
 videos:
-  - title: "The Verve - Lucky Man (Official Video)"
+  - title: "Lucky Man - Guitare Débutant | Tutoriel simplifié"
     url: "https://youtu.be/zcSX7WWfctc"
-  - title: "Guitar Lesson : Lucky Man"
+    type: "debutant"
+  - title: "Lucky Man à la guitare – tutoriel facile (The Verve)"
     url: "https://youtu.be/6UFiYxQ9gtI"
-  - title: "Play Along : Lucky Man"
+    type: "debutant"
+  - title: "The Verve - Lucky Man guitare - Tutoriel complet"
     url: "https://youtu.be/ohT9jFhm2BM"
-  - title: "Short Tips for Lucky Man Chords"
-    url: "https://youtube.com/shorts/NdmZs8Pd5Nk"
+    type: "complet"
+  - title: "Lucky Man de The Verve - Tutoriel Guitare Simplifié pour Débutants !"
+    url: "https://www.youtube.com/shorts/NdmZs8Pd5Nk"
 
 
 

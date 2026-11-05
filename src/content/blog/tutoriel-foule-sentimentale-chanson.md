@@ -19,12 +19,12 @@ songInfo:
   difficulty: "2/5"
 
 videos:
-  - title: "Tutoriel Simplifié : Jouer 'Foule Sentimentale'"
+  - title: "Foule Sentimentale guitare - Tutoriel débutant simple"
     url: "https://youtu.be/Ta06enxWgN0"
-  - title: "Tutoriel Complet : Approfondir le morceau"
-    url: "N/A"
-  - title: "Play Along : Pratiquez avec Alain Souchon"
+    type: "debutant"
+  - title: "Foule Sentimentale guitare - Play Along facile"
     url: "https://youtu.be/8wzmoLj0XlM"
+    type: "playalong"
 
 
 
