@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "What's Up (4 Non Blondes) : Accords et Tablature Guitare"
+title: "What's Up (4 Non Blondes) : accords guitare et tutos vidéo"
 description: "Les 3 accords de What's Up (G, Am, C) en diagrammes, la rythmique et 4 vidéos. Une seule boucle du début à la fin : la chanson facile idéale pour débuter."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -27,8 +27,11 @@ songInfo:
   bookPage: 82
   tempo: 64
   chordCount: 3
-  key: ""
   difficulty: "3/5"
+  key: "A"
+  artist: "4 Non Blondes"
+  composers: ["Linda Perry"]
+  year: 1992
 videos:
   - title: "What's Up - Guitare Tutoriel Débutant (Version simple)"
     url: "https://youtu.be/VmxphZivbiw"

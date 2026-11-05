@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Partons Vite (Kaolin) : Accords et Tab Guitare"
+title: "Partons vite (Kaolin) : accords guitare et tutos vidéo"
 prod: Y
 description: "Partons Vite de Kaolin à la guitare : 7 accords avec capo case 3, rythmique rock français. Tutoriel débutants/intermédiaires."
 ogImage: "/images/blog/apprendre-partons-vite-guitare.webp"
@@ -17,6 +17,8 @@ songInfo:
   tempo: 98
   chordCount: 6
   difficulty: "2/5"
+  artist: "Kaolin"
+  year: 2006
 
 videos:
   - title: "Partons Vite - Guitare débutant | Tuto Kaolin"
@@ -97,7 +99,7 @@ Le capo en case 3 n'est pas décoratif : sans lui, tu ne seras pas dans la tonal
 
 ## Qui est le groupe Kaolin ?
 
-Originaire de Montluçon, dans l'Allier, le groupe Kaolin s'est formé en 1999. Composé notamment de Guillaume Cantillon (chant, guitare), Julien Cantillon (guitare), Ludwig Martins (guitare, chant), Vivien Bouchet (basse) et Olivier Valty (batterie), le groupe s'est rapidement distingué par son approche unique de la musique rock française, entre post-rock atmosphérique et power pop. Le parcours de Kaolin est marqué par une recherche constante de la mélodie parfaite, alliée à des textes qui résonnent profondément avec leur auditoire. Avec "Partons Vite", extrait de leur troisième album *Mélanger les couleurs* (2006), Kaolin a su capturer l'essence même de leur musique : émotive, réfléchie et engageante.
+Originaire de Montluçon, dans l'Allier, le groupe Kaolin s'est formé en 1999. Emmené par le chanteur Guillaume Cantillon, le groupe s'est rapidement distingué par son approche unique de la musique rock française, entre post-rock atmosphérique et power pop. Le parcours de Kaolin est marqué par une recherche constante de la mélodie parfaite, alliée à des textes qui résonnent profondément avec leur auditoire. Avec "Partons Vite", extrait de leur troisième album *Mélanger les couleurs* (2006), Kaolin a su capturer l'essence même de leur musique : émotive, réfléchie et engageante.
 
 Occupant une place importante dans le monde de la musique française, Kaolin s'est fait un nom grâce à sa capacité à créer des mélodies faciles à écouter et à chanter, tout en cachant une complexité de composition qui n'est souvent perçue qu'après plusieurs écoutes. Bien que "Partons Vite" soit leur plus grand succès commercial, chaque membre du groupe s'est également illustré par des projets solos et des collaborations avec d'autres artistes. Chaque projet individuel apporte un nouvel éclairage sur leur talent et leur versatilité artistiques.
 

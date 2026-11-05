@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Riche (Claudio Capéo) : Accords et Tab Guitare"
+title: "Riche (Claudio Capéo) : accords guitare et tutos vidéo"
 prod: Y
 description: "Les 7 accords de Riche (G, Am, C, D, Em, Bm/D, B7), le capo case 2 et la grille du couplet au refrain. Claudio Capéo à la guitare, tempo 165 BPM."
 ogImage: "/images/blog/apprendre-riche-guitare.webp"
@@ -17,6 +17,9 @@ songInfo:
   tempo: 165
   chordCount: 7
   difficulty: "3/5"
+  artist: "Claudio Capéo"
+  composers: ["Manon Romiti", "Silvio Lisbonne", "Nazim Khaled", "Mark Hekic"]
+  year: 2016
 
 videos:
   - title: "Apprendre Riche de Claudio Capéo- à la Guitare Pour Débutants - Tutoriel Facile"
@@ -99,7 +102,7 @@ Le Bm/D est un Bm dont la basse est jouée en 5e case de la corde de La : si tu 
 
 ## Qui est Claudio Capéo ?
 
-Claudio Capéo, de son vrai nom Claudio Ruccolo, est un artiste français d'origine italienne, né le 10 janvier 1985 à Cernay, dans le Haut-Rhin. Ce n'est pas seulement un chanteur, mais également un accordéoniste talentueux, un instrument qu’il a commencé à jouer dès l’âge de six ans. Son parcours musical a connu un tournant important lorsqu'il a été révélé au grand public grâce à sa participation à l'émission de télé-crochet "The Voice: La Plus Belle Voix" en 2016. Bien qu'il ait été éliminé au cours des premières étapes du jeu, sa participation lui a permis de lancer véritablement sa carrière musicale.
+Claudio Capéo, de son vrai nom Claudio Ruccolo, est un artiste français d'origine italienne, né le 10 janvier 1985 en Alsace et qui a grandi à Cernay, dans le Haut-Rhin. Ce n'est pas seulement un chanteur, mais également un accordéoniste talentueux, un instrument qu’il a commencé à jouer dès l’âge de six ans. Son parcours musical a connu un tournant important lorsqu'il a été révélé au grand public grâce à sa participation à l'émission de télé-crochet "The Voice: La Plus Belle Voix" en 2016. Bien qu'il ait été éliminé au cours des premières étapes du jeu, sa participation lui a permis de lancer véritablement sa carrière musicale.
 
 Claudio est connu pour ses chansons engageantes qui parlent souvent de sa vie personnelle, de ses aspirations et de sa vision du monde. Malgré son succès, ce dernier est resté humble, souvent en tournée et proche de son public. Son style musical mêle des influences variées allant de la chanson française au rock, en passant par la pop. Claudio Capéo a collaboré avec de nombreux artistes et a reçu plusieurs distinctions, solidifiant sa place dans le paysage musical français.
 

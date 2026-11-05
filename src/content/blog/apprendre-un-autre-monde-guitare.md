@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Un Autre Monde (Téléphone) : Accords et Tab Guitare"
+title: "Un autre monde (Téléphone) : accords guitare et tutos vidéo"
 prod: Y
 description: "Les 6 accords d'Un Autre Monde (D, Bm, F#m, F#sus4, G, A), la grille du couplet au refrain et l'astuce capo pour éviter les barrés. Téléphone, 142 BPM."
 ogImage: "/images/blog/apprendre-un-autre-monde-guitare.webp"
@@ -17,6 +17,9 @@ songInfo:
   tempo: 142
   chordCount: 6
   difficulty: "3/5"
+  artist: "Téléphone"
+  composers: ["Jean-Louis Aubert", "Louis Bertignac", "Richard Kolinka", "Corine Marienneau"]
+  year: 1984
 
 videos:
   - title: "Un autre monde – Guitare | Tutoriel débutant"

@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Can't Help Falling in Love (Elvis) : Accords Guitare"
+title: "Can't Help Falling in Love : accords guitare et vidéos"
 prod: Y
 description: "Can't Help Falling in Love d'Elvis Presley : 10 accords en Do majeur, ballade romantique 1961. Tutoriel guitare intermédiaires."
 ogImage: "/images/blog/tuto-cant-help-falling-in-love-presley-guitare.webp"
@@ -19,8 +19,10 @@ songInfo:
   bookPage: 10
   tempo: 123
   chordCount: 10
-  key: "C"
   difficulty: "3/5"
+  artist: "Elvis Presley"
+  composers: ["Hugo Peretti", "Luigi Creatore", "George David Weiss"]
+  year: 1961
 
 videos:
   - title: "Can't Help Falling in Love – Guitare - Tutoriel Débutant"
@@ -123,7 +125,7 @@ Chaque mot, chaque note, semble porter une promesse d’amour, rendant le morcea
 
 ## Quel est l'impact et l'héritage du morceau ?
 
-Dès sa sortie, la chanson devient un immense succès, enchaînant les semaines en tête des classements mondiaux.  
+Dès sa sortie en 1961, la chanson monte à la 2e place des ventes aux États-Unis et prend la 1re au Royaume-Uni.  
 Elle a été reprise par des artistes très différents, de **UB40** (version reggae) à **Andrea Bocelli** (version orchestrale), preuve de sa portée universelle.
 
 ### Pourquoi ce morceau est-il toujours joué aujourd’hui ?

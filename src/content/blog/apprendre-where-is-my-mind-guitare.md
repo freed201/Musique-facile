@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Where Is My Mind (Pixies) : Accords et Tab Guitare"
+title: "Where Is My Mind (Pixies) : accords guitare et tutos vidéo"
 prod: Y
 description: "Les 6 accords de Where Is My Mind (E, C#m, G#, A, Am, B) et la grille du refrain au couplet. Pixies à la guitare, sans capo, tempo 85 BPM."
 ogImage: "/images/blog/apprendre-where-is-my-mind-guitare.webp"
@@ -19,6 +19,10 @@ songInfo:
   tempo: 85
   chordCount: 6
   difficulty: "3/5"
+  key: "E"
+  artist: "Pixies"
+  composers: ["Black Francis"]
+  year: 1988
 
 videos:
   - title: "Where Is My Mind – Guitare Tutoriel Débutant (Pixies)"
@@ -131,8 +135,6 @@ La chanson évoque l’état où l’on se sent détaché du quotidien, entre r�
 En 1999, la chanson explose auprès du grand public avec la scène finale du film *Fight Club*, marquant définitivement l’imaginaire collectif.  
 Depuis, elle figure dans d’innombrables classements des “meilleures chansons de tous les temps”, et a été reprise, samplée et adaptée par des dizaines d’artistes, de Placebo à Maxence Cyrin (version piano), en passant par Nada Surf ou Kings of Leon.
 
-> **Le savais-tu ?** Le riff de guitare de Joey Santiago a été écrit en… deux minutes, selon ses propres mots. Comme quoi, la magie naît parfois dans la simplicité la plus totale !
-
 ## Quel est le défi musical de "Where Is My Mind" ?
 
 Dans le livre *40 CHANSONS FRANÇAISES ET HITS POP-ROCK* (p. 86), le morceau est classé difficulté 3/5 :  
@@ -149,7 +151,5 @@ Si tu chantes : n’essaie pas d’imiter Black Francis. Chante avec ta propre v
 Les sessions d’enregistrement de *Surfer Rosa* avec Steve Albini ont donné lieu à de multiples anecdotes :  
 - La voix de Kim Deal sur les chœurs a été enregistrée dans la salle de bain du studio, pour obtenir cette résonance si particulière.
 - Les Pixies ont toujours refusé les compromis avec l’industrie, privilégiant l’authenticité à la recherche du tube à tout prix.
-
-En 2020, David Lynch a invité le groupe à son “Festival of Disruption”, preuve de leur place à part dans la culture alternative et leur aura intacte, même 35 ans après leurs débuts.
 
 > **Astuce pratique.** Entraîne-toi sur la version simplifiée, puis ajoute progressivement les subtilités rythmiques et dynamiques des Pixies. N’hésite pas à t’enregistrer pour écouter l’évolution de ton jeu.

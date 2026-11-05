@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Mr. Jones (Counting Crows) : Accords Guitare"
+title: "Mr. Jones (Counting Crows) : accords guitare et tutos vidéo"
 prod: Y
 description: "Mr. Jones des Counting Crows à la guitare : 5 accords faciles, rythmique rock alternatif, hit 1993. Tutoriel débutants/intermédiaires."
 ogImage: "/images/blog/apprendre-mr-jones-guitare.webp"
@@ -17,6 +17,9 @@ songInfo:
   tempo: 102
   chordCount: 5
   difficulty: "3/5"
+  artist: "Counting Crows"
+  composers: ["Adam Duritz", "David Bryson"]
+  year: 1993
 
 videos:
   - title: "Apprendre Mr Jones des Counting Crows à la Guitare Pour Débutants - Tutoriel Facile"
@@ -70,7 +73,7 @@ faqs:
   - question: "Mr. Jones convient-elle aux débutants ?"
     answer: "Oui, c'est un bon morceau pour un débutant motivé : 5 accords seulement, pas de capo, et un rythme régulier. Le défi se situe surtout dans la régularité du strumming sur la durée. C'est un classique du rock alternatif des années 90, dans une veine plus mélodique que le grunge de l'époque."
   - question: "De quoi parle la chanson Mr. Jones ?"
-    answer: "Écrite par Adam Duritz, elle est née d'une soirée entre amis à rêver de célébrité, en discutant avec un certain Mr. Jones. Elle parle du désir de reconnaissance et d'appartenance, des thèmes universels. Garder cette intention en tête aide à interpréter le morceau avec la bonne sincérité."
+    answer: "Écrite par Adam Duritz et David Bryson, elle est née d'une soirée entre amis à rêver de célébrité, en discutant avec un certain Mr. Jones. Elle parle du désir de reconnaissance et d'appartenance, des thèmes universels. Garder cette intention en tête aide à interpréter le morceau avec la bonne sincérité."
 ---
 ## En bref
 

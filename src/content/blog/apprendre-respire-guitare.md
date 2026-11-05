@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Respire (Mickey 3D) : Accords et Tablature Guitare"
+title: "Respire (Mickey 3D) : accords guitare et tutos vidéo"
 prod: Y
 description: "Les 6 accords de Respire (Am, Dm, G, F, E7, FMaj7), la grille du couplet au refrain, sans capo. Tutoriel guitare facile à 97 BPM, hymne écolo de 2003."
 ogImage: "/images/blog/apprendre-respire-guitare.webp"
@@ -19,6 +19,9 @@ songInfo:
   tempo: 97
   chordCount: 6
   difficulty: "2/5"
+  artist: "Mickey 3D"
+  composers: ["Mickaël Furnon", "Najah El Mahmoud", "Aurélien Joanin"]
+  year: 2003
 
 videos:
   - title: "Respire - Guitare Débutant | Tutoriel Mickey 3D"

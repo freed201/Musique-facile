@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Wild World (Cat Stevens) : Accords et Tab Guitare"
+title: "Wild World (Cat Stevens) : accords et rythmique guitare"
 prod: Y
 description: "Les accords de Wild World (Am, D/F#, G, C, F, Dm, E) et la grille du couplet au refrain. Cat Stevens à la guitare, sans capo, tempo 75 BPM."
 ogImage: "/images/blog/apprendre-wild-world-guitare.webp"
@@ -17,6 +17,10 @@ songInfo:
   tempo: 75
   chordCount: 9
   difficulty: "4/5"
+  key: "Am"
+  artist: "Cat Stevens"
+  composers: ["Cat Stevens"]
+  year: 1970
 
 
 

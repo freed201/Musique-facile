@@ -1,7 +1,7 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Smells Like Teen Spirit : Accords et Tab Guitare"
-description: "Smells Like Teen Spirit de Nirvana à la guitare : 4 power chords (F5-Bb5-Ab5-Db5), la dynamique grunge « doux-fort » et le son qui claque. Tutoriel rock débutant."
+title: "Smells Like Teen Spirit : accords guitare et tutos vidéo"
+description: "Smells Like Teen Spirit à la guitare : 4 power chords (F5, Bb5, Ab5, Db5) sur une seule forme, et le contraste doux-fort qui fait tout le morceau."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
@@ -27,8 +27,11 @@ songInfo:
   bookPage: 100
   tempo: 117
   chordCount: 5
-  key: ""
   difficulty: "4/5"
+  key: "Fm"
+  artist: "Nirvana"
+  composers: ["Kurt Cobain", "Krist Novoselic", "Dave Grohl"]
+  year: 1991
 videos:
   - title: "Smells Like Teen Spirit – Guitare: Tutoriel Débutant"
     url: "https://youtu.be/LQSVnCuHIDU"
@@ -48,7 +51,7 @@ faqs:
   - question: "Smells Like Teen Spirit est-elle difficile pour un débutant ?"
     answer: "C'est un niveau intermédiaire (4/5). Les power chords sont faciles à former, mais le tempo est soutenu (117 BPM) et il faut gérer l'étouffement des cordes (palm mute) et la dynamique. Commence lentement, travaille les déplacements de la forme, puis cherche le contraste doux/fort. Une petite disto aide à obtenir le bon son."
 ---
-En 1991, « Smells Like Teen Spirit » fait basculer le rock. Sur l'album *Nevermind* de [Nirvana](https://fr.wikipedia.org/wiki/Smells_Like_Teen_Spirit), ce titre devient l'hymne de toute une génération et impose le grunge au grand public. Bonne nouvelle pour le débutant : le riff le plus célèbre des années 90 repose sur **4 power chords**, une seule forme qu'on déplace. C'est le morceau parfait pour apprendre cette technique rock essentielle.
+En 1991, « Smells Like Teen Spirit » fait basculer le rock. Sur l'album *Nevermind* de [Nirvana](https://fr.wikipedia.org/wiki/Nirvana_(groupe)), ce titre devient l'hymne de toute une génération et impose le grunge au grand public. Bonne nouvelle pour le débutant : le riff le plus célèbre des années 90 repose sur **4 power chords**, une seule forme qu'on déplace. C'est le morceau parfait pour apprendre cette technique rock essentielle.
 
 ## En bref
 

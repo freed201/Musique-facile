@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Redemption Song (Bob Marley) : Accords et Tablature Guitare"
+title: "Redemption Song (Bob Marley) : accords guitare et vidéos"
 description: "Les 4 accords de Redemption Song (G, Em, C, D) en diagrammes, le picking en arpèges et 4 vidéos pas à pas. Grille facile, tempo lent à 60 BPM."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -27,8 +27,11 @@ songInfo:
   bookPage: 60
   tempo: 60
   chordCount: 4
-  key: ""
   difficulty: "2/5"
+  key: "G"
+  artist: "Bob Marley & The Wailers"
+  composers: ["Bob Marley"]
+  year: 1980
 videos:
   - title: "Redemption Song guitare - Tutoriel débutant simple"
     url: "https://youtu.be/chr9FanEmT4"

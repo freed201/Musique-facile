@@ -1,0 +1,137 @@
+---
+/**
+ * BookNav.astro — chanson précédente / suivante dans le livre « 40 chansons ».
+ *
+ * Suit l'ordre des pages du livre (songInfo.bookPage) : le lecteur qui
+ * travaille le livre passe d'un morceau au suivant sans revenir au sommaire.
+ * Relie aussi les 40 tutos entre eux, qui n'avaient que deux liens internes
+ * en médiane.
+ */
+import { getCollection } from 'astro:content';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const today = new Date();
+
+const songs = (await getCollection('blog'))
+  .filter((p) => p.data.songInfo?.inBook && p.data.prod === 'Y' && new Date(p.data.datePublished) <= today)
+  .sort((a, b) => (a.data.songInfo?.bookPage ?? 0) - (b.data.songInfo?.bookPage ?? 0))
+  .map((p) => ({
+    slug: p.slug,
+    name: p.data.title.split(/\s+\(|\s+:/)[0].trim(),
+    page: p.data.songInfo?.bookPage,
+  }));
+
+const i = songs.findIndex((s) => s.slug === slug);
+const prev = i > 0 ? songs[i - 1] : null;
+const next = i >= 0 && i < songs.length - 1 ? songs[i + 1] : null;
+---
+
+{i >= 0 && (
+  <nav class="book-nav" aria-label="Chansons du livre">
+    <p class="book-nav__title">Dans le livre</p>
+    <div class="book-nav__links">
+      {prev ? (
+        <a class="book-nav__link book-nav__link--prev" href={`/blog/${prev.slug}/`} rel="prev">
+          <span class="book-nav__dir" aria-hidden="true">←</span>
+          <span>
+            <span class="book-nav__page">p. {prev.page}</span>
+            <span class="book-nav__name">{prev.name}</span>
+          </span>
+        </a>
+      ) : <span></span>}
+      {next && (
+        <a class="book-nav__link book-nav__link--next" href={`/blog/${next.slug}/`} rel="next">
+          <span>
+            <span class="book-nav__page">p. {next.page}</span>
+            <span class="book-nav__name">{next.name}</span>
+          </span>
+          <span class="book-nav__dir" aria-hidden="true">→</span>
+        </a>
+      )}
+    </div>
+    <a class="book-nav__all" href="/livres/40-chansons-francaises-et-hits-pop-rock/">Les {songs.length} chansons du livre</a>
+  </nav>
+)}
+
+<style>
+  .book-nav {
+    margin: var(--space-12) 0 var(--space-8);
+    padding: var(--space-6);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+  }
+
+  .book-nav__title {
+    margin: 0 0 var(--space-4);
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .book-nav__links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  .book-nav__link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--theme-soft);
+    border: 1px solid var(--theme-line);
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .book-nav__link--next {
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .book-nav__link:hover,
+  .book-nav__link:focus-visible {
+    border-color: var(--theme-ink);
+  }
+
+  .book-nav__link:focus-visible {
+    outline: 3px solid var(--theme-ink);
+    outline-offset: 2px;
+  }
+
+  .book-nav__dir {
+    font-size: var(--text-xl);
+    color: var(--theme-ink);
+  }
+
+  .book-nav__page {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .book-nav__name {
+    display: block;
+    font-weight: 600;
+  }
+
+  .book-nav__all {
+    display: inline-block;
+    margin-top: var(--space-4);
+    color: var(--theme-ink);
+    font-weight: 600;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 520px) {
+    .book-nav__links {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

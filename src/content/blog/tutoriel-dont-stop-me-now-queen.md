@@ -1,8 +1,8 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Don't Stop Me Now (Queen) : Accords et Tab Guitare"
+title: "Don't Stop Me Now (Queen) : accords guitare et tutos vidéo"
 prod: Y
-description: "Ce que raconte l'hymne de Freddie Mercury (1979), et comment l'aborder à la guitare pas à pas."
+description: "Don't Stop Me Now de Queen à la guitare : 7 accords dont un Gm barré, à 150 BPM. Commence à moitié de vitesse avec mes tutos vidéo, puis accélère."
 ogImage: "/images/blog/tutoriel-dont-stop-me-now-queen.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -17,6 +17,10 @@ songInfo:
   tempo: 150
   chordCount: 7
   difficulty: "5/5"
+  key: "F"
+  artist: "Queen"
+  composers: ["Freddie Mercury"]
+  year: 1978
 
 videos:
   - title: "Don't Stop Me Now guitare - Tutoriel débutant"

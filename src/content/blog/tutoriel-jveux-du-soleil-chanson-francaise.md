@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "J'veux du Soleil : Accords et Tablature Guitare"
+title: "J'veux du soleil : accords guitare et tutos vidéo"
 prod: Y
 description: "J'veux du Soleil (Au P'tit Bonheur) à la guitare : 3 accords simples, hymne pop des années 90. Tutoriel vidéo débutants."
 ogImage: "/images/blog/tutoriel-jveux-du-soleil-chanson-francaise.webp"
@@ -17,6 +17,7 @@ songInfo:
   tempo: 108
   chordCount: 4
   difficulty: "3/5"
+  artist: "Au p'tit bonheur"
 
 videos:
   - title: "J'veux du soleil guitare - Tutoriel débutant simple"
@@ -95,7 +96,7 @@ Le F# revient une mesure sur deux : travaille l'aller-retour Bm – F# isolémen
 
 ## Quel est le contexte de "J'veux du Soleil" ?
 
-Sortie en single en 1991 puis intégrée à l'album *Le Mal de vivre* (1992), "J'veux du Soleil" a su capturer l'esprit vibrant de l'époque avec une légèreté bienfaisante. Le groupe Au P'tit Bonheur, fondé par le chanteur Jamel Laroussi, s'est fait connaître grâce à cette chanson qui mêle habilement des paroles abordant des aspirations simples à une musique particulièrement entraînante. Derrière la gaieté du refrain réside une invitation à se détacher du stress et des contraintes de la vie moderne, un appel à retrouver une forme de pureté enfantine marquée par des désirs aussi simples que vouloir du soleil.
+Sortie en single en 1991 puis intégrée à l'album *Le Mal de vivre* (1992), "J'veux du Soleil" a su capturer l'esprit vibrant de l'époque avec une légèreté bienfaisante. Le groupe Au P'tit Bonheur s'est fait connaître grâce à cette chanson qui mêle habilement des paroles abordant des aspirations simples à une musique particulièrement entraînante. Derrière la gaieté du refrain réside une invitation à se détacher du stress et des contraintes de la vie moderne, un appel à retrouver une forme de pureté enfantine marquée par des désirs aussi simples que vouloir du soleil.
 
 Le morceau repose sur un rythme entraînant qui résonne encore aujourd'hui comme un écho joyeux des étés insouciants. Le tempo à 108 BPM en fait un titre facile à appréhender pour les musiciens débutants tout en offrant des moments de liberté d’interprétation pour les plus expérimentés.
 

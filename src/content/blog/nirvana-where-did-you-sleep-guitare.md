@@ -1,21 +1,24 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Where Did You Sleep Last Night : Accords Guitare"
+title: "Where Did You Sleep Last Night : accords guitare et vidéos"
 prod: Y
-description: "De Lead Belly au MTV Unplugged de 1993 : l'histoire du morceau, le sens des paroles et comment le jouer."
+description: "Where Did You Sleep Last Night version Nirvana : 6 accords (E, E/B, A, G, B, B/G) et la montée du murmure au cri du MTV Unplugged de 1993."
 ogImage: "/images/blog/nirvana-where-did-you-sleep-guitare.webp"
 author: "Fred Fieffé"
 publisher: "Musique Facile"
 publisherLogo: "https://musique-facile.fr/logo.webp"
 datePublished: "2024-03-05"
 dateModified: "2026-07-29"
-introduction: "Where Did You Sleep Last Night de Nirvana se joue avec 6 accords, dont des power chords, difficulté avancée — le vrai défi est la montée d'émotion, pas la technique. Immortalisée lors du MTV Unplugged de 1993, cette reprise d'un vieux blues folk a marqué toute une génération. Découvre son histoire et comment l'aborder à la guitare."
+introduction: "Where Did You Sleep Last Night de Nirvana se joue avec 6 accords, en difficulté avancée : le vrai défi est la montée d'émotion, pas la technique. Immortalisée lors du MTV Unplugged de 1993, cette reprise d'un vieux blues folk a marqué toute une génération. Découvre son histoire et comment l'aborder à la guitare."
 
 songInfo:
   inBook: true
   bookPage: 84
   chordCount: 6
   difficulty: "4/5"
+  artist: "Nirvana"
+  composers: ["Traditionnel"]
+  year: 1994
 
 videos:
   - title: "Where Did You Sleep Last Night - Guitare | Tutoriel débutant"
@@ -66,7 +69,7 @@ faqs:
 
 ## En bref
 
-**Where Did You Sleep Last Night de Nirvana se joue avec 6 accords, dont des power chords, difficulté avancée.** Le vrai défi n'est pas technique mais émotionnel : gérer la montée d'intensité, du murmure au cri, comme Kurt Cobain lors du MTV Unplugged de 1993.
+**Where Did You Sleep Last Night de Nirvana se joue avec 6 accords, en difficulté avancée.** Le vrai défi n'est pas technique mais émotionnel : gérer la montée d'intensité, du murmure au cri, comme Kurt Cobain lors du MTV Unplugged de 1993.
 
 - **Accords** : E, E/B, A, G, B et B/G
 - **Difficulté** : avancé — le défi est la dynamique émotionnelle
@@ -125,7 +128,7 @@ Cobain sublime ces thèmes par une interprétation vocale à fleur de peau, port
 ## Quels accords relever pour ce défi grunge ?
 
 Pour les guitaristes, "Where Did You Sleep Last Night" est un défi aussi passionnant qu'enrichissant.  
-Répertoriée à la page 84 du livre "40 CHANSONS FRANÇAISES ET HITS POP-ROCK", cette chanson s'appuie sur 6 accords, dont les accords de quinte (power chords) typiques du son grunge de Nirvana.
+Répertoriée à la page 84 du livre "40 CHANSONS FRANÇAISES ET HITS POP-ROCK", cette chanson s'appuie sur 6 accords : E, E/B, A, G, B et B/G.
 
 > **Astuce.** Travaille l'enchaînement des accords avec un métronome et n'hésite pas à jouer en aller-retour pour retrouver la pulsation grunge. Plus tu joues détendu, plus tu trouveras le groove !
 

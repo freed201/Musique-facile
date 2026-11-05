@@ -31,31 +31,11 @@ features:
 # de la page d'accueil, confirmé fabriqué par Fred. Aucun avis réel disponible.
 testimonials: []
 
-tableOfContents:
-  - title: "Introduction et Bases"
-    items:
-      - "Comment utiliser ce livre"
-      - "Les bases de la guitare"
-      - "Accords essentiels"
-      - "Techniques de rythmique"
-  - title: "Chansons Niveau Débutant"
-    items:
-      - "Je l'aime à mourir - Francis Cabrel"
-      - "La Maison du Bonheur - Elie Semoun"
-      - "Wonderwall - Oasis"
-      - "Let It Be - The Beatles"
-  - title: "Chansons Niveau Intermédiaire"
-    items:
-      - "La Bohème - Charles Aznavour"
-      - "Hallelujah - Jeff Buckley"
-      - "Sweet Home Alabama - Lynyrd Skynyrd"
-      - "Hotel California - Eagles"
-  - title: "Chansons Niveau Avancé"
-    items:
-      - "Ne me quitte pas - Jacques Brel"
-      - "Stairway to Heaven - Led Zeppelin"
-      - "Asturias - Isaac Albéniz"
-      - "Classical Gas - Mason Williams"
+# Le sommaire saisi ici depuis février 2025 citait des morceaux absents du
+# livre (Je l'aime à mourir, Stairway to Heaven, Asturias…). La liste des
+# chansons est désormais calculée depuis les 40 articles songInfo.inBook :
+# voir src/pages/livres/[slug].astro.
+tableOfContents: []
 
 bonuses:
   - icon: "🎥"

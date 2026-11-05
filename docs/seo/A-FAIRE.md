@@ -67,10 +67,12 @@ justifie pas la publication.
 **Pour le republier**, il faudrait exporter depuis Skilleos la répartition des
 929 notes. Si tu l'obtiens, le chiffre redevient publiable, sourcé et daté.
 
-### 5. Titles des articles morceau — arbitrage éditorial
-Une cinquantaine d'articles ont un `<title>` de 78 à 90 caractères, à cause de l'enrichissement
-volontaire par `songInfo` (« … | 7 Accords | Difficulté 3/5 »). Google coupe au-delà de ~60.
-On raccourcit, ou on garde et `check:seo` les exempte explicitement ? *(question Q3 du plan)*
+### 5. ~~Titles des articles morceau — arbitrage éditorial~~ — **tranché le 2026-11-05 : on raccourcit**
+L'enrichissement par `songInfo` (« … | 7 Accords | Difficulté 3/5 » en fin de title, « Tutoriel
+complet : … » devant la description) est retiré d'`ArticleLayout` : title et description du
+frontmatter sont servis tels quels, et `check:seo` n'exempte plus les articles morceau.
+Les 40 tutos du livre ont un nouveau title (≤ 60 caractères) qui ne promet plus de tablature
+absente de la page : « Hallelujah (Jeff Buckley) : accords guitare et tutos vidéo ».
 
 ### 6. ~~IDs YouTube des 20 guides prioritaires~~ — **sans objet, traité au lot 4**
 54 articles déclaraient déjà des vidéos : 135 identifiants étaient dans le repo, il n'y avait

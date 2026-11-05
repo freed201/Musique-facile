@@ -275,7 +275,13 @@ const blogCollection = defineCollection({
       tempo: z.number().optional(),
       chordCount: z.number().optional(),
       key: z.string().optional(),
-      difficulty: z.string().optional()
+      difficulty: z.string().optional(),
+      // Fiche du morceau : affichée dans l'encart et reprise telle quelle dans
+      // le JSON-LD MusicComposition. Ne renseigner que des faits vérifiés
+      // (deux sources), jamais de mémoire.
+      artist: z.string().optional(),
+      composers: z.array(z.string()).optional(),
+      year: z.number().int().optional()
     }).optional(),
     // Vidéos YouTube de l'article. La durée, la date de mise en ligne et la
     // miniature ne se saisissent PAS ici : elles sont relevées sur YouTube par

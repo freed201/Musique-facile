@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Hey Ya! (Outkast) : Accords et Tablature Guitare"
+title: "Hey Ya! (OutKast) : accords guitare et tutos vidéo"
 description: "Les 4 accords de Hey Ya! (G, C, D, E) en diagrammes, la rythmique syncopée et un plan de pratique. Une version simple et facile pour débuter à la guitare."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -19,15 +19,18 @@ tags:
   - rythmique pop
   - jouer une chanson
   - hey ya
-introduction: "Hey Ya d'OutKast se joue à la guitare avec 4 accords en boucle, en do majeur, sur un tempo entraînant. Difficulté 2/5. Ce tutoriel te donne la grille, l'ordre des accords et la rythmique syncopée qui donne toute son énergie à ce tube."
+introduction: "Hey Ya d'OutKast se joue à la guitare avec 4 accords en boucle, en sol majeur, sur un tempo entraînant. Difficulté 2/5. Ce tutoriel te donne la grille, l'ordre des accords et la rythmique syncopée qui donne toute son énergie à ce tube."
 
 songInfo:
   inBook: true
   bookPage: 27
   tempo: 80
   chordCount: 4
-  key: "C"
   difficulty: "2/5"
+  key: "G"
+  artist: "OutKast"
+  composers: ["André Benjamin"]
+  year: 2003
 videos:
   - title: "Hey Ya! Outkast guitare - Tutoriel débutant (5 étapes)"
     url: "https://youtu.be/_XN1LHmBsHA"
@@ -53,9 +56,9 @@ Si tu veux un morceau énergique et jouable rapidement, Hey Ya! est un très bon
 
 ## En bref
 
-**Hey Ya d'OutKast se joue avec 4 accords en boucle, en do majeur.** Difficulté 2/5 : la grille est simple et se répète, tout le plaisir vient de la rythmique syncopée et entraînante.
+**Hey Ya d'OutKast se joue avec 4 accords en boucle, en sol majeur.** Difficulté 2/5 : la grille est simple et se répète, tout le plaisir vient de la rythmique syncopée et entraînante.
 
-- **Accords** : 4 en boucle (tonalité de do)
+- **Accords** : 4 en boucle (tonalité de sol)
 - **Difficulté** : 2/5 — débutant
 - **La clé** : le groove syncopé
 

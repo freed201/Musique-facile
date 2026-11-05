@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Hallelujah (Jeff Buckley) : Accords et Tab Guitare"
+title: "Hallelujah (Jeff Buckley) : accords guitare et tutos vidéo"
 prod: Y
 description: "Les 5 accords de Hallelujah (C, Am, F, G, E7) en diagrammes, le capo case 1 et la grille complète en arpèges. Tutoriel guitare pas à pas, tempo 70 BPM."
 ogImage: "/images/blog/jouer-hallelujah-jeff-buckley-guitare.webp"
@@ -17,6 +17,10 @@ songInfo:
   tempo: 70
   chordCount: 5
   difficulty: "3/5"
+  key: "C"
+  artist: "Jeff Buckley"
+  composers: ["Leonard Cohen"]
+  year: 1994
 
 videos:
   - title: "Hallelujah guitare – Tutoriel débutant simple"

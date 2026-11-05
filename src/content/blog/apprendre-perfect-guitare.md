@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Perfect (Ed Sheeran) : Accords et Tablature Guitare"
+title: "Perfect (Ed Sheeran) : accords guitare et tutos vidéo"
 prod: Y
 description: "Maîtrisez Perfect d'Ed Sheeran à la guitare : 8 accords simples, ballade pop romantique de 2017, tempo 95 BPM. Tutoriel vidéo facile pour débutants."
 ogImage: "/images/blog/apprendre-perfect-guitare.webp"
@@ -19,6 +19,10 @@ songInfo:
   tempo: 95
   chordCount: 8
   difficulty: "2/5"
+  key: "Ab"
+  artist: "Ed Sheeran"
+  composers: ["Ed Sheeran"]
+  year: 2017
 
 videos:
   - title: "Perfect – Guitare | Tutoriel débutant pas à pas"

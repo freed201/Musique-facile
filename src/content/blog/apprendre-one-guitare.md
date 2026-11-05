@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "One (U2) : Accords et Tablature Guitare"
+title: "One (U2) : accords guitare et tutos vidéo"
 prod: Y
 description: "Maîtrisez One de U2 à la guitare : 5 accords simples, ballade rock émotionnelle de 1991, hymne à l'unité. Tutoriel vidéo facile pour débutants."
 ogImage: "/images/blog/apprendre-one-guitare.webp"
@@ -19,6 +19,10 @@ songInfo:
   tempo: 90
   chordCount: 5
   difficulty: "2/5"
+  key: "Am"
+  artist: "U2"
+  composers: ["Bono", "The Edge", "Adam Clayton", "Larry Mullen Jr."]
+  year: 1991
 
 videos:
   - title: "U2 - One à la guitare Tutoriel débutant simple"
@@ -150,7 +154,7 @@ La magie du morceau vient du ressenti, pas de la complexité !
 
 ## U2 : Influence, collaborations et anecdotes
 
-U2, ce sont plus de 22 Grammy Awards, une entrée au Rock and Roll Hall of Fame en 2005, et une longévité rare pour un groupe de rock.  
+U2, ce sont 22 Grammy Awards, une entrée au Rock and Roll Hall of Fame en 2005, et une longévité rare pour un groupe de rock.  
 Engagés dans de nombreuses causes humanitaires (lutte contre le sida, dette du tiers-monde, droits humains…), ils ont aussi collaboré avec des artistes de renom et signé des titres cultes.
 
 Le groupe a su rester actuel en explorant de nouveaux styles tout en préservant la profondeur de ses textes.

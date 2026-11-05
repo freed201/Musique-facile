@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Stand by Me (Ben E. King) : Accords et Tablature Guitare"
+title: "Stand by Me (Ben E. King) : accords guitare et tutos vidéo"
 description: "Les 4 accords de Stand by Me (G, Em, C, D) en diagrammes et la progression doo-wop des années 50. Une boucle facile pour une première chanson complète."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -27,8 +27,11 @@ songInfo:
   bookPage: 72
   tempo: 61
   chordCount: 4
-  key: ""
   difficulty: "2/5"
+  key: "A"
+  artist: "Ben E. King"
+  composers: ["Ben E. King", "Jerry Leiber", "Mike Stoller"]
+  year: 1961
 videos:
   - title: "Stand by Me – Guitare: Tutoriel simple débutant"
     url: "https://youtu.be/ogsj0mJV4DY"

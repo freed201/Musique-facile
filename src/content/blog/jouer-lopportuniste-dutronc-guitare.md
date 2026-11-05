@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "L'Opportuniste (Dutronc) : Accords et Tab Guitare"
+title: "L'Opportuniste (Dutronc) : accords guitare et tutos vidéo"
 prod: Y
 description: "Maîtrisez L'Opportuniste de Jacques Dutronc à la guitare : 5 accords, satire politique de 1968, rythmique yé-yé rock. Tutoriel vidéo pour intermédiaires."
 ogImage: "/images/blog/jouer-lopportuniste-dutronc-guitare.webp"
@@ -17,6 +17,9 @@ songInfo:
   tempo: 94
   chordCount: 5
   difficulty: "3/5"
+  artist: "Jacques Dutronc"
+  composers: ["Jacques Lanzmann", "Anne Segalen", "Jacques Dutronc"]
+  year: 1968
 
 videos:
   - title: "L’Opportuniste – Guitare Tutoriel Débutant"
@@ -59,7 +62,7 @@ faqs:
   - question: "Quels accords pour jouer L'Opportuniste de Jacques Dutronc ?"
     answer: "Le morceau utilise 5 accords pour une difficulté de 3/5, sur une rythmique yé-yé rock entraînante (94 BPM). Ce classique de 1968 est accessible : la grille se répète et le tempo est modéré. Le défi est surtout de garder une main droite régulière et pétillante, dans l'esprit des sixties."
   - question: "De quoi parle la chanson L'Opportuniste ?"
-    answer: "Sortie en 1968, c'est une satire politique pleine d'ironie : le narrateur « retourne sa veste » au gré des circonstances. Ce regard moqueur sur l'opportunisme, signé Jacques Dutronc et Jacques Lanzmann, en fait un morceau culte. Saisir cet humour aide à l'interpréter avec le bon ton mi-figue mi-raisin."
+    answer: "Sortie en 1968, c'est une satire politique pleine d'ironie : le narrateur « retourne sa veste » au gré des circonstances. Ce regard moqueur sur l'opportunisme, signé Jacques Lanzmann, Anne Segalen et Jacques Dutronc, en fait un morceau culte. Saisir cet humour aide à l'interpréter avec le bon ton mi-figue mi-raisin."
   - question: "L'Opportuniste convient-elle aux débutants ?"
     answer: "Avec 5 accords et un tempo modéré, c'est un morceau abordable pour un débutant un peu à l'aise (difficulté 3/5). Travaille la rythmique yé-yé caractéristique sur un seul accord d'abord, puis ajoute les changements. C'est un excellent terrain pour travailler le groove pop des années 60."
 ---
@@ -70,7 +73,7 @@ faqs:
 - **Accords** : G, C, Am, Em, Bm
 - **Tempo** : 94 BPM — modéré
 - **Difficulté** : 3/5 — intermédiaire accessible
-- **Année** : 1968 (paroles de Jacques Lanzmann, musique de Jacques Dutronc)
+- **Année** : 1968 (paroles de Jacques Lanzmann et Anne Segalen, musique de Jacques Dutronc)
 
 Pour poser des bases solides avant ce morceau, passe par notre [guide complet pour apprendre la guitare facilement](/blog/apprendre-la-guitare-facilement-guide-complet-pour-debutants/).
 

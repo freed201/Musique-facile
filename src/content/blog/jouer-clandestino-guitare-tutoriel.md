@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Clandestino (Manu Chao) : Accords et Tablature Guitare"
+title: "Clandestino (Manu Chao) : accords guitare et tutos vidéo"
 description: "Les 3 accords de Clandestino (Em, Am, B7) en diagrammes, le capo case 2, la rythmique et 3 vidéos. Une grille facile pour jouer le morceau en entier."
 author: "Fred Fieffé"
 publisher: "Musique Facile"
@@ -27,6 +27,9 @@ songInfo:
   tempo: 85
   chordCount: 3
   difficulty: "2/5"
+  artist: "Manu Chao"
+  composers: ["Manu Chao"]
+  year: 1998
 videos:
   - title: "Clandestino guitare - Tutoriel débutant (3 accords)"
     url: "https://youtu.be/fcenZ4Zqj8M"

@@ -31,6 +31,10 @@ interface Props {
     tempo?: number | string;
     chordCount?: number;
     difficulty?: string;
+    key?: string;
+    artist?: string;
+    composers?: string[];
+    year?: number;
   };
   showAutoFaq?: boolean;
 }
@@ -42,75 +46,16 @@ const siteUrl = 'https://musique-facile.fr';
 const ogImageValue = ogImage || '/images/og-default.webp';
 const absoluteOgImage = ogImageValue.startsWith('http') ? ogImageValue : `${siteUrl}${ogImageValue}`;
 
-// Fonction d'enrichissement automatique du titre pour SEO/LLM
-const enrichTitle = () => {
-  if (!songInfo) return title;
-
-  const parts = [title];
-
-  // Ajouter le nombre d'accords (priorité haute pour différenciation)
-  if (songInfo.chordCount) {
-    parts.push(`${songInfo.chordCount} Accords`);
-  }
-
-  // Ajouter la difficulté si disponible
-  if (songInfo.difficulty) {
-    parts.push(`Difficulté ${songInfo.difficulty}`);
-  }
-
-  // Ajouter l'instrument basé sur le thème
-  const instrumentMap = {
-    'guitar': 'Guitare',
-    'piano': 'Piano',
-    'ukulele': 'Ukulélé',
-    'solfege': 'Solfège'
-  };
-  if (theme && theme !== 'main' && instrumentMap[theme]) {
-    parts.push(instrumentMap[theme]);
-  }
-
-  // Ajouter le tempo si disponible et pas trop long
-  if (songInfo.tempo && parts.join(' | ').length < 55) {
-    const tempoStr = typeof songInfo.tempo === 'number' ? `${songInfo.tempo} BPM` : songInfo.tempo;
-    parts.push(tempoStr);
-  }
-
-  return parts.join(' | ');
-};
-
-// Fonction d'enrichissement de la meta description
-const enrichDescription = () => {
-  if (!songInfo) return description;
-
-  let enrichedDesc = '';
-
-  // Ajouter les infos techniques en préfixe
-  const infos = [];
-  if (songInfo.chordCount) infos.push(`${songInfo.chordCount} accords`);
-  if (songInfo.difficulty) infos.push(`niveau ${songInfo.difficulty}`);
-  if (songInfo.tempo) {
-    const tempoStr = typeof songInfo.tempo === 'number' ? `tempo ${songInfo.tempo} BPM` : songInfo.tempo;
-    infos.push(tempoStr);
-  }
-
-  if (infos.length > 0) {
-    enrichedDesc = `Tutoriel complet : ${infos.join(', ')}. `;
-  }
-
-  // Ajouter la description originale (tronquée si nécessaire)
-  const remainingChars = 155 - enrichedDesc.length;
-  if (description.length > remainingChars) {
-    enrichedDesc += description.substring(0, remainingChars - 3) + '...';
-  } else {
-    enrichedDesc += description;
-  }
-
-  return enrichedDesc;
-};
-
-// Titres et descriptions enrichis
-const pageTitle = enrichTitle();
-const pageDescription = enrichDescription();
+// Title et meta description : ceux du frontmatter, tels quels.
+//
+// Ils étaient « enrichis » par songInfo : « … | 5 Accords | Difficulté 3/5 »
+// en fin de title (78-90 caractères, deux barres verticales, coupé par Google
+// vers 60), et « Tutoriel complet : 5 accords, niveau 3/5… » devant la
+// description, tronquée ensuite par « ... ». Les descriptions sont rédigées à
+// la main au bon gabarit (#71) : on les sert sans retouche. Décision du
+// 2026-11-05, point 5 de docs/seo/A-FAIRE.md.
+const pageTitle = title;
+const pageDescription = description;
 
 // Note : le fil d'Ariane (visuel + Schema BreadcrumbList) est rendu par
 // BreadcrumbsSchema dans blog/[slug].astro avec une hiérarchie plus riche.
@@ -170,6 +115,38 @@ const authorSchema = {
   }
 };
 
+// Le morceau enseigné, en MusicComposition. Seulement à partir des champs
+// songInfo renseignés (vérifiés), qui sont aussi affichés dans l'encart de
+// la page : le balisage ne dit rien que le lecteur ne voie pas.
+const songName = title.split(/\s+\(|\s+:/)[0].trim();
+// « Traditionnel » n'est pas une personne : pas de `composer` dans ce cas.
+const composers = (songInfo?.composers ?? []).filter((name) => name !== 'Traditionnel');
+const songSchema = songInfo && (songInfo.artist || composers.length) ? {
+  "@type": "MusicComposition",
+  "name": songName,
+  ...(composers.length
+    ? { "composer": composers.map((name) => ({ "@type": "Person", "name": name })) }
+    : {}),
+  ...(songInfo.key ? { "musicalKey": songInfo.key } : {}),
+  ...(songInfo.artist ? {
+    "recordedAs": {
+      "@type": "MusicRecording",
+      "name": songName,
+      "byArtist": { "@type": "MusicGroup", "name": songInfo.artist },
+      ...(songInfo.year ? { "datePublished": String(songInfo.year) } : {})
+    }
+  } : {})
+} : null;
+
+// Le livre « 40 chansons », dont ces articles sont les pages compagnons.
+// Référencé par l'URL de sa fiche, qui porte le schema Book complet.
+const BOOK_REF = {
+  "@type": "Book",
+  "name": "40 Chansons Françaises et Hits Pop-Rock",
+  "url": "https://musique-facile.fr/livres/40-chansons-francaises-et-hits-pop-rock/",
+  "author": { "@type": "Person", "name": "Fred Fieffé" }
+};
+
 // Construction du schema.org BlogPosting
 const schema = {
   "@context": "https://schema.org",
@@ -195,7 +172,9 @@ const schema = {
   "speakable": {
     "@type": "SpeakableSpecification",
     "cssSelector": [".article-intro", ".faq-section"]
-  }
+  },
+  ...(songSchema ? { "about": songSchema } : {}),
+  ...(songInfo?.inBook ? { "mentions": BOOK_REF } : {})
 };
 
 // Helper pour extraire ID YouTube
@@ -243,77 +222,10 @@ const videoSchemas = videos && videos.length > 0 ? videos.flatMap(video => {
   }];
 }) : [];
 
-// Construction du schema HowTo pour les tutoriels
-const howToSchema = songInfo ? {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": pageTitle,
-  "description": pageDescription,
-  "image": absoluteOgImage,
-  "totalTime": songInfo.tempo ? `PT${Math.ceil(300 / (songInfo.tempo / 60))}M` : "PT15M", // Estimation basée sur le tempo
-  "estimatedCost": {
-    "@type": "MonetaryAmount",
-    "currency": "EUR",
-    "value": "0"
-  },
-  "supply": [
-    {
-      "@type": "HowToSupply",
-      "name": theme === 'guitar' ? "Guitare" : theme === 'piano' ? "Piano" : theme === 'ukulele' ? "Ukulélé" : "Instrument de musique"
-    }
-  ],
-  "tool": videos && videos.length > 0 ? [
-    {
-      "@type": "HowToTool",
-      "name": "Vidéos tutoriels YouTube"
-    }
-  ] : [],
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Apprendre les accords",
-      "text": `Maîtrisez les ${songInfo.chordCount || ''} accords nécessaires pour jouer ce morceau.`,
-      "url": url,
-      "image": absoluteOgImage
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Pratiquer les transitions",
-      "text": "Entraînez-vous aux transitions entre les accords lentement, puis augmentez progressivement le tempo.",
-      "url": url,
-      "image": absoluteOgImage
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Travailler la rythmique",
-      "text": songInfo.tempo ? `Travaillez la rythmique au tempo de ${songInfo.tempo} BPM avec un métronome.` : "Travaillez la rythmique avec un métronome.",
-      "url": url,
-      "image": absoluteOgImage
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Jouer le morceau complet",
-      "text": "Assemblez tous les éléments et jouez le morceau du début à la fin.",
-      "url": url,
-      "image": absoluteOgImage,
-      // Même règle que ci-dessus : on réutilise le VideoObject déjà construit
-      // depuis le relevé réel, plutôt que d'en refabriquer un avec la date de
-      // l'article.
-      "video": videoSchemas.length > 0 ? videoSchemas[0] : undefined
-    }
-  ],
-  "author": authorSchema,
-  "publisher": {
-    "@type": "Organization",
-    "name": "Musique Facile",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://musique-facile.fr/logo.webp"
-    }
-  },
-  "datePublished": isoDatePublished,
-  "dateModified": isoDateModified
-} : null;
+// Le schema HowTo est supprimé (2026-11-05). Ses valeurs étaient inventées :
+// une durée calculée en divisant 300 par le tempo (258 minutes pour
+// Hallelujah), un coût de 0 €, et quatre étapes génériques identiques sur
+// chaque page. Google n'affiche plus de résultat enrichi HowTo depuis 2023.
 ---
 
 <!doctype html>
@@ -367,11 +279,6 @@ const howToSchema = songInfo ? {
     {videoSchemas.length > 0 && videoSchemas.map(videoSchema => (
       <script type="application/ld+json" set:html={JSON.stringify(videoSchema)} />
     ))}
-
-    <!-- Schema.org HowTo (si tutoriel avec songInfo) -->
-    {howToSchema && (
-      <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
-    )}
 
     <ExternalResources loadVideoScripts={Boolean(videos && videos.length > 0)} />
     <title>{pageTitle}</title>
@@ -599,6 +506,36 @@ const howToSchema = songInfo ? {
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
+  }
+
+  /* Bandeau compact des 40 tutos du livre : le lecteur arrive par QR code,
+     sur mobile, pour les vidéos placées juste dessous. Le bandeau standard
+     (60vh minimum) les repoussait à deux écrans de défilement. */
+  .article-hero--compact {
+    min-height: 0;
+    padding: 7rem 0 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .article-hero--compact {
+      padding: 1rem 0;
+    }
+    .article-hero--compact .article-hero-content {
+      padding: 1.25rem;
+    }
+    .article-hero--compact .article-meta {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .article-hero--compact .article-title {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .article-hero--compact .article-description {
+      font-size: 1rem;
+    }
   }
 
   .article-content {

@@ -1,6 +1,6 @@
 ---
 siloSlug: "apprendre-la-guitare-facilement-guide-complet-pour-debutants"
-title: "Everybody Hurts (R.E.M.) : Accords et Tab Guitare"
+title: "Everybody Hurts (R.E.M.) : accords guitare et tutos vidéo"
 prod: Y
 description: "Everybody Hurts de R.E.M. à la guitare : 9 accords simples, ballade rock 1992, hymne d'espoir. Tutoriel vidéo débutants."
 ogImage: "/images/blog/tutoriel-everybody-hurts-facile.webp"
@@ -17,6 +17,10 @@ songInfo:
   tempo: 65
   chordCount: 9
   difficulty: "2/5"
+  key: "D"
+  artist: "R.E.M."
+  composers: ["Bill Berry", "Peter Buck", "Mike Mills", "Michael Stipe"]
+  year: 1992
 
 videos:
   - title: "Everybody Hurts guitare – Tutoriel débutant simple"
